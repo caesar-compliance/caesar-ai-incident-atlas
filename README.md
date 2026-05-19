@@ -150,6 +150,10 @@ Related repositories:
 | [REPO_INVENTORY.md](REPO_INVENTORY.md) | File registry |
 | [PROJECT_STATE.md](PROJECT_STATE.md) | Current project phase and status |
 | [NEXT_ACTIONS.md](NEXT_ACTIONS.md) | Prioritized next steps |
+| [LOCAL_ARCHITECTURE_MINING_PLAN.md](LOCAL_ARCHITECTURE_MINING_PLAN.md) | Policy for studying external sources locally |
+| [CLEAN_ROOM_IMPLEMENTATION_POLICY.md](CLEAN_ROOM_IMPLEMENTATION_POLICY.md) | License classification table and clean-room process |
+| [THIRD_PARTY_REPOSITORY_REVIEW_TEMPLATE.md](THIRD_PARTY_REPOSITORY_REVIEW_TEMPLATE.md) | Template for documenting source reviews |
+| [THIRD_PARTY_CODE_AND_LICENSE_REGISTER.md](THIRD_PARTY_CODE_AND_LICENSE_REGISTER.md) | Register of all sources reviewed |
 | [docs/RESEARCH_CONTEXT.md](docs/RESEARCH_CONTEXT.md) | Domain research and strategic context |
 | [docs/DECISION_LOG.md](docs/DECISION_LOG.md) | Architectural and strategic decisions |
 | [docs/COMPETITOR_BENCHMARKS.md](docs/COMPETITOR_BENCHMARKS.md) | Detailed competitor and benchmark analysis |

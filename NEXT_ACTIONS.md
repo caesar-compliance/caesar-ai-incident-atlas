@@ -6,61 +6,61 @@
 
 ## Execution Boundaries
 
-This repository is in the **documentation and blueprint** phase. No product code, no package managers, no dependencies until v0.3 Dataset MVP begins.
+This repository is in the **documentation and blueprint** phase. No product code, no package managers, no dependencies, no incident records until T003 is complete and v0.3 Dataset MVP is approved by the Control Tower.
+
+The clean-room policy is now active. See `CLEAN_ROOM_IMPLEMENTATION_POLICY.md` and `LOCAL_ARCHITECTURE_MINING_PLAN.md` before studying any external source.
 
 ---
 
-## Prioritized Next Steps
+## Current Status
 
-### 1. Define JSON Schemas (v0.3 start)
+| Task | Status |
+|---|---|
+| T001 / v0.2.0 — Full-scale blueprint | Complete |
+| T002 — Clean-room acceleration policy | Complete |
+| T003 — Data model / taxonomy / citation contract | Next |
+| v0.3 Dataset MVP | Blocked until T003 complete |
 
-Define JSON Schema files for:
-- `schemas/incident.schema.json` — incident record schema
-- `schemas/taxonomy.schema.json` — failure mode and control taxonomy schema
-- `schemas/mapping.schema.json` — incident-to-control and control-to-evidence mapping schema
+---
 
-These schemas must be compatible with the `caesar-ai-evidence` format.
+## Next Recommended Step: T003
 
-Requires: Control Tower review of DATA_MODEL_DRAFT.md before implementation.
+**T003 — Review and reconcile DATA_MODEL_DRAFT.md, TAXONOMY_DRAFT.md, and source/citation policy into a stable v0.2 draft contract.**
 
-### 2. Build Taxonomy Data Files (v0.3)
+The dataset MVP (v0.3) does not begin until T003 is complete and approved by the Control Tower.
 
-Create the taxonomy JSON files:
-- `data/taxonomy/failure-modes.json` — full failure mode taxonomy
-- `data/taxonomy/controls.json` — control taxonomy
-- `data/taxonomy/evidence-types.json` — evidence type registry
-- `data/taxonomy/sectors.json` — sector taxonomy
+### T003 scope
 
-Based on: [docs/TAXONOMY_DRAFT.md](docs/TAXONOMY_DRAFT.md)
+1. **Review DATA_MODEL_DRAFT.md** — resolve the open questions listed at the end of the document:
+   - Incident ID convention (sequential vs content-based).
+   - Taxonomy versioning approach.
+   - Evidence requirement format (free-text vs EV- IDs).
+   - Export format (single file vs per-incident).
+   - Schema strictness for MVP.
 
-### 3. Curate First 10–20 Incident Records (v0.3)
+2. **Review TAXONOMY_DRAFT.md** — confirm:
+   - Top-level failure mode categories are complete and stable.
+   - Sub-categories are sufficient for the first 10–20 incident records.
+   - Control taxonomy covers the most important control types.
+   - Evidence type registry is aligned with `caesar-ai-evidence` schemas.
+   - Sector taxonomy covers the most important sectors.
 
-Curate the first batch of incident records:
-- Select incidents from public sources (AIID, OECD, AIAAIC, MIT tracker, official reports).
-- Verify source licenses before using any data.
-- Write original summaries based on publicly available information.
-- Apply failure mode taxonomy.
-- Map to controls and evidence requirements.
-- Validate against incident schema.
+3. **Define source/citation policy** — produce a clear written policy covering:
+   - Which external databases may be cited as sources (AIID, OECD, AIAAIC, MIT, official reports).
+   - What license verification is required before citing a specific incident.
+   - How to write original summaries based on publicly available information.
+   - What confidence levels mean in practice.
+   - How to handle incidents with limited public documentation.
 
-Requires: Control Tower approval of source selection and citation approach.
+4. **Produce a stable v0.2 draft contract** — a single document (or updated set of documents) that the dataset MVP team can use as a stable reference. No changes to the data model or taxonomy after this point without a versioned update.
 
-### 4. Build Validation Script (v0.3)
+### T003 deliverables
 
-Write a simple validation script that:
-- checks incident records against the JSON Schema;
-- verifies required fields are present;
-- checks that all referenced taxonomy IDs exist;
-- reports validation errors.
-
-No external dependencies. Use standard library only.
-
-### 5. Build Export Script (v0.3 / v0.5)
-
-Write an export script that:
-- reads incident records and mappings;
-- generates `caesar-ai-evidence` compatible JSON;
-- outputs to `exports/` directory.
+- Updated `docs/DATA_MODEL_DRAFT.md` with resolved open questions.
+- Updated `docs/TAXONOMY_DRAFT.md` with confirmed stable taxonomy.
+- New `docs/SOURCE_AND_CITATION_POLICY.md` defining citation rules.
+- Updated `NEXT_ACTIONS.md` with v0.3 Dataset MVP tasks.
+- Updated `CHANGELOG.md`, `PROJECT_STATE.md`, `REPO_INVENTORY.md`.
 
 ---
 
@@ -73,6 +73,7 @@ The following tasks can be executed autonomously without Control Tower approval:
 - Updating REPO_INVENTORY.md when new files are added.
 - Updating CHANGELOG.md with accurate entries.
 - Fixing typos or broken links in documentation.
+- Completing a THIRD_PARTY_REPOSITORY_REVIEW_TEMPLATE.md for a source already listed in the register.
 
 ---
 
@@ -80,24 +81,30 @@ The following tasks can be executed autonomously without Control Tower approval:
 
 The following tasks require Artem / Control Tower review before execution:
 
+- Starting T003 (data model / taxonomy / citation contract review).
+- Starting v0.3 Dataset MVP.
 - Implementing any product code (schemas, scripts, data files).
 - Selecting incident sources and verifying data licenses.
 - Choosing the static site generator technology.
 - Defining the export format for `caesar-ai-evidence`.
 - Any cross-repository changes or integrations.
-- Modifying taxonomy structures after initial definition.
+- Modifying taxonomy structures after T003 stabilization.
+- Any reuse of third-party code or data (requires clean-room policy approval process).
 
 ---
 
 ## Blocked Tasks
 
-None currently blocked.
+- v0.3 Dataset MVP — blocked until T003 is complete and approved.
+- Incident record creation — blocked until T003 source/citation policy is approved.
+- Schema implementation — blocked until T003 data model is stabilized.
 
 ---
 
 ## Cross-Repository Coordination Notes
 
 - Incident export format must be compatible with `caesar-ai-evidence` incident-mapping schema.
-- Verify schema compatibility with `caesar-ai-evidence` before finalizing incident schema.
-- Future Governance OS integration requires stable incident IDs and taxonomy IDs.
+- Verify schema compatibility with `caesar-ai-evidence` before finalizing incident schema (part of T003).
+- Future Governance OS integration requires stable incident IDs and taxonomy IDs (must be locked in T003).
 - Do not edit `caesar-ai-evidence` or any sibling repository from this repository.
+- License verifications for AIID, OECD, AIAAIC, and MIT tracker are pending — required before dataset MVP.

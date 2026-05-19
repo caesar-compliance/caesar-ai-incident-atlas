@@ -374,3 +374,41 @@ The integration will allow clients to:
 | Competitor data | Cite and reference, do not copy | Respects data licenses, adds original governance mapping value |
 
 For the full decision history, see [docs/DECISION_LOG.md](DECISION_LOG.md).
+
+---
+
+## 11. Local Architecture Mining and Clean-Room Boundary
+
+Caesar AI Incident Atlas is built as an original product. External repositories, public incident databases, and benchmark websites may be studied locally (outside the Caesar repository directory) to inform design decisions. No external code, schemas, data, or text may be committed to the Caesar repository without explicit Control Tower approval and license verification.
+
+The clean-room boundary is the repository itself:
+
+```
+External world (study zone)
+    ↓ ideas, patterns, summaries, recommendations
+Caesar repository (clean zone)
+    ↓ original Caesar implementation only
+```
+
+### Policy documents
+
+| Document | Purpose |
+|---|---|
+| `LOCAL_ARCHITECTURE_MINING_PLAN.md` | What may be studied locally, the clean-room boundary, permitted study targets, AI agent rules |
+| `CLEAN_ROOM_IMPLEMENTATION_POLICY.md` | License classification table and clean-room process for each implementation task |
+| `THIRD_PARTY_REPOSITORY_REVIEW_TEMPLATE.md` | Reusable template for documenting individual source reviews |
+| `THIRD_PARTY_CODE_AND_LICENSE_REGISTER.md` | Running register of all sources reviewed, with license status and reuse decisions |
+
+### License classification summary
+
+| License category | Code reuse | Data reuse | Approval required |
+|---|---|---|---|
+| MIT / Apache-2.0 / BSD | Conditional (with attribution) | Depends on data license | Yes |
+| GPL / LGPL | High risk — avoid | Depends on data license | Yes — Control Tower review |
+| AGPL | High risk — do not copy | Depends on data license | Yes — Control Tower review |
+| Creative Commons | Depends on variant | Depends on variant | Yes |
+| No license | No | No | Yes — explicit permission needed |
+| Public website | No | No | No — UX inspiration always permitted |
+| Proprietary SaaS | No | No | No — UX inspiration always permitted |
+
+For the full classification table and clean-room process, see `CLEAN_ROOM_IMPLEMENTATION_POLICY.md`.

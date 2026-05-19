@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026
+**Last updated:** 19 May 2026 (updated T002)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -177,3 +177,97 @@ None of these sources' data or code is copied without verifying applicable licen
 - Respects data licenses and intellectual property.
 - Maintains Caesar's credibility as an original product.
 - Aligns with the Caesar license and code policy.
+
+### [DEC-010] — 19 May 2026 — Local Architecture Mining Is Permitted Outside the Caesar Repository
+
+**Status:** Approved
+
+**Decision:**
+
+External repositories, public incident databases, and benchmark websites may be cloned and studied locally on a developer's machine or in a separate directory outside the Caesar repository. This is explicitly permitted and encouraged as part of the product development process.
+
+The Caesar repository itself remains a clean zone. No external files, code, schemas, or data may be committed to the Caesar repository without explicit Control Tower approval and license verification.
+
+**Rationale:**
+
+- Local architecture mining accelerates product development by allowing the team to learn from existing implementations.
+- Keeping the clean-room boundary at the repository level (not the developer's machine) is practical and sufficient for risk control.
+- This approach is consistent with standard clean-room software development practice.
+
+---
+
+### [DEC-011] — 19 May 2026 — No-License Repositories Are Study-Only by Default
+
+**Status:** Approved
+
+**Decision:**
+
+Any repository or source that does not have a clearly identified license is treated as study-only by default. All rights are reserved by the author under copyright law when no license is present. No code, data, schemas, or text from no-license sources may be copied into the Caesar repository without explicit permission from the author and Control Tower approval.
+
+**Rationale:**
+
+- Copyright law reserves all rights to the author by default when no license is granted.
+- Assuming permissive use of no-license material is a legal risk.
+- The study-only default is conservative and protects Caesar from inadvertent copyright infringement.
+
+---
+
+### [DEC-012] — 19 May 2026 — AGPL and GPL Are High-Risk Categories for Caesar Products
+
+**Status:** Approved
+
+**Decision:**
+
+AGPL and GPL licensed code is classified as high-risk for Caesar products. Copying AGPL or GPL code into Caesar repositories that are distributed or offered as a service may trigger copyleft obligations requiring Caesar to release its source code under the same license. This is incompatible with Caesar's commercial product direction.
+
+Default policy: do not copy AGPL or GPL code into Caesar repositories without separate Control Tower approval and legal review.
+
+AGPL is higher risk than GPL because its copyleft extends to network use (SaaS), which is directly relevant to Caesar AI Governance OS.
+
+**Rationale:**
+
+- Caesar AI Governance OS is planned as a commercial SaaS / self-hosted product.
+- AGPL copyleft triggered by network use would require open-sourcing Caesar's commercial platform.
+- GPL copyleft triggered by distribution would require open-sourcing distributed Caesar products.
+- The risk is material and must be managed explicitly.
+
+---
+
+### [DEC-013] — 19 May 2026 — Permissive-License Code Requires Attribution, License Notice, and Explicit Approval
+
+**Status:** Approved
+
+**Decision:**
+
+Even when a source uses a permissive license (MIT, Apache-2.0, BSD), copying code into the Caesar repository requires:
+
+1. Verification of the actual current license of the specific file or repository.
+2. Explicit Control Tower approval for the specific reuse.
+3. Attribution in the form of a `THIRD_PARTY_NOTICES.md` entry with the full license notice.
+4. Documentation in `THIRD_PARTY_CODE_AND_LICENSE_REGISTER.md`.
+
+The default approach remains clean-room Caesar-native implementation even for permissive-license sources. Reuse is permitted but not the default.
+
+**Rationale:**
+
+- Permissive licenses still require attribution and license notices.
+- Deliberate reuse decisions are better than accidental copying.
+- Documenting reuse decisions creates a clear audit trail.
+- Clean-room implementation produces more original and differentiated Caesar products.
+
+---
+
+### [DEC-014] — 19 May 2026 — T003 Is the Next Step Before Dataset MVP
+
+**Status:** Approved
+
+**Decision:**
+
+The next task after T002 (clean-room policy) is T003: review and reconcile `DATA_MODEL_DRAFT.md`, `TAXONOMY_DRAFT.md`, and the source/citation policy into a stable v0.2 draft contract. The dataset MVP (v0.3) does not begin until T003 is complete and approved by the Control Tower.
+
+**Rationale:**
+
+- The data model and taxonomy must be stable before incident records are created.
+- The source/citation policy must be clear before any external data is referenced.
+- Starting the dataset MVP with an unstable data model would require rework.
+- T003 is a low-risk documentation task that can be completed quickly and provides a solid foundation for v0.3.

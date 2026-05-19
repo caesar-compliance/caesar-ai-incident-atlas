@@ -12,12 +12,16 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 |---|---|---|
 | `README.md` | Main introduction | Full product description, incident categories, benchmark references, ecosystem integration, and repository structure. |
 | `SPEC.md` | Product specification | Complete product specification covering incident dataset, failure mode taxonomy, control mapping, evidence mapping, severity fields, sector filters, AI agent failures, static site concept, training use cases, export format, and Governance OS integration. |
-| `ARCHITECTURE.md` | System architecture | Data model, file structure, taxonomy layer, mapping layer, static site architecture, and integration patterns. |
+| `ARCHITECTURE.md` | System architecture | Data model, file structure, taxonomy layer, mapping layer, static site architecture, integration patterns, and clean-room boundary. |
 | `ROADMAP.md` | Development roadmap | Phase plan from v0.1 Foundation through v1.x Governance OS Integration with deliverables and quality gates. |
 | `CHANGELOG.md` | Release history | Semver-compliant chronological history of all updates and releases. |
 | `REPO_INVENTORY.md` | File registry | This file. Living index of all tracked files and their roles. |
 | `PROJECT_STATE.md` | Project state | Current phase, version, status, completed tasks, and next recommended step. |
 | `NEXT_ACTIONS.md` | Next actions | Prioritized next steps, safe autonomous tasks, tasks requiring approval, and cross-repository coordination notes. |
+| `LOCAL_ARCHITECTURE_MINING_PLAN.md` | Mining policy | Defines what may be studied locally, the clean-room boundary, permitted study targets, local mining workflow, and AI agent rules. |
+| `CLEAN_ROOM_IMPLEMENTATION_POLICY.md` | Clean-room policy | License classification table (MIT/Apache/BSD, GPL/LGPL, AGPL, CC, no license, public website, proprietary SaaS, BSL, EUPL, ODC-BY, unknown) and clean-room process for each implementation task. |
+| `THIRD_PARTY_REPOSITORY_REVIEW_TEMPLATE.md` | Review template | Reusable template for documenting individual third-party repository or source reviews. |
+| `THIRD_PARTY_CODE_AND_LICENSE_REGISTER.md` | Source register | Running register of all third-party sources reviewed or considered, with license status, reuse decisions, and pending verifications. |
 
 ---
 
@@ -26,12 +30,24 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | File | Role | Description |
 |---|---|---|
 | `docs/RESEARCH_CONTEXT.md` | Domain research | Strategic domain research, product type, main users, use cases, MVP scope, and future paid use cases. |
-| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions. |
+| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-014). |
 | `docs/COMPETITOR_BENCHMARKS.md` | Competitor analysis | Detailed analysis of AI Incident Database, OECD AI Incidents Monitor, AIAAIC Repository, MIT AI Incident Tracker, and IBM AI Risk Atlas, with licensing notes and Caesar differentiation. |
 | `docs/FULL_SCALE_PRODUCT_BLUEPRINT.md` | Product blueprint | Comprehensive full-scale product blueprint covering all product dimensions, user journeys, and ecosystem integration. |
-| `docs/DATA_MODEL_DRAFT.md` | Data model | Incident data model and JSON schema draft covering all record types. |
-| `docs/TAXONOMY_DRAFT.md` | Taxonomy | Failure mode taxonomy, control taxonomy, evidence type registry, and sector taxonomy. |
+| `docs/DATA_MODEL_DRAFT.md` | Data model | Incident data model and JSON schema draft covering all record types. Open questions listed for T003 resolution. |
+| `docs/TAXONOMY_DRAFT.md` | Taxonomy | Failure mode taxonomy (8 categories, 40+ sub-categories), control taxonomy (10 categories, 40+ controls), evidence type registry, sector taxonomy. |
 | `docs/UI_UX_VISION.md` | UI/UX vision | Public site and search UI vision for `incidents.caesar.no`. |
+
+---
+
+## work-items/ Directory
+
+| File | Role | Description |
+|---|---|---|
+| `work-items/.gitkeep` | Directory placeholder | Preserves the work-items directory in git. |
+| `work-items/T002-local-architecture-mining-clean-room-plan/TASK.md` | T002 task | Task checklist, scope, constraints, and rationale for T002. |
+| `work-items/T002-local-architecture-mining-clean-room-plan/VALIDATION.md` | T002 validation | Validation report confirming T002 quality gates were met. |
+| `work-items/T002-local-architecture-mining-clean-room-plan/IMPLEMENTATION_REPORT.md` | T002 report | Implementation report with files created, files changed, and final status. |
+| `work-items/T002-local-architecture-mining-clean-room-plan/DECISIONS.md` | T002 decisions | Architectural and policy decisions made during T002. |
 
 ---
 
@@ -44,14 +60,7 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `data/mappings/` | Incident-to-control and control-to-evidence mapping files |
 | `schemas/` | JSON Schema definitions for all record types |
 | `exports/` | Generated export files for caesar-ai-evidence |
-
----
-
-## work-items/ Directory
-
-| File | Role |
-|---|---|
-| `work-items/.gitkeep` | Directory placeholder for active task execution sandboxes |
+| `docs/reviews/` | Individual third-party source review files (using THIRD_PARTY_REPOSITORY_REVIEW_TEMPLATE.md) |
 
 ---
 

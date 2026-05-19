@@ -54,6 +54,39 @@ v0.1 Foundation
 
 ---
 
+## T002 — Local Architecture Mining / Clean-Room Acceleration Plan
+
+**Status:** Complete (19 May 2026)
+**Version bump:** 0.2.1
+
+**Goal:** Establish the safe acceleration policy that allows the team to study external repositories, public incident databases, and benchmark websites without contaminating the Caesar repository with third-party code or restricted material.
+
+**Deliverables:**
+- LOCAL_ARCHITECTURE_MINING_PLAN.md — what may be studied locally, clean-room boundary, permitted study targets, AI agent rules.
+- CLEAN_ROOM_IMPLEMENTATION_POLICY.md — license classification table, clean-room process, default implementation approach.
+- THIRD_PARTY_REPOSITORY_REVIEW_TEMPLATE.md — reusable template for source reviews.
+- THIRD_PARTY_CODE_AND_LICENSE_REGISTER.md — running register of all sources reviewed.
+- work-items/T002-local-architecture-mining-clean-room-plan/ — work item folder.
+- Updated README.md, ARCHITECTURE.md, ROADMAP.md, PROJECT_STATE.md, NEXT_ACTIONS.md, CHANGELOG.md, REPO_INVENTORY.md, docs/DECISION_LOG.md.
+
+---
+
+## T003 — Data Model / Taxonomy / Citation Contract
+
+**Status:** Planned (next step)
+
+**Goal:** Review and reconcile DATA_MODEL_DRAFT.md, TAXONOMY_DRAFT.md, and source/citation policy into a stable v0.2 draft contract that the dataset MVP team can use as a stable reference.
+
+**Deliverables:**
+- Updated docs/DATA_MODEL_DRAFT.md with resolved open questions.
+- Updated docs/TAXONOMY_DRAFT.md with confirmed stable taxonomy.
+- New docs/SOURCE_AND_CITATION_POLICY.md.
+- Updated NEXT_ACTIONS.md with v0.3 Dataset MVP tasks.
+
+**Prerequisite for:** v0.3 Dataset MVP
+
+---
+
 ## Phase v0.3 — Dataset MVP
 
 **Status:** Planned
