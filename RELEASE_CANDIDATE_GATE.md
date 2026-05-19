@@ -5,7 +5,8 @@
 > **T015 Local RC Status:** ✅ All local items satisfied. Three governance items remain before public deploy.  
 > **T016 Deployment Plan Status:** ✅ Planning complete. See `PUBLIC_DEPLOYMENT_PLAN.md`, `HOSTING_OPTION_MATRIX.md`, `PUBLICATION_RISK_GATE.md`.  
 > **T017 Publish Package Status:** ✅ `site/` is self-contained. Data path fix applied. Internal docs excluded. G-06 and G-08 satisfied.
-> **T019 Gate Closure Status:** Gate evidence consolidated. See `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md` and `DEPLOYMENT_READINESS_CHECKLIST.md`. G-01/G-02 evidence reviewed — CT sign-off required. G-10 manual browser test pending. G-12 hard blocker — CT explicit approval not issued. Public deployment remains NO-GO.
+> **T019 Gate Closure Status:** Gate evidence consolidated. G-01/G-02 evidence reviewed — CT sign-off required. G-10 manual browser test pending.
+> **T021 Deployment Status:** G-12 **CLEARED** by explicit CT instruction `"Approve public deployment"`. GitHub Pages deployment workflow added. Default URL deployment active. Custom domain deferred. NO-GO lifted for default URL deployment.
 
 ---
 

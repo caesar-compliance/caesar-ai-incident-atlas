@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.5.7] - 20 May 2026
+
+### Added
+
+- **T021 — GitHub Pages Deployment Activation (Default URL).** G-12 cleared by explicit Control Tower instruction: `"Approve public deployment"`. Created `.github/workflows/pages.yml`: GitHub Actions workflow deploying `site/` directory to GitHub Pages on push to main. Created `site/.nojekyll`: empty file to disable Jekyll processing. Updated `PROJECT_STATE.md` (T021 active, G-12 cleared). Updated `NEXT_ACTIONS.md` (T021 active). Updated `PUBLICATION_RISK_GATE.md` (G-12 cleared, GO for default URL deployment). Updated `RELEASE_CANDIDATE_GATE.md` (T021 status). Updated `DEPLOYMENT_READINESS_CHECKLIST.md` (G-12 cleared, Option A active). Updated `REPO_INVENTORY.md` (T021 files). Created `work-items/T021-github-pages-default-url/` with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, DECISIONS.md. Custom domain (`atlas.caesar.no`) deferred to T022. No CNAME. No DNS. Repo root not exposed.
+
+### Validation (T021)
+
+- `python3 tools/validate_dataset.py` — exits 0; all checks passed; 10 records; 4 site files.
+- `test ! -f site/CNAME` — confirmed no CNAME file.
+- Workflow uploads only `site/` path.
+
+---
+
 ## [0.5.6] - 20 May 2026
 
 ### Added
