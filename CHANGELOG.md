@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.6.1] - 20 May 2026
+
+### Added
+
+- **T025 — Source/License + Wording Review Sign-Off Pack.** Prepared compact governance sign-off pack for G-01 and G-02 gates. Created `GOVERNANCE_SIGNOFF_PACK.md` with: (1) status summary, (2) G-01 source/license review table for INC-0001–INC-0010 with risk levels and recommended CT decisions, (3) G-02 wording/legal-risk table with defamation/liability assessment, (4) high-risk wording checklist with scan results (no red flags), (5) CT sign-off placeholder section. G-01: 6 records ready for sign-off, 2 sign-off with caution, 2 need counsel review (INC-0006 Reuters T&Cs, INC-0009 AAAS academic fair use). G-02: 9 records ready for sign-off, 1 sign-off with caution (INC-0006 company characterization). No new records created. No wording revisions required. Updated PROJECT_STATE.md (v0.6.1, T025 complete), NEXT_ACTIONS.md (T025 status, T026 options), CHANGELOG.md (this entry), REPO_INVENTORY.md (T025 files), README.md (Project Status). Created `work-items/T025-source-wording-signoff-pack/` with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, DECISIONS.md. Branch: `review/T025-source-wording-signoff-pack`.
+
+### Validation (T025)
+
+- `python3 tools/validate_dataset.py` — exits 0; all checks passed; 10 records.
+- `grep -R "../data/" site/` — clean.
+- `find site -maxdepth 4 (CNAME/work-items/docs)` — empty.
+- Wording risk scan — no prohibited terms found; "fraud" in INC-0004 used appropriately to describe system purpose per court case.
+
+---
+
 ## [0.6.0] - 20 May 2026
 
 ### Added

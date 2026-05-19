@@ -1,12 +1,12 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T024)
+**Last updated:** 20 May 2026 (T025)
 
 ---
 
 ## Execution Boundaries
 
-This repository is in the **T024 public MVP locked** phase. Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/`. HTTP→HTTPS redirect confirmed (301). JSON data confirmed live (HTTP 200, 10 records). **G-10 PASS** by Control Tower manual browser confirmation on 20 May 2026. G-01 source/license review and G-02 wording/legal-risk review remain pending CT sign-off.
+This repository is in the **T025 governance sign-off pack** phase. Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/`. **G-10 PASS** (20 May 2026). **GOVERNANCE_SIGNOFF_PACK.md** prepared with G-01 source/license and G-02 wording/legal-risk review tables. G-01/G-02 remain pending explicit CT/counsel sign-off before final approval.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -43,6 +43,7 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T022 — Post-Deploy Verification + Custom Domain Closeout | **Complete** — custom domain, HTTPS enforced, closeout docs |
 | T023 — Browser Smoke + HTTP→HTTPS Redirect Verification | **Complete (partial)** — redirect 301 confirmed, JSON 200, 10 records live; interactive G-10 test pending CT |
 | T024 — Public MVP Status Lock + Product Polish Backlog | **Complete** — Technical Public MVP LIVE + VERIFIED; G-10 PASS; G-01/G-02 pending |
+| T025 — Source/License + Wording Review Sign-Off Pack | **Complete** — Governance sign-off pack prepared; G-01/G-02 ready for CT/counsel sign-off |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated |
 
 ---
@@ -78,13 +79,13 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 
 See `PUBLICATION_RISK_GATE.md` for full gate status. See `PRODUCT_POLISH_BACKLOG.md` for future work backlog.
 
-## Next Recommended Step: Choose T025 Path
+## Next Recommended Step: Choose T026 Path
 
-**Option A — Public MVP Polish Pass:** UI/UX improvements without adding records (mobile density, empty states, last-updated badge, methodology page, export improvements).
+**Option A — Public MVP Polish Pass:** UI/UX improvements without adding records (mobile density, empty states, last-updated badge, methodology page, export improvements). See `PRODUCT_POLISH_BACKLOG.md` §1.
 
-**Option B — Source/License + Wording Review Sign-Off Pack:** Close G-01/G-02 with formal CT/counsel sign-off before broader distribution.
+**Option B — CT/Counsel Final Sign-Off:** CT or designated counsel completes G-01/G-02 sign-off in `GOVERNANCE_SIGNOFF_PACK.md` §5. Records can then be marked as governance-approved for broader distribution.
 
-**Option C — Dataset Expansion Planning:** Plan new record themes (CT approval required before any record creation).
+**Option C — Dataset Expansion Planning:** Plan new record themes per `PRODUCT_POLISH_BACKLOG.md` §2 (CT approval required before any record creation).
 
 ---
 
