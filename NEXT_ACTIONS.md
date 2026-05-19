@@ -1,12 +1,12 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026
+**Last updated:** 20 May 2026 (T022)
 
 ---
 
 ## Execution Boundaries
 
-This repository is in the **T021 deployment activation** phase. G-12 cleared by explicit Control Tower instruction: `"Approve public deployment"`. GitHub Pages deployment workflow added. Default URL deployment active. Custom domain (`atlas.caesar.no`) deferred to T022.
+This repository is in the **T022 post-deploy closeout** phase. GitHub Pages is live at `https://atlas.caesar.no/`. Custom domain verified, HTTPS enforced. G-10 static checks passed. Manual browser smoke test still required for full G-10 sign-off.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -39,37 +39,35 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T017 — Static Publish Package Preparation | Complete — site/ self-contained |
 | T018A — Public Release Gate Review Pack | Complete — review materials prepared |
 | T019 — Public Release Gate Closure | Complete — gate evidence consolidated, deployment readiness documented |
-| T021 — GitHub Pages Deployment Activation | **Active** — G-12 cleared, workflow deployed, default URL |
+| T021 — GitHub Pages Deployment Activation | Complete — workflow deployed, default URL live |
+| T022 — Post-Deploy Verification + Custom Domain Closeout | **Complete** — custom domain, HTTPS enforced, closeout docs |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated |
 
 ---
 
-## Next Recommended Step: Monitor Deployment and Complete Smoke Test
+## Next Recommended Step: T023 — Confirm HTTP→HTTPS Redirect Propagation
 
-**Public deployment is ACTIVE. G-12 cleared by explicit CT approval phrase.**
+**Public deployment is LIVE at `https://atlas.caesar.no/`.** T022 closeout complete.
 
-**T019** consolidated gate evidence and deployment readiness:
-- `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md` — G-01/G-02 evidence assessment, G-03 hosting recommendation, G-10 static checks + manual checklist, remaining blocker table
-- `DEPLOYMENT_READINESS_CHECKLIST.md` — pre-deploy checks, deploy steps A/B/C, what must not be exposed, rollback steps, exact approval phrase required
+**Deployment facts (T021/T022):**
+- GitHub Pages source: GitHub Actions workflow (`.github/workflows/pages.yml`)
+- Public root: `site/`
+- Default GitHub Pages URL: `https://caesar-compliance.github.io/caesar-ai-incident-atlas/` (redirects to custom domain)
+- Custom domain: `atlas.caesar.no` — manually added in GitHub Pages settings
+- DNS: `atlas CNAME caesar-compliance.github.io TTL 1 hour` — manually configured
+- HTTPS certificate: approved (expires 2026-08-18)
+- Enforce HTTPS: enabled (T022)
+- Repo root: not exposed
+- No Cloudflare/Netlify/Coolify/VPS
+- No secrets
 
-**T018A** review pack remains the source for detailed tables:
-- `PUBLIC_RELEASE_REVIEW_PACK.md` — source/licence review table, wording/legal-risk review table
+**G-10 status:** Static file checks passed. Manual browser UI test (14 steps) still required for full G-10 sign-off. See `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md §5`.
 
-**Remaining gates before any deployment:**
-
+**Remaining governance items (unchanged — CT sign-off required before v1.0):**
 1. **G-01** — Legal/licence review: CT confirms all 10 source URLs cleared
-2. **G-02** — Wording/legal risk review: CT or counsel reviews record summaries  
-3. **G-03** — Hosting/domain decision: CT selects from `HOSTING_OPTION_MATRIX.md`
-4. **G-10** — Manual browser smoke test with DevTools (14-step checklist in `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md §5`)
-5. **G-12** — ✅ **CLEARED** — CT issued `"Approve public deployment"` (T021)
+2. **G-02** — Wording/legal risk review: CT or counsel reviews record summaries
 
-**T021** (GitHub Pages Deployment) activated:
-- Deployment target: GitHub Pages default URL
-- Custom domain: deferred to T022
-- CNAME: not added
-- DNS: not configured
-
-See `PUBLICATION_RISK_GATE.md` for current gate status (7 pass, 4 pending, 1 blocker).
+See `PUBLICATION_RISK_GATE.md` for full gate status.
 
 ---
 

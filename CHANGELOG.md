@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.5.8] - 20 May 2026
+
+### Added
+
+- **T022 — Post-Deploy Verification + GitHub Pages / Custom Domain Closeout.** Verified live GitHub Pages deployment. Custom domain `atlas.caesar.no` confirmed active via `gh api` (cname: `atlas.caesar.no`, status: `built`, build_type: `workflow`). HTTPS certificate state: `approved` (expires 2026-08-18). Enforce HTTPS enabled via GitHub API (T022). Default GitHub Pages URL `https://caesar-compliance.github.io/caesar-ai-incident-atlas/` redirects (301) to `https://atlas.caesar.no/`. `https://atlas.caesar.no/` returns HTTP 200. `http://atlas.caesar.no/` returns HTTP 200 (enforcement propagation pending CDN). `python3 tools/validate_dataset.py` — exits 0; 10 records; all checks passed. No CNAME file in repo. No secrets. Repo root not exposed. Workflow uploads only `site/`. Created `work-items/T022-post-deploy-closeout/` with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, DECISIONS.md. Updated `PROJECT_STATE.md` (v0.5.8, T022 complete), `NEXT_ACTIONS.md` (deployment facts, T022 status), `PUBLICATION_RISK_GATE.md` (G-03 pass, G-10 partial), `RELEASE_CANDIDATE_GATE.md` (T022 status), `DEPLOYMENT_READINESS_CHECKLIST.md` (live state), `REPO_INVENTORY.md` (T022 files), `README.md` (live URL), `site/README.md` (live status). Branch: `deploy/T022-post-deploy-closeout`.
+
+### Validation (T022)
+
+- `python3 tools/validate_dataset.py` — exits 0; all checks passed; 10 records.
+- `curl -sI https://atlas.caesar.no/` — HTTP 200.
+- `gh api repos/caesar-compliance/caesar-ai-incident-atlas/pages` — status: built; cname: atlas.caesar.no; https_certificate: approved; https_enforced: true.
+- `find site -maxdepth 4 \( -name "CNAME" -o -path "*/work-items/*" -o -path "*/docs/*" \)` — empty (clean).
+- Workflow `path: site` — confirmed, uploads only `site/`.
+
+---
+
 ## [0.5.7] - 20 May 2026
 
 ### Added
