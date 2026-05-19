@@ -70,6 +70,14 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `SOURCE_TO_FIELD_TRACEABILITY_MATRIX.md` | Source traceability matrix | Source-to-field traceability for Tier 1 candidates: P/S/I/U classification per field. (T007) |
 | `RECORD_CREATION_QA_CHECKLIST.md` | QA checklist | 10-section, 50+ item checklist to complete before each incident record is committed. (T007) |
 | `T008_FIRST_RECORD_BATCH_RECOMMENDATION.md` | T008 recommendation | Recommended T008 scope, pre-conditions, ID sequence, schema rename requirement. (T007) |
+| `PUBLIC_DEPLOYMENT_PLAN.md` | Deployment plan | URL options, publish boundary, path fix, rollback, update process, approval steps (T016). |
+| `HOSTING_OPTION_MATRIX.md` | Hosting matrix | 5-option comparison: GitHub Pages, Cloudflare Pages, Netlify, VPS, Coolify (T016). |
+| `PUBLICATION_RISK_GATE.md` | Risk gate | 12-criterion go/no-go table for public deployment (T016). |
+| `T017_DEPLOYMENT_IMPLEMENTATION_RECOMMENDATION.md` | T017 plan | Step-by-step recommendation for T017 deployment config (T016). |
+| `work-items/T016-public-deployment-plan/TASK.md` | T016 task | Task scope checklist. |
+| `work-items/T016-public-deployment-plan/VALIDATION.md` | T016 validation | Validation and constraint checklist. |
+| `work-items/T016-public-deployment-plan/IMPLEMENTATION_REPORT.md` | T016 report | Concise final report. |
+| `work-items/T016-public-deployment-plan/DECISIONS.md` | T016 decisions | 3 decisions: publish root, recommended hosting, no config in T016. |
 | `tools/validate_dataset.py` | QA script | Local dataset + site validator. Run: `python3 tools/validate_dataset.py` (T014). |
 | `tools/requirements.txt` | Python deps | `jsonschema>=4.0.0` for schema validation (T015). |
 | `STATIC_SITE_RC_REVIEW.md` | RC review | T015 RC review table (22 areas). Local RC verdict: PASS. |
@@ -113,7 +121,7 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | File | Role | Description |
 |---|---|---|
 | `docs/RESEARCH_CONTEXT.md` | Domain research | Strategic domain research, product type, main users, use cases, MVP scope, and future paid use cases. |
-| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-091). |
+| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-094). |
 | `docs/COMPETITOR_BENCHMARKS.md` | Competitor analysis | Detailed analysis of AI Incident Database, OECD AI Incidents Monitor, AIAAIC Repository, MIT AI Incident Tracker, and IBM AI Risk Atlas, with licensing notes and Caesar differentiation. |
 | `docs/FULL_SCALE_PRODUCT_BLUEPRINT.md` | Product blueprint | Comprehensive full-scale product blueprint covering all product dimensions, user journeys, and ecosystem integration. |
 | `docs/DATA_MODEL_DRAFT.md` | Data model | Incident data model and JSON schema draft covering all record types. Open questions listed for T003 resolution. |

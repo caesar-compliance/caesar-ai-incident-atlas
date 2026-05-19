@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026 (T015 — DEC-091)
+**Last updated:** 19 May 2026 (T016 — DEC-094)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -1099,3 +1099,33 @@ T006 must not mass-import data and must not create final incident records unless
 **Decision:** `tools/requirements.txt` specifies `jsonschema>=4.0.0`. No exact pin. No `pip freeze` lockfile.
 
 **Rationale:** The validator uses only stable Draft 2020-12 APIs available since jsonschema 4.0.0. A floor constraint avoids breakage on minor upgrades while preventing use of pre-Draft 2020-12 releases. A lockfile is unnecessary overhead for a local-only QA script.
+
+---
+
+### [DEC-092] — 19 May 2026 — T016: Publish Root Should Be `site/` with `data/` Copied Inside It
+
+**Status:** Approved
+
+**Decision:** For public deployment, `data/` should be copied into `site/data/` and the two path constants in `site/assets/app.js` updated to remove the `../` prefix. The hosting publish root should be `site/`.
+
+**Rationale:** Publishing the repo root would expose all internal planning documents (`work-items/`, `docs/`, `FIRST_INCIDENT_*`, `INCIDENT_FIELD_MAPPING_DRAFTS.md`, etc.). Keeping the publish root as `site/` with data co-located is the safest exposure boundary. The current `../data/` relative paths are a local-server convenience that must change before deployment.
+
+---
+
+### [DEC-093] — 19 May 2026 — T016: Recommended Hosting Is GitHub Pages or Cloudflare Pages
+
+**Status:** Approved (recommendation; final decision deferred to CT)
+
+**Decision:** GitHub Pages is recommended if the repository will be public on GitHub. Cloudflare Pages is recommended if Cloudflare already manages the `caesar.no` DNS zone. Final selection is a CT decision.
+
+**Rationale:** Both options are zero-cost, support custom domain HTTPS, offer git-push deployment, and provide instant rollback. Neither requires server management or introduces backend complexity.
+
+---
+
+### [DEC-094] — 19 May 2026 — T016: No Deployment Config Created; Config Deferred to T017 After CT Approval
+
+**Status:** Approved
+
+**Decision:** T016 produces planning documents only. No `CNAME`, `netlify.toml`, GitHub Actions workflow, or Cloudflare project config is created in T016. These are T017 tasks.
+
+**Rationale:** Creating deployment config before CT selects a hosting option and issues explicit approval risks accidental publication. Planning and configuration must remain in separate tasks with a hard governance gate between them.

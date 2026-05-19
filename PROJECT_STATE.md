@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.5.3` |
-| Current phase | `local release candidate hardened — awaiting CT public deployment approval` |
+| Current version | `0.5.4` |
+| Current phase | `public deployment plan complete — awaiting CT hosting decision + legal review` |
 | Status | `active` |
-| Latest completed task | `T015 — Static Site Release Candidate Hardening` |
+| Latest completed task | `T016 — Public Deployment Plan` |
 | Active work item | `none` |
-| Next recommended step | `T016 — Public Deployment Plan (requires explicit Control Tower approval)` |
+| Next recommended step | `T017 — Deployment Configuration (requires CT hosting decision + legal review + explicit approval)` |
 
 ---
 
@@ -38,11 +38,13 @@
 | T013 Static Site Functional Completion | Complete — local functional MVP, no deployment | 19 May 2026 |
 | T014 Local QA Tooling and Release Candidate Gate | Complete — `tools/validate_dataset.py` + RC gate | 19 May 2026 |
 | T015 Static Site Release Candidate Hardening | Complete — local RC PASS, public deploy pending CT approval | 19 May 2026 |
+| T016 Public Deployment Plan | Complete — planning only, no config, no deploy | 19 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete — 10 records (INC-0001 through INC-0010) | 19 May 2026 |
 | v0.5 Static Site — local prototype | Complete — T012 | 19 May 2026 |
 | v0.5.1 Static Site — local functional MVP | Complete — T013 | 19 May 2026 |
 | v0.5.2 Local QA tooling | Complete — T014 | 19 May 2026 |
 | v0.5.3 Local release candidate | Complete — T015 | 19 May 2026 |
+| v0.5.4 Public deployment plan | Complete — T016 | 19 May 2026 |
 | v0.5 Static Site — public deployment | Planned | — |
 | v0.5 Export Integration | Planned | — |
 | v1.0 Stable Public Release | Planned | — |

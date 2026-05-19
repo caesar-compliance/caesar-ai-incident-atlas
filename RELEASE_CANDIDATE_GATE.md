@@ -2,7 +2,8 @@
 
 > Checklist that must pass before any public deployment of the Caesar AI Incident Atlas.  
 > **No step in this checklist auto-approves deployment.** All items require human review.  
-> **T015 Local RC Status:** ✅ All local items satisfied. Three governance items remain before public deploy.
+> **T015 Local RC Status:** ✅ All local items satisfied. Three governance items remain before public deploy.  
+> **T016 Deployment Plan Status:** ✅ Planning complete. See `PUBLIC_DEPLOYMENT_PLAN.md`, `HOSTING_OPTION_MATRIX.md`, `PUBLICATION_RISK_GATE.md`.
 
 ---
 

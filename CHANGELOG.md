@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.5.4] - 19 May 2026
+
+### Added
+
+- **T016 — Public Deployment Plan.** `PUBLIC_DEPLOYMENT_PLAN.md`: URL options, publish boundary, path fix requirement, rollback, update process, approval steps. `HOSTING_OPTION_MATRIX.md`: 5-option comparison (GitHub Pages, Cloudflare Pages, Netlify, VPS, Coolify). `PUBLICATION_RISK_GATE.md`: 12-criterion go/no-go table (5 pass, 6 pending, 1 hard blocker: CT approval). `T017_DEPLOYMENT_IMPLEMENTATION_RECOMMENDATION.md`: step-by-step T017 plan. Key finding: `../data/` path fix required in T017 before deployment.
+
+---
+
 ## [0.5.3] - 19 May 2026
 
 ### Added
