@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T023)
+**Last updated:** 20 May 2026 (T024)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.5.8` |
-| Current phase | `T023 — Browser smoke + HTTP→HTTPS redirect verification; redirect confirmed; interactive browser test pending CT` |
+| Current version | `0.6.0` |
+| Current phase | `T024 — Public MVP Status Lock + Product Polish Backlog. Technical Public MVP: LIVE + VERIFIED (G-10 PASS). G-01/G-02 pending.` |
 | Status | `active` |
-| Latest completed task | `T023 — Browser Smoke + HTTP→HTTPS Redirect Verification (partial)` |
-| Active work item | `T023 — complete (HTTP/redirect checks done; G-10 interactive test pending CT)` |
-| Next recommended step | `Manual CT browser smoke test (G-10 interactive steps); then T024 — Public MVP Status Lock + Product Polish Backlog` |
+| Latest completed task | `T024 — Public MVP Status Lock + Product Polish Backlog` |
+| Active work item | `T024 — complete. Technical Public MVP locked as LIVE + VERIFIED.` |
+| Next recommended step | `T025 — choose: (A) Public MVP Polish Pass, (B) Source/License + Wording Review Sign-Off Pack, or (C) Dataset Expansion Planning (CT approval required)` |
 
 ---
 
@@ -45,6 +45,7 @@
 | T021 — GitHub Pages Deployment Activation | Complete — workflow deployed, default URL live | 20 May 2026 |
 | T022 — Post-Deploy Closeout | Complete — custom domain verified, HTTPS enforced, G-10 static checks done | 20 May 2026 |
 | T023 — Browser Smoke + HTTP→HTTPS Redirect Verification | Complete (partial) — HTTP redirect confirmed (301), JSON 200, all 10 records live; interactive G-10 browser test pending CT | 20 May 2026 |
+| T024 — Public MVP Status Lock + Product Polish Backlog | **Complete** — Technical Public MVP locked LIVE + VERIFIED; G-10 PASS; G-01/G-02 pending | 20 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete — 10 records (INC-0001 through INC-0010) | 19 May 2026 |
 | v0.5 Static Site — local prototype | Complete — T012 | 19 May 2026 |
 | v0.5.1 Static Site — local functional MVP | Complete — T013 | 19 May 2026 |

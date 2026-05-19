@@ -1,12 +1,12 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T023)
+**Last updated:** 20 May 2026 (T024)
 
 ---
 
 ## Execution Boundaries
 
-This repository is in the **T023 post-smoke-test** phase. GitHub Pages is live at `https://atlas.caesar.no/`. HTTP→HTTPS redirect confirmed (301). JSON data confirmed live (HTTP 200, 10 records). G-10 HTTP/redirect/data checks PASS. Interactive browser UI test (search/filter/sort/DevTools) pending CT manual verification.
+This repository is in the **T024 public MVP locked** phase. Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/`. HTTP→HTTPS redirect confirmed (301). JSON data confirmed live (HTTP 200, 10 records). **G-10 PASS** by Control Tower manual browser confirmation on 20 May 2026. G-01 source/license review and G-02 wording/legal-risk review remain pending CT sign-off.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -42,43 +42,49 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T021 — GitHub Pages Deployment Activation | Complete — workflow deployed, default URL live |
 | T022 — Post-Deploy Verification + Custom Domain Closeout | **Complete** — custom domain, HTTPS enforced, closeout docs |
 | T023 — Browser Smoke + HTTP→HTTPS Redirect Verification | **Complete (partial)** — redirect 301 confirmed, JSON 200, 10 records live; interactive G-10 test pending CT |
+| T024 — Public MVP Status Lock + Product Polish Backlog | **Complete** — Technical Public MVP LIVE + VERIFIED; G-10 PASS; G-01/G-02 pending |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated |
 
 ---
 
-## Next Recommended Step: Manual CT Browser Smoke Test → T024
+## Status: T024 Complete — Technical Public MVP LIVE + VERIFIED
 
-**Public deployment is LIVE at `https://atlas.caesar.no/`.** T023 HTTP/redirect checks complete.
+**Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/`.**
 
-**Verified in T023:**
-- `http://atlas.caesar.no/` → 301 → `https://atlas.caesar.no/` ✅
-- `https://atlas.caesar.no/` → HTTP 200 ✅
-- `https://atlas.caesar.no/data/incident-index.json` → HTTP 200, 10 records ✅
-- `https://caesar-compliance.github.io/caesar-ai-incident-atlas/` → 301 → `https://atlas.caesar.no/` ✅
-- `python3 tools/validate_dataset.py` → PASS, 10 records ✅
-- No CNAME, no internal docs in `site/`, workflow uploads only `site/` ✅
+**Verified in T024:**
+- `https://atlas.caesar.no/` → HTTP 200 
+- `http://atlas.caesar.no/` → 301 → `https://atlas.caesar.no/` 
+- `https://atlas.caesar.no/data/incident-index.json` → HTTP 200, 10 records 
+- `https://caesar-compliance.github.io/caesar-ai-incident-atlas/` → 301 → `https://atlas.caesar.no/` 
+- `python3 tools/validate_dataset.py` → PASS, 10 records 
+- G-10 browser smoke test → **PASS** (CT manual confirmation 20 May 2026) 
+- No CNAME, no internal docs in `site/`, workflow uploads only `site/` 
 
-**Deployment facts (T021/T022):**
+**Deployment facts (locked):**
 - GitHub Pages source: GitHub Actions workflow (`.github/workflows/pages.yml`)
 - Public root: `site/`
 - Default GitHub Pages URL: `https://caesar-compliance.github.io/caesar-ai-incident-atlas/` (redirects to custom domain)
-- Custom domain: `atlas.caesar.no` — manually added in GitHub Pages settings
-- DNS: `atlas CNAME caesar-compliance.github.io TTL 1 hour` — manually configured
+- Custom domain: `atlas.caesar.no`
 - HTTPS certificate: approved (expires 2026-08-18)
-- Enforce HTTPS: enabled (T022)
+- Enforce HTTPS: enabled
 - Repo root: not exposed
 - No Cloudflare/Netlify/Coolify/VPS
 - No secrets
 
-**G-10 status:** HTTP/redirect/data checks PASS (T023). Interactive 14-step browser UI test (search, filter, sort, DevTools console/network) requires manual CT verification. See `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md §5` for checklist.
+**Gate status:**
+- **G-10**:  **PASS** — Control Tower manual browser confirmation on 20 May 2026
+- **G-01**:  **Pending** — source/license review requires CT sign-off
+- **G-02**:  **Pending** — wording/legal-risk review requires CT/counsel review
 
-**If CT completes interactive G-10 test:** proceed to T024 — Public MVP Status Lock + Product Polish Backlog.
+See `PUBLICATION_RISK_GATE.md` for full gate status. See `PRODUCT_POLISH_BACKLOG.md` for future work backlog.
 
-**Remaining governance items (unchanged — CT sign-off required before v1.0):**
-1. **G-01** — Legal/licence review: CT confirms all 10 source URLs cleared
-2. **G-02** — Wording/legal risk review: CT or counsel reviews record summaries
+## Next Recommended Step: Choose T025 Path
 
-See `PUBLICATION_RISK_GATE.md` for full gate status.
+**Option A — Public MVP Polish Pass:** UI/UX improvements without adding records (mobile density, empty states, last-updated badge, methodology page, export improvements).
+
+**Option B — Source/License + Wording Review Sign-Off Pack:** Close G-01/G-02 with formal CT/counsel sign-off before broader distribution.
+
+**Option C — Dataset Expansion Planning:** Plan new record themes (CT approval required before any record creation).
 
 ---
 

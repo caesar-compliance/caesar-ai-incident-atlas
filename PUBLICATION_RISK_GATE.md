@@ -19,7 +19,7 @@
 | G-07 | **No deployment secrets committed** — no API keys, tokens, env files in repo | ✅ **Pass** | Static site; no secrets architecture |
 | G-08 | **Data path fix** — `data/` co-located at correct relative path for chosen deploy root | ✅ **Pass** | `site/data/` created; `app.js` updated to `data/incident-index.json` (T017). |
 | G-09 | **No INC-0011+ or unapproved records** — only INC-0001–INC-0010 published | ✅ **Pass** | Confirmed T016 |
-| G-10 | **Browser smoke test** — loads with 10 cards, no console errors | ⚠ **Partial** | Static file checks: PASS (T022). HTTP 200 at `https://atlas.caesar.no/`. HTTP→HTTPS redirect confirmed: `http://atlas.caesar.no/` returns 301 → `https://atlas.caesar.no/` (T023). `data/incident-index.json` returns HTTP 200 with all 10 records (T023). Default GitHub Pages URL redirects 301 to custom domain (T023). Interactive 14-step browser UI test (search/filter/sort/DevTools) requires manual CT verification. |
+| G-10 | **Browser smoke test** — loads with 10 cards, no console errors | ✅ **PASS** | Control Tower manual browser confirmation on 20 May 2026 (T024). HTTP 200 at `https://atlas.caesar.no/`. HTTP→HTTPS redirect confirmed: `http://atlas.caesar.no/` returns 301 → `https://atlas.caesar.no/` (T023). `data/incident-index.json` returns HTTP 200 with all 10 records (T023). Default GitHub Pages URL redirects 301 to custom domain (T023). Interactive UI verified. |
 | G-11 | **Rollback plan documented** | ✅ **Pass** | See `PUBLIC_DEPLOYMENT_PLAN.md §6` |
 | G-12 | **Control Tower explicit approval** — CT issues: `"Approve public deployment"` | ✅ **Cleared** | **Cleared by T021 explicit CT instruction** |
 
@@ -29,14 +29,13 @@
 
 | Status | Count |
 |---|---|
-| ✅ Pass | 8 |
+| ✅ Pass | 9 |
 | ⚠ Pending | 2 |
-| ⚠ Partial | 1 |
 | ✅ Cleared | 1 |
 
-**Status: DEPLOYED AND LIVE.** `https://atlas.caesar.no/` — GitHub Pages, GitHub Actions, HTTPS enforced.
+**Status: TECHNICAL PUBLIC MVP LIVE + VERIFIED.** `https://atlas.caesar.no/` — GitHub Pages, GitHub Actions, HTTPS enforced.
 
-G-12 cleared (T021). G-03 resolved (T022): custom domain `atlas.caesar.no` active, DNS manually configured, HTTPS certificate approved and enforced. G-10 HTTP/redirect/data checks passed (T023): HTTP→HTTPS redirect confirmed (301), JSON loads HTTP 200 with all 10 records, default GitHub Pages URL redirects cleanly. Interactive browser UI test (14 steps) requires manual CT verification. G-01/G-02 remain pending CT sign-off (governance items, not deployment blockers).
+G-12 cleared (T021). G-03 resolved (T022): custom domain `atlas.caesar.no` active, HTTPS certificate approved and enforced. **G-10 PASS (T024):** Control Tower manual browser confirmation on 20 May 2026. HTTP→HTTPS redirect confirmed (301), JSON loads HTTP 200 with all 10 records, interactive UI verified. **G-01/G-02 remain pending** CT sign-off (source/license review and wording/legal-risk review).
 
 **Review Pack Available:** See `PUBLIC_RELEASE_REVIEW_PACK.md` for detailed source/license review table, wording/legal-risk review table, and manual browser smoke-test checklist for G-10 completion.
 

@@ -1,9 +1,9 @@
 # Deployment Readiness Checklist — caesar-ai-incident-atlas
 
-**Task:** T019 — Public Release Gate Closure + Deployment Readiness Branch  
+**Task:** T024 — Public MVP Status Lock + Product Polish Backlog  
 **Date:** 20 May 2026  
-**Version:** 0.5.9  
-**Status:** T023 — LIVE. `https://atlas.caesar.no/`. HTTP→HTTPS redirect confirmed (301). JSON HTTP 200 with 10 records. G-10 HTTP/redirect/data checks PASS. Interactive browser UI test (14 steps) pending CT manual verification.
+**Version:** 0.6.0  
+**Status:** **TECHNICAL PUBLIC MVP LIVE + VERIFIED.** `https://atlas.caesar.no/`. HTTP→HTTPS redirect confirmed (301). JSON HTTP 200 with 10 records. **G-10 PASS** — Control Tower manual browser confirmation on 20 May 2026. G-01/G-02 pending CT sign-off.
 
 ---
 
