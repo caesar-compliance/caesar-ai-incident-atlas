@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T025)
+**Last updated:** 20 May 2026 (T026)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.6.1` |
-| Current phase | `T025 — Source/License + Wording Review Sign-Off Pack. Technical Public MVP: LIVE + VERIFIED. G-01/G-02 prepared for CT/counsel sign-off.` |
+| Current version | `0.6.2` |
+| Current phase | `T026 — Source Risk Hardening Pass. Technical Public MVP: LIVE + VERIFIED. G-01 source risk materially reduced for INC-0005, INC-0008, INC-0009. G-01/G-02 pending CT/counsel sign-off.` |
 | Status | `active` |
-| Latest completed task | `T025 — Source/License + Wording Review Sign-Off Pack` |
-| Active work item | `T025 — complete. Governance sign-off pack prepared. G-01/G-02 pending CT/counsel sign-off.` |
-| Next recommended step | `T026 — choose: (A) Public MVP Polish Pass, (B) CT/counsel final sign-off of G-01/G-02, or (C) Dataset Expansion Planning (CT approval required)` |
+| Latest completed task | `T026 — Source Risk Hardening Pass for Public MVP` |
+| Active work item | `T026 — complete. Court record, US DEFIANCE Act, and NIH/PubMed sources added. INC-0009 upgraded from Needs counsel review to Sign-off with caution. INC-0006 unchanged — counsel review still recommended.` |
+| Next recommended step | `T027 — choose: (A) CT Final Sign-Off Recording for G-01/G-02, (B) Targeted Counsel Review Packet for INC-0006, or (C) Public MVP Polish Pass` |
 
 ---
 
@@ -47,6 +47,7 @@
 | T023 — Browser Smoke + HTTP→HTTPS Redirect Verification | Complete (partial) — HTTP redirect confirmed (301), JSON 200, all 10 records live; interactive G-10 browser test pending CT | 20 May 2026 |
 | T024 — Public MVP Status Lock + Product Polish Backlog | **Complete** — Technical Public MVP locked LIVE + VERIFIED; G-10 PASS; G-01/G-02 pending | 20 May 2026 |
 | T025 — Source/License + Wording Review Sign-Off Pack | **Complete** — Governance sign-off pack prepared; G-01/G-02 ready for CT/counsel sign-off | 20 May 2026 |
+| T026 — Source Risk Hardening Pass for Public MVP | **Complete** — Court record + US DEFIANCE Act + NIH/PubMed added; INC-0009 upgraded; INC-0006 counsel review unchanged | 20 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete — 10 records (INC-0001 through INC-0010) | 19 May 2026 |
 | v0.5 Static Site — local prototype | Complete — T012 | 19 May 2026 |
 | v0.5.1 Static Site — local functional MVP | Complete — T013 | 19 May 2026 |

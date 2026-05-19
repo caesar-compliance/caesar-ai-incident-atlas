@@ -1,12 +1,12 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T025)
+**Last updated:** 20 May 2026 (T026)
 
 ---
 
 ## Execution Boundaries
 
-This repository is in the **T025 governance sign-off pack** phase. Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/`. **G-10 PASS** (20 May 2026). **GOVERNANCE_SIGNOFF_PACK.md** prepared with G-01 source/license and G-02 wording/legal-risk review tables. G-01/G-02 remain pending explicit CT/counsel sign-off before final approval.
+This repository is in the **T026 source risk hardening** phase. Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/`. **G-10 PASS** (20 May 2026). **SOURCE_RISK_HARDENING_REPORT.md** documents T026 changes. **GOVERNANCE_SIGNOFF_PACK.md** updated: INC-0009 upgraded from Needs counsel review → Sign-off with caution; INC-0005, INC-0008 source risk reduced. INC-0006 counsel review still recommended. G-01/G-02 remain pending explicit CT/counsel sign-off before final approval.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -44,6 +44,7 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T023 — Browser Smoke + HTTP→HTTPS Redirect Verification | **Complete (partial)** — redirect 301 confirmed, JSON 200, 10 records live; interactive G-10 test pending CT |
 | T024 — Public MVP Status Lock + Product Polish Backlog | **Complete** — Technical Public MVP LIVE + VERIFIED; G-10 PASS; G-01/G-02 pending |
 | T025 — Source/License + Wording Review Sign-Off Pack | **Complete** — Governance sign-off pack prepared; G-01/G-02 ready for CT/counsel sign-off |
+| T026 — Source Risk Hardening Pass for Public MVP | **Complete** — Sources hardened for INC-0005, INC-0008, INC-0009; INC-0006 counsel review unchanged |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated |
 
 ---
@@ -79,13 +80,15 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 
 See `PUBLICATION_RISK_GATE.md` for full gate status. See `PRODUCT_POLISH_BACKLOG.md` for future work backlog.
 
-## Next Recommended Step: Choose T026 Path
+## Next Recommended Step: Choose T027 Path
 
-**Option A — Public MVP Polish Pass:** UI/UX improvements without adding records (mobile density, empty states, last-updated badge, methodology page, export improvements). See `PRODUCT_POLISH_BACKLOG.md` §1.
+**T026 is complete.** Source risk materially reduced for INC-0005, INC-0008, INC-0009. G-01: 1 record (INC-0006) still requires counsel review; 3 records sign-off with caution; 6 ready for sign-off.
 
-**Option B — CT/Counsel Final Sign-Off:** CT or designated counsel completes G-01/G-02 sign-off in `GOVERNANCE_SIGNOFF_PACK.md` §5. Records can then be marked as governance-approved for broader distribution.
+**Option A — CT Final Sign-Off Recording for G-01/G-02:** CT or designated counsel completes G-01/G-02 sign-off in `GOVERNANCE_SIGNOFF_PACK.md` §5. Source risk is now materially reduced — appropriate moment for CT review.
 
-**Option C — Dataset Expansion Planning:** Plan new record themes per `PRODUCT_POLISH_BACKLOG.md` §2 (CT approval required before any record creation).
+**Option B — Targeted Counsel Review Packet for INC-0006:** Prepare a specific brief for counsel covering the Reuters T&Cs question for INC-0006 only, to unblock the final remaining G-01 open item.
+
+**Option C — Public MVP Polish Pass:** UI/UX improvements without adding records (mobile density, empty states, last-updated badge, methodology page, export improvements). See `PRODUCT_POLISH_BACKLOG.md` §1.
 
 ---
 

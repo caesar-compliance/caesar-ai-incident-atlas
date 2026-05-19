@@ -9,6 +9,7 @@
 > **T021 Deployment Status:** G-12 **CLEARED** by explicit CT instruction `"Approve public deployment"`. GitHub Pages deployment workflow added. Default URL deployment active. Custom domain deferred. NO-GO lifted for default URL deployment.
 > **T022 Closeout Status:** Site LIVE at `https://atlas.caesar.no/`. Custom domain `atlas.caesar.no` active. HTTPS certificate approved. Enforce HTTPS enabled. G-03 resolved. G-10 static checks passed. Manual browser UI test still required for full G-10 sign-off.
 > **T024 Public MVP Lock Status:** Technical Public MVP **LIVE + VERIFIED** at `https://atlas.caesar.no/`. HTTP→HTTPS redirect confirmed (301). JSON endpoint HTTP 200 with all 10 records. **G-10 PASS** — Control Tower manual browser confirmation on 20 May 2026. G-01 source/license review and G-02 wording/legal-risk review remain pending CT sign-off. See `PRODUCT_POLISH_BACKLOG.md` for future work.
+> **T026 Source Risk Hardening Status:** Source risk materially reduced for INC-0005, INC-0008, INC-0009. INC-0009 upgraded from Needs counsel review → Sign-off with caution. INC-0006 counsel review still recommended. See `SOURCE_RISK_HARDENING_REPORT.md`.
 
 ---
 

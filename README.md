@@ -28,7 +28,7 @@ The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](
 
 > **Technical Public MVP: LIVE + VERIFIED at [`https://atlas.caesar.no/`](https://atlas.caesar.no/)** — GitHub Pages, GitHub Actions, public root `site/`.
 > **G-10 PASS** — Control Tower manual browser confirmation on 20 May 2026.
-> **G-01/G-02 Sign-Off Pack** prepared — see `GOVERNANCE_SIGNOFF_PACK.md` for source/license and wording/legal-risk review tables.
+> **T026 Source Risk Hardening complete** — public-domain court record, US DEFIANCE Act, and NIH/PubMed sources added to INC-0005, INC-0008, INC-0009. INC-0009 upgraded from Needs counsel review → Sign-off with caution. INC-0006 counsel review still recommended. See `SOURCE_RISK_HARDENING_REPORT.md` and `GOVERNANCE_SIGNOFF_PACK.md`.
 > The 10 incident records (INC-0001 through INC-0010) are publicly accessible.
 > G-01 source/license review and G-02 wording/legal-risk review remain pending explicit CT/counsel sign-off.
 > See `PUBLICATION_RISK_GATE.md` for full gate status. See `PRODUCT_POLISH_BACKLOG.md` for future work backlog. See [ROADMAP.md](ROADMAP.md) for the phase plan.

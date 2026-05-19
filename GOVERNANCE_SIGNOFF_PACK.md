@@ -1,9 +1,10 @@
 # Governance Sign-Off Pack — caesar-ai-incident-atlas
 
-**Task:** T025 — Source/License + Wording Review Sign-Off Pack  
+**Task:** T025 — Source/License + Wording Review Sign-Off Pack (updated T026 — Source Risk Hardening)  
 **Date:** 20 May 2026  
-**Version:** 0.6.1  
-**Status:** Prepared for CT/counsel sign-off — NOT LEGAL ADVICE
+**Version:** 0.6.2  
+**Status:** Prepared for CT/counsel sign-off — NOT LEGAL ADVICE  
+**T026 Update:** INC-0005 court record added; INC-0008 US DEFIANCE Act record added; INC-0009 NIH/PubMed record added. INC-0009 moved from Needs counsel review → Sign-off with caution. INC-0006 unchanged — counsel review still recommended.
 
 ---
 
@@ -12,7 +13,7 @@
 | Item | Status |
 |---|---|
 | Technical Public MVP | ✅ LIVE + VERIFIED at `https://atlas.caesar.no/` |
-| Version | v0.6.1 |
+| Version | v0.6.2 |
 | G-10 Browser smoke test | ✅ PASS (CT confirmation 20 May 2026) |
 | G-01 Source/license review | ⚠ Prepared for CT/counsel sign-off |
 | G-02 Wording/legal-risk review | ⚠ Prepared for CT/counsel sign-off |
@@ -29,11 +30,11 @@
 | INC-0002 | Autonomous vehicle fatally strikes pedestrian during public road testing | US Federal Agency | Agency report (NTSB) | Public domain — lowest risk | ✅ Yes | ✅ Yes — NTSB findings paraphrased | Ready for sign-off | NTSB HWY18MH010 — public domain US government work |
 | INC-0003 | Airline chatbot provides incorrect fare policy information | Canadian Tribunal | Tribunal decision | Public domain — lowest risk | ✅ Yes | ✅ Yes — tribunal finding paraphrased | Ready for sign-off | Moffatt v. Air Canada — public domain Canadian tribunal decision |
 | INC-0004 | Dutch court finds automated welfare risk-scoring system incompatible with fundamental rights | Dutch Court | Court decision | Public domain — lowest risk | ✅ Yes | ✅ Yes — court ruling paraphrased | Ready for sign-off | ECLI:NL:RBDHA:2020:1878 — public domain Dutch court decision |
-| INC-0005 | Facial recognition misidentification contributes to wrongful arrest | NGO + Federal Research | NGO docs + NIST report | Mixed: NIST public domain; ACLU fair use | ✅ Yes | ✅ Yes — sources cited, no reproduction | Sign-off with caution | ACLU fair use + NIST FRVT public domain |
+| INC-0005 | Facial recognition misidentification contributes to wrongful arrest | Court Record + Federal Research + NGO | Court docket (CourtListener/RECAP) + NIST FRVT + ACLU docs | Public domain court record + public domain NIST; ACLU supporting only | ✅ Yes | ✅ Yes — sources cited, no reproduction | Sign-off with caution | T026: court record added (Williams v. City of Detroit, E.D. Mich.) — NIST + court now primary anchors; ACLU demoted to supporting |
 | INC-0006 | AI-based resume screening tool discontinued after reportedly penalising female candidates | News Media | Reuters investigative report | Fair use citation; Reuters T&Cs apply | ✅ Yes | ✅ Yes — "reportedly" hedging, no substantial copying | Needs counsel review | Highest source risk — Reuters T&C compliance should be confirmed |
 | INC-0007 | Automated content moderation system incorrectly removes legitimate health-related content | Company Statement | Meta company statements | Fair use citation; Meta terms apply | ✅ Yes | ✅ Yes — paraphrase only | Ready for sign-off | Meta's own statements used as source |
-| INC-0008 | AI image generation tools used to produce non-consensual intimate imagery | Company + Legislation | Microsoft statement + UK OSA | Fair use citation; UK legislation public | ✅ Yes | ✅ Yes — confidence: medium flagged | Sign-off with caution | Microsoft statement + UK OSA 2023 — medium confidence noted |
-| INC-0009 | Healthcare resource allocation algorithm found to systematically underestimate illness severity in Black patients | Academic Paper | Science journal article | Fair use citation; AAAS terms apply | ✅ Yes | ✅ Yes — no paper text reproduced | Needs counsel review | Academic fair use — Science/AAAS terms should be confirmed |
+| INC-0008 | AI image generation tools used to produce non-consensual intimate imagery | Company + Legislation | Microsoft statement + UK OSA + US Congress (DEFIANCE Act) | Company statement fair use; UK legislation public domain; US legislation public domain | ✅ Yes | ✅ Yes — confidence: medium flagged | Sign-off with caution | T026: US DEFIANCE Act S.3696 congress.gov record added; two public-domain legislative sources now present; confidence medium per record |
+| INC-0009 | Healthcare resource allocation algorithm found to systematically underestimate illness severity in Black patients | Academic Paper + Public Institutional | Science journal article + PubMed/NIH NLM index | AAAS reliance reduced; NIH NLM public domain index added | ✅ Yes | ✅ Yes — no paper text reproduced | Sign-off with caution | T026: PubMed PMID 31649194 (NIH NLM — public domain) added; AAAS sole-reliance concern materially reduced |
 | INC-0010 | Regulatory guidance issued on discriminatory risk of AI-based hiring assessment tools | US Government + Local Law | EEOC guidance + NYC LL144 | Public domain — EEOC public; NYC law public | ✅ Yes | ✅ Yes — guidance described, not enforcement | Ready for sign-off | EEOC public domain; NYC LL144 public |
 
 ### G-01 Risk Summary
@@ -41,8 +42,8 @@
 | Category | Count | Records |
 |---|---|---|
 | Ready for sign-off | 6 | INC-0001, INC-0002, INC-0003, INC-0004, INC-0007, INC-0010 |
-| Sign-off with caution | 2 | INC-0005 (ACLU fair use), INC-0008 (medium confidence) |
-| Needs counsel review | 2 | INC-0006 (Reuters T&Cs), INC-0009 (AAAS academic fair use) |
+| Sign-off with caution | 3 | INC-0005 (court record + NIST — T026), INC-0008 (company + 2× public legislation — T026), INC-0009 (Science + NIH/PubMed — T026) |
+| Needs counsel review | 1 | INC-0006 (Reuters T&Cs — no safe replacement found) |
 | Needs source replacement | 0 | — |
 
 ---
@@ -151,6 +152,7 @@ Scanned for: "caused by", "proved", "illegal", "guilty", "fraud", "discriminated
 - `LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md` — Source license verification details (T004)
 - `SOURCE_AND_CITATION_POLICY_DRAFT.md` — Wording rules and citation policy (T003)
 - `PRODUCT_POLISH_BACKLOG.md` — Future work backlog (T024)
+- `SOURCE_RISK_HARDENING_REPORT.md` — T026 source risk hardening detail (sources added, records changed, validation results)
 
 ---
 
