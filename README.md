@@ -26,9 +26,9 @@ The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](
 
 ## Project Status
 
-> This repository is currently in the **dataset MVP — first records validated** stage.
-> T009 formally validated all 4 Tier 1 records (zero schema/taxonomy issues). `data/incidents/` contains 4 validated Tier 1 incident records.
-> The next step is T010 — Second-Wave Candidate-to-Record Plan or Second-Wave Record Batch, pending explicit Control Tower approval of T009 findings.
+> This repository is currently in the **dataset MVP — full 10-record batch complete** stage.
+> T010 created 6 second-wave records (INC-0005 through INC-0010). All 10 records passed formal schema and taxonomy validation.
+> The next step is T011 — Dataset MVP Public Readiness Review or Minimal Static Site Planning, pending explicit Control Tower approval of T010 findings.
 > See [ROADMAP.md](ROADMAP.md) for the full phase plan.
 
 ---
@@ -188,10 +188,18 @@ Related repositories:
 | [FIRST_BATCH_SOURCE_RISK_REVIEW.md](FIRST_BATCH_SOURCE_RISK_REVIEW.md) | Per-risk review of 5 T008 source risks (T009) |
 | [FIRST_BATCH_RECORD_FIX_LOG.md](FIRST_BATCH_RECORD_FIX_LOG.md) | Record fix log — no JSON corrections needed (T009) |
 | [T010_SECOND_WAVE_READINESS_RECOMMENDATION.md](T010_SECOND_WAVE_READINESS_RECOMMENDATION.md) | T010 scope options, pre-conditions, constraints (T009) |
+| [SECOND_WAVE_SOURCE_VERIFICATION_LOG.md](SECOND_WAVE_SOURCE_VERIFICATION_LOG.md) | Source gate log for 6 second-wave candidates — all passed (T010) |
+| [SECOND_WAVE_QA_REPORT.md](SECOND_WAVE_QA_REPORT.md) | QA report for INC-0005 through INC-0010 (T010) |
 | [data/incidents/INC-0001-mata-v-avianca-court-citations.json](data/incidents/INC-0001-mata-v-avianca-court-citations.json) | Incident record: AI-generated fabricated court citations (T008) |
 | [data/incidents/INC-0002-autonomous-vehicle-pedestrian-fatality-ntsb.json](data/incidents/INC-0002-autonomous-vehicle-pedestrian-fatality-ntsb.json) | Incident record: Autonomous vehicle pedestrian fatality (T008) |
 | [data/incidents/INC-0003-air-canada-chatbot-contract-bc-crt.json](data/incidents/INC-0003-air-canada-chatbot-contract-bc-crt.json) | Incident record: Air Canada chatbot contract (T008) |
 | [data/incidents/INC-0004-dutch-syri-benefits-system-hague-court.json](data/incidents/INC-0004-dutch-syri-benefits-system-hague-court.json) | Incident record: Dutch SyRI automated welfare system (T008) |
+| [data/incidents/INC-0005-facial-recognition-wrongful-arrest-law-enforcement.json](data/incidents/INC-0005-facial-recognition-wrongful-arrest-law-enforcement.json) | Incident record: Facial recognition wrongful arrest (T010) |
+| [data/incidents/INC-0006-ai-recruitment-tool-gender-bias-discontinued.json](data/incidents/INC-0006-ai-recruitment-tool-gender-bias-discontinued.json) | Incident record: AI recruitment gender bias (T010) |
+| [data/incidents/INC-0007-content-moderation-over-removal-covid19-pandemic.json](data/incidents/INC-0007-content-moderation-over-removal-covid19-pandemic.json) | Incident record: COVID-19 content moderation over-removal (T010) |
+| [data/incidents/INC-0008-ai-image-generation-ncii-platform-restrictions.json](data/incidents/INC-0008-ai-image-generation-ncii-platform-restrictions.json) | Incident record: AI-generated NCII platform restrictions (T010) |
+| [data/incidents/INC-0009-healthcare-algorithm-racial-bias-resource-allocation.json](data/incidents/INC-0009-healthcare-algorithm-racial-bias-resource-allocation.json) | Incident record: Healthcare algorithm racial bias (T010) |
+| [data/incidents/INC-0010-eeoc-guidance-ai-hiring-tools-discrimination-risk.json](data/incidents/INC-0010-eeoc-guidance-ai-hiring-tools-discrimination-risk.json) | Incident record: EEOC guidance on AI hiring discrimination (T010) |
 | [docs/RESEARCH_CONTEXT.md](docs/RESEARCH_CONTEXT.md) | Domain research and strategic context |
 | [docs/DECISION_LOG.md](docs/DECISION_LOG.md) | Architectural and strategic decisions |
 | [docs/COMPETITOR_BENCHMARKS.md](docs/COMPETITOR_BENCHMARKS.md) | Detailed competitor and benchmark analysis |

@@ -6,7 +6,7 @@
 
 ## Execution Boundaries
 
-This repository is in the **dataset MVP — first records validated** phase. T009 formally validated all 4 Tier 1 records (zero issues). The second-wave 6 records await T010 approval. No product code, no scraper, no CLI, no static site, no database, no package managers, and no dependencies until later approved phases.
+This repository is in the **dataset MVP — full 10-record batch complete** phase. T010 created 6 second-wave records (INC-0005 through INC-0010). All 10 records have been formally validated. No product code, no scraper, no CLI, no static site, no database, no package managers, and no dependencies until later approved phases.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -29,44 +29,42 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T007 — First Incident Record Creation Plan | Complete |
 | T008 — First Tier 1 Incident Record Batch | Complete |
 | T009 — Dataset MVP Review and QA Hardening | Complete |
-| T010 — Second-Wave Candidate-to-Record Plan or Second-Wave Record Batch | **Next** (requires explicit Control Tower approval of T009 findings) |
-| v0.3 Dataset MVP — first records validated | Partial — 4 Tier 1 records validated; 6 second-wave records pending T010 |
+| T010 — Second-Wave Incident Record Batch | Complete |
+| T011 — Dataset MVP Public Readiness Review or Minimal Static Site Planning | **Next** (requires explicit Control Tower approval of T010 findings) |
+| v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 created and validated |
 
 ---
 
-## Next Recommended Step: T010
+## Next Recommended Step: T011
 
-**T010 — Second-Wave Candidate-to-Record Plan or Second-Wave Record Batch.**
+**T011 — Dataset MVP Public Readiness Review or Minimal Static Site Planning.**
 
-The next step after T009 is T010, but **only after explicit Control Tower review and approval of T009 findings.**
+The next step after T010 is T011, but **only after explicit Control Tower review and approval of T010 findings.**
 
-T010 must not automatically create all 6 remaining second-wave records. Control Tower must confirm T010 scope.
+T011 must not automatically begin building a public static site. Control Tower must confirm T011 scope and whether a site build is approved.
 
-### T010 options for Control Tower consideration
+### T011 options for Control Tower consideration
 
-See `T010_SECOND_WAVE_READINESS_RECOMMENDATION.md` for full detail.
+**Option A — Dataset MVP Public Readiness Review:** Conduct a structured review of the complete 10-record dataset before any public-facing work begins. Similar to T009 but covering all 10 records and assessing readiness for public visibility.
 
-**Option A — Second-wave record batch (full):** Create all 6 Tier 2/3 records (CAND-002, CAND-004, CAND-005, CAND-009, CAND-010, CAND-015) as INC-0005 through INC-0010.
+**Option B — Minimal Static Site Planning:** If Control Tower approves public visibility, T011 begins static site technology selection and planning (no code; planning document only, analogous to T007).
 
-**Option B — Second-wave plan only:** Create a planning document (analogous to T007) before committing any second-wave records.
+**Option C — Combined:** Readiness review + site planning in the same task.
 
-**Option C — Partial batch:** Create only Tier 2 records (CAND-002, CAND-004, CAND-005) in T010; defer Tier 3 to T011.
+### T011 pre-conditions
 
-### T010 pre-conditions
+1. **Control Tower reviews T010 findings** (`SECOND_WAVE_QA_REPORT.md`) and confirms the full 10-record dataset is acceptable.
+2. **Control Tower confirms T011 scope** (Option A, B, or C above).
+3. **If static site is approved:** Technology selection and clean-room review required before any code is written.
+4. **T011 formally initiated** by Control Tower.
 
-1. **Control Tower reviews T009 findings** (`DATASET_MVP_REVIEW_REPORT.md`) and confirms dataset acceptable.
-2. **Control Tower confirms T010 scope** (Option A, B, or C above).
-3. If records are created: per-candidate source verification completed per `SOURCE_VERIFICATION_WORKFLOW.md`.
-4. **T010 formally initiated** by Control Tower.
+### T011 constraints
 
-### T010 constraints (if records created)
-
-- No records beyond INC-0010 without further CT approval.
-- QA checklist (`RECORD_CREATION_QA_CHECKLIST.md`) completed per record.
+- No public site code without explicit Control Tower approval.
+- No new incident records beyond INC-0010 without further CT approval.
 - No external dataset import.
-- Careful hedging language — Tier 2/3 candidates rely more on secondary sources.
-- No unsupported legal conclusions.
-- No new FM/CTL IDs without taxonomy approval.
+- No product code without CT approval.
+- Any static site work must comply with V0_2_DRAFT_PRODUCT_CONTRACT.md and CLEAN_ROOM_IMPLEMENTATION_POLICY.md.
 
 ---
 
@@ -101,7 +99,7 @@ The following tasks can be executed autonomously without Control Tower approval:
 
 The following tasks require Artem / Control Tower review before execution:
 
-- Starting T010 (requires Control Tower approval of T009 findings).
+- Starting T011 (requires Control Tower approval of T010 findings).
 - Starting v0.3 Dataset MVP.
 - Implementing any product code (scripts, automated tooling, application features).
 - Creating any incident records.

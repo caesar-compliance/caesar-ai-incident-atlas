@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026 (T009 — DEC-065)
+**Last updated:** 19 May 2026 (T010 — DEC-075)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -839,3 +839,103 @@ T006 must not mass-import data and must not create final incident records unless
 **Decision:** T010 — Second-Wave Candidate-to-Record Plan or Second-Wave Record Batch — must not begin without explicit Control Tower approval. Three options defined in `T010_SECOND_WAVE_READINESS_RECOMMENDATION.md` for Control Tower consideration.
 
 **Rationale:** Each expansion of the dataset is a governance gate. T009 findings confirm the dataset is ready for T010; Control Tower must choose the scope and initiate formally.
+
+---
+
+### [DEC-066] — 19 May 2026 — T010: All 6 Candidates Pass Source Gate
+
+**Status:** Approved
+
+**Decision:** All 6 approved second-wave candidates (CAND-002, CAND-004, CAND-005, CAND-009, CAND-010, CAND-015) passed the source gate. All 6 records created. No candidates skipped.
+
+**Rationale:** Each candidate had at least one identifiable primary or strong secondary source. Confidence levels assigned conservatively based on source type. Residual risks documented per candidate.
+
+---
+
+### [DEC-067] — 19 May 2026 — T010: INC-0005 — Robert Williams Case; Individual Not Named
+
+**Status:** Approved
+
+**Decision:** INC-0005 (CAND-002) anchored on ACLU civil litigation documentation + NIST FRVT Part 3. The individual involved is not named in the record; referenced by role only.
+
+**Rationale:** The case is the best-documented primary facial recognition wrongful arrest case in the public record. Naming the victim is not required for governance value and creates unnecessary individual exposure in perpetual documentation.
+
+---
+
+### [DEC-068] — 19 May 2026 — T010: INC-0006 — Confidence `high` Despite Secondary-Only Source
+
+**Status:** Approved
+
+**Decision:** INC-0006 (CAND-004) confidence set to `high`. Reuters investigative report cited five sources. The company's tool discontinuation is consistent with the reported findings. Hedging language applied throughout.
+
+**Rationale:** Reuters is a Tier 1 international news agency with multi-source corroboration requirements. Consistency with company action (discontinuation) provides corroborating evidence.
+
+---
+
+### [DEC-069] — 19 May 2026 — T010: INC-0007 — Anchored on Meta Only; Not Multi-Platform
+
+**Status:** Approved
+
+**Decision:** INC-0007 (CAND-005) anchored on Meta/Facebook only. Meta's public acknowledgement of a software bug is the clearest primary company anchor.
+
+**Rationale:** T007 guidance recommended anchoring on Meta. Multi-platform records are harder to cite accurately without separate per-platform source verification.
+
+---
+
+### [DEC-070] — 19 May 2026 — T010: INC-0008 — Microsoft Bing Image Creator as NCII Anchor; Confidence `medium`
+
+**Status:** Approved
+
+**Decision:** INC-0008 (CAND-009) anchored on Microsoft's January 2024 Bing Image Creator safety announcement. Confidence set to `medium` — primary source is a company safety response, not a court or regulatory enforcement finding.
+
+**Rationale:** Microsoft's named public statement is the most specific and stable primary anchor available for NCII generation platform restrictions. `medium` confidence reflects evidence type (company safety announcement vs regulatory finding).
+
+---
+
+### [DEC-071] — 19 May 2026 — T010: INC-0008 — FM-PRIV Confirmed Present Before Use
+
+**Status:** Approved
+
+**Decision:** FM-PRIV was confirmed present in `data/taxonomy/failure_modes.json` before use in INC-0008. No new taxonomy IDs created.
+
+**Rationale:** T010 task instructions require using only existing taxonomy IDs. Verification confirmed FM-PRIV is a stable existing ID.
+
+---
+
+### [DEC-072] — 19 May 2026 — T010: INC-0009 — Vendor Not Named in Record
+
+**Status:** Approved
+
+**Decision:** INC-0009 (CAND-010) anchored on Obermeyer et al. (2019), Science. Vendor (reported as Optum/UnitedHealth algorithm) not named in the Caesar record.
+
+**Rationale:** The Science paper is the authoritative primary source. A primary vendor statement URL was not independently confirmed at record creation. Naming the vendor without a confirmed primary source risks inaccuracy.
+
+---
+
+### [DEC-073] — 19 May 2026 — T010: INC-0010 — Confidence `medium`; Upgrade Path Documented
+
+**Status:** Approved
+
+**Decision:** INC-0010 (CAND-015) confidence set to `medium`. No specific EEOC enforcement action confirmed at record creation. Upgrade to `high` possible if a specific named enforcement case is identified in T011+.
+
+**Rationale:** EEOC guidance is a primary official source on the regulatory risk pattern but the record anchors on guidance-level material, not an adjudicated case. `medium` confidence is appropriate and documented in the record.
+
+---
+
+### [DEC-074] — 19 May 2026 — T010: No New Taxonomy IDs Required
+
+**Status:** Approved
+
+**Decision:** All failure mode, control, sector, severity, confidence, and evidence type IDs in second-wave records were confirmed present in existing taxonomy files. No new taxonomy IDs created.
+
+**Rationale:** All 4 new sectors (`law-enforcement`, `hiring-employment`, `media-content`, `healthcare-medical`) confirmed stable in `data/taxonomy/sectors.json`. No gaps identified.
+
+---
+
+### [DEC-075] — 19 May 2026 — T010: T011 Requires Control Tower Approval; Must Not Auto-Build Site
+
+**Status:** Approved
+
+**Decision:** T011 — Dataset MVP Public Readiness Review or Minimal Static Site Planning — requires explicit Control Tower approval of T010 findings before initiation. T011 must not automatically begin building a public static site.
+
+**Rationale:** Static site and public-facing implementation decisions require explicit Control Tower governance approval per the v0.2 Draft Contract and clean-room policy. Control Tower must confirm T011 scope (Options A/B/C) before execution.

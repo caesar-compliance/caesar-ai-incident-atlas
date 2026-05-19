@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.4.0] - 19 May 2026
+
+### Added
+
+- **Second-Wave Incident Records (T010).** 6 new records created — INC-0005 through INC-0010. All based on public primary or strong secondary sources. All passed formal schema and taxonomy validation.
+- **`data/incidents/INC-0005-facial-recognition-wrongful-arrest-law-enforcement.json`** — Facial recognition wrongful arrest (CAND-002). ACLU + NIST FRVT. Sector: `law-enforcement`. FM-BIAS + FM-TRANS. Severity: high. Confidence: high.
+- **`data/incidents/INC-0006-ai-recruitment-tool-gender-bias-discontinued.json`** — AI recruitment gender bias (CAND-004). Reuters investigative. Sector: `hiring-employment`. FM-BIAS. Severity: medium. Confidence: high.
+- **`data/incidents/INC-0007-content-moderation-over-removal-covid19-pandemic.json`** — COVID-19 content moderation over-removal (CAND-005). Meta company statement. Sector: `media-content`. FM-REL + FM-TRANS. Severity: medium. Confidence: high.
+- **`data/incidents/INC-0008-ai-image-generation-ncii-platform-restrictions.json`** — AI-generated NCII platform restrictions (CAND-009). Microsoft statement + UK OSA. Sector: `media-content`. FM-PRIV + FM-SAFE + FM-UNAUTH. Severity: high. Confidence: medium.
+- **`data/incidents/INC-0009-healthcare-algorithm-racial-bias-resource-allocation.json`** — Healthcare algorithm racial bias (CAND-010). Obermeyer et al. Science 2019. Sector: `healthcare-medical`. FM-BIAS + FM-REL. Severity: high. Confidence: high.
+- **`data/incidents/INC-0010-eeoc-guidance-ai-hiring-tools-discrimination-risk.json`** — EEOC guidance on AI hiring discrimination (CAND-015). EEOC + NYC LL144. Sector: `hiring-employment`. FM-BIAS + FM-TRANS. Severity: medium. Confidence: medium.
+- **`SECOND_WAVE_SOURCE_VERIFICATION_LOG.md`** — Per-candidate source gate log: sources, pass/skip, field support, confidence rationale, gaps.
+- **`SECOND_WAVE_QA_REPORT.md`** — QA report: schema, taxonomy, citations, source quality, naming policy, legal conclusions, constraints confirmation.
+- **`work-items/T010-second-wave-incident-record-batch/`** — Work item folder with TASK.md, DECISIONS.md, VALIDATION.md, IMPLEMENTATION_REPORT.md.
+
+### Confirmed
+
+- Zero JSON schema violations across all 6 new records (formal validation, jsonschema 4.23.0).
+- Zero taxonomy reference issues.
+- No INC-0011 or higher created.
+- All 10 records (INC-0001 through INC-0010) now in `data/incidents/`.
+- No candidates skipped — all 6 passed source gate.
+- All 4 new sectors (`law-enforcement`, `hiring-employment`, `media-content`, `healthcare-medical`) confirmed stable in taxonomy.
+
+---
+
 ## [0.3.1] - 19 May 2026
 
 ### Added

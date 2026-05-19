@@ -1,0 +1,45 @@
+{
+  "incident_id": "INC-0009",
+  "title": "Healthcare resource allocation algorithm found to systematically underestimate illness severity in Black patients",
+  "date": "25 October 2019",
+  "date_note": "Date of publication of Obermeyer et al. in Science (Vol. 366, Issue 6464). The algorithm was deployed in clinical use across US health systems over multiple years prior to the study. The publication date is used as the primary record anchor. A date_note is required: the algorithm was in active clinical deployment before the findings were published.",
+  "sector": ["healthcare-medical"],
+  "ai_system_context": "A commercial healthcare algorithm used by US health systems to identify patients who would benefit from additional care management resources. The algorithm used healthcare cost as a proxy variable for health need and was licensed commercially. The study examined the algorithm's application in a large academic health system.",
+  "summary": "A peer-reviewed study published in Science in October 2019 (Obermeyer et al.) examined a widely used commercial healthcare algorithm deployed across US health systems to identify patients for care management programmes. The study found that the algorithm systematically underestimated the illness severity of Black patients relative to white patients with similar levels of need, because the algorithm used healthcare cost as a proxy for health need. Since Black patients historically incurred lower healthcare costs than white patients with similar health conditions — due to documented disparities in access to care — the algorithm assigned them lower risk scores, resulting in fewer being identified for additional care resources. The study estimated that, at a given risk score threshold, Black patients were substantially sicker than white patients. The vendor of the algorithm subsequently acknowledged the findings, stated that the algorithm was not intended to be used as the sole determinant of care management referral, and committed to working with health systems on adjustments. The study is widely cited as a primary example of proxy variable bias in commercial healthcare AI.",
+  "failure_modes": ["FM-BIAS", "FM-REL"],
+  "severity": "high",
+  "confidence": "high",
+  "controls": ["CTL-TEST-002", "CTL-TEST-001", "CTL-RISK-001", "CTL-DOC-001"],
+  "evidence_required": [
+    "EV-012 — Bias testing record: evidence of pre-deployment evaluation of the algorithm's outputs for differential performance across patient demographic groups",
+    "EV-005 — Testing record: pre-deployment validation of the algorithm's accuracy and fairness properties before clinical deployment",
+    "EV-011 — Model documentation: documentation of the algorithm's design assumptions, including the use of cost as a proxy for health need and its known limitations",
+    "EV-002 — Risk assessment: pre-deployment risk assessment for the use of cost-based proxy variables in clinical resource allocation contexts"
+  ],
+  "lessons": [
+    "Healthcare AI systems that affect resource allocation or care prioritisation must be evaluated for differential performance across patient demographic groups — including race and ethnicity — before deployment and on an ongoing basis.",
+    "Proxy variables in healthcare algorithms (such as healthcare cost as a proxy for health need) should be assessed for demographic bias prior to use in clinical decision support, particularly where historical access disparities affect the proxy.",
+    "Vendors of healthcare AI tools should document known limitations of proxy variable choices and communicate these to deploying health systems as part of responsible deployment practice.",
+    "Health systems deploying commercial AI tools for care management should conduct independent validation of algorithmic outputs for demographic equity before clinical use."
+  ],
+  "sources": [
+    {
+      "url": "https://www.science.org/doi/10.1126/science.aax2342",
+      "source_type": "academic_paper",
+      "accessed": "19 May 2026",
+      "title": "Obermeyer et al. — 'Dissecting racial bias in an algorithm used to manage the health of populations', Science, Vol. 366, Issue 6464, 25 October 2019 (primary academic source)"
+    }
+  ],
+  "harms": [
+    "Black patients with equivalent illness severity to white patients received systematically lower risk scores, reducing their likelihood of being referred for additional care management resources",
+    "Inequitable distribution of care management resources within health systems using the algorithm",
+    "Potential adverse health outcomes for patients systematically underserved by biased risk scoring"
+  ],
+  "affected_stakeholders": [
+    "Black patients in US health systems using the commercial algorithm",
+    "Health systems deploying commercial AI tools for care management",
+    "Vendors of commercial healthcare risk-scoring algorithms",
+    "Regulators overseeing AI use in healthcare resource allocation"
+  ],
+  "impact": "The study estimated that the algorithm's use of cost as a proxy for health need resulted in Black patients being substantially sicker than white patients at equivalent risk score thresholds, effectively reducing their access to care management resources. The vendor acknowledged the study's findings and committed to adjustments. The study is a landmark reference in academic and policy literature on algorithmic bias in healthcare and has influenced guidance from healthcare regulators and standards bodies on AI fairness evaluation."
+}

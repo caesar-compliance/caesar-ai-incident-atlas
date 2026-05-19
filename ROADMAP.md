@@ -246,20 +246,42 @@ v0.1 Foundation
 
 ---
 
-## T010 — Second-Wave Candidate-to-Record Plan or Second-Wave Record Batch
+## T010 — Second-Wave Incident Record Batch
 
-**Status:** Planned (next step — requires Control Tower approval of T009 findings)
+**Status:** Complete (19 May 2026)
+**Version bump:** 0.4.0
 
-**Options (for Control Tower — see `T010_SECOND_WAVE_READINESS_RECOMMENDATION.md`):**
-- Option A: All 6 second-wave records (CAND-002, CAND-004, CAND-005, CAND-009, CAND-010, CAND-015 → INC-0005 through INC-0010)
-- Option B: Second-wave planning document only (no records yet)
-- Option C: Partial batch (Tier 2 only in T010; Tier 3 in T011)
+**Goal:** Create 6 second-wave records for approved candidates. All 6 passed the source gate. All created.
+
+**Records created:**
+- `INC-0005` — Facial recognition wrongful arrest (CAND-002) — `law-enforcement` — FM-BIAS + FM-TRANS — high
+- `INC-0006` — AI recruitment gender bias (CAND-004) — `hiring-employment` — FM-BIAS — medium
+- `INC-0007` — Content moderation COVID-19 over-removal (CAND-005) — `media-content` — FM-REL + FM-TRANS — medium
+- `INC-0008` — AI-generated NCII platform restrictions (CAND-009) — `media-content` — FM-PRIV + FM-SAFE + FM-UNAUTH — high
+- `INC-0009` — Healthcare algorithm racial bias (CAND-010) — `healthcare-medical` — FM-BIAS + FM-REL — high
+- `INC-0010` — EEOC guidance on AI hiring discrimination (CAND-015) — `hiring-employment` — FM-BIAS + FM-TRANS — medium
+
+**Validation:** All 6 records pass formal schema and taxonomy validation. Zero issues.
+
+**Prerequisite for:** T011 Dataset MVP Public Readiness Review or Minimal Static Site Planning
+
+---
+
+## T011 — Dataset MVP Public Readiness Review or Minimal Static Site Planning
+
+**Status:** Planned (next step — requires Control Tower approval of T010 findings)
+
+**Options (for Control Tower):**
+- Option A: Dataset MVP Public Readiness Review (review all 10 records before public visibility)
+- Option B: Minimal Static Site Planning (technology selection and planning document; no code)
+- Option C: Combined readiness review + site planning
 
 **Pre-conditions:**
-- Control Tower reviews T009 findings
-- Control Tower confirms T010 scope
+- Control Tower reviews T010 findings
+- Control Tower confirms T011 scope
+- T011 must not automatically build a public site
 
-**Prerequisite for:** Full v0.3 Dataset MVP (10 records)
+**Prerequisite for:** v0.4 Static Site
 
 ---
 

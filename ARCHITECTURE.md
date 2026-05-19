@@ -1,8 +1,8 @@
 # Architecture — caesar-ai-incident-atlas
 
 **Last updated:** 19 May 2026
-**Version:** 0.3.1 (dataset MVP — first records validated)
-**Status:** 4 Tier 1 incident records created (T008) and formally validated (T009)
+**Version:** 0.4.0 (dataset MVP — full 10-record batch complete)
+**Status:** 10 incident records (INC-0001 through INC-0010) created and formally validated (T008–T010)
 
 ---
 

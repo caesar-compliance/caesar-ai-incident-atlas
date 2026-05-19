@@ -35,7 +35,13 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `data/incidents/INC-0001-mata-v-avianca-court-citations.json` | Incident record | INC-0001: AI-generated fabricated court citations. Source: Mata v. Avianca, S.D.N.Y. FM-HALL+FM-REL. Severity: medium. (T008) |
 | `data/incidents/INC-0002-autonomous-vehicle-pedestrian-fatality-ntsb.json` | Incident record | INC-0002: Autonomous vehicle pedestrian fatality. Source: NTSB HWY18MH010. FM-SAFE+FM-REL. Severity: critical. (T008) |
 | `data/incidents/INC-0003-air-canada-chatbot-contract-bc-crt.json` | Incident record | INC-0003: Air Canada chatbot contract. Source: Moffatt v. Air Canada, 2024 BCCRT 149. FM-HALL+FM-UNAUTH. Severity: medium. (T008) |
-| `data/incidents/INC-0004-dutch-syri-benefits-system-hague-court.json` | Incident record | INC-0004: Dutch SyRI automated welfare system. Source: Hague District Court ECLI:NL:RBDHA:2020:1878. FM-BIAS+FM-TRANS+FM-UNAUTH. Severity: high. (T008) |
+| `data/incidents/INC-0004-dutch-syri-benefits-system-hague-court.json` | Incident record | Dutch SyRI automated welfare system: public sector, FM-BIAS + FM-TRANS + FM-UNAUTH, severity high, confidence high. Primary source: Hague District Court ECLI:NL:RBDHA:2020:1878. (T008) |
+| `data/incidents/INC-0005-facial-recognition-wrongful-arrest-law-enforcement.json` | Incident record | Facial recognition wrongful arrest: law-enforcement sector, FM-BIAS + FM-TRANS, severity high, confidence high. Sources: ACLU case documentation + NIST FRVT Part 3. (T010) |
+| `data/incidents/INC-0006-ai-recruitment-tool-gender-bias-discontinued.json` | Incident record | AI recruitment gender bias: hiring-employment sector, FM-BIAS, severity medium, confidence high. Source: Reuters investigative report, Oct 2018. (T010) |
+| `data/incidents/INC-0007-content-moderation-over-removal-covid19-pandemic.json` | Incident record | COVID-19 content moderation over-removal: media-content sector, FM-REL + FM-TRANS, severity medium, confidence high. Sources: Meta company statements, March 2020. (T010) |
+| `data/incidents/INC-0008-ai-image-generation-ncii-platform-restrictions.json` | Incident record | AI-generated NCII platform restrictions: media-content sector, FM-PRIV + FM-SAFE + FM-UNAUTH, severity high, confidence medium. Sources: Microsoft statement + UK OSA. (T010) |
+| `data/incidents/INC-0009-healthcare-algorithm-racial-bias-resource-allocation.json` | Incident record | Healthcare algorithm racial bias: healthcare-medical sector, FM-BIAS + FM-REL, severity high, confidence high. Source: Obermeyer et al., Science 2019. (T010) |
+| `data/incidents/INC-0010-eeoc-guidance-ai-hiring-tools-discrimination-risk.json` | Incident record | EEOC guidance on AI hiring discrimination: hiring-employment sector, FM-BIAS + FM-TRANS, severity medium, confidence medium. Sources: EEOC guidance + NYC LL144. (T010) |
 | `data/taxonomy/.gitkeep` | Taxonomy directory placeholder | Preserves `data/taxonomy/` directory in git. |
 | `data/taxonomy/failure_modes.json` | Failure mode taxonomy | Machine-readable failure mode taxonomy with stable/draft status markers for v0.2. |
 | `data/taxonomy/controls.json` | Control taxonomy | Machine-readable control taxonomy baseline for v0.2 mapping. |
@@ -57,20 +63,24 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `FIRST_BATCH_SOURCE_RISK_REVIEW.md` | Source risk review | Per-risk review of 5 T008 open source risks. 2 accepted, 2 residual, 1 unresolved. (T009) |
 | `FIRST_BATCH_RECORD_FIX_LOG.md` | Record fix log | Fix log for first batch — no JSON corrections needed. One documentation fix noted. (T009) |
 | `T010_SECOND_WAVE_READINESS_RECOMMENDATION.md` | T010 readiness | T010 scope options (A/B/C), pre-conditions, constraints, secondary recommendations. (T009) |
+| `SECOND_WAVE_SOURCE_VERIFICATION_LOG.md` | Source verification log | Per-candidate source gate log for 6 second-wave candidates. All passed. (T010) |
+| `SECOND_WAVE_QA_REPORT.md` | QA report | Full QA report for INC-0005 through INC-0010. (T010) |
 | `APPROVED_CANDIDATE_SET_FOR_RECORD_CREATION.md` | Approved candidate set | Wave assignments: 4 Tier 1 (T008), 6 Tier 2/3 (T009), 4 postponed, 1 rejected. Open questions per candidate. (T007) |
 | `INCIDENT_FIELD_MAPPING_DRAFTS.md` | Field mapping drafts | Draft field-level mappings for all 10 approved candidates. CAND-NNN references only. (T007) |
 | `SOURCE_TO_FIELD_TRACEABILITY_MATRIX.md` | Source traceability matrix | Source-to-field traceability for Tier 1 candidates: P/S/I/U classification per field. (T007) |
 | `RECORD_CREATION_QA_CHECKLIST.md` | QA checklist | 10-section, 50+ item checklist to complete before each incident record is committed. (T007) |
 | `T008_FIRST_RECORD_BATCH_RECOMMENDATION.md` | T008 recommendation | Recommended T008 scope, pre-conditions, ID sequence, schema rename requirement. (T007) |
-
----
+| `work-items/T010-second-wave-incident-record-batch/TASK.md` | T010 task | Task scope, approved ID mapping, source gate results, validation summary. |
+| `work-items/T010-second-wave-incident-record-batch/VALIDATION.md` | T010 validation | Constraint and deliverable validation checklist for T010. |
+| `work-items/T010-second-wave-incident-record-batch/IMPLEMENTATION_REPORT.md` | T010 report | Implementation report with records created, source gate summary, validation results. |
+| `work-items/T010-second-wave-incident-record-batch/DECISIONS.md` | T010 decisions | 10 decisions including gate outcomes, anchor choices, confidence ratings, T011 gate. |
 
 ## docs/ Directory
 
 | File | Role | Description |
 |---|---|---|
 | `docs/RESEARCH_CONTEXT.md` | Domain research | Strategic domain research, product type, main users, use cases, MVP scope, and future paid use cases. |
-| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-065). |
+| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-075). |
 | `docs/COMPETITOR_BENCHMARKS.md` | Competitor analysis | Detailed analysis of AI Incident Database, OECD AI Incidents Monitor, AIAAIC Repository, MIT AI Incident Tracker, and IBM AI Risk Atlas, with licensing notes and Caesar differentiation. |
 | `docs/FULL_SCALE_PRODUCT_BLUEPRINT.md` | Product blueprint | Comprehensive full-scale product blueprint covering all product dimensions, user journeys, and ecosystem integration. |
 | `docs/DATA_MODEL_DRAFT.md` | Data model | Incident data model and JSON schema draft covering all record types. Open questions listed for T003 resolution. |
