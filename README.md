@@ -27,7 +27,8 @@ The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](
 ## Project Status
 
 > This repository is currently in the **documentation + dataset foundation** stage.
-> T005 created the MVP schema and taxonomy foundation files, but no incident records exist yet.
+> T006 prepared 15 candidate incident dossiers for Control Tower review. No incident records exist yet — `data/incidents/` is empty.
+> The next step is T007 — First Incident Record Creation Plan, pending explicit Control Tower approval of the T006 shortlist.
 > See [ROADMAP.md](ROADMAP.md) for the full phase plan.
 
 ---
@@ -170,6 +171,10 @@ Related repositories:
 | [data/taxonomy/confidence_levels.json](data/taxonomy/confidence_levels.json) | Confidence level taxonomy JSON (T005) |
 | [data/taxonomy/severity_levels.json](data/taxonomy/severity_levels.json) | Severity level taxonomy JSON (T005) |
 | [docs/validation/DATASET_MVP_VALIDATION_PLAN.md](docs/validation/DATASET_MVP_VALIDATION_PLAN.md) | Dataset MVP validation plan (T005) |
+| [FIRST_INCIDENT_CANDIDATE_DOSSIERS.md](FIRST_INCIDENT_CANDIDATE_DOSSIERS.md) | 15 candidate incident dossiers for Control Tower review (T006) — candidate only, not incident records |
+| [FIRST_INCIDENT_CANDIDATE_REVIEW_TABLE.md](FIRST_INCIDENT_CANDIDATE_REVIEW_TABLE.md) | Summary review table: 10 Accept, 4 Postpone, 1 Reject (T006) |
+| [FIRST_INCIDENT_SOURCE_REVIEW_NOTES.md](FIRST_INCIDENT_SOURCE_REVIEW_NOTES.md) | Source type analysis, license status, and quality assessment for T006 candidates |
+| [FIRST_INCIDENT_SELECTION_RECOMMENDATION.md](FIRST_INCIDENT_SELECTION_RECOMMENDATION.md) | Final selection recommendation with diversity assessment and T007 conditions (T006) |
 | [docs/RESEARCH_CONTEXT.md](docs/RESEARCH_CONTEXT.md) | Domain research and strategic context |
 | [docs/DECISION_LOG.md](docs/DECISION_LOG.md) | Architectural and strategic decisions |
 | [docs/COMPETITOR_BENCHMARKS.md](docs/COMPETITOR_BENCHMARKS.md) | Detailed competitor and benchmark analysis |

@@ -9,13 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.2.4` |
+| Current version | `0.2.5` |
 | Current phase | `dataset foundation` |
 | Status | `active` |
-| Latest known commit | `3e07fc3` (T004 final commit) |
-| Latest completed task | `T005 — Dataset MVP Schema and Taxonomy Files` |
+| Latest completed task | `T006 — First Incident Candidate Dossier Preparation` |
 | Active work item | `none` |
-| Next recommended step | `T006 — First Incident Candidate Dossier Preparation (likely next step; requires Control Tower approval)` |
+| Next recommended step | `T007 — First Incident Record Creation Plan (requires explicit Control Tower approval of T006 dossier shortlist)` |
 
 ---
 
@@ -29,8 +28,9 @@
 | T003 v0.2 Draft Contract | Complete | 19 May 2026 |
 | T004 Dataset MVP Preparation | Complete | 19 May 2026 |
 | T005 Dataset MVP Schema and Taxonomy Files | Complete | 19 May 2026 |
-| T006 First Incident Candidate Dossier Preparation | Planned — next step (requires Control Tower approval) | — |
-| v0.3 Dataset MVP | Blocked until T006 dossier shortlist approved | — |
+| T006 First Incident Candidate Dossier Preparation | Complete | 19 May 2026 |
+| T007 First Incident Record Creation Plan | Planned — requires Control Tower approval of T006 shortlist | — |
+| v0.3 Dataset MVP | Blocked until T007 incident records created and approved | — |
 | v0.4 Static Site | Planned | — |
 | v0.5 Export Integration | Planned | — |
 | v1.0 Stable Public Release | Planned | — |

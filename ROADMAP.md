@@ -155,20 +155,29 @@ v0.1 Foundation
 
 ## T006 — First Incident Candidate Dossier Preparation
 
-**Status:** Planned (next step — requires Control Tower approval)
+**Status:** Complete (19 May 2026)
+**Version bump:** 0.2.5
 
 **Goal:** Prepare candidate dossiers for 10–20 potential incidents with public source links and verification notes before creating final incident records.
 
 **Deliverables:**
-- Candidate dossier templates and working notes
-- Public source link lists for each candidate
-- Source verification notes aligned with `SOURCE_VERIFICATION_WORKFLOW.md`
-- Confidence/severity rationale notes
-- Control Tower review package for candidate approval
+- `FIRST_INCIDENT_CANDIDATE_DOSSIERS.md` — 15 candidate dossiers (CAND-001 through CAND-015)
+- `FIRST_INCIDENT_CANDIDATE_REVIEW_TABLE.md` — summary review table
+- `FIRST_INCIDENT_SOURCE_REVIEW_NOTES.md` — source and license review notes
+- `FIRST_INCIDENT_SELECTION_RECOMMENDATION.md` — 10 Accept, 4 Postpone, 1 Reject
+- `work-items/T006-first-incident-candidate-dossier-preparation/` — work item folder
 
-**Constraints:** No mass-imported data. No scraper. No final incident records unless separately approved.
+**Constraints:** No mass-imported data. No scraper. No final incident records. No external dataset import.
 
-**Prerequisite for:** v0.3 Dataset MVP incident record curation
+**Key decisions:**
+- DEC-T006-001: Dossiers written as Markdown prose, not JSON
+- DEC-T006-002: Candidate ID format CAND-NNN
+- DEC-T006-003: Public primary sources only; discovery pointers only for AIID/AIAAIC
+- DEC-T006-004: Schema usability observations recorded; schema not modified
+- DEC-T006-005: 15 candidates prepared — 10 Accept, 4 Postpone, 1 Reject
+- DEC-T006-006: data/incidents/ unchanged — only .gitkeep
+
+**Prerequisite for:** T007 — First Incident Record Creation Plan (requires explicit Control Tower approval)
 
 ---
 

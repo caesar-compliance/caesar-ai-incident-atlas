@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026 (updated T005)
+**Last updated:** 19 May 2026 (T006 — DEC-037)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -491,3 +491,69 @@ T006 scope should include candidate dossier preparation for 10–20 possible inc
 T006 must not mass-import data and must not create final incident records unless separately approved.
 
 **Rationale:** Dossier-first sequencing preserves source-quality and license-safety gates before committing incident records.
+
+---
+
+### [DEC-032] — 19 May 2026 — T006: Candidate Dossier Format is Markdown Prose
+
+**Status:** Approved
+
+**Decision:** Candidate dossiers are written as structured Markdown prose documents, not as JSON incident objects.
+
+**Rationale:** Dossiers are pre-approval research documents. JSON format would risk confusion with final incident records. Markdown accommodates hedging language, open questions, and source annotations.
+
+---
+
+### [DEC-033] — 19 May 2026 — T006: Candidate ID Format CAND-NNN
+
+**Status:** Approved
+
+**Decision:** Provisional candidate IDs use the format `CAND-001`, `CAND-002`, etc. These are temporary research identifiers, not final incident IDs.
+
+**Rationale:** Clearly distinct from final `INC-XXXX` IDs. Prevents premature assignment of incident record identifiers before Control Tower approval.
+
+---
+
+### [DEC-034] — 19 May 2026 — T006: Public Primary Sources Only; No External Dataset Import
+
+**Status:** Approved
+
+**Decision:** Dossiers reference only publicly available primary sources. AIID, AIAAIC, OECD, MIT Tracker, and IBM databases used only as discovery pointers — no data copied.
+
+**Rationale:** Aligned with `SOURCE_AND_CITATION_POLICY_DRAFT.md` and `LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md`. Discovery pointers are acceptable; copying structured data is not.
+
+---
+
+### [DEC-035] — 19 May 2026 — T006: Schema Usability Observations Recorded Without Modifying Schema
+
+**Status:** Approved
+
+**Decision:** Schema friction observations from dossier preparation are recorded in `work-items/T006.../DECISIONS.md` and summarised in `work-items/T006.../IMPLEMENTATION_REPORT.md`. The schema itself is not modified in T006.
+
+**Rationale:** T006 is a research task, not a schema revision task. Observations should inform a future revision in T007 or a dedicated schema update task.
+
+**Key observations:**
+1. `source.database` field too narrow for court/regulatory sources — rename consideration for v0.3.
+2. `evidence_required` as free text works for v0.2 but will not scale; array of taxonomy IDs preferred for v0.3.
+3. No taxonomy ID validation in `failure_modes` array — backlog item.
+4. `incident_date` requires `YYYY-MM-DD` but many public incidents have year/month precision only — consider `date_precision` field in v0.3.
+
+---
+
+### [DEC-036] — 19 May 2026 — T006: 15 Candidates Prepared — 10 Accept, 4 Postpone, 1 Reject
+
+**Status:** Approved
+
+**Decision:** 15 candidate dossiers prepared. 10 recommended Accept, 4 Postpone, 1 Reject. Candidates cover 9 sectors and 7 of 8 failure mode categories (FM-SEC gap noted).
+
+**Rationale:** 15 provides sufficient diversity for first MVP batch review while keeping the review manageable. All 10 Accept candidates have strong or very strong primary source quality.
+
+---
+
+### [DEC-037] — 19 May 2026 — T006: T007 is Next Step — Gated on Control Tower Approval
+
+**Status:** Approved
+
+**Decision:** The next step after T006 is T007 — First Incident Record Creation Plan, but only after explicit Control Tower review and approval of the T006 dossier shortlist. `data/incidents/` remains empty except `.gitkeep` until T007 is formally approved and initiated.
+
+**Rationale:** Incident record creation is a critical governance gate. Premature record creation would undermine source-quality and license-safety controls established in T004 and T005.

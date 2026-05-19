@@ -41,6 +41,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `data/taxonomy/severity_levels.json` | Severity levels | Machine-readable severity level reference (`low`, `medium`, `high`, `critical`). |
 | `schemas/.gitkeep` | Schema directory placeholder | Preserves `schemas/` directory in git. |
 | `schemas/incident.schema.json` | Incident schema | Lenient v0.2 JSON Schema with 11 required fields and source/citation constraints. |
+| `FIRST_INCIDENT_CANDIDATE_DOSSIERS.md` | Candidate dossiers | 15 candidate incident dossiers (CAND-001 through CAND-015) for Control Tower review. Candidate only — not incident records. (T006) |
+| `FIRST_INCIDENT_CANDIDATE_REVIEW_TABLE.md` | Candidate review table | Summary review table: 10 Accept, 4 Postpone, 1 Reject. Control Tower review aid. (T006) |
+| `FIRST_INCIDENT_SOURCE_REVIEW_NOTES.md` | Source review notes | Source type analysis, license status review, and quality assessment for T006 candidates. (T006) |
+| `FIRST_INCIDENT_SELECTION_RECOMMENDATION.md` | Selection recommendation | Final selection recommendation with diversity assessment, Tier 1–3 rationale, and T007 conditions. (T006) |
 
 ---
 
@@ -49,7 +53,7 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | File | Role | Description |
 |---|---|---|
 | `docs/RESEARCH_CONTEXT.md` | Domain research | Strategic domain research, product type, main users, use cases, MVP scope, and future paid use cases. |
-| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-031). |
+| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-037). |
 | `docs/COMPETITOR_BENCHMARKS.md` | Competitor analysis | Detailed analysis of AI Incident Database, OECD AI Incidents Monitor, AIAAIC Repository, MIT AI Incident Tracker, and IBM AI Risk Atlas, with licensing notes and Caesar differentiation. |
 | `docs/FULL_SCALE_PRODUCT_BLUEPRINT.md` | Product blueprint | Comprehensive full-scale product blueprint covering all product dimensions, user journeys, and ecosystem integration. |
 | `docs/DATA_MODEL_DRAFT.md` | Data model | Incident data model and JSON schema draft covering all record types. Open questions listed for T003 resolution. |
@@ -81,6 +85,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T005-dataset-mvp-schema-taxonomy-files/VALIDATION.md` | T005 validation | Validation report confirming T005 quality gates were met. |
 | `work-items/T005-dataset-mvp-schema-taxonomy-files/IMPLEMENTATION_REPORT.md` | T005 report | Implementation report with files created, files changed, and final status. |
 | `work-items/T005-dataset-mvp-schema-taxonomy-files/DECISIONS.md` | T005 decisions | Decisions made during T005 (DEC-028 through DEC-031). |
+| `work-items/T006-first-incident-candidate-dossier-preparation/TASK.md` | T006 task | Task scope, constraints, deliverables, and prerequisites for T006. |
+| `work-items/T006-first-incident-candidate-dossier-preparation/VALIDATION.md` | T006 validation | Validation checklist confirming T006 quality gates were met. |
+| `work-items/T006-first-incident-candidate-dossier-preparation/IMPLEMENTATION_REPORT.md` | T006 report | Implementation report with files created, files changed, schema observations, and final status. |
+| `work-items/T006-first-incident-candidate-dossier-preparation/DECISIONS.md` | T006 decisions | Decisions made during T006 (DEC-T006-001 through DEC-T006-006). |
 
 ---
 

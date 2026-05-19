@@ -7,6 +7,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.2.5] - 19 May 2026
+
+### Added
+
+- **First Incident Candidate Dossiers (T006).** Prepared 15 candidate dossiers for Control Tower review. Research documents only — no incident records created.
+- **`FIRST_INCIDENT_CANDIDATE_DOSSIERS.md`** — 15 candidate dossiers (CAND-001 through CAND-015) covering 9 sectors and 7 failure mode categories. Each dossier includes provisional ID, summary, failure modes, controls, evidence required, sources, source quality, confidence, severity, open questions, and recommendation.
+- **`FIRST_INCIDENT_CANDIDATE_REVIEW_TABLE.md`** — Summary review table for Control Tower: 10 Accept, 4 Postpone, 1 Reject.
+- **`FIRST_INCIDENT_SOURCE_REVIEW_NOTES.md`** — Source type analysis, license status review, candidates requiring primary source confirmation, no-external-dataset-import confirmation.
+- **`FIRST_INCIDENT_SELECTION_RECOMMENDATION.md`** — Final selection recommendation with diversity assessment, Tier 1–3 Accept rationale, Postpone/Reject reasoning, and T007 conditions.
+- **`work-items/T006-first-incident-candidate-dossier-preparation/`** — Work item folder with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, DECISIONS.md.
+
+### Changed
+
+- `README.md` — Added T006 dossier files to repository structure table.
+- `ROADMAP.md` — Marked T006 complete; updated T007 as next step with conditions.
+- `PROJECT_STATE.md` — Updated phase table, version, and active task status.
+- `NEXT_ACTIONS.md` — Advanced to T007; conditions for approval stated.
+- `REPO_INVENTORY.md` — All T006 files listed.
+- `docs/DECISION_LOG.md` — Added DEC-032 through DEC-037.
+
+### Confirmed
+
+- `data/incidents/` contains only `.gitkeep`. No incident records created in T006.
+- No product code, scraper, CLI, static site, or database created.
+- No external datasets imported or third-party content copied.
+
+---
+
 ## [0.2.4] - 19 May 2026
 
 ### Added

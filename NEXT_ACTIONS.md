@@ -6,7 +6,7 @@
 
 ## Execution Boundaries
 
-This repository is in the **dataset foundation** phase. T005 delivered schema/taxonomy JSON files, but no incident records exist yet. No product code, no scraper, no CLI, no static site, no database, no package managers, and no dependencies until later approved phases.
+This repository is in the **dataset foundation** phase. T006 delivered candidate dossiers for Control Tower review, but no incident records exist yet. No product code, no scraper, no CLI, no static site, no database, no package managers, and no dependencies until later approved phases.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -25,61 +25,49 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T003 — v0.2 draft contract review | Complete |
 | T004 — Dataset MVP Preparation | Complete |
 | T005 — Dataset MVP Schema and Taxonomy Files | Complete |
-| T006 — First Incident Candidate Dossier Preparation | **Next** (requires Control Tower approval) |
-| v0.3 Dataset MVP | Blocked until T006 dossier review and approval |
+| T006 — First Incident Candidate Dossier Preparation | Complete |
+| T007 — First Incident Record Creation Plan | **Next** (requires explicit Control Tower approval of T006 shortlist) |
+| v0.3 Dataset MVP | Blocked until T007 incident records created and approved |
 
 ---
 
-## Next Recommended Step: T006
+## Next Recommended Step: T007
 
-**T006 — First Incident Candidate Dossier Preparation.**
+**T007 — First Incident Record Creation Plan.**
 
-The next step after T005 is likely T006 — First Incident Candidate Dossier Preparation, but only after Control Tower approval.
+The next step after T006 is T007 — First Incident Record Creation Plan, but **only after explicit Control Tower approval of the T006 candidate dossier shortlist.**
 
-T006 is not final incident curation. It prepares candidate dossiers for 10–20 possible incidents using public source links and verification notes before any final incident records are created.
+T007 may create the first real incident records only if explicitly approved by Control Tower. Until then, `data/incidents/` must remain empty except `.gitkeep`.
 
-### T006 scope (proposed)
+### T007 pre-conditions (all must be met before T007 begins)
 
-1. **Candidate dossier preparation** for 10–20 possible incidents:
-   - candidate title;
-   - likely failure mode(s);
-   - likely sector;
-   - source link set;
-   - provisional confidence rationale.
+1. **Control Tower reviews and approves the T006 recommendation** in `FIRST_INCIDENT_SELECTION_RECOMMENDATION.md`.
+2. **Each of the 10 Accept candidates is individually confirmed** by Control Tower.
+3. **Source verification steps** per `SOURCE_VERIFICATION_WORKFLOW.md` completed for each record.
+4. **T007 formally initiated** by Control Tower.
 
-2. **Source verification notes** aligned with:
-   - `SOURCE_VERIFICATION_WORKFLOW.md`;
-   - `SOURCE_AND_CITATION_POLICY_DRAFT.md`;
-   - `LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md`.
+### T007 proposed scope
 
-3. **Control Tower review package**:
-   - shortlist and exclusions;
-   - source quality notes;
-   - unresolved risks per candidate.
+1. Assign `INC-XXXX` IDs to approved candidates.
+2. Create incident JSON files in `data/incidents/` using `schemas/incident.schema.json`.
+3. Validate each record against the schema.
+4. Update taxonomy and mapping files as needed.
+5. Update all lifecycle documents.
 
-4. **No final incident JSON creation** unless separately approved.
+### T007 constraints
 
-### T006 constraints
-
+- No records for Postponed or Rejected candidates.
 - No mass-imported data.
-- No real incident records committed during dossier prep.
-- No scraper, static site, CLI, or database.
-- No external repository cloning.
-- No third-party data copied.
+- Source verification completed per `SOURCE_VERIFICATION_WORKFLOW.md` before each record is committed.
+- Careful hedging language in all summaries.
+- No unsupported legal conclusions.
 
-### T006 prerequisites
+### T007 open risks to resolve
 
-Before T006 begins:
-- T005 outputs should be reviewed by Control Tower.
-- Pending license constraints for OECD, AIAAIC, and MIT tracker must still be respected.
-
-### T006 deliverables
-
-- Candidate dossier files (or a consolidated dossier document) for 10–20 potential incidents
-- Source verification notes for each candidate
-- Confidence/severity rationale notes
-- Control Tower review summary
-- Updated lifecycle docs as needed
+- FM-SEC coverage gap — no strong discrete production security/prompt-injection incident in the Accept set.
+- CAND-009 (NCII images) — victim privacy framing must be maintained.
+- `incident_date` precision limitation in v0.2 schema — may need a workaround for incidents with year/month only.
+- CAND-015 (EEOC hiring) — confirm whether a specific enforcement action citation is available.
 
 ---
 
@@ -114,7 +102,7 @@ The following tasks can be executed autonomously without Control Tower approval:
 
 The following tasks require Artem / Control Tower review before execution:
 
-- Starting T006.
+- Starting T007 (requires Control Tower approval of T006 dossier shortlist).
 - Starting v0.3 Dataset MVP.
 - Implementing any product code (scripts, automated tooling, application features).
 - Creating any incident records.
