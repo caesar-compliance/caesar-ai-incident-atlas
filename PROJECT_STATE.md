@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.4.1` |
-| Current phase | `dataset MVP — full 10-record batch complete` |
+| Current version | `0.5.0` |
+| Current phase | `minimal static prototype — local only` |
 | Status | `active` |
-| Latest completed task | `T011 — Dataset MVP Public Readiness Review` |
+| Latest completed task | `T012 — Minimal Static Site Prototype` |
 | Active work item | `none` |
-| Next recommended step | `T012 — Minimal Static Site Architecture Plan or Minimal Static Site Prototype (requires explicit Control Tower approval of T011 findings)` |
+| Next recommended step | `T013 — Static Site UX Polish or Public Deployment Plan (requires explicit Control Tower approval)` |
 
 ---
 
@@ -34,8 +34,10 @@
 | T009 Dataset MVP Review and QA Hardening | Complete | 19 May 2026 |
 | T010 Second-Wave Incident Record Batch | Complete | 19 May 2026 |
 | T011 Dataset MVP Public Readiness Review | Complete | 19 May 2026 |
+| T012 Minimal Static Site Prototype | Complete — local only, no deployment | 19 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete — 10 records (INC-0001 through INC-0010) | 19 May 2026 |
-| v0.4 Static Site | Planned | — |
+| v0.5 Static Site — local prototype | Complete — T012 | 19 May 2026 |
+| v0.5 Static Site — public deployment | Planned | — |
 | v0.5 Export Integration | Planned | — |
 | v1.0 Stable Public Release | Planned | — |
 | v1.x Governance OS Integration | Future | — |

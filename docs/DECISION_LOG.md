@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026 (T011 — DEC-078)
+**Last updated:** 19 May 2026 (T012 — DEC-082)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -969,3 +969,43 @@ T006 must not mass-import data and must not create final incident records unless
 **Decision:** T012 — Minimal Static Site Architecture Plan or Minimal Static Site Prototype — requires explicit Control Tower approval of T011 findings. If T012 produces a static prototype, it must not be publicly deployed without a further explicit Control Tower approval step.
 
 **Rationale:** Public deployment of the Caesar AI Incident Atlas carries reputational and legal implications. Each public-facing step requires deliberate Control Tower gate. See `MINIMAL_STATIC_SITE_SCOPE_DRAFT.md` for T012 options and hard constraints.
+
+---
+
+### [DEC-079] — 19 May 2026 — T012: Vanilla HTML/CSS/JS; No Framework
+
+**Status:** Approved
+
+**Decision:** The T012 prototype uses vanilla HTML, CSS, and JavaScript only. No React, Vue, Svelte, or any other frontend framework. No npm, no package.json, no build pipeline.
+
+**Rationale:** The dataset is 10 static JSON files. Vanilla JS fetch and DOM manipulation is sufficient, avoids all dependency surface, and is trivially auditable with no supply chain risk.
+
+---
+
+### [DEC-080] — 19 May 2026 — T012: Site at `site/`; Data at `data/`; Served from Repo Root
+
+**Status:** Approved
+
+**Decision:** Static prototype lives at `site/index.html`. Incident data remains at `data/incidents/`. Relative paths from `site/` use `../data/`. Server must run from repo root.
+
+**Rationale:** Keeps authoritative data in its canonical location. Avoids duplicating JSON files inside `site/`. The single-origin relative-path pattern works correctly with Python's built-in HTTP server.
+
+---
+
+### [DEC-081] — 19 May 2026 — T012: `incident-index.json` Is a Thin Index Only
+
+**Status:** Approved
+
+**Decision:** `data/incident-index.json` stores only display metadata (id, file path, title, date, sector, severity, confidence, failure_modes) — not full record content. Full records are loaded individually on demand.
+
+**Rationale:** Avoids sync drift between a duplicated summary and the canonical records. Keeps the index easy to maintain manually as records are added in future tasks.
+
+---
+
+### [DEC-082] — 19 May 2026 — T012: No Public Deployment; T013 Requires CT Approval
+
+**Status:** Approved
+
+**Decision:** The T012 prototype is local-only. No deployment config, no hosting config, and no CI/CD pipeline created. T013 — which may include public deployment planning — requires explicit Control Tower approval of the T012 prototype review.
+
+**Rationale:** Public deployment of the Caesar AI Incident Atlas requires legal/license review, domain decisions, and explicit governance approval. T012 is a proof-of-concept for local review only.

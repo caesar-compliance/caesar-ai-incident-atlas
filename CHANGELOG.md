@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.5.0] - 19 May 2026
+
+### Added
+
+- **T012 — Minimal Static Site Prototype.** Local-only vanilla HTML/CSS/JS prototype for browsing INC-0001–INC-0010. No framework, no build pipeline, no external dependencies, no deployment.
+- `data/incident-index.json` — thin index of 10 records with display metadata.
+- `site/index.html` — single-page prototype with incident list and expandable detail cards.
+- `site/assets/styles.css` — dark-mode governance dashboard styles.
+- `site/assets/app.js` — fetch + render + client-side filter logic (vanilla JS).
+- `site/README.md` — local preview instructions (`python3 -m http.server 8080`).
+- `work-items/T012-minimal-static-site-prototype/` — compact task docs.
+
+---
+
 ## [0.4.1] - 19 May 2026
 
 ### Added

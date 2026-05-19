@@ -6,7 +6,7 @@
 
 ## Execution Boundaries
 
-This repository is in the **dataset MVP — public readiness review complete** phase. T011 confirmed all 10 records are ready with caveats. No product code, no scraper, no CLI, no static site, no database, no package managers, and no dependencies until T012 is approved.
+This repository is in the **minimal static prototype — local only** phase. T012 created a local vanilla HTML/CSS/JS prototype for browsing INC-0001–INC-0010. No deployment. T013 requires explicit Control Tower approval before any public deployment.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -31,30 +31,35 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T009 — Dataset MVP Review and QA Hardening | Complete |
 | T010 — Second-Wave Incident Record Batch | Complete |
 | T011 — Dataset MVP Public Readiness Review | Complete |
-| T012 — Minimal Static Site Architecture Plan or Minimal Static Site Prototype | **Next** (requires explicit Control Tower approval of T011 findings) |
+| T012 — Minimal Static Site Prototype | Complete — local only |
+| T013 — Static Site UX Polish or Public Deployment Plan | **Next** (requires explicit Control Tower approval) |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated |
 
 ---
 
-## Next Recommended Step: T012
+## Next Recommended Step: T013
 
-**T012 — Minimal Static Site Architecture Plan or Minimal Static Site Prototype.**
+**T013 — Static Site UX Polish or Public Deployment Plan.**
 
-Only after explicit Control Tower review of T011 findings. See `MINIMAL_STATIC_SITE_SCOPE_DRAFT.md` for options A/B/C.
+Only after explicit Control Tower review of T012 prototype. Options:
 
-### T012 pre-conditions
+- **Option A — UX Polish:** Improve prototype (search, better mobile, accessibility, print view) — still local only.
+- **Option B — Deployment Plan:** Define hosting, domain, CI/CD, and legal review steps for public deployment.
+- **Option C — Combined:** Polish + deployment plan in one task.
 
-1. Control Tower reviews `DATASET_MVP_PUBLIC_READINESS_REVIEW.md` and confirms readiness.
-2. Control Tower confirms T012 scope (plan only / prototype / combined).
-3. Draft sector IDs labelling strategy confirmed.
-4. T012 formally initiated by Control Tower.
+### T013 pre-conditions
 
-### T012 constraints
+1. Control Tower reviews T012 prototype locally.
+2. Control Tower selects T013 scope (A/B/C).
+3. If public deployment: legal/license review and domain decision required first.
+4. T013 formally initiated by Control Tower.
 
-- No scraping, database, admin UI, external data import, or public deployment.
-- No server-side runtime.
+### T013 constraints
+
+- No public deployment without explicit CT approval.
 - No new incident records beyond INC-0010 without further CT approval.
-- Any static site build must not be publicly deployed without a further explicit CT approval step.
+- No database, backend, or server-side runtime without CT approval.
+- No external data import.
 
 ---
 
@@ -89,7 +94,7 @@ The following tasks can be executed autonomously without Control Tower approval:
 
 The following tasks require Artem / Control Tower review before execution:
 
-- Starting T012 (requires Control Tower approval of T011 findings).
+- Starting T013 (requires Control Tower approval of T012 prototype review).
 - Starting v0.3 Dataset MVP.
 - Implementing any product code (scripts, automated tooling, application features).
 - Creating any incident records.
