@@ -1,0 +1,25 @@
+{
+  "taxonomy": "controls",
+  "version": "0.2",
+  "last_updated": "19 May 2026",
+  "items": [
+    {"id": "CTL-DOC-001", "name": "AI system register", "category": "documentation_transparency", "status": "stable", "description": "Maintain a documented record for each AI system."},
+    {"id": "CTL-DOC-002", "name": "AI use disclosure", "category": "documentation_transparency", "status": "stable", "description": "Disclose AI use where required or appropriate."},
+    {"id": "CTL-OVER-001", "name": "Human review of AI outputs", "category": "human_oversight", "status": "stable", "description": "Human review before high-impact use of AI outputs."},
+    {"id": "CTL-OVER-002", "name": "Human approval for high-risk actions", "category": "human_oversight", "status": "stable", "description": "High-risk AI actions require explicit human approval."},
+    {"id": "CTL-TEST-001", "name": "Pre-deployment testing", "category": "testing_evaluation", "status": "stable", "description": "Test AI behavior before production use."},
+    {"id": "CTL-TEST-002", "name": "Bias testing", "category": "testing_evaluation", "status": "stable", "description": "Evaluate outputs for discriminatory patterns."},
+    {"id": "CTL-MON-001", "name": "Output monitoring", "category": "monitoring_logging", "status": "stable", "description": "Monitor outputs for drift and anomalies."},
+    {"id": "CTL-MON-003", "name": "Incident logging", "category": "monitoring_logging", "status": "stable", "description": "Log AI incidents and near-misses."},
+    {"id": "CTL-DATA-001", "name": "Data minimization", "category": "data_governance", "status": "stable", "description": "Use only necessary data for AI lifecycle tasks."},
+    {"id": "CTL-DATA-003", "name": "Data access controls", "category": "data_governance", "status": "stable", "description": "Restrict and log access to AI-relevant data."},
+    {"id": "CTL-VEN-001", "name": "Vendor review", "category": "vendor_third_party", "status": "stable", "description": "Review vendor terms and AI governance posture."},
+    {"id": "CTL-INC-001", "name": "Incident response plan", "category": "incident_response", "status": "stable", "description": "Maintain an AI incident response plan."},
+    {"id": "CTL-INC-003", "name": "Post-incident review", "category": "incident_response", "status": "stable", "description": "Run post-incident reviews and capture lessons."},
+    {"id": "CTL-RISK-001", "name": "Risk assessment", "category": "risk_assessment", "status": "stable", "description": "Document AI risk assessment before deployment."},
+    {"id": "CTL-AGENT-001", "name": "Agent scope definition", "category": "agent_governance", "status": "stable", "description": "Define and enforce explicit agent scope boundaries."},
+    {"id": "CTL-AGENT-002", "name": "Agent approval workflow", "category": "agent_governance", "status": "stable", "description": "Require approval workflow for high-risk agent actions."},
+    {"id": "CTL-AGENT-003", "name": "Agent activity logging", "category": "agent_governance", "status": "stable", "description": "Record agent actions, tool calls, and decisions."},
+    {"id": "CTL-ACCESS-001", "name": "Access controls", "category": "access_authorization", "status": "draft", "description": "Restrict AI system access to authorized roles only."}
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "taxonomy": "failure_modes",
+  "version": "0.2",
+  "last_updated": "19 May 2026",
+  "notes": "Caesar-native taxonomy. Stable categories are approved for v0.2. Draft entries are included only with explicit status labels.",
+  "items": [
+    {
+      "id": "FM-PRIV",
+      "name": "Privacy",
+      "status": "stable",
+      "description": "Unauthorized data exposure or misuse in AI workflows."
+    },
+    {
+      "id": "FM-BIAS",
+      "name": "Bias",
+      "status": "stable",
+      "description": "Discriminatory or unfair outcomes from AI behavior."
+    },
+    {
+      "id": "FM-HALL",
+      "name": "Hallucination",
+      "status": "stable",
+      "description": "Fabricated, false, or misleading AI outputs."
+    },
+    {
+      "id": "FM-SAFE",
+      "name": "Safety",
+      "status": "stable",
+      "description": "AI behavior that can contribute to physical or severe harm."
+    },
+    {
+      "id": "FM-SEC",
+      "name": "Security",
+      "status": "stable",
+      "description": "Prompt injection, jailbreak, or other security failures."
+    },
+    {
+      "id": "FM-UNAUTH",
+      "name": "Unauthorized Action",
+      "status": "stable",
+      "description": "AI action outside approved scope or oversight boundaries."
+    },
+    {
+      "id": "FM-TRANS",
+      "name": "Transparency",
+      "status": "stable",
+      "description": "Undisclosed AI use or inadequate explainability."
+    },
+    {
+      "id": "FM-REL",
+      "name": "Reliability",
+      "status": "draft",
+      "description": "System failures or inconsistent behavior. Use top-level FM-REL only in v0.2 records.",
+      "usage_note": "FM-REL sub-categories remain draft in v0.2."
+    },
+    {
+      "id": "FM-SEC-AGENT-001",
+      "name": "Prompt Injection via Tool Output",
+      "status": "stable",
+      "description": "Agent behavior manipulated through tool or connector responses."
+    },
+    {
+      "id": "FM-UNAUTH-AGENT-001",
+      "name": "Agent Scope Violation",
+      "status": "stable",
+      "description": "Agent executes actions outside its approved task scope."
+    },
+    {
+      "id": "FM-UNAUTH-AGENT-002",
+      "name": "Unauthorized Tool Use",
+      "status": "stable",
+      "description": "Agent uses tools/APIs that were not explicitly authorized."
+    },
+    {
+      "id": "FM-UNAUTH-AGENT-003",
+      "name": "Approval Bypass",
+      "status": "stable",
+      "description": "Agent takes high-risk actions without required human approval."
+    }
+  ]
+}

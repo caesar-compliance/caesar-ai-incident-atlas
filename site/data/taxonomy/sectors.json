@@ -1,0 +1,18 @@
+{
+  "taxonomy": "sectors",
+  "version": "0.2",
+  "last_updated": "19 May 2026",
+  "items": [
+    {"id": "healthcare-medical", "name": "Healthcare and medical", "status": "stable", "description": "Clinical and health service AI use cases."},
+    {"id": "finance-banking", "name": "Finance and banking", "status": "stable", "description": "Credit, fraud, trading, and financial decision AI use."},
+    {"id": "public-sector", "name": "Public sector and government", "status": "stable", "description": "Government service and public administration AI use."},
+    {"id": "hiring-employment", "name": "Hiring and employment", "status": "stable", "description": "Recruitment, screening, and employment AI use."},
+    {"id": "law-enforcement", "name": "Law enforcement and criminal justice", "status": "stable", "description": "Policing and justice-related AI applications."},
+    {"id": "education", "name": "Education", "status": "stable", "description": "Teaching, assessment, and learner support AI use."},
+    {"id": "media-content", "name": "Media and content", "status": "stable", "description": "Content generation, moderation, and recommendation AI."},
+    {"id": "retail-ecommerce", "name": "Retail and e-commerce", "status": "draft", "description": "Retail/customer experience AI use; fewer v0.2 incidents."},
+    {"id": "legal-compliance", "name": "Legal and compliance", "status": "stable", "description": "Legal workflows and compliance analysis AI use."},
+    {"id": "transportation-autonomous", "name": "Transportation and autonomous systems", "status": "draft", "description": "Autonomy/logistics AI use; limited v0.2 incident coverage."},
+    {"id": "general", "name": "General / cross-sector", "status": "stable", "description": "Used when no single sector clearly applies."}
+  ]
+}

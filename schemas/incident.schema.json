@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://caesar.no/schemas/incident.schema.json",
+  "title": "Caesar AI Incident Atlas Incident Record (v0.2)",
+  "type": "object",
+  "$comment": "Lenient v0.2 schema (DEC-018): only 11 fields are required. No real incident records are included in T005.",
+  "required": [
+    "incident_id",
+    "title",
+    "date",
+    "sources",
+    "summary",
+    "failure_modes",
+    "severity",
+    "confidence",
+    "controls",
+    "evidence_required",
+    "lessons"
+  ],
+  "properties": {
+    "incident_id": {
+      "type": "string",
+      "pattern": "^INC-[0-9]{4}$",
+      "description": "Sequential incident ID (INC-0001 format)."
+    },
+    "title": {
+      "type": "string",
+      "minLength": 5
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{1,2} [A-Z][a-z]+ [0-9]{4}$",
+      "description": "Date format: 19 May 2026"
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 20,
+      "description": "Original Caesar summary with careful wording."
+    },
+    "failure_modes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^FM-[A-Z0-9-]+$"
+      }
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "controls": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^CTL-[A-Z0-9-]+$"
+      }
+    },
+    "evidence_required": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 3
+      },
+      "$comment": "v0.2 uses free-text evidence strings (DEC-016)."
+    },
+    "lessons": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 5
+      },
+      "description": "Practical governance lesson(s) from the incident."
+    },
+    "sector": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "system_type": {
+      "type": "string"
+    },
+    "harms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "affected_stakeholders": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "impact": {
+      "type": "string",
+      "description": "Actual or potential consequences of the incident."
+    },
+    "related_incidents": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^INC-[0-9]{4}$"
+      }
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["url", "source_type", "accessed"],
+      "$comment": "Renamed from 'database' to 'source_type' in T008 (DEC-038). Enum expanded to accurately represent court records, government reports, tribunal decisions, and other primary source types used in v0.2 incident records.",
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "source_type": {
+          "type": "string",
+          "enum": [
+            "court_record",
+            "tribunal_decision",
+            "regulator_report",
+            "agency_report",
+            "company_statement",
+            "academic_paper",
+            "credible_media",
+            "public_database_pointer",
+            "other"
+          ]
+        },
+        "accessed": {
+          "type": "string",
+          "pattern": "^[0-9]{1,2} [A-Z][a-z]+ [0-9]{4}$"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}
