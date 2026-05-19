@@ -71,6 +71,12 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `RECORD_CREATION_QA_CHECKLIST.md` | QA checklist | 10-section, 50+ item checklist to complete before each incident record is committed. (T007) |
 | `T008_FIRST_RECORD_BATCH_RECOMMENDATION.md` | T008 recommendation | Recommended T008 scope, pre-conditions, ID sequence, schema rename requirement. (T007) |
 | `tools/validate_dataset.py` | QA script | Local dataset + site validator. Run: `python3 tools/validate_dataset.py` (T014). |
+| `tools/requirements.txt` | Python deps | `jsonschema>=4.0.0` for schema validation (T015). |
+| `STATIC_SITE_RC_REVIEW.md` | RC review | T015 RC review table (22 areas). Local RC verdict: PASS. |
+| `work-items/T015-static-site-release-candidate-hardening/TASK.md` | T015 task | Task scope checklist. |
+| `work-items/T015-static-site-release-candidate-hardening/VALIDATION.md` | T015 validation | Validation and constraint checklist. |
+| `work-items/T015-static-site-release-candidate-hardening/IMPLEMENTATION_REPORT.md` | T015 report | Concise final report. |
+| `work-items/T015-static-site-release-candidate-hardening/DECISIONS.md` | T015 decisions | 2 decisions: no fixes needed; requirements.txt floor version. |
 | `tools/README.md` | QA docs | Usage, check list, and requirements for the validator. |
 | `RELEASE_CANDIDATE_GATE.md` | RC gate | Pre-deployment checklist for CT review before any public deployment. |
 | `work-items/T014-local-qa-tooling-release-candidate-gate/TASK.md` | T014 task | Task scope checklist. |
@@ -107,7 +113,7 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | File | Role | Description |
 |---|---|---|
 | `docs/RESEARCH_CONTEXT.md` | Domain research | Strategic domain research, product type, main users, use cases, MVP scope, and future paid use cases. |
-| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-089). |
+| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-091). |
 | `docs/COMPETITOR_BENCHMARKS.md` | Competitor analysis | Detailed analysis of AI Incident Database, OECD AI Incidents Monitor, AIAAIC Repository, MIT AI Incident Tracker, and IBM AI Risk Atlas, with licensing notes and Caesar differentiation. |
 | `docs/FULL_SCALE_PRODUCT_BLUEPRINT.md` | Product blueprint | Comprehensive full-scale product blueprint covering all product dimensions, user journeys, and ecosystem integration. |
 | `docs/DATA_MODEL_DRAFT.md` | Data model | Incident data model and JSON schema draft covering all record types. Open questions listed for T003 resolution. |

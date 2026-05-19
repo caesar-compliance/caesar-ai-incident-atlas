@@ -6,7 +6,7 @@
 
 ## Execution Boundaries
 
-This repository is in the **local QA tooling + release candidate gate** phase. T014 added `tools/validate_dataset.py` (permanent local QA script) and `RELEASE_CANDIDATE_GATE.md` (pre-deployment checklist). T015 requires explicit Control Tower approval.
+This repository is in the **local release candidate hardened** phase. T015 completed the local RC gate: all dataset, site, and dependency checks pass. Public deployment requires explicit Control Tower approval (T016).
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -34,32 +34,34 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T012 — Minimal Static Site Prototype | Complete — local only |
 | T013 — Static Site Functional Completion | Complete — local functional MVP |
 | T014 — Local QA Tooling and Release Candidate Gate | Complete |
-| T015 — Static Site Release Candidate Review or Public Deployment Plan | **Next** (requires explicit Control Tower approval) |
+| T015 — Static Site Release Candidate Hardening | Complete — local RC PASS |
+| T016 — Public Deployment Plan | **Next** (requires explicit Control Tower approval) |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated |
 
 ---
 
-## Next Recommended Step: T015
+## Next Recommended Step: T016
 
-**T015 — Static Site Release Candidate Review or Public Deployment Plan.**
+**T016 — Public Deployment Plan.**
 
-Only after explicit Control Tower review of T014 outputs. Options:
+Only after explicit Control Tower review of T015 RC outputs. T016 should plan deployment but must not deploy publicly unless explicitly approved within T016 scope.
 
-- **Option A — Release Candidate Review:** Work through `RELEASE_CANDIDATE_GATE.md` checklist, resolve open risks, confirm legal/license review and domain decision. No deployment in T015.
-- **Option B — Public Deployment Plan:** Define hosting (Netlify / GitHub Pages / other), DNS, CI, and public URL. No actual deploy unless CT explicitly approves within T015.
-- **Option C — Combined:** RC review + deployment plan in one task, with optional deploy if CT approves.
+Suggested T016 scope:
 
-### T015 pre-conditions
+- **Option A — Deployment Plan only:** Define hosting provider (Netlify / GitHub Pages / other), domain, DNS, CI/CD pipeline, and public URL. No actual deploy.
+- **Option B — Deployment Plan + Deploy:** Plan and execute public deployment if CT explicitly approves within T016 scope.
 
-1. Control Tower reviews T013 local MVP and T014 QA outputs.
-2. Control Tower confirms `python3 tools/validate_dataset.py` passes locally.
-3. Control Tower reviews `RELEASE_CANDIDATE_GATE.md` and selects T015 scope.
-4. Legal and license review status confirmed.
-5. T015 formally initiated by Control Tower.
+### T016 pre-conditions
 
-### T015 constraints
+1. CT reviews `STATIC_SITE_RC_REVIEW.md` and `RELEASE_CANDIDATE_GATE.md`.
+2. CT confirms `python3 tools/validate_dataset.py` passes.
+3. Legal and license review formally completed for all 10 incident sources.
+4. Domain and hosting decision made.
+5. T016 formally initiated by Control Tower.
 
-- No public deployment without explicit CT approval in T015 scope.
+### T016 constraints
+
+- No public deployment without explicit CT approval in T016 scope.
 - No new incident records beyond INC-0010 without further CT approval.
 - No database, backend, or server-side runtime without CT approval.
 - No external data import.
@@ -97,7 +99,7 @@ The following tasks can be executed autonomously without Control Tower approval:
 
 The following tasks require Artem / Control Tower review before execution:
 
-- Starting T015 (requires Control Tower approval of T014 outputs and T013 local MVP review).
+- Starting T016 (requires Control Tower approval; review `STATIC_SITE_RC_REVIEW.md` and `RELEASE_CANDIDATE_GATE.md` first).
 - Starting v0.3 Dataset MVP.
 - Implementing any product code (scripts, automated tooling, application features).
 - Creating any incident records.

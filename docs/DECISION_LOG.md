@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026 (T014 — DEC-089)
+**Last updated:** 19 May 2026 (T015 — DEC-091)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -1079,3 +1079,23 @@ T006 must not mass-import data and must not create final incident records unless
 **Decision:** `RELEASE_CANDIDATE_GATE.md` is a human-reviewed checklist for Control Tower sign-off before public deployment. It is not enforced by any automated gate, CI pipeline, or merge check.
 
 **Rationale:** The project has no CI pipeline. Governance of the release decision belongs to the Control Tower, not to automated tooling.
+
+---
+
+### [DEC-090] — 19 May 2026 — T015: No Functional Site Changes Required at RC Gate
+
+**Status:** Approved
+
+**Decision:** T015 structural review and QA pass found no functional bugs in `site/index.html`, `app.js`, or `styles.css`. No site code changes were made.
+
+**Rationale:** Making changes without a confirmed defect introduces unnecessary diff noise at the RC gate. The site passed all 14 functional checks and the full `validate_dataset.py` suite cleanly.
+
+---
+
+### [DEC-091] — 19 May 2026 — T015: tools/requirements.txt Uses Floor Version (`>=4.0.0`), Not Pinned
+
+**Status:** Approved
+
+**Decision:** `tools/requirements.txt` specifies `jsonschema>=4.0.0`. No exact pin. No `pip freeze` lockfile.
+
+**Rationale:** The validator uses only stable Draft 2020-12 APIs available since jsonschema 4.0.0. A floor constraint avoids breakage on minor upgrades while preventing use of pre-Draft 2020-12 releases. A lockfile is unnecessary overhead for a local-only QA script.

@@ -50,10 +50,14 @@ Run the full dataset and site validator from the **repository root**:
 python3 tools/validate_dataset.py
 ```
 
-Requires `jsonschema`: `pip install jsonschema`
+Install dependencies first:
+
+```bash
+python3 -m pip install -r tools/requirements.txt
+```
 
 See `tools/README.md` for the full check list.
 
 ## Status
 
-T013 functional MVP — for local review only. Public deployment requires Control Tower approval (T015+).
+T015 local RC — all local checks pass. Public deployment requires Control Tower approval (T016+).

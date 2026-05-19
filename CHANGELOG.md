@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.5.3] - 19 May 2026
+
+### Added
+
+- **T015 — Static Site Release Candidate Hardening.** `tools/requirements.txt` (`jsonschema>=4.0.0`). `STATIC_SITE_RC_REVIEW.md`: full 22-area RC review table — local RC verdict PASS. Updated `RELEASE_CANDIDATE_GATE.md` with T015 check completions (18 of 22 items satisfied locally; 3 governance items block public deployment). No functional site changes required.
+
+---
+
 ## [0.5.2] - 19 May 2026
 
 ### Added

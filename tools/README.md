@@ -33,7 +33,13 @@ python3 tools/validate_dataset.py
 ### Requirements
 
 - Python 3.8+
-- `jsonschema` package for schema validation: `pip install jsonschema`
+- `jsonschema` package for schema validation:
+
+```bash
+python3 -m pip install -r tools/requirements.txt
+```
+
+Or directly: `pip install jsonschema`
 
 ### Exit codes
 
