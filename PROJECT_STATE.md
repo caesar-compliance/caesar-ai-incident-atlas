@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.5.5` |
-| Current phase | `static publish package ready — site/ self-contained, awaiting CT legal review + hosting decision` |
+| Current version | `0.5.6` |
+| Current phase | `deployment readiness gate closed — awaiting CT source/legal review, hosting decision, and explicit approval` |
 | Status | `active` |
-| Latest completed task | `T018A — Public Release Gate Review Pack` |
+| Latest completed task | `T019 — Public Release Gate Closure + Deployment Readiness Branch` |
 | Active work item | `none` |
-| Next recommended step | `CT review of PUBLIC_RELEASE_REVIEW_PACK.md; completion of G-01 through G-12` |
+| Next recommended step | `CT review of PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md and DEPLOYMENT_READINESS_CHECKLIST.md; complete G-01 through G-10; issue G-12 approval` |
 
 ---
 
@@ -41,6 +41,7 @@
 | T016 Public Deployment Plan | Complete — planning only, no config, no deploy | 19 May 2026 |
 | T017 Static Publish Package Preparation | Complete — site/ self-contained, path fix applied | 20 May 2026 |
 | T018A Public Release Gate Review Pack | Complete — review materials prepared, NO-GO preserved | 20 May 2026 |
+| T019 Public Release Gate Closure | Complete — gate evidence consolidated, deployment readiness documented, NO-GO preserved | 20 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete — 10 records (INC-0001 through INC-0010) | 19 May 2026 |
 | v0.5 Static Site — local prototype | Complete — T012 | 19 May 2026 |
 | v0.5.1 Static Site — local functional MVP | Complete — T013 | 19 May 2026 |
@@ -48,6 +49,7 @@
 | v0.5.3 Local release candidate | Complete — T015 | 19 May 2026 |
 | v0.5.4 Public deployment plan | Complete — T016 | 19 May 2026 |
 | v0.5.5 Static publish package | Complete — T017 | 20 May 2026 |
+| v0.5.6 Deployment readiness gate closure | Complete — T019 | 20 May 2026 |
 | v0.5 Static Site — public deployment | Blocked — G-12 | Pending CT approval |
 | v0.5 Export Integration | Planned | — |
 | v1.0 Stable Public Release | Planned | — |

@@ -39,11 +39,16 @@ G-12 (CT approval) is a hard blocker. G-01, G-02, G-03, and G-10 remain pending.
 
 **Review Pack Available:** See `PUBLIC_RELEASE_REVIEW_PACK.md` for detailed source/license review table, wording/legal-risk review table, and manual browser smoke-test checklist for G-10 completion.
 
+**Gate Closure Report (T019):** See `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md` for consolidated evidence assessment — G-01/G-02 reviewed and ready for CT sign-off, G-03 hosting recommendation table, G-10 static checks and manual checklist, remaining blocker table.
+
+**Deployment Readiness Checklist (T019):** See `DEPLOYMENT_READINESS_CHECKLIST.md` for pre-deploy checks, deploy option steps (GitHub Pages / Cloudflare Pages / Netlify), what must not be exposed, rollback steps, and exact approval phrase required.
+
 ---
 
 ## Path to Go
 
-1. CT completes or delegates source/license review (G-01, G-02).
-2. CT confirms domain and hosting (G-03).
-3. Manual browser DevTools smoke test (G-10).
-4. CT issues explicit approval (G-12).
+1. CT reviews `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md` and `DEPLOYMENT_READINESS_CHECKLIST.md`.
+2. CT completes or delegates source/licence review (G-01, G-02).
+3. CT confirms domain and hosting (G-03).
+4. Manual browser DevTools smoke test completed and signed off (G-10).
+5. CT issues explicit approval (G-12): `"Approve public deployment"`.

@@ -6,7 +6,7 @@
 
 ## Execution Boundaries
 
-This repository is in the **static publish package ready** phase. T017 made `site/` self-contained (data path fix applied, internal docs excluded). Public deployment remains blocked until legal/license review, hosting decision, and explicit CT approval.
+This repository is in the **deployment readiness gate closed** phase. T019 consolidated gate evidence, completed static validation, and documented deployment readiness. Public deployment remains blocked until CT source/legal review, hosting decision, browser smoke test, and explicit CT approval.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -38,24 +38,29 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T016 — Public Deployment Plan | Complete — planning only, no deployment |
 | T017 — Static Publish Package Preparation | Complete — site/ self-contained |
 | T018A — Public Release Gate Review Pack | Complete — review materials prepared |
+| T019 — Public Release Gate Closure | Complete — gate evidence consolidated, deployment readiness documented |
 | T018B — Public Deployment Configuration | **Blocked** — requires CT G-12 approval |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated |
 
 ---
 
-## Next Recommended Step: Control Tower Review
+## Next Recommended Step: Control Tower Review of Gate Closure Pack
 
 **Public deployment remains BLOCKED until Control Tower completes review.**
 
-**T018A** prepared review materials for CT assessment:
-- `PUBLIC_RELEASE_REVIEW_PACK.md` — source/license review table, wording/legal-risk review table, G-10 checklist, CT sign-off checklist
+**T019** consolidated gate evidence and deployment readiness:
+- `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md` — G-01/G-02 evidence assessment, G-03 hosting recommendation, G-10 static checks + manual checklist, remaining blocker table
+- `DEPLOYMENT_READINESS_CHECKLIST.md` — pre-deploy checks, deploy steps A/B/C, what must not be exposed, rollback steps, exact approval phrase required
+
+**T018A** review pack remains the source for detailed tables:
+- `PUBLIC_RELEASE_REVIEW_PACK.md` — source/licence review table, wording/legal-risk review table
 
 **Remaining gates before any deployment:**
 
-1. **G-01** — Legal/license review: CT confirms all 10 source URLs cleared
+1. **G-01** — Legal/licence review: CT confirms all 10 source URLs cleared
 2. **G-02** — Wording/legal risk review: CT or counsel reviews record summaries  
 3. **G-03** — Hosting/domain decision: CT selects from `HOSTING_OPTION_MATRIX.md`
-4. **G-10** — Manual browser smoke test with DevTools
+4. **G-10** — Manual browser smoke test with DevTools (14-step checklist in `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md §5`)
 5. **G-12** — **CT explicit approval:** Artem issues `"Approve public deployment"`
 
 **T018B** (Deployment Configuration) will only begin after:
@@ -63,7 +68,6 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 - CT explicitly approves public deployment (G-12)
 - CT selects hosting provider and confirms domain
 
-See `PUBLIC_RELEASE_REVIEW_PACK.md` for detailed review tables.
 See `PUBLICATION_RISK_GATE.md` for current gate status (7 pass, 4 pending, 1 blocker).
 
 ---

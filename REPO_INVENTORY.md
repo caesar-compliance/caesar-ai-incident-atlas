@@ -79,10 +79,16 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `PUBLICATION_RISK_GATE.md` | Risk gate | 12-criterion go/no-go table for public deployment (T016). |
 | `T017_DEPLOYMENT_IMPLEMENTATION_RECOMMENDATION.md` | T017 plan | Step-by-step recommendation for T017 deployment config (T016). Superseded note added in T018A. |
 | `PUBLIC_RELEASE_REVIEW_PACK.md` | Review pack | Public release gate review materials: source/license review, wording/legal-risk review, G-10 checklist, CT sign-off checklist (T018A). |
+| `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md` | Gate closure report | Consolidated gate evidence: release state table, G-01/G-02 source and wording evidence assessments, G-03 hosting recommendation, G-10 static checks + manual checklist, remaining blocker table, NO-GO statement (T019). |
+| `DEPLOYMENT_READINESS_CHECKLIST.md` | Deployment readiness checklist | Pre-deploy technical and governance checks, deploy options A/B/C (GitHub Pages/Cloudflare Pages/Netlify), what must not be exposed, rollback steps, exact approval phrase required (T019). |
 | `work-items/T018A-public-release-gate-review-pack/TASK.md` | T018A task | Task scope checklist. |
 | `work-items/T018A-public-release-gate-review-pack/VALIDATION.md` | T018A validation | Validation and constraint checklist. |
 | `work-items/T018A-public-release-gate-review-pack/IMPLEMENTATION_REPORT.md` | T018A report | Concise final report. |
 | `work-items/T018A-public-release-gate-review-pack/DECISIONS.md` | T018A decisions | 3 decisions: version bump deferred, review pack scope, deployment config deferred. |
+| `work-items/T019-public-release-gate-readiness/TASK.md` | T019 task | Task scope checklist. |
+| `work-items/T019-public-release-gate-readiness/VALIDATION.md` | T019 validation | Automated and constraint validation checklist. |
+| `work-items/T019-public-release-gate-readiness/IMPLEMENTATION_REPORT.md` | T019 report | Concise final report. |
+| `work-items/T019-public-release-gate-readiness/DECISIONS.md` | T019 decisions | 7 decisions (DEC-101 through DEC-107): G-01/G-02 assessment status, G-10 static-only approach, version bump, hosting recommendation, PUBLICATION_RISK_GATE NO-GO preserved, no deployment config, branch name. |
 | `work-items/T016-public-deployment-plan/TASK.md` | T016 task | Task scope checklist. |
 | `work-items/T016-public-deployment-plan/VALIDATION.md` | T016 validation | Validation and constraint checklist. |
 | `work-items/T016-public-deployment-plan/IMPLEMENTATION_REPORT.md` | T016 report | Concise final report. |

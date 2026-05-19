@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.5.6] - 20 May 2026
+
+### Added
+
+- **T019 — Public Release Gate Closure + Deployment Readiness Branch.** `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md`: consolidated gate evidence — current release state table, G-01/G-02 source and wording evidence assessments (evidence reviewed, CT sign-off required), G-03 hosting recommendation table, G-10 static file-level checks + 14-step manual browser checklist, remaining blocker table, explicit NO-GO statement, no-legal-advice disclaimer. `DEPLOYMENT_READINESS_CHECKLIST.md`: pre-deploy technical and governance checks, deploy steps for GitHub Pages/Cloudflare Pages/Netlify, what must not be exposed, rollback steps, and exact approval phrase required (`"Approve public deployment"`). Created `work-items/T019-public-release-gate-readiness/` with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, DECISIONS.md (DEC-101 through DEC-107). Updated `PROJECT_STATE.md` (v0.5.6), `NEXT_ACTIONS.md`, `PUBLICATION_RISK_GATE.md` (references added, NO-GO preserved), `RELEASE_CANDIDATE_GATE.md` (T019 status note), `REPO_INVENTORY.md`. Branch: `release/T019-public-release-gate-readiness`. No deployment. No approval. NO-GO status preserved.
+
+### Validation (T019)
+
+- `python3 tools/validate_dataset.py` — exits 0; all checks passed; 10 records; 18 site files.
+- `grep -R "../data/" site/assets/app.js site/index.html site/README.md` — empty (clean).
+- `find site -maxdepth 3 -type f | sort` — 18 files confirmed.
+- `find site -maxdepth 4 \( -name "CNAME" -o -path "*/.github/*" -o -path "*/work-items/*" -o -path "*/docs/*" \)` — empty (clean).
+
+---
+
 ## [0.5.5] - 20 May 2026
 
 ### Added
