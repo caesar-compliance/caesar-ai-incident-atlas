@@ -1,8 +1,8 @@
 # Architecture — caesar-ai-incident-atlas
 
 **Last updated:** 19 May 2026
-**Version:** 0.2.0 (blueprint)
-**Status:** Documentation and blueprint phase
+**Version:** 0.2.4 (dataset foundation)
+**Status:** T005 foundation files created (schema and taxonomy), no incident records yet
 
 ---
 
@@ -210,7 +210,14 @@ caesar-ai-incident-atlas/
     └── .gitkeep
 ```
 
-This structure is planned and not yet implemented in the repository. T004 produced preparation and safety documentation only (`DATASET_MVP_IMPLEMENTATION_PLAN.md`, `FIRST_INCIDENT_SELECTION_CRITERIA.md`, `SOURCE_VERIFICATION_WORKFLOW.md`, `LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md`). Schema files, taxonomy files, and incident records are deferred to T005/v0.3 after Control Tower approval.
+Implementation status after T005:
+
+- `schemas/incident.schema.json` exists.
+- `data/taxonomy/` contains machine-readable taxonomy JSON files.
+- `docs/validation/DATASET_MVP_VALIDATION_PLAN.md` exists.
+- `data/incidents/` exists but remains empty (only `.gitkeep`).
+
+No real incident records are created in T005.
 
 ---
 

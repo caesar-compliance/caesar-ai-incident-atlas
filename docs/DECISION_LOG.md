@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026 (updated T004)
+**Last updated:** 19 May 2026 (updated T005)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -427,3 +427,67 @@ T005 scope (proposed):
 T005 must not create real incident records unless separately approved.
 
 **Rationale:** The schema and taxonomy files are the prerequisite for incident record creation. They must be created and validated before any incident records are curated. T005 is a lower-risk step than incident curation because it does not involve external data or source verification. Separating schema creation (T005) from incident curation (v0.3) allows the schema to be reviewed and approved before any records are created against it.
+
+---
+
+### [DEC-028] — 19 May 2026 — T005 Incident Schema Uses Lenient 11-Field Contract
+
+**Status:** Approved
+
+**Decision:** `schemas/incident.schema.json` is implemented as a lenient v0.2 schema requiring only the 11 fields defined in DEC-018 and `V0_2_FIELD_PRIORITY_TABLE.md`.
+
+The schema enforces:
+- `incident_id` pattern `INC-0001`;
+- source fields (`url`, `database`, `accessed`) as required in each source entry;
+- severity enum (`low`, `medium`, `high`, `critical`);
+- confidence enum (`low`, `medium`, `high`);
+- `failure_modes` and `controls` ID prefix patterns;
+- free-text `evidence_required` for v0.2.
+
+**Rationale:** This preserves contract stability, avoids overfitting, and keeps curation practical for the first dataset phase.
+
+---
+
+### [DEC-029] — 19 May 2026 — T005 Taxonomy Files Use Stable-First Entries with Explicit Draft Status
+
+**Status:** Approved
+
+**Decision:** T005 taxonomy JSON files in `data/taxonomy/` are created with Caesar-native IDs and concise descriptions. Entries use explicit `status` markers (`stable` or `draft`) where relevant.
+
+Files created:
+- `failure_modes.json`
+- `controls.json`
+- `evidence_types.json`
+- `sectors.json`
+- `confidence_levels.json`
+- `severity_levels.json`
+
+**Rationale:** Stable-first taxonomy supports immediate schema alignment while preserving caution around draft areas from `V0_2_TAXONOMY_REVIEW.md`.
+
+---
+
+### [DEC-030] — 19 May 2026 — `data/incidents/` Remains Empty in T005
+
+**Status:** Approved
+
+**Decision:** `data/incidents/` is created with `.gitkeep` only. No real incident records, no fake records, and no sample placeholders are created in T005.
+
+**Rationale:** T005 is limited to schema/taxonomy/validation foundation work. Incident content curation is deferred to later approval-gated steps.
+
+---
+
+### [DEC-031] — 19 May 2026 — T006 Is the Next Likely Step After T005
+
+**Status:** Approved
+
+**Decision:** The next step after T005 is likely T006 — First Incident Candidate Dossier Preparation, only after Control Tower approval.
+
+T006 scope should include candidate dossier preparation for 10–20 possible incidents with:
+- public source links;
+- source verification notes;
+- provisional confidence/severity rationale;
+- Control Tower review package.
+
+T006 must not mass-import data and must not create final incident records unless separately approved.
+
+**Rationale:** Dossier-first sequencing preserves source-quality and license-safety gates before committing incident records.

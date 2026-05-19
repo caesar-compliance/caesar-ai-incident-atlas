@@ -6,7 +6,7 @@
 
 ## Execution Boundaries
 
-This repository is in the **documentation and blueprint** phase. No product code, no executable schemas, no incident records, no package managers, no dependencies until T005 is complete and v0.3 Dataset MVP is approved by the Control Tower.
+This repository is in the **dataset foundation** phase. T005 delivered schema/taxonomy JSON files, but no incident records exist yet. No product code, no scraper, no CLI, no static site, no database, no package managers, and no dependencies until later approved phases.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -24,67 +24,62 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T002 — Clean-room acceleration policy | Complete |
 | T003 — v0.2 draft contract review | Complete |
 | T004 — Dataset MVP Preparation | Complete |
-| T005 — Dataset MVP Schema and Taxonomy Files | **Next** (requires Control Tower approval) |
-| v0.3 Dataset MVP | Blocked until T005 complete and approved |
+| T005 — Dataset MVP Schema and Taxonomy Files | Complete |
+| T006 — First Incident Candidate Dossier Preparation | **Next** (requires Control Tower approval) |
+| v0.3 Dataset MVP | Blocked until T006 dossier review and approval |
 
 ---
 
-## Next Recommended Step: T005
+## Next Recommended Step: T006
 
-**T005 — Dataset MVP Schema and Taxonomy Files.**
+**T006 — First Incident Candidate Dossier Preparation.**
 
-The next step after T004 is likely T005 — Dataset MVP Schema and Taxonomy Files, but only after Control Tower approval of T004.
+The next step after T005 is likely T006 — First Incident Candidate Dossier Preparation, but only after Control Tower approval.
 
-T005 is not the Dataset MVP itself. It creates the schema and taxonomy files that are the prerequisite for incident record creation. No real incident records are created in T005 unless separately approved.
+T006 is not final incident curation. It prepares candidate dossiers for 10–20 possible incidents using public source links and verification notes before any final incident records are created.
 
-### T005 scope (proposed)
+### T006 scope (proposed)
 
-1. **JSON Schema files** — create the three schema files defined in `DATASET_MVP_IMPLEMENTATION_PLAN.md` section 4, step 1:
-   - `schemas/incident.schema.json` — validates incident records against the 11 required fields
-   - `schemas/taxonomy.schema.json` — validates taxonomy records
-   - `schemas/export.schema.json` — validates the caesar-ai-evidence export format
+1. **Candidate dossier preparation** for 10–20 possible incidents:
+   - candidate title;
+   - likely failure mode(s);
+   - likely sector;
+   - source link set;
+   - provisional confidence rationale.
 
-2. **Taxonomy JSON files** — create the four taxonomy files defined in `DATASET_MVP_IMPLEMENTATION_PLAN.md` section 4, step 2:
-   - `data/taxonomy/failure-modes.json` — all FM- IDs from TAXONOMY_DRAFT.md
-   - `data/taxonomy/controls.json` — all CTL- IDs from TAXONOMY_DRAFT.md
-   - `data/taxonomy/evidence-types.json` — all EV- IDs from TAXONOMY_DRAFT.md
-   - `data/taxonomy/sectors.json` — all sector IDs from TAXONOMY_DRAFT.md
+2. **Source verification notes** aligned with:
+   - `SOURCE_VERIFICATION_WORKFLOW.md`;
+   - `SOURCE_AND_CITATION_POLICY_DRAFT.md`;
+   - `LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md`.
 
-3. **Mapping files** — create the two supplementary mapping files:
-   - `data/mappings/control-evidence.json` — control → evidence mappings
+3. **Control Tower review package**:
+   - shortlist and exclusions;
+   - source quality notes;
+   - unresolved risks per candidate.
 
-4. **Validation documentation** — document how to validate incident records against the schemas.
+4. **No final incident JSON creation** unless separately approved.
 
-5. **Folder structure** — create the `data/`, `schemas/`, and `exports/` directories with `.gitkeep` files.
+### T006 constraints
 
-### T005 constraints
-
-- No real incident records.
-- No product code beyond schema and taxonomy JSON files.
+- No mass-imported data.
+- No real incident records committed during dossier prep.
 - No scraper, static site, CLI, or database.
 - No external repository cloning.
 - No third-party data copied.
 
-### T005 prerequisites
+### T006 prerequisites
 
-Before T005 begins:
-- T004 must be approved by Control Tower.
-- License verifications for OECD, AIAAIC, and MIT tracker should be completed (see `LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md` section 6).
+Before T006 begins:
+- T005 outputs should be reviewed by Control Tower.
+- Pending license constraints for OECD, AIAAIC, and MIT tracker must still be respected.
 
-### T005 deliverables
+### T006 deliverables
 
-- `schemas/incident.schema.json`
-- `schemas/taxonomy.schema.json`
-- `schemas/export.schema.json`
-- `data/taxonomy/failure-modes.json`
-- `data/taxonomy/controls.json`
-- `data/taxonomy/evidence-types.json`
-- `data/taxonomy/sectors.json`
-- `data/mappings/control-evidence.json`
-- `exports/.gitkeep`
-- Validation documentation
-- Updated README.md, ARCHITECTURE.md, ROADMAP.md, PROJECT_STATE.md, NEXT_ACTIONS.md, CHANGELOG.md, REPO_INVENTORY.md, DECISION_LOG.md
-- `work-items/T005-dataset-mvp-schema-taxonomy/` — work item folder
+- Candidate dossier files (or a consolidated dossier document) for 10–20 potential incidents
+- Source verification notes for each candidate
+- Confidence/severity rationale notes
+- Control Tower review summary
+- Updated lifecycle docs as needed
 
 ---
 
@@ -119,9 +114,9 @@ The following tasks can be executed autonomously without Control Tower approval:
 
 The following tasks require Artem / Control Tower review before execution:
 
-- Starting T005.
+- Starting T006.
 - Starting v0.3 Dataset MVP.
-- Implementing any product code (schemas, scripts, data files).
+- Implementing any product code (scripts, automated tooling, application features).
 - Creating any incident records.
 - Selecting incident sources and verifying data licenses.
 - Choosing the static site generator technology.
@@ -132,15 +127,16 @@ The following tasks require Artem / Control Tower review before execution:
 
 ## Blocked Tasks
 
-- v0.3 Dataset MVP — blocked until T005 is complete and approved.
-- Incident record creation — blocked until T005 schema files are approved and source verification workflow is followed.
-- Executable schema implementation — blocked until T005 is approved.
+- v0.3 Dataset MVP — blocked until T006 dossier shortlist is approved.
+- Incident record creation — blocked until T006 is approved and workflow gates are passed.
+- Any mass import or scraping workflow — blocked unless separately approved.
 
 ---
 
 ## Cross-Repository Coordination Notes
 
-- Incident export format must be compatible with `caesar-ai-evidence` incident-mapping schema. Verify compatibility in T005.
+- Incident export format must be compatible with `caesar-ai-evidence` incident-mapping schema. Maintain compatibility in future schema updates.
+- T005 schema/taxonomy files exist; keep changes backward-compatible unless a new decision is approved.
 - Future Governance OS integration requires stable incident IDs (INC-0001 format) and taxonomy IDs — locked in v0.2 contract.
 - Do not edit `caesar-ai-evidence` or any sibling repository from this repository.
 - AIID CC BY-SA 4.0 ShareAlike clause must be reviewed before any direct AIID data import. See `LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md` section 2.1.

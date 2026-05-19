@@ -7,6 +7,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.2.4] - 19 May 2026
+
+### Added
+
+- **Dataset MVP Schema and Taxonomy Files (T005).** Created machine-readable dataset foundation artifacts without creating incident records.
+- **`schemas/incident.schema.json`** — v0.2 lenient incident schema with 11 required fields, `INC-0001` ID format, source field requirements (`url`, `database`, `accessed`), confidence/severity enums, and free-text `evidence_required` for v0.2.
+- **Taxonomy JSON files in `data/taxonomy/`:**
+  - `failure_modes.json`
+  - `controls.json`
+  - `evidence_types.json`
+  - `sectors.json`
+  - `confidence_levels.json`
+  - `severity_levels.json`
+- **Foundation directories and placeholders:** `data/`, `data/incidents/.gitkeep`, `data/taxonomy/.gitkeep`, `schemas/.gitkeep`, `docs/validation/.gitkeep`.
+- **Validation documentation:** `docs/validation/DATASET_MVP_VALIDATION_PLAN.md`.
+- **work-items/T005-dataset-mvp-schema-taxonomy-files/** — work item folder with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, and DECISIONS.md.
+- **docs/DECISION_LOG.md** — added DEC-028 through DEC-031 for schema strictness alignment, taxonomy status handling, incidents-folder emptiness, and T006 sequencing.
+
+### Changed
+
+- **README.md** — updated project status and repository structure to include T005 schema/taxonomy/validation artifacts.
+- **SPEC.md** — updated to 0.2.4 dataset foundation status and revised MVP scope to include T005 outputs.
+- **ARCHITECTURE.md** — updated status and implementation-state section to reflect T005 artifacts and empty incidents directory.
+- **ROADMAP.md** — T005 marked complete; T006 added as next likely approval-gated step.
+- **PROJECT_STATE.md** — updated to version 0.2.4 and latest completed task T005.
+- **NEXT_ACTIONS.md** — now points to T006 as likely next step after T005; includes dossier-first constraints and no mass import rule.
+- **REPO_INVENTORY.md** — updated with all newly created T005 files and directories.
+
+### Constraints confirmation
+
+- No real incident records were created in T005.
+- No fake/sample incident records were created.
+- No scraper, CLI, static site, database, or product code artifacts were created.
+- No external repositories were cloned.
+- No third-party files/data/code were copied into the repository.
+
+---
+
 ## [0.2.3] - 19 May 2026
 
 ### Added

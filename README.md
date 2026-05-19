@@ -26,8 +26,8 @@ The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](
 
 ## Project Status
 
-> This repository is currently in the **documentation and blueprint** stage.
-> The incident dataset, taxonomy, and static site are planned for subsequent development phases.
+> This repository is currently in the **documentation + dataset foundation** stage.
+> T005 created the MVP schema and taxonomy foundation files, but no incident records exist yet.
 > See [ROADMAP.md](ROADMAP.md) for the full phase plan.
 
 ---
@@ -162,6 +162,14 @@ Related repositories:
 | [FIRST_INCIDENT_SELECTION_CRITERIA.md](FIRST_INCIDENT_SELECTION_CRITERIA.md) | Selection criteria for the first 10–20 incidents (T004) |
 | [SOURCE_VERIFICATION_WORKFLOW.md](SOURCE_VERIFICATION_WORKFLOW.md) | Step-by-step source verification workflow for incident curation (T004) |
 | [LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md](LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md) | License and source safety checks; verified/pending source status (T004) |
+| [schemas/incident.schema.json](schemas/incident.schema.json) | Incident record schema (lenient v0.2, created in T005) |
+| [data/taxonomy/failure_modes.json](data/taxonomy/failure_modes.json) | Failure mode taxonomy JSON (T005) |
+| [data/taxonomy/controls.json](data/taxonomy/controls.json) | Controls taxonomy JSON (T005) |
+| [data/taxonomy/evidence_types.json](data/taxonomy/evidence_types.json) | Evidence types taxonomy JSON (T005) |
+| [data/taxonomy/sectors.json](data/taxonomy/sectors.json) | Sector taxonomy JSON (T005) |
+| [data/taxonomy/confidence_levels.json](data/taxonomy/confidence_levels.json) | Confidence level taxonomy JSON (T005) |
+| [data/taxonomy/severity_levels.json](data/taxonomy/severity_levels.json) | Severity level taxonomy JSON (T005) |
+| [docs/validation/DATASET_MVP_VALIDATION_PLAN.md](docs/validation/DATASET_MVP_VALIDATION_PLAN.md) | Dataset MVP validation plan (T005) |
 | [docs/RESEARCH_CONTEXT.md](docs/RESEARCH_CONTEXT.md) | Domain research and strategic context |
 | [docs/DECISION_LOG.md](docs/DECISION_LOG.md) | Architectural and strategic decisions |
 | [docs/COMPETITOR_BENCHMARKS.md](docs/COMPETITOR_BENCHMARKS.md) | Detailed competitor and benchmark analysis |

@@ -30,6 +30,17 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `FIRST_INCIDENT_SELECTION_CRITERIA.md` | Incident selection criteria | Defines how the first 10–20 incidents should be selected; suitability criteria; source quality requirements; preferred failure mode and sector diversity; exclusion rules; how to avoid sensationalism and unsupported legal conclusions. |
 | `SOURCE_VERIFICATION_WORKFLOW.md` | Source verification workflow | Step-by-step workflow for verifying sources before creating an incident record; source intake process; minimum source requirements; primary vs secondary source treatment; citation fields; confidence levels; disputed incident handling; careful wording rules; source review checklist; rejection and postponement rules. |
 | `LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md` | License and source safety checklist | How to check source and dataset license status before use; treatment of AIID (CC BY-SA 4.0 — verified), IBM AI Atlas Nexus (Apache-2.0 — verified), OECD (pending), AIAAIC (pending), MIT tracker (pending); default rule (no external dataset import without separate approval); pages requiring manual verification. |
+| `data/.gitkeep` | Directory placeholder | Preserves the `data/` directory in git. |
+| `data/incidents/.gitkeep` | Empty incidents placeholder | Preserves `data/incidents/` while ensuring no incident records are committed in T005. |
+| `data/taxonomy/.gitkeep` | Taxonomy directory placeholder | Preserves `data/taxonomy/` directory in git. |
+| `data/taxonomy/failure_modes.json` | Failure mode taxonomy | Machine-readable failure mode taxonomy with stable/draft status markers for v0.2. |
+| `data/taxonomy/controls.json` | Control taxonomy | Machine-readable control taxonomy baseline for v0.2 mapping. |
+| `data/taxonomy/evidence_types.json` | Evidence type taxonomy | Machine-readable evidence type registry baseline for v0.2. |
+| `data/taxonomy/sectors.json` | Sector taxonomy | Machine-readable sector taxonomy with stable/draft markers. |
+| `data/taxonomy/confidence_levels.json` | Confidence levels | Machine-readable confidence level reference (`low`, `medium`, `high`). |
+| `data/taxonomy/severity_levels.json` | Severity levels | Machine-readable severity level reference (`low`, `medium`, `high`, `critical`). |
+| `schemas/.gitkeep` | Schema directory placeholder | Preserves `schemas/` directory in git. |
+| `schemas/incident.schema.json` | Incident schema | Lenient v0.2 JSON Schema with 11 required fields and source/citation constraints. |
 
 ---
 
@@ -38,12 +49,14 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | File | Role | Description |
 |---|---|---|
 | `docs/RESEARCH_CONTEXT.md` | Domain research | Strategic domain research, product type, main users, use cases, MVP scope, and future paid use cases. |
-| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-027). |
+| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-031). |
 | `docs/COMPETITOR_BENCHMARKS.md` | Competitor analysis | Detailed analysis of AI Incident Database, OECD AI Incidents Monitor, AIAAIC Repository, MIT AI Incident Tracker, and IBM AI Risk Atlas, with licensing notes and Caesar differentiation. |
 | `docs/FULL_SCALE_PRODUCT_BLUEPRINT.md` | Product blueprint | Comprehensive full-scale product blueprint covering all product dimensions, user journeys, and ecosystem integration. |
 | `docs/DATA_MODEL_DRAFT.md` | Data model | Incident data model and JSON schema draft covering all record types. Open questions listed for T003 resolution. |
 | `docs/TAXONOMY_DRAFT.md` | Taxonomy | Failure mode taxonomy (8 categories, 40+ sub-categories), control taxonomy (10 categories, 40+ controls), evidence type registry, sector taxonomy. |
 | `docs/UI_UX_VISION.md` | UI/UX vision | Public site and search UI vision for `incidents.caesar.no`. |
+| `docs/validation/.gitkeep` | Validation directory placeholder | Preserves `docs/validation/` directory in git. |
+| `docs/validation/DATASET_MVP_VALIDATION_PLAN.md` | Dataset validation plan | Defines schema/manual/source-license validation gates and acceptance blockers for future incident records. |
 
 ---
 
@@ -64,6 +77,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T004-dataset-mvp-preparation/VALIDATION.md` | T004 validation | Validation report confirming T004 quality gates were met. |
 | `work-items/T004-dataset-mvp-preparation/IMPLEMENTATION_REPORT.md` | T004 report | Implementation report with files created, files changed, and final status. |
 | `work-items/T004-dataset-mvp-preparation/DECISIONS.md` | T004 decisions | Decisions made during T004 (DEC-023 through DEC-027). |
+| `work-items/T005-dataset-mvp-schema-taxonomy-files/TASK.md` | T005 task | Task checklist, scope, constraints, and rationale for T005. |
+| `work-items/T005-dataset-mvp-schema-taxonomy-files/VALIDATION.md` | T005 validation | Validation report confirming T005 quality gates were met. |
+| `work-items/T005-dataset-mvp-schema-taxonomy-files/IMPLEMENTATION_REPORT.md` | T005 report | Implementation report with files created, files changed, and final status. |
+| `work-items/T005-dataset-mvp-schema-taxonomy-files/DECISIONS.md` | T005 decisions | Decisions made during T005 (DEC-028 through DEC-031). |
 
 ---
 
@@ -71,11 +88,8 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 
 | Directory | Planned role |
 |---|---|
-| `data/incidents/` | Individual incident JSON records (created in T005/v0.3) |
-| `data/taxonomy/` | Taxonomy JSON files — failure modes, controls, evidence types, sectors (created in T005) |
-| `data/mappings/` | Incident-to-control and control-to-evidence mapping files (created in T005) |
-| `schemas/` | JSON Schema definitions for all record types (created in T005) |
-| `exports/` | Generated export files for caesar-ai-evidence (created in T005) |
+| `data/mappings/` | Incident-to-control and control-to-evidence mapping files (future phase) |
+| `exports/` | Generated export files for caesar-ai-evidence (future phase) |
 | `docs/reviews/` | Individual third-party source review files (using THIRD_PARTY_REPOSITORY_REVIEW_TEMPLATE.md) |
 
 ---

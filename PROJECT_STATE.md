@@ -9,13 +9,13 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.2.3` |
-| Current phase | `documentation and blueprint` |
+| Current version | `0.2.4` |
+| Current phase | `dataset foundation` |
 | Status | `active` |
-| Latest known commit | `cf56751` (T003 final commit) |
-| Latest completed task | `T004 — Dataset MVP Preparation` |
+| Latest known commit | `3e07fc3` (T004 final commit) |
+| Latest completed task | `T005 — Dataset MVP Schema and Taxonomy Files` |
 | Active work item | `none` |
-| Next recommended step | `T005 — Dataset MVP Schema and Taxonomy Files (requires Control Tower approval)` |
+| Next recommended step | `T006 — First Incident Candidate Dossier Preparation (likely next step; requires Control Tower approval)` |
 
 ---
 
@@ -28,8 +28,9 @@
 | T002 Clean-Room Policy | Complete | 19 May 2026 |
 | T003 v0.2 Draft Contract | Complete | 19 May 2026 |
 | T004 Dataset MVP Preparation | Complete | 19 May 2026 |
-| T005 Dataset MVP Schema and Taxonomy Files | Planned — next step (requires Control Tower approval) | — |
-| v0.3 Dataset MVP | Blocked until T005 complete and approved | — |
+| T005 Dataset MVP Schema and Taxonomy Files | Complete | 19 May 2026 |
+| T006 First Incident Candidate Dossier Preparation | Planned — next step (requires Control Tower approval) | — |
+| v0.3 Dataset MVP | Blocked until T006 dossier shortlist approved | — |
 | v0.4 Static Site | Planned | — |
 | v0.5 Export Integration | Planned | — |
 | v1.0 Stable Public Release | Planned | — |
@@ -92,7 +93,7 @@ See `V0_2_DRAFT_PRODUCT_CONTRACT.md` for the full contract.
 - Do not copy competitor incident data without verifying applicable data licenses.
 - Do not make legal claims about organizations or individuals referenced in incident records.
 - Do not claim the incident dataset is complete or exhaustive.
-- Do not implement product code until T004 is complete and v0.3 Dataset MVP is approved.
+- Do not implement product code beyond approved schema/taxonomy documentation scope.
 - Do not add package managers or dependencies until implementation phases.
 - Do not clone external repositories inside this repository directory.
 - Do not copy third-party code, schemas, or data into this repository without Control Tower approval.

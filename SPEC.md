@@ -1,8 +1,8 @@
 # Specification — caesar-ai-incident-atlas
 
 **Last updated:** 19 May 2026
-**Version:** 0.2.0 (blueprint)
-**Status:** Documentation and blueprint phase
+**Version:** 0.2.4 (dataset foundation)
+**Status:** Dataset foundation phase (T005 complete, no incident records yet)
 
 ---
 
@@ -329,15 +329,20 @@ The Atlas will integrate with Caesar AI Governance OS as a risk library module:
 
 The minimum viable product includes:
 
-- incident schema definition (planned for T004 / v0.3);
-- failure mode taxonomy — documented in `docs/TAXONOMY_DRAFT.md`, reviewed in `V0_2_TAXONOMY_REVIEW.md`;
-- control taxonomy — documented in `docs/TAXONOMY_DRAFT.md`;
-- evidence mapping — documented in `docs/TAXONOMY_DRAFT.md`;
+- incident schema definition — `schemas/incident.schema.json` (created in T005);
+- failure mode taxonomy — machine-readable baseline in `data/taxonomy/failure_modes.json` (created in T005), with status guidance from `V0_2_TAXONOMY_REVIEW.md`;
+- control taxonomy — machine-readable baseline in `data/taxonomy/controls.json` (created in T005);
+- evidence type taxonomy — machine-readable baseline in `data/taxonomy/evidence_types.json` (created in T005);
+- sector taxonomy — machine-readable baseline in `data/taxonomy/sectors.json` (created in T005);
+- confidence and severity reference files — `data/taxonomy/confidence_levels.json` and `data/taxonomy/severity_levels.json` (created in T005);
+- validation plan documentation — `docs/validation/DATASET_MVP_VALIDATION_PLAN.md` (created in T005);
 - 10–20 curated incident records with full metadata, source citations, and control mappings (v0.3);
 - export format definition for `caesar-ai-evidence` — defined in `V0_2_DRAFT_PRODUCT_CONTRACT.md`;
 - simple static site generator (v0.4).
 
 The v0.2 draft contract (`V0_2_DRAFT_PRODUCT_CONTRACT.md`) is the stable reference for all MVP implementation decisions. The field priority table (`V0_2_FIELD_PRIORITY_TABLE.md`) defines which fields are required (11), optional, or deferred for v0.2. The source and citation policy (`SOURCE_AND_CITATION_POLICY_DRAFT.md`) governs how incident records are written and sourced.
+
+No real incident records are created in T005. Incident candidate dossier preparation is the likely next step (T006) after Control Tower approval.
 
 ---
 

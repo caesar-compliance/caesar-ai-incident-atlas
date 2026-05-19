@@ -124,32 +124,57 @@ v0.1 Foundation
 
 ## T005 — Dataset MVP Schema and Taxonomy Files
 
-**Status:** Planned (next step — requires Control Tower approval)
+**Status:** Complete (19 May 2026)
+**Version bump:** 0.2.4
 
 **Goal:** Create the JSON Schema files and taxonomy JSON files that are the prerequisite for incident record creation. T005 is not the Dataset MVP itself.
 
 **Deliverables:**
 - schemas/incident.schema.json
-- schemas/taxonomy.schema.json
-- schemas/export.schema.json
-- data/taxonomy/failure-modes.json
+- data/taxonomy/failure_modes.json
 - data/taxonomy/controls.json
-- data/taxonomy/evidence-types.json
+- data/taxonomy/evidence_types.json
 - data/taxonomy/sectors.json
-- data/mappings/control-evidence.json
-- exports/.gitkeep
-- Validation documentation
-- work-items/T005-dataset-mvp-schema-taxonomy/ — work item folder
+- data/taxonomy/confidence_levels.json
+- data/taxonomy/severity_levels.json
+- docs/validation/DATASET_MVP_VALIDATION_PLAN.md
+- data/incidents/.gitkeep (no records)
+- work-items/T005-dataset-mvp-schema-taxonomy-files/ — work item folder
 
-**Constraints:** No real incident records. No product code beyond schema and taxonomy JSON files.
+**Constraints:** No real incident records. No fake/sample incident records. No product code beyond schema and taxonomy JSON files.
 
-**Prerequisite for:** v0.3 Dataset MVP
+**Key decisions:**
+- DEC-028: Incident schema remains lenient with 11 required fields
+- DEC-029: Taxonomy files include stable entries with explicit draft markers
+- DEC-030: data/incidents remains empty in T005
+- DEC-031: T006 is the next likely step after T005
+
+**Prerequisite for:** T006 candidate dossier preparation and v0.3 incident curation
+
+---
+
+## T006 — First Incident Candidate Dossier Preparation
+
+**Status:** Planned (next step — requires Control Tower approval)
+
+**Goal:** Prepare candidate dossiers for 10–20 potential incidents with public source links and verification notes before creating final incident records.
+
+**Deliverables:**
+- Candidate dossier templates and working notes
+- Public source link lists for each candidate
+- Source verification notes aligned with `SOURCE_VERIFICATION_WORKFLOW.md`
+- Confidence/severity rationale notes
+- Control Tower review package for candidate approval
+
+**Constraints:** No mass-imported data. No scraper. No final incident records unless separately approved.
+
+**Prerequisite for:** v0.3 Dataset MVP incident record curation
 
 ---
 
 ## Phase v0.3 — Dataset MVP
 
-**Status:** Blocked until T005 complete and approved
+**Status:** Blocked until T006 candidate dossiers are approved
 
 **Goal:** Build the first working incident dataset with 10–20 curated incident records, taxonomy definitions, and control mappings.
 
