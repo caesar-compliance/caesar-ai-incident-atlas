@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T024)
+**Last updated:** 20 May 2026 (T025)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.6.0` |
-| Current phase | `T024 — Public MVP Status Lock + Product Polish Backlog. Technical Public MVP: LIVE + VERIFIED (G-10 PASS). G-01/G-02 pending.` |
+| Current version | `0.6.1` |
+| Current phase | `T025 — Source/License + Wording Review Sign-Off Pack. Technical Public MVP: LIVE + VERIFIED. G-01/G-02 prepared for CT/counsel sign-off.` |
 | Status | `active` |
-| Latest completed task | `T024 — Public MVP Status Lock + Product Polish Backlog` |
-| Active work item | `T024 — complete. Technical Public MVP locked as LIVE + VERIFIED.` |
-| Next recommended step | `T025 — choose: (A) Public MVP Polish Pass, (B) Source/License + Wording Review Sign-Off Pack, or (C) Dataset Expansion Planning (CT approval required)` |
+| Latest completed task | `T025 — Source/License + Wording Review Sign-Off Pack` |
+| Active work item | `T025 — complete. Governance sign-off pack prepared. G-01/G-02 pending CT/counsel sign-off.` |
+| Next recommended step | `T026 — choose: (A) Public MVP Polish Pass, (B) CT/counsel final sign-off of G-01/G-02, or (C) Dataset Expansion Planning (CT approval required)` |
 
 ---
 
@@ -46,6 +46,7 @@
 | T022 — Post-Deploy Closeout | Complete — custom domain verified, HTTPS enforced, G-10 static checks done | 20 May 2026 |
 | T023 — Browser Smoke + HTTP→HTTPS Redirect Verification | Complete (partial) — HTTP redirect confirmed (301), JSON 200, all 10 records live; interactive G-10 browser test pending CT | 20 May 2026 |
 | T024 — Public MVP Status Lock + Product Polish Backlog | **Complete** — Technical Public MVP locked LIVE + VERIFIED; G-10 PASS; G-01/G-02 pending | 20 May 2026 |
+| T025 — Source/License + Wording Review Sign-Off Pack | **Complete** — Governance sign-off pack prepared; G-01/G-02 ready for CT/counsel sign-off | 20 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete — 10 records (INC-0001 through INC-0010) | 19 May 2026 |
 | v0.5 Static Site — local prototype | Complete — T012 | 19 May 2026 |
 | v0.5.1 Static Site — local functional MVP | Complete — T013 | 19 May 2026 |
