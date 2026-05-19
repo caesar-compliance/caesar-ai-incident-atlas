@@ -70,7 +70,7 @@ curated incident data
 
 ### 3.1 Incident record
 
-The core data unit is the incident record. See [docs/DATA_MODEL_DRAFT.md](DATA_MODEL_DRAFT.md) for the full schema draft and [V0_2_DRAFT_PRODUCT_CONTRACT.md](../V0_2_DRAFT_PRODUCT_CONTRACT.md) for the resolved v0.2 contract decisions.
+The core data unit is the incident record. See [docs/DATA_MODEL_DRAFT.md](docs/DATA_MODEL_DRAFT.md) for the full schema draft and [V0_2_DRAFT_PRODUCT_CONTRACT.md](V0_2_DRAFT_PRODUCT_CONTRACT.md) for the resolved v0.2 contract decisions.
 
 Key decisions locked in v0.2 contract:
 
@@ -209,6 +209,8 @@ caesar-ai-incident-atlas/
 └── work-items/
     └── .gitkeep
 ```
+
+This structure is planned and not yet implemented in the repository. T004 produced preparation and safety documentation only (`DATASET_MVP_IMPLEMENTATION_PLAN.md`, `FIRST_INCIDENT_SELECTION_CRITERIA.md`, `SOURCE_VERIFICATION_WORKFLOW.md`, `LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md`). Schema files, taxonomy files, and incident records are deferred to T005/v0.3 after Control Tower approval.
 
 ---
 
@@ -383,7 +385,7 @@ The integration will allow clients to:
 | Wording policy | Careful, factual, no legal claims | Protects Caesar and referenced organizations |
 | Competitor data | Cite and reference, do not copy | Respects data licenses, adds original governance mapping value |
 
-For the full decision history, see [docs/DECISION_LOG.md](DECISION_LOG.md).
+For the full decision history, see [docs/DECISION_LOG.md](docs/DECISION_LOG.md).
 
 ---
 

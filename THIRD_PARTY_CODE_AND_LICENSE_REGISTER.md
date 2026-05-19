@@ -35,13 +35,13 @@ Sources that have been studied for architecture mining, inspiration, or domain k
 | Study date | 19 May 2026 (initial research) |
 | Studied by | Caesar AI Governance Hub research phase |
 | License (code) | Verify current license before any reuse |
-| License (data) | Verify current data license before any reuse |
-| License verified | No — pending verification |
+| License (data) | **CC BY-SA 4.0** — Creative Commons Attribution ShareAlike 4.0 (verified 19 May 2026) |
+| License verified | **Yes** — verified 19 May 2026 from official Terms of Use page (https://incidentdatabase.ai/terms-of-use/, effective August 7, 2025) |
 | Code reuse | Not approved — study only |
-| Data reuse | Not approved — pending license verification |
+| Data reuse | Citation permitted with attribution. Direct import requires Control Tower approval — CC BY-SA 4.0 ShareAlike clause has implications for Caesar's commercial product direction. The `text` field of reports is excluded from CC BY-SA 4.0. |
 | Study purpose | Data model, record structure, taxonomy approach, citation model, search UX |
 | Caesar use | Benchmark reference and citation source for incident records |
-| Notes | Primary incident reference. Do not copy records without data license verification. Cite as source in incident records. |
+| Notes | Primary incident reference. Cite as secondary source with attribution. Do not copy the `text` field of AIID reports. Any direct data import beyond citation requires Control Tower approval and legal review of ShareAlike implications. Attribution format: "Source: AI Incident Database (AIID), https://incidentdatabase.ai/, licensed under CC BY-SA 4.0." |
 
 ---
 
@@ -120,12 +120,12 @@ Sources that have been studied for architecture mining, inspiration, or domain k
 | Studied by | Caesar AI Governance Hub research phase |
 | License (code) | Apache-2.0 (verify current license before any reuse) |
 | License (data) | Apache-2.0 (verify current license before any reuse) |
-| License verified | Partially — Apache-2.0 reported in hub research; verify current license file |
+| License verified | Yes — verified 19 May 2026 from official repository license file (https://github.com/IBM/ai-atlas-nexus/blob/main/LICENSE) |
 | Code reuse | Conditional — permissive if Apache-2.0 confirmed; requires attribution and Control Tower approval |
 | Data reuse | Conditional — permissive if Apache-2.0 confirmed; requires attribution and Control Tower approval |
 | Study purpose | Risk taxonomy structure, ontology design, ID conventions, risk-to-action mapping |
 | Caesar use | Taxonomy design inspiration; potential reference for control mapping approach |
-| Notes | Most permissive of the benchmark sources. Verify current license before any reuse. If reuse is approved, add to THIRD_PARTY_NOTICES.md. |
+| Notes | Apache-2.0 confirmed for repository. Citation and study are permitted. Direct code/data reuse remains approval-gated and requires attribution if approved. If reuse is approved, add to THIRD_PARTY_NOTICES.md. |
 
 ---
 
@@ -180,13 +180,11 @@ The following sources require license verification before any data or code reuse
 
 | Source | What needs verification | Priority |
 |---|---|---|
-| AIID | Code license and data license | High — needed before dataset MVP |
 | OECD AI Incidents Monitor | Data reuse terms | High — needed before dataset MVP |
 | AIAAIC Repository | Data reuse terms | High — needed before dataset MVP |
 | MIT AI Incident Tracker | Data reuse terms | Medium |
-| IBM AI Atlas Nexus | Confirm current Apache-2.0 license | Medium |
 
-These verifications should be completed as part of T003 (data model and source/citation policy review) before the dataset MVP begins.
+AIID data license (CC BY-SA 4.0) and IBM AI Atlas Nexus license (Apache-2.0) were verified in T004. Remaining pending verifications should be completed before incident curation that cites OECD, AIAAIC, or MIT tracker records.
 
 ---
 

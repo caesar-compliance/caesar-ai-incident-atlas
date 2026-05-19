@@ -26,6 +26,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `SOURCE_AND_CITATION_POLICY_DRAFT.md` | Citation policy | Citation rules, preferred source tiers, confidence levels, careful wording rules, rules for disputed/uncertain incidents, no unsupported legal conclusions, no defamatory language, no scraping. |
 | `V0_2_FIELD_PRIORITY_TABLE.md` | Field priority table | Field-by-field priority table for all incident record fields (required / optional / later) with purpose, reason, and risk notes. Identifies overfitting risks. |
 | `V0_2_TAXONOMY_REVIEW.md` | Taxonomy review | Taxonomy category review (stable / draft / later) for all failure mode categories, sub-categories, control categories, evidence types, and sectors. |
+| `DATASET_MVP_IMPLEMENTATION_PLAN.md` | Dataset MVP plan | Defines what Dataset MVP means and does not include; proposed folder structure; proposed schema and taxonomy implementation steps; proposed validation checks; export concept; connection to caesar-ai-evidence; approval gates before incident creation. |
+| `FIRST_INCIDENT_SELECTION_CRITERIA.md` | Incident selection criteria | Defines how the first 10–20 incidents should be selected; suitability criteria; source quality requirements; preferred failure mode and sector diversity; exclusion rules; how to avoid sensationalism and unsupported legal conclusions. |
+| `SOURCE_VERIFICATION_WORKFLOW.md` | Source verification workflow | Step-by-step workflow for verifying sources before creating an incident record; source intake process; minimum source requirements; primary vs secondary source treatment; citation fields; confidence levels; disputed incident handling; careful wording rules; source review checklist; rejection and postponement rules. |
+| `LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md` | License and source safety checklist | How to check source and dataset license status before use; treatment of AIID (CC BY-SA 4.0 — verified), IBM AI Atlas Nexus (Apache-2.0 — verified), OECD (pending), AIAAIC (pending), MIT tracker (pending); default rule (no external dataset import without separate approval); pages requiring manual verification. |
 
 ---
 
@@ -34,7 +38,7 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | File | Role | Description |
 |---|---|---|
 | `docs/RESEARCH_CONTEXT.md` | Domain research | Strategic domain research, product type, main users, use cases, MVP scope, and future paid use cases. |
-| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-014). |
+| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-027). |
 | `docs/COMPETITOR_BENCHMARKS.md` | Competitor analysis | Detailed analysis of AI Incident Database, OECD AI Incidents Monitor, AIAAIC Repository, MIT AI Incident Tracker, and IBM AI Risk Atlas, with licensing notes and Caesar differentiation. |
 | `docs/FULL_SCALE_PRODUCT_BLUEPRINT.md` | Product blueprint | Comprehensive full-scale product blueprint covering all product dimensions, user journeys, and ecosystem integration. |
 | `docs/DATA_MODEL_DRAFT.md` | Data model | Incident data model and JSON schema draft covering all record types. Open questions listed for T003 resolution. |
@@ -56,6 +60,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T003-v02-draft-contract-review/VALIDATION.md` | T003 validation | Validation report confirming T003 quality gates were met. |
 | `work-items/T003-v02-draft-contract-review/IMPLEMENTATION_REPORT.md` | T003 report | Implementation report with files created, files changed, and final status. |
 | `work-items/T003-v02-draft-contract-review/DECISIONS.md` | T003 decisions | Architectural and policy decisions made during T003 (DEC-015 through DEC-022). |
+| `work-items/T004-dataset-mvp-preparation/TASK.md` | T004 task | Task checklist, scope, constraints, and rationale for T004. |
+| `work-items/T004-dataset-mvp-preparation/VALIDATION.md` | T004 validation | Validation report confirming T004 quality gates were met. |
+| `work-items/T004-dataset-mvp-preparation/IMPLEMENTATION_REPORT.md` | T004 report | Implementation report with files created, files changed, and final status. |
+| `work-items/T004-dataset-mvp-preparation/DECISIONS.md` | T004 decisions | Decisions made during T004 (DEC-023 through DEC-027). |
 
 ---
 
@@ -63,16 +71,12 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 
 | Directory | Planned role |
 |---|---|
-| `data/incidents/` | Individual incident JSON records |
-| `data/taxonomy/` | Taxonomy JSON files (failure modes, controls, evidence types, sectors) |
-| `data/mappings/` | Incident-to-control and control-to-evidence mapping files |
-| `schemas/` | JSON Schema definitions for all record types |
-| `exports/` | Generated export files for caesar-ai-evidence |
+| `data/incidents/` | Individual incident JSON records (created in T005/v0.3) |
+| `data/taxonomy/` | Taxonomy JSON files — failure modes, controls, evidence types, sectors (created in T005) |
+| `data/mappings/` | Incident-to-control and control-to-evidence mapping files (created in T005) |
+| `schemas/` | JSON Schema definitions for all record types (created in T005) |
+| `exports/` | Generated export files for caesar-ai-evidence (created in T005) |
 | `docs/reviews/` | Individual third-party source review files (using THIRD_PARTY_REPOSITORY_REVIEW_TEMPLATE.md) |
-| `docs/DATASET_MVP_IMPLEMENTATION_PLAN.md` | Schema implementation plan (T004) |
-| `docs/INCIDENT_CANDIDATE_CRITERIA.md` | Selection criteria for first 10–20 incidents (T004) |
-| `docs/SOURCE_VERIFICATION_WORKFLOW.md` | Step-by-step source verification checklist (T004) |
-| `docs/LICENSE_VERIFICATION_CHECKLIST.md` | Data license verification checklist (T004) |
 
 ---
 

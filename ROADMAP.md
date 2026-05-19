@@ -98,16 +98,50 @@ v0.1 Foundation
 
 ## T004 — Dataset MVP Preparation
 
-**Status:** Planned (next step)
+**Status:** Complete (19 May 2026)
+**Version bump:** 0.2.3
 
-**Goal:** Prepare the implementation plan and candidate selection before any incident records are created. T004 is not the Dataset MVP itself.
+**Goal:** Prepare the planning and safety documents required before creating the first 10–20 curated incident records. T004 is not the Dataset MVP itself.
 
 **Deliverables:**
-- docs/DATASET_MVP_IMPLEMENTATION_PLAN.md — schema implementation plan
-- docs/INCIDENT_CANDIDATE_CRITERIA.md — selection criteria for first 10–20 incidents
-- docs/SOURCE_VERIFICATION_WORKFLOW.md — step-by-step source verification checklist
-- docs/LICENSE_VERIFICATION_CHECKLIST.md — data license verification checklist
-- work-items/T004-dataset-mvp-preparation/ — work item folder
+- DATASET_MVP_IMPLEMENTATION_PLAN.md — what Dataset MVP means, folder structure, schema steps, validation, export, integration, approval gates
+- FIRST_INCIDENT_SELECTION_CRITERIA.md — selection criteria for first 10–20 incidents
+- SOURCE_VERIFICATION_WORKFLOW.md — step-by-step source verification workflow
+- LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md — license and source safety checklist; AIID (CC BY-SA 4.0) and IBM AI Atlas Nexus (Apache-2.0) verified; OECD, AIAAIC, MIT tracker pending manual verification
+- work-items/T004-dataset-mvp-preparation/ — work item folder with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, DECISIONS.md
+- Updated README.md, ARCHITECTURE.md, ROADMAP.md, PROJECT_STATE.md, NEXT_ACTIONS.md, CHANGELOG.md, REPO_INVENTORY.md, docs/DECISION_LOG.md, THIRD_PARTY_CODE_AND_LICENSE_REGISTER.md
+
+**Key decisions:**
+- DEC-023: T004 preparation documents placed in repository root (not docs/)
+- DEC-024: AIID data license verified as CC BY-SA 4.0 (excluding text field of reports)
+- DEC-025: IBM AI Atlas Nexus license confirmed as Apache-2.0
+- DEC-026: OECD, AIAAIC, MIT tracker license verifications remain pending
+- DEC-027: T005 is the next step after T004
+
+**Prerequisite for:** T005 — Dataset MVP Schema and Taxonomy Files
+
+---
+
+## T005 — Dataset MVP Schema and Taxonomy Files
+
+**Status:** Planned (next step — requires Control Tower approval)
+
+**Goal:** Create the JSON Schema files and taxonomy JSON files that are the prerequisite for incident record creation. T005 is not the Dataset MVP itself.
+
+**Deliverables:**
+- schemas/incident.schema.json
+- schemas/taxonomy.schema.json
+- schemas/export.schema.json
+- data/taxonomy/failure-modes.json
+- data/taxonomy/controls.json
+- data/taxonomy/evidence-types.json
+- data/taxonomy/sectors.json
+- data/mappings/control-evidence.json
+- exports/.gitkeep
+- Validation documentation
+- work-items/T005-dataset-mvp-schema-taxonomy/ — work item folder
+
+**Constraints:** No real incident records. No product code beyond schema and taxonomy JSON files.
 
 **Prerequisite for:** v0.3 Dataset MVP
 
@@ -115,7 +149,7 @@ v0.1 Foundation
 
 ## Phase v0.3 — Dataset MVP
 
-**Status:** Planned
+**Status:** Blocked until T005 complete and approved
 
 **Goal:** Build the first working incident dataset with 10–20 curated incident records, taxonomy definitions, and control mappings.
 

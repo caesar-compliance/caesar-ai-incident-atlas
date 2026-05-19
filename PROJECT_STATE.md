@@ -9,13 +9,13 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.2.2` |
+| Current version | `0.2.3` |
 | Current phase | `documentation and blueprint` |
 | Status | `active` |
-| Latest known commit | `9a1c7f9` (before T003 task) |
-| Latest completed task | `T003 — v0.2 Draft Contract Review and Reconciliation` |
+| Latest known commit | `cf56751` (T003 final commit) |
+| Latest completed task | `T004 — Dataset MVP Preparation` |
 | Active work item | `none` |
-| Next recommended step | `T004 — Dataset MVP Preparation: final schema implementation plan, incident candidate selection criteria, source verification workflow, licensing/source safety checklist` |
+| Next recommended step | `T005 — Dataset MVP Schema and Taxonomy Files (requires Control Tower approval)` |
 
 ---
 
@@ -27,8 +27,9 @@
 | v0.2 Full-Scale Blueprint | Complete | 19 May 2026 |
 | T002 Clean-Room Policy | Complete | 19 May 2026 |
 | T003 v0.2 Draft Contract | Complete | 19 May 2026 |
-| T004 Dataset MVP Preparation | Planned — next step | — |
-| v0.3 Dataset MVP | Blocked until T004 complete | — |
+| T004 Dataset MVP Preparation | Complete | 19 May 2026 |
+| T005 Dataset MVP Schema and Taxonomy Files | Planned — next step (requires Control Tower approval) | — |
+| v0.3 Dataset MVP | Blocked until T005 complete and approved | — |
 | v0.4 Static Site | Planned | — |
 | v0.5 Export Integration | Planned | — |
 | v1.0 Stable Public Release | Planned | — |
@@ -78,6 +79,10 @@ See `V0_2_DRAFT_PRODUCT_CONTRACT.md` for the full contract.
 | `CLEAN_ROOM_IMPLEMENTATION_POLICY.md` | License classification table and clean-room process |
 | `THIRD_PARTY_REPOSITORY_REVIEW_TEMPLATE.md` | Review template |
 | `THIRD_PARTY_CODE_AND_LICENSE_REGISTER.md` | Source register |
+| `DATASET_MVP_IMPLEMENTATION_PLAN.md` | Dataset MVP implementation plan (T004) |
+| `FIRST_INCIDENT_SELECTION_CRITERIA.md` | Incident selection criteria (T004) |
+| `SOURCE_VERIFICATION_WORKFLOW.md` | Source verification workflow (T004) |
+| `LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md` | License and source safety checklist (T004) |
 
 ---
 

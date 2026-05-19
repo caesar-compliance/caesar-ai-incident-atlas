@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026 (updated T003)
+**Last updated:** 19 May 2026 (updated T004)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -349,3 +349,81 @@ The next task after T002 (clean-room policy) is T003: review and reconcile `DATA
 **Decision:** The next task after T003 is T004 — Dataset MVP Preparation. T004 prepares the final schema implementation plan, first incident candidate selection criteria, source verification workflow, and licensing/source safety checklist. No data ingestion in T004 unless separately approved.
 
 **Rationale:** T003 defines the product model. T004 prepares the implementation plan and candidate selection before any incident records are created. This staged approach reduces the risk of creating records that need to be reworked due to unclear model or source policy.
+
+---
+
+### [DEC-023] — 19 May 2026 — T004 Preparation Documents Placed in Repository Root
+
+**Status:** Approved
+
+**Decision:** The four T004 preparation documents are placed in the repository root rather than in `docs/`:
+- `DATASET_MVP_IMPLEMENTATION_PLAN.md`
+- `FIRST_INCIDENT_SELECTION_CRITERIA.md`
+- `SOURCE_VERIFICATION_WORKFLOW.md`
+- `LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md`
+
+**Rationale:** These documents are active operational references that curators and agents will use during v0.3 implementation. Placing them in the root makes them immediately visible alongside other active policy documents (`V0_2_DRAFT_PRODUCT_CONTRACT.md`, `SOURCE_AND_CITATION_POLICY_DRAFT.md`, etc.). The `docs/` folder is reserved for research, analysis, and background documents. The T004 preparation documents are operational, not background. This overrides the earlier references in ROADMAP.md and NEXT_ACTIONS.md that listed them under `docs/`.
+
+---
+
+### [DEC-024] — 19 May 2026 — AIID Data License Verified as CC BY-SA 4.0
+
+**Status:** Approved
+
+**Decision:** The AI Incident Database (AIID) data license has been verified as **Creative Commons Attribution ShareAlike 4.0 (CC BY-SA 4.0)** for the following collections: incidents, quickadd, duplicates, taxa, classifications, entities, entity_relationships. The `text` field of the reports collection is explicitly excluded from the CC BY-SA 4.0 license.
+
+**Source:** AIID Terms of Use page (https://incidentdatabase.ai/terms-of-use/), effective August 7, 2025. Verified 19 May 2026.
+
+**Implications:**
+1. AIID incident records can be cited as secondary sources in Caesar incident records, with attribution.
+2. The `text` field of AIID reports cannot be copied into Caesar incident records.
+3. Any direct import of AIID data (beyond citation) requires Control Tower approval. The CC BY-SA 4.0 ShareAlike clause means derivative works must be distributed under the same license — this has implications for Caesar's commercial product direction and must be reviewed before any direct data import.
+
+**Rationale:** Verification was performed by fetching the official AIID Terms of Use page during T004. The license is clearly stated and unambiguous for the listed collections.
+
+---
+
+### [DEC-025] — 19 May 2026 — IBM AI Atlas Nexus License Confirmed as Apache-2.0
+
+**Status:** Approved
+
+**Decision:** The IBM AI Atlas Nexus license has been confirmed as **Apache License 2.0** from the GitHub repository (https://github.com/IBM/ai-atlas-nexus). This confirms the earlier partial verification recorded in `THIRD_PARTY_CODE_AND_LICENSE_REGISTER.md` entry A-005.
+
+**Source:** GitHub repository page for IBM/ai-atlas-nexus, verified 19 May 2026.
+
+**Implications:** IBM AI Atlas Nexus can be cited as a reference and inspiration source. Any direct reuse of code or data still requires Control Tower approval and proper attribution. The default approach remains clean-room Caesar-native implementation.
+
+**Rationale:** Verification was performed by fetching the GitHub repository page during T004. The Apache-2.0 license is clearly stated in the repository metadata and README.
+
+---
+
+### [DEC-026] — 19 May 2026 — OECD, AIAAIC, and MIT Tracker License Verifications Remain Pending
+
+**Status:** Approved (pending items acknowledged)
+
+**Decision:** The data reuse terms for OECD AI Incidents Monitor, AIAAIC Repository, and MIT AI Incident Tracker could not be fully verified during T004 from automated web access. Manual verification is required before these sources can be cited in Caesar incident records.
+
+The specific pages requiring manual verification are documented in `LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md` section 6.
+
+**Implication:** Caesar incident records in v0.3 must not cite OECD, AIAAIC, or MIT tracker records until the manual verifications are complete and recorded. Incidents can be sourced from AIID (with CC BY-SA 4.0 attribution rules applied) and from primary sources (official reports, news) without these verifications.
+
+**Rationale:** Web access during T004 could not extract the full content of the OECD terms page, AIAAIC user guide, or MIT tracker terms. Rather than guessing or assuming permissive terms, the conservative approach is to mark these as pending and require manual verification.
+
+---
+
+### [DEC-027] — 19 May 2026 — T005 Is the Next Step After T004
+
+**Status:** Approved
+
+**Decision:** The next task after T004 is T005 — Dataset MVP Schema and Taxonomy Files, but only after Control Tower approval of T004.
+
+T005 scope (proposed):
+- Create `schemas/incident.schema.json`, `schemas/taxonomy.schema.json`, `schemas/export.schema.json`
+- Create `data/taxonomy/failure-modes.json`, `data/taxonomy/controls.json`, `data/taxonomy/evidence-types.json`, `data/taxonomy/sectors.json`
+- Create `data/mappings/control-evidence.json`
+- Create `exports/.gitkeep`
+- Create validation documentation
+
+T005 must not create real incident records unless separately approved.
+
+**Rationale:** The schema and taxonomy files are the prerequisite for incident record creation. They must be created and validated before any incident records are curated. T005 is a lower-risk step than incident curation because it does not involve external data or source verification. Separating schema creation (T005) from incident curation (v0.3) allows the schema to be reviewed and approved before any records are created against it.

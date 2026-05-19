@@ -158,6 +158,10 @@ Related repositories:
 | [SOURCE_AND_CITATION_POLICY_DRAFT.md](SOURCE_AND_CITATION_POLICY_DRAFT.md) | Citation rules, confidence levels, wording rules |
 | [V0_2_FIELD_PRIORITY_TABLE.md](V0_2_FIELD_PRIORITY_TABLE.md) | Field priority table (required / optional / later) |
 | [V0_2_TAXONOMY_REVIEW.md](V0_2_TAXONOMY_REVIEW.md) | Taxonomy category review (stable / draft / later) |
+| [DATASET_MVP_IMPLEMENTATION_PLAN.md](DATASET_MVP_IMPLEMENTATION_PLAN.md) | Dataset MVP implementation plan and approval gates (T004) |
+| [FIRST_INCIDENT_SELECTION_CRITERIA.md](FIRST_INCIDENT_SELECTION_CRITERIA.md) | Selection criteria for the first 10–20 incidents (T004) |
+| [SOURCE_VERIFICATION_WORKFLOW.md](SOURCE_VERIFICATION_WORKFLOW.md) | Step-by-step source verification workflow for incident curation (T004) |
+| [LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md](LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md) | License and source safety checks; verified/pending source status (T004) |
 | [docs/RESEARCH_CONTEXT.md](docs/RESEARCH_CONTEXT.md) | Domain research and strategic context |
 | [docs/DECISION_LOG.md](docs/DECISION_LOG.md) | Architectural and strategic decisions |
 | [docs/COMPETITOR_BENCHMARKS.md](docs/COMPETITOR_BENCHMARKS.md) | Detailed competitor and benchmark analysis |

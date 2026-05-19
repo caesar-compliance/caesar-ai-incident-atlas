@@ -7,6 +7,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.2.3] - 19 May 2026
+
+### Added
+
+- **Dataset MVP Preparation (T004).** Produced the four planning and safety documents required before any incident records are created. T004 is not the Dataset MVP itself — it is the preparation phase that must be complete and approved before v0.3 begins.
+- **DATASET_MVP_IMPLEMENTATION_PLAN.md** — defines what Dataset MVP means and does not include; proposed folder structure for future incident records; proposed schema and taxonomy implementation steps; proposed validation checks; how one-file-per-incident export should work later; how Dataset MVP will connect to Caesar AI Evidence; what must be approved before actual incident creation.
+- **FIRST_INCIDENT_SELECTION_CRITERIA.md** — defines how the first 10–20 incidents should be selected; what counts as a suitable incident; required public source quality; preferred failure mode and sector diversity; what incidents should be excluded; how to avoid sensationalism; how to avoid unsupported legal conclusions.
+- **SOURCE_VERIFICATION_WORKFLOW.md** — defines the step-by-step source intake process; minimum source requirements; primary vs secondary source treatment; citation fields; confidence levels; disputed incident handling; careful wording rules; source review checklist; when an incident must be rejected or postponed; how to record uncertainty.
+- **LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md** — defines how to check source and dataset license status before use; records license verification findings for AIID (CC BY-SA 4.0 — verified), IBM AI Atlas Nexus (Apache-2.0 — verified), OECD AI Incidents Monitor (pending), AIAAIC Repository (pending), MIT AI Incident Tracker (pending); defines default rule (no external dataset import without separate approval).
+- **work-items/T004-dataset-mvp-preparation/** — work item folder with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, and DECISIONS.md.
+- **docs/DECISION_LOG.md** — added DEC-023 through DEC-027 covering preparation document placement, AIID license verification (CC BY-SA 4.0), IBM AI Atlas Nexus license confirmation (Apache-2.0), pending verifications for OECD/AIAAIC/MIT tracker, and T005 sequencing decision.
+
+### Changed
+
+- **README.md** — repository structure table updated with T004 preparation documents.
+- **ARCHITECTURE.md** — updated to reference T004 preparation documents and Dataset MVP implementation plan.
+- **ROADMAP.md** — T004 marked complete; T005 added as next step.
+- **PROJECT_STATE.md** — version updated to 0.2.3; latest completed task and next recommended step updated.
+- **NEXT_ACTIONS.md** — T005 defined as next recommended step with scope and constraints; T004 marked complete; dataset MVP blocked until T005 complete and approved.
+- **REPO_INVENTORY.md** — all new T004 files listed; planned directories updated.
+- **THIRD_PARTY_CODE_AND_LICENSE_REGISTER.md** — entries A-001 (AIID) and A-005 (IBM AI Atlas Nexus) updated with verified license status.
+
+### License and source findings
+
+- AIID data license verified as CC BY-SA 4.0 (excluding text field of reports). Citation permitted with attribution. Direct import requires Control Tower approval due to ShareAlike implications.
+- IBM AI Atlas Nexus license confirmed as Apache-2.0. Citation and study permitted. Direct reuse requires Control Tower approval.
+- OECD AI Incidents Monitor, AIAAIC Repository, and MIT AI Incident Tracker license verifications remain pending. Manual verification required before these sources can be cited in Caesar incident records.
+
+---
+
 ## [0.2.2] - 19 May 2026
 
 ### Added
