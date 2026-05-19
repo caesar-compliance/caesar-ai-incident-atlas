@@ -52,23 +52,25 @@ The following must **not** be served publicly under any hosting configuration:
 
 ---
 
-## 4. Path Dependency Note
+## 4. Path Dependency Note (T017 Complete)
 
-`site/assets/app.js` fetches data using relative paths:
+**Status:** Path dependency resolved in T017.
 
+T017 made `site/` fully self-contained:
+
+- `site/data/incident-index.json` — publish copy with site-root-relative paths (`data/incidents/...`)
+- `site/data/incidents/` — 10 incident JSON files (copy of root `data/incidents/`)
+- `site/data/taxonomy/` — 6 taxonomy JSON files (copy of root `data/taxonomy/`)
+- `site/assets/app.js` — path constants updated from `../data/` to `data/`
+
+`site/` can now be served as the static root directly:
+
+```bash
+cd site && python3 -m http.server 8080
+# open http://localhost:8080/
 ```
-fetch("../data/incident-index.json")
-fetch("../data/incidents/INC-000N-…json")
-```
 
-This means `data/` must be accessible at `../data/` relative to `site/`. When served from a static host:
-
-- If publish root = repo root → `data/` is at correct relative path ✅
-- If publish root = `site/` only → `data/` is missing ❌
-
-**Recommended approach for T017:** set publish root to repo root and configure the host to serve `site/index.html` as default, or copy `data/` into `site/data/` and update the path constants in `app.js` before deployment.
-
-**Preferred:** copy `data/` into `site/data/` and update the two path constants in `app.js`. This keeps the deployment root as `site/` and avoids exposing the entire repo.
+The root `data/` directory remains the authoritative source of truth for record authoring. Run `python3 tools/validate_dataset.py` from the repo root to verify sync between root `data/` and `site/data/`.
 
 ---
 

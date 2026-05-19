@@ -2,7 +2,19 @@
 
 **Document:** T016 output  
 **Date:** 19 May 2026  
-**Status:** Recommendation only. T017 must not be started without CT approval.
+**Status:** **T017 COMPLETE.** This recommendation document is now superseded. See `work-items/T017-static-publish-package-preparation/IMPLEMENTATION_REPORT.md` for actual T017 completion status.
+
+---
+
+**Note (20 May 2026):**
+
+- **T017 path/package work is done:** `site/` is self-contained, data path fix applied, internal docs excluded.
+- **Deployment config is deferred to T018+:** Hosting selection, CNAME, GitHub Actions, Cloudflare/Netlify configuration will only be implemented after Control Tower completes G-01 through G-12 sign-off.
+- **Public deployment remains NO-GO:** See `PUBLICATION_RISK_GATE.md` and `PUBLIC_RELEASE_REVIEW_PACK.md` for current status.
+
+---
+
+**Original T016 recommendation content below for reference:**
 
 ---
 

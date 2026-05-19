@@ -1,6 +1,6 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026
+**Last updated:** 20 May 2026
 
 ---
 
@@ -37,34 +37,33 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T015 — Static Site Release Candidate Hardening | Complete — local RC PASS |
 | T016 — Public Deployment Plan | Complete — planning only, no deployment |
 | T017 — Static Publish Package Preparation | Complete — site/ self-contained |
-| T018 — Public Legal/Source Review Gate or Deployment Configuration | **Next** (requires CT approval) |
+| T018A — Public Release Gate Review Pack | Complete — review materials prepared |
+| T018B — Public Deployment Configuration | **Blocked** — requires CT G-12 approval |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated |
 
 ---
 
-## Next Recommended Step: T018
+## Next Recommended Step: Control Tower Review
 
-**T018 — Public Legal/Source Review Gate or Deployment Configuration.**
+**Public deployment remains BLOCKED until Control Tower completes review.**
 
-Public deployment remains blocked until:
+**T018A** prepared review materials for CT assessment:
+- `PUBLIC_RELEASE_REVIEW_PACK.md` — source/license review table, wording/legal-risk review table, G-10 checklist, CT sign-off checklist
 
-1. **Legal/license review** completed — all 10 incident source URLs formally cleared (G-01).
-2. **Wording/legal risk review** completed — record summaries reviewed for liability (G-02).
-3. **Hosting/domain decision** confirmed by CT — select from `HOSTING_OPTION_MATRIX.md` (G-03).
-4. **Manual browser smoke test** with DevTools (G-10).
-5. **CT explicit approval** issued: `"Approve public deployment"` (G-12).
+**Remaining gates before any deployment:**
 
-T018 may be scoped as:
-- **Option A** — Legal/Source Review Gate only: CT completes G-01 and G-02 with agent support.
-- **Option B** — Deployment Configuration: implement hosting config (CNAME / Cloudflare / GitHub Pages) after CT selects hosting + confirms legal review complete.
-- **Option C** — Combined: legal review + deployment config in one task.
+1. **G-01** — Legal/license review: CT confirms all 10 source URLs cleared
+2. **G-02** — Wording/legal risk review: CT or counsel reviews record summaries  
+3. **G-03** — Hosting/domain decision: CT selects from `HOSTING_OPTION_MATRIX.md`
+4. **G-10** — Manual browser smoke test with DevTools
+5. **G-12** — **CT explicit approval:** Artem issues `"Approve public deployment"`
 
-### T018 must NOT
+**T018B** (Deployment Configuration) will only begin after:
+- All gates G-01 through G-10 pass
+- CT explicitly approves public deployment (G-12)
+- CT selects hosting provider and confirms domain
 
-- Deploy publicly without CT issuing `"Approve public deployment"`.
-- Add new incident records beyond INC-0010.
-- Commit secrets or credentials.
-
+See `PUBLIC_RELEASE_REVIEW_PACK.md` for detailed review tables.
 See `PUBLICATION_RISK_GATE.md` for current gate status (7 pass, 4 pending, 1 blocker).
 
 ---

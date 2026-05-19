@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **T018A — Public Release Gate Review Pack.** `PUBLIC_RELEASE_REVIEW_PACK.md`: comprehensive review materials for Control Tower including repository status table, source/license review table (INC-0001–INC-0010), wording/legal-risk review table, manual browser smoke-test checklist (G-10), and Control Tower sign-off checklist. Created `work-items/T018A-public-release-gate-review-pack/` with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, DECISIONS.md. Updated `README.md` Project Status to reflect post-T017 state. Updated `PUBLIC_DEPLOYMENT_PLAN.md` §4 to reflect T017 path fix completion. Updated `T017_DEPLOYMENT_IMPLEMENTATION_RECOMMENDATION.md` with superseded/completed note. Updated `PUBLICATION_RISK_GATE.md` with reference to review pack. No deployment. No approval. NO-GO status preserved.
+
 - **T017 — Static Publish Package Preparation.** `site/data/` created with 10 incident JSON files, 6 taxonomy JSON files, and a publish-copy `incident-index.json` with site-root-relative paths. `site/assets/app.js` updated: `../data/incident-index.json` → `data/incident-index.json`. `site/` is now fully self-contained and can be served as the static root. `tools/validate_dataset.py` extended with checks 7–10: `site/data/` existence, incident sync (SHA-256), taxonomy sync (SHA-256), `app.js` path check. No deployment config added.
 
 ---

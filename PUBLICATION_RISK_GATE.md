@@ -37,6 +37,8 @@
 
 G-12 (CT approval) is a hard blocker. G-01, G-02, G-03, and G-10 remain pending. G-06 and G-08 are now resolved (T017).
 
+**Review Pack Available:** See `PUBLIC_RELEASE_REVIEW_PACK.md` for detailed source/license review table, wording/legal-risk review table, and manual browser smoke-test checklist for G-10 completion.
+
 ---
 
 ## Path to Go

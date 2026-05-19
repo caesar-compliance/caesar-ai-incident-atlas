@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026
+**Last updated:** 20 May 2026
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -77,7 +77,12 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `PUBLIC_DEPLOYMENT_PLAN.md` | Deployment plan | URL options, publish boundary, path fix, rollback, update process, approval steps (T016). |
 | `HOSTING_OPTION_MATRIX.md` | Hosting matrix | 5-option comparison: GitHub Pages, Cloudflare Pages, Netlify, VPS, Coolify (T016). |
 | `PUBLICATION_RISK_GATE.md` | Risk gate | 12-criterion go/no-go table for public deployment (T016). |
-| `T017_DEPLOYMENT_IMPLEMENTATION_RECOMMENDATION.md` | T017 plan | Step-by-step recommendation for T017 deployment config (T016). |
+| `T017_DEPLOYMENT_IMPLEMENTATION_RECOMMENDATION.md` | T017 plan | Step-by-step recommendation for T017 deployment config (T016). Superseded note added in T018A. |
+| `PUBLIC_RELEASE_REVIEW_PACK.md` | Review pack | Public release gate review materials: source/license review, wording/legal-risk review, G-10 checklist, CT sign-off checklist (T018A). |
+| `work-items/T018A-public-release-gate-review-pack/TASK.md` | T018A task | Task scope checklist. |
+| `work-items/T018A-public-release-gate-review-pack/VALIDATION.md` | T018A validation | Validation and constraint checklist. |
+| `work-items/T018A-public-release-gate-review-pack/IMPLEMENTATION_REPORT.md` | T018A report | Concise final report. |
+| `work-items/T018A-public-release-gate-review-pack/DECISIONS.md` | T018A decisions | 3 decisions: version bump deferred, review pack scope, deployment config deferred. |
 | `work-items/T016-public-deployment-plan/TASK.md` | T016 task | Task scope checklist. |
 | `work-items/T016-public-deployment-plan/VALIDATION.md` | T016 validation | Validation and constraint checklist. |
 | `work-items/T016-public-deployment-plan/IMPLEMENTATION_REPORT.md` | T016 report | Concise final report. |

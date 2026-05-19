@@ -26,9 +26,11 @@ The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](
 
 ## Project Status
 
-> This repository is currently in the **dataset MVP — full 10-record batch complete** stage.
-> T010 created 6 second-wave records (INC-0005 through INC-0010). All 10 records passed formal schema and taxonomy validation.
-> The next step is T011 — Dataset MVP Public Readiness Review or Minimal Static Site Planning, pending explicit Control Tower approval of T010 findings.
+> This repository is currently in the **static publish package ready — awaiting CT legal review + hosting decision** stage.
+> T017 completed the static publish package preparation: `site/` is self-contained with data path fix applied, internal docs excluded.
+> The 10 incident records (INC-0001 through INC-0010) passed formal validation and local QA.
+> Public deployment remains **NO-GO** pending Control Tower source/license review, wording/legal risk review, and explicit CT approval.
+> See `PUBLIC_RELEASE_REVIEW_PACK.md` for current review status and `PUBLICATION_RISK_GATE.md` for gate criteria.
 > See [ROADMAP.md](ROADMAP.md) for the full phase plan.
 
 ---
