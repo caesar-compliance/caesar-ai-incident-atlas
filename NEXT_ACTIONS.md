@@ -6,7 +6,7 @@
 
 ## Execution Boundaries
 
-This repository is in the **dataset foundation** phase. T007 delivered a full record creation plan and field mapping drafts, but no incident records exist yet. No product code, no scraper, no CLI, no static site, no database, no package managers, and no dependencies until later approved phases.
+This repository is in the **dataset MVP — first records created** phase. T008 created the first 4 Tier 1 incident records. The second-wave 6 records await T009 approval. No product code, no scraper, no CLI, no static site, no database, no package managers, and no dependencies until later approved phases.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -27,59 +27,42 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T005 — Dataset MVP Schema and Taxonomy Files | Complete |
 | T006 — First Incident Candidate Dossier Preparation | Complete |
 | T007 — First Incident Record Creation Plan | Complete |
-| T008 — First Tier 1 Incident Record Batch | **Next** (requires explicit Control Tower approval of T007 plan, schema rename, and source verification) |
-| v0.3 Dataset MVP | Blocked until T008 records created and approved |
+| T008 — First Tier 1 Incident Record Batch | Complete |
+| T009 — Tier 2/3 Incident Record Plan or Dataset MVP Review | **Next** (requires explicit Control Tower approval of T008 QA) |
+| v0.3 Dataset MVP — first records | Partial — 4 Tier 1 records created; 6 second-wave records pending T009 |
 
 ---
 
-## Next Recommended Step: T008
+## Next Recommended Step: T009
 
-**T008 — First Tier 1 Incident Record Batch.**
+**T009 — Tier 2/3 Incident Record Plan or Dataset MVP Review.**
 
-The next step after T007 is T008 — First Tier 1 Incident Record Batch, but **only after explicit Control Tower approval of the T007 plan, schema rename approval, and source verification completion.**
+The next step after T008 is T009, but **only after explicit Control Tower review and approval of the T008 QA report.**
 
-T008 may create the first 4 real incident records only if explicitly approved:
-- CAND-003 → INC-0001
-- CAND-006 → INC-0002
-- CAND-011 → INC-0003
-- CAND-012 → INC-0004
+T009 should not automatically create the remaining 6 second-wave records. Control Tower must approve T009 scope after reviewing T008 output.
 
-Until T008 is approved, `data/incidents/` must remain empty except `.gitkeep`.
+### T009 options for Control Tower consideration
 
-### T008 pre-conditions (all must be met before T008 begins)
+**Option A — Second-wave record batch:** Create records for the 6 Tier 2/3 candidates (CAND-002, CAND-004, CAND-005, CAND-009, CAND-010, CAND-015) as INC-0005 through INC-0010.
 
-1. **Control Tower approves T008 scope** (4 Tier 1 records only).
-2. **Control Tower confirms ID sequence** (INC-0001 through INC-0004).
-3. **Schema rename approved**: `source.database` → `source_type` with expanded enum. This is the first action of T008.
-4. **Control Tower confirms individual naming policy** (victim in CAND-006, claimant in CAND-011, attorney in CAND-003).
-5. **Source verification completed** for all 4 Tier 1 candidates per `SOURCE_VERIFICATION_WORKFLOW.md`.
-6. **T008 formally initiated** by Control Tower.
+**Option B — Dataset MVP review pass:** Before adding more records, conduct a structured review of the first 4 records and the schema for any issues. Resolve INC-0004 Dutch source note and URL stability risks from T008.
 
-### T008 scope
+**Option C — Combined:** Start T009 with a brief review pass, then proceed to second-wave records if no blocking issues are found.
 
-1. Schema pre-work: rename `source.database` → `source_type` in `schemas/incident.schema.json`.
-2. Create 4 incident JSON files in `data/incidents/`.
-3. Run `RECORD_CREATION_QA_CHECKLIST.md` for each record.
-4. Validate each record against the updated schema.
-5. Update lifecycle documents.
+### T009 pre-conditions
 
-### T008 constraints
+1. **Control Tower reviews `FIRST_RECORD_BATCH_QA_REPORT.md`** and confirms all 4 T008 records are acceptable.
+2. **Control Tower confirms T009 scope** (Option A, B, or C above).
+3. If second-wave records: per-candidate source verification completed per `SOURCE_VERIFICATION_WORKFLOW.md`.
+4. **T009 formally initiated** by Control Tower.
 
-- No records for Postponed, Rejected, or second-wave candidates.
-- One record per commit.
-- QA checklist completed before each commit.
+### T009 constraints (if second-wave records)
+
+- No records beyond INC-0010 without further CT approval.
+- QA checklist completed per record.
 - No external dataset import.
-- Careful hedging language in all summaries.
+- Careful hedging language (second-wave candidates have more secondary-source reliance).
 - No unsupported legal conclusions.
-
-### T008 open risks
-
-- `source.database` schema rename must be approved before any record is written.
-- Individual naming policy not yet confirmed by Control Tower.
-- CAND-012 primary source in Dutch — English paraphrase required.
-- CAND-011 exact chatbot interaction date must be confirmed from CRT ruling.
-- SyRI discontinuation primary source not yet identified.
-- FM-SEC coverage gap remains in the full approved set.
 
 ---
 
@@ -114,7 +97,7 @@ The following tasks can be executed autonomously without Control Tower approval:
 
 The following tasks require Artem / Control Tower review before execution:
 
-- Starting T008 (requires Control Tower approval of T007 plan, schema rename, and source verification).
+- Starting T009 (requires Control Tower approval of T008 QA report).
 - Starting v0.3 Dataset MVP.
 - Implementing any product code (scripts, automated tooling, application features).
 - Creating any incident records.

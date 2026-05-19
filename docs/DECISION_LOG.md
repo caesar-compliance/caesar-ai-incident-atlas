@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026 (T007 — DEC-045)
+**Last updated:** 19 May 2026 (T008 — DEC-055)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -639,3 +639,103 @@ T006 must not mass-import data and must not create final incident records unless
 **Decision:** `schemas/incident.schema.json` is not modified in T007. The `source.database` rename is the first action in T008 pre-work, before any records are written. All schema friction observations are documented in T007 DECISIONS.md and IMPLEMENTATION_REPORT.md.
 
 **Rationale:** T007 is a planning task. Schema changes in a planning task would be premature and out of scope.
+
+---
+
+### [DEC-046] — 19 May 2026 — T008: Schema Rename Applied — `source.database` → `source_type`
+
+**Status:** Approved
+
+**Decision:** `schemas/incident.schema.json` updated as the first action of T008. `source.database` renamed to `source_type`. Enum replaced: `["AIID", "OECD", "AIAAIC", "MIT", "news", "official", "other"]` → `["court_record", "tribunal_decision", "regulator_report", "agency_report", "company_statement", "academic_paper", "credible_media", "public_database_pointer", "other"]`. `$comment` added documenting the change and DEC-038 rationale.
+
+**Rationale:** Required to accurately represent source types of all 4 Tier 1 records. Approved in T007 DEC-038. All 4 records use `source_type`; no record uses deprecated `database`.
+
+---
+
+### [DEC-047] — 19 May 2026 — T008: INC-0001 Date Anchor — Court Order Date
+
+**Status:** Approved
+
+**Decision:** INC-0001 uses `22 May 2023` (court sanctions order date) as the `date` field. `date_note` records that filings containing fabricated citations were submitted on or before 25 April 2023.
+
+**Rationale:** The sanctions order is the primary confirmed public document. The `date_note` preserves timeline accuracy.
+
+---
+
+### [DEC-048] — 19 May 2026 — T008: INC-0002 Victim Not Named
+
+**Status:** Approved
+
+**Decision:** The fatality victim in INC-0002 is described as "a pedestrian" throughout. Not named despite being named in the public NTSB record.
+
+**Rationale:** Control Tower naming policy: prefer role-based wording for non-public individuals. NTSB citation provides public record access.
+
+---
+
+### [DEC-049] — 19 May 2026 — T008: INC-0003 Date Anchor — Tribunal Decision Date
+
+**Status:** Approved
+
+**Decision:** INC-0003 uses `14 February 2024` (BC CRT decision date) as the `date` field. `date_note` records that the chatbot interaction occurred in November 2022.
+
+**Rationale:** Tribunal decision is the primary confirmed public source. Interaction date is referenced in the decision.
+
+---
+
+### [DEC-050] — 19 May 2026 — T008: INC-0003 Claimant Not Named
+
+**Status:** Approved
+
+**Decision:** The customer claimant in INC-0003 is described as "a customer" throughout. Tribunal case caption `Moffatt v. Air Canada, 2024 BCCRT 149` used in `sources.title` only.
+
+**Rationale:** Control Tower naming policy for non-public individuals.
+
+---
+
+### [DEC-051] — 19 May 2026 — T008: INC-0004 Two Sources — Primary + Secondary Context
+
+**Status:** Approved
+
+**Decision:** INC-0004 includes the Hague District Court ruling (primary) and the UN Special Rapporteur Report A/HRC/41/54 October 2019 (secondary context, explicitly labelled in `sources.title`).
+
+**Rationale:** The UN report provides important governance context predating the ruling. Clearly labelled as secondary context; not used as evidentiary source for factual fields.
+
+---
+
+### [DEC-052] — 19 May 2026 — T008: INC-0004 Dutch-Language Primary Source
+
+**Status:** Approved
+
+**Decision:** INC-0004 summary is written from English-language analysis and reporting on the ruling. Not a direct translation of the Dutch text. `sources.title` notes the Dutch language and confirms English-language coverage.
+
+**Rationale:** Caesar cannot independently verify a machine translation. Key findings are extensively confirmed in authoritative English-language legal and governance publications.
+
+---
+
+### [DEC-053] — 19 May 2026 — T008: Sector IDs from Taxonomy; Draft Status Acceptable
+
+**Status:** Approved
+
+**Decision:** All 4 records use sector IDs from `data/taxonomy/sectors.json`. `transportation-autonomous` (INC-0002) and `retail-ecommerce` (INC-0003) are `draft` status in the taxonomy. Their use in v0.2 records is acceptable; the sectors accurately represent these incidents.
+
+**Rationale:** Draft taxonomy entries are intentionally included for v0.2 use. Their draft status will be reviewed in a future taxonomy update.
+
+---
+
+### [DEC-054] — 19 May 2026 — T008: No `related_incidents` in First Batch
+
+**Status:** Approved
+
+**Decision:** None of the 4 records include a `related_incidents` field. To be populated only once multiple records exist and confirmed relationships are identified.
+
+**Rationale:** Premature cross-referencing risks incorrect linkage. First batch is the baseline.
+
+---
+
+### [DEC-055] — 19 May 2026 — T008: T009 Requires Control Tower Approval — Not Automatic
+
+**Status:** Approved
+
+**Decision:** T009 — Tier 2/3 Incident Record Plan or Dataset MVP Review — requires explicit Control Tower approval of the T008 QA report before initiation. T009 should not automatically create the remaining 6 second-wave records. Control Tower must confirm T009 scope (Option A, B, or C as defined in `NEXT_ACTIONS.md`).
+
+**Rationale:** Each record batch is a governance gate. Quality of the first batch should be confirmed before the second batch is created.

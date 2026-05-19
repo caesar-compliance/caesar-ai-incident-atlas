@@ -7,6 +7,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.3.0] - 19 May 2026
+
+### Added
+
+- **First Tier 1 Incident Records (T008).** First 4 real incident records created in `data/incidents/`. All based on primary official sources (court records, NTSB report, tribunal decision).
+- **`data/incidents/INC-0001-mata-v-avianca-court-citations.json`** — AI-generated fabricated court citations (CAND-003). Source: Mata v. Avianca, S.D.N.Y., No. 22-cv-1461. Sectors: legal-compliance. FM-HALL + FM-REL. Severity: medium. Confidence: high.
+- **`data/incidents/INC-0002-autonomous-vehicle-pedestrian-fatality-ntsb.json`** — Autonomous vehicle pedestrian fatality (CAND-006). Source: NTSB HWY18MH010. Sector: transportation-autonomous. FM-SAFE + FM-REL. Severity: critical. Confidence: high.
+- **`data/incidents/INC-0003-air-canada-chatbot-contract-bc-crt.json`** — Air Canada chatbot unauthorised contract (CAND-011). Source: Moffatt v. Air Canada, 2024 BCCRT 149. Sector: retail-ecommerce. FM-HALL + FM-UNAUTH. Severity: medium. Confidence: high.
+- **`data/incidents/INC-0004-dutch-syri-benefits-system-hague-court.json`** — Dutch SyRI automated welfare system (CAND-012). Source: Hague District Court ECLI:NL:RBDHA:2020:1878. Sector: public-sector. FM-BIAS + FM-TRANS + FM-UNAUTH. Severity: high. Confidence: high.
+- **`FIRST_RECORD_BATCH_SOURCE_VERIFICATION_LOG.md`** — Per-record source verification log for all 4 records.
+- **`FIRST_RECORD_BATCH_QA_REPORT.md`** — Full QA report: all 4 records passed across 10 dimensions.
+- **`work-items/T008-first-tier-1-incident-record-batch/`** — Work item folder with TASK.md, DECISIONS.md, VALIDATION.md, IMPLEMENTATION_REPORT.md.
+
+### Changed
+
+- **`schemas/incident.schema.json`** — Renamed `source.database` → `source_type`; replaced narrow enum with practical set: `court_record`, `tribunal_decision`, `regulator_report`, `agency_report`, `company_statement`, `academic_paper`, `credible_media`, `public_database_pointer`, `other`.
+- `README.md` — Updated project status; added T008 records and files to repository structure.
+- `ROADMAP.md` — Marked T008 complete; added T009 as next step.
+- `PROJECT_STATE.md` — Updated version to 0.3.0; updated phase and latest task.
+- `NEXT_ACTIONS.md` — Advanced to T009 with pre-conditions.
+- `REPO_INVENTORY.md` — All T008 files listed.
+- `docs/DECISION_LOG.md` — Added DEC-046 through DEC-055.
+- `docs/validation/DATASET_MVP_VALIDATION_PLAN.md` — Updated to reflect first records created.
+
+### Confirmed
+
+- `data/incidents/` contains `.gitkeep` + exactly 4 incident records (INC-0001 through INC-0004).
+- No product code, scraper, CLI, static site, or database created.
+- All JSON files pass syntax validation. All taxonomy IDs verified.
+
+---
+
 ## [0.2.6] - 19 May 2026
 
 ### Added

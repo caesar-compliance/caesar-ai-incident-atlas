@@ -122,15 +122,26 @@
   "$defs": {
     "source": {
       "type": "object",
-      "required": ["url", "database", "accessed"],
+      "required": ["url", "source_type", "accessed"],
+      "$comment": "Renamed from 'database' to 'source_type' in T008 (DEC-038). Enum expanded to accurately represent court records, government reports, tribunal decisions, and other primary source types used in v0.2 incident records.",
       "properties": {
         "url": {
           "type": "string",
           "format": "uri"
         },
-        "database": {
+        "source_type": {
           "type": "string",
-          "enum": ["AIID", "OECD", "AIAAIC", "MIT", "news", "official", "other"]
+          "enum": [
+            "court_record",
+            "tribunal_decision",
+            "regulator_report",
+            "agency_report",
+            "company_statement",
+            "academic_paper",
+            "credible_media",
+            "public_database_pointer",
+            "other"
+          ]
         },
         "accessed": {
           "type": "string",

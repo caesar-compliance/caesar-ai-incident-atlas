@@ -26,9 +26,9 @@ The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](
 
 ## Project Status
 
-> This repository is currently in the **documentation + dataset foundation** stage.
-> T007 delivered a full record creation plan and field mapping drafts. No incident records exist yet — `data/incidents/` is empty.
-> The next step is T008 — First Tier 1 Incident Record Batch, pending explicit Control Tower approval of the T007 plan, schema rename, and source verification.
+> This repository is currently in the **dataset MVP — first records created** stage.
+> T008 created the first 4 real incident records (INC-0001 through INC-0004). `data/incidents/` now contains 4 Tier 1 incident records.
+> The next step is T009 — Tier 2/3 Incident Record Plan or Dataset MVP Review, pending explicit Control Tower approval of the T008 QA report.
 > See [ROADMAP.md](ROADMAP.md) for the full phase plan.
 
 ---
@@ -181,6 +181,12 @@ Related repositories:
 | [SOURCE_TO_FIELD_TRACEABILITY_MATRIX.md](SOURCE_TO_FIELD_TRACEABILITY_MATRIX.md) | Source-to-field traceability for Tier 1 candidates (T007) |
 | [RECORD_CREATION_QA_CHECKLIST.md](RECORD_CREATION_QA_CHECKLIST.md) | 50+ item QA checklist to complete before each incident record is committed (T007) |
 | [T008_FIRST_RECORD_BATCH_RECOMMENDATION.md](T008_FIRST_RECORD_BATCH_RECOMMENDATION.md) | Recommended T008 scope: 4 Tier 1 records, pre-conditions, schema rename requirement (T007) |
+| [FIRST_RECORD_BATCH_SOURCE_VERIFICATION_LOG.md](FIRST_RECORD_BATCH_SOURCE_VERIFICATION_LOG.md) | Per-record source verification for INC-0001 through INC-0004 (T008) |
+| [FIRST_RECORD_BATCH_QA_REPORT.md](FIRST_RECORD_BATCH_QA_REPORT.md) | QA report for first 4 incident records — all passed (T008) |
+| [data/incidents/INC-0001-mata-v-avianca-court-citations.json](data/incidents/INC-0001-mata-v-avianca-court-citations.json) | Incident record: AI-generated fabricated court citations (T008) |
+| [data/incidents/INC-0002-autonomous-vehicle-pedestrian-fatality-ntsb.json](data/incidents/INC-0002-autonomous-vehicle-pedestrian-fatality-ntsb.json) | Incident record: Autonomous vehicle pedestrian fatality (T008) |
+| [data/incidents/INC-0003-air-canada-chatbot-contract-bc-crt.json](data/incidents/INC-0003-air-canada-chatbot-contract-bc-crt.json) | Incident record: Air Canada chatbot contract (T008) |
+| [data/incidents/INC-0004-dutch-syri-benefits-system-hague-court.json](data/incidents/INC-0004-dutch-syri-benefits-system-hague-court.json) | Incident record: Dutch SyRI automated welfare system (T008) |
 | [docs/RESEARCH_CONTEXT.md](docs/RESEARCH_CONTEXT.md) | Domain research and strategic context |
 | [docs/DECISION_LOG.md](docs/DECISION_LOG.md) | Architectural and strategic decisions |
 | [docs/COMPETITOR_BENCHMARKS.md](docs/COMPETITOR_BENCHMARKS.md) | Detailed competitor and benchmark analysis |

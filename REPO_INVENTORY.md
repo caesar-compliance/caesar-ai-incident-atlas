@@ -31,7 +31,11 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `SOURCE_VERIFICATION_WORKFLOW.md` | Source verification workflow | Step-by-step workflow for verifying sources before creating an incident record; source intake process; minimum source requirements; primary vs secondary source treatment; citation fields; confidence levels; disputed incident handling; careful wording rules; source review checklist; rejection and postponement rules. |
 | `LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md` | License and source safety checklist | How to check source and dataset license status before use; treatment of AIID (CC BY-SA 4.0 — verified), IBM AI Atlas Nexus (Apache-2.0 — verified), OECD (pending), AIAAIC (pending), MIT tracker (pending); default rule (no external dataset import without separate approval); pages requiring manual verification. |
 | `data/.gitkeep` | Directory placeholder | Preserves the `data/` directory in git. |
-| `data/incidents/.gitkeep` | Empty incidents placeholder | Preserves `data/incidents/` while ensuring no incident records are committed in T005. |
+| `data/incidents/.gitkeep` | Directory placeholder | Preserves `data/incidents/` directory in git. |
+| `data/incidents/INC-0001-mata-v-avianca-court-citations.json` | Incident record | INC-0001: AI-generated fabricated court citations. Source: Mata v. Avianca, S.D.N.Y. FM-HALL+FM-REL. Severity: medium. (T008) |
+| `data/incidents/INC-0002-autonomous-vehicle-pedestrian-fatality-ntsb.json` | Incident record | INC-0002: Autonomous vehicle pedestrian fatality. Source: NTSB HWY18MH010. FM-SAFE+FM-REL. Severity: critical. (T008) |
+| `data/incidents/INC-0003-air-canada-chatbot-contract-bc-crt.json` | Incident record | INC-0003: Air Canada chatbot contract. Source: Moffatt v. Air Canada, 2024 BCCRT 149. FM-HALL+FM-UNAUTH. Severity: medium. (T008) |
+| `data/incidents/INC-0004-dutch-syri-benefits-system-hague-court.json` | Incident record | INC-0004: Dutch SyRI automated welfare system. Source: Hague District Court ECLI:NL:RBDHA:2020:1878. FM-BIAS+FM-TRANS+FM-UNAUTH. Severity: high. (T008) |
 | `data/taxonomy/.gitkeep` | Taxonomy directory placeholder | Preserves `data/taxonomy/` directory in git. |
 | `data/taxonomy/failure_modes.json` | Failure mode taxonomy | Machine-readable failure mode taxonomy with stable/draft status markers for v0.2. |
 | `data/taxonomy/controls.json` | Control taxonomy | Machine-readable control taxonomy baseline for v0.2 mapping. |
@@ -40,12 +44,14 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `data/taxonomy/confidence_levels.json` | Confidence levels | Machine-readable confidence level reference (`low`, `medium`, `high`). |
 | `data/taxonomy/severity_levels.json` | Severity levels | Machine-readable severity level reference (`low`, `medium`, `high`, `critical`). |
 | `schemas/.gitkeep` | Schema directory placeholder | Preserves `schemas/` directory in git. |
-| `schemas/incident.schema.json` | Incident schema | Lenient v0.2 JSON Schema with 11 required fields and source/citation constraints. |
+| `schemas/incident.schema.json` | Incident schema | v0.2 JSON Schema with 11 required fields. `source.database` renamed to `source_type` in T008 (DEC-038). |
 | `FIRST_INCIDENT_CANDIDATE_DOSSIERS.md` | Candidate dossiers | 15 candidate incident dossiers (CAND-001 through CAND-015) for Control Tower review. Candidate only — not incident records. (T006) |
 | `FIRST_INCIDENT_CANDIDATE_REVIEW_TABLE.md` | Candidate review table | Summary review table: 10 Accept, 4 Postpone, 1 Reject. Control Tower review aid. (T006) |
 | `FIRST_INCIDENT_SOURCE_REVIEW_NOTES.md` | Source review notes | Source type analysis, license status review, and quality assessment for T006 candidates. (T006) |
 | `FIRST_INCIDENT_SELECTION_RECOMMENDATION.md` | Selection recommendation | Final selection recommendation with diversity assessment, Tier 1–3 rationale, and T007 conditions. (T006) |
 | `FIRST_INCIDENT_RECORD_CREATION_PLAN.md` | Record creation plan | End-to-end plan for converting T006 candidates into incident records: order of ops, schema pre-work, field rules, ID assignment, wording conventions. (T007) |
+| `FIRST_RECORD_BATCH_SOURCE_VERIFICATION_LOG.md` | Source verification log | Per-record source verification for INC-0001 through INC-0004: source type, fields supported, gaps, confidence rationale, QA. (T008) |
+| `FIRST_RECORD_BATCH_QA_REPORT.md` | QA report | Full QA report for first 4 incident records across 10 dimensions. All passed. (T008) |
 | `APPROVED_CANDIDATE_SET_FOR_RECORD_CREATION.md` | Approved candidate set | Wave assignments: 4 Tier 1 (T008), 6 Tier 2/3 (T009), 4 postponed, 1 rejected. Open questions per candidate. (T007) |
 | `INCIDENT_FIELD_MAPPING_DRAFTS.md` | Field mapping drafts | Draft field-level mappings for all 10 approved candidates. CAND-NNN references only. (T007) |
 | `SOURCE_TO_FIELD_TRACEABILITY_MATRIX.md` | Source traceability matrix | Source-to-field traceability for Tier 1 candidates: P/S/I/U classification per field. (T007) |
@@ -59,7 +65,7 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | File | Role | Description |
 |---|---|---|
 | `docs/RESEARCH_CONTEXT.md` | Domain research | Strategic domain research, product type, main users, use cases, MVP scope, and future paid use cases. |
-| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-045). |
+| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-055). |
 | `docs/COMPETITOR_BENCHMARKS.md` | Competitor analysis | Detailed analysis of AI Incident Database, OECD AI Incidents Monitor, AIAAIC Repository, MIT AI Incident Tracker, and IBM AI Risk Atlas, with licensing notes and Caesar differentiation. |
 | `docs/FULL_SCALE_PRODUCT_BLUEPRINT.md` | Product blueprint | Comprehensive full-scale product blueprint covering all product dimensions, user journeys, and ecosystem integration. |
 | `docs/DATA_MODEL_DRAFT.md` | Data model | Incident data model and JSON schema draft covering all record types. Open questions listed for T003 resolution. |
@@ -99,6 +105,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T007-first-incident-record-creation-plan/VALIDATION.md` | T007 validation | Validation checklist confirming T007 quality gates were met. |
 | `work-items/T007-first-incident-record-creation-plan/IMPLEMENTATION_REPORT.md` | T007 report | Implementation report with files created, schema observations, and final status. |
 | `work-items/T007-first-incident-record-creation-plan/DECISIONS.md` | T007 decisions | 8 decisions including schema rename requirement, field conventions, and T008 scope limit. |
+| `work-items/T008-first-tier-1-incident-record-batch/TASK.md` | T008 task | Task scope, record index, constraints, and commit message. |
+| `work-items/T008-first-tier-1-incident-record-batch/VALIDATION.md` | T008 validation | Constraint and deliverable validation checklist for T008. |
+| `work-items/T008-first-tier-1-incident-record-batch/IMPLEMENTATION_REPORT.md` | T008 report | Implementation report with records created, schema change, source verification summary, and final status. |
+| `work-items/T008-first-tier-1-incident-record-batch/DECISIONS.md` | T008 decisions | 10 decisions including schema rename applied, date anchors, naming policy, draft sectors. |
 
 ---
 

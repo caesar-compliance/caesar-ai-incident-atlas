@@ -211,22 +211,37 @@ v0.1 Foundation
 
 ## T008 — First Tier 1 Incident Record Batch
 
-**Status:** Planned (next step — requires Control Tower approval)
+**Status:** Complete (19 May 2026)
+**Version bump:** 0.3.0
 
 **Goal:** Create the first 4 real incident records for the Tier 1 candidates.
 
-**Scope:**
-- Schema pre-work: rename `source.database` → `source_type`
-- 4 incident JSON files: INC-0001 through INC-0004
-- QA checklist completion per record
+**Records created:**
+- `INC-0001` — Mata v. Avianca fabricated court citations (CAND-003) — `legal-compliance` — FM-HALL + FM-REL — medium
+- `INC-0002` — Autonomous vehicle pedestrian fatality NTSB (CAND-006) — `transportation-autonomous` — FM-SAFE + FM-REL — critical
+- `INC-0003` — Air Canada chatbot contract BC CRT (CAND-011) — `retail-ecommerce` — FM-HALL + FM-UNAUTH — medium
+- `INC-0004` — Dutch SyRI welfare system Hague Court (CAND-012) — `public-sector` — FM-BIAS + FM-TRANS + FM-UNAUTH — high
+
+**Schema change:** `source.database` renamed to `source_type` with expanded enum.
+
+**Prerequisite for:** T009 second-wave records and full v0.3 Dataset MVP
+
+---
+
+## T009 — Tier 2/3 Incident Record Plan or Dataset MVP Review
+
+**Status:** Planned (next step — requires Control Tower approval of T008 QA)
+
+**Options (for Control Tower):**
+- Option A: Second-wave record batch (CAND-002, CAND-004, CAND-005, CAND-009, CAND-010, CAND-015 → INC-0005 through INC-0010)
+- Option B: Dataset MVP review pass before adding more records
+- Option C: Combined review + second-wave batch
 
 **Pre-conditions:**
-- Control Tower approval of T007 plan
-- Schema rename approved
-- Individual naming policy confirmed
-- Source verification completed for all 4 Tier 1 candidates
+- Control Tower reviews `FIRST_RECORD_BATCH_QA_REPORT.md`
+- Control Tower confirms T009 scope
 
-**Prerequisite for:** T009 second-wave records and v0.3 Dataset MVP
+**Prerequisite for:** Full v0.3 Dataset MVP (10 records)
 
 ---
 
