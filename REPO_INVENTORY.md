@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T023)
+**Last updated:** 20 May 2026 (T024)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -201,6 +201,11 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T023-browser-smoke-redirect/VALIDATION.md` | T023 validation | Validation checklist: redirect check, live URL, JSON endpoint, local validator, file safety. |
 | `work-items/T023-browser-smoke-redirect/IMPLEMENTATION_REPORT.md` | T023 report | Final report with URL check results, G-10 status, safety confirmations, remaining risks. |
 | `work-items/T023-browser-smoke-redirect/DECISIONS.md` | T023 decisions | Decisions made during T023. |
+| `PRODUCT_POLISH_BACKLOG.md` | Product backlog | Compact backlog for future work: MVP polish, dataset expansion themes, Governance OS integration, technical backlog, hard gates. (T024) |
+| `work-items/T024-public-mvp-lock/TASK.md` | T024 task | Task scope checklist. |
+| `work-items/T024-public-mvp-lock/VALIDATION.md` | T024 validation | Validation checklist. |
+| `work-items/T024-public-mvp-lock/IMPLEMENTATION_REPORT.md` | T024 report | Concise final report. |
+| `work-items/T024-public-mvp-lock/DECISIONS.md` | T024 decisions | Decisions made during T024. |
 
 ---
 

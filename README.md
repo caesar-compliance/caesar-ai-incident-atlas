@@ -26,12 +26,11 @@ The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](
 
 ## Project Status
 
-> **Live at [`https://atlas.caesar.no/`](https://atlas.caesar.no/)** — GitHub Pages, GitHub Actions, public root `site/`.
-> T023 complete: HTTP→HTTPS redirect confirmed (301), JSON HTTP 200 with all 10 records live.
+> **Technical Public MVP: LIVE + VERIFIED at [`https://atlas.caesar.no/`](https://atlas.caesar.no/)** — GitHub Pages, GitHub Actions, public root `site/`.
+> **G-10 PASS** — Control Tower manual browser confirmation on 20 May 2026.
 > The 10 incident records (INC-0001 through INC-0010) are publicly accessible.
-> G-10 HTTP/redirect/data checks PASS. Interactive browser UI test (search/filter/sort/DevTools) pending CT manual verification.
-> G-01/G-02 source/legal review remain pending CT sign-off.
-> See `PUBLICATION_RISK_GATE.md` for full gate status. See [ROADMAP.md](ROADMAP.md) for the phase plan.
+> G-01 source/license review and G-02 wording/legal-risk review remain pending CT sign-off.
+> See `PUBLICATION_RISK_GATE.md` for full gate status. See `PRODUCT_POLISH_BACKLOG.md` for future work backlog. See [ROADMAP.md](ROADMAP.md) for the phase plan.
 
 ---
 

@@ -7,6 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.6.0] - 20 May 2026
+
+### Added
+
+- **T024 — Public MVP Status Lock + Product Polish Backlog.** Locked technical Public MVP status as **LIVE + VERIFIED** following Control Tower manual browser confirmation (G-10 PASS, 20 May 2026). Created `PRODUCT_POLISH_BACKLOG.md` with five sections: Public MVP polish items, Dataset expansion candidates, Governance OS integration backlog, Technical backlog, and Hard gates for future work. Created `work-items/T024-public-mvp-lock/` with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, DECISIONS.md. Updated PROJECT_STATE.md (v0.6.0, T024 complete), NEXT_ACTIONS.md (T024 status, T025 options), CHANGELOG.md (this entry), REPO_INVENTORY.md (T024 files), PUBLICATION_RISK_GATE.md (G-10 PASS), RELEASE_CANDIDATE_GATE.md (T024 status), DEPLOYMENT_READINESS_CHECKLIST.md (v0.6.0), README.md (Project Status), site/README.md (status). Branch: `status/T024-public-mvp-lock`.
+
+### Status (T024)
+
+- **Technical Public MVP**: LIVE + VERIFIED at `https://atlas.caesar.no/`
+- **Deployment**: GitHub Pages via GitHub Actions
+- **Public root**: `site/`
+- **G-10**: ✅ **PASS** — Control Tower manual browser confirmation on 20 May 2026
+- **G-01**: ⚠ **Pending** — CT source/license sign-off required
+- **G-02**: ⚠ **Pending** — CT/counsel wording/legal-risk review required
+- **Dataset**: 10 records (INC-0001 through INC-0010), no new records added
+- **Safety**: No DNS changes, no CNAME added, no custom domain changes, no secrets, no scraping, no external hosting config
+
+### Validation (T024)
+
+- `python3 tools/validate_dataset.py` — exits 0; all checks passed; 10 records
+- `curl -sI https://atlas.caesar.no/` — HTTP 200
+- `curl -sI http://atlas.caesar.no/` — HTTP 301 → `https://atlas.caesar.no/`
+- `curl -sI https://atlas.caesar.no/data/incident-index.json` — HTTP 200
+- `gh api repos/caesar-compliance/caesar-ai-incident-atlas/pages` — status: built; cname: atlas.caesar.no; https_enforced: true
+- `find site -maxdepth 4 \( -name "CNAME" -o -path "*/work-items/*" -o -path "*/docs/*" \)` — empty (clean)
+- Workflow `path: site` — confirmed, uploads only `site/`
+
+---
+
 ## [0.5.9] - 20 May 2026
 
 ### Added
