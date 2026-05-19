@@ -3,7 +3,8 @@
 > Checklist that must pass before any public deployment of the Caesar AI Incident Atlas.  
 > **No step in this checklist auto-approves deployment.** All items require human review.  
 > **T015 Local RC Status:** ✅ All local items satisfied. Three governance items remain before public deploy.  
-> **T016 Deployment Plan Status:** ✅ Planning complete. See `PUBLIC_DEPLOYMENT_PLAN.md`, `HOSTING_OPTION_MATRIX.md`, `PUBLICATION_RISK_GATE.md`.
+> **T016 Deployment Plan Status:** ✅ Planning complete. See `PUBLIC_DEPLOYMENT_PLAN.md`, `HOSTING_OPTION_MATRIX.md`, `PUBLICATION_RISK_GATE.md`.  
+> **T017 Publish Package Status:** ✅ `site/` is self-contained. Data path fix applied. Internal docs excluded. G-06 and G-08 satisfied.
 
 ---
 
@@ -22,11 +23,12 @@
 - [x] `python3 -m http.server 8080` starts from repo root without error. *(T015 — HTTP 200)*
 - [x] `http://localhost:8080/site/` loads with all 10 records. *(T015 — confirmed)*
 - [x] Filters, search, sort, deep links, copy-link function correctly. *(T015 — confirmed)*
+- [x] `site/` serves correctly as static root. *(T017 — HTTP 200)*
 - [ ] No console errors on load. *(Requires manual browser verification)*
 
 ### 3. External Dependency Audit
 
-- [x] No CDN, external font, or analytics references in site files. *(T015 — grep scan clean)*
+- [x] No CDN, external font, or analytics references in `site/index.html`, `app.js`, `styles.css`. *(T015 — grep scan clean)*
 - [x] No npm, `package.json`, or build pipeline present. *(T015 — confirmed)*
 - [x] No backend or server-side code. *(T015 — confirmed)*
 
@@ -47,17 +49,19 @@
 
 - [x] `CHANGELOG.md` reflects the release version. *(T015 — v0.5.3)*
 - [ ] `README.md` updated with public site URL if applicable. *(after deployment decision)*
-- [ ] `NEXT_ACTIONS.md` updated for post-deployment tasks. *(after T016)*
+- [ ] `NEXT_ACTIONS.md` updated for post-deployment tasks. *(after T018)*
 
 ---
 
 ## Blocking Items for Public Deployment
 
-Three items remain before any public deployment is permissible:
+Three governance items remain before any public deployment is permissible:
 
 1. **Legal/license review** — all 10 incident sources must be formally reviewed and cleared.
 2. **Domain/hosting decision** — hosting provider, domain, and DNS must be decided.
 3. **Control Tower approval** — explicit CT sign-off on public deployment.
+
+Technical blockers from T015/T016 (data path fix, internal doc isolation) are now resolved (T017).
 
 **None of the above items are automated gates.** Each requires deliberate human sign-off.  
 See `DATASET_MVP_OPEN_RISKS.md` for the current open risk register.  

@@ -1,0 +1,51 @@
+{
+  "incident_id": "INC-0007",
+  "title": "Automated content moderation system incorrectly removes legitimate health-related content at scale during pandemic",
+  "date": "17 March 2020",
+  "date_note": "Date anchored on the period when Meta/Facebook publicly acknowledged content moderation errors affecting COVID-19-related posts. Meta's Transparency Centre published acknowledgements of automated system errors in mid-March 2020. The errors occurred during the early weeks of the COVID-19 pandemic, approximately March 2020.",
+  "sector": ["media-content"],
+  "ai_system_context": "Automated content moderation systems used by a major social media platform to detect and remove content that violated platform policies. During the early COVID-19 pandemic period, these systems operated with reduced human review capacity and increased reliance on automated decision-making.",
+  "summary": "According to public statements published by Meta (then Facebook) through its Transparency Centre in March 2020, automated content moderation systems on the platform incorrectly flagged and removed large volumes of legitimate news and health-related content during the early weeks of the COVID-19 pandemic. Meta publicly attributed part of the over-removal problem to a software bug that affected the automated spam detection system, and acknowledged that legitimate posts about COVID-19 were incorrectly classified and removed. The company stated that the issue was identified and addressed. Separately, Twitter acknowledged similar content moderation errors affecting health-related posts during the same period. The incidents raised questions about the reliability of automated content moderation systems operating without adequate human review, particularly during high-volume or unprecedented content periods.",
+  "failure_modes": ["FM-REL", "FM-TRANS"],
+  "severity": "medium",
+  "confidence": "high",
+  "controls": ["CTL-OVER-001", "CTL-MON-001", "CTL-INC-001"],
+  "evidence_required": [
+    "EV-004 — Human oversight record: evidence of human review escalation procedures maintained during periods of reduced moderation capacity",
+    "EV-006 — Monitoring log: platform monitoring logs for automated moderation error rates during the March 2020 period",
+    "EV-014 — Post-incident review: platform post-mortem analysis and published transparency reports on the moderation errors",
+    "EV-013 — Incident log: record of the bug identification, remediation timeline, and scope of affected content"
+  ],
+  "lessons": [
+    "Automated content moderation systems require human review escalation paths that are maintained during crisis periods, including when normal staffing levels are reduced.",
+    "Platforms should implement conservative fallback behaviour — such as flagging content for human review rather than automated removal — when automated systems are operating under conditions outside their normal distribution.",
+    "Automated content moderation systems should provide affected users with transparent explanations of why content was removed and an accessible appeals path.",
+    "Platform operators should maintain real-time monitoring of automated moderation error rates to detect and respond to elevated false-positive removal patterns promptly."
+  ],
+  "sources": [
+    {
+      "url": "https://transparency.fb.com/en-gb/policies/improving/",
+      "source_type": "company_statement",
+      "accessed": "19 May 2026",
+      "title": "Meta Transparency Centre — Content moderation and automated systems information, including acknowledgement of COVID-19 moderation errors, March 2020"
+    },
+    {
+      "url": "https://about.fb.com/news/2020/03/combating-covid-19-misinformation/",
+      "source_type": "company_statement",
+      "accessed": "19 May 2026",
+      "title": "Meta/Facebook — 'Combating COVID-19 Misinformation Across Our Apps', March 2020 (company statement acknowledging automated system errors affecting legitimate COVID-19 content)"
+    }
+  ],
+  "harms": [
+    "Legitimate news and health information about COVID-19 incorrectly removed, affecting users' access to public health information",
+    "Publishers and health organisations experienced disruption to content distribution during a public health crisis",
+    "User trust in platform content moderation reliability affected"
+  ],
+  "affected_stakeholders": [
+    "Users whose content was incorrectly removed",
+    "Health organisations and news publishers distributing COVID-19 information",
+    "Platform operators relying on automated moderation systems at scale",
+    "Regulators and policy bodies overseeing content moderation practices"
+  ],
+  "impact": "Meta publicly acknowledged the moderation errors and stated that a software bug affecting automated spam detection was identified and corrected. The volume of incorrectly removed content was not fully quantified in public statements. The incident contributed to broader regulatory and public scrutiny of platform reliance on automated content moderation and the need for human review fallback mechanisms."
+}

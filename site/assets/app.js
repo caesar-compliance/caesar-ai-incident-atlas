@@ -28,7 +28,7 @@ const CONF_ORDER = { high: 0, medium: 1, low: 2 };
 async function init() {
   setLoading(true, "Loading incident records…");
   try {
-    const indexRes = await fetch("../data/incident-index.json");
+    const indexRes = await fetch("data/incident-index.json");
     if (!indexRes.ok) throw new Error("Could not load incident-index.json — HTTP " + indexRes.status);
     const index = await indexRes.json();
 

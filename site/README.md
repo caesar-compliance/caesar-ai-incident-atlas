@@ -58,6 +58,24 @@ python3 -m pip install -r tools/requirements.txt
 
 See `tools/README.md` for the full check list.
 
+## Self-Contained Publish Package
+
+As of T017, `site/` is fully self-contained:
+
+- `site/data/incident-index.json` — publish copy with site-root-relative paths
+- `site/data/incidents/` — 10 incident JSON files
+- `site/data/taxonomy/` — 6 taxonomy JSON files
+
+`site/` can be served as the static root directly:
+
+```bash
+cd site && python3 -m http.server 8081
+# open http://localhost:8081/
+```
+
+The root `data/` directory remains the authoritative source of truth for record authoring.  
+Run `python3 tools/validate_dataset.py` from the repo root to verify sync.
+
 ## Status
 
-T015 local RC — all local checks pass. Public deployment requires Control Tower approval (T016+).
+T017 static publish package — `site/` is self-contained. Public deployment requires Control Tower approval (T018+).

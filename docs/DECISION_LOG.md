@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026 (T016 — DEC-094)
+**Last updated:** 20 May 2026 (T017 — DEC-097)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -1129,3 +1129,33 @@ T006 must not mass-import data and must not create final incident records unless
 **Decision:** T016 produces planning documents only. No `CNAME`, `netlify.toml`, GitHub Actions workflow, or Cloudflare project config is created in T016. These are T017 tasks.
 
 **Rationale:** Creating deployment config before CT selects a hosting option and issues explicit approval risks accidental publication. Planning and configuration must remain in separate tasks with a hard governance gate between them.
+
+---
+
+### [DEC-095] — 20 May 2026 — T017: `site/data/incident-index.json` Uses Site-Root-Relative Paths; Root Index Unchanged
+
+**Status:** Approved
+
+**Decision:** `site/data/incident-index.json` is a generated publish copy with `file` paths rewritten from `../data/incidents/...` to `data/incidents/...`. The root `data/incident-index.json` retains `../data/incidents/...` paths.
+
+**Rationale:** Keeps root QA tooling and Python scripts working unchanged while making `site/` fully self-contained. The validator enforces sync between both copies.
+
+---
+
+### [DEC-096] — 20 May 2026 — T017: Root `data/` Remains Source of Truth; `site/data/` Is Publish Copy
+
+**Status:** Approved
+
+**Decision:** All incident record authoring, QA, and schema validation operates against root `data/`. `site/data/` is a publish copy, kept in sync by the validator (SHA-256 hash comparison). The validator fails if any file diverges.
+
+**Rationale:** Separates authoring from publishing. Prevents silent drift between the two copies.
+
+---
+
+### [DEC-097] — 20 May 2026 — T017: No CNAME, No GitHub Actions, No Deployment Config Added
+
+**Status:** Approved
+
+**Decision:** T017 prepares the static package only. No `CNAME`, `netlify.toml`, GitHub Actions workflow, or Cloudflare Pages config is created. Deployment configuration is deferred to T018 after CT selects hosting and issues explicit approval.
+
+**Rationale:** Consistent with DEC-094. Activation must be explicitly separated from preparation by a governance gate.

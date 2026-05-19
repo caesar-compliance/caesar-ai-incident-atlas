@@ -1,0 +1,42 @@
+{
+  "incident_id": "INC-0003",
+  "title": "Airline chatbot provides incorrect bereavement fare policy information; tribunal finds company bound by chatbot representation",
+  "date": "14 February 2024",
+  "date_note": "Date of the BC Civil Resolution Tribunal decision. The chatbot interaction occurred in November 2022. Tribunal decision date used as primary record anchor.",
+  "sector": ["retail-ecommerce"],
+  "ai_system_context": "LLM-based customer service chatbot deployed on an airline's public website to handle customer queries, including fare policy information.",
+  "summary": "According to a decision of the British Columbia Civil Resolution Tribunal dated February 2024, a customer contacted an airline's website chatbot seeking information about bereavement fare discounts following a family bereavement. The chatbot provided information about the discount that was inconsistent with the company's actual bereavement fare policy. The customer relied on the chatbot's information and purchased a fare at full price, expecting to claim the discount retrospectively as described by the chatbot. The company declined the retrospective claim. The tribunal found that the company was liable for the representation made by its chatbot and ordered the company to pay the customer a partial refund. The tribunal rejected the company's argument that it bore no responsibility for the chatbot's statements. The case is publicly identified as Moffatt v. Air Canada, 2024 BCCRT 149.",
+  "failure_modes": ["FM-HALL", "FM-UNAUTH"],
+  "severity": "medium",
+  "confidence": "high",
+  "controls": ["CTL-OVER-001", "CTL-AGENT-001", "CTL-AGENT-002", "CTL-TEST-001"],
+  "evidence_required": [
+    "EV-008 — Agent activity log: log of chatbot interactions including the responses given to the customer",
+    "EV-004 — Human oversight record: evidence of human review processes for chatbot outputs in customer-facing contexts",
+    "EV-013 — Incident log: record of the customer complaint and subsequent tribunal proceedings",
+    "EV-001 — AI system register: documentation of the chatbot's authorised scope and policy information boundaries"
+  ],
+  "lessons": [
+    "Organisations deploying AI agents in customer-facing roles must define explicit agent scope boundaries and ensure agents cannot make commitments or representations that exceed their authorised scope.",
+    "AI agent outputs that could constitute binding representations — such as descriptions of contractual terms or policy entitlements — should be subject to human review or include clear limitations on their reliability.",
+    "Organisations should not disclaim legal responsibility for AI agent outputs where those agents are deployed as authoritative customer interfaces presenting company policy information.",
+    "Pre-deployment testing for customer-facing AI agents should include evaluation of outputs for accuracy against current company policy before live deployment."
+  ],
+  "sources": [
+    {
+      "url": "https://decisions.civilresolutionbc.ca/s/sfc/sfc-decision/a0k4X000009qFoSQAU",
+      "source_type": "tribunal_decision",
+      "accessed": "19 May 2026",
+      "title": "Moffatt v. Air Canada, 2024 BCCRT 149 — BC Civil Resolution Tribunal Decision, February 2024"
+    }
+  ],
+  "harms": [
+    "Financial loss to a customer who relied on incorrect fare policy information provided by the chatbot"
+  ],
+  "affected_stakeholders": [
+    "Customers using AI-powered customer service interfaces",
+    "Consumer protection bodies",
+    "Organisations deploying customer-facing AI agents"
+  ],
+  "impact": "The BC Civil Resolution Tribunal ordered the company to pay a partial refund to the customer. The decision was widely reported and is cited as a significant precedent regarding organisational liability for AI agent representations in consumer service contexts."
+}

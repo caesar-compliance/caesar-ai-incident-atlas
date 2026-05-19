@@ -1,0 +1,21 @@
+{
+  "taxonomy": "evidence_types",
+  "version": "0.2",
+  "last_updated": "19 May 2026",
+  "items": [
+    {"id": "EV-001", "name": "AI system register", "status": "stable", "description": "Record of AI purpose, owner, and governance status."},
+    {"id": "EV-002", "name": "Risk assessment", "status": "stable", "description": "Documented AI risk assessment and classification."},
+    {"id": "EV-003", "name": "Vendor review", "status": "stable", "description": "Review evidence for third-party AI vendors."},
+    {"id": "EV-004", "name": "Human oversight record", "status": "stable", "description": "Evidence of review/approval actions by humans."},
+    {"id": "EV-005", "name": "Testing record", "status": "stable", "description": "Evidence of testing and evaluation results."},
+    {"id": "EV-006", "name": "Monitoring log", "status": "stable", "description": "Logs used to monitor AI outputs and system behavior."},
+    {"id": "EV-007", "name": "Incident response plan", "status": "stable", "description": "Prepared plan for AI incidents and escalation."},
+    {"id": "EV-008", "name": "Agent activity log", "status": "stable", "description": "Log of autonomous agent actions and approvals."},
+    {"id": "EV-009", "name": "Data governance record", "status": "stable", "description": "Evidence of data quality, access, and retention controls."},
+    {"id": "EV-010", "name": "Training record", "status": "draft", "description": "Evidence of staff training on AI governance procedures."},
+    {"id": "EV-011", "name": "Model documentation", "status": "stable", "description": "Capabilities, limits, and known failure modes documentation."},
+    {"id": "EV-012", "name": "Bias testing record", "status": "stable", "description": "Results from discriminatory outcome testing."},
+    {"id": "EV-013", "name": "Incident log", "status": "stable", "description": "Structured log of incidents and near-miss events."},
+    {"id": "EV-014", "name": "Post-incident review", "status": "stable", "description": "Root-cause analysis and lessons-learned review evidence."}
+  ]
+}

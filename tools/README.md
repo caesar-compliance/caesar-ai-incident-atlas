@@ -29,6 +29,10 @@ python3 tools/validate_dataset.py
 | Index ↔ files | Index entries match actual files |
 | Site files | `site/index.html`, `styles.css`, `app.js`, `README.md` all exist |
 | External dependencies | No CDN, font, or analytics references in site files |
+| `site/data/` exists | `site/data/incident-index.json` present |
+| Incident sync | `site/data/incidents/` matches `data/incidents/` by filename + SHA-256 |
+| Taxonomy sync | `site/data/taxonomy/` matches `data/taxonomy/` by filename + SHA-256 |
+| App path | `app.js` uses `data/incident-index.json`, not `../data/` |
 
 ### Requirements
 

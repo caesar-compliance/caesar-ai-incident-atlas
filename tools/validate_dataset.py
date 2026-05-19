@@ -5,8 +5,9 @@ Run from repository root: python3 tools/validate_dataset.py
 Exit 0 = PASS, non-zero = FAIL.
 """
 
-import json
 import glob
+import hashlib
+import json
 import os
 import re
 import sys
@@ -178,6 +179,55 @@ for sf in SITE_FILES:
         for pat in EXTERNAL_PATTERNS:
             if pat in txt:
                 fail(f"{rel}: contains external dependency pattern '{pat}'")
+
+# ── Check 7: site/data/incident-index.json exists ────────────────────────────
+print("Checking site/data/ publish copy …")
+SITE_INDEX = os.path.join(ROOT, "site", "data", "incident-index.json")
+if not os.path.isfile(SITE_INDEX):
+    fail("site/data/incident-index.json missing — run T017 data copy step")
+
+# ── Check 8: root data/incidents/ and site/data/incidents/ in sync ────────────
+root_inc_dir = os.path.join(ROOT, "data", "incidents")
+site_inc_dir = os.path.join(ROOT, "site", "data", "incidents")
+root_inc_files = {os.path.basename(p) for p in glob.glob(os.path.join(root_inc_dir, "INC-*.json"))}
+site_inc_files = {os.path.basename(p) for p in glob.glob(os.path.join(site_inc_dir, "INC-*.json"))}
+
+for fname in root_inc_files - site_inc_files:
+    fail(f"site/data/incidents/{fname} missing (present in root data/incidents/)")
+for fname in site_inc_files - root_inc_files:
+    warn(f"site/data/incidents/{fname} has no counterpart in root data/incidents/")
+
+def _sha256(path):
+    return hashlib.sha256(open(path, "rb").read()).hexdigest()
+
+for fname in root_inc_files & site_inc_files:
+    rp = os.path.join(root_inc_dir, fname)
+    sp = os.path.join(site_inc_dir, fname)
+    if _sha256(rp) != _sha256(sp):
+        fail(f"site/data/incidents/{fname} differs from root data/incidents/{fname} — re-sync needed")
+
+# ── Check 9: root data/taxonomy/ and site/data/taxonomy/ in sync ──────────────
+root_tax_dir = os.path.join(ROOT, "data", "taxonomy")
+site_tax_dir = os.path.join(ROOT, "site", "data", "taxonomy")
+root_tax_files = {os.path.basename(p) for p in glob.glob(os.path.join(root_tax_dir, "*.json"))}
+site_tax_files = {os.path.basename(p) for p in glob.glob(os.path.join(site_tax_dir, "*.json"))}
+
+for fname in root_tax_files - site_tax_files:
+    fail(f"site/data/taxonomy/{fname} missing (present in root data/taxonomy/)")
+for fname in root_tax_files & site_tax_files:
+    rp = os.path.join(root_tax_dir, fname)
+    sp = os.path.join(site_tax_dir, fname)
+    if _sha256(rp) != _sha256(sp):
+        fail(f"site/data/taxonomy/{fname} differs from root data/taxonomy/{fname} — re-sync needed")
+
+# ── Check 10: app.js uses site-relative path, not ../data/ ────────────────────
+appjs_path = os.path.join(ROOT, "site", "assets", "app.js")
+if os.path.isfile(appjs_path):
+    appjs = open(appjs_path, encoding="utf-8").read()
+    if "../data/" in appjs:
+        fail("site/assets/app.js still contains '../data/' — update to 'data/'")
+    if '"data/incident-index.json"' not in appjs:
+        fail("site/assets/app.js does not contain expected path 'data/incident-index.json'")
 
 # ── Summary ────────────────────────────────────────────────────────────────────
 print()

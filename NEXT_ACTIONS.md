@@ -6,7 +6,7 @@
 
 ## Execution Boundaries
 
-This repository is in the **public deployment plan complete** phase. T016 defined the deployment plan, hosting options, publication risk gate, and T017 recommendation. Public deployment requires CT hosting decision, legal/license review completion, and explicit CT approval.
+This repository is in the **static publish package ready** phase. T017 made `site/` self-contained (data path fix applied, internal docs excluded). Public deployment remains blocked until legal/license review, hosting decision, and explicit CT approval.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -36,38 +36,36 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T014 — Local QA Tooling and Release Candidate Gate | Complete |
 | T015 — Static Site Release Candidate Hardening | Complete — local RC PASS |
 | T016 — Public Deployment Plan | Complete — planning only, no deployment |
-| T017 — Deployment Configuration | **Next** (requires CT hosting decision + legal review + explicit approval) |
+| T017 — Static Publish Package Preparation | Complete — site/ self-contained |
+| T018 — Public Legal/Source Review Gate or Deployment Configuration | **Next** (requires CT approval) |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated |
 
 ---
 
-## Next Recommended Step: T017
+## Next Recommended Step: T018
 
-**T017 — Deployment Configuration.**
+**T018 — Public Legal/Source Review Gate or Deployment Configuration.**
 
-Only after CT resolves the following:
+Public deployment remains blocked until:
 
-1. CT reviews `PUBLICATION_RISK_GATE.md` and `HOSTING_OPTION_MATRIX.md`.
-2. CT selects hosting option (GitHub Pages / Cloudflare Pages / Netlify / VPS).
-3. CT confirms public URL (e.g. `incidents.caesar.no`).
-4. Legal and license review formally completed (PUBLICATION_RISK_GATE G-01, G-02).
-5. CT issues explicit initiation of T017.
+1. **Legal/license review** completed — all 10 incident source URLs formally cleared (G-01).
+2. **Wording/legal risk review** completed — record summaries reviewed for liability (G-02).
+3. **Hosting/domain decision** confirmed by CT — select from `HOSTING_OPTION_MATRIX.md` (G-03).
+4. **Manual browser smoke test** with DevTools (G-10).
+5. **CT explicit approval** issued: `"Approve public deployment"` (G-12).
 
-### T017 scope
+T018 may be scoped as:
+- **Option A** — Legal/Source Review Gate only: CT completes G-01 and G-02 with agent support.
+- **Option B** — Deployment Configuration: implement hosting config (CNAME / Cloudflare / GitHub Pages) after CT selects hosting + confirms legal review complete.
+- **Option C** — Combined: legal review + deployment config in one task.
 
-- Implement data path fix (`data/` → `site/data/`, update `app.js` constants).
-- Implement hosting config for selected option only.
-- Run final browser smoke test.
-- Await CT `"Approve public deployment"` before activating.
-
-### T017 must NOT
+### T018 must NOT
 
 - Deploy publicly without CT issuing `"Approve public deployment"`.
-- Add new incident records.
-- Add npm, framework, backend, or database.
+- Add new incident records beyond INC-0010.
 - Commit secrets or credentials.
 
-See `T017_DEPLOYMENT_IMPLEMENTATION_RECOMMENDATION.md` for the full step-by-step plan.
+See `PUBLICATION_RISK_GATE.md` for current gate status (7 pass, 4 pending, 1 blocker).
 
 ---
 
@@ -102,7 +100,7 @@ The following tasks can be executed autonomously without Control Tower approval:
 
 The following tasks require Artem / Control Tower review before execution:
 
-- Starting T017 (requires CT hosting decision, legal review completion, and explicit CT approval; review `PUBLICATION_RISK_GATE.md` and `HOSTING_OPTION_MATRIX.md` first).
+- Starting T018 (requires CT review of `PUBLICATION_RISK_GATE.md`; legal review completion; hosting decision; explicit CT approval before any deployment activation).
 - Starting v0.3 Dataset MVP.
 - Implementing any product code (scripts, automated tooling, application features).
 - Creating any incident records.

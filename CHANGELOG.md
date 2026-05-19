@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.5.5] - 20 May 2026
+
+### Added
+
+- **T017 — Static Publish Package Preparation.** `site/data/` created with 10 incident JSON files, 6 taxonomy JSON files, and a publish-copy `incident-index.json` with site-root-relative paths. `site/assets/app.js` updated: `../data/incident-index.json` → `data/incident-index.json`. `site/` is now fully self-contained and can be served as the static root. `tools/validate_dataset.py` extended with checks 7–10: `site/data/` existence, incident sync (SHA-256), taxonomy sync (SHA-256), `app.js` path check. No deployment config added.
+
+---
+
 ## [0.5.4] - 19 May 2026
 
 ### Added
