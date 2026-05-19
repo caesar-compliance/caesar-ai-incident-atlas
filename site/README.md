@@ -42,6 +42,18 @@ All paths are relative to the repository root so the server must be started from
 - No authentication
 - Not publicly deployed
 
+## Dataset QA
+
+Run the full dataset and site validator from the **repository root**:
+
+```bash
+python3 tools/validate_dataset.py
+```
+
+Requires `jsonschema`: `pip install jsonschema`
+
+See `tools/README.md` for the full check list.
+
 ## Status
 
-T013 functional MVP — for local review only. Public deployment requires Control Tower approval (T014+).
+T013 functional MVP — for local review only. Public deployment requires Control Tower approval (T015+).

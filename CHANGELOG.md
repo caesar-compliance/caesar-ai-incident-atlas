@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.5.2] - 19 May 2026
+
+### Added
+
+- **T014 — Local QA Tooling and Release Candidate Gate.** `tools/validate_dataset.py`: permanent local QA script checking JSON validity, record count, INC-0011+ absence, schema validation, taxonomy references (FM/CTL/sector/EV), deprecated fields, index-file consistency, site file presence, and no external CDN. `tools/README.md`: usage docs. `RELEASE_CANDIDATE_GATE.md`: pre-deployment checklist for CT review. Exit 0 = PASS.
+
+---
+
 ## [0.5.1] - 19 May 2026
 
 ### Changed

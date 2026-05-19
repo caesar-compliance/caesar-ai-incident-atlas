@@ -6,7 +6,7 @@
 
 ## Execution Boundaries
 
-This repository is in the **static site functional MVP — local only** phase. T013 added search, sort, active filter chips, deep linking, structured detail view, status panel, and keyboard accessibility to the local prototype. No deployment. T014 requires explicit Control Tower approval.
+This repository is in the **local QA tooling + release candidate gate** phase. T014 added `tools/validate_dataset.py` (permanent local QA script) and `RELEASE_CANDIDATE_GATE.md` (pre-deployment checklist). T015 requires explicit Control Tower approval.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -33,31 +33,33 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T011 — Dataset MVP Public Readiness Review | Complete |
 | T012 — Minimal Static Site Prototype | Complete — local only |
 | T013 — Static Site Functional Completion | Complete — local functional MVP |
-| T014 — Local Data QA Tooling or Static Site Release Candidate Plan | **Next** (requires explicit Control Tower approval) |
+| T014 — Local QA Tooling and Release Candidate Gate | Complete |
+| T015 — Static Site Release Candidate Review or Public Deployment Plan | **Next** (requires explicit Control Tower approval) |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated |
 
 ---
 
-## Next Recommended Step: T014
+## Next Recommended Step: T015
 
-**T014 — Local Data QA Tooling or Static Site Release Candidate Plan.**
+**T015 — Static Site Release Candidate Review or Public Deployment Plan.**
 
-Only after explicit Control Tower review of T013 functional MVP. Options:
+Only after explicit Control Tower review of T014 outputs. Options:
 
-- **Option A — Local Data QA Tooling:** Build a local validation/QA script suite for incident record maintenance (schema, taxonomy, count checks). No public deployment.
-- **Option B — Static Site Release Candidate Plan:** Define hosting, domain, CI/CD, and legal review steps for public deployment. No actual deployment in T014.
-- **Option C — Combined:** QA tooling + release candidate plan in one task.
+- **Option A — Release Candidate Review:** Work through `RELEASE_CANDIDATE_GATE.md` checklist, resolve open risks, confirm legal/license review and domain decision. No deployment in T015.
+- **Option B — Public Deployment Plan:** Define hosting (Netlify / GitHub Pages / other), DNS, CI, and public URL. No actual deploy unless CT explicitly approves within T015.
+- **Option C — Combined:** RC review + deployment plan in one task, with optional deploy if CT approves.
 
-### T014 pre-conditions
+### T015 pre-conditions
 
-1. Control Tower reviews T013 local functional MVP.
-2. Control Tower selects T014 scope (A/B/C).
-3. If release candidate plan: legal/license review and domain decision confirmed before T015 deploy.
-4. T014 formally initiated by Control Tower.
+1. Control Tower reviews T013 local MVP and T014 QA outputs.
+2. Control Tower confirms `python3 tools/validate_dataset.py` passes locally.
+3. Control Tower reviews `RELEASE_CANDIDATE_GATE.md` and selects T015 scope.
+4. Legal and license review status confirmed.
+5. T015 formally initiated by Control Tower.
 
-### T014 constraints
+### T015 constraints
 
-- No public deployment without explicit CT approval.
+- No public deployment without explicit CT approval in T015 scope.
 - No new incident records beyond INC-0010 without further CT approval.
 - No database, backend, or server-side runtime without CT approval.
 - No external data import.
@@ -95,7 +97,7 @@ The following tasks can be executed autonomously without Control Tower approval:
 
 The following tasks require Artem / Control Tower review before execution:
 
-- Starting T014 (requires Control Tower approval of T013 functional MVP review).
+- Starting T015 (requires Control Tower approval of T014 outputs and T013 local MVP review).
 - Starting v0.3 Dataset MVP.
 - Implementing any product code (scripts, automated tooling, application features).
 - Creating any incident records.

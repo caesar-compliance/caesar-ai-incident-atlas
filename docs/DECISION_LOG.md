@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026 (T013 — DEC-086)
+**Last updated:** 19 May 2026 (T014 — DEC-089)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -1049,3 +1049,33 @@ T006 must not mass-import data and must not create final incident records unless
 **Decision:** Expanded card detail renders 9 named sections inline (What Happened, AI System/Context, Harms, Impact, Failure Modes, Controls, Evidence Required, Governance Lessons, Sources, Caveats). No tab component.
 
 **Rationale:** At current record density, inline sections are more readable and scannable than tabs. Re-evaluate if record fields expand substantially.
+
+---
+
+### [DEC-087] — 19 May 2026 — T014: INC-0011+ Check Uses Integer Comparison, Not Regex
+
+**Status:** Approved
+
+**Decision:** `tools/validate_dataset.py` detects INC-0011+ by extracting the 4-digit numeric portion with `re.search(r"INC-(\d{4})", ...)` and comparing as `int >= 11`. Regex-only approaches (`INC-0(1[1-9]|...)`) produced false positives on files INC-0001–0010.
+
+**Rationale:** Integer comparison is unambiguous and immune to digit-length edge cases. Fixes the same class of bug identified in T011.
+
+---
+
+### [DEC-088] — 19 May 2026 — T014: Validator Script Derives ROOT from `__file__`
+
+**Status:** Approved
+
+**Decision:** `ROOT` is computed as `os.path.dirname(os.path.dirname(os.path.abspath(__file__)))`, making all paths absolute and correct regardless of the caller's working directory.
+
+**Rationale:** Prevents `FileNotFoundError` when the script is invoked from a directory other than the repo root, without requiring shell wrappers or env vars.
+
+---
+
+### [DEC-089] — 19 May 2026 — T014: RELEASE_CANDIDATE_GATE.md Is a Manual Checklist; No CI Enforcement
+
+**Status:** Approved
+
+**Decision:** `RELEASE_CANDIDATE_GATE.md` is a human-reviewed checklist for Control Tower sign-off before public deployment. It is not enforced by any automated gate, CI pipeline, or merge check.
+
+**Rationale:** The project has no CI pipeline. Governance of the release decision belongs to the Control Tower, not to automated tooling.
