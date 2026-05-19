@@ -2,8 +2,8 @@
 
 **Task:** T019 — Public Release Gate Closure + Deployment Readiness Branch  
 **Date:** 20 May 2026  
-**Version:** 0.5.8  
-**Status:** T022 — LIVE. `https://atlas.caesar.no/`. Custom domain active. HTTPS enforced. G-10 static checks passed; manual browser test pending.
+**Version:** 0.5.9  
+**Status:** T023 — LIVE. `https://atlas.caesar.no/`. HTTP→HTTPS redirect confirmed (301). JSON HTTP 200 with 10 records. G-10 HTTP/redirect/data checks PASS. Interactive browser UI test (14 steps) pending CT manual verification.
 
 ---
 
@@ -11,7 +11,7 @@
 
 > **G-12 CLEARED** — Explicit Control Tower instruction: `"Approve public deployment"` (T021).
 > **This document is not legal advice.**  
-> Site is LIVE at `https://atlas.caesar.no/`. Custom domain active (T022). HTTPS certificate approved. Enforce HTTPS enabled (T022). No CNAME file in repo — domain set via GitHub Pages UI only. DNS manually configured outside repo.
+> Site is LIVE at `https://atlas.caesar.no/`. Custom domain active (T022). HTTPS certificate approved. Enforce HTTPS enabled (T022). HTTP→HTTPS redirect confirmed: `http://atlas.caesar.no/` returns 301 → `https://atlas.caesar.no/` (T023). No CNAME file in repo — domain set via GitHub Pages UI only. DNS manually configured outside repo.
 
 ---
 

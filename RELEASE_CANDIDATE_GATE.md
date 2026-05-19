@@ -8,6 +8,7 @@
 > **T019 Gate Closure Status:** Gate evidence consolidated. G-01/G-02 evidence reviewed — CT sign-off required. G-10 manual browser test pending.
 > **T021 Deployment Status:** G-12 **CLEARED** by explicit CT instruction `"Approve public deployment"`. GitHub Pages deployment workflow added. Default URL deployment active. Custom domain deferred. NO-GO lifted for default URL deployment.
 > **T022 Closeout Status:** Site LIVE at `https://atlas.caesar.no/`. Custom domain `atlas.caesar.no` active. HTTPS certificate approved. Enforce HTTPS enabled. G-03 resolved. G-10 static checks passed. Manual browser UI test still required for full G-10 sign-off.
+> **T023 Smoke Test Status:** HTTP→HTTPS redirect confirmed: `http://atlas.caesar.no/` → 301 → `https://atlas.caesar.no/`. JSON endpoint HTTP 200 with all 10 records. Default GitHub Pages URL redirects 301 to custom domain. G-10 HTTP/redirect/data checks PASS. Interactive 14-step browser UI test (search/filter/sort/DevTools) pending CT manual verification.
 
 ---
 

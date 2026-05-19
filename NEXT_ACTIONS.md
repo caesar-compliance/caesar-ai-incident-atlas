@@ -1,12 +1,12 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T022)
+**Last updated:** 20 May 2026 (T023)
 
 ---
 
 ## Execution Boundaries
 
-This repository is in the **T022 post-deploy closeout** phase. GitHub Pages is live at `https://atlas.caesar.no/`. Custom domain verified, HTTPS enforced. G-10 static checks passed. Manual browser smoke test still required for full G-10 sign-off.
+This repository is in the **T023 post-smoke-test** phase. GitHub Pages is live at `https://atlas.caesar.no/`. HTTP→HTTPS redirect confirmed (301). JSON data confirmed live (HTTP 200, 10 records). G-10 HTTP/redirect/data checks PASS. Interactive browser UI test (search/filter/sort/DevTools) pending CT manual verification.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -41,13 +41,22 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T019 — Public Release Gate Closure | Complete — gate evidence consolidated, deployment readiness documented |
 | T021 — GitHub Pages Deployment Activation | Complete — workflow deployed, default URL live |
 | T022 — Post-Deploy Verification + Custom Domain Closeout | **Complete** — custom domain, HTTPS enforced, closeout docs |
+| T023 — Browser Smoke + HTTP→HTTPS Redirect Verification | **Complete (partial)** — redirect 301 confirmed, JSON 200, 10 records live; interactive G-10 test pending CT |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated |
 
 ---
 
-## Next Recommended Step: T023 — Confirm HTTP→HTTPS Redirect Propagation
+## Next Recommended Step: Manual CT Browser Smoke Test → T024
 
-**Public deployment is LIVE at `https://atlas.caesar.no/`.** T022 closeout complete.
+**Public deployment is LIVE at `https://atlas.caesar.no/`.** T023 HTTP/redirect checks complete.
+
+**Verified in T023:**
+- `http://atlas.caesar.no/` → 301 → `https://atlas.caesar.no/` ✅
+- `https://atlas.caesar.no/` → HTTP 200 ✅
+- `https://atlas.caesar.no/data/incident-index.json` → HTTP 200, 10 records ✅
+- `https://caesar-compliance.github.io/caesar-ai-incident-atlas/` → 301 → `https://atlas.caesar.no/` ✅
+- `python3 tools/validate_dataset.py` → PASS, 10 records ✅
+- No CNAME, no internal docs in `site/`, workflow uploads only `site/` ✅
 
 **Deployment facts (T021/T022):**
 - GitHub Pages source: GitHub Actions workflow (`.github/workflows/pages.yml`)
@@ -61,7 +70,9 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 - No Cloudflare/Netlify/Coolify/VPS
 - No secrets
 
-**G-10 status:** Static file checks passed. Manual browser UI test (14 steps) still required for full G-10 sign-off. See `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md §5`.
+**G-10 status:** HTTP/redirect/data checks PASS (T023). Interactive 14-step browser UI test (search, filter, sort, DevTools console/network) requires manual CT verification. See `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md §5` for checklist.
+
+**If CT completes interactive G-10 test:** proceed to T024 — Public MVP Status Lock + Product Polish Backlog.
 
 **Remaining governance items (unchanged — CT sign-off required before v1.0):**
 1. **G-01** — Legal/licence review: CT confirms all 10 source URLs cleared
