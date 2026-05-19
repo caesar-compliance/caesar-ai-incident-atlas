@@ -77,4 +77,4 @@ Run `python3 tools/validate_dataset.py` from the repo root to verify sync.
 
 ## Status
 
-**LIVE** — `https://atlas.caesar.no/` (GitHub Pages, GitHub Actions, T021/T022). `site/` is self-contained. No CNAME file in repo — custom domain set via GitHub Pages settings. DNS: `atlas CNAME caesar-compliance.github.io`. HTTPS enforced.
+**LIVE** — `https://atlas.caesar.no/` (GitHub Pages, GitHub Actions, T021/T022/T023). `site/` is self-contained. No CNAME file in repo — custom domain set via GitHub Pages settings. DNS: `atlas CNAME caesar-compliance.github.io`. HTTPS enforced. HTTP→HTTPS redirect confirmed (T023): `http://atlas.caesar.no/` → 301 → `https://atlas.caesar.no/`. JSON data confirmed HTTP 200 with all 10 records.

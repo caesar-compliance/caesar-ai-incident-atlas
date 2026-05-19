@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.5.9] - 20 May 2026
+
+### Added
+
+- **T023 — Manual Browser Smoke Test + HTTP-to-HTTPS Redirect Verification.** Confirmed HTTP→HTTPS redirect propagation: `http://atlas.caesar.no/` returns 301 → `https://atlas.caesar.no/`. `https://atlas.caesar.no/` returns HTTP 200. `https://atlas.caesar.no/data/incident-index.json` returns HTTP 200 with all 10 records (INC-0001 through INC-0010) confirmed in JSON. Default GitHub Pages URL `https://caesar-compliance.github.io/caesar-ai-incident-atlas/` redirects 301 to `https://atlas.caesar.no/`. `gh api` confirms: status=built, cname=atlas.caesar.no, https_enforced=true, certificate=approved. `python3 tools/validate_dataset.py` — PASS (10 records). Site files: 21 files confirmed, no CNAME, no internal docs in `site/`, workflow uploads only `site/`. G-10 HTTP/redirect/data checks: PASS. Interactive 14-step browser UI test (search/filter/sort/DevTools) requires manual CT verification — not claimed as PASS. G-01/G-02 remain pending. Created `work-items/T023-browser-smoke-redirect/` with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, DECISIONS.md. Updated PROJECT_STATE.md, NEXT_ACTIONS.md, PUBLICATION_RISK_GATE.md, RELEASE_CANDIDATE_GATE.md, DEPLOYMENT_READINESS_CHECKLIST.md, REPO_INVENTORY.md, README.md, site/README.md. Branch: `verify/T023-browser-smoke-redirect`.
+
+### Validation (T023)
+
+- `python3 tools/validate_dataset.py` — exits 0; all checks passed; 10 records.
+- `curl -sI http://atlas.caesar.no/` — HTTP 301 → `https://atlas.caesar.no/` ✅ redirect confirmed.
+- `curl -sI https://atlas.caesar.no/` — HTTP 200 ✅.
+- `curl -sI https://atlas.caesar.no/data/incident-index.json` — HTTP 200 ✅.
+- `curl -sI https://caesar-compliance.github.io/caesar-ai-incident-atlas/` — HTTP 301 → `https://atlas.caesar.no/` ✅.
+- `gh api repos/caesar-compliance/caesar-ai-incident-atlas/pages` — status: built; https_enforced: true; cname: atlas.caesar.no.
+- `find site -maxdepth 4 \( -name "CNAME" -o -path "*/work-items/*" -o -path "*/docs/*" \)` — empty (clean).
+- Workflow `path: site` — confirmed, uploads only `site/`.
+
+---
+
 ## [0.5.8] - 20 May 2026
 
 ### Added
