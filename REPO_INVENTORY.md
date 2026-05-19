@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T025)
+**Last updated:** 20 May 2026 (T026)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -202,7 +202,8 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T023-browser-smoke-redirect/IMPLEMENTATION_REPORT.md` | T023 report | Final report with URL check results, G-10 status, safety confirmations, remaining risks. |
 | `work-items/T023-browser-smoke-redirect/DECISIONS.md` | T023 decisions | Decisions made during T023. |
 | `PRODUCT_POLISH_BACKLOG.md` | Product backlog | Compact backlog for future work: MVP polish, dataset expansion themes, Governance OS integration, technical backlog, hard gates. (T024) |
-| `GOVERNANCE_SIGNOFF_PACK.md` | Governance sign-off pack | G-01 source/license and G-02 wording/legal-risk review tables for CT/counsel sign-off. (T025) |
+| `GOVERNANCE_SIGNOFF_PACK.md` | Governance sign-off pack | G-01 source/license and G-02 wording/legal-risk review tables for CT/counsel sign-off. Updated in T026. (T025, T026) |
+| `SOURCE_RISK_HARDENING_REPORT.md` | Source risk hardening report | T026 hardening detail: per-record assessment, sources added, before/after risk status, validation results, counsel review recommendations. (T026) |
 | `work-items/T024-public-mvp-lock/TASK.md` | T024 task | Task scope checklist. |
 | `work-items/T024-public-mvp-lock/VALIDATION.md` | T024 validation | Validation checklist. |
 | `work-items/T024-public-mvp-lock/IMPLEMENTATION_REPORT.md` | T024 report | Concise final report. |
@@ -211,6 +212,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T025-source-wording-signoff-pack/VALIDATION.md` | T025 validation | Validation checklist. |
 | `work-items/T025-source-wording-signoff-pack/IMPLEMENTATION_REPORT.md` | T025 report | Concise final report. |
 | `work-items/T025-source-wording-signoff-pack/DECISIONS.md` | T025 decisions | Decisions made during T025. |
+| `work-items/T026-source-risk-hardening/TASK.md` | T026 task | Task scope checklist. |
+| `work-items/T026-source-risk-hardening/VALIDATION.md` | T026 validation | Validation checklist. |
+| `work-items/T026-source-risk-hardening/IMPLEMENTATION_REPORT.md` | T026 report | Concise final report. |
+| `work-items/T026-source-risk-hardening/DECISIONS.md` | T026 decisions | Decisions made during T026. |
 
 ---
 

@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.6.2] - 20 May 2026
+
+### Added
+
+- **T026 — Source Risk Hardening Pass for Public MVP.** Reviewed INC-0005, INC-0006, INC-0008, INC-0009 for source/license exposure. Made minimal safe data changes: (1) INC-0005 — added CourtListener/RECAP court docket for Williams v. City of Detroit E.D. Mich. (`court_record`), making NIST FRVT + court record the primary source pair; ACLU demoted to supporting NGO documentation. (2) INC-0008 — added US Congress DEFIANCE Act S.3696 (118th Congress) public bill record (`regulator_report`); now grounded in company statement + UK OSA + US Congress public sources. (3) INC-0009 — added PubMed / NIH NLM PMID 31649194 public institutional index entry (`agency_report`); AAAS sole-reliance concern materially reduced. (4) INC-0006 — no change; Reuters remains sole primary source; no safe replacement found; counsel review still recommended. Updated `GOVERNANCE_SIGNOFF_PACK.md`: INC-0009 upgraded from Needs counsel review → Sign-off with caution; G-01 risk summary now 6 ready / 3 sign-off with caution / 1 needs counsel review. Created `SOURCE_RISK_HARDENING_REPORT.md`. Synced root `data/incidents/` → `site/data/incidents/` for INC-0005, INC-0008, INC-0009. No new records created. No scraping. No DNS/CNAME/hosting changes. No secrets. Updated PROJECT_STATE.md (v0.6.2, T026 complete), NEXT_ACTIONS.md (T026 status, T027 options), CHANGELOG.md (this entry), REPO_INVENTORY.md (T026 files), PUBLICATION_RISK_GATE.md, RELEASE_CANDIDATE_GATE.md, README.md. Created `work-items/T026-source-risk-hardening/` with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, DECISIONS.md. Branch: `review/T026-source-risk-hardening`.
+
+### Validation (T026)
+
+- `python3 tools/validate_dataset.py` — exits 0; all checks passed; 10 records.
+- `grep -R "../data/" site/` — clean.
+- `find site -maxdepth 4 (CNAME/work-items/docs)` — empty.
+- Root data ↔ site/data sync confirmed for all 3 changed records.
+- Schema validation: INC-0005, INC-0008, INC-0009 with additional sources — PASS.
+
+---
+
 ## [0.6.1] - 20 May 2026
 
 ### Added

@@ -37,6 +37,8 @@
 
 G-12 cleared (T021). G-03 resolved (T022): custom domain `atlas.caesar.no` active, HTTPS certificate approved and enforced. **G-10 PASS (T024):** Control Tower manual browser confirmation on 20 May 2026. HTTP→HTTPS redirect confirmed (301), JSON loads HTTP 200 with all 10 records, interactive UI verified. **G-01/G-02 remain pending** CT sign-off (source/license review and wording/legal-risk review).
 
+**T026 Source Risk Hardening (20 May 2026):** Public-domain court record, US DEFIANCE Act, and NIH/PubMed sources added to INC-0005, INC-0008, INC-0009. INC-0009 upgraded from Needs counsel review → Sign-off with caution. INC-0006 counsel review still recommended. See `SOURCE_RISK_HARDENING_REPORT.md` and updated `GOVERNANCE_SIGNOFF_PACK.md`.
+
 **Review Pack Available:** See `PUBLIC_RELEASE_REVIEW_PACK.md` for detailed source/license review table, wording/legal-risk review table, and manual browser smoke-test checklist for G-10 completion.
 
 **Gate Closure Report (T019):** See `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md` for consolidated evidence assessment — G-01/G-02 reviewed and ready for CT sign-off, G-03 hosting recommendation table, G-10 static checks and manual checklist, remaining blocker table.

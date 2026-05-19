@@ -34,6 +34,12 @@
       "source_type": "agency_report",
       "accessed": "19 May 2026",
       "title": "NIST FRVT Part 3: Demographic Effects — Face Recognition Vendor Test, Grother et al., November 2019 (primary official source on demographic accuracy differentials)"
+    },
+    {
+      "url": "https://www.courtlistener.com/docket/59580048/williams-v-city-of-detroit/",
+      "source_type": "court_record",
+      "accessed": "20 May 2026",
+      "title": "CourtListener/RECAP — Williams v. City of Detroit, U.S. District Court E.D. Michigan — public court docket record for the civil rights action arising from the wrongful arrest (public domain court record)"
     }
   ],
   "harms": [
