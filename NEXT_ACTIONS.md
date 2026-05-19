@@ -6,7 +6,7 @@
 
 ## Execution Boundaries
 
-This repository is in the **deployment readiness gate closed** phase. T019 consolidated gate evidence, completed static validation, and documented deployment readiness. Public deployment remains blocked until CT source/legal review, hosting decision, browser smoke test, and explicit CT approval.
+This repository is in the **T021 deployment activation** phase. G-12 cleared by explicit Control Tower instruction: `"Approve public deployment"`. GitHub Pages deployment workflow added. Default URL deployment active. Custom domain (`atlas.caesar.no`) deferred to T022.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -39,14 +39,14 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T017 — Static Publish Package Preparation | Complete — site/ self-contained |
 | T018A — Public Release Gate Review Pack | Complete — review materials prepared |
 | T019 — Public Release Gate Closure | Complete — gate evidence consolidated, deployment readiness documented |
-| T018B — Public Deployment Configuration | **Blocked** — requires CT G-12 approval |
+| T021 — GitHub Pages Deployment Activation | **Active** — G-12 cleared, workflow deployed, default URL |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated |
 
 ---
 
-## Next Recommended Step: Control Tower Review of Gate Closure Pack
+## Next Recommended Step: Monitor Deployment and Complete Smoke Test
 
-**Public deployment remains BLOCKED until Control Tower completes review.**
+**Public deployment is ACTIVE. G-12 cleared by explicit CT approval phrase.**
 
 **T019** consolidated gate evidence and deployment readiness:
 - `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md` — G-01/G-02 evidence assessment, G-03 hosting recommendation, G-10 static checks + manual checklist, remaining blocker table
@@ -61,12 +61,13 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 2. **G-02** — Wording/legal risk review: CT or counsel reviews record summaries  
 3. **G-03** — Hosting/domain decision: CT selects from `HOSTING_OPTION_MATRIX.md`
 4. **G-10** — Manual browser smoke test with DevTools (14-step checklist in `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md §5`)
-5. **G-12** — **CT explicit approval:** Artem issues `"Approve public deployment"`
+5. **G-12** — ✅ **CLEARED** — CT issued `"Approve public deployment"` (T021)
 
-**T018B** (Deployment Configuration) will only begin after:
-- All gates G-01 through G-10 pass
-- CT explicitly approves public deployment (G-12)
-- CT selects hosting provider and confirms domain
+**T021** (GitHub Pages Deployment) activated:
+- Deployment target: GitHub Pages default URL
+- Custom domain: deferred to T022
+- CNAME: not added
+- DNS: not configured
 
 See `PUBLICATION_RISK_GATE.md` for current gate status (7 pass, 4 pending, 1 blocker).
 

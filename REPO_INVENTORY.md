@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026
+**Last updated:** 20 May 2026 (T021)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -95,6 +95,8 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T016-public-deployment-plan/DECISIONS.md` | T016 decisions | 3 decisions: publish root, recommended hosting, no config in T016. |
 | `tools/validate_dataset.py` | QA script | Local dataset + site validator. Run: `python3 tools/validate_dataset.py` (T014). |
 | `tools/requirements.txt` | Python deps | `jsonschema>=4.0.0` for schema validation (T015). |
+| `.github/workflows/pages.yml` | GitHub Pages workflow | T021 — deploys `site/` to GitHub Pages on push to main. |
+| `site/.nojekyll` | Jekyll bypass | T021 — empty file to disable Jekyll processing. |
 | `STATIC_SITE_RC_REVIEW.md` | RC review | T015 RC review table (22 areas). Local RC verdict: PASS. |
 | `work-items/T015-static-site-release-candidate-hardening/TASK.md` | T015 task | Task scope checklist. |
 | `work-items/T015-static-site-release-candidate-hardening/VALIDATION.md` | T015 validation | Validation and constraint checklist. |
@@ -187,6 +189,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T009-dataset-mvp-review-and-qa-hardening/VALIDATION.md` | T009 validation | Constraint and deliverable validation checklist for T009. |
 | `work-items/T009-dataset-mvp-review-and-qa-hardening/IMPLEMENTATION_REPORT.md` | T009 report | Implementation report with validation results, source risk dispositions, and final status. |
 | `work-items/T009-dataset-mvp-review-and-qa-hardening/DECISIONS.md` | T009 decisions | 10 decisions including validator choice, source risk dispositions, draft sector policy, T010 gate. |
+| `work-items/T021-github-pages-default-url/TASK.md` | T021 task | Task scope checklist for GitHub Pages deployment. |
+| `work-items/T021-github-pages-default-url/VALIDATION.md` | T021 validation | Validation checklist for deployment. |
+| `work-items/T021-github-pages-default-url/IMPLEMENTATION_REPORT.md` | T021 report | Implementation report with deployment status. |
+| `work-items/T021-github-pages-default-url/DECISIONS.md` | T021 decisions | Decisions made during T021 (max 10). |
 
 ---
 

@@ -10,11 +10,11 @@
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
 | Current version | `0.5.6` |
-| Current phase | `deployment readiness gate closed — awaiting CT source/legal review, hosting decision, and explicit approval` |
+| Current phase | `T021 — GitHub Pages deployment activated (default URL); custom domain deferred` |
 | Status | `active` |
-| Latest completed task | `T019 — Public Release Gate Closure + Deployment Readiness Branch` |
-| Active work item | `none` |
-| Next recommended step | `CT review of PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md and DEPLOYMENT_READINESS_CHECKLIST.md; complete G-01 through G-10; issue G-12 approval` |
+| Latest completed task | `T021 — GitHub Pages Deployment Activation` |
+| Active work item | `T021 — awaiting GitHub Actions workflow run and smoke test` |
+| Next recommended step | `Monitor GitHub Pages deployment; complete G-10 browser smoke test; T022 custom domain setup` |
 
 ---
 
@@ -50,7 +50,7 @@
 | v0.5.4 Public deployment plan | Complete — T016 | 19 May 2026 |
 | v0.5.5 Static publish package | Complete — T017 | 20 May 2026 |
 | v0.5.6 Deployment readiness gate closure | Complete — T019 | 20 May 2026 |
-| v0.5 Static Site — public deployment | Blocked — G-12 | Pending CT approval |
+| v0.5 Static Site — public deployment | **Active — G-12 cleared** | GitHub Pages default URL |
 | v0.5 Export Integration | Planned | — |
 | v1.0 Stable Public Release | Planned | — |
 | v1.x Governance OS Integration | Future | — |

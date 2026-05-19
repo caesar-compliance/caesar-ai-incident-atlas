@@ -21,7 +21,7 @@
 | G-09 | **No INC-0011+ or unapproved records** — only INC-0001–INC-0010 published | ✅ **Pass** | Confirmed T016 |
 | G-10 | **Browser smoke test** — loads with 10 cards, no console errors | ⚠ **Pending** | HTTP 200 confirmed; manual browser verification with DevTools not yet done |
 | G-11 | **Rollback plan documented** | ✅ **Pass** | See `PUBLIC_DEPLOYMENT_PLAN.md §6` |
-| G-12 | **Control Tower explicit approval** — CT issues: `"Approve public deployment"` | 🔴 **Blocker** | Not issued |
+| G-12 | **Control Tower explicit approval** — CT issues: `"Approve public deployment"` | ✅ **Cleared** | **Cleared by T021 explicit CT instruction** |
 
 ---
 
@@ -31,11 +31,13 @@
 |---|---|
 | ✅ Pass | 7 |
 | ⚠ Pending | 4 |
-| 🔴 Blocker | 1 |
+| ✅ Cleared | 1 |
 
-**Go/no-go: NO-GO for public deployment.**
+**Go/no-go: GO for GitHub Pages default deployment. G-12 cleared by explicit Control Tower instruction.**
 
-G-12 (CT approval) is a hard blocker. G-01, G-02, G-03, and G-10 remain pending. G-06 and G-08 are now resolved (T017).
+**Custom domain deferred:** `atlas.caesar.no` setup in T022. No CNAME added. No DNS configured.
+
+G-12 (CT approval) cleared by explicit phrase `"Approve public deployment"` (T021). Deployment to GitHub Pages default URL activated. G-01, G-02, G-03 remain pending CT sign-off but do not block default URL deployment. G-10 browser smoke test required post-deploy.
 
 **Review Pack Available:** See `PUBLIC_RELEASE_REVIEW_PACK.md` for detailed source/license review table, wording/legal-risk review table, and manual browser smoke-test checklist for G-10 completion.
 

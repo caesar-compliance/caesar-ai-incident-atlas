@@ -3,16 +3,15 @@
 **Task:** T019 — Public Release Gate Closure + Deployment Readiness Branch  
 **Date:** 20 May 2026  
 **Version:** 0.5.5  
-**Status:** Pre-deployment preparation only. Public deployment is NOT approved.
+**Status:** T021 — GitHub Pages deployment activated. G-12 cleared by explicit CT instruction. Default URL only. Custom domain deferred.
 
 ---
 
 ## Disclaimers
 
-> **This checklist does not approve public deployment.**  
+> **G-12 CLEARED** — Explicit Control Tower instruction: `"Approve public deployment"` (T021).
 > **This document is not legal advice.**  
-> Public deployment requires explicit Control Tower approval: `"Approve public deployment"`.  
-> G-12 is a hard blocker. It has not been issued.
+> GitHub Pages default URL deployment active. Custom domain (`atlas.caesar.no`) deferred to T022. No CNAME. No DNS.
 
 ---
 
@@ -37,13 +36,19 @@ All items below must be complete before any deployment action is taken.
 - [ ] G-02: CT or legal counsel reviews all 10 record summaries for defamation/liability risk
 - [ ] G-03: CT selects hosting option and confirms domain
 - [ ] G-10: Manual browser smoke test completed — see `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md §5`
-- [ ] G-12: CT issues exact phrase: `"Approve public deployment"` (**not yet issued**)
+- [x] G-12: ✅ **CLEARED** — CT issued `"Approve public deployment"` (T021)
 
 ---
 
 ## 2. Recommended Deploy Options
 
-No option is configured or activated. CT must select one.
+**Option A — GitHub Pages (ACTIVE)**
+
+✅ Workflow `.github/workflows/pages.yml` added. Triggers on push to main. Publishes `site/` directory only.
+
+**Expected URL:** `https://caesar-compliance.github.io/caesar-ai-incident-atlas/`
+
+Custom domain deferred to T022.
 
 ### Option A — GitHub Pages (recommended if repo is public)
 
