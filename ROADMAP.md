@@ -228,18 +228,36 @@ v0.1 Foundation
 
 ---
 
-## T009 — Tier 2/3 Incident Record Plan or Dataset MVP Review
+## T009 — Dataset MVP Review and QA Hardening
 
-**Status:** Planned (next step — requires Control Tower approval of T008 QA)
+**Status:** Complete (19 May 2026)
+**Version bump:** 0.3.1
 
-**Options (for Control Tower):**
-- Option A: Second-wave record batch (CAND-002, CAND-004, CAND-005, CAND-009, CAND-010, CAND-015 → INC-0005 through INC-0010)
-- Option B: Dataset MVP review pass before adding more records
-- Option C: Combined review + second-wave batch
+**Goal:** Formal review and hardening of the first Dataset MVP batch before second-wave expansion.
+
+**Validation results:**
+- Formal schema validation (jsonschema 4.23.0, Draft 2020-12): all 4 records PASS
+- Taxonomy cross-validation (FM, CTL, sector, EV, severity, confidence): zero issues
+- Source risk review: 5 T008 risks reviewed; 2 accepted, 2 residual, 1 unresolved
+- Record corrections: none required
+- Documentation fix: `DATASET_MVP_VALIDATION_PLAN.md` stale `database` ref → `source_type`
+
+**Prerequisite for:** T010 second-wave planning/records
+
+---
+
+## T010 — Second-Wave Candidate-to-Record Plan or Second-Wave Record Batch
+
+**Status:** Planned (next step — requires Control Tower approval of T009 findings)
+
+**Options (for Control Tower — see `T010_SECOND_WAVE_READINESS_RECOMMENDATION.md`):**
+- Option A: All 6 second-wave records (CAND-002, CAND-004, CAND-005, CAND-009, CAND-010, CAND-015 → INC-0005 through INC-0010)
+- Option B: Second-wave planning document only (no records yet)
+- Option C: Partial batch (Tier 2 only in T010; Tier 3 in T011)
 
 **Pre-conditions:**
-- Control Tower reviews `FIRST_RECORD_BATCH_QA_REPORT.md`
-- Control Tower confirms T009 scope
+- Control Tower reviews T009 findings
+- Control Tower confirms T010 scope
 
 **Prerequisite for:** Full v0.3 Dataset MVP (10 records)
 

@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026 (T008 — DEC-055)
+**Last updated:** 19 May 2026 (T009 — DEC-065)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -739,3 +739,103 @@ T006 must not mass-import data and must not create final incident records unless
 **Decision:** T009 — Tier 2/3 Incident Record Plan or Dataset MVP Review — requires explicit Control Tower approval of the T008 QA report before initiation. T009 should not automatically create the remaining 6 second-wave records. Control Tower must confirm T009 scope (Option A, B, or C as defined in `NEXT_ACTIONS.md`).
 
 **Rationale:** Each record batch is a governance gate. Quality of the first batch should be confirmed before the second batch is created.
+
+---
+
+### [DEC-056] — 19 May 2026 — T009: Formal Schema Validator Used — jsonschema 4.23.0
+
+**Status:** Approved
+
+**Decision:** T009 performed formal JSON Schema validation using `jsonschema` 4.23.0 (already installed), `Draft202012Validator`. All 4 records passed with zero errors. T008 unresolved risk #6 is resolved.
+
+**Rationale:** `jsonschema` was available locally; no new installation required. Formal validation is more reliable than manual field-level checking.
+
+---
+
+### [DEC-057] — 19 May 2026 — T009: No Record Corrections Required
+
+**Status:** Approved
+
+**Decision:** All 4 incident JSON files are correct as created in T008. Zero taxonomy issues, zero schema violations. No corrections applied to any JSON file.
+
+**Rationale:** Formal validation confirmed the records are well-formed. Corrections should only be made when actual errors are found.
+
+---
+
+### [DEC-058] — 19 May 2026 — T009: Documentation Fix — DATASET_MVP_VALIDATION_PLAN.md Stale Field Name
+
+**Status:** Approved
+
+**Decision:** `docs/validation/DATASET_MVP_VALIDATION_PLAN.md` line 29 referenced `source.database` (renamed to `source_type` in T008 DEC-038). Updated to `source_type`.
+
+**Rationale:** Normative documentation should use current field names to avoid curator confusion in future tasks.
+
+---
+
+### [DEC-059] — 19 May 2026 — T009: INC-0001 CourtListener URL Accepted
+
+**Status:** Approved
+
+**Decision:** INC-0001 source URL (CourtListener archived PDF) accepted as-is. Canonical reference (`Mata v. Avianca, Inc., No. 22-cv-1461 (S.D.N.Y.)`) is already embedded in `title` and `date_note`.
+
+**Rationale:** CourtListener is a stable legal archive. Canonical case number provides permanent identification if URL changes.
+
+---
+
+### [DEC-060] — 19 May 2026 — T009: INC-0003 CRT Portal URL Accepted
+
+**Status:** Approved
+
+**Decision:** INC-0003 source URL (BC CRT portal) accepted as-is. Canonical citation `2024 BCCRT 149` is embedded in `title`.
+
+**Rationale:** Canonical tribunal citation is the permanent identifier. Portal URL is a convenience access point.
+
+---
+
+### [DEC-061] — 19 May 2026 — T009: INC-0004 Dutch-Language Source — Flagging Adequate
+
+**Status:** Approved
+
+**Decision:** INC-0004 source title note `(Dutch; key findings widely reported in English)` is adequate. No further flagging or record change required. Residual risk carried forward.
+
+**Rationale:** Existing wording meets the source risk standard. The risk only materialises if a specific discrepancy with the Dutch text is identified.
+
+---
+
+### [DEC-062] — 19 May 2026 — T009: INC-0004 SyRI Discontinuation — Unresolved; Cautious Wording Retained
+
+**Status:** Approved
+
+**Decision:** No primary Dutch government URL confirming SyRI discontinuation was identified in T009. The `impact` field's cautious wording ("was discontinued following the ruling") is retained as-is. Marked as unresolved.
+
+**Rationale:** Cannot add unsupported URLs. The cautious wording is appropriate. A future curator can add a primary source if one is identified.
+
+---
+
+### [DEC-063] — 19 May 2026 — T009: Draft Sectors Kept; Stabilisation Deferred to T010+
+
+**Status:** Approved
+
+**Decision:** `transportation-autonomous` (INC-0002) and `retail-ecommerce` (INC-0003) remain as `draft` sector IDs. No rename to `general`. Taxonomy stabilisation deferred to T010+ taxonomy review.
+
+**Rationale:** These sectors accurately represent the incidents. Using `general` would lose meaningful categorisation. Draft status is explicitly noted in the taxonomy file. Stabilisation requires a taxonomy governance decision.
+
+---
+
+### [DEC-064] — 19 May 2026 — T009: FM-REL Draft Usage Confirmed for v0.2
+
+**Status:** Approved
+
+**Decision:** FM-REL (Reliability) usage in INC-0001 and INC-0002 confirmed correct. Taxonomy `usage_note` explicitly permits top-level FM-REL in v0.2 records. No change.
+
+**Rationale:** The taxonomy file explicitly defines this exception for v0.2. Usage is correct and intentional.
+
+---
+
+### [DEC-065] — 19 May 2026 — T009: T010 Scope to Be Defined by Control Tower
+
+**Status:** Approved
+
+**Decision:** T010 — Second-Wave Candidate-to-Record Plan or Second-Wave Record Batch — must not begin without explicit Control Tower approval. Three options defined in `T010_SECOND_WAVE_READINESS_RECOMMENDATION.md` for Control Tower consideration.
+
+**Rationale:** Each expansion of the dataset is a governance gate. T009 findings confirm the dataset is ready for T010; Control Tower must choose the scope and initiate formally.

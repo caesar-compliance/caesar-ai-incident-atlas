@@ -6,7 +6,7 @@
 
 ## Execution Boundaries
 
-This repository is in the **dataset MVP — first records created** phase. T008 created the first 4 Tier 1 incident records. The second-wave 6 records await T009 approval. No product code, no scraper, no CLI, no static site, no database, no package managers, and no dependencies until later approved phases.
+This repository is in the **dataset MVP — first records validated** phase. T009 formally validated all 4 Tier 1 records (zero issues). The second-wave 6 records await T010 approval. No product code, no scraper, no CLI, no static site, no database, no package managers, and no dependencies until later approved phases.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -28,41 +28,45 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T006 — First Incident Candidate Dossier Preparation | Complete |
 | T007 — First Incident Record Creation Plan | Complete |
 | T008 — First Tier 1 Incident Record Batch | Complete |
-| T009 — Tier 2/3 Incident Record Plan or Dataset MVP Review | **Next** (requires explicit Control Tower approval of T008 QA) |
-| v0.3 Dataset MVP — first records | Partial — 4 Tier 1 records created; 6 second-wave records pending T009 |
+| T009 — Dataset MVP Review and QA Hardening | Complete |
+| T010 — Second-Wave Candidate-to-Record Plan or Second-Wave Record Batch | **Next** (requires explicit Control Tower approval of T009 findings) |
+| v0.3 Dataset MVP — first records validated | Partial — 4 Tier 1 records validated; 6 second-wave records pending T010 |
 
 ---
 
-## Next Recommended Step: T009
+## Next Recommended Step: T010
 
-**T009 — Tier 2/3 Incident Record Plan or Dataset MVP Review.**
+**T010 — Second-Wave Candidate-to-Record Plan or Second-Wave Record Batch.**
 
-The next step after T008 is T009, but **only after explicit Control Tower review and approval of the T008 QA report.**
+The next step after T009 is T010, but **only after explicit Control Tower review and approval of T009 findings.**
 
-T009 should not automatically create the remaining 6 second-wave records. Control Tower must approve T009 scope after reviewing T008 output.
+T010 must not automatically create all 6 remaining second-wave records. Control Tower must confirm T010 scope.
 
-### T009 options for Control Tower consideration
+### T010 options for Control Tower consideration
 
-**Option A — Second-wave record batch:** Create records for the 6 Tier 2/3 candidates (CAND-002, CAND-004, CAND-005, CAND-009, CAND-010, CAND-015) as INC-0005 through INC-0010.
+See `T010_SECOND_WAVE_READINESS_RECOMMENDATION.md` for full detail.
 
-**Option B — Dataset MVP review pass:** Before adding more records, conduct a structured review of the first 4 records and the schema for any issues. Resolve INC-0004 Dutch source note and URL stability risks from T008.
+**Option A — Second-wave record batch (full):** Create all 6 Tier 2/3 records (CAND-002, CAND-004, CAND-005, CAND-009, CAND-010, CAND-015) as INC-0005 through INC-0010.
 
-**Option C — Combined:** Start T009 with a brief review pass, then proceed to second-wave records if no blocking issues are found.
+**Option B — Second-wave plan only:** Create a planning document (analogous to T007) before committing any second-wave records.
 
-### T009 pre-conditions
+**Option C — Partial batch:** Create only Tier 2 records (CAND-002, CAND-004, CAND-005) in T010; defer Tier 3 to T011.
 
-1. **Control Tower reviews `FIRST_RECORD_BATCH_QA_REPORT.md`** and confirms all 4 T008 records are acceptable.
-2. **Control Tower confirms T009 scope** (Option A, B, or C above).
-3. If second-wave records: per-candidate source verification completed per `SOURCE_VERIFICATION_WORKFLOW.md`.
-4. **T009 formally initiated** by Control Tower.
+### T010 pre-conditions
 
-### T009 constraints (if second-wave records)
+1. **Control Tower reviews T009 findings** (`DATASET_MVP_REVIEW_REPORT.md`) and confirms dataset acceptable.
+2. **Control Tower confirms T010 scope** (Option A, B, or C above).
+3. If records are created: per-candidate source verification completed per `SOURCE_VERIFICATION_WORKFLOW.md`.
+4. **T010 formally initiated** by Control Tower.
+
+### T010 constraints (if records created)
 
 - No records beyond INC-0010 without further CT approval.
-- QA checklist completed per record.
+- QA checklist (`RECORD_CREATION_QA_CHECKLIST.md`) completed per record.
 - No external dataset import.
-- Careful hedging language (second-wave candidates have more secondary-source reliance).
+- Careful hedging language — Tier 2/3 candidates rely more on secondary sources.
 - No unsupported legal conclusions.
+- No new FM/CTL IDs without taxonomy approval.
 
 ---
 
@@ -97,7 +101,7 @@ The following tasks can be executed autonomously without Control Tower approval:
 
 The following tasks require Artem / Control Tower review before execution:
 
-- Starting T009 (requires Control Tower approval of T008 QA report).
+- Starting T010 (requires Control Tower approval of T009 findings).
 - Starting v0.3 Dataset MVP.
 - Implementing any product code (scripts, automated tooling, application features).
 - Creating any incident records.

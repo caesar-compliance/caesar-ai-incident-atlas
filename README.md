@@ -26,9 +26,9 @@ The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](
 
 ## Project Status
 
-> This repository is currently in the **dataset MVP — first records created** stage.
-> T008 created the first 4 real incident records (INC-0001 through INC-0004). `data/incidents/` now contains 4 Tier 1 incident records.
-> The next step is T009 — Tier 2/3 Incident Record Plan or Dataset MVP Review, pending explicit Control Tower approval of the T008 QA report.
+> This repository is currently in the **dataset MVP — first records validated** stage.
+> T009 formally validated all 4 Tier 1 records (zero schema/taxonomy issues). `data/incidents/` contains 4 validated Tier 1 incident records.
+> The next step is T010 — Second-Wave Candidate-to-Record Plan or Second-Wave Record Batch, pending explicit Control Tower approval of T009 findings.
 > See [ROADMAP.md](ROADMAP.md) for the full phase plan.
 
 ---
@@ -183,6 +183,11 @@ Related repositories:
 | [T008_FIRST_RECORD_BATCH_RECOMMENDATION.md](T008_FIRST_RECORD_BATCH_RECOMMENDATION.md) | Recommended T008 scope: 4 Tier 1 records, pre-conditions, schema rename requirement (T007) |
 | [FIRST_RECORD_BATCH_SOURCE_VERIFICATION_LOG.md](FIRST_RECORD_BATCH_SOURCE_VERIFICATION_LOG.md) | Per-record source verification for INC-0001 through INC-0004 (T008) |
 | [FIRST_RECORD_BATCH_QA_REPORT.md](FIRST_RECORD_BATCH_QA_REPORT.md) | QA report for first 4 incident records — all passed (T008) |
+| [DATASET_MVP_REVIEW_REPORT.md](DATASET_MVP_REVIEW_REPORT.md) | T009 full review: schema validation, taxonomy, source risks, readiness |
+| [FIRST_BATCH_SCHEMA_VALIDATION_REPORT.md](FIRST_BATCH_SCHEMA_VALIDATION_REPORT.md) | Formal schema validation report — all 4 records PASS (T009) |
+| [FIRST_BATCH_SOURCE_RISK_REVIEW.md](FIRST_BATCH_SOURCE_RISK_REVIEW.md) | Per-risk review of 5 T008 source risks (T009) |
+| [FIRST_BATCH_RECORD_FIX_LOG.md](FIRST_BATCH_RECORD_FIX_LOG.md) | Record fix log — no JSON corrections needed (T009) |
+| [T010_SECOND_WAVE_READINESS_RECOMMENDATION.md](T010_SECOND_WAVE_READINESS_RECOMMENDATION.md) | T010 scope options, pre-conditions, constraints (T009) |
 | [data/incidents/INC-0001-mata-v-avianca-court-citations.json](data/incidents/INC-0001-mata-v-avianca-court-citations.json) | Incident record: AI-generated fabricated court citations (T008) |
 | [data/incidents/INC-0002-autonomous-vehicle-pedestrian-fatality-ntsb.json](data/incidents/INC-0002-autonomous-vehicle-pedestrian-fatality-ntsb.json) | Incident record: Autonomous vehicle pedestrian fatality (T008) |
 | [data/incidents/INC-0003-air-canada-chatbot-contract-bc-crt.json](data/incidents/INC-0003-air-canada-chatbot-contract-bc-crt.json) | Incident record: Air Canada chatbot contract (T008) |

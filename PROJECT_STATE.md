@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.3.0` |
-| Current phase | `dataset MVP — first records created` |
+| Current version | `0.3.1` |
+| Current phase | `dataset MVP — first records validated` |
 | Status | `active` |
-| Latest completed task | `T008 — First Tier 1 Incident Record Batch` |
+| Latest completed task | `T009 — Dataset MVP Review and QA Hardening` |
 | Active work item | `none` |
-| Next recommended step | `T009 — Tier 2/3 Incident Record Plan or Dataset MVP Review (requires explicit Control Tower approval of T008 QA)` |
+| Next recommended step | `T010 — Second-Wave Candidate-to-Record Plan or Second-Wave Record Batch (requires explicit Control Tower approval of T009 findings)` |
 
 ---
 
@@ -31,7 +31,8 @@
 | T006 First Incident Candidate Dossier Preparation | Complete | 19 May 2026 |
 | T007 First Incident Record Creation Plan | Complete | 19 May 2026 |
 | T008 First Tier 1 Incident Record Batch | Complete | 19 May 2026 |
-| v0.3 Dataset MVP — first records | Partial — 4 Tier 1 records created; 6 second-wave records pending T009 | — |
+| T009 Dataset MVP Review and QA Hardening | Complete | 19 May 2026 |
+| v0.3 Dataset MVP — first records validated | Partial — 4 Tier 1 records validated; 6 second-wave records pending T010 | — |
 | v0.4 Static Site | Planned | — |
 | v0.5 Export Integration | Planned | — |
 | v1.0 Stable Public Release | Planned | — |

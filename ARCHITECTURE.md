@@ -1,8 +1,8 @@
 # Architecture — caesar-ai-incident-atlas
 
 **Last updated:** 19 May 2026
-**Version:** 0.2.4 (dataset foundation)
-**Status:** T005 foundation files created (schema and taxonomy), no incident records yet
+**Version:** 0.3.1 (dataset MVP — first records validated)
+**Status:** 4 Tier 1 incident records created (T008) and formally validated (T009)
 
 ---
 

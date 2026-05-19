@@ -26,7 +26,7 @@ Every future incident record in `data/incidents/` must be validated against `sch
 Minimum schema checks:
 - required 11 fields are present;
 - `incident_id` uses `INC-0001` format;
-- `sources` has at least one source object with `url`, `database`, `accessed`;
+- `sources` has at least one source object with `url`, `source_type`, `accessed`;
 - `failure_modes` has at least one `FM-` reference;
 - `controls` has at least one `CTL-` reference;
 - `severity` is one of `low|medium|high|critical`;

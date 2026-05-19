@@ -7,6 +7,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.3.1] - 19 May 2026
+
+### Added
+
+- **Dataset MVP Review (T009).** Formal validation pass on first 4 incident records. All passed.
+- **`DATASET_MVP_REVIEW_REPORT.md`** — Full review report: schema validation, taxonomy validation, source risk review, readiness assessment.
+- **`FIRST_BATCH_SCHEMA_VALIDATION_REPORT.md`** — Formal schema validation using `jsonschema` 4.23.0, Draft 2020-12. All 4 records: PASS. T008 unresolved risk #6 resolved.
+- **`FIRST_BATCH_SOURCE_RISK_REVIEW.md`** — Per-risk review of 5 T008 open source risks. 2 accepted, 2 residual, 1 unresolved.
+- **`FIRST_BATCH_RECORD_FIX_LOG.md`** — Fix log. No JSON record corrections needed.
+- **`T010_SECOND_WAVE_READINESS_RECOMMENDATION.md`** — T010 scope options (A/B/C), pre-conditions, constraints, secondary recommendations.
+- **`work-items/T009-dataset-mvp-review-and-qa-hardening/`** — Work item folder with TASK.md, DECISIONS.md, VALIDATION.md, IMPLEMENTATION_REPORT.md.
+
+### Changed
+
+- **`docs/validation/DATASET_MVP_VALIDATION_PLAN.md`** — Fixed stale `source.database` reference → `source_type` (DEC-038 consistency fix).
+- **`SPEC.md`** — Updated version to 0.3.1; fixed stale `database` field references to `source_type`; updated status.
+- **`ARCHITECTURE.md`** — Updated version to 0.3.1; updated status note.
+- `README.md` — Updated status; added T009 files.
+- `ROADMAP.md` — Marked T009 complete; added T010 as next step.
+- `PROJECT_STATE.md` — Updated version to 0.3.1; updated latest task.
+- `NEXT_ACTIONS.md` — Advanced to T010 with pre-conditions and options.
+- `REPO_INVENTORY.md` — All T009 files listed.
+- `docs/DECISION_LOG.md` — Added DEC-056 through DEC-065.
+
+### Confirmed
+
+- Zero JSON schema violations across all 4 records (formal validation).
+- Zero taxonomy reference issues.
+- No new incident records created.
+- `data/incidents/` = `.gitkeep` + INC-0001 through INC-0004 only.
+
+---
+
 ## [0.3.0] - 19 May 2026
 
 ### Added

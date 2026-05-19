@@ -52,6 +52,11 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `FIRST_INCIDENT_RECORD_CREATION_PLAN.md` | Record creation plan | End-to-end plan for converting T006 candidates into incident records: order of ops, schema pre-work, field rules, ID assignment, wording conventions. (T007) |
 | `FIRST_RECORD_BATCH_SOURCE_VERIFICATION_LOG.md` | Source verification log | Per-record source verification for INC-0001 through INC-0004: source type, fields supported, gaps, confidence rationale, QA. (T008) |
 | `FIRST_RECORD_BATCH_QA_REPORT.md` | QA report | Full QA report for first 4 incident records across 10 dimensions. All passed. (T008) |
+| `DATASET_MVP_REVIEW_REPORT.md` | Dataset MVP review | T009 full review: formal schema validation, taxonomy, source risk review, readiness assessment. |
+| `FIRST_BATCH_SCHEMA_VALIDATION_REPORT.md` | Schema validation report | Formal schema validation report — jsonschema 4.23.0, Draft 2020-12. All 4 records: PASS. (T009) |
+| `FIRST_BATCH_SOURCE_RISK_REVIEW.md` | Source risk review | Per-risk review of 5 T008 open source risks. 2 accepted, 2 residual, 1 unresolved. (T009) |
+| `FIRST_BATCH_RECORD_FIX_LOG.md` | Record fix log | Fix log for first batch — no JSON corrections needed. One documentation fix noted. (T009) |
+| `T010_SECOND_WAVE_READINESS_RECOMMENDATION.md` | T010 readiness | T010 scope options (A/B/C), pre-conditions, constraints, secondary recommendations. (T009) |
 | `APPROVED_CANDIDATE_SET_FOR_RECORD_CREATION.md` | Approved candidate set | Wave assignments: 4 Tier 1 (T008), 6 Tier 2/3 (T009), 4 postponed, 1 rejected. Open questions per candidate. (T007) |
 | `INCIDENT_FIELD_MAPPING_DRAFTS.md` | Field mapping drafts | Draft field-level mappings for all 10 approved candidates. CAND-NNN references only. (T007) |
 | `SOURCE_TO_FIELD_TRACEABILITY_MATRIX.md` | Source traceability matrix | Source-to-field traceability for Tier 1 candidates: P/S/I/U classification per field. (T007) |
@@ -65,7 +70,7 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | File | Role | Description |
 |---|---|---|
 | `docs/RESEARCH_CONTEXT.md` | Domain research | Strategic domain research, product type, main users, use cases, MVP scope, and future paid use cases. |
-| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-055). |
+| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-065). |
 | `docs/COMPETITOR_BENCHMARKS.md` | Competitor analysis | Detailed analysis of AI Incident Database, OECD AI Incidents Monitor, AIAAIC Repository, MIT AI Incident Tracker, and IBM AI Risk Atlas, with licensing notes and Caesar differentiation. |
 | `docs/FULL_SCALE_PRODUCT_BLUEPRINT.md` | Product blueprint | Comprehensive full-scale product blueprint covering all product dimensions, user journeys, and ecosystem integration. |
 | `docs/DATA_MODEL_DRAFT.md` | Data model | Incident data model and JSON schema draft covering all record types. Open questions listed for T003 resolution. |
@@ -109,6 +114,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T008-first-tier-1-incident-record-batch/VALIDATION.md` | T008 validation | Constraint and deliverable validation checklist for T008. |
 | `work-items/T008-first-tier-1-incident-record-batch/IMPLEMENTATION_REPORT.md` | T008 report | Implementation report with records created, schema change, source verification summary, and final status. |
 | `work-items/T008-first-tier-1-incident-record-batch/DECISIONS.md` | T008 decisions | 10 decisions including schema rename applied, date anchors, naming policy, draft sectors. |
+| `work-items/T009-dataset-mvp-review-and-qa-hardening/TASK.md` | T009 task | Task scope, validation results summary, record fixes, commit message. |
+| `work-items/T009-dataset-mvp-review-and-qa-hardening/VALIDATION.md` | T009 validation | Constraint and deliverable validation checklist for T009. |
+| `work-items/T009-dataset-mvp-review-and-qa-hardening/IMPLEMENTATION_REPORT.md` | T009 report | Implementation report with validation results, source risk dispositions, and final status. |
+| `work-items/T009-dataset-mvp-review-and-qa-hardening/DECISIONS.md` | T009 decisions | 10 decisions including validator choice, source risk dispositions, draft sector policy, T010 gate. |
 
 ---
 

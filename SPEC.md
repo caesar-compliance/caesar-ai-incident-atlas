@@ -1,8 +1,8 @@
 # Specification — caesar-ai-incident-atlas
 
 **Last updated:** 19 May 2026
-**Version:** 0.2.4 (dataset foundation)
-**Status:** Dataset foundation phase (T005 complete, no incident records yet)
+**Version:** 0.3.1 (dataset MVP — first records validated)
+**Status:** First 4 Tier 1 incident records created (T008) and validated (T009)
 
 ---
 
@@ -60,7 +60,7 @@ The Atlas maintains a curated dataset of publicly reported AI incidents. Each in
 Every incident record must include:
 
 - at least one public source URL;
-- the source database or publication (AIID, OECD, AIAAIC, MIT tracker, news, official report);
+- the `source_type` classification (e.g. `court_record`, `agency_report`, `tribunal_decision`; see `schemas/incident.schema.json` for full enum);
 - the date of the incident or first public report;
 - a confidence level indicating how well-documented the incident is.
 
@@ -72,7 +72,7 @@ The Atlas does not copy data from external databases without verifying applicabl
 incident_id         unique identifier (e.g. INC-001)
 title               short descriptive title
 date                date of incident or first public report (19 May 2026 format)
-sources             list of source URLs and database references
+sources             list of source objects with url, source_type, accessed, title
 summary             factual summary of what happened (no legal claims)
 sector              affected sector(s)
 system_type         type of AI system involved
