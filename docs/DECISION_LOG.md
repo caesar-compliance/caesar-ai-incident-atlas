@@ -1277,7 +1277,7 @@ T006 must not mass-import data and must not create final incident records unless
 
 **Decision:** T019 work committed on branch `release/T019-public-release-gate-readiness`, branching from `docs/T018A-public-release-gate-review-pack` at commit `6fe4cc7`.
 
-**Rationale:** `release/` prefix signals deployment-readiness scope. Branch is not merged — CT review required before merge to main.
+**Rationale:** `release/` prefix signals deployment-readiness scope. Branch merged to main at commit `afb2c17`. Repository now in final pre-deployment readiness state. CT review still required before any public deployment (G-12 blocker).
 
 ---
 
