@@ -27,8 +27,8 @@ The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](
 ## Project Status
 
 > This repository is currently in the **documentation + dataset foundation** stage.
-> T006 prepared 15 candidate incident dossiers for Control Tower review. No incident records exist yet — `data/incidents/` is empty.
-> The next step is T007 — First Incident Record Creation Plan, pending explicit Control Tower approval of the T006 shortlist.
+> T007 delivered a full record creation plan and field mapping drafts. No incident records exist yet — `data/incidents/` is empty.
+> The next step is T008 — First Tier 1 Incident Record Batch, pending explicit Control Tower approval of the T007 plan, schema rename, and source verification.
 > See [ROADMAP.md](ROADMAP.md) for the full phase plan.
 
 ---
@@ -175,6 +175,12 @@ Related repositories:
 | [FIRST_INCIDENT_CANDIDATE_REVIEW_TABLE.md](FIRST_INCIDENT_CANDIDATE_REVIEW_TABLE.md) | Summary review table: 10 Accept, 4 Postpone, 1 Reject (T006) |
 | [FIRST_INCIDENT_SOURCE_REVIEW_NOTES.md](FIRST_INCIDENT_SOURCE_REVIEW_NOTES.md) | Source type analysis, license status, and quality assessment for T006 candidates |
 | [FIRST_INCIDENT_SELECTION_RECOMMENDATION.md](FIRST_INCIDENT_SELECTION_RECOMMENDATION.md) | Final selection recommendation with diversity assessment and T007 conditions (T006) |
+| [FIRST_INCIDENT_RECORD_CREATION_PLAN.md](FIRST_INCIDENT_RECORD_CREATION_PLAN.md) | End-to-end plan for converting T006 candidates into incident records (T007) |
+| [APPROVED_CANDIDATE_SET_FOR_RECORD_CREATION.md](APPROVED_CANDIDATE_SET_FOR_RECORD_CREATION.md) | Approved candidate set: 4 Tier 1 (T008), 6 Tier 2/3 (T009), wave assignments and open questions (T007) |
+| [INCIDENT_FIELD_MAPPING_DRAFTS.md](INCIDENT_FIELD_MAPPING_DRAFTS.md) | Draft field mappings for 10 approved candidates — CAND-NNN references only (T007) |
+| [SOURCE_TO_FIELD_TRACEABILITY_MATRIX.md](SOURCE_TO_FIELD_TRACEABILITY_MATRIX.md) | Source-to-field traceability for Tier 1 candidates (T007) |
+| [RECORD_CREATION_QA_CHECKLIST.md](RECORD_CREATION_QA_CHECKLIST.md) | 50+ item QA checklist to complete before each incident record is committed (T007) |
+| [T008_FIRST_RECORD_BATCH_RECOMMENDATION.md](T008_FIRST_RECORD_BATCH_RECOMMENDATION.md) | Recommended T008 scope: 4 Tier 1 records, pre-conditions, schema rename requirement (T007) |
 | [docs/RESEARCH_CONTEXT.md](docs/RESEARCH_CONTEXT.md) | Domain research and strategic context |
 | [docs/DECISION_LOG.md](docs/DECISION_LOG.md) | Architectural and strategic decisions |
 | [docs/COMPETITOR_BENCHMARKS.md](docs/COMPETITOR_BENCHMARKS.md) | Detailed competitor and benchmark analysis |

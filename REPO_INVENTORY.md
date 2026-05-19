@@ -45,6 +45,12 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `FIRST_INCIDENT_CANDIDATE_REVIEW_TABLE.md` | Candidate review table | Summary review table: 10 Accept, 4 Postpone, 1 Reject. Control Tower review aid. (T006) |
 | `FIRST_INCIDENT_SOURCE_REVIEW_NOTES.md` | Source review notes | Source type analysis, license status review, and quality assessment for T006 candidates. (T006) |
 | `FIRST_INCIDENT_SELECTION_RECOMMENDATION.md` | Selection recommendation | Final selection recommendation with diversity assessment, Tier 1–3 rationale, and T007 conditions. (T006) |
+| `FIRST_INCIDENT_RECORD_CREATION_PLAN.md` | Record creation plan | End-to-end plan for converting T006 candidates into incident records: order of ops, schema pre-work, field rules, ID assignment, wording conventions. (T007) |
+| `APPROVED_CANDIDATE_SET_FOR_RECORD_CREATION.md` | Approved candidate set | Wave assignments: 4 Tier 1 (T008), 6 Tier 2/3 (T009), 4 postponed, 1 rejected. Open questions per candidate. (T007) |
+| `INCIDENT_FIELD_MAPPING_DRAFTS.md` | Field mapping drafts | Draft field-level mappings for all 10 approved candidates. CAND-NNN references only. (T007) |
+| `SOURCE_TO_FIELD_TRACEABILITY_MATRIX.md` | Source traceability matrix | Source-to-field traceability for Tier 1 candidates: P/S/I/U classification per field. (T007) |
+| `RECORD_CREATION_QA_CHECKLIST.md` | QA checklist | 10-section, 50+ item checklist to complete before each incident record is committed. (T007) |
+| `T008_FIRST_RECORD_BATCH_RECOMMENDATION.md` | T008 recommendation | Recommended T008 scope, pre-conditions, ID sequence, schema rename requirement. (T007) |
 
 ---
 
@@ -53,7 +59,7 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | File | Role | Description |
 |---|---|---|
 | `docs/RESEARCH_CONTEXT.md` | Domain research | Strategic domain research, product type, main users, use cases, MVP scope, and future paid use cases. |
-| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-037). |
+| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-045). |
 | `docs/COMPETITOR_BENCHMARKS.md` | Competitor analysis | Detailed analysis of AI Incident Database, OECD AI Incidents Monitor, AIAAIC Repository, MIT AI Incident Tracker, and IBM AI Risk Atlas, with licensing notes and Caesar differentiation. |
 | `docs/FULL_SCALE_PRODUCT_BLUEPRINT.md` | Product blueprint | Comprehensive full-scale product blueprint covering all product dimensions, user journeys, and ecosystem integration. |
 | `docs/DATA_MODEL_DRAFT.md` | Data model | Incident data model and JSON schema draft covering all record types. Open questions listed for T003 resolution. |
@@ -89,6 +95,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T006-first-incident-candidate-dossier-preparation/VALIDATION.md` | T006 validation | Validation checklist confirming T006 quality gates were met. |
 | `work-items/T006-first-incident-candidate-dossier-preparation/IMPLEMENTATION_REPORT.md` | T006 report | Implementation report with files created, files changed, schema observations, and final status. |
 | `work-items/T006-first-incident-candidate-dossier-preparation/DECISIONS.md` | T006 decisions | Decisions made during T006 (DEC-T006-001 through DEC-T006-006). |
+| `work-items/T007-first-incident-record-creation-plan/TASK.md` | T007 task | Task scope, constraints, and approved candidate set for T007. |
+| `work-items/T007-first-incident-record-creation-plan/VALIDATION.md` | T007 validation | Validation checklist confirming T007 quality gates were met. |
+| `work-items/T007-first-incident-record-creation-plan/IMPLEMENTATION_REPORT.md` | T007 report | Implementation report with files created, schema observations, and final status. |
+| `work-items/T007-first-incident-record-creation-plan/DECISIONS.md` | T007 decisions | 8 decisions including schema rename requirement, field conventions, and T008 scope limit. |
 
 ---
 

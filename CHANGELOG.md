@@ -7,6 +7,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.2.6] - 19 May 2026
+
+### Added
+
+- **First Incident Record Creation Plan (T007).** Planning documentation for converting 10 approved T006 candidates into final incident records. Planning only — no incident records created.
+- **`FIRST_INCIDENT_RECORD_CREATION_PLAN.md`** — End-to-end process plan: order of operations, schema pre-work, field mapping rules, ID assignment, wording conventions, pre-commit review checklist.
+- **`APPROVED_CANDIDATE_SET_FOR_RECORD_CREATION.md`** — Confirmed candidate set: 4 Tier 1 (T008), 6 Tier 2/3 (T009), 4 postponed, 1 rejected, with wave assignments and open questions.
+- **`INCIDENT_FIELD_MAPPING_DRAFTS.md`** — Draft field mappings for all 10 approved candidates (CAND-NNN references only).
+- **`SOURCE_TO_FIELD_TRACEABILITY_MATRIX.md`** — Source-to-field traceability for Tier 1 candidates: primary/secondary/interpretive/unsupported classification per field.
+- **`RECORD_CREATION_QA_CHECKLIST.md`** — 10-section, 50+ item QA checklist to be completed before each incident record is committed.
+- **`T008_FIRST_RECORD_BATCH_RECOMMENDATION.md`** — T008 scope recommendation: 4 Tier 1 records only (INC-0001 through INC-0004), pre-conditions, schema rename requirement.
+- **`work-items/T007-first-incident-record-creation-plan/`** — Work item folder with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, DECISIONS.md.
+
+### Changed
+
+- `README.md` — Added T007 planning files to repository structure table; updated project status.
+- `ROADMAP.md` — Marked T007 complete; added T008 as next step with pre-conditions.
+- `PROJECT_STATE.md` — Updated version to 0.2.6; updated phase table.
+- `NEXT_ACTIONS.md` — Advanced to T008; stated pre-conditions and constraints.
+- `REPO_INVENTORY.md` — All T007 files listed.
+- `docs/DECISION_LOG.md` — Added DEC-038 through DEC-045.
+
+### Schema Observations (no schema change in T007)
+
+- `source.database` field must be renamed to `source_type` with expanded enum before T008.
+- `incident_date` partial-precision workaround defined.
+- `evidence_required` EV-XXX prefix convention defined.
+
+### Confirmed
+
+- `data/incidents/` contains only `.gitkeep`. No incident records created in T007.
+- No product code, scraper, CLI, static site, or database created.
+
+---
+
 ## [0.2.5] - 19 May 2026
 
 ### Added

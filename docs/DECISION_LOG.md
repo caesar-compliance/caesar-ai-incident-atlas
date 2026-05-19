@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026 (T006 — DEC-037)
+**Last updated:** 19 May 2026 (T007 — DEC-045)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -557,3 +557,85 @@ T006 must not mass-import data and must not create final incident records unless
 **Decision:** The next step after T006 is T007 — First Incident Record Creation Plan, but only after explicit Control Tower review and approval of the T006 dossier shortlist. `data/incidents/` remains empty except `.gitkeep` until T007 is formally approved and initiated.
 
 **Rationale:** Incident record creation is a critical governance gate. Premature record creation would undermine source-quality and license-safety controls established in T004 and T005.
+
+---
+
+### [DEC-038] — 19 May 2026 — T007: `source.database` Field Must Be Renamed Before T008
+
+**Status:** Approved
+
+**Decision:** The `source.database` field in `schemas/incident.schema.json` must be renamed to `source_type` with an expanded enum before any incident records are created in T008. The current enum `["AIID", "OECD", "AIAAIC", "MIT", "news", "official", "other"]` cannot accurately represent the source types of the approved candidates (court records, NTSB reports, civil tribunal rulings, academic papers).
+
+**Proposed enum:** `["court_record", "government_report", "regulatory_decision", "company_statement", "news", "academic", "civil_tribunal", "legislative", "other"]`
+
+**Rationale:** Field naming accuracy matters for downstream consumers. `database` implies a structured external database reference. All 4 Tier 1 candidates require source types not cleanly expressible in the current enum.
+
+---
+
+### [DEC-039] — 19 May 2026 — T007: T008 Limited to Tier 1 Candidates Only
+
+**Status:** Approved
+
+**Decision:** T008 scope is limited to the four Tier 1 candidates (CAND-003, CAND-006, CAND-011, CAND-012). Second-wave candidates are planned for T009. All four Tier 1 candidates have unambiguous primary official sources.
+
+**Rationale:** Starting with the strongest sources minimises risk of schema, citation, or wording errors in the first production records and establishes a quality baseline.
+
+---
+
+### [DEC-040] — 19 May 2026 — T007: `incident_date` Partial-Precision Workaround
+
+**Status:** Approved
+
+**Decision:** Where only month/year precision is available, use last day of month as `date` value and add a `date_note` field with actual precision. Where only year is available, use `1 January YYYY` with a `date_note`. Propose `date_precision` enum field in v0.3 schema.
+
+**Rationale:** v0.2 schema requires `DD Month YYYY` format. Many public incidents only have month or year precision.
+
+---
+
+### [DEC-041] — 19 May 2026 — T007: `evidence_required` EV-XXX Prefix Convention
+
+**Status:** Approved
+
+**Decision:** `evidence_required` array entries in T008 records use the format `"EV-XXX — [description]"` (e.g., `"EV-004 — Human oversight record"`). This embeds taxonomy IDs for future structured parsing while remaining v0.2 schema compliant.
+
+**Rationale:** Forward-compatible with a future array-of-IDs approach without requiring a schema change in v0.2.
+
+---
+
+### [DEC-042] — 19 May 2026 — T007: `failure_modes` and `controls` Use Canonical Taxonomy IDs Only
+
+**Status:** Approved
+
+**Decision:** `failure_modes` and `controls` array entries must use exact taxonomy IDs from `data/taxonomy/failure_modes.json` and `data/taxonomy/controls.json`. No free-text entries permitted.
+
+**Rationale:** Prevents taxonomy drift and ensures forward compatibility even though the v0.2 schema does not validate against the taxonomy file.
+
+---
+
+### [DEC-043] — 19 May 2026 — T007: `lessons` Field Must Be Governance-Oriented
+
+**Status:** Approved
+
+**Decision:** The `lessons` array must contain actionable governance lessons referencing a control gap or improvement, not re-descriptions of the incident. Lessons should be generalisable beyond the specific case.
+
+**Rationale:** The Atlas's primary value is the governance mapping layer. Lessons must be useful to compliance teams.
+
+---
+
+### [DEC-044] — 19 May 2026 — T007: `summary` Field — Original Caesar Writing Only
+
+**Status:** Approved
+
+**Decision:** The `summary` field must be written entirely in Caesar's own words. No copying or close paraphrasing of source text. Required wording conventions: `"The [court/tribunal] found that..."` for officially confirmed facts; `"Reportedly..."` or `"According to [source]..."` for secondary-source facts.
+
+**Rationale:** Source and citation policy requires original writing. Protects Caesar from copyright and defamation risk.
+
+---
+
+### [DEC-045] — 19 May 2026 — T007: Schema Modification Deferred to T008 Pre-Work
+
+**Status:** Approved
+
+**Decision:** `schemas/incident.schema.json` is not modified in T007. The `source.database` rename is the first action in T008 pre-work, before any records are written. All schema friction observations are documented in T007 DECISIONS.md and IMPLEMENTATION_REPORT.md.
+
+**Rationale:** T007 is a planning task. Schema changes in a planning task would be premature and out of scope.

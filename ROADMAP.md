@@ -158,6 +158,7 @@ v0.1 Foundation
 **Status:** Complete (19 May 2026)
 **Version bump:** 0.2.5
 
+
 **Goal:** Prepare candidate dossiers for 10–20 potential incidents with public source links and verification notes before creating final incident records.
 
 **Deliverables:**
@@ -177,7 +178,55 @@ v0.1 Foundation
 - DEC-T006-005: 15 candidates prepared — 10 Accept, 4 Postpone, 1 Reject
 - DEC-T006-006: data/incidents/ unchanged — only .gitkeep
 
-**Prerequisite for:** T007 — First Incident Record Creation Plan (requires explicit Control Tower approval)
+**Prerequisite for:** T007 — First Incident Record Creation Plan
+
+---
+
+## T007 — First Incident Record Creation Plan
+
+**Status:** Complete (19 May 2026)
+**Version bump:** 0.2.6
+
+**Goal:** Prepare a safe, reviewable plan for converting the 10 approved T006 candidates into the first real incident records in T008. Planning only — no incident records created.
+
+**Deliverables:**
+- `FIRST_INCIDENT_RECORD_CREATION_PLAN.md` — end-to-end process plan
+- `APPROVED_CANDIDATE_SET_FOR_RECORD_CREATION.md` — wave assignments and open questions
+- `INCIDENT_FIELD_MAPPING_DRAFTS.md` — draft field mappings for 10 candidates
+- `SOURCE_TO_FIELD_TRACEABILITY_MATRIX.md` — Tier 1 source-to-field traceability
+- `RECORD_CREATION_QA_CHECKLIST.md` — 50+ item QA checklist
+- `T008_FIRST_RECORD_BATCH_RECOMMENDATION.md` — T008 scope recommendation
+- `work-items/T007-first-incident-record-creation-plan/` — work item folder
+
+**Key decisions:**
+- DEC-T007-001: `source.database` must be renamed to `source_type` before T008
+- DEC-T007-002: T008 limited to Tier 1 candidates only
+- DEC-T007-003: `incident_date` partial-precision workaround defined
+- DEC-T007-004: `evidence_required` EV-XXX prefix convention
+- DEC-T007-005: `failure_modes`/`controls` canonical ID-only convention
+
+**Prerequisite for:** T008 — First Tier 1 Incident Record Batch (requires explicit Control Tower approval)
+
+---
+
+## T008 — First Tier 1 Incident Record Batch
+
+**Status:** Planned (next step — requires Control Tower approval)
+
+**Goal:** Create the first 4 real incident records for the Tier 1 candidates.
+
+**Scope:**
+- Schema pre-work: rename `source.database` → `source_type`
+- 4 incident JSON files: INC-0001 through INC-0004
+- QA checklist completion per record
+
+**Pre-conditions:**
+- Control Tower approval of T007 plan
+- Schema rename approved
+- Individual naming policy confirmed
+- Source verification completed for all 4 Tier 1 candidates
+
+**Prerequisite for:** T009 second-wave records and v0.3 Dataset MVP
 
 ---
 
