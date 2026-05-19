@@ -1,7 +1,7 @@
-# Caesar AI Incident Atlas — Local Functional MVP
+# Caesar AI Incident Atlas — Static Site
 
-Local static prototype for browsing INC-0001–INC-0010.  
-No deployment. No backend. No build step required.
+Public static site for browsing INC-0001–INC-0010.  
+Live at [`https://atlas.caesar.no/`](https://atlas.caesar.no/). No backend. No build step required.
 
 ## Local Preview
 
@@ -40,7 +40,6 @@ All paths are relative to the repository root so the server must be started from
 - No external network requests
 - No database
 - No authentication
-- Not publicly deployed
 
 ## Dataset QA
 
@@ -78,4 +77,4 @@ Run `python3 tools/validate_dataset.py` from the repo root to verify sync.
 
 ## Status
 
-T017 static publish package — `site/` is self-contained. Public deployment requires Control Tower approval (T018+).
+**LIVE** — `https://atlas.caesar.no/` (GitHub Pages, GitHub Actions, T021/T022). `site/` is self-contained. No CNAME file in repo — custom domain set via GitHub Pages settings. DNS: `atlas CNAME caesar-compliance.github.io`. HTTPS enforced.

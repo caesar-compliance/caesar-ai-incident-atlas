@@ -7,6 +7,7 @@
 > **T017 Publish Package Status:** ✅ `site/` is self-contained. Data path fix applied. Internal docs excluded. G-06 and G-08 satisfied.
 > **T019 Gate Closure Status:** Gate evidence consolidated. G-01/G-02 evidence reviewed — CT sign-off required. G-10 manual browser test pending.
 > **T021 Deployment Status:** G-12 **CLEARED** by explicit CT instruction `"Approve public deployment"`. GitHub Pages deployment workflow added. Default URL deployment active. Custom domain deferred. NO-GO lifted for default URL deployment.
+> **T022 Closeout Status:** Site LIVE at `https://atlas.caesar.no/`. Custom domain `atlas.caesar.no` active. HTTPS certificate approved. Enforce HTTPS enabled. G-03 resolved. G-10 static checks passed. Manual browser UI test still required for full G-10 sign-off.
 
 ---
 
@@ -50,8 +51,8 @@
 ### 6. Documentation Check
 
 - [x] `CHANGELOG.md` reflects the release version. *(T015 — v0.5.3)*
-- [ ] `README.md` updated with public site URL if applicable. *(after deployment decision)*
-- [ ] `NEXT_ACTIONS.md` updated for post-deployment tasks. *(after T018)*
+- [x] `README.md` updated with public site URL. *(T022)*
+- [x] `NEXT_ACTIONS.md` updated for post-deployment tasks. *(T022)*
 
 ---
 

@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026
+**Last updated:** 20 May 2026 (T022)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.5.6` |
-| Current phase | `T021 — GitHub Pages deployment activated (default URL); custom domain deferred` |
+| Current version | `0.5.8` |
+| Current phase | `T022 — Post-deploy closeout; GitHub Pages live; custom domain atlas.caesar.no active; HTTPS enforced` |
 | Status | `active` |
-| Latest completed task | `T021 — GitHub Pages Deployment Activation` |
-| Active work item | `T021 — awaiting GitHub Actions workflow run and smoke test` |
-| Next recommended step | `Monitor GitHub Pages deployment; complete G-10 browser smoke test; T022 custom domain setup` |
+| Latest completed task | `T022 — Post-Deploy Verification + GitHub Pages / Custom Domain Closeout` |
+| Active work item | `None — T022 complete` |
+| Next recommended step | `T023 — Custom Domain HTTPS Finalization (confirm HTTP→HTTPS redirect propagation); or T023 — Public MVP Polish Pass if fully confirmed` |
 
 ---
 
@@ -42,6 +42,8 @@
 | T017 Static Publish Package Preparation | Complete — site/ self-contained, path fix applied | 20 May 2026 |
 | T018A Public Release Gate Review Pack | Complete — review materials prepared, NO-GO preserved | 20 May 2026 |
 | T019 Public Release Gate Closure | Complete — gate evidence consolidated, deployment readiness documented, NO-GO preserved | 20 May 2026 |
+| T021 — GitHub Pages Deployment Activation | Complete — workflow deployed, default URL live | 20 May 2026 |
+| T022 — Post-Deploy Closeout | Complete — custom domain verified, HTTPS enforced, G-10 static checks done | 20 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete — 10 records (INC-0001 through INC-0010) | 19 May 2026 |
 | v0.5 Static Site — local prototype | Complete — T012 | 19 May 2026 |
 | v0.5.1 Static Site — local functional MVP | Complete — T013 | 19 May 2026 |
@@ -50,7 +52,7 @@
 | v0.5.4 Public deployment plan | Complete — T016 | 19 May 2026 |
 | v0.5.5 Static publish package | Complete — T017 | 20 May 2026 |
 | v0.5.6 Deployment readiness gate closure | Complete — T019 | 20 May 2026 |
-| v0.5 Static Site — public deployment | **Active — G-12 cleared** | GitHub Pages default URL |
+| v0.5 Static Site — public deployment | **Live** — `https://atlas.caesar.no/` | 20 May 2026 |
 | v0.5 Export Integration | Planned | — |
 | v1.0 Stable Public Release | Planned | — |
 | v1.x Governance OS Integration | Future | — |

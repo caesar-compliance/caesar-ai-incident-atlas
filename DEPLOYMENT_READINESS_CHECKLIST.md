@@ -2,8 +2,8 @@
 
 **Task:** T019 — Public Release Gate Closure + Deployment Readiness Branch  
 **Date:** 20 May 2026  
-**Version:** 0.5.5  
-**Status:** T021 — GitHub Pages deployment activated. G-12 cleared by explicit CT instruction. Default URL only. Custom domain deferred.
+**Version:** 0.5.8  
+**Status:** T022 — LIVE. `https://atlas.caesar.no/`. Custom domain active. HTTPS enforced. G-10 static checks passed; manual browser test pending.
 
 ---
 
@@ -11,7 +11,7 @@
 
 > **G-12 CLEARED** — Explicit Control Tower instruction: `"Approve public deployment"` (T021).
 > **This document is not legal advice.**  
-> GitHub Pages default URL deployment active. Custom domain (`atlas.caesar.no`) deferred to T022. No CNAME. No DNS.
+> Site is LIVE at `https://atlas.caesar.no/`. Custom domain active (T022). HTTPS certificate approved. Enforce HTTPS enabled (T022). No CNAME file in repo — domain set via GitHub Pages UI only. DNS manually configured outside repo.
 
 ---
 
@@ -123,9 +123,7 @@ No dynamic backend — rollback is a static file redeploy.
 
 > **`Approve public deployment`**
 
-This phrase must appear explicitly in a Control Tower instruction. It has not been issued as of 20 May 2026.
-
-No agent, developer, or automated process may activate public deployment before this phrase is confirmed.
+This phrase was issued by Control Tower in T021. Deployment is active.
 
 ---
 

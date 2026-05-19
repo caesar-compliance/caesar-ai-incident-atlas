@@ -12,14 +12,14 @@
 |---|---|---|---|
 | G-01 | **Source/license review** — all 10 incident source URLs cleared for public citation | ⚠ **Pending** | `LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md` exists but formal sign-off not recorded |
 | G-02 | **Wording/legal risk review** — record summaries and lessons reviewed for defamation/liability | ⚠ **Pending** | No formal legal review completed |
-| G-03 | **Domain/hosting decision** — CT selects URL and hosting option | ⚠ **Pending** | `incidents.caesar.no` proposed; not confirmed |
+| G-03 | **Domain/hosting decision** — CT selects URL and hosting option | ✅ **Pass** | GitHub Pages. Custom domain `atlas.caesar.no` active. DNS manually configured. HTTPS enforced. (T022) |
 | G-04 | **Local QA pass** — `python3 tools/validate_dataset.py` exits 0 | ✅ **Pass** | Confirmed T015 + T016 |
 | G-05 | **No external frontend dependencies** — no CDN, fonts, analytics in `site/` | ✅ **Pass** | grep scan clean (T015) |
 | G-06 | **No internal docs exposed** — `work-items/`, `docs/`, planning docs excluded from publish dir | ✅ **Pass** | `site/` contains only public static files. Internal docs not copied in (T017). |
 | G-07 | **No deployment secrets committed** — no API keys, tokens, env files in repo | ✅ **Pass** | Static site; no secrets architecture |
 | G-08 | **Data path fix** — `data/` co-located at correct relative path for chosen deploy root | ✅ **Pass** | `site/data/` created; `app.js` updated to `data/incident-index.json` (T017). |
 | G-09 | **No INC-0011+ or unapproved records** — only INC-0001–INC-0010 published | ✅ **Pass** | Confirmed T016 |
-| G-10 | **Browser smoke test** — loads with 10 cards, no console errors | ⚠ **Pending** | HTTP 200 confirmed; manual browser verification with DevTools not yet done |
+| G-10 | **Browser smoke test** — loads with 10 cards, no console errors | ⚠ **Partial** | Static file checks: PASS (T022). HTTP 200 confirmed at `https://atlas.caesar.no/`. Manual 14-step browser UI test still required. |
 | G-11 | **Rollback plan documented** | ✅ **Pass** | See `PUBLIC_DEPLOYMENT_PLAN.md §6` |
 | G-12 | **Control Tower explicit approval** — CT issues: `"Approve public deployment"` | ✅ **Cleared** | **Cleared by T021 explicit CT instruction** |
 
@@ -29,15 +29,14 @@
 
 | Status | Count |
 |---|---|
-| ✅ Pass | 7 |
-| ⚠ Pending | 4 |
+| ✅ Pass | 8 |
+| ⚠ Pending | 2 |
+| ⚠ Partial | 1 |
 | ✅ Cleared | 1 |
 
-**Go/no-go: GO for GitHub Pages default deployment. G-12 cleared by explicit Control Tower instruction.**
+**Status: DEPLOYED AND LIVE.** `https://atlas.caesar.no/` — GitHub Pages, GitHub Actions source, HTTPS enforced.
 
-**Custom domain deferred:** `atlas.caesar.no` setup in T022. No CNAME added. No DNS configured.
-
-G-12 (CT approval) cleared by explicit phrase `"Approve public deployment"` (T021). Deployment to GitHub Pages default URL activated. G-01, G-02, G-03 remain pending CT sign-off but do not block default URL deployment. G-10 browser smoke test required post-deploy.
+G-12 cleared (T021). G-03 resolved (T022): custom domain `atlas.caesar.no` active, DNS manually configured, HTTPS certificate approved and enforced. G-10 static checks passed; manual 14-step browser UI test pending. G-01/G-02 remain pending CT sign-off (governance items, not deployment blockers).
 
 **Review Pack Available:** See `PUBLIC_RELEASE_REVIEW_PACK.md` for detailed source/license review table, wording/legal-risk review table, and manual browser smoke-test checklist for G-10 completion.
 

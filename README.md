@@ -26,12 +26,11 @@ The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](
 
 ## Project Status
 
-> This repository is currently in the **static publish package ready — awaiting CT legal review + hosting decision** stage.
-> T017 completed the static publish package preparation: `site/` is self-contained with data path fix applied, internal docs excluded.
-> The 10 incident records (INC-0001 through INC-0010) passed formal validation and local QA.
-> Public deployment remains **NO-GO** pending Control Tower source/license review, wording/legal risk review, and explicit CT approval.
-> See `PUBLIC_RELEASE_REVIEW_PACK.md` for current review status and `PUBLICATION_RISK_GATE.md` for gate criteria.
-> See [ROADMAP.md](ROADMAP.md) for the full phase plan.
+> **Live at [`https://atlas.caesar.no/`](https://atlas.caesar.no/)** — GitHub Pages, GitHub Actions, public root `site/`.
+> T022 complete: custom domain active, HTTPS enforced, G-10 static checks passed.
+> The 10 incident records (INC-0001 through INC-0010) are publicly accessible.
+> G-01/G-02 source/legal review and manual browser smoke test (G-10) remain pending CT sign-off.
+> See `PUBLICATION_RISK_GATE.md` for full gate status. See [ROADMAP.md](ROADMAP.md) for the phase plan.
 
 ---
 
@@ -47,7 +46,7 @@ Caesar AI Incident Atlas provides:
 - AI agent failure categories covering autonomous action, tool misuse, and approval bypass;
 - severity, impact, and confidence fields for each incident record;
 - source and citation model referencing public databases and official reports;
-- a future public searchable static site at `incidents.caesar.no`;
+- a public searchable static site at [`https://atlas.caesar.no/`](https://atlas.caesar.no/) (live);
 - export to the `caesar-ai-evidence` format for use in governance evidence packs;
 - future integration with Caesar AI Governance OS as a risk library module.
 
