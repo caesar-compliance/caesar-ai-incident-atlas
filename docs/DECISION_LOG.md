@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026 (updated T002)
+**Last updated:** 19 May 2026 (updated T003)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -271,3 +271,81 @@ The next task after T002 (clean-room policy) is T003: review and reconcile `DATA
 - The source/citation policy must be clear before any external data is referenced.
 - Starting the dataset MVP with an unstable data model would require rework.
 - T003 is a low-risk documentation task that can be completed quickly and provides a solid foundation for v0.3.
+
+### [DEC-015] — 19 May 2026 — Incident IDs Use Sequential Four-Digit Format
+
+**Status:** Approved
+
+**Decision:** Incident IDs use the format `INC-0001`, `INC-0002`, etc. Sequential, zero-padded to four digits.
+
+**Rationale:** Sequential IDs are simpler to manage than content-based IDs. Four digits (not three) provides room for up to 9,999 records without a format change. Encoding content into IDs (e.g. INC-HALL-2023-001) creates maintenance burden when taxonomy or dates change.
+
+---
+
+### [DEC-016] — 19 May 2026 — Evidence Requirements Are Free-Text Strings for v0.2
+
+**Status:** Approved
+
+**Decision:** The `evidence_required` field in incident records uses free-text strings for v0.2, not EV- ID references.
+
+**Rationale:** Free-text strings are easier to write and read during early curation. The evidence type registry (EV-001 through EV-014) is the reference, but incident records describe evidence requirements in plain language. EV- ID references will be introduced in v0.3 or v0.4 once the registry is stable and the curation process is mature.
+
+---
+
+### [DEC-017] — 19 May 2026 — Export Format Is One File Per Incident
+
+**Status:** Approved
+
+**Decision:** The caesar-ai-evidence export format produces one file per incident, not a single combined file.
+
+**Rationale:** Per-incident files are easier to manage, version, and selectively import. A combined export can always be generated from individual files. The reverse is harder. Per-incident files also align with the one-JSON-file-per-incident data storage approach.
+
+---
+
+### [DEC-018] — 19 May 2026 — Schema Is Lenient for v0.2 — 11 Required Fields
+
+**Status:** Approved
+
+**Decision:** The v0.2 incident record schema requires only 11 fields: incident_id, title, date, sources, summary, failure_modes, severity, confidence, controls, evidence_required, lessons. All other fields are optional or deferred.
+
+**Rationale:** A strict schema with many required fields slows down curation and produces incomplete records. A lenient schema allows the first batch of records to be created quickly. Optional fields can be added as the curation process matures. The 11 required fields are sufficient to deliver the core governance mapping value.
+
+---
+
+### [DEC-019] — 19 May 2026 — Taxonomy Versioned Together With Dataset
+
+**Status:** Approved
+
+**Decision:** The taxonomy is versioned together with the incident dataset, not separately. Breaking changes (changing or removing existing IDs) require a major version bump. Additive changes (new sub-categories, new controls) do not.
+
+**Rationale:** The taxonomy and dataset are tightly coupled. Separate versioning adds complexity without clear benefit at this stage. Versioning them together makes the dependency explicit and reduces the risk of version mismatch.
+
+---
+
+### [DEC-020] — 19 May 2026 — FM-REL Sub-Categories Are Draft for v0.2
+
+**Status:** Approved
+
+**Decision:** The FM-REL (Reliability) top-level category is stable for v0.2. Its four sub-categories (FM-REL-001 through FM-REL-004) are draft and should not be used in v0.2 incident records. Use the top-level FM-REL only.
+
+**Rationale:** Reliability incidents are harder to document from public sources compared to other failure modes. The sub-categories may need refinement once the first batch of records is curated. Using only the top-level category avoids premature commitment to sub-category definitions.
+
+---
+
+### [DEC-021] — 19 May 2026 — system_type Is Free-Text for v0.2; Controlled Vocabulary Deferred
+
+**Status:** Approved
+
+**Decision:** The `system_type` field is a free-text string for v0.2. A controlled vocabulary will be introduced in v0.3 or v0.4 once patterns emerge from the first batch of incident records.
+
+**Rationale:** Defining a controlled vocabulary before seeing real data risks creating categories that do not match the actual incident dataset. Free-text allows curators to describe system types naturally, and the controlled vocabulary can be derived from the patterns that emerge.
+
+---
+
+### [DEC-022] — 19 May 2026 — T004 Is the Next Step After T003
+
+**Status:** Approved
+
+**Decision:** The next task after T003 is T004 — Dataset MVP Preparation. T004 prepares the final schema implementation plan, first incident candidate selection criteria, source verification workflow, and licensing/source safety checklist. No data ingestion in T004 unless separately approved.
+
+**Rationale:** T003 defines the product model. T004 prepares the implementation plan and candidate selection before any incident records are created. This staged approach reduces the risk of creating records that need to be reworked due to unclear model or source policy.

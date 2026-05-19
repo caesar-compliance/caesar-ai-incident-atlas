@@ -70,7 +70,17 @@ curated incident data
 
 ### 3.1 Incident record
 
-The core data unit is the incident record. See [docs/DATA_MODEL_DRAFT.md](DATA_MODEL_DRAFT.md) for the full schema.
+The core data unit is the incident record. See [docs/DATA_MODEL_DRAFT.md](DATA_MODEL_DRAFT.md) for the full schema draft and [V0_2_DRAFT_PRODUCT_CONTRACT.md](../V0_2_DRAFT_PRODUCT_CONTRACT.md) for the resolved v0.2 contract decisions.
+
+Key decisions locked in v0.2 contract:
+
+| Decision | Resolution |
+|---|---|
+| Incident ID format | `INC-0001` — sequential, zero-padded four digits |
+| Required fields | 11 fields required; all others optional or deferred |
+| Evidence requirements | Free-text strings for v0.2; EV- IDs deferred to v0.3 |
+| Export format | One file per incident |
+| Schema strictness | Lenient for v0.2 |
 
 Key fields:
 

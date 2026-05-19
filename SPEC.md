@@ -329,13 +329,15 @@ The Atlas will integrate with Caesar AI Governance OS as a risk library module:
 
 The minimum viable product includes:
 
-- incident schema definition;
-- failure mode taxonomy (documented);
-- control taxonomy (documented);
-- evidence mapping (documented);
-- 10–20 sample incident records with full metadata;
-- export format definition for `caesar-ai-evidence`;
-- simple static site generator (future phase).
+- incident schema definition (planned for T004 / v0.3);
+- failure mode taxonomy — documented in `docs/TAXONOMY_DRAFT.md`, reviewed in `V0_2_TAXONOMY_REVIEW.md`;
+- control taxonomy — documented in `docs/TAXONOMY_DRAFT.md`;
+- evidence mapping — documented in `docs/TAXONOMY_DRAFT.md`;
+- 10–20 curated incident records with full metadata, source citations, and control mappings (v0.3);
+- export format definition for `caesar-ai-evidence` — defined in `V0_2_DRAFT_PRODUCT_CONTRACT.md`;
+- simple static site generator (v0.4).
+
+The v0.2 draft contract (`V0_2_DRAFT_PRODUCT_CONTRACT.md`) is the stable reference for all MVP implementation decisions. The field priority table (`V0_2_FIELD_PRIORITY_TABLE.md`) defines which fields are required (11), optional, or deferred for v0.2. The source and citation policy (`SOURCE_AND_CITATION_POLICY_DRAFT.md`) governs how incident records are written and sourced.
 
 ---
 

@@ -22,6 +22,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `CLEAN_ROOM_IMPLEMENTATION_POLICY.md` | Clean-room policy | License classification table (MIT/Apache/BSD, GPL/LGPL, AGPL, CC, no license, public website, proprietary SaaS, BSL, EUPL, ODC-BY, unknown) and clean-room process for each implementation task. |
 | `THIRD_PARTY_REPOSITORY_REVIEW_TEMPLATE.md` | Review template | Reusable template for documenting individual third-party repository or source reviews. |
 | `THIRD_PARTY_CODE_AND_LICENSE_REGISTER.md` | Source register | Running register of all third-party sources reviewed or considered, with license status, reuse decisions, and pending verifications. |
+| `V0_2_DRAFT_PRODUCT_CONTRACT.md` | v0.2 product contract | Stable v0.2 documentation contract resolving all open questions from DATA_MODEL_DRAFT.md and TAXONOMY_DRAFT.md. Covers incident record concept, failure mode concept, control mapping, evidence mapping, source/citation model, confidence model, severity/impact model, sector filters, relationship to caesar-ai-evidence, and future Governance OS integration. |
+| `SOURCE_AND_CITATION_POLICY_DRAFT.md` | Citation policy | Citation rules, preferred source tiers, confidence levels, careful wording rules, rules for disputed/uncertain incidents, no unsupported legal conclusions, no defamatory language, no scraping. |
+| `V0_2_FIELD_PRIORITY_TABLE.md` | Field priority table | Field-by-field priority table for all incident record fields (required / optional / later) with purpose, reason, and risk notes. Identifies overfitting risks. |
+| `V0_2_TAXONOMY_REVIEW.md` | Taxonomy review | Taxonomy category review (stable / draft / later) for all failure mode categories, sub-categories, control categories, evidence types, and sectors. |
 
 ---
 
@@ -48,6 +52,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T002-local-architecture-mining-clean-room-plan/VALIDATION.md` | T002 validation | Validation report confirming T002 quality gates were met. |
 | `work-items/T002-local-architecture-mining-clean-room-plan/IMPLEMENTATION_REPORT.md` | T002 report | Implementation report with files created, files changed, and final status. |
 | `work-items/T002-local-architecture-mining-clean-room-plan/DECISIONS.md` | T002 decisions | Architectural and policy decisions made during T002. |
+| `work-items/T003-v02-draft-contract-review/TASK.md` | T003 task | Task checklist, scope, constraints, and rationale for T003. |
+| `work-items/T003-v02-draft-contract-review/VALIDATION.md` | T003 validation | Validation report confirming T003 quality gates were met. |
+| `work-items/T003-v02-draft-contract-review/IMPLEMENTATION_REPORT.md` | T003 report | Implementation report with files created, files changed, and final status. |
+| `work-items/T003-v02-draft-contract-review/DECISIONS.md` | T003 decisions | Architectural and policy decisions made during T003 (DEC-015 through DEC-022). |
 
 ---
 
@@ -61,6 +69,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `schemas/` | JSON Schema definitions for all record types |
 | `exports/` | Generated export files for caesar-ai-evidence |
 | `docs/reviews/` | Individual third-party source review files (using THIRD_PARTY_REPOSITORY_REVIEW_TEMPLATE.md) |
+| `docs/DATASET_MVP_IMPLEMENTATION_PLAN.md` | Schema implementation plan (T004) |
+| `docs/INCIDENT_CANDIDATE_CRITERIA.md` | Selection criteria for first 10–20 incidents (T004) |
+| `docs/SOURCE_VERIFICATION_WORKFLOW.md` | Step-by-step source verification checklist (T004) |
+| `docs/LICENSE_VERIFICATION_CHECKLIST.md` | Data license verification checklist (T004) |
 
 ---
 

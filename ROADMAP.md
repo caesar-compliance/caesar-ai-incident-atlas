@@ -73,15 +73,41 @@ v0.1 Foundation
 
 ## T003 — Data Model / Taxonomy / Citation Contract
 
-**Status:** Planned (next step)
+**Status:** Complete (19 May 2026)
+**Version bump:** 0.2.2
 
-**Goal:** Review and reconcile DATA_MODEL_DRAFT.md, TAXONOMY_DRAFT.md, and source/citation policy into a stable v0.2 draft contract that the dataset MVP team can use as a stable reference.
+**Goal:** Review and reconcile DATA_MODEL_DRAFT.md, TAXONOMY_DRAFT.md, and source/citation policy into a stable v0.2 draft contract.
 
 **Deliverables:**
-- Updated docs/DATA_MODEL_DRAFT.md with resolved open questions.
-- Updated docs/TAXONOMY_DRAFT.md with confirmed stable taxonomy.
-- New docs/SOURCE_AND_CITATION_POLICY.md.
-- Updated NEXT_ACTIONS.md with v0.3 Dataset MVP tasks.
+- V0_2_DRAFT_PRODUCT_CONTRACT.md — stable v0.2 contract resolving all open questions.
+- SOURCE_AND_CITATION_POLICY_DRAFT.md — citation rules, confidence levels, wording rules.
+- V0_2_FIELD_PRIORITY_TABLE.md — field priority table (required / optional / later).
+- V0_2_TAXONOMY_REVIEW.md — taxonomy category review (stable / draft / later).
+- work-items/T003-v02-draft-contract-review/ — work item folder.
+- Updated README.md, ARCHITECTURE.md, ROADMAP.md, PROJECT_STATE.md, NEXT_ACTIONS.md, CHANGELOG.md, REPO_INVENTORY.md, docs/DECISION_LOG.md.
+
+**Key decisions locked:**
+- Incident ID format: INC-0001 (sequential, four digits)
+- Evidence requirements: free-text strings for v0.2
+- Export format: one file per incident
+- Schema strictness: lenient — 11 required fields
+- Taxonomy versioning: together with dataset
+- FM-REL sub-categories: draft — use top-level only in v0.2
+
+---
+
+## T004 — Dataset MVP Preparation
+
+**Status:** Planned (next step)
+
+**Goal:** Prepare the implementation plan and candidate selection before any incident records are created. T004 is not the Dataset MVP itself.
+
+**Deliverables:**
+- docs/DATASET_MVP_IMPLEMENTATION_PLAN.md — schema implementation plan
+- docs/INCIDENT_CANDIDATE_CRITERIA.md — selection criteria for first 10–20 incidents
+- docs/SOURCE_VERIFICATION_WORKFLOW.md — step-by-step source verification checklist
+- docs/LICENSE_VERIFICATION_CHECKLIST.md — data license verification checklist
+- work-items/T004-dataset-mvp-preparation/ — work item folder
 
 **Prerequisite for:** v0.3 Dataset MVP
 

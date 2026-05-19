@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.2.2] - 19 May 2026
+
+### Added
+
+- **V0.2 Draft Product Contract (T003).** Stable v0.2 documentation contract resolving all open questions from DATA_MODEL_DRAFT.md and TAXONOMY_DRAFT.md. Covers incident record concept, failure mode concept, control mapping concept, evidence mapping concept, source/citation model, confidence model, severity/impact model, sector and AI system filters, relationship to caesar-ai-evidence, and future relationship to Caesar AI Governance OS.
+- **V0_2_DRAFT_PRODUCT_CONTRACT.md** — stable v0.2 contract document; resolves incident ID format (INC-0001), evidence requirement format (free-text for v0.2), export format (one file per incident), schema strictness (11 required fields), and taxonomy versioning (together with dataset).
+- **SOURCE_AND_CITATION_POLICY_DRAFT.md** — citation rules, preferred source tiers, confidence levels, careful wording rules, rules for disputed/uncertain incidents, no unsupported legal conclusions, no defamatory language, no copying source text, no scraping.
+- **V0_2_FIELD_PRIORITY_TABLE.md** — field-by-field priority table for all incident record fields (required / optional / later) with purpose, reason, and risk notes. Identifies overfitting risks for risk_categories, ai_system_name, and organization fields.
+- **V0_2_TAXONOMY_REVIEW.md** — taxonomy category review table (stable / draft / later) for all failure mode categories, sub-categories, control categories, evidence types, and sectors. Confirms 8 failure mode categories stable, FM-REL sub-categories draft, AI agent failure sub-categories stable.
+- **work-items/T003-v02-draft-contract-review/** — work item folder with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, and DECISIONS.md.
+- **docs/DECISION_LOG.md** — added DEC-015 through DEC-022 covering incident ID format, evidence requirement format, export format, schema strictness, taxonomy versioning, FM-REL sub-category status, system_type field, and T004 sequencing.
+
+### Changed
+
+- **README.md** — repository structure table updated with new contract documents.
+- **SPEC.md** — updated to reference v0.2 contract decisions; marked open questions as resolved.
+- **ARCHITECTURE.md** — updated data model section to reflect v0.2 contract decisions.
+- **ROADMAP.md** — T003 marked complete; T004 added as next step.
+- **PROJECT_STATE.md** — version updated to 0.2.2; latest completed task and next recommended step updated.
+- **NEXT_ACTIONS.md** — T004 defined as next recommended step with scope and deliverables; dataset MVP blocked until T004 complete.
+- **REPO_INVENTORY.md** — all new files listed.
+
+---
+
 ## [0.2.1] - 19 May 2026
 
 ### Added

@@ -154,6 +154,10 @@ Related repositories:
 | [CLEAN_ROOM_IMPLEMENTATION_POLICY.md](CLEAN_ROOM_IMPLEMENTATION_POLICY.md) | License classification table and clean-room process |
 | [THIRD_PARTY_REPOSITORY_REVIEW_TEMPLATE.md](THIRD_PARTY_REPOSITORY_REVIEW_TEMPLATE.md) | Template for documenting source reviews |
 | [THIRD_PARTY_CODE_AND_LICENSE_REGISTER.md](THIRD_PARTY_CODE_AND_LICENSE_REGISTER.md) | Register of all sources reviewed |
+| [V0_2_DRAFT_PRODUCT_CONTRACT.md](V0_2_DRAFT_PRODUCT_CONTRACT.md) | Stable v0.2 product model contract |
+| [SOURCE_AND_CITATION_POLICY_DRAFT.md](SOURCE_AND_CITATION_POLICY_DRAFT.md) | Citation rules, confidence levels, wording rules |
+| [V0_2_FIELD_PRIORITY_TABLE.md](V0_2_FIELD_PRIORITY_TABLE.md) | Field priority table (required / optional / later) |
+| [V0_2_TAXONOMY_REVIEW.md](V0_2_TAXONOMY_REVIEW.md) | Taxonomy category review (stable / draft / later) |
 | [docs/RESEARCH_CONTEXT.md](docs/RESEARCH_CONTEXT.md) | Domain research and strategic context |
 | [docs/DECISION_LOG.md](docs/DECISION_LOG.md) | Architectural and strategic decisions |
 | [docs/COMPETITOR_BENCHMARKS.md](docs/COMPETITOR_BENCHMARKS.md) | Detailed competitor and benchmark analysis |
