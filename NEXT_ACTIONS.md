@@ -6,7 +6,7 @@
 
 ## Execution Boundaries
 
-This repository is in the **dataset MVP — full 10-record batch complete** phase. T010 created 6 second-wave records (INC-0005 through INC-0010). All 10 records have been formally validated. No product code, no scraper, no CLI, no static site, no database, no package managers, and no dependencies until later approved phases.
+This repository is in the **dataset MVP — public readiness review complete** phase. T011 confirmed all 10 records are ready with caveats. No product code, no scraper, no CLI, no static site, no database, no package managers, and no dependencies until T012 is approved.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -30,41 +30,31 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T008 — First Tier 1 Incident Record Batch | Complete |
 | T009 — Dataset MVP Review and QA Hardening | Complete |
 | T010 — Second-Wave Incident Record Batch | Complete |
-| T011 — Dataset MVP Public Readiness Review or Minimal Static Site Planning | **Next** (requires explicit Control Tower approval of T010 findings) |
-| v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 created and validated |
+| T011 — Dataset MVP Public Readiness Review | Complete |
+| T012 — Minimal Static Site Architecture Plan or Minimal Static Site Prototype | **Next** (requires explicit Control Tower approval of T011 findings) |
+| v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated |
 
 ---
 
-## Next Recommended Step: T011
+## Next Recommended Step: T012
 
-**T011 — Dataset MVP Public Readiness Review or Minimal Static Site Planning.**
+**T012 — Minimal Static Site Architecture Plan or Minimal Static Site Prototype.**
 
-The next step after T010 is T011, but **only after explicit Control Tower review and approval of T010 findings.**
+Only after explicit Control Tower review of T011 findings. See `MINIMAL_STATIC_SITE_SCOPE_DRAFT.md` for options A/B/C.
 
-T011 must not automatically begin building a public static site. Control Tower must confirm T011 scope and whether a site build is approved.
+### T012 pre-conditions
 
-### T011 options for Control Tower consideration
+1. Control Tower reviews `DATASET_MVP_PUBLIC_READINESS_REVIEW.md` and confirms readiness.
+2. Control Tower confirms T012 scope (plan only / prototype / combined).
+3. Draft sector IDs labelling strategy confirmed.
+4. T012 formally initiated by Control Tower.
 
-**Option A — Dataset MVP Public Readiness Review:** Conduct a structured review of the complete 10-record dataset before any public-facing work begins. Similar to T009 but covering all 10 records and assessing readiness for public visibility.
+### T012 constraints
 
-**Option B — Minimal Static Site Planning:** If Control Tower approves public visibility, T011 begins static site technology selection and planning (no code; planning document only, analogous to T007).
-
-**Option C — Combined:** Readiness review + site planning in the same task.
-
-### T011 pre-conditions
-
-1. **Control Tower reviews T010 findings** (`SECOND_WAVE_QA_REPORT.md`) and confirms the full 10-record dataset is acceptable.
-2. **Control Tower confirms T011 scope** (Option A, B, or C above).
-3. **If static site is approved:** Technology selection and clean-room review required before any code is written.
-4. **T011 formally initiated** by Control Tower.
-
-### T011 constraints
-
-- No public site code without explicit Control Tower approval.
+- No scraping, database, admin UI, external data import, or public deployment.
+- No server-side runtime.
 - No new incident records beyond INC-0010 without further CT approval.
-- No external dataset import.
-- No product code without CT approval.
-- Any static site work must comply with V0_2_DRAFT_PRODUCT_CONTRACT.md and CLEAN_ROOM_IMPLEMENTATION_POLICY.md.
+- Any static site build must not be publicly deployed without a further explicit CT approval step.
 
 ---
 
@@ -99,7 +89,7 @@ The following tasks can be executed autonomously without Control Tower approval:
 
 The following tasks require Artem / Control Tower review before execution:
 
-- Starting T011 (requires Control Tower approval of T010 findings).
+- Starting T012 (requires Control Tower approval of T011 findings).
 - Starting v0.3 Dataset MVP.
 - Implementing any product code (scripts, automated tooling, application features).
 - Creating any incident records.

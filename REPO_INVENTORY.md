@@ -70,6 +70,13 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `SOURCE_TO_FIELD_TRACEABILITY_MATRIX.md` | Source traceability matrix | Source-to-field traceability for Tier 1 candidates: P/S/I/U classification per field. (T007) |
 | `RECORD_CREATION_QA_CHECKLIST.md` | QA checklist | 10-section, 50+ item checklist to complete before each incident record is committed. (T007) |
 | `T008_FIRST_RECORD_BATCH_RECOMMENDATION.md` | T008 recommendation | Recommended T008 scope, pre-conditions, ID sequence, schema rename requirement. (T007) |
+| `DATASET_MVP_PUBLIC_READINESS_REVIEW.md` | Readiness review | T011 verdict: ready with caveats. Record strength tiers, display requirements. |
+| `DATASET_MVP_OPEN_RISKS.md` | Open risk register | 15 risks, 0 blocking public MVP. |
+| `MINIMAL_STATIC_SITE_SCOPE_DRAFT.md` | Static site scope | T012 scope options A/B/C; feature inclusions/exclusions; hard constraints. |
+| `work-items/T011-dataset-mvp-public-readiness-review/TASK.md` | T011 task | Task scope checklist. |
+| `work-items/T011-dataset-mvp-public-readiness-review/VALIDATION.md` | T011 validation | Validation and constraint checklist. |
+| `work-items/T011-dataset-mvp-public-readiness-review/IMPLEMENTATION_REPORT.md` | T011 report | Concise final report. |
+| `work-items/T011-dataset-mvp-public-readiness-review/DECISIONS.md` | T011 decisions | 3 decisions: readiness verdict, draft sector labelling, T012 gate. |
 | `work-items/T010-second-wave-incident-record-batch/TASK.md` | T010 task | Task scope, approved ID mapping, source gate results, validation summary. |
 | `work-items/T010-second-wave-incident-record-batch/VALIDATION.md` | T010 validation | Constraint and deliverable validation checklist for T010. |
 | `work-items/T010-second-wave-incident-record-batch/IMPLEMENTATION_REPORT.md` | T010 report | Implementation report with records created, source gate summary, validation results. |
@@ -80,7 +87,7 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | File | Role | Description |
 |---|---|---|
 | `docs/RESEARCH_CONTEXT.md` | Domain research | Strategic domain research, product type, main users, use cases, MVP scope, and future paid use cases. |
-| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-075). |
+| `docs/DECISION_LOG.md` | Decision log | Chronological record of technical, strategic, and governance decisions (DEC-001 through DEC-078). |
 | `docs/COMPETITOR_BENCHMARKS.md` | Competitor analysis | Detailed analysis of AI Incident Database, OECD AI Incidents Monitor, AIAAIC Repository, MIT AI Incident Tracker, and IBM AI Risk Atlas, with licensing notes and Caesar differentiation. |
 | `docs/FULL_SCALE_PRODUCT_BLUEPRINT.md` | Product blueprint | Comprehensive full-scale product blueprint covering all product dimensions, user journeys, and ecosystem integration. |
 | `docs/DATA_MODEL_DRAFT.md` | Data model | Incident data model and JSON schema draft covering all record types. Open questions listed for T003 resolution. |

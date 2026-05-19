@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.4.1] - 19 May 2026
+
+### Added
+
+- **T011 — Dataset MVP Public Readiness Review.** All 10 records pass formal validation. Verdict: ready with caveats (two draft sectors; FM-REL draft; INC-0008 and INC-0010 confidence medium).
+- `DATASET_MVP_PUBLIC_READINESS_REVIEW.md` — readiness verdict, record strength tiers, display requirements.
+- `DATASET_MVP_OPEN_RISKS.md` — 15 risks, 0 blocking.
+- `MINIMAL_STATIC_SITE_SCOPE_DRAFT.md` — T012 scope options A/B/C; hard constraints.
+- `work-items/T011-dataset-mvp-public-readiness-review/` — compact task docs.
+
+---
+
 ## [0.4.0] - 19 May 2026
 
 ### Added

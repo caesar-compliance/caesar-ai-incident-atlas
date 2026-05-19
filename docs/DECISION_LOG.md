@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026 (T010 — DEC-075)
+**Last updated:** 19 May 2026 (T011 — DEC-078)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -939,3 +939,33 @@ T006 must not mass-import data and must not create final incident records unless
 **Decision:** T011 — Dataset MVP Public Readiness Review or Minimal Static Site Planning — requires explicit Control Tower approval of T010 findings before initiation. T011 must not automatically begin building a public static site.
 
 **Rationale:** Static site and public-facing implementation decisions require explicit Control Tower governance approval per the v0.2 Draft Contract and clean-room policy. Control Tower must confirm T011 scope (Options A/B/C) before execution.
+
+---
+
+### [DEC-076] — 19 May 2026 — T011: Public Readiness Verdict — Ready with Caveats
+
+**Status:** Approved
+
+**Decision:** The 10-record Dataset MVP is ready with caveats for public presentation planning. All 10 records pass formal schema and taxonomy validation. No blocking issues. Two draft sector IDs and FM-REL draft status require display labelling; INC-0008 and INC-0010 must display confidence level visibly.
+
+**Rationale:** Full validation confirms internal consistency. No record corrections required before T012 planning begins. Caveats are presentational, not data integrity issues.
+
+---
+
+### [DEC-077] — 19 May 2026 — T011: Draft Sector IDs to Be Labelled, Not Renamed
+
+**Status:** Approved
+
+**Decision:** `transportation-autonomous` (INC-0002) and `retail-ecommerce` (INC-0003) will carry a visible "draft taxonomy" label on the public site rather than being renamed or records corrected.
+
+**Rationale:** The sector IDs accurately reflect the incidents. Renaming the IDs in the taxonomy or records would require re-validation and introduce unnecessary churn. A display label is the lowest-risk resolution.
+
+---
+
+### [DEC-078] — 19 May 2026 — T011: T012 Must Not Auto-Build or Auto-Deploy
+
+**Status:** Approved
+
+**Decision:** T012 — Minimal Static Site Architecture Plan or Minimal Static Site Prototype — requires explicit Control Tower approval of T011 findings. If T012 produces a static prototype, it must not be publicly deployed without a further explicit Control Tower approval step.
+
+**Rationale:** Public deployment of the Caesar AI Incident Atlas carries reputational and legal implications. Each public-facing step requires deliberate Control Tower gate. See `MINIMAL_STATIC_SITE_SCOPE_DRAFT.md` for T012 options and hard constraints.
