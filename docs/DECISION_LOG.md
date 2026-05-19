@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026 (T012 — DEC-082)
+**Last updated:** 19 May 2026 (T013 — DEC-086)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -1009,3 +1009,43 @@ T006 must not mass-import data and must not create final incident records unless
 **Decision:** The T012 prototype is local-only. No deployment config, no hosting config, and no CI/CD pipeline created. T013 — which may include public deployment planning — requires explicit Control Tower approval of the T012 prototype review.
 
 **Rationale:** Public deployment of the Caesar AI Incident Atlas requires legal/license review, domain decisions, and explicit governance approval. T012 is a proof-of-concept for local review only.
+
+---
+
+### [DEC-083] — 19 May 2026 — T013: Search Is Client-Side Substring Match; No External Search Library
+
+**Status:** Approved
+
+**Decision:** Global search uses `String.includes()` over a concatenated haystack of all incident fields. No Fuse.js, Lunr, or other fuzzy-search library.
+
+**Rationale:** Substring match is sufficient for 10 records and zero imports. Re-evaluate at 50+ records or if users require fuzzy/stemmed matching.
+
+---
+
+### [DEC-084] — 19 May 2026 — T013: Date Sort Uses Custom Parser Matching Schema Format
+
+**Status:** Approved
+
+**Decision:** `parseDateApprox()` parses the schema's `"D Month YYYY"` format into a Unix timestamp for comparison. No `Date.parse()` (locale-dependent) and no external date library.
+
+**Rationale:** The schema date format is well-defined. A five-line custom parser is more reliable and dependency-free.
+
+---
+
+### [DEC-085] — 19 May 2026 — T013: Deep Linking via URL Hash; `history.replaceState` on Card Expand
+
+**Status:** Approved
+
+**Decision:** Opening a card updates the URL hash via `history.replaceState`. Page load and `hashchange` events auto-open and scroll to the matching card. No SPA router.
+
+**Rationale:** The site is a single HTML file. Hash-based deep linking requires no router, no build step, and works correctly with the Python HTTP server.
+
+---
+
+### [DEC-086] — 19 May 2026 — T013: Detail View Uses Inline Named Sections; No Tabs
+
+**Status:** Approved
+
+**Decision:** Expanded card detail renders 9 named sections inline (What Happened, AI System/Context, Harms, Impact, Failure Modes, Controls, Evidence Required, Governance Lessons, Sources, Caveats). No tab component.
+
+**Rationale:** At current record density, inline sections are more readable and scannable than tabs. Re-evaluate if record fields expand substantially.

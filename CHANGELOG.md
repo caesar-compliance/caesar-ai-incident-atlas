@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.5.1] - 19 May 2026
+
+### Changed
+
+- **T013 — Static Site Functional Completion.** Upgraded local prototype to functional MVP. Added: global search, sorting (5 options), active filter chips with individual remove, structured detail sections (9 named sections), deep linking (`#INC-NNNN`), copy-link button, dataset status panel, explicit error state, keyboard accessibility (Enter/Space, aria-labels, focus styles). No deployment, no framework, no external dependencies.
+
+---
+
 ## [0.5.0] - 19 May 2026
 
 ### Added

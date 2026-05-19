@@ -6,7 +6,7 @@
 
 ## Execution Boundaries
 
-This repository is in the **minimal static prototype — local only** phase. T012 created a local vanilla HTML/CSS/JS prototype for browsing INC-0001–INC-0010. No deployment. T013 requires explicit Control Tower approval before any public deployment.
+This repository is in the **static site functional MVP — local only** phase. T013 added search, sort, active filter chips, deep linking, structured detail view, status panel, and keyboard accessibility to the local prototype. No deployment. T014 requires explicit Control Tower approval.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -32,29 +32,30 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T010 — Second-Wave Incident Record Batch | Complete |
 | T011 — Dataset MVP Public Readiness Review | Complete |
 | T012 — Minimal Static Site Prototype | Complete — local only |
-| T013 — Static Site UX Polish or Public Deployment Plan | **Next** (requires explicit Control Tower approval) |
+| T013 — Static Site Functional Completion | Complete — local functional MVP |
+| T014 — Local Data QA Tooling or Static Site Release Candidate Plan | **Next** (requires explicit Control Tower approval) |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated |
 
 ---
 
-## Next Recommended Step: T013
+## Next Recommended Step: T014
 
-**T013 — Static Site UX Polish or Public Deployment Plan.**
+**T014 — Local Data QA Tooling or Static Site Release Candidate Plan.**
 
-Only after explicit Control Tower review of T012 prototype. Options:
+Only after explicit Control Tower review of T013 functional MVP. Options:
 
-- **Option A — UX Polish:** Improve prototype (search, better mobile, accessibility, print view) — still local only.
-- **Option B — Deployment Plan:** Define hosting, domain, CI/CD, and legal review steps for public deployment.
-- **Option C — Combined:** Polish + deployment plan in one task.
+- **Option A — Local Data QA Tooling:** Build a local validation/QA script suite for incident record maintenance (schema, taxonomy, count checks). No public deployment.
+- **Option B — Static Site Release Candidate Plan:** Define hosting, domain, CI/CD, and legal review steps for public deployment. No actual deployment in T014.
+- **Option C — Combined:** QA tooling + release candidate plan in one task.
 
-### T013 pre-conditions
+### T014 pre-conditions
 
-1. Control Tower reviews T012 prototype locally.
-2. Control Tower selects T013 scope (A/B/C).
-3. If public deployment: legal/license review and domain decision required first.
-4. T013 formally initiated by Control Tower.
+1. Control Tower reviews T013 local functional MVP.
+2. Control Tower selects T014 scope (A/B/C).
+3. If release candidate plan: legal/license review and domain decision confirmed before T015 deploy.
+4. T014 formally initiated by Control Tower.
 
-### T013 constraints
+### T014 constraints
 
 - No public deployment without explicit CT approval.
 - No new incident records beyond INC-0010 without further CT approval.
@@ -94,7 +95,7 @@ The following tasks can be executed autonomously without Control Tower approval:
 
 The following tasks require Artem / Control Tower review before execution:
 
-- Starting T013 (requires Control Tower approval of T012 prototype review).
+- Starting T014 (requires Control Tower approval of T013 functional MVP review).
 - Starting v0.3 Dataset MVP.
 - Implementing any product code (scripts, automated tooling, application features).
 - Creating any incident records.

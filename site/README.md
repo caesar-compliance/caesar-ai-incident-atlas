@@ -1,4 +1,4 @@
-# Caesar AI Incident Atlas — Local Prototype
+# Caesar AI Incident Atlas — Local Functional MVP
 
 Local static prototype for browsing INC-0001–INC-0010.  
 No deployment. No backend. No build step required.
@@ -23,10 +23,16 @@ All paths are relative to the repository root so the server must be started from
 ## What It Does
 
 - Lists all 10 incident records with sector, severity, confidence, and failure mode badges
-- Click any card to expand the full detail: summary, harms, impact, lessons, controls, evidence required, sources
-- Client-side filters: sector, severity, confidence, failure mode
+- **Global search** — searches across ID, title, summary, AI context, lessons, sectors, failure modes, controls, evidence, sources
+- **Sort** — by ID, newest/oldest date, severity, confidence
+- **Active filter chips** — shows current filters; click `×` to remove individual filters
+- Click any card to expand structured detail: What Happened, AI System/Context, Harms, Impact, Failure Modes, Controls, Evidence Required, Governance Lessons, Affected Stakeholders, Sources, Caveats
+- **Deep link** — `#INC-0003` opens and scrolls to that record; **Copy link** button per card
+- **Dataset status panel** — total records, last-verified date, draft taxonomy notice
 - Draft taxonomy labels on `transportation-autonomous`, `retail-ecommerce` sectors and `FM-REL`
-- Source caution labels on medium/low-confidence records
+- Source caution labels on medium/low-confidence records (INC-0008, INC-0010)
+- Clear error state if data fails to load
+- Keyboard accessible (Enter/Space to expand, tab-navigable filters and buttons)
 
 ## What It Does Not Do
 
@@ -38,4 +44,4 @@ All paths are relative to the repository root so the server must be started from
 
 ## Status
 
-T012 prototype — for local review only. Public deployment requires Control Tower approval (T013+).
+T013 functional MVP — for local review only. Public deployment requires Control Tower approval (T014+).

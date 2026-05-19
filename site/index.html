@@ -10,59 +10,87 @@
 <body>
 
 <header class="app-header">
-  <a class="logo" href="#"><span>Caesar</span> AI Incident Atlas</a>
+  <a class="logo" href="." aria-label="Caesar AI Incident Atlas — home"><span>Caesar</span> AI Incident Atlas</a>
+  <div class="header-search">
+    <label for="search-input" class="sr-only">Search incidents</label>
+    <input
+      id="search-input"
+      type="search"
+      class="search-input"
+      placeholder="Search incidents…"
+      aria-label="Search all incident fields"
+      autocomplete="off"
+      spellcheck="false"
+    >
+  </div>
   <div class="header-meta">
-    Dataset MVP · v0.4.1<br>
-    INC-0001–INC-0010 · Local prototype
+    v0.5.1 · INC-0001–INC-0010 · Local MVP
   </div>
 </header>
 
 <div class="app-layout">
 
-  <!-- Sidebar filters -->
-  <aside class="sidebar">
+  <!-- Sidebar -->
+  <aside class="sidebar" aria-label="Filters">
 
     <div class="filter-section">
-      <h3>Sector</h3>
-      <div id="filter-sectors" class="filter-group"></div>
+      <h3 id="filter-sector-label">Sector</h3>
+      <div id="filter-sectors" class="filter-group" role="group" aria-labelledby="filter-sector-label"></div>
     </div>
 
     <div class="filter-section">
-      <h3>Severity</h3>
-      <div id="filter-severity" class="filter-group"></div>
+      <h3 id="filter-sev-label">Severity</h3>
+      <div id="filter-severity" class="filter-group" role="group" aria-labelledby="filter-sev-label"></div>
     </div>
 
     <div class="filter-section">
-      <h3>Confidence</h3>
-      <div id="filter-confidence" class="filter-group"></div>
+      <h3 id="filter-conf-label">Confidence</h3>
+      <div id="filter-confidence" class="filter-group" role="group" aria-labelledby="filter-conf-label"></div>
     </div>
 
     <div class="filter-section">
-      <h3>Failure Mode</h3>
-      <div id="filter-fm" class="filter-group"></div>
+      <h3 id="filter-fm-label">Failure Mode</h3>
+      <div id="filter-fm" class="filter-group" role="group" aria-labelledby="filter-fm-label"></div>
     </div>
 
-    <button id="reset-filters" class="filter-reset">Clear all filters</button>
+    <button id="reset-filters" class="filter-reset" aria-label="Clear all filters and search">Clear all filters</button>
 
   </aside>
 
   <!-- Main content -->
-  <main class="main">
+  <main class="main" id="main-content">
 
-    <div class="notice-banner">
-      ⚠ Local prototype — source URLs were last verified 19 May 2026.
+    <!-- Dataset status panel -->
+    <div id="status-panel" class="status-panel" aria-label="Dataset status" role="status"></div>
+
+    <!-- Notice banner -->
+    <div class="notice-banner" role="note">
+      ⚠ Local MVP — source URLs last verified 19 May 2026.
       Records marked <strong>draft taxonomy</strong> use sector or failure-mode IDs not yet finalised in v0.2.
       Confidence labels reflect evidence quality at time of record creation.
-      This prototype is not publicly deployed.
+      Not publicly deployed.
     </div>
 
-    <div class="status-bar">
-      <h2>Showing</h2>
-      <span class="count" id="result-count">—</span>
+    <!-- Toolbar: count + active chips + sort -->
+    <div class="toolbar" role="toolbar" aria-label="Results and sort">
+      <div class="toolbar-left">
+        <span class="count" id="result-count" aria-live="polite" aria-atomic="true">—</span>
+        <div id="active-chips-bar" class="active-chips-bar" style="display:none" aria-label="Active filters"></div>
+      </div>
+      <div class="toolbar-right">
+        <label for="sort-select" class="sort-label">Sort:</label>
+        <select id="sort-select" class="sort-select" aria-label="Sort order">
+          <option value="id-asc">ID ↑ (default)</option>
+          <option value="date-new">Newest first</option>
+          <option value="date-old">Oldest first</option>
+          <option value="sev-high">Severity ↓</option>
+          <option value="conf-high">Confidence ↓</option>
+        </select>
+      </div>
     </div>
 
-    <div id="loading">Loading incident records…</div>
-    <div id="incident-list"></div>
+    <div id="loading" role="status" aria-live="polite">Loading incident records…</div>
+    <div id="incident-list" aria-label="Incident records"></div>
 
   </main>
 </div>
