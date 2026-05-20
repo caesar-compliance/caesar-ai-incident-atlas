@@ -590,6 +590,128 @@ body {
   outline-offset: 2px;
 }
 
+/* ── About panel ── */
+.about-panel {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.about-heading {
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 0.65rem;
+}
+
+.about-text {
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin-bottom: 0.5rem;
+}
+
+.about-mapping {
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  color: var(--accent);
+  background: rgba(79,124,255,0.07);
+  border: 1px solid rgba(79,124,255,0.15);
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.6rem;
+  margin: 0.5rem 0 0.75rem;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.about-meta-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-meta-list li {
+  font-size: 0.74rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.about-meta-label {
+  font-weight: 600;
+  color: var(--text);
+  display: inline-block;
+  min-width: 90px;
+  font-size: 0.72rem;
+}
+
+.about-disclaimer {
+  font-size: 0.71rem;
+  color: var(--muted);
+  line-height: 1.5;
+  border-top: 1px solid var(--border);
+  padding-top: 0.6rem;
+  margin-top: 0.25rem;
+}
+
+/* ── Footer ── */
+.app-footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 0.7rem 2rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem 0.5rem;
+  font-size: 0.71rem;
+  color: var(--muted);
+}
+
+.footer-sep { color: var(--border-hi); }
+
+.footer-live {
+  color: var(--conf-hi);
+  font-weight: 600;
+}
+
+.footer-disclaimer { color: var(--muted); font-style: italic; }
+
+.footer-link {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.footer-link:hover { text-decoration: underline; color: var(--accent-hi); }
+.footer-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+/* ── Improved focus-visible states ── */
+.search-input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+
+.sort-select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.filter-reset:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.copy-link-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .app-layout {
@@ -603,8 +725,18 @@ body {
     border-bottom: 1px solid var(--border);
   }
 
-  .main { padding: 1.25rem; }
-  .app-header { padding: 0 1.25rem; }
+  .main { padding: 1rem 1.1rem; }
+  .app-header { padding: 0 1rem; gap: 0.75rem; }
   .header-search { max-width: none; margin: 0; }
   .toolbar { flex-direction: column; align-items: flex-start; }
+
+  .incident-card { padding: 0.9rem 1rem; }
+  .card-title { font-size: 0.85rem; }
+  .card-meta { gap: 0.3rem; margin-top: 0.5rem; }
+
+  .about-panel { margin-top: 1.25rem; }
+  .about-mapping { font-size: 0.62rem; }
+
+  .app-footer { padding: 0.6rem 1rem; }
+  .footer-inner { gap: 0.25rem 0.4rem; font-size: 0.68rem; }
 }

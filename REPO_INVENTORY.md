@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T027)
+**Last updated:** 20 May 2026 (T028)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -108,7 +108,9 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T014-local-qa-tooling-release-candidate-gate/VALIDATION.md` | T014 validation | Validation and constraint checklist. |
 | `work-items/T014-local-qa-tooling-release-candidate-gate/IMPLEMENTATION_REPORT.md` | T014 report | Concise final report. |
 | `work-items/T014-local-qa-tooling-release-candidate-gate/DECISIONS.md` | T014 decisions | 3 decisions: integer INC check, path derivation, manual-only RC gate. |
-| `site/index.html` | Static functional MVP | Single-page incident atlas with search, sort, deep link (T013). |
+| `site/index.html` | Static functional MVP | Single-page incident atlas with search, sort, deep link (T013). OG meta, canonical, About panel, footer added (T028). |
+| `site/robots.txt` | Robots directive | Conservative crawl policy: Allow /, sitemap reference. (T028) |
+| `site/sitemap.xml` | Sitemap | Single-URL sitemap for `https://atlas.caesar.no/`. (T028) |
 | `site/data/incident-index.json` | Publish copy | Index with site-root-relative paths for static publishing (T017). |
 | `site/data/incidents/` | Publish copy | 10 incident JSON files copied from root `data/incidents/` (T017). |
 | `site/data/taxonomy/` | Publish copy | 6 taxonomy JSON files copied from root `data/taxonomy/` (T017). |
@@ -221,6 +223,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T027-inc0006-source-resolution/VALIDATION.md` | T027 validation | Validation checklist for T027. |
 | `work-items/T027-inc0006-source-resolution/IMPLEMENTATION_REPORT.md` | T027 report | Concise final report for T027. |
 | `work-items/T027-inc0006-source-resolution/DECISIONS.md` | T027 decisions | 10 decisions including source search outcome, option selection, version bump, counsel confirmation path. |
+| `work-items/T028-public-mvp-polish/TASK.md` | T028 task | Task scope checklist for public MVP polish pass. |
+| `work-items/T028-public-mvp-polish/VALIDATION.md` | T028 validation | Validation checklist for T028. |
+| `work-items/T028-public-mvp-polish/IMPLEMENTATION_REPORT.md` | T028 report | Concise final report for T028. |
+| `work-items/T028-public-mvp-polish/DECISIONS.md` | T028 decisions | Decisions made during T028 public MVP polish pass. |
 
 ---
 

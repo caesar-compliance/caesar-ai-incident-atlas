@@ -77,4 +77,4 @@ Run `python3 tools/validate_dataset.py` from the repo root to verify sync.
 
 ## Status
 
-**TECHNICAL PUBLIC MVP: LIVE + VERIFIED** — `https://atlas.caesar.no/` (GitHub Pages, GitHub Actions, T021/T022/T023/T024). `site/` is self-contained. No CNAME file in repo. HTTPS enforced. HTTP→HTTPS redirect confirmed: `http://atlas.caesar.no/` → 301 → `https://atlas.caesar.no/`. JSON data confirmed HTTP 200 with all 10 records. **G-10 PASS** — Control Tower manual browser confirmation on 20 May 2026.
+**TECHNICAL PUBLIC MVP: LIVE + VERIFIED** — `https://atlas.caesar.no/` (GitHub Pages, GitHub Actions, T021/T022/T023/T024). Version: v0.6.4. `site/` is self-contained. No CNAME file in repo. HTTPS enforced. HTTP→HTTPS redirect confirmed: `http://atlas.caesar.no/` → 301 → `https://atlas.caesar.no/`. JSON data confirmed HTTP 200 with all 10 records. **G-10 PASS** — Control Tower manual browser confirmation on 20 May 2026. T028 polish pass complete: About/methodology panel, OG meta, public footer, `site/robots.txt`, `site/sitemap.xml`, mobile density, focus-visible states added.

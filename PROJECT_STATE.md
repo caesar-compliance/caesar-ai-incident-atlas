@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T027)
+**Last updated:** 20 May 2026 (T028)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.6.3` |
-| Current phase | `T027 — INC-0006 Source Risk Decision Packet. Technical Public MVP: LIVE + VERIFIED. No safer source found for INC-0006; Reuters remains sole primary source. G-01/G-02 pending CT/counsel sign-off.` |
+| Current version | `0.6.4` |
+| Current phase | `T028 — Public MVP Polish Pass. Technical Public MVP: LIVE + VERIFIED. About/methodology section, OG metadata, footer, robots.txt, sitemap.xml, accessibility improvements added. No new records. G-01/G-02 still pending.` |
 | Status | `active` |
-| Latest completed task | `T027 — Targeted INC-0006 Counsel/Source-Risk Resolution Pack` |
-| Active work item | `T027 — complete. Targeted source search found no safer replacement for INC-0006. Decision packet created: INC0006_SOURCE_RISK_DECISION_PACKET.md. No data or wording changes. Counsel review still recommended for G-01 INC-0006 sign-off.` |
-| Next recommended step | `T028 — choose: (A) CT Final Sign-Off Recording for G-01/G-02 (if CT accepts current INC-0006 caution level), or (B) Public MVP Polish Pass (if CT defers legal sign-off)` |
+| Latest completed task | `T028 — Public MVP Polish Pass` |
+| Active work item | `T028 — complete. Public MVP polish pass: About/methodology panel, OG/canonical meta, public footer, status panel v0.6.4, robots.txt, sitemap.xml, mobile density improvements, focus-visible states. No records/sources/legal content changed.` |
+| Next recommended step | `T029 — CT/Counsel Sign-Off Recording for G-01/G-02` |
 
 ---
 
@@ -49,6 +49,7 @@
 | T025 — Source/License + Wording Review Sign-Off Pack | **Complete** — Governance sign-off pack prepared; G-01/G-02 ready for CT/counsel sign-off | 20 May 2026 |
 | T026 — Source Risk Hardening Pass for Public MVP | **Complete** — Court record + US DEFIANCE Act + NIH/PubMed added; INC-0009 upgraded; INC-0006 counsel review unchanged | 20 May 2026 |
 | T027 — Targeted INC-0006 Counsel/Source-Risk Resolution Pack | **Complete** — Targeted source search; no safer source found; decision packet created; no data/wording changes | 20 May 2026 |
+| T028 — Public MVP Polish Pass | **Complete** — About section, OG meta, footer, robots.txt, sitemap.xml, focus states, mobile density; no records changed | 20 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete — 10 records (INC-0001 through INC-0010) | 19 May 2026 |
 | v0.5 Static Site — local prototype | Complete — T012 | 19 May 2026 |
 | v0.5.1 Static Site — local functional MVP | Complete — T013 | 19 May 2026 |

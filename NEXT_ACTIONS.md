@@ -1,12 +1,12 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T027)
+**Last updated:** 20 May 2026 (T028)
 
 ---
 
 ## Execution Boundaries
 
-This repository is in the **T027 INC-0006 source risk resolution** phase. Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/`. **G-10 PASS** (20 May 2026). **INC0006_SOURCE_RISK_DECISION_PACKET.md** documents T027 findings. **SOURCE_RISK_HARDENING_REPORT.md** updated with T027 addendum. No safer source found for INC-0006; Reuters remains sole primary source; no data or wording changes made. G-01/G-02 remain pending explicit CT/counsel sign-off before final approval.
+This repository is in the **T028 Public MVP Polish** phase. Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/`. **G-10 PASS** (20 May 2026). T028 applied public-facing UI/UX improvements: About/methodology panel, OG/canonical meta tags, public footer, robots.txt, sitemap.xml, mobile density improvements, focus-visible states. No records, sources, or legal content changed. G-01/G-02 remain pending explicit CT/counsel sign-off.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -46,6 +46,7 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T025 — Source/License + Wording Review Sign-Off Pack | **Complete** — Governance sign-off pack prepared; G-01/G-02 ready for CT/counsel sign-off |
 | T026 — Source Risk Hardening Pass for Public MVP | **Complete** — Sources hardened for INC-0005, INC-0008, INC-0009; INC-0006 counsel review unchanged |
 | T027 — Targeted INC-0006 Counsel/Source-Risk Resolution Pack | **Complete** — Targeted source search; no safer source found; decision packet created; no data/wording changes |
+| T028 — Public MVP Polish Pass | **Complete** — About section, OG meta, footer, robots.txt, sitemap.xml, mobile density, focus states; no records/sources/legal content changed |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated |
 
 ---
@@ -81,13 +82,11 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 
 See `PUBLICATION_RISK_GATE.md` for full gate status. See `PRODUCT_POLISH_BACKLOG.md` for future work backlog.
 
-## Next Recommended Step: Choose T028 Path
+## Next Recommended Step: T029 — CT/Counsel Sign-Off Recording for G-01/G-02
 
-**T027 is complete.** Targeted source search for INC-0006 found no safer replacement. Decision packet prepared: `INC0006_SOURCE_RISK_DECISION_PACKET.md`. G-01: INC-0006 still requires counsel review; 3 records sign-off with caution; 6 ready for sign-off.
+**T028 is complete.** Public MVP polish pass applied: About/methodology panel, OG/canonical meta, public footer, robots.txt, sitemap.xml, mobile density, focus-visible states. Version bumped to v0.6.4. No records, sources, or legal content changed.
 
-**Option A — CT Final Sign-Off Recording for G-01/G-02:** CT accepts current INC-0006 caution level and completes G-01/G-02 sign-off in `GOVERNANCE_SIGNOFF_PACK.md` §5. Recommended to first seek narrow counsel confirmation on Reuters URL citation acceptability per `INC0006_SOURCE_RISK_DECISION_PACKET.md` §6.
-
-**Option B — Public MVP Polish Pass:** UI/UX improvements without adding records (mobile density, empty states, last-updated badge, methodology page, export improvements). See `PRODUCT_POLISH_BACKLOG.md` §1. Can proceed in parallel with CT/counsel review of INC-0006.
+**T029 — CT/Counsel Sign-Off Recording for G-01/G-02:** CT accepts current INC-0006 caution level and completes G-01/G-02 sign-off in `GOVERNANCE_SIGNOFF_PACK.md` §5. Recommended to first seek narrow counsel confirmation on Reuters URL citation acceptability per `INC0006_SOURCE_RISK_DECISION_PACKET.md` §6.
 
 ---
 

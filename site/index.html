@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Caesar AI Incident Atlas</title>
-  <meta name="description" content="Caesar AI Incident Atlas — curated dataset of AI governance failures mapped to failure modes, controls, and evidence requirements.">
+  <meta name="description" content="Caesar AI Incident Atlas — curated dataset of real-world AI governance failures mapped to failure modes, controls, evidence requirements, and governance lessons.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Caesar AI Incident Atlas">
+  <meta property="og:description" content="Curated AI incident knowledge base mapping real-world failures to governance controls, evidence requirements, and lessons. 10 incident records. Public MVP live.">
+  <meta property="og:url" content="https://atlas.caesar.no/">
+  <meta property="og:site_name" content="Caesar AI Incident Atlas">
+  <link rel="canonical" href="https://atlas.caesar.no/">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -24,14 +30,14 @@
     >
   </div>
   <div class="header-meta">
-    v0.5.1 · INC-0001–INC-0010 · Local MVP
+    v0.6.4 · 10 incidents · Live MVP
   </div>
 </header>
 
 <div class="app-layout">
 
   <!-- Sidebar -->
-  <aside class="sidebar" aria-label="Filters">
+  <aside class="sidebar" aria-label="Filters and about">
 
     <div class="filter-section">
       <h3 id="filter-sector-label">Sector</h3>
@@ -55,6 +61,34 @@
 
     <button id="reset-filters" class="filter-reset" aria-label="Clear all filters and search">Clear all filters</button>
 
+    <!-- About / Methodology panel -->
+    <div class="about-panel" role="complementary" aria-label="About this dataset">
+      <h3 class="about-heading">About</h3>
+      <p class="about-text">
+        Caesar AI Incident Atlas is a curated AI incident knowledge base.
+        Each record maps a real-world AI failure to failure modes, affected governance controls,
+        required evidence, and governance lessons.
+      </p>
+      <p class="about-text">
+        The governance mapping layer follows the pattern:
+      </p>
+      <div class="about-mapping" aria-label="Mapping chain">
+        incident → failure mode → controls → evidence → lessons
+      </div>
+      <ul class="about-meta-list" aria-label="Dataset metadata">
+        <li><span class="about-meta-label">Dataset</span> 10 curated records</li>
+        <li><span class="about-meta-label">Records</span> INC-0001–INC-0010</li>
+        <li><span class="about-meta-label">Version</span> v0.6.4</li>
+        <li><span class="about-meta-label">MVP verified</span> 20 May 2026</li>
+        <li><span class="about-meta-label">Hosting</span> GitHub Pages / static</li>
+        <li><span class="about-meta-label">Source review</span> In progress</li>
+      </ul>
+      <p class="about-disclaimer">
+        Not legal advice. Incident summaries are based on publicly available information.
+        Source and licence review tracked separately.
+      </p>
+    </div>
+
   </aside>
 
   <!-- Main content -->
@@ -65,10 +99,10 @@
 
     <!-- Notice banner -->
     <div class="notice-banner" role="note">
-      ⚠ Local MVP — source URLs last verified 19 May 2026.
+      Public MVP live — source URLs last verified 20 May 2026.
       Records marked <strong>draft taxonomy</strong> use sector or failure-mode IDs not yet finalised in v0.2.
       Confidence labels reflect evidence quality at time of record creation.
-      Not publicly deployed.
+      Source and licence review ongoing — not legal advice.
     </div>
 
     <!-- Toolbar: count + active chips + sort -->
@@ -94,6 +128,22 @@
 
   </main>
 </div>
+
+<footer class="app-footer" role="contentinfo">
+  <div class="footer-inner">
+    <span class="footer-item footer-live">Live MVP</span>
+    <span class="footer-sep">·</span>
+    <span class="footer-item">10 curated records</span>
+    <span class="footer-sep">·</span>
+    <span class="footer-item">v0.6.4</span>
+    <span class="footer-sep">·</span>
+    <span class="footer-item">GitHub Pages / static</span>
+    <span class="footer-sep">·</span>
+    <span class="footer-item footer-disclaimer">Not legal advice</span>
+    <span class="footer-sep">·</span>
+    <a class="footer-link" href="https://caesar.no" target="_blank" rel="noopener noreferrer">caesar.no</a>
+  </div>
+</footer>
 
 <script src="assets/app.js"></script>
 </body>
