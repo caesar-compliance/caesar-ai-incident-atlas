@@ -3,7 +3,7 @@
 **Incident ID:** INC-0011  
 **Title:** Medical society issues revised guidance on race-based correction factors in pulmonary function testing algorithms  
 **Date:** 20 May 2026 (T038)  
-**Status:** `prepared_for_CT_review` — NOT automatically approved by prior G-01/G-02
+**Status:** `approved_for_current_public_dataset_with_caution` — G-01/G-02 signed off (T039). See `INC0011_GATE_SIGNOFF_RECORD.md`.
 
 ---
 
@@ -44,24 +44,26 @@
 
 | Gate | Status |
 |---|---|
-| Source/license review | **Prepared for CT review** — Tier 1 public domain sources confirmed |
-| Wording/legal-risk review | **Prepared for CT review** — low risk profile; medical society framing |
-| G-01 (source) | **NOT automatically approved** — INC-0011 requires separate CT sign-off |
-| G-02 (wording) | **NOT automatically approved** — INC-0011 requires separate CT sign-off |
-| Publication-ready | **No** — pending CT review and sign-off |
+| Source/license review | ✅ **Approved with caution** — Tier 1 public domain sources confirmed (T039) |
+| Wording/legal-risk review | ✅ **Approved with caution** — low risk profile; medical society framing (T039) |
+| G-01 (source) | ✅ **Approved with caution** — see `INC0011_GATE_SIGNOFF_RECORD.md` |
+| G-02 (wording) | ✅ **Approved with caution** — see `INC0011_GATE_SIGNOFF_RECORD.md` |
+| Publication-ready | ✅ **Yes** — INC-0011 live at https://atlas.caesar.no/ |
 
-**Important:** G-01/G-02 approval for INC-0001 through INC-0010 does **not** automatically extend to INC-0011. This record requires separate CT review and sign-off before being treated as governance-approved.
+**Important:** G-01/G-02 approval for INC-0001 through INC-0010 does not automatically extend to INC-0011. INC-0011 received separate sign-off in T039. Future records (INC-0012+) require separate review.
 
 ---
 
-## Recommended CT Decision Options
+## Decision Outcome
 
-| Option | Description |
-|---|---|
-| **A** | CT approves INC-0011 for publication — source and wording gates pass |
-| **B** | CT requests wording revisions before approval |
-| **C** | CT defers INC-0011 pending additional source verification |
-| **D** | CT rejects INC-0011 for publication (not recommended; sources are strong) |
+**Option A selected:** INC-0011 approved for publication with source and wording gates passing with caution.
+
+| Option | Description | Result |
+|---|---|---|
+| **A** | CT approves INC-0011 for publication — source and wording gates pass | ✅ **Selected** |
+| **B** | CT requests wording revisions before approval | Not required |
+| **C** | CT defers INC-0011 pending additional source verification | Not required |
+| **D** | CT rejects INC-0011 for publication | Not selected |
 
 ---
 
