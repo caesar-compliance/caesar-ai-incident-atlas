@@ -29,4 +29,10 @@
 
 ---
 
+## T037 Status
+
+Source pack finalization complete. Primary source URLs verified for all 4 selected candidates. See `BATCH1_FINAL_SOURCE_PACKS.md` for verification details. All candidates remain `not_approved_candidate`.
+
+---
+
 **Disclaimer:** Planning material only. Not legal advice.

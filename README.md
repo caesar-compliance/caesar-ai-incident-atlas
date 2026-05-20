@@ -26,7 +26,7 @@ The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](
 
 ## Project Status
 
-> **Technical Public MVP: LIVE + VERIFIED at [`https://atlas.caesar.no/`](https://atlas.caesar.no/)** — GitHub Pages, GitHub Actions, public root `site/`. Version: v0.7.3.
+> **Technical Public MVP: LIVE + VERIFIED at [`https://atlas.caesar.no/`](https://atlas.caesar.no/)** — GitHub Pages, GitHub Actions, public root `site/`. Version: v0.7.5.
 > **Public MVP baseline frozen at commit `64c7267` (T032, 20 May 2026).**
 > **G-10 PASS** — Control Tower manual browser confirmation on 20 May 2026.
 > **G-01 APPROVED with caution** — CT sign-off 20 May 2026. INC-0006 Reuters citation accepted with caution.
@@ -34,8 +34,8 @@ The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](
 > **All 12 governance gates closed.** Gate closeout: `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md`. Baseline freeze: `PUBLIC_MVP_BASELINE_FREEZE.md`.
 > The 10 incident records (INC-0001 through INC-0010) are publicly accessible. No governance blockers remain for the current public MVP.
 > Approval is narrow — current 10-record public MVP only. No new records approved. Not legal advice.
-> **T033–T036 complete** — Dataset expansion planning criteria, 15 candidate shortlist, P1 source packs, and CT first drafting batch selection completed. First batch selected: CAND-013, CAND-008, CAND-011, CAND-010. All remain `not_approved_candidate`. No new records. No data changed.
-> Next: T037 — Batch-1 Source Pack Finalization (planning/review only, no record creation) or explicit CT approval for first record drafting. See [ROADMAP_NEXT_PHASES.md](ROADMAP_NEXT_PHASES.md) for the roadmap split.
+> **T033–T037 complete** — Dataset expansion planning criteria, 15 candidate shortlist, P1 source packs, CT first drafting batch selection, and batch-1 source pack finalization completed. First batch: CAND-013, CAND-008, CAND-011, CAND-010. All remain `not_approved_candidate`. Source URLs verified. No new records. No data changed.
+> Next: T038 — CT Approval for First Record Drafting, or defer. See [ROADMAP_NEXT_PHASES.md](ROADMAP_NEXT_PHASES.md) for the roadmap split.
 
 ---
 
