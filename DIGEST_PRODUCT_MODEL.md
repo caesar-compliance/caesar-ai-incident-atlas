@@ -63,17 +63,39 @@ To manage platform complexity, data privacy, and operational overhead, the follo
 
 ---
 
-## 4. Distribution and Ingestion Flow
+## 4. Distribution and Ingestion Flow (Active MVP Implementation)
 
-### 4.1 RSS Feeds
-The build engine programmatically compiles the published incident dataset into two distinct, valid RSS XML feeds:
-1. `site/rss/weekly.xml` — containing the weekly digest updates.
-2. `site/rss/monthly.xml` — containing the monthly strategic digests.
+### 4.1 Ingested JSON Schemas
+Digests are maintained as static JSON source files in `data/digests/` (with published copies in `site/data/digests/`).
+Each digest JSON file conforms to a strict data schema containing:
+- `digest_id`: e.g., `DIG-W-YYYY-WW` or `DIG-M-YYYY-MM`.
+- `digest_type`: Strictly `weekly` or `monthly`.
+- `title`: Curated title summarizing key findings.
+- `period_start` & `period_end`: Time bounds.
+- `generated_at`: ISO timestamp.
+- `case_count` & `included_case_ids`: Cross-references to active cases in `data/incident-index.json`.
+- `key_themes`, `legal_commercial_takeaways`, `governance_lessons`, `evidence_actions`: Structured, highly actionable risk metadata arrays.
+- `source_note`: Citation of source materials.
+- `status`: Strictly `public_static_digest`.
 
-### 4.2 Static Archive Pages
-The public website served via GitHub Pages contains a dedicated `/digests/` index, allowing users to browse historic archives without requiring a user account or database session:
-- `/digests/weekly/YYYY-Www/`
-- `/digests/monthly/YYYY-MM/`
+### 4.2 RSS Feeds
+The Node build engine programmatically compiles the published digests into three distinct, valid RSS XML feeds:
+1. `site/rss.xml` — Aggregated feed containing both weekly and monthly briefs.
+2. `site/digests/weekly.xml` — Weekly operational briefs only.
+3. `site/digests/monthly.xml` — Monthly strategic trend summaries only.
+
+These feeds use RFC 822/RFC 2822 date formats, escape XML-sensitive characters, and point back to public site routes.
+
+### 4.3 Static Archive Pages
+The public website served via GitHub Pages contains static HTML rendering pages matching the main layout:
+- `/digests/` (Index portal landing page: [site/digests/index.html](file:///Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/site/digests/index.html))
+- `/digests/weekly/` (Weekly briefing page: [site/digests/weekly/index.html](file:///Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/site/digests/weekly/index.html))
+- `/digests/monthly/` (Monthly briefing page: [site/digests/monthly/index.html](file:///Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/site/digests/monthly/index.html))
+
+### 4.4 Ingestion Tooling
+Two standalone Node tools manage the digest pipeline offline:
+1. **Validator (`node scripts/validate-digests.mjs`):** Performs rigorous structural validation, cross-references included cases with `data/incident-index.json`, checks site-copy synchronization, and enforces security policies (e.g., blocking `INC-0013` and mock/candidate records).
+2. **Compiler (`node scripts/build-rss-feeds.mjs`):** Processes all valid digests, sorts them chronologically, and compiles the three RSS XML feeds.
 
 ---
 

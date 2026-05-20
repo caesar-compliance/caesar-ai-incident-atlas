@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Legal & Governance Digests — Caesar AI Incident Atlas</title>
+  <meta name="description" content="Access static weekly and monthly compliance briefings, aggregate regulatory trends, and actionable risk checklists.">
+  <link rel="stylesheet" href="../assets/styles.css">
+  <style>
+    .digest-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .digest-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.15s;
+    }
+    .digest-card:hover {
+      border-color: var(--border-hi);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .digest-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .digest-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      line-height: 1.6;
+    }
+    .digest-action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.12s;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--accent-hi);
+    }
+    .btn-secondary {
+      background: var(--border);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      background: var(--border-hi);
+    }
+    .rss-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--font-mono);
+      font-size: 0.67rem;
+      background: rgba(224,140,58,0.1);
+      color: var(--high);
+      border: 1px solid rgba(224,140,58,0.25);
+      padding: 2px 7px;
+      border-radius: 3px;
+      text-decoration: none;
+    }
+    .rss-pill:hover {
+      background: rgba(224,140,58,0.18);
+    }
+    @media (max-width: 768px) {
+      .digest-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="app-header">
+  <a class="logo" href=".." aria-label="Caesar AI Incident Atlas — home"><span>Caesar</span> AI Incident Atlas</a>
+  <div class="header-meta">
+    v0.8.1 · Digests Archive
+  </div>
+</header>
+
+<div class="app-layout" style="grid-template-columns: 1fr;">
+  <main class="main" style="margin: 0 auto; width: 100%; max-width: 860px; padding: 2.5rem 1.5rem;">
+    
+    <a href=".." class="btn btn-secondary" style="margin-bottom: 1.5rem; display: inline-flex; gap: 0.3rem;">← Back to Case Index</a>
+    
+    <h1 style="font-size: 1.8rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem;">AI Legal & Governance Briefing Digests</h1>
+    <p style="font-size: 0.95rem; color: var(--muted); margin-bottom: 2rem; line-height: 1.6;">
+      Translating granular AI incident mappings into structured, time-bounded risk summaries.
+      Browse archives or subscribe directly to our machine-readable RSS syndication feeds.
+    </p>
+
+    <div class="notice-banner" style="color: var(--high); background: rgba(224,140,58,0.06); border-color: rgba(224,140,58,0.18);">
+      <strong>Stateless Architecture:</strong> This digest pipeline is completely static and built offline. No subscriber databases are maintained, and no tracker cookies exist. Subscribe via RSS to stay updated.
+    </div>
+
+    <div class="digest-grid">
+      
+      <!-- Weekly Card -->
+      <div class="digest-card">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+            <div class="digest-title">Weekly Operational Digests</div>
+            <a href="weekly.xml" class="rss-pill" target="_blank">RSS FEED</a>
+          </div>
+          <p class="digest-desc">
+            Direct action briefing focusing on new cases, regulatory filings, and settlement agreements logged in the last 7 days. Maps cases directly to VPAT standards, audit checklists, and immediate operational controls.
+          </p>
+        </div>
+        <div class="digest-action-row">
+          <a href="weekly/" class="btn btn-primary">Browse Weekly Digests</a>
+          <a href="../data/digests/weekly/weekly-2026-W21.json" class="btn btn-secondary" target="_blank">View Raw JSON</a>
+        </div>
+      </div>
+
+      <!-- Monthly Card -->
+      <div class="digest-card">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+            <div class="digest-title">Monthly Strategic Digests</div>
+            <a href="monthly.xml" class="rss-pill" target="_blank">RSS FEED</a>
+          </div>
+          <p class="digest-desc">
+            Strategic alignment briefings summarizing monthly aggregate compliance trends, sector analysis, and policy guidelines (e.g. EEOC biometrics bias, EU AI Act compliance checks).
+          </p>
+        </div>
+        <div class="digest-action-row">
+          <a href="monthly/" class="btn btn-primary">Browse Monthly Digests</a>
+          <a href="../data/digests/monthly/monthly-2026-05.json" class="btn btn-secondary" target="_blank">View Raw JSON</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Feed aggregates -->
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+      <div style="font-size: 0.85rem; color: var(--muted);">
+        Aggregated feed (Weekly & Monthly): <a href="../rss.xml" style="color: var(--accent); text-decoration: none;" target="_blank">rss.xml</a>
+      </div>
+      <div style="font-size: 0.78rem; color: var(--muted); font-style: italic;">
+        Not legal advice · Caesar AI Compliance OS
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="app-footer">
+  <div class="footer-inner" style="justify-content: center;">
+    <span class="footer-item footer-live">Live MVP</span>
+    <span class="footer-sep">·</span>
+    <span class="footer-item">12 curated records</span>
+    <span class="footer-sep">·</span>
+    <span class="footer-item">v0.8.1</span>
+    <span class="footer-sep">·</span>
+    <span class="footer-item footer-disclaimer">Not legal advice</span>
+  </div>
+</footer>
+
+</body>
+</html>

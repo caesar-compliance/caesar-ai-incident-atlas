@@ -77,7 +77,13 @@ See `ROADMAP.md` for the full historical phase plan.
 - Implemented and verified the offline pipeline schema validator script `tools/validate_pipeline_schemas.py`.
 - Formulated the automation policy suite under `docs/automation/`.
 
-**Next implementation focus (planned for T044):**
+**T044 complete (21 May 2026):**
+- Developed the first visible static digest layer, including weekly operational briefs, monthly strategic trend summaries, and a consolidated digests portal page.
+- Created robust, standalone ES modules scripts for validation (`scripts/validate-digests.mjs`) and RSS feed compilation (`scripts/build-rss-feeds.mjs`).
+- Generated valid, compliant RSS 2.0 XML feeds (`rss.xml`, `weekly.xml`, `monthly.xml`) pointing back to verified routes.
+- Integrated the new digests portal elegantly into the primary homepage sidebar without altering the core index layout.
+
+**Next implementation focus (planned for T045):**
 - Watcher conceptual design and ingestion parser framework for Green Tier sources.
 - Draft ingestion logging templates.
 

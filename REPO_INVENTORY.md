@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T043)
+**Last updated:** 21 May 2026 (T044)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -157,6 +157,18 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `docs/automation/AUTO_PUBLISH_RULES.md` | Auto-Publish Rules | Policy constraints and exclusion review triggers for automated publication. (T043) |
 | `docs/automation/VALIDATOR_EXTENSION_PLAN.md` | Validator Extension | Scope specifications and plans for expanding automated checking. (T043) |
 | `tools/validate_pipeline_schemas.py` | Local Pipeline Checker | Local, offline schema and policy validator for sources.yml. (T043) |
+| `data/digests/weekly/weekly-2026-W21.json` | Digest Briefing | Static weekly operational briefing for week 21, 2026. (T044) |
+| `data/digests/monthly/monthly-2026-05.json` | Digest Briefing | Static monthly strategic trend briefing for May 2026. (T044) |
+| `site/data/digests/weekly/weekly-2026-W21.json` | Publish Copy | Duplicate copy of weekly digest W21 for static site serving. (T044) |
+| `site/data/digests/monthly/monthly-2026-05.json` | Publish Copy | Duplicate copy of monthly digest May 2026 for static site serving. (T044) |
+| `scripts/validate-digests.mjs` | Pipeline Utility | Standalone Node validation utility checking digest formats and rules. (T044) |
+| `scripts/build-rss-feeds.mjs` | Pipeline Utility | Standalone Node compiler building three compliant RSS 2.0 XML feeds. (T044) |
+| `site/rss.xml` | Consolidated Feed | Public unified RSS 2.0 XML feed for all briefings. (T044) |
+| `site/digests/weekly.xml` | Weekly RSS Feed | Public RSS 2.0 XML feed for weekly operational briefs only. (T044) |
+| `site/digests/monthly.xml` | Monthly RSS Feed | Public RSS 2.0 XML feed for monthly strategic trends only. (T044) |
+| `site/digests/index.html` | Digests Portal | Main dashboard landing portal for browsing AI Legal Digests. (T044) |
+| `site/digests/weekly/index.html` | Weekly Portal | Zero-JS rendering page displaying the weekly briefing. (T044) |
+| `site/digests/monthly/index.html` | Monthly Portal | Zero-JS rendering page displaying the monthly briefing. (T044) |
 
 ## docs/ Directory
 
@@ -304,6 +316,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T043-source-registry-case-pipeline-schema/VALIDATION.md` | T043 validation | Validation and invariant checklist for T043. (T043) |
 | `work-items/T043-source-registry-case-pipeline-schema/IMPLEMENTATION_REPORT.md` | T043 report | Final report and commit summary for T043. (T043) |
 | `work-items/T043-source-registry-case-pipeline-schema/DECISIONS.md` | T043 decisions | New pipeline architecture decisions log. (T043) |
+| `work-items/T044-static-weekly-monthly-digest-mvp/TASK.md` | T044 task | Task scope checklist for T044 static digests MVP. (T044) |
+| `work-items/T044-static-weekly-monthly-digest-mvp/VALIDATION.md` | T044 validation | Automated and policy validation checklist for T044. (T044) |
+| `work-items/T044-static-weekly-monthly-digest-mvp/IMPLEMENTATION_REPORT.md` | T044 report | Concise final closeout report for T044. (T044) |
+| `work-items/T044-static-weekly-monthly-digest-mvp/DECISIONS.md` | T044 decisions | New static digests and RSS architecture decisions log. (T044) |
 
 
 ---

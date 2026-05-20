@@ -1,8 +1,8 @@
 # Architecture — caesar-ai-incident-atlas
 
 **Last updated:** 21 May 2026
-**Version:** 0.8.0 (strategic product pivot to AI Legal & Governance Case Atlas)
-**Status:** 12 case records (INC-0001 through INC-0012) created and formally validated (T008–T042)
+**Version:** 0.8.2 (Static Weekly & Monthly Digests MVP)
+**Status:** 12 case records and static digest layers created, validated, and live (T044)
 
 ---
 
@@ -199,6 +199,11 @@ caesar-ai-incident-atlas/
 │   │   ├── INC-0001.json          ← individual incident records
 │   │   ├── INC-0002.json
 │   │   └── ...
+│   ├── digests/                   ← static digests data directory
+│   │   ├── weekly/
+│   │   │   └── weekly-2026-W21.json
+│   │   └── monthly/
+│   │       └── monthly-2026-05.json
 │   ├── taxonomy/
 │   │   ├── failure-modes.json    ← failure mode taxonomy
 │   │   ├── controls.json         ← control taxonomy
@@ -224,6 +229,31 @@ caesar-ai-incident-atlas/
 │       ├── candidate.schema.json ← schema for discovery candidates
 │       └── case-draft.schema.json ← schema for intermediate case drafts
 │
+├── site/                         ← static public interface root
+│   ├── index.html                ← main app landing page
+│   ├── rss.xml                   ← consolidated RSS XML feed
+│   ├── assets/
+│   │   ├── app.js
+│   │   └── styles.css
+│   ├── data/
+│   │   └── digests/
+│   │       ├── weekly/
+│   │       │   └── weekly-2026-W21.json
+│   │       └── monthly/
+│   │           └── monthly-2026-05.json
+│   └── digests/                  ← static public digest portal pages
+│       ├── index.html            ← digests dashboard page
+│       ├── weekly.xml            ← weekly digests RSS XML feed
+│       ├── monthly.xml           ← monthly digests RSS XML feed
+│       ├── weekly/
+│       │   └── index.html        ← weekly briefing page
+│       └── monthly/
+│           └── index.html        ← monthly briefing page
+│
+├── scripts/                      ← pipeline offline management scripts
+│   ├── validate-digests.mjs      ← standalone digest validator script
+│   └── build-rss-feeds.mjs       ← standalone RSS syndication generator
+│
 ├── exports/
 │   └── .gitkeep                  ← generated exports go here
 │
@@ -247,16 +277,16 @@ caesar-ai-incident-atlas/
 │   └── validate_pipeline_schemas.py ← source and pipeline schema validator
 │
 └── work-items/
-    └── .gitkeep
+    └── T044-static-weekly-monthly-digest-mvp/ ← task deliverables tracking
 ```
 
-Implementation status after T043:
+Implementation status after T044:
 
-- Curated pipeline JSON schemas created under `schemas/pipeline/`.
-- Curved source catalog `data/source-registry/sources.yml` created in inactive draft state.
-- Offline pipeline checker script `tools/validate_pipeline_schemas.py` created and successfully validating registry configurations.
-- Ingestion policies fully cataloged under `docs/automation/`.
-- Public database has exactly 12 incident records formally validated.
+- Static Weekly and Monthly Digest MVP fully active.
+- Dedicated offline validator and compiler built using standard ES modules (`.mjs`).
+- Valid RSS XML syndication and unified digests portal deployed in the public root.
+- All 12 public incident records preserved intact.
+- Source registry catalog remains untouched.
 
 ---
 
