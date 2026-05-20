@@ -1,0 +1,28 @@
+# Task Checklist — T043 Source Registry and Case Pipeline Schema
+
+- [x] Analyze codebase state, verify that exactly 12 validated incidents exist, and checkout the task branch `feat/T043-source-registry-case-pipeline-schema` at commit `e7d55dd`.
+- [x] Create directories: `data/source-registry/`, `data/candidates/`, `data/drafts/`, `schemas/pipeline/`, and `docs/automation/`.
+- [x] Write `data/source-registry/sources.yml` with 10 initial source records in an inactive draft status.
+- [x] Write `schemas/pipeline/source.schema.json` to structurally validate the sources registry.
+- [x] Write `schemas/pipeline/candidate.schema.json` to structurally validate raw ingestion candidates.
+- [x] Write `schemas/pipeline/case-draft.schema.json` to structurally validate case drafts awaiting governance approval.
+- [x] Write the pipeline policy suite under `docs/automation/`:
+  - [x] `SOURCE_REGISTRY_POLICY.md` (Operational source curation standards)
+  - [x] `CANDIDATE_PIPELINE_MODEL.md` (Watcher / ingestion pipeline stages)
+  - [x] `SOURCE_RISK_GATE.md` (Risk tier gates and clean-roomoriginal summaries rules)
+  - [x] `AUTO_PUBLISH_RULES.md` (Exclusion review triggers and publication controls)
+  - [x] `VALIDATOR_EXTENSION_PLAN.md` (Programmatic validator extension blueprints)
+- [x] Write `tools/validate_pipeline_schemas.py` local offline validator programmatically enforcing structural schema compliance and active safety invariants.
+- [x] Write synthetic mock candidate files under `data/candidates/mock/` for schema compliance checks.
+- [x] Update existing project lifecycle and sibling files:
+  - [x] `ARCHITECTURE.md` (Directory paths and tool catalog integration)
+  - [x] `ROADMAP_NEXT_PHASES.md` (T043 completion and T044 mapping)
+  - [x] `NEXT_ACTIONS.md` (Milestone progress checklist alignment)
+  - [x] `REPO_INVENTORY.md` (Catalog indexing for the 15 newly created files)
+  - [x] `CHANGELOG.md` (Prepended [0.8.1] T043 release block)
+  - [x] `docs/DECISION_LOG.md` (Appended decisions D11 through D16 as DEC-109)
+- [x] Execute standard QA and validation:
+  - [x] Run `python3 tools/validate_dataset.py` (Verify exactly 12 public incidents exist)
+  - [x] Run `python3 tools/validate_pipeline_schemas.py` (Confirm all sources validate perfectly)
+  - [x] Run `git diff --check` (No whitespace violations)
+- [x] Stage, commit, and prepare for safe merge to main.

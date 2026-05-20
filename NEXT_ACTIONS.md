@@ -1,6 +1,6 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T042)
+**Last updated:** 21 May 2026 (T043)
 
 ---
 
@@ -60,30 +60,34 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 | T039 — INC-0011 Gate Sign-Off + Smoke Test | **Complete** — G-01/G-02 approved with caution; INC-0011 live; signoff record created. | 20 May 2026 |
 | T040 — Draft Second New Incident Record (CAND-008) | **Complete** — INC-0012 drafted. Dataset: 12 records. Governance review note prepared. | 20 May 2026 |
 | T042 — Product Pivot to AI Legal & Governance Case Atlas | **Complete** — Strategic pivot to Legal & Governance Case Atlas documented. Decoupled conceptual watcher pipeline and reference rules added. | 21 May 2026 |
+| T043 — Source Registry and Case Pipeline Schema | **Complete** — Created pipeline schemas, sources.yml, offline validator, and automation policy docs | 21 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated | 19 May 2026 |
 
 ---
 
-## Status: T042 Complete — Strategic Product Pivot Recorded
+## Status: T043 Complete — Source Registry & Case Pipeline Schema Verified
 
 **Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/` with exactly 12 validated incident records.**
-**Strategic direction, models, publishing policies, and reference lab guardrails have been recorded.**
+**Pipeline schemas, sources draft registry, automation policies, and validation helper are fully integrated.**
 
-**Active boundaries and policies:**
+**Active boundaries, policies, and schemas:**
 - `PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md` (Repositioning & Value Chain)
 - `CASE_TO_CONTROL_PRODUCT_MODEL.md` (Fields, Mappings, checklists)
 - `AUTOMATION_AND_PUBLISHING_POLICY.md` (Ingestion gates & clean-room rules)
 - `DIGEST_PRODUCT_MODEL.md` (Weekly/Monthly RSS static plans)
 - `SOURCE_REGISTRY_AND_WATCHER_ARCHITECTURE.md` (Ingestion pipeline stages)
 - `REFERENCE_LAB_USAGE_NOTE.md` (Local reference lab usage policy)
+- `schemas/pipeline/` (Source, Candidate, and Case Draft JSON Schemas)
+- `data/source-registry/sources.yml` (Source Registry DB catalog)
+- `tools/validate_pipeline_schemas.py` (Local schema validator)
 
 ---
 
-## Next Recommended Step: T043
+## Next Recommended Step: T044
 
-**T043 — Implement Watcher or Ingestion Invariant Checklists.** Prepare standard validation scripts for automated ingestion and draft programmatic checks matching the `AUTOMATION_AND_PUBLISHING_POLICY.md` rules.
+**T044 — Watcher Conceptual Design and Draft Ingestion Logging Templates.** Establish conceptual parser structures for parsing Green Tier sources and template layouts for raw ingestion candidates.
 
-**Alternative T043:** Technical Public Site Polish — apply styling polish and layout updates to the static site to align with the new Case Atlas branding.
+**Alternative T044:** Technical Public Site Polish — apply styling polish and layout updates to the static site to align with the new Case Atlas branding.
 
 ---
 

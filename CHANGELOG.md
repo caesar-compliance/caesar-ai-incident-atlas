@@ -7,6 +7,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.8.1] - 21 May 2026
+
+### Added
+
+- **T043 — Ingestion Pipeline Schemas & Source Registry Integration.** Implemented the first Caesar-native architecture layer for automatic legal/commercial AI case discovery without live watcher or scraper elements.
+- Created three JSON pipeline schemas under `schemas/pipeline/`:
+  - `source.schema.json`: Validates source registry entry shapes.
+  - `candidate.schema.json`: Validates raw case candidate ingestion logs.
+  - `case-draft.schema.json`: Validates intermediate draft records awaiting governance sign-off.
+- Created the master monitored sources registry `data/source-registry/sources.yml` containing 10 initial regulatory and discovery references in a safe, inactive state.
+- Formulated the automation policy suite under `docs/automation/`:
+  - `SOURCE_REGISTRY_POLICY.md`: Curated monitoring standards.
+  - `CANDIDATE_PIPELINE_MODEL.md`: Ingestion pipeline stage specifications.
+  - `SOURCE_RISK_GATE.md`: Green/Yellow/Red risk tier definitions and original clean-room writing rules.
+  - `AUTO_PUBLISH_RULES.md`: Policy restrictions and human review gates blocking automatic publication.
+  - `VALIDATOR_EXTENSION_PLAN.md`: Future automated checking scope.
+- Created offline local validation script `tools/validate_pipeline_schemas.py` that utilizes `jsonschema` and `pyyaml` to enforce strict safety policies (all registry records must be `inactive_draft`, `auto_publish_allowed` must be explicitly `false`, non-Green sources cannot auto-detect or auto-draft).
+- Wrote two synthetic mock candidates (`sample-candidate-1.json`, `sample-candidate-2.json`) under `data/candidates/mock/` for schema compliance testing.
+- Created task checklists and execution logs under `work-items/T043-source-registry-case-pipeline-schema/`: `TASK.md`, `VALIDATION.md`, `DECISIONS.md`, `IMPLEMENTATION_REPORT.md`.
+- Appended decision log entry `[DEC-109]` recording decisions **D11 through D16** in `docs/DECISION_LOG.md`.
+
+### Changed
+
+- Updated `ARCHITECTURE.md` to register new directories, pipeline schemas, policies, and validator scripts.
+- Updated `ROADMAP_NEXT_PHASES.md` and `NEXT_ACTIONS.md` to mark T043 as complete and outline subsequent T044 targets.
+- Registered all 15 newly created files in `REPO_INVENTORY.md`.
+
+### Status (T043)
+
+- **Dataset**: Exactly 12 validated case records (INC-0001 through INC-0012). Zero new public incidents created.
+- **Pipeline Registry**: 10 source records integrated, all marked strictly as `inactive_draft` and blocked from auto-publishing.
+- **Safety**: Fully offline execution. No scraping, live fetching, DNS, domain, secrets, or hosting changes.
+
+---
+
 ## [0.8.0] - 21 May 2026
 
 ### Added

@@ -1,0 +1,142 @@
+# Caesar AI Legal & Governance Case Atlas — Source Registry Catalog
+# All sources default to inactive_draft for absolute safety.
+
+- id: ftc-ai-enforcement
+  name: Federal Trade Commission (FTC) AI Enforcement
+  url: https://www.ftc.gov/news-events/topics/competition-consumer-protection-ai
+  source_type: regulator_report
+  jurisdiction: US
+  source_tier: green
+  allowed_use: official_public_source
+  auto_detect_allowed: true
+  auto_draft_allowed: true
+  auto_publish_allowed: false
+  license_notes: Public domain government documents (US Federal).
+  risk_notes: Clean factual extraction, highly reliable.
+  status: inactive_draft
+
+- id: eeoc-ai-guidance
+  name: Equal Employment Opportunity Commission (EEOC) AI Guidance & Enforcement
+  url: https://www.eeoc.gov/select-issues-assessing-adverse-impact-software-algorithms-and-artificial-intelligence
+  source_type: regulator_report
+  jurisdiction: US
+  source_tier: green
+  allowed_use: official_public_source
+  auto_detect_allowed: true
+  auto_draft_allowed: true
+  auto_publish_allowed: false
+  license_notes: Public domain US government agency publications.
+  risk_notes: Critical employment discrimination risk indicators.
+  status: inactive_draft
+
+- id: doj-ada-ai-guidance
+  name: Department of Justice (DOJ) ADA AI Guidance
+  url: https://www.ada.gov/resources/usdoj-ada-algorithm-guidance/
+  source_type: agency_report
+  jurisdiction: US
+  source_tier: green
+  allowed_use: official_public_source
+  auto_detect_allowed: true
+  auto_draft_allowed: true
+  auto_publish_allowed: false
+  license_notes: Public domain US government agency publications.
+  risk_notes: Key focus on accessibility and bias under ADA.
+  status: inactive_draft
+
+- id: ico-ai-and-algorithms
+  name: Information Commissioner's Office (ICO) AI and Algorithms
+  url: https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/
+  source_type: regulator_report
+  jurisdiction: UK
+  source_tier: green
+  allowed_use: official_public_source
+  auto_detect_allowed: true
+  auto_draft_allowed: true
+  auto_publish_allowed: false
+  license_notes: Crown Copyright with Open Government Licence (OGL) v3.0.
+  risk_notes: High authority on privacy and AI auditing.
+  status: inactive_draft
+
+- id: cnil-ai
+  name: Commission Nationale de l'Informatique et des Libertés (CNIL) AI Portal
+  url: https://www.cnil.fr/fr/intelligence-artificielle
+  source_type: regulator_report
+  jurisdiction: FR
+  source_tier: green
+  allowed_use: official_public_source
+  auto_detect_allowed: true
+  auto_draft_allowed: true
+  auto_publish_allowed: false
+  license_notes: Open Licence (Etalab) for French public data.
+  risk_notes: Highly influential GDPR-based AI regulation guidance.
+  status: inactive_draft
+
+- id: edpb-ai
+  name: European Data Protection Board (EDPB) AI Guidelines
+  url: https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines_en
+  source_type: regulator_report
+  jurisdiction: EU
+  source_tier: green
+  allowed_use: official_public_source
+  auto_detect_allowed: true
+  auto_draft_allowed: true
+  auto_publish_allowed: false
+  license_notes: Public domain EU documents under CC BY 4.0 (attribution).
+  risk_notes: Harmonized GDPR AI enforcement authority.
+  status: inactive_draft
+
+- id: european-commission-ai-act
+  name: European Commission AI Act Portal & Board Reports
+  url: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-algorithm-systems
+  source_type: agency_report
+  jurisdiction: EU
+  source_tier: green
+  allowed_use: official_public_source
+  auto_detect_allowed: true
+  auto_draft_allowed: true
+  auto_publish_allowed: false
+  license_notes: Reuse authorized under CC BY 4.0.
+  risk_notes: Strict enforcement and taxonomy mapping for AI Act.
+  status: inactive_draft
+
+- id: oecd-ai-incidents
+  name: OECD.AI Incident Database
+  url: https://oecd.ai/en/incidents
+  source_type: public_database_pointer
+  jurisdiction: Global
+  source_tier: yellow
+  allowed_use: discovery_only
+  auto_detect_allowed: false
+  auto_draft_allowed: false
+  auto_publish_allowed: false
+  license_notes: Reference-only per OECD Terms of Use. Verbatim copying strictly forbidden.
+  risk_notes: Use strictly for discovery pointers; clean-room summaries must be rewritten from primary sources.
+  status: inactive_draft
+
+- id: aiid-discovery-reference
+  name: Responsible AI Collaborative (AIID) Incident Database
+  url: https://incidentdatabase.ai/
+  source_type: public_database_pointer
+  jurisdiction: Global
+  source_tier: yellow
+  allowed_use: discovery_only
+  auto_detect_allowed: false
+  auto_draft_allowed: false
+  auto_publish_allowed: false
+  license_notes: CC BY 4.0 license on pointer references. Verbatim copy strictly forbidden.
+  risk_notes: Use strictly for discovery pointers; clean-room summaries must be rewritten from primary sources.
+  status: inactive_draft
+
+- id: aiaaic-discovery-reference
+  name: AIAAIC Database
+  url: https://www.aiaaic.org/
+  source_type: public_database_pointer
+  jurisdiction: Global
+  source_tier: yellow
+  allowed_use: discovery_only
+  auto_detect_allowed: false
+  auto_draft_allowed: false
+  auto_publish_allowed: false
+  license_notes: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
+  risk_notes: Use strictly for discovery pointers; clean-room summaries must be rewritten from primary sources.
+  status: inactive_draft

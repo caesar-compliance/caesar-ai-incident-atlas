@@ -1302,4 +1302,21 @@ T006 must not mass-import data and must not create final incident records unless
 
 ---
 
-**Last updated:** 21 May 2026 (T042 — DEC-108)
+### [DEC-109] — 21 May 2026 — Source Registry and Ingestion Pipeline Architecture (T043)
+
+**Status:** Approved
+
+**Decisions:**
+
+1. **Adopted YAML for Monitored Sources (D11).** Represented the monitored source catalog database via a clean YAML structure (`data/source-registry/sources.yml`).
+2. **Implemented Separated Ingestion Pipeline Schemas (D12).** Created standalone JSON Schema objects validating three progressive ingest states: `source.schema.json`, `candidate.schema.json`, and `case-draft.schema.json`.
+3. **Enforced Source Tier Invariant Gating (D13).** Mandated validation constraints restricting automatic scanning and drafting capabilities strictly to Green Tier sources. Yellow and Red Tier sources are programmatic-automation blocked.
+4. **Enforced Default Inactive Security State (D14).** Mandated that all initial source registry records be marked as `status: inactive_draft` and that `auto_publish_allowed` must be explicitly `false` for every entry.
+5. **Established Local Isolation Validator (D15).** Built a lightweight, offline-only validation script (`tools/validate_pipeline_schemas.py`) utilizing `jsonschema` and `pyyaml` to verify both structural schema layout and programmatic policy constraints without making network calls.
+6. **Mandated Clean-Room Drafting Invariants (D16).** Formulated schema and documentation rules requiring original, neutral, Caesar-authored summaries in intermediate drafts, blocking the copying of external text.
+
+**Rationale:** Establishes rigorous engineering scaffolding and defensive safety policies for candidate discovery before any actual scraper code is implemented, protecting repository security and data licensing integrity.
+
+---
+
+**Last updated:** 21 May 2026 (T043 — DEC-109)

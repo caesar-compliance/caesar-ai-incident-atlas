@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T042)
+**Last updated:** 21 May 2026 (T043)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -51,6 +51,14 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `data/taxonomy/severity_levels.json` | Severity levels | Machine-readable severity level reference (`low`, `medium`, `high`, `critical`). |
 | `schemas/.gitkeep` | Schema directory placeholder | Preserves `schemas/` directory in git. |
 | `schemas/incident.schema.json` | Incident schema | v0.2 JSON Schema with 11 required fields. `source.database` renamed to `source_type` in T008 (DEC-038). |
+| `schemas/pipeline/source.schema.json` | Source Schema | JSON Schema validating source registry catalog database entries. (T043) |
+| `schemas/pipeline/candidate.schema.json` | Ingestion Candidate Schema | JSON Schema validating raw discovery candidate ingestion logs. (T043) |
+| `schemas/pipeline/case-draft.schema.json` | Case Draft Schema | JSON Schema validating intermediate case drafts in review state. (T043) |
+| `data/source-registry/sources.yml` | Source Registry Catalog | Master catalog of monitored case authorities and endpoints. (T043) |
+| `data/candidates/.gitkeep` | Directory placeholder | Preserves the `data/candidates/` directory in git. (T043) |
+| `data/candidates/mock/sample-candidate-1.json` | Mock Ingestion Log | Synthetic Green Tier case candidate for testing candidate schema. (T043) |
+| `data/candidates/mock/sample-candidate-2.json` | Mock Ingestion Log | Synthetic Yellow Tier case candidate for testing candidate schema. (T043) |
+| `data/drafts/.gitkeep` | Directory placeholder | Preserves the `data/drafts/` directory in git. (T043) |
 | `FIRST_INCIDENT_CANDIDATE_DOSSIERS.md` | Candidate dossiers | 15 candidate incident dossiers (CAND-001 through CAND-015) for Control Tower review. Candidate only — not incident records. (T006) |
 | `FIRST_INCIDENT_CANDIDATE_REVIEW_TABLE.md` | Candidate review table | Summary review table: 10 Accept, 4 Postpone, 1 Reject. Control Tower review aid. (T006) |
 | `FIRST_INCIDENT_SOURCE_REVIEW_NOTES.md` | Source review notes | Source type analysis, license status review, and quality assessment for T006 candidates. (T006) |
@@ -143,6 +151,12 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `DIGEST_PRODUCT_MODEL.md` | Digest Model | Details on weekly and monthly static briefings, RSS XML feed structures, and future email syndication roadmap. (T042) |
 | `SOURCE_REGISTRY_AND_WATCHER_ARCHITECTURE.md` | Watcher Architecture | Conceptual design of the 10-stage watcher, deduplication, risk gate, and ingestion transformation pipeline. (T042) |
 | `REFERENCE_LAB_USAGE_NOTE.md` | Reference Lab Policy | Rules governing the separation and clean-room implementation of reference-lab learnings, safeguarding against copyleft contamination. (T042) |
+| `docs/automation/SOURCE_REGISTRY_POLICY.md` | Operational Policy | Curated monitoring source standards and inactive default settings rules. (T043) |
+| `docs/automation/CANDIDATE_PIPELINE_MODEL.md` | Architectural Pipeline | Deep operational stage definitions from discovery to digest push. (T043) |
+| `docs/automation/SOURCE_RISK_GATE.md` | Ingestion Safety Rules | Source risk definitions and clean-room summary guardrails. (T043) |
+| `docs/automation/AUTO_PUBLISH_RULES.md` | Auto-Publish Rules | Policy constraints and exclusion review triggers for automated publication. (T043) |
+| `docs/automation/VALIDATOR_EXTENSION_PLAN.md` | Validator Extension | Scope specifications and plans for expanding automated checking. (T043) |
+| `tools/validate_pipeline_schemas.py` | Local Pipeline Checker | Local, offline schema and policy validator for sources.yml. (T043) |
 
 ## docs/ Directory
 
@@ -286,6 +300,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T042-product-pivot-legal-governance-case-atlas/VALIDATION.md` | T042 validation | Validation checklist for T042. |
 | `work-items/T042-product-pivot-legal-governance-case-atlas/IMPLEMENTATION_REPORT.md` | T042 report | Comprehensive final report for T042. |
 | `work-items/T042-product-pivot-legal-governance-case-atlas/DECISIONS.md` | T042 decisions | Strategic product pivot decisions (DEC-108 documenting D1 through D10). |
+| `work-items/T043-source-registry-case-pipeline-schema/TASK.md` | T043 task | Task scope checklist for T043 source registry and pipeline schemas. (T043) |
+| `work-items/T043-source-registry-case-pipeline-schema/VALIDATION.md` | T043 validation | Validation and invariant checklist for T043. (T043) |
+| `work-items/T043-source-registry-case-pipeline-schema/IMPLEMENTATION_REPORT.md` | T043 report | Final report and commit summary for T043. (T043) |
+| `work-items/T043-source-registry-case-pipeline-schema/DECISIONS.md` | T043 decisions | New pipeline architecture decisions log. (T043) |
 
 
 ---

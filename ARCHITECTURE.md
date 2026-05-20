@@ -196,22 +196,33 @@ caesar-ai-incident-atlas/
 │
 ├── data/
 │   ├── incidents/
-│   │   ├── INC-001.json          ← individual incident records
-│   │   ├── INC-002.json
+│   │   ├── INC-0001.json          ← individual incident records
+│   │   ├── INC-0002.json
 │   │   └── ...
 │   ├── taxonomy/
 │   │   ├── failure-modes.json    ← failure mode taxonomy
 │   │   ├── controls.json         ← control taxonomy
 │   │   ├── evidence-types.json   ← evidence type registry
 │   │   └── sectors.json          ← sector taxonomy
-│   └── mappings/
-│       ├── incident-controls.json     ← incident → control mappings
-│       └── control-evidence.json      ← control → evidence mappings
+│   ├── mappings/
+│   │   ├── incident-controls.json     ← incident → control mappings
+│   │   └── control-evidence.json      ← control → evidence mappings
+│   ├── source-registry/
+│   │   └── sources.yml           ← AI case sources database
+│   ├── candidates/
+│   │   ├── .gitkeep
+│   │   └── mock/                 ← mock candidate files
+│   └── drafts/
+│       └── .gitkeep              ← case drafts
 │
 ├── schemas/
 │   ├── incident.schema.json      ← JSON Schema for incident records
 │   ├── taxonomy.schema.json      ← JSON Schema for taxonomy records
-│   └── mapping.schema.json       ← JSON Schema for mapping records
+│   ├── mapping.schema.json       ← JSON Schema for mapping records
+│   └── pipeline/
+│       ├── source.schema.json    ← schema for source registry database
+│       ├── candidate.schema.json ← schema for discovery candidates
+│       └── case-draft.schema.json ← schema for intermediate case drafts
 │
 ├── exports/
 │   └── .gitkeep                  ← generated exports go here
@@ -223,20 +234,29 @@ caesar-ai-incident-atlas/
 │   ├── FULL_SCALE_PRODUCT_BLUEPRINT.md
 │   ├── DATA_MODEL_DRAFT.md
 │   ├── TAXONOMY_DRAFT.md
-│   └── UI_UX_VISION.md
+│   ├── UI_UX_VISION.md
+│   └── automation/
+│       ├── SOURCE_REGISTRY_POLICY.md   ← operational policy
+│       ├── CANDIDATE_PIPELINE_MODEL.md ← architectural stage definitions
+│       ├── SOURCE_RISK_GATE.md         ← risk evaluation controls
+│       ├── AUTO_PUBLISH_RULES.md       ← automated publication limits
+│       └── VALIDATOR_EXTENSION_PLAN.md ← registry check guidelines
+│
+├── tools/
+│   ├── validate_dataset.py       ← dataset validator script
+│   └── validate_pipeline_schemas.py ← source and pipeline schema validator
 │
 └── work-items/
     └── .gitkeep
 ```
 
-Implementation status after T005:
+Implementation status after T043:
 
-- `schemas/incident.schema.json` exists.
-- `data/taxonomy/` contains machine-readable taxonomy JSON files.
-- `docs/validation/DATASET_MVP_VALIDATION_PLAN.md` exists.
-- `data/incidents/` exists but remains empty (only `.gitkeep`).
-
-No real incident records are created in T005.
+- Curated pipeline JSON schemas created under `schemas/pipeline/`.
+- Curved source catalog `data/source-registry/sources.yml` created in inactive draft state.
+- Offline pipeline checker script `tools/validate_pipeline_schemas.py` created and successfully validating registry configurations.
+- Ingestion policies fully cataloged under `docs/automation/`.
+- Public database has exactly 12 incident records formally validated.
 
 ---
 

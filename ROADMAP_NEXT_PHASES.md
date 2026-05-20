@@ -71,9 +71,15 @@ See `ROADMAP.md` for the full historical phase plan.
 - `SOURCE_REGISTRY_AND_WATCHER_ARCHITECTURE.md` — 10-stage automated watcher/ingestion conceptual architecture.
 - `REFERENCE_LAB_USAGE_NOTE.md` — reference lab separation, CC ShareAlike & copyleft rules.
 
-**Next implementation focus (planned for T043):**
-- Implementation of watcher/ingestion validation scripts.
-- Creation of automated validation invariants to enforce the 21-field schema and source risk tiers.
+**T043 complete (21 May 2026):**
+- Created pipeline schemas (`source.schema.json`, `candidate.schema.json`, `case-draft.schema.json`).
+- Drafted source catalog (`sources.yml`) in inactive status.
+- Implemented and verified the offline pipeline schema validator script `tools/validate_pipeline_schemas.py`.
+- Formulated the automation policy suite under `docs/automation/`.
+
+**Next implementation focus (planned for T044):**
+- Watcher conceptual design and ingestion parser framework for Green Tier sources.
+- Draft ingestion logging templates.
 
 **Mapping exercise (21-field schema):**
 

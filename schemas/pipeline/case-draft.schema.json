@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://caesar.no/schemas/pipeline/case-draft.schema.json",
+  "title": "Caesar AI Legal & Governance Case Atlas — Case Draft Schema",
+  "type": "object",
+  "required": [
+    "draft_id",
+    "candidate_ids",
+    "proposed_case_title",
+    "case_type",
+    "jurisdiction",
+    "source_authorities",
+    "source_urls",
+    "legal_domain",
+    "commercial_domain",
+    "failure_mode",
+    "business_risk",
+    "missing_controls",
+    "required_evidence",
+    "vendor_questions",
+    "training_lesson",
+    "clean_room_summary",
+    "source_risk_level",
+    "publish_recommendation",
+    "review_status"
+  ],
+  "properties": {
+    "draft_id": {
+      "type": "string",
+      "pattern": "^DRAFT-[0-9]{4}$",
+      "description": "Unique intermediate draft identifier (DRAFT-NNNN format)."
+    },
+    "candidate_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^CAND-[0-9]{4}$"
+      },
+      "description": "Array of raw candidate IDs associated with this draft."
+    },
+    "proposed_case_title": {
+      "type": "string",
+      "minLength": 5,
+      "description": "Clean, original case title (neutral wording)."
+    },
+    "case_type": {
+      "type": "string",
+      "enum": [
+        "enforcement",
+        "lawsuit",
+        "regulator_guidance",
+        "court_decision",
+        "settlement",
+        "public_sector_incident",
+        "vendor_governance_failure",
+        "serious_incident_report",
+        "commercial_ai_failure",
+        "official_investigation"
+      ],
+      "description": "Definitive case type."
+    },
+    "jurisdiction": {
+      "type": "string",
+      "description": "Canonical legal jurisdiction code."
+    },
+    "source_authorities": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "The regulator(s), court(s), or official bodies that issued the decision."
+    },
+    "source_urls": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": "Primary URLs to the canonical legal source records."
+    },
+    "legal_domain": {
+      "type": "string",
+      "enum": [
+        "hiring_employment",
+        "disability_discrimination",
+        "privacy_biometrics",
+        "consumer_protection",
+        "healthcare",
+        "financial_services",
+        "public_sector",
+        "legal_hallucination",
+        "vendor_risk",
+        "governance_failure"
+      ],
+      "description": "The primary legal and compliance domain."
+    },
+    "commercial_domain": {
+      "type": "string",
+      "description": "The primary commercial industry or application segment."
+    },
+    "failure_mode": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^FM-[A-Z0-9-]+$"
+      },
+      "description": "Codes referencing the Failure Mode Taxonomy."
+    },
+    "business_risk": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Explanation of commercial, liability, and regulatory business exposure."
+    },
+    "missing_controls": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^CTL-[A-Z0-9-]+$"
+      },
+      "description": "Codes referencing the Governance Control Taxonomy."
+    },
+    "required_evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "Specific audit proof or operational artifacts required."
+    },
+    "vendor_questions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "Practical procurement/audit questions derived from the case."
+    },
+    "training_lesson": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Key training lesson or takeaway for developers/operators."
+    },
+    "clean_room_summary": {
+      "type": "string",
+      "minLength": 20,
+      "description": "Neutral, original, clean-room summary compiled by Caesar editorial process."
+    },
+    "source_risk_level": {
+      "type": "string",
+      "enum": ["green", "yellow", "red"],
+      "description": "Maximum risk rating among the primary sources."
+    },
+    "publish_recommendation": {
+      "type": "string",
+      "enum": ["ready_for_publish", "needs_legal_review", "needs_more_sources", "blocked_license_issue"],
+      "description": "Compliance recommendation on publishing suitability."
+    },
+    "review_status": {
+      "type": "string",
+      "enum": ["draft", "in_review", "approved_for_promotion", "rejected"],
+      "description": "Current stage in the review and publishing workflow."
+    }
+  },
+  "additionalProperties": false
+}
