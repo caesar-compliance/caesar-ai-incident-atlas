@@ -85,3 +85,10 @@ No wording changes were made to any incident record in T026. All four records al
 ## Disclaimer
 
 This document does not constitute legal advice. Source risk assessments are operational summaries only. Final legal clearance and source approval must be provided by qualified legal counsel or Control Tower.
+
+## T027 Addendum (20 May 2026)
+
+- **ID:** INC-0006
+- **Status:** Risk remains unchanged (G-01).
+- **Hardening:** No safer source found. Hardened via documentation (Decision Packet) and counsel recommendation confirmation.
+- **Next Step:** CT to decide on counsel review or temporary de-emphasis.
