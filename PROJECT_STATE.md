@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T031)
+**Last updated:** 20 May 2026 (T032)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.6.7` |
-| Current phase | `T031 — G-01/G-02 Governance Sign-Off Recorded. Technical Public MVP: LIVE + VERIFIED. All governance gates closed. G-01 and G-02 approved with caution.` |
+| Current version | `0.7.0` |
+| Current phase | `T032 — Public MVP Baseline Frozen. Roadmap split created. Next: T033 Dataset Expansion Planning (planning only).` |
 | Status | `active` |
-| Latest completed task | `T031 — Record G-01/G-02 Sign-Off with INC-0006 Accepted with Caution` |
-| Active work item | `T031 — complete. G-01 approved with caution (INC-0006 Reuters citation accepted). G-02 approved with caution (current public MVP wording). All 12 governance gates closed.` |
-| Next recommended step | `T032 — Public MVP v0.7 Status Freeze + Roadmap Split, or T032 — Dataset Expansion Planning (planning only)` |
+| Latest completed task | `T032 — Public MVP v0.7 Status Freeze + Roadmap Split` |
+| Active work item | `T032 — complete. Public MVP baseline frozen at 64c7267. Roadmap split created (ROADMAP_NEXT_PHASES.md). No records changed. No data/source/legal changes.` |
+| Next recommended step | `T033 — Dataset Expansion Planning for INC-0011+ Candidates (planning only, no record creation)` |
 
 ---
 
@@ -53,6 +53,7 @@
 | T029 — Governance Gate Decision Pack | **Complete** — Governance decision record prepared; no explicit CT approval received; G-01/G-02 remain pending; decision packet ready for review | 20 May 2026 |
 | T030 — INC-0006 Counsel Review Follow-Up Packet | **Complete** — Counsel follow-up packet prepared: `COUNSEL_REVIEW_PACKET_INC0006.md`; no approval received; G-01/G-02 remain pending; no data/source/legal changes | 20 May 2026 |
 | T031 — Record G-01/G-02 Sign-Off with INC-0006 Accepted with Caution | **Complete** — Explicit CT approval recorded; G-01 and G-02 approved with caution; all 12 governance gates closed; gate closeout: `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md` | 20 May 2026 |
+| T032 — Public MVP v0.7 Status Freeze + Roadmap Split | **Complete** — Public MVP baseline frozen at `64c7267`; `PUBLIC_MVP_BASELINE_FREEZE.md` and `ROADMAP_NEXT_PHASES.md` created; lifecycle docs updated; no records/data/source/legal changes | 20 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete — 10 records (INC-0001 through INC-0010) | 19 May 2026 |
 | v0.5 Static Site — local prototype | Complete — T012 | 19 May 2026 |
 | v0.5.1 Static Site — local functional MVP | Complete — T013 | 19 May 2026 |

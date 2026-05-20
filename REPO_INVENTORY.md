@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T031)
+**Last updated:** 20 May 2026 (T032)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -210,6 +210,8 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `GOVERNANCE_GATE_DECISION_RECORD.md` | Governance gate decision record | T029: Final governance gate decision package for G-01/G-02. Current MVP status, source/license table, wording/legal-risk table, INC-0006 decision section, final decision placeholders. No explicit CT approval received. (T029) |
 | `COUNSEL_REVIEW_PACKET_INC0006.md` | INC-0006 counsel follow-up packet | T030: Narrow counsel/CT review packet for INC-0006 Reuters citation. Review question, current record status, four decision options (A–D), optional CT sign-off language, scope boundary. No data changes. Not legal advice. (T030) |
 | `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md` | Governance gate closeout | T031: Final gate closeout record. 12-gate status table (all closed), exact CT approval language, G-01/G-02 final status, INC-0006 caution note, scope, exclusions, next review triggers. (T031) |
+| `PUBLIC_MVP_BASELINE_FREEZE.md` | Baseline freeze record | T032: Public MVP baseline freeze. Baseline status table, frozen rules, INC-0006 caution, next review triggers. Approval scope: current 10-record MVP only. Not legal advice. (T032) |
+| `ROADMAP_NEXT_PHASES.md` | Next phases roadmap | T032: Compact v0.7–v1.0 roadmap split. v0.7 Dataset Expansion Planning, v0.8 Governance OS Integration Planning, v0.9 Public Quality Polish, v1.0 Expanded Public Release Criteria. (T032) |
 | `work-items/T024-public-mvp-lock/TASK.md` | T024 task | Task scope checklist. |
 | `work-items/T024-public-mvp-lock/VALIDATION.md` | T024 validation | Validation checklist. |
 | `work-items/T024-public-mvp-lock/IMPLEMENTATION_REPORT.md` | T024 report | Concise final report. |
@@ -239,6 +241,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T031-record-gates-signoff/VALIDATION.md` | T031 validation | Validation checklist for T031. |
 | `work-items/T031-record-gates-signoff/IMPLEMENTATION_REPORT.md` | T031 report | Concise final report for T031. |
 | `work-items/T031-record-gates-signoff/DECISIONS.md` | T031 decisions | Decisions made during T031 (max 10). |
+| `work-items/T032-public-mvp-freeze-roadmap/TASK.md` | T032 task | Task scope checklist for public MVP baseline freeze and roadmap split. |
+| `work-items/T032-public-mvp-freeze-roadmap/VALIDATION.md` | T032 validation | Validation checklist for T032. |
+| `work-items/T032-public-mvp-freeze-roadmap/IMPLEMENTATION_REPORT.md` | T032 report | Concise final report for T032. |
+| `work-items/T032-public-mvp-freeze-roadmap/DECISIONS.md` | T032 decisions | Decisions made during T032 (max 10). |
 
 ---
 

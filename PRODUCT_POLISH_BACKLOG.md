@@ -1,8 +1,8 @@
 # Product Polish Backlog — caesar-ai-incident-atlas
 
 **Created:** 20 May 2026 (T024)  
-**Last updated:** 20 May 2026 (T028)
-**Status:** Technical Public MVP LIVE + VERIFIED at `https://atlas.caesar.no/`. v0.6.4. T028 polish pass complete. G-01/G-02 pending.
+**Last updated:** 20 May 2026 (T032)
+**Status:** Technical Public MVP LIVE + VERIFIED at `https://atlas.caesar.no/`. v0.7.0. Public MVP baseline frozen (T032). G-01/G-02 approved with caution. All 12 gates closed. No new records approved. Next: T033 Dataset Expansion Planning (planning only).
 
 ---
 
@@ -85,13 +85,11 @@ Explicit approval required before proceeding:
 
 ---
 
-## Next Step Options (T025)
+## Next Step (T032 Baseline Frozen)
 
-**Option A — Public MVP Polish Pass:** Implement Section 1 items without adding records.
+**T033 — Dataset Expansion Planning (planning only).** No records created without CT approval. See `ROADMAP_NEXT_PHASES.md` §v0.7 for candidate criteria and source quality gates.
 
-**Option B — Source/License + Wording Review Sign-Off Pack:** Close G-01/G-02 with formal CT/counsel review.
-
-**Option C — Dataset Expansion Planning:** Explore Section 2 themes (CT approval required before any record creation).
+**v0.9 Quality Polish** may proceed on the current 10-record baseline. See `ROADMAP_NEXT_PHASES.md` §v0.9 for scope.
 
 ---
 

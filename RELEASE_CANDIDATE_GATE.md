@@ -14,6 +14,7 @@
 **T029 Governance Gate Decision Pack Status:** Governance gate decision record prepared: `GOVERNANCE_GATE_DECISION_RECORD.md`. No explicit CT approval statements received in task prompt. G-01/G-02 remain pending. Decision packet ready for CT/counsel review.
 **T030 INC-0006 Counsel Review Follow-Up Packet Status:** Counsel follow-up packet prepared: `COUNSEL_REVIEW_PACKET_INC0006.md`. No data changes. No approval recorded. G-01/G-02 remain pending.
 **T031 Record G-01/G-02 Sign-Off Status:** ✅ G-01 APPROVED with caution (20 May 2026) — INC-0006 Reuters citation accepted with caution. ✅ G-02 APPROVED with caution (20 May 2026) — current public MVP wording cleared. All 12 gates now closed/approved. See `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md`.
+**T032 Public MVP Baseline Freeze Status:** ✅ Baseline frozen at `64c7267` (v0.7.0, 20 May 2026). Frozen rules in `PUBLIC_MVP_BASELINE_FREEZE.md`. Roadmap split in `ROADMAP_NEXT_PHASES.md`. No records/data/source/legal/DNS changes. Next: T033 Dataset Expansion Planning (planning only).
 
 ---
 

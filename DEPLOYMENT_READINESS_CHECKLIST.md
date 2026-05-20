@@ -3,7 +3,7 @@
 **Task:** T024 — Public MVP Status Lock + Product Polish Backlog  
 **Date:** 20 May 2026  
 **Version:** 0.6.0  
-**Status:** **TECHNICAL PUBLIC MVP LIVE + VERIFIED.** `https://atlas.caesar.no/`. HTTP→HTTPS redirect confirmed (301). JSON HTTP 200 with 10 records. **G-10 PASS** — Control Tower manual browser confirmation on 20 May 2026. G-01/G-02 pending CT sign-off.
+**Status:** **TECHNICAL PUBLIC MVP LIVE + VERIFIED. PUBLIC MVP BASELINE FROZEN (T032, v0.7.0).** `https://atlas.caesar.no/`. Baseline commit: `64c7267`. HTTP→HTTPS redirect confirmed (301). JSON HTTP 200 with 10 records. **G-10 PASS** — Control Tower manual browser confirmation on 20 May 2026. **G-01 APPROVED with caution** (20 May 2026). **G-02 APPROVED with caution** (20 May 2026). All 12 gates closed. No new records approved. Frozen rules: `PUBLIC_MVP_BASELINE_FREEZE.md`.
 
 ---
 
