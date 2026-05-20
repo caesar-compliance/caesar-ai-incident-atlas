@@ -1,14 +1,14 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T043)
+**Last updated:** 21 May 2026 (T044)
 
 ---
 
 ## Execution Boundaries
 
-This repository is in the **v0.8.0 Product Pivot** phase. The product has pivoted from "public AI incident database" to "AI Legal & Governance Case Atlas — a case-to-control intelligence layer."
+This repository is in the **v0.8.2 Product Pivot / Digests MVP** phase. The product has pivoted from "public AI incident database" to "AI Legal & Governance Case Atlas — a case-to-control intelligence layer."
 
-Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/` with exactly 12 validated incident records.
+Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/` with exactly 12 validated incident records, accompanied by a static digests portal and RSS feeds.
 
 The new product pivot architecture and policies are now active. See `PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md` and related documents before performing any new task or record drafting.
 
@@ -18,8 +18,8 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 
 ## Current Status
 
-| Task | Status |
-|---|---|
+| Task | Status | Date |
+|---|---|---|
 | T001 / v0.2.0 — Full-scale blueprint | Complete |
 | T002 — Clean-room acceleration policy | Complete |
 | T003 — v0.2 draft contract review | Complete |
@@ -61,14 +61,15 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 | T040 — Draft Second New Incident Record (CAND-008) | **Complete** — INC-0012 drafted. Dataset: 12 records. Governance review note prepared. | 20 May 2026 |
 | T042 — Product Pivot to AI Legal & Governance Case Atlas | **Complete** — Strategic pivot to Legal & Governance Case Atlas documented. Decoupled conceptual watcher pipeline and reference rules added. | 21 May 2026 |
 | T043 — Source Registry and Case Pipeline Schema | **Complete** — Created pipeline schemas, sources.yml, offline validator, and automation policy docs | 21 May 2026 |
-| v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated | 19 May 2026 |
+| T044 — Static Weekly and Monthly Digest MVP | **Complete** — Built static operational digests, monthly strategic digests, custom validator and RSS feed generator, and portal index links | 21 May 2026 |
+| v0.4 Dataset MVP — full 10-record batch | Complete | 19 May 2026 |
 
 ---
 
-## Status: T043 Complete — Source Registry & Case Pipeline Schema Verified
+## Status: T044 Complete — Static Weekly & Monthly Digest MVP Deployed
 
-**Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/` with exactly 12 validated incident records.**
-**Pipeline schemas, sources draft registry, automation policies, and validation helper are fully integrated.**
+**Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/` with exactly 12 validated incident records, a complete static digest portal, and live RSS syndication feeds.**
+**Pipeline schemas, sources draft registry, automation policies, validation helper, and static digest compile engines are fully integrated.**
 
 **Active boundaries, policies, and schemas:**
 - `PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md` (Repositioning & Value Chain)
@@ -80,14 +81,14 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 - `schemas/pipeline/` (Source, Candidate, and Case Draft JSON Schemas)
 - `data/source-registry/sources.yml` (Source Registry DB catalog)
 - `tools/validate_pipeline_schemas.py` (Local schema validator)
+- `scripts/validate-digests.mjs` (Local digest validator)
+- `scripts/build-rss-feeds.mjs` (RSS feed compiler)
 
 ---
 
-## Next Recommended Step: T044
+## Next Recommended Step: T045
 
-**T044 — Watcher Conceptual Design and Draft Ingestion Logging Templates.** Establish conceptual parser structures for parsing Green Tier sources and template layouts for raw ingestion candidates.
-
-**Alternative T044:** Technical Public Site Polish — apply styling polish and layout updates to the static site to align with the new Case Atlas branding.
+**T045 — Watcher Conceptual Design and Draft Ingestion Logging Templates.** Establish conceptual parser structures for parsing Green Tier sources and template layouts for raw ingestion candidates.
 
 ---
 

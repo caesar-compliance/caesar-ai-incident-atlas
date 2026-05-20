@@ -41,8 +41,9 @@ All paths are relative to the repository root so the server must be started from
 - No database
 - No authentication
 
-## Dataset QA
+## Dataset & Digest QA
 
+### 1. Dataset Validation
 Run the full dataset and site validator from the **repository root**:
 
 ```bash
@@ -57,13 +58,39 @@ python3 -m pip install -r tools/requirements.txt
 
 See `tools/README.md` for the full check list.
 
+### 2. Digest Validation
+Run the offline static digest validator from the **repository root**:
+
+```bash
+node scripts/validate-digests.mjs
+```
+
+This verifies that all weekly and monthly digests are structurally sound, cross-reference valid cases in `data/incident-index.json`, do not contain synthetic mock records or `INC-0013`, and that public site duplicate copies are perfectly in sync.
+
+### 3. RSS Feed Compilation
+Compile the RSS XML feeds from the static digests:
+
+```bash
+node scripts/build-rss-feeds.mjs
+```
+
+This aggregates all active digests, sorts them chronologically, and compiles:
+- `site/rss.xml` (Consolidated feed)
+- `site/digests/weekly.xml` (Weekly operational briefs only)
+- `site/digests/monthly.xml` (Monthly strategic trends only)
+
+---
+
 ## Self-Contained Publish Package
 
-As of T017, `site/` is fully self-contained:
+As of T044, `site/` is a fully self-contained static package containing both the incident catalog and briefing digests:
 
 - `site/data/incident-index.json` — publish copy with site-root-relative paths
-- `site/data/incidents/` — 10 incident JSON files
+- `site/data/incidents/` — 12 incident JSON files
 - `site/data/taxonomy/` — 6 taxonomy JSON files
+- `site/data/digests/` — publish copies of weekly/monthly digest JSON files
+- `site/digests/` — digests portal HTML landing page, subpages, and RSS feeds
+- `site/rss.xml` — consolidated RSS feed
 
 `site/` can be served as the static root directly:
 
@@ -72,9 +99,11 @@ cd site && python3 -m http.server 8081
 # open http://localhost:8081/
 ```
 
-The root `data/` directory remains the authoritative source of truth for record authoring.  
-Run `python3 tools/validate_dataset.py` from the repo root to verify sync.
+The root `data/` directory remains the authoritative source of truth for record authoring and curation.
+Run `python3 tools/validate_dataset.py` and `node scripts/validate-digests.mjs` from the repo root to verify sync.
+
+---
 
 ## Status
 
-**TECHNICAL PUBLIC MVP: LIVE + VERIFIED** — `https://atlas.caesar.no/` (GitHub Pages, GitHub Actions, T021/T022/T023/T024). Version: v0.7.0. **Public MVP baseline frozen at `64c7267` (T032, 20 May 2026).** `site/` is self-contained. No CNAME file in repo. HTTPS enforced. HTTP→HTTPS redirect confirmed: `http://atlas.caesar.no/` → 301 → `https://atlas.caesar.no/`. JSON data confirmed HTTP 200 with all 10 records. **G-10 PASS** — Control Tower manual browser confirmation on 20 May 2026. **G-01 APPROVED with caution** — INC-0006 Reuters citation accepted with caution (20 May 2026). **G-02 APPROVED with caution** — current public MVP wording cleared (20 May 2026). All 12 governance gates closed. Baseline freeze: `PUBLIC_MVP_BASELINE_FREEZE.md`. No new records approved. Not legal advice.
+**TECHNICAL PUBLIC MVP: LIVE + VERIFIED** — `https://atlas.caesar.no/` (GitHub Pages, GitHub Actions, T021/T022/T023/T024). Version: v0.8.2. **Static Digests Portal MVP fully integrated (T044, 21 May 2026).** `site/` is self-contained. No CNAME file in repo. HTTPS enforced. HTTP→HTTPS redirect confirmed. JSON data confirmed with exactly 12 records. All pipeline schemas, monitored registry drafts, and offline automated validators are fully integrated. No dynamic email or database backends added. Not legal advice.

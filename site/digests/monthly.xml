@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>Caesar AI Incident Atlas — Monthly Strategic Digests</title>
+  <link>https://atlas.caesar.no/digests/</link>
+  <description>Monthly strategic trend summaries and aggregate regulatory compliance briefings.</description>
+  <language>en-us</language>
+  <lastBuildDate>Wed, 20 May 2026 23:29:05 GMT</lastBuildDate>
+  <atom:link href="https://atlas.caesar.no/digests/monthly.xml" rel="self" type="application/rss+xml" />
+  <item>
+    <title>Monthly AI Legal &amp; Governance Briefing: Algorithmic Discrimination, Clinical Corrections, and Generative AI Hallucinations</title>
+    <link>https://atlas.caesar.no/digests/monthly/</link>
+    <guid isPermaLink="false">DIG-M-2026-05</guid>
+    <pubDate>Thu, 21 May 2026 01:15:00 GMT</pubDate>
+    <description>Legal professional responsibility and systemic liabilities when integrating Generative AI tools in legal and judicial filings. Comprehensive federal and agency regulatory guidelines defining automated hiring discrimination risks. The institutional removal of racial classification variables in clinical and diagnostic software algorithms.</description>
+  </item>
+</channel>
+</rss>

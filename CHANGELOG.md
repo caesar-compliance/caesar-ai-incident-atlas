@@ -5,6 +5,43 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.2] - 21 May 2026
+
+### Added
+
+- **T044 — Static Weekly and Monthly Digest MVP.** Established the first visible static digest product layer, rendering static operational and strategic digests, compiling RSS feeds, and adding homepage portal links.
+- Created static digest briefing JSON files containing mandatory metadata and Caesar-written summaries based on existing public incidents:
+  - `data/digests/weekly/weekly-2026-W21.json` (Operational week 21, 2026 digest sourcing INC-0011 and INC-0012)
+  - `data/digests/monthly/monthly-2026-05.json` (Strategic May 2026 digest aggregating trends across INC-0001, INC-0010, INC-0011, INC-0012)
+- Added synchronized static digest copies inside `site/data/digests/` for static site publishing.
+- Programmed standalone ES module digest management scripts:
+  - `scripts/validate-digests.mjs`: Standalone offline digest JSON structure, cross-reference, and safety policy validator.
+  - `scripts/build-rss-feeds.mjs`: Standalone offline RSS compiler that compiles all valid digests into three compliant RSS 2.0 XML feeds.
+- Deployed unified, responsive, dark-mode static rendering subpages under `site/digests/` requiring zero client-side JavaScript:
+  - `site/digests/index.html` (Briefing Digests main portal landing dashboard)
+  - `site/digests/weekly/index.html` (Weekly operational briefs display page)
+  - `site/digests/monthly/index.html` (Monthly strategic trend briefing display page)
+- Compiled three distinct XML feeds pointing to verified static routes:
+  - `site/rss.xml` (Unified digest feed)
+  - `site/digests/weekly.xml` (Weekly digests only)
+  - `site/digests/monthly.xml` (Monthly digests only)
+- Drafted work-item tracking files under `work-items/T044-static-weekly-monthly-digest-mvp/`: `TASK.md`, `VALIDATION.md`, `DECISIONS.md`, and `IMPLEMENTATION_REPORT.md`.
+
+### Changed
+
+- Updated `site/index.html` sidebar to seamlessly integrate the "Weekly and Monthly AI Legal Case Digests" access links and RSS subscription pills.
+- Updated `DIGEST_PRODUCT_MODEL.md` to specify active JSON schema parameters, offline utility scripts, XML feed structures, and static page hierarchies.
+- Updated `ARCHITECTURE.md` to bump structural design versions to `0.8.2` and index all newly created digest files and compilation pipelines.
+- Aligned lifecycle control files `ROADMAP_NEXT_PHASES.md` and `NEXT_ACTIONS.md` to record completion of T044 and map next goals.
+- Documented digest validation and RSS compiling procedures in `site/README.md`.
+- Registered all 12 newly created digest data, script, rendering, and tracking files in `REPO_INVENTORY.md`.
+
+### Status (T044)
+
+- **Dataset**: Preserved intact at exactly 12 validated public incident records. Zero new incidents or candidates created.
+- **Pipeline & Safety**: All monitored source registries remain strictly `inactive_draft` and blocked from auto-publishing. No dynamic databases, subscriber logs, secrets, external dynamic integrations, scrapers, or network APIs were added.
+- **Verification**: Fully verified locally. All python tests and node digest validators pass perfectly.
+
 ---
 
 ## [0.8.1] - 21 May 2026
