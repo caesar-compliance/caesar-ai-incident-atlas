@@ -1,6 +1,6 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T044)
+**Last updated:** 21 May 2026 (T045)
 
 ---
 
@@ -62,14 +62,15 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 | T042 — Product Pivot to AI Legal & Governance Case Atlas | **Complete** — Strategic pivot to Legal & Governance Case Atlas documented. Decoupled conceptual watcher pipeline and reference rules added. | 21 May 2026 |
 | T043 — Source Registry and Case Pipeline Schema | **Complete** — Created pipeline schemas, sources.yml, offline validator, and automation policy docs | 21 May 2026 |
 | T044 — Static Weekly and Monthly Digest MVP | **Complete** — Built static operational digests, monthly strategic digests, custom validator and RSS feed generator, and portal index links | 21 May 2026 |
+| T045 — Offline Mock Auto-Discovery Prototype | **Complete** — Local sandbox mock pipeline, synthetic files, pipeline scripts, containment auditor, and operations runbook. | 21 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete | 19 May 2026 |
 
 ---
 
-## Status: T044 Complete — Static Weekly & Monthly Digest MVP Deployed
+## Status: T045 Complete — Offline Mock Auto-Discovery Prototype Deployed
 
 **Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/` with exactly 12 validated incident records, a complete static digest portal, and live RSS syndication feeds.**
-**Pipeline schemas, sources draft registry, automation policies, validation helper, and static digest compile engines are fully integrated.**
+**An offline, isolated mock auto-discovery pipeline is fully functional in the workspace, complete with synthetic inputs, watcher scan tools, candidate builders, deduplication checks, draft packaging, digest previewing, and a strict sandboxing containment auditor.**
 
 **Active boundaries, policies, and schemas:**
 - `PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md` (Repositioning & Value Chain)
@@ -78,17 +79,20 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 - `DIGEST_PRODUCT_MODEL.md` (Weekly/Monthly RSS static plans)
 - `SOURCE_REGISTRY_AND_WATCHER_ARCHITECTURE.md` (Ingestion pipeline stages)
 - `REFERENCE_LAB_USAGE_NOTE.md` (Local reference lab usage policy)
+- `docs/automation/MOCK_PIPELINE_RUNBOOK.md` (Operational Runbook)
 - `schemas/pipeline/` (Source, Candidate, and Case Draft JSON Schemas)
 - `data/source-registry/sources.yml` (Source Registry DB catalog)
 - `tools/validate_pipeline_schemas.py` (Local schema validator)
+- `tools/validate_mock_schemas.py` (Mock candidate & draft validator)
+- `scripts/validate-mock-pipeline.mjs` (Safety containment auditor)
 - `scripts/validate-digests.mjs` (Local digest validator)
 - `scripts/build-rss-feeds.mjs` (RSS feed compiler)
 
 ---
 
-## Next Recommended Step: T045
+## Next Recommended Step: T046
 
-**T045 — Watcher Conceptual Design and Draft Ingestion Logging Templates.** Establish conceptual parser structures for parsing Green Tier sources and template layouts for raw ingestion candidates.
+**T046 — Regulatory Translation and Fine-Grained Compliance Taxonomies.** Refine translation gate rules for legal texts and deepen taxonomy heuristics.
 
 ---
 

@@ -47,3 +47,10 @@ This **Validator Extension Plan** outlines the architecture for integrating regi
 - **Rules:**
   - Ensure only approved public cases are featured in the static weekly/monthly briefings.
   - Verify that RSS feed titles and descriptions are clean, original Caesar prose.
+
+---
+
+## 3. T045 Implementation: Mock Safety Containment Auditor
+As part of the T045 Offline Mock Auto-Discovery Prototype, a lightweight schema and safety validator has been deployed:
+- **`tools/validate_mock_schemas.py`**: Executes strict JSON schema compliance checks against `candidate.schema.json` and `case-draft.schema.json` using system Python `jsonschema` utilities.
+- **`scripts/validate-mock-pipeline.mjs`**: A comprehensive containment auditor validating file-level sandboxing, safety labeling (synthetic flags), registry configs, and ensuring absolutely no leaking into the client-facing sitemaps or public `site/` files.

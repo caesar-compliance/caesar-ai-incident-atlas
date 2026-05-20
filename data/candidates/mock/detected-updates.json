@@ -1,0 +1,102 @@
+[
+  {
+    "source_id": "MOCK-SRC-CNIL-02",
+    "source_name": "CNIL Biometric Consent Advisory",
+    "source_url": "https://mock.gov/cnil/mock-enforcement-facial-recognition-retail",
+    "tier": "green",
+    "updated_at": "2026-05-21T01:05:00Z",
+    "title": "Enforcement Note: Unlawful Biometric Profiling in Automated Retail Systems",
+    "summary": "Mock advisory detailing regulatory enforcement actions against a retail chain for deploying facial categorization systems without explicit, uncoerced consumer consent.",
+    "legal_implications": "Deploying emotional or facial categorizers in public spaces violates synthetic European data protection principles unless a strict consent exemption applies.",
+    "governance_lessons": "Implement strict opt-in gates before capturing or processing any biometric hashing models.",
+    "recommended_controls": "CO-BIOMETRIC-CONSENT, CO-DATA-MINIMIZATION",
+    "required_evidence": "EV-CONSENT-FORM, EV-BIOMETRIC-FLOW",
+    "metadata": {
+      "synthetic": true,
+      "not_a_real_case": true,
+      "not_for_public_publication": true,
+      "purpose": "Used only to test Caesar AI Incident Atlas pipeline behavior",
+      "wording_restrictions": "No external source text copied. All prose is Caesar-authored and synthetic."
+    }
+  },
+  {
+    "source_id": "MOCK-SRC-CFPB-04",
+    "source_name": "CFPB Automated Underwriting Advisory",
+    "source_url": "https://mock.gov/cfpb/mock-advisory-underwriting-discrimination",
+    "tier": "green",
+    "updated_at": "2026-05-21T01:15:00Z",
+    "title": "Consumer Alert: Adverse Action Notices in Algorithmic Credit Underwriting",
+    "summary": "Mock advisory concerning financial institutions failing to provide specific, legally sufficient reasons for credit denial when utilizing proprietary machine learning scoring models.",
+    "legal_implications": "Automated credit scoring systems must supply explainable adverse action reasons under synthetic consumer protection laws.",
+    "governance_lessons": "Ensure model explainability outputs map directly to robust, user-understandable reason codes.",
+    "recommended_controls": "CO-MODEL-EXPLAINABILITY, CO-CONSUMER-EXPLAIN",
+    "required_evidence": "EV-EXPLAIN-REPORT, EV-DENIAL-NOTICE",
+    "metadata": {
+      "synthetic": true,
+      "not_a_real_case": true,
+      "not_for_public_publication": true,
+      "purpose": "Used only to test Caesar AI Incident Atlas pipeline behavior",
+      "wording_restrictions": "No external source text copied. All prose is Caesar-authored and synthetic."
+    }
+  },
+  {
+    "source_id": "MOCK-SRC-FDA-03",
+    "source_name": "FDA Medical Algorithm Advisory",
+    "source_url": "https://mock.gov/fda/mock-advisory-diagnostic-drift-clinical",
+    "tier": "green",
+    "updated_at": "2026-05-21T01:10:00Z",
+    "title": "Safety Notice: Algorithmic Calibration and Diagnostic Drift in Clinical AI",
+    "summary": "Mock safety communication regarding diagnostic recommendation systems that exhibit accuracy degradation over time due to shift in hospital patient demographics.",
+    "legal_implications": "Manufacturers must continuously validate automated clinical support systems under mock medical device governance rules to avoid negligent algorithm drift.",
+    "governance_lessons": "Set rigorous, automated drift monitoring thresholds and provide clear override mechanisms for clinical practitioners.",
+    "recommended_controls": "CO-DRIFT-MONITOR, CO-CLINICAL-OVERRIDE",
+    "required_evidence": "EV-DRIFT-LOG, EV-CLINICAL-LOG",
+    "metadata": {
+      "synthetic": true,
+      "not_a_real_case": true,
+      "not_for_public_publication": true,
+      "purpose": "Used only to test Caesar AI Incident Atlas pipeline behavior",
+      "wording_restrictions": "No external source text copied. All prose is Caesar-authored and synthetic."
+    }
+  },
+  {
+    "source_id": "MOCK-SRC-EEOC-01",
+    "source_name": "EEOC Automated Systems Advisory",
+    "source_url": "https://mock.gov/eeoc/mock-advisory-automated-hiring-tools",
+    "tier": "green",
+    "updated_at": "2026-05-21T01:00:00Z",
+    "title": "Advisory Note: Assessment of Bias in AI Resume Screening Tools",
+    "summary": "Mock regulator warning regarding synthetic hiring algorithms that filter candidates based on language pattern disparities, potentially creating systematic bias against non-native speakers.",
+    "legal_implications": "AI-driven automated resume filters must be audited regularly under mock governance rules to avoid discriminatory disparate impact.",
+    "governance_lessons": "Always verify that AI filters do not enforce rigid, unhedged linguistic proxies for qualifications.",
+    "recommended_controls": "CO-AUDIT, CO-HUMAN-REVIEW",
+    "required_evidence": "EV-AUDIT-LOG, EV-RESUME-EVAL",
+    "metadata": {
+      "synthetic": true,
+      "not_a_real_case": true,
+      "not_for_public_publication": true,
+      "purpose": "Used only to test Caesar AI Incident Atlas pipeline behavior",
+      "wording_restrictions": "No external source text copied. All prose is Caesar-authored and synthetic."
+    }
+  },
+  {
+    "source_id": "MOCK-SRC-NEWS-05",
+    "source_name": "AI Tech Watch Journal",
+    "source_url": "https://mock.news/journal/mock-commercial-leakage-customer-chat",
+    "tier": "yellow",
+    "updated_at": "2026-05-21T01:20:00Z",
+    "title": "Commercial Report: Vendor Customer Chatbot Hallucinations Leak Sensitive Intellectual Property",
+    "summary": "Mock news investigation detailing a major insurance provider experiencing third-party vendor chatbot hallucinations that exposed proprietary pricing structures and customer details to anonymous public queries.",
+    "legal_implications": "Using untrustworthy third-party vendor APIs without input/output filtering violates mock corporate IP governance policy.",
+    "governance_lessons": "Implement strict guardrail firewalls, data leakage prevention (DLP) tools, and third-party vendor risk management checklists.",
+    "recommended_controls": "CO-VENDOR-DUE-DILIGENCE, CO-GUARDRAIL-FIREWALL",
+    "required_evidence": "EV-VENDOR-CONTRACT, EV-FIREWALL-LOGS",
+    "metadata": {
+      "synthetic": true,
+      "not_a_real_case": true,
+      "not_for_public_publication": true,
+      "purpose": "Used only to test Caesar AI Incident Atlas pipeline behavior",
+      "wording_restrictions": "No external source text copied. All prose is Caesar-authored and synthetic."
+    }
+  }
+]

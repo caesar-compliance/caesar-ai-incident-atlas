@@ -1,0 +1,37 @@
+{
+  "draft_id": "DRAFT-0013",
+  "candidate_ids": [
+    "CAND-0013"
+  ],
+  "proposed_case_title": "Mock Case: EEOC Resume Screening Discrimination Warning",
+  "case_type": "enforcement",
+  "jurisdiction": "US",
+  "source_authorities": [
+    "EEOC"
+  ],
+  "source_urls": [
+    "https://mock.gov/cnil/mock-enforcement-facial-recognition-retail"
+  ],
+  "legal_domain": "hiring_employment",
+  "commercial_domain": "Human Resources",
+  "failure_mode": [
+    "FM-DISCRIMINATION-BIAS"
+  ],
+  "business_risk": "Significant regulatory scrutiny and class-action liability under mock governance rules.",
+  "missing_controls": [
+    "CTL-BIAS-AUDITING",
+    "CTL-HUMAN-IN-THE-LOOP"
+  ],
+  "required_evidence": [
+    "Linguistic bias audit reports",
+    "Human review logs"
+  ],
+  "vendor_questions": [
+    "Has this resume tool been audited for systematic bias against non-native speakers?"
+  ],
+  "training_lesson": "Avoid using unhedged language model filters for critical qualification screening.",
+  "clean_room_summary": "MOCK SYNTHETIC DRAFT: Standardized testing report outlining how automated hiring resume screening systems can introduce demographic bias without continuous human audibility. Used strictly for offline validation/testing.",
+  "source_risk_level": "green",
+  "publish_recommendation": "needs_legal_review",
+  "review_status": "draft"
+}

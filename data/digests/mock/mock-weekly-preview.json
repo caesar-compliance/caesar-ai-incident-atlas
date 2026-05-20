@@ -1,0 +1,28 @@
+{
+  "preview_id": "MOCK-PREVIEW-2026-W21",
+  "title": "Mock Atlas Case Discovery Weekly Preview (Synthetic)",
+  "period_start": "2026-05-15T00:00:00Z",
+  "period_end": "2026-05-21T23:59:59Z",
+  "generated_at": "2026-05-20T23:35:15.848Z",
+  "draft_count": 5,
+  "included_draft_ids": [
+    "DRAFT-0013",
+    "DRAFT-0014",
+    "DRAFT-0015",
+    "DRAFT-0016",
+    "DRAFT-0017"
+  ],
+  "highlights": [
+    "[DRAFT-0013] Proposed: \"Mock Case: EEOC Resume Screening Discrimination Warning\" (US) - Failure Modes: FM-DISCRIMINATION-BIAS",
+    "[DRAFT-0014] Proposed: \"Mock Case: CNIL Biometric Retail Profiling Consent Enforcement\" (US) - Failure Modes: FM-PRIVACY-NON-CONSENT",
+    "[DRAFT-0015] Proposed: \"Mock Case: FDA Diagnostic Drift Clinical Calibration Alert\" (US) - Failure Modes: FM-ALGORITHMIC-DRIFT",
+    "[DRAFT-0016] Proposed: \"Mock Case: CFPB Explainable Adverse Action Credit Underwriting Alert\" (US) - Failure Modes: FM-EXPLAINABILITY-FAILURE",
+    "[DRAFT-0017] Proposed: \"Mock Case: Third-Party Customer Chatbot Hallucination and Data Leak\" (US) - Failure Modes: FM-LLM-HALLUCINATION, FM-DATA-LEAKAGE"
+  ],
+  "metadata": {
+    "synthetic": true,
+    "not_for_public_publication": true,
+    "purpose": "Used only to test Caesar AI Incident Atlas pipeline previewing",
+    "warning": "INTERNAL AUDIT ONLY - DO NOT PUBLISH TO LIVE WEBSITE"
+  }
+}

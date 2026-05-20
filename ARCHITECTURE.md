@@ -250,9 +250,19 @@ caesar-ai-incident-atlas/
 │       └── monthly/
 │           └── index.html        ← monthly briefing page
 │
+├── mock-sources/                 ← offline synthetic local sources for pipeline testing
+│   ├── official/                 ← official regulator warnings and notes
+│   └── yellow/                   ← yellow tier third-party incident files
+│
 ├── scripts/                      ← pipeline offline management scripts
 │   ├── validate-digests.mjs      ← standalone digest validator script
-│   └── build-rss-feeds.mjs       ← standalone RSS syndication generator
+│   ├── build-rss-feeds.mjs       ← standalone RSS syndication generator
+│   ├── mock-watch-sources.mjs    ← prototype mock watcher scan script
+│   ├── mock-build-candidates.mjs ← prototype candidate compiler
+│   ├── mock-dedupe-candidates.mjs ← prototype candidate deduplication reporter
+│   ├── mock-build-case-drafts.mjs ← prototype draft case compiler
+│   ├── mock-build-digest-preview.mjs ← prototype non-public digest preview builder
+│   └── validate-mock-pipeline.mjs ← automated pipeline containment validator
 │
 ├── exports/
 │   └── .gitkeep                  ← generated exports go here
@@ -270,23 +280,28 @@ caesar-ai-incident-atlas/
 │       ├── CANDIDATE_PIPELINE_MODEL.md ← architectural stage definitions
 │       ├── SOURCE_RISK_GATE.md         ← risk evaluation controls
 │       ├── AUTO_PUBLISH_RULES.md       ← automated publication limits
-│       └── VALIDATOR_EXTENSION_PLAN.md ← registry check guidelines
+│       ├── VALIDATOR_EXTENSION_PLAN.md ← registry check guidelines
+│       └── MOCK_PIPELINE_RUNBOOK.md    ← offline mock prototype operational runbook
 │
 ├── tools/
 │   ├── validate_dataset.py       ← dataset validator script
-│   └── validate_pipeline_schemas.py ← source and pipeline schema validator
+│   ├── validate_pipeline_schemas.py ← source and pipeline schema validator
+│   └── validate_mock_schemas.py  ← mock candidate and draft schema validator
 │
 └── work-items/
-    └── T044-static-weekly-monthly-digest-mvp/ ← task deliverables tracking
+    ├── T044-static-weekly-monthly-digest-mvp/
+    └── T045-offline-mock-auto-discovery-prototype/ ← T045 pipeline deliverables tracking
 ```
 
-Implementation status after T044:
+Implementation status after T045:
 
+- Offline Mock Auto-Discovery Pipeline Prototype fully functional and tested end-to-end.
+- Created 5 synthetic mock source JSON files representing diverse green/yellow legal and corporate risk situations.
+- Implemented robust programmatic watch, candidate construction, deduplication report generation, automated drafting, and digest preview compilation.
+- Deployed a dual-layered automated sandboxing auditor ensuring no mock records leak into live site files, indexes, or sitemaps.
 - Static Weekly and Monthly Digest MVP fully active.
-- Dedicated offline validator and compiler built using standard ES modules (`.mjs`).
-- Valid RSS XML syndication and unified digests portal deployed in the public root.
-- All 12 public incident records preserved intact.
-- Source registry catalog remains untouched.
+- Unified digests portal and sitemaps/RSS preserved intact.
+- Master dataset frozen at exactly 12 records with all registry entries at inactive_draft.
 
 ---
 

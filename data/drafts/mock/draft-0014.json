@@ -1,0 +1,37 @@
+{
+  "draft_id": "DRAFT-0014",
+  "candidate_ids": [
+    "CAND-0014"
+  ],
+  "proposed_case_title": "Mock Case: CNIL Biometric Retail Profiling Consent Enforcement",
+  "case_type": "regulator_guidance",
+  "jurisdiction": "US",
+  "source_authorities": [
+    "CNIL"
+  ],
+  "source_urls": [
+    "https://mock.gov/cfpb/mock-advisory-underwriting-discrimination"
+  ],
+  "legal_domain": "privacy_biometrics",
+  "commercial_domain": "Retail",
+  "failure_mode": [
+    "FM-PRIVACY-NON-CONSENT"
+  ],
+  "business_risk": "Substantial GDPR fines and loss of consumer trust in the retail space.",
+  "missing_controls": [
+    "CTL-BIOMETRIC-CONSENT-GATE",
+    "CTL-DATA-MINIMIZATION-AUDIT"
+  ],
+  "required_evidence": [
+    "Explicit opt-in forms",
+    "Biometric hash database encryption logs"
+  ],
+  "vendor_questions": [
+    "Do you store raw biometric facial images or only localized numerical hashes?"
+  ],
+  "training_lesson": "Never deploy biometric analysis in public venues without active, uncoerced consumer opt-in.",
+  "clean_room_summary": "MOCK SYNTHETIC DRAFT: Regulatory enforcement advisory analyzing consumer consent gates for emotional and facial profiling systems deployed inside physical spaces. Used strictly for offline validation/testing.",
+  "source_risk_level": "green",
+  "publish_recommendation": "needs_legal_review",
+  "review_status": "draft"
+}

@@ -83,9 +83,15 @@ See `ROADMAP.md` for the full historical phase plan.
 - Generated valid, compliant RSS 2.0 XML feeds (`rss.xml`, `weekly.xml`, `monthly.xml`) pointing back to verified routes.
 - Integrated the new digests portal elegantly into the primary homepage sidebar without altering the core index layout.
 
-**Next implementation focus (planned for T045):**
-- Watcher conceptual design and ingestion parser framework for Green Tier sources.
-- Draft ingestion logging templates.
+**T045 complete (21 May 2026):**
+- Built an offline, sandboxed mock auto-discovery prototype pipeline (watch sources → candidates → dedupe → draft case packs → digest preview).
+- Extended the candidate schema status enum to support pipeline tracking and wrote a python-based schema validator.
+- Deployed a robust sandboxing auditor to guarantee zero data leakage of mock data into production site paths or client sitemaps/RSS feeds.
+- Formulated the developer operations guide under `docs/automation/MOCK_PIPELINE_RUNBOOK.md`.
+
+**Next implementation focus (planned for T046):**
+- Refine clean-room automated translation capabilities and policy gates.
+- Deepen commercial & failure-mode taxonomy mapping rules and programmatic heuristics.
 
 **Mapping exercise (21-field schema):**
 

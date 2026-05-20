@@ -1,0 +1,38 @@
+{
+  "draft_id": "DRAFT-0017",
+  "candidate_ids": [
+    "CAND-0017"
+  ],
+  "proposed_case_title": "Mock Case: Third-Party Customer Chatbot Hallucination and Data Leak",
+  "case_type": "vendor_governance_failure",
+  "jurisdiction": "US",
+  "source_authorities": [
+    "Media Reports"
+  ],
+  "source_urls": [
+    "https://mock.news/journal/mock-commercial-leakage-customer-chat"
+  ],
+  "legal_domain": "vendor_risk",
+  "commercial_domain": "Insurance & Customer Support",
+  "failure_mode": [
+    "FM-LLM-HALLUCINATION",
+    "FM-DATA-LEAKAGE"
+  ],
+  "business_risk": "Exposure of competitive pricing secrets and breach of customer confidentiality.",
+  "missing_controls": [
+    "CTL-VENDOR-RISK-ASSESSMENT",
+    "CTL-LLM-GUARDRAILS-FIREWALL"
+  ],
+  "required_evidence": [
+    "Vendor due diligence questionnaires",
+    "Firewall input/output validation logs"
+  ],
+  "vendor_questions": [
+    "What guardrails or leakage prevention filters are implemented in your hosted chatbot API?"
+  ],
+  "training_lesson": "Never hook customer-facing LLMs directly to backend knowledge bases without deep input/output guardrails.",
+  "clean_room_summary": "MOCK SYNTHETIC DRAFT: Commercial incident review on corporate data leakage caused by vendor conversational interface hallucinations. Used strictly for offline validation/testing.",
+  "source_risk_level": "yellow",
+  "publish_recommendation": "needs_legal_review",
+  "review_status": "draft"
+}

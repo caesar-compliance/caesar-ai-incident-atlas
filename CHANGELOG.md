@@ -5,6 +5,32 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.3] - 21 May 2026
+
+### Added
+- **T045 — Offline Mock Auto-Discovery Prototype.** Built a sandboxed, offline mock prototype of the Case Atlas auto-discovery and drafting pipeline.
+- Created 5 local synthetic mock source update JSON files (resume screening bias, biometric consent retail profiling, healthcare patient demographic drift calibration, explainable automated underwriting denials, third-party conversational API secret leak) in `mock-sources/official/` and `mock-sources/yellow/`.
+- Deployed modular, offline ES module pipeline scripts in `scripts/`:
+  - `mock-watch-sources.mjs` (scans and normalizes mock source files)
+  - `mock-build-candidates.mjs` (compiles and saves candidate records CAND-0013 to CAND-0017)
+  - `mock-dedupe-candidates.mjs` (groups duplicates and writes mock-dedupe-report.json)
+  - `mock-build-case-drafts.mjs` (compiles draft packs DRAFT-0013 to DRAFT-0017 with compliance tags)
+  - `mock-build-digest-preview.mjs` (compiles weekly preview JSON)
+  - `validate-mock-pipeline.mjs` (comprehensive safety containment auditor)
+- Integrated a custom schema validation helper `tools/validate_mock_schemas.py` executing JSON schema checks.
+- Documented developer operational steps in `docs/automation/MOCK_PIPELINE_RUNBOOK.md`.
+- Tracked T045 deliverables under `work-items/T045-offline-mock-auto-discovery-prototype/`.
+
+### Changed
+- Extended `schemas/pipeline/candidate.schema.json` to allow `mock_detected` and `mock_candidate` in the `status` enum.
+- Updated lifecycle files `ARCHITECTURE.md`, `ROADMAP_NEXT_PHASES.md`, `NEXT_ACTIONS.md`, `REPO_INVENTORY.md`, and `docs/DECISION_LOG.md` to register mock pipeline components.
+- Documented pipeline validation boundaries in `docs/automation/CANDIDATE_PIPELINE_MODEL.md` and `docs/automation/VALIDATOR_EXTENSION_PLAN.md`.
+
+### Status (T045)
+- **Dataset**: Frozen at exactly 12 validated public incident records. Zero leakage of mock data into public site directories or RSS.
+- **Pipeline & Safety**: All monitored source registries remain strictly `inactive_draft` and blocked from auto-publishing. Pipeline runs 100% offline with zero network scraping.
+- **Verification**: Fully verified locally. All Python schema validation and Node sandboxing containment checks pass perfectly.
+
 ## [0.8.2] - 21 May 2026
 
 ### Added

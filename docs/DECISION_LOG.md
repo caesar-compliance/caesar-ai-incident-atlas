@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T044 — DEC-110)
+**Last updated:** 21 May 2026 (T045 — DEC-111)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -1336,4 +1336,20 @@ T006 must not mass-import data and must not create final incident records unless
 
 ---
 
-**Last updated:** 21 May 2026 (T044 — DEC-110)
+### [DEC-111] — 21 May 2026 — Offline Mock Auto-Discovery Pipeline Sandboxing (T045)
+
+**Status:** Approved
+
+**Decisions:**
+
+1. **Complete Local Isolation (D23).** Built the entire Atlas auto-discovery automation prototype completely offline, relying strictly on local synthetic inputs and zero live network fetching or scraping to enforce the absolute safety boundary.
+2. **Candidate Ingestion Schema Extension (D24).** Extended the `status` enum in `schemas/pipeline/candidate.schema.json` to formally support intermediate pipeline states (`mock_detected` and `mock_candidate`) allowing mock candidate JSONs to validate cleanly.
+3. **Segmented Mock Directory Sandboxing (D25).** Created segregated subdirectories (`mock-sources/`, `data/candidates/mock/`, `data/drafts/mock/`, and `data/digests/mock/`) keeping all synthetic updates, candidate outputs, case draft packs, and weekly briefings fully isolated from live site assets.
+4. **Rigorous Compliance Tag Generation (D26).** Programmatically compiled exhaustive Case Atlas metadata (legal domains, sector, failure modes, missing controls, audit evidence, vendor questions, training lessons) to demonstrate realistic governance mapping while adhering to json schemas.
+5. **Dual-Layer Containment and Integrity Validator (D27).** Combined programmatic FS scanning logic (`scripts/validate-mock-pipeline.mjs`) and direct JSON schema validator scripts (`tools/validate_mock_schemas.py` in Python) to ensure 100% perfect schema validation and verify that zero mock/synthetic references ever leak to the client-facing `site/` files or RSS XML.
+
+**Rationale:** Proves how automated discovery and governance mapping will operate programmatically in subsequent phases without incurring security, copyright, or data leakage risks. The sandbox acts as a perfect proof-of-concept for offline automation.
+
+---
+
+**Last updated:** 21 May 2026 (T045 — DEC-111)

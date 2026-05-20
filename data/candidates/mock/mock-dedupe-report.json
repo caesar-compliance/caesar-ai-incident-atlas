@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-05-20T23:35:15.751Z",
+  "total_processed": 5,
+  "unique_count": 5,
+  "duplicate_count": 0,
+  "unique_candidates": [
+    {
+      "candidate_id": "CAND-0013",
+      "title": "Enforcement Note: Unlawful Biometric Profiling in Automated Retail Systems",
+      "dedupe_key": "799b84979247ff0cc5875f95d611b62f848a697270882e0c352faeef15d4d320",
+      "source_id": "mock-src-cnil-02"
+    },
+    {
+      "candidate_id": "CAND-0014",
+      "title": "Consumer Alert: Adverse Action Notices in Algorithmic Credit Underwriting",
+      "dedupe_key": "618888d3b834e4442ce4cb8f9d7b455dac470c3f194fa65fd1a76b01f4482c62",
+      "source_id": "mock-src-cfpb-04"
+    },
+    {
+      "candidate_id": "CAND-0015",
+      "title": "Safety Notice: Algorithmic Calibration and Diagnostic Drift in Clinical AI",
+      "dedupe_key": "6756d0705add417e6125d2799cc4ad7c660e865dca25868fbc6a0ab6a4ae7357",
+      "source_id": "mock-src-fda-03"
+    },
+    {
+      "candidate_id": "CAND-0016",
+      "title": "Advisory Note: Assessment of Bias in AI Resume Screening Tools",
+      "dedupe_key": "e226c5105bedb4ad20a861a5a03793ce49ff0741462a44db6cab0fc51c6fb2a7",
+      "source_id": "mock-src-eeoc-01"
+    },
+    {
+      "candidate_id": "CAND-0017",
+      "title": "Commercial Report: Vendor Customer Chatbot Hallucinations Leak Sensitive Intellectual Property",
+      "dedupe_key": "c77ee12392238072e9cc216762d5baf417f6d95d5e0333a53442af149b4de826",
+      "source_id": "mock-src-news-05"
+    }
+  ],
+  "duplicates": [],
+  "metadata": {
+    "synthetic": true,
+    "purpose": "Used only to test Caesar AI Incident Atlas pipeline deduplication"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "candidate_id": "CAND-0015",
+  "detected_at": "2026-05-21T01:10:00Z",
+  "source_id": "mock-src-fda-03",
+  "source_url": "https://mock.gov/fda/mock-advisory-diagnostic-drift-clinical",
+  "title": "Safety Notice: Algorithmic Calibration and Diagnostic Drift in Clinical AI",
+  "date_published": "21 May 2026",
+  "detected_keywords": [
+    "synthetic",
+    "mock-pipeline",
+    "healthcare",
+    "clinical algorithm",
+    "diagnostic drift"
+  ],
+  "preliminary_case_type": "regulator_guidance",
+  "jurisdiction": "US",
+  "source_tier": "green",
+  "confidence_score": 0.95,
+  "dedupe_key": "6756d0705add417e6125d2799cc4ad7c660e865dca25868fbc6a0ab6a4ae7357",
+  "status": "mock_candidate",
+  "risk_flags": [
+    "no_risk_detected"
+  ],
+  "notes": "SYNTHETIC MOCK RECORD FOR TEST PURPOSES ONLY. DO NOT INCLUDE IN PUBLIC SITE."
+}

@@ -94,7 +94,7 @@
     },
     "status": {
       "type": "string",
-      "enum": ["unprocessed", "reviewed", "promoted_to_draft", "dismissed_duplicate", "dismissed_low_relevance"],
+      "enum": ["unprocessed", "reviewed", "promoted_to_draft", "dismissed_duplicate", "dismissed_low_relevance", "mock_detected", "mock_candidate"],
       "description": "Current processing state in the ingestion queue."
     },
     "risk_flags": {

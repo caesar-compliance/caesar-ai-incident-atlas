@@ -1,0 +1,20 @@
+{
+  "source_id": "MOCK-SRC-CFPB-04",
+  "source_name": "CFPB Automated Underwriting Advisory",
+  "source_url": "https://mock.gov/cfpb/mock-advisory-underwriting-discrimination",
+  "tier": "green",
+  "updated_at": "2026-05-21T01:15:00Z",
+  "title": "Consumer Alert: Adverse Action Notices in Algorithmic Credit Underwriting",
+  "summary": "Mock advisory concerning financial institutions failing to provide specific, legally sufficient reasons for credit denial when utilizing proprietary machine learning scoring models.",
+  "legal_implications": "Automated credit scoring systems must supply explainable adverse action reasons under synthetic consumer protection laws.",
+  "governance_lessons": "Ensure model explainability outputs map directly to robust, user-understandable reason codes.",
+  "recommended_controls": "CO-MODEL-EXPLAINABILITY, CO-CONSUMER-EXPLAIN",
+  "required_evidence": "EV-EXPLAIN-REPORT, EV-DENIAL-NOTICE",
+  "metadata": {
+    "synthetic": true,
+    "not_a_real_case": true,
+    "not_for_public_publication": true,
+    "purpose": "Used only to test Caesar AI Incident Atlas pipeline behavior",
+    "wording_restrictions": "No external source text copied. All prose is Caesar-authored and synthetic."
+  }
+}

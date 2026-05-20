@@ -1,0 +1,20 @@
+{
+  "source_id": "MOCK-SRC-CNIL-02",
+  "source_name": "CNIL Biometric Consent Advisory",
+  "source_url": "https://mock.gov/cnil/mock-enforcement-facial-recognition-retail",
+  "tier": "green",
+  "updated_at": "2026-05-21T01:05:00Z",
+  "title": "Enforcement Note: Unlawful Biometric Profiling in Automated Retail Systems",
+  "summary": "Mock advisory detailing regulatory enforcement actions against a retail chain for deploying facial categorization systems without explicit, uncoerced consumer consent.",
+  "legal_implications": "Deploying emotional or facial categorizers in public spaces violates synthetic European data protection principles unless a strict consent exemption applies.",
+  "governance_lessons": "Implement strict opt-in gates before capturing or processing any biometric hashing models.",
+  "recommended_controls": "CO-BIOMETRIC-CONSENT, CO-DATA-MINIMIZATION",
+  "required_evidence": "EV-CONSENT-FORM, EV-BIOMETRIC-FLOW",
+  "metadata": {
+    "synthetic": true,
+    "not_a_real_case": true,
+    "not_for_public_publication": true,
+    "purpose": "Used only to test Caesar AI Incident Atlas pipeline behavior",
+    "wording_restrictions": "No external source text copied. All prose is Caesar-authored and synthetic."
+  }
+}

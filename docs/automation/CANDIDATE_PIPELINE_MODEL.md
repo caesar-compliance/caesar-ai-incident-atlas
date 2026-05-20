@@ -45,6 +45,8 @@ A curated list of monitored endpoints. Controls the configuration for all automa
 Automated RSS readers and static site monitors. 
 > [!NOTE]
 > **T043 Boundary:** No active watcher is implemented in T043. Watchers exist purely as a conceptual design in the pipeline.
+>
+> **T045 Prototype Boundary:** An offline mock pipeline prototype is implemented in T045. It supports scanning synthetic mock updates, converting them to candidates, executing deduplication checks, and preparing case drafts and weekly previews. All data is sandboxed offline.
 
 ### 3. Candidate (`CAND-XXXX`)
 A raw detection log indicating a potential case. Contains discovery URL, preliminary classifications, and date published. Validated against `schemas/pipeline/candidate.schema.json`.

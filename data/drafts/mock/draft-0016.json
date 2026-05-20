@@ -1,0 +1,37 @@
+{
+  "draft_id": "DRAFT-0016",
+  "candidate_ids": [
+    "CAND-0016"
+  ],
+  "proposed_case_title": "Mock Case: CFPB Explainable Adverse Action Credit Underwriting Alert",
+  "case_type": "regulator_guidance",
+  "jurisdiction": "US",
+  "source_authorities": [
+    "CFPB"
+  ],
+  "source_urls": [
+    "https://mock.gov/eeoc/mock-advisory-automated-hiring-tools"
+  ],
+  "legal_domain": "financial_services",
+  "commercial_domain": "Consumer Finance",
+  "failure_mode": [
+    "FM-EXPLAINABILITY-FAILURE"
+  ],
+  "business_risk": "Regulatory enforcement actions and compliance penalties under credit protection laws.",
+  "missing_controls": [
+    "CTL-MODEL-EXPLAINABILITY-AUDIT",
+    "CTL-CONSUMER-EXPLAINABILITY-REPORTS"
+  ],
+  "required_evidence": [
+    "Model explainability metrics",
+    "Credit denial reason mapping lists"
+  ],
+  "vendor_questions": [
+    "How are model feature weights translated into consumer adverse action reason codes?"
+  ],
+  "training_lesson": "Ensure ML-driven scoring models produce human-understandable explanation codes.",
+  "clean_room_summary": "MOCK SYNTHETIC DRAFT: Credit scoring advisory outlining the transparency requirements for automated underwriting decisioning algorithms. Used strictly for offline validation/testing.",
+  "source_risk_level": "green",
+  "publish_recommendation": "needs_legal_review",
+  "review_status": "draft"
+}

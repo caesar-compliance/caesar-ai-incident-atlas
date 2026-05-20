@@ -163,6 +163,18 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `site/data/digests/monthly/monthly-2026-05.json` | Publish Copy | Duplicate copy of monthly digest May 2026 for static site serving. (T044) |
 | `scripts/validate-digests.mjs` | Pipeline Utility | Standalone Node validation utility checking digest formats and rules. (T044) |
 | `scripts/build-rss-feeds.mjs` | Pipeline Utility | Standalone Node compiler building three compliant RSS 2.0 XML feeds. (T044) |
+| `scripts/mock-watch-sources.mjs` | Pipeline Utility | Prototype scan tool scanning and normalizing offline mock sources. (T045) |
+| `scripts/mock-build-candidates.mjs` | Pipeline Utility | Ingestion prototype compiler building validated CAND-XXXX JSON records. (T045) |
+| `scripts/mock-dedupe-candidates.mjs` | Pipeline Utility | Ingestion prototype deduplication reporter compiling unique cases. (T045) |
+| `scripts/mock-build-case-drafts.mjs` | Pipeline Utility | Drafting prototype packaging compliant DRAFT-XXXX JSON records. (T045) |
+| `scripts/mock-build-digest-preview.mjs` | Pipeline Utility | Digest prototype compiler building isolated weekly previews. (T045) |
+| `scripts/validate-mock-pipeline.mjs` | Ingest Safety Checker | Programmatic sandboxing auditor verifying zero data leakage. (T045) |
+| `tools/validate_mock_schemas.py` | Schema Validator | Specialized Python script checking mock files against JSON schemas. (T045) |
+| `docs/automation/MOCK_PIPELINE_RUNBOOK.md` | Runbook | Operational instructions and run guide for offline prototype commands. (T045) |
+| `mock-sources/official/biometric-privacy-enforcement-note.json` | Mock Source Input | Synthetic regulator enforcement warning concerning retail biometric consent. (T045) |
+| `mock-sources/official/healthcare-ai-risk-notice.json` | Mock Source Input | Synthetic regulator advisory note warning on healthcare algorithm diagnostic drift. (T045) |
+| `mock-sources/official/financial-services-ai-consumer-risk-note.json` | Mock Source Input | Synthetic consumer protection advisory regarding ML credit underwriting transparency. (T045) |
+| `mock-sources/yellow/vendor-governance-failure-note.json` | Mock Source Input | Synthetic yellow tier third-party chatbot hallucination media report. (T045) |
 | `site/rss.xml` | Consolidated Feed | Public unified RSS 2.0 XML feed for all briefings. (T044) |
 | `site/digests/weekly.xml` | Weekly RSS Feed | Public RSS 2.0 XML feed for weekly operational briefs only. (T044) |
 | `site/digests/monthly.xml` | Monthly RSS Feed | Public RSS 2.0 XML feed for monthly strategic trends only. (T044) |

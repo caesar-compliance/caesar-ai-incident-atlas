@@ -1,0 +1,37 @@
+{
+  "draft_id": "DRAFT-0015",
+  "candidate_ids": [
+    "CAND-0015"
+  ],
+  "proposed_case_title": "Mock Case: FDA Diagnostic Drift Clinical Calibration Alert",
+  "case_type": "regulator_guidance",
+  "jurisdiction": "US",
+  "source_authorities": [
+    "FDA"
+  ],
+  "source_urls": [
+    "https://mock.gov/fda/mock-advisory-diagnostic-drift-clinical"
+  ],
+  "legal_domain": "healthcare",
+  "commercial_domain": "Clinical Medicine",
+  "failure_mode": [
+    "FM-ALGORITHMIC-DRIFT"
+  ],
+  "business_risk": "Severe patient safety liability and clinical malpractice exposure.",
+  "missing_controls": [
+    "CTL-CONTINUOUS-DRIFT-MONITORING",
+    "CTL-CLINICAL-OVERRIDE-PROTOCOL"
+  ],
+  "required_evidence": [
+    "Drift threshold validation logs",
+    "Practitioner feedback reports"
+  ],
+  "vendor_questions": [
+    "What dataset drift detection mechanisms are built into the clinical recommendation software?"
+  ],
+  "training_lesson": "Establish continuous verification systems to capture diagnostic variance as patient demographics shift.",
+  "clean_room_summary": "MOCK SYNTHETIC DRAFT: Safety warning outlining calibration errors in healthcare AI models resulting from clinical environment shifts. Used strictly for offline validation/testing.",
+  "source_risk_level": "green",
+  "publish_recommendation": "needs_legal_review",
+  "review_status": "draft"
+}
