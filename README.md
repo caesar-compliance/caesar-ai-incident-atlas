@@ -26,13 +26,12 @@ The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](
 
 ## Project Status
 
-> **Technical Public MVP: LIVE + VERIFIED at [`https://atlas.caesar.no/`](https://atlas.caesar.no/)** — GitHub Pages, GitHub Actions, public root `site/`. Version: v0.6.4.
+> **Technical Public MVP: LIVE + VERIFIED at [`https://atlas.caesar.no/`](https://atlas.caesar.no/)** — GitHub Pages, GitHub Actions, public root `site/`. Version: v0.6.6.
 > **G-10 PASS** — Control Tower manual browser confirmation on 20 May 2026.
-> **T028 Public MVP Polish complete** — About/methodology panel, OG/canonical meta, public footer, robots.txt, sitemap.xml, mobile density improvements, and focus-visible accessibility states added. No records, sources, or legal content changed.
-> **T027 INC-0006 Source Risk Decision Packet complete** — targeted source search found no safer replacement for INC-0006. Reuters remains sole primary source. No data or wording changes. Decision packet: `INC0006_SOURCE_RISK_DECISION_PACKET.md`.
+> **T030 INC-0006 Counsel Review Follow-Up Packet complete** — narrow counsel/CT review packet prepared: `COUNSEL_REVIEW_PACKET_INC0006.md`. No data or source changes. No G-01/G-02 approval recorded.
 > The 10 incident records (INC-0001 through INC-0010) are publicly accessible.
 > G-01 source/license review and G-02 wording/legal-risk review remain pending explicit CT/counsel sign-off.
-> See `PUBLICATION_RISK_GATE.md` for full gate status. See `PRODUCT_POLISH_BACKLOG.md` for future work backlog. See [ROADMAP.md](ROADMAP.md) for the phase plan.
+> See `COUNSEL_REVIEW_PACKET_INC0006.md` for the narrow INC-0006 review question and decision options. See `PUBLICATION_RISK_GATE.md` for full gate status. See [ROADMAP.md](ROADMAP.md) for the phase plan.
 
 ---
 

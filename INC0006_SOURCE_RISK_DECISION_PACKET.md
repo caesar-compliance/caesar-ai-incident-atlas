@@ -2,9 +2,10 @@
 
 **Task:** T027 — Targeted INC-0006 Counsel/Source-Risk Resolution Pack
 **Date:** 20 May 2026
-**Version:** 0.6.3
+**Version:** 0.6.6
 **Branch:** `review/T027-inc0006-source-resolution`
 **Status:** Decision packet prepared — NOT LEGAL ADVICE
+**T030 Update:** Counsel follow-up packet prepared: `COUNSEL_REVIEW_PACKET_INC0006.md`. No data or wording changes. No safer source found (unchanged from T027). G-01 INC-0006 status: Needs counsel review (unchanged). G-02 INC-0006 status: Sign-off with caution (unchanged). No approval recorded.
 
 ---
 

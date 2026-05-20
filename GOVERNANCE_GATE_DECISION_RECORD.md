@@ -2,9 +2,10 @@
 
 **Task:** T029 — Governance Gate Decision Pack + Optional G-01/G-02 Sign-Off Recording  
 **Date:** 20 May 2026  
-**Version:** 0.6.4  
-**Branch:** `governance/T029-gate-decision-pack`  
-**Status:** Decision record prepared — NOT LEGAL ADVICE  
+**Version:** 0.6.6
+**Branch:** `governance/T029-gate-decision-pack`
+**Status:** Decision record prepared — NOT LEGAL ADVICE
+**T030 Update:** Counsel follow-up packet prepared: `COUNSEL_REVIEW_PACKET_INC0006.md`. Narrow review question and four decision options (A–D) provided for CT/counsel. Exact optional CT sign-off language included. No approval recorded. G-01/G-02 remain pending.
 
 ---
 
@@ -168,6 +169,7 @@
 
 ## References
 
+- `COUNSEL_REVIEW_PACKET_INC0006.md` — T030 narrow counsel follow-up packet
 - `GOVERNANCE_SIGNOFF_PACK.md` — Current G-01/G-02 review tables
 - `INC0006_SOURCE_RISK_DECISION_PACKET.md` — Detailed INC-0006 analysis
 - `SOURCE_RISK_HARDENING_REPORT.md` — T026/T027 source improvements

@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T029)
+**Last updated:** 20 May 2026 (T030)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -208,6 +208,7 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `SOURCE_RISK_HARDENING_REPORT.md` | Source risk hardening report | T026 hardening detail plus T027 addendum: INC-0006 targeted source search result and risk assessment. (T026, T027) |
 | `INC0006_SOURCE_RISK_DECISION_PACKET.md` | INC-0006 source risk decision packet | T027: problem statement, targeted source search result table, Options A/B/C assessment, wording risk, recommended CT decision, proposed sign-off language, disclaimer. (T027) |
 | `GOVERNANCE_GATE_DECISION_RECORD.md` | Governance gate decision record | T029: Final governance gate decision package for G-01/G-02. Current MVP status, source/license table, wording/legal-risk table, INC-0006 decision section, final decision placeholders. No explicit CT approval received. (T029) |
+| `COUNSEL_REVIEW_PACKET_INC0006.md` | INC-0006 counsel follow-up packet | T030: Narrow counsel/CT review packet for INC-0006 Reuters citation. Review question, current record status, four decision options (A–D), optional CT sign-off language, scope boundary. No data changes. Not legal advice. (T030) |
 | `work-items/T024-public-mvp-lock/TASK.md` | T024 task | Task scope checklist. |
 | `work-items/T024-public-mvp-lock/VALIDATION.md` | T024 validation | Validation checklist. |
 | `work-items/T024-public-mvp-lock/IMPLEMENTATION_REPORT.md` | T024 report | Concise final report. |
@@ -228,6 +229,11 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T028-public-mvp-polish/VALIDATION.md` | T028 validation | Validation checklist for T028. |
 | `work-items/T028-public-mvp-polish/IMPLEMENTATION_REPORT.md` | T028 report | Concise final report for T028. |
 | `work-items/T028-public-mvp-polish/DECISIONS.md` | T028 decisions | Decisions made during T028 public MVP polish pass. |
+| `work-items/T029-governance-gate-decision-pack/FINAL_REPORT.md` | T029 final report | Final report for T029 (pre-existing untracked file). |
+| `work-items/T030-inc0006-counsel-followup/TASK.md` | T030 task | Task scope checklist for INC-0006 counsel follow-up packet. |
+| `work-items/T030-inc0006-counsel-followup/VALIDATION.md` | T030 validation | Validation checklist for T030. |
+| `work-items/T030-inc0006-counsel-followup/IMPLEMENTATION_REPORT.md` | T030 report | Concise final report for T030. |
+| `work-items/T030-inc0006-counsel-followup/DECISIONS.md` | T030 decisions | 8 decisions including packet structure, no-data-change policy, version bump, next-step paths. |
 
 ---
 
