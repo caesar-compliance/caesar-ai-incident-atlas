@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [Unreleased] - Repository presentation polish (20 May 2026)
+
+### Changed
+
+- README header: live site link, status table, what-it-does / what-it-is-not (presentation only).
+- GitHub repository About: description, homepage `https://atlas.caesar.no`, topics.
+- Safe cleanup of merged remote branches (origin: `main` only).
+
+### Added
+
+- `work-items/repository-presentation-polish/` task pack.
+
+---
+
 ## [0.7.8] - 20 May 2026
 
 ### Added

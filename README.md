@@ -1,6 +1,57 @@
-# Caesar AI Incident Atlas (`caesar-ai-incident-atlas`)
+# Caesar AI Incident Atlas
 
-> A curated public incident knowledge base that maps real-world AI failures to failure modes, governance controls, and evidence requirements — part of the [Caesar AI Governance Hub](https://github.com/caesar-compliance/caesar-ai-governance-hub) ecosystem.
+> Public AI incident atlas for governance, source review, evidence readiness, and public deployment-safe incident records.
+
+**Live site:** [atlas.caesar.no](https://atlas.caesar.no/)
+
+| | |
+|---|---|
+| **Status** | Technical Public MVP live (v0.7.8) |
+| **Hosting** | GitHub Pages — static site (`site/`) |
+| **Dataset** | 12 curated incident records (INC-0001–INC-0012) |
+| **Safety** | Source review and publication gates apply — not legal advice |
+
+Part of the [Caesar AI Governance Hub](https://github.com/caesar-compliance/caesar-ai-governance-hub) ecosystem.
+
+---
+
+## What it does
+
+- Maps **publicly reported AI incidents** to failure modes, governance controls, and evidence requirements.
+- Provides a **searchable static public site** with sector filters and structured metadata.
+- Maintains **source review and citation discipline** — summaries are not legal conclusions.
+- Supports **evidence export** to [caesar-ai-evidence](https://github.com/caesar-compliance/caesar-ai-evidence) format.
+- Keeps public data **static and reviewable** — no runtime backend or live monitoring.
+
+## What it is not
+
+- **Not legal advice** — incident summaries support governance review, not compliance guarantees.
+- **Not a complete incident database** — coverage grows incrementally under source-quality gates.
+- **Not a scraper or live feed** — records are curated, verified, and gate-reviewed before publication.
+
+---
+
+## Governance chain
+
+```text
+incident → failure mode → relevant controls → required evidence → lessons for governance
+```
+
+Caesar AI Incident Atlas does not replace the AI Incident Database, OECD AI Incidents Monitor, or AIAAIC Repository. It adds a practical governance mapping layer on top of publicly reported incidents.
+
+---
+
+## Project status
+
+| Item | State |
+|---|---|
+| Public site | Live at [atlas.caesar.no](https://atlas.caesar.no/) |
+| Baseline freeze | Commit `64c7267` (T032) — see `PUBLIC_MVP_BASELINE_FREEZE.md` |
+| Governance gates | All 12 closed — see `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md` |
+| Dataset | 12 records; INC-0011 governance-approved; INC-0012 pending CT review (T041) |
+| Validation | `python3 tools/validate_dataset.py` (local QA) |
+
+Next: T041 — INC-0012 source/wording gate sign-off + live smoke test. See [ROADMAP_NEXT_PHASES.md](ROADMAP_NEXT_PHASES.md).
 
 ---
 
@@ -8,34 +59,7 @@
 
 **Caesar AI Incident Atlas** is a structured dataset and searchable knowledge base for AI incidents, failure modes, and governance controls.
 
-It does not aim to replace the AI Incident Database, OECD AI Incidents Monitor, or AIAAIC Repository. Its purpose is to add a practical governance layer on top of publicly reported incidents:
-
-```
-incident
-→ failure mode
-→ relevant controls
-→ required evidence
-→ lessons for governance
-```
-
-This mapping helps consultants, risk teams, and compliance teams explain why specific AI governance controls are needed — using real-world failures as practical examples.
-
 The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](https://caesar.no).
-
----
-
-## Project Status
-
-> **Technical Public MVP: LIVE + VERIFIED at [`https://atlas.caesar.no/`](https://atlas.caesar.no/)** — GitHub Pages, GitHub Actions, public root `site/`. Version: v0.7.8.
-> **Public MVP baseline frozen at commit `64c7267` (T032, 20 May 2026).**
-> **G-10 PASS** — Control Tower manual browser confirmation on 20 May 2026.
-> **G-01 APPROVED with caution** — CT sign-off 20 May 2026. INC-0006 Reuters citation accepted with caution.
-> **G-02 APPROVED with caution** — CT sign-off 20 May 2026. Current public MVP wording cleared.
-> **All 12 governance gates closed.** Gate closeout: `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md`. Baseline freeze: `PUBLIC_MVP_BASELINE_FREEZE.md`.
-> The 10 incident records (INC-0001 through INC-0010) are publicly accessible. No governance blockers remain for the current public MVP.
-> Approval is narrow — current 10-record public MVP only. No new records approved. Not legal advice.
-> **T033–T040 complete** — Dataset expansion planning criteria, 15 candidate shortlist, P1 source packs, CT first drafting batch selection, batch-1 source pack finalization, first new incident record (INC-0011), INC-0011 gate sign-off, and second new incident record (INC-0012 from CAND-008) completed. Dataset: 12 records. INC-0011 governance-approved. INC-0012 prepared for CT review.
-> Next: T041 — INC-0012 Source/Wording Gate Sign-Off + Live Smoke Test. See [ROADMAP_NEXT_PHASES.md](ROADMAP_NEXT_PHASES.md) for the roadmap split.
 
 ---
 
