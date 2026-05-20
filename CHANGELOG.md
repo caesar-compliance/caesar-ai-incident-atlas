@@ -35,6 +35,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.6.6] - 20 May 2026
+
+### Added
+
+- **T030 — INC-0006 Counsel Review Follow-Up Packet.** Prepared narrow counsel/CT review packet for the last unresolved governance-risk item: INC-0006 Reuters citation. Created `COUNSEL_REVIEW_PACKET_INC0006.md` with: (1) narrow review question for CT/counsel, (2) current record status (no data change), (3) four decision options (A: accept with caution, B: seek external counsel, C: de-emphasize — future CT only, D: remove/replace — not recommended), (4) exact optional CT sign-off language for G-01 and G-02, (5) explicit scope boundary (not legal advice, not approval). Updated governance docs: `GOVERNANCE_GATE_DECISION_RECORD.md`, `GOVERNANCE_SIGNOFF_PACK.md`, `INC0006_SOURCE_RISK_DECISION_PACKET.md`, `PUBLICATION_RISK_GATE.md`, `RELEASE_CANDIDATE_GATE.md` (T030 status note added; G-01/G-02 remain pending). Updated lifecycle docs: `PROJECT_STATE.md` (v0.6.6, T030 complete), `NEXT_ACTIONS.md` (T030 status, T031 options), `CHANGELOG.md`, `REPO_INVENTORY.md`, `README.md`, `site/README.md`. Created `work-items/T030-inc0006-counsel-followup/` with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, DECISIONS.md. Branch: `governance/T030-inc0006-counsel-followup`.
+
+### Status (T030)
+
+- **Technical Public MVP**: LIVE + VERIFIED at `https://atlas.caesar.no/`
+- **G-10**: PASS
+- **G-01**: Pending — INC-0006 Reuters citation requires CT/counsel decision
+- **G-02**: Pending CT/counsel sign-off (wording is sound)
+- **New records**: 0
+- **Data changes**: None
+- **Source/legal changes**: None
+- **Safety**: No DNS/CNAME/hosting changes, no secrets, no scraping, no external scripts, no analytics, repo root not exposed, no incident data changes, no G-01/G-02 approval claimed
+
+### Validation (T030)
+
+- `python3 tools/validate_dataset.py` — PASS; 10 records; no data changes
+- `grep -R "../data/" site/assets/app.js site/index.html` — clean
+- `find site -maxdepth 4 \( -name "CNAME" -o -path "*/work-items/*" -o -path "*/docs/*" \)` — empty
+- No external scripts added; no analytics/tracking added
+- `grep -R "upload-pages-artifact" .github/workflows/pages.yml` — confirmed
+- `grep -R "path: site" .github/workflows/pages.yml` — confirmed
+
+---
+
 ## [0.6.5] - 20 May 2026
 
 ### Added

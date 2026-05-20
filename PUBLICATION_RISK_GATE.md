@@ -43,6 +43,8 @@ G-12 cleared (T021). G-03 resolved (T022): custom domain `atlas.caesar.no` activ
 
 **T029 Governance Gate Decision Pack (20 May 2026):** Governance gate decision record prepared: `GOVERNANCE_GATE_DECISION_RECORD.md`. No explicit CT approval statements received in task prompt. G-01/G-02 remain pending. Decision packet ready for CT/counsel review. INC-0006 remains the sole material G-01 caution item.
 
+**T030 INC-0006 Counsel Review Follow-Up Packet (20 May 2026):** Counsel follow-up packet prepared: `COUNSEL_REVIEW_PACKET_INC0006.md`. Narrow review question and four decision options (A–D) prepared for CT/counsel. Exact optional CT sign-off language included. No data changes. No approval recorded. G-01/G-02 remain pending.
+
 **Review Pack Available:** See `PUBLIC_RELEASE_REVIEW_PACK.md` for detailed source/license review table, wording/legal-risk review table, and manual browser smoke-test checklist for G-10 completion.
 
 **Gate Closure Report (T019):** See `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md` for consolidated evidence assessment — G-01/G-02 reviewed and ready for CT sign-off, G-03 hosting recommendation table, G-10 static checks and manual checklist, remaining blocker table.
