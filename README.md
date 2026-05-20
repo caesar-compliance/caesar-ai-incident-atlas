@@ -26,12 +26,13 @@ The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](
 
 ## Project Status
 
-> **Technical Public MVP: LIVE + VERIFIED at [`https://atlas.caesar.no/`](https://atlas.caesar.no/)** — GitHub Pages, GitHub Actions, public root `site/`. Version: v0.6.6.
+> **Technical Public MVP: LIVE + VERIFIED at [`https://atlas.caesar.no/`](https://atlas.caesar.no/)** — GitHub Pages, GitHub Actions, public root `site/`. Version: v0.6.7.
 > **G-10 PASS** — Control Tower manual browser confirmation on 20 May 2026.
-> **T030 INC-0006 Counsel Review Follow-Up Packet complete** — narrow counsel/CT review packet prepared: `COUNSEL_REVIEW_PACKET_INC0006.md`. No data or source changes. No G-01/G-02 approval recorded.
-> The 10 incident records (INC-0001 through INC-0010) are publicly accessible.
-> G-01 source/license review and G-02 wording/legal-risk review remain pending explicit CT/counsel sign-off.
-> See `COUNSEL_REVIEW_PACKET_INC0006.md` for the narrow INC-0006 review question and decision options. See `PUBLICATION_RISK_GATE.md` for full gate status. See [ROADMAP.md](ROADMAP.md) for the phase plan.
+> **G-01 APPROVED with caution** — CT sign-off 20 May 2026. INC-0006 Reuters citation accepted with caution.
+> **G-02 APPROVED with caution** — CT sign-off 20 May 2026. Current public MVP wording cleared.
+> **All 12 governance gates closed.** Gate closeout: `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md`.
+> The 10 incident records (INC-0001 through INC-0010) are publicly accessible. No governance blockers remain for the current public MVP.
+> Approval is narrow — current 10-record public MVP only. Not legal advice. See [ROADMAP.md](ROADMAP.md) for the phase plan.
 
 ---
 
