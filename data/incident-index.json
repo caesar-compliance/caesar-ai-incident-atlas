@@ -1,7 +1,7 @@
 {
   "version": "0.2",
   "generated": "19 May 2026",
-  "note": "Index of INC-0001 through INC-0011. INC-0011 added under CT approval (T038). G-01/G-02 approval for INC-0001–INC-0010 does not automatically extend to INC-0011.",
+  "note": "Index of INC-0001 through INC-0012. INC-0011 added under CT approval (T038). INC-0012 added under CT approval (T040). G-01/G-02 approval for INC-0001–INC-0010 does not automatically extend to INC-0011 or INC-0012.",
   "incidents": [
     {
       "incident_id": "INC-0001",
@@ -112,6 +112,16 @@
       "severity": "high",
       "confidence": "high",
       "failure_modes": ["FM-BIAS"]
+    },
+    {
+      "incident_id": "INC-0012",
+      "file": "../data/incidents/INC-0012-ai-hiring-disability-bias-eeoc-doj-guidance.json",
+      "title": "Federal regulators issue joint guidance warning that AI-based hiring tools may violate disability discrimination protections",
+      "date": "12 May 2022",
+      "sector": ["hiring-employment"],
+      "severity": "medium",
+      "confidence": "high",
+      "failure_modes": ["FM-BIAS", "FM-TRANS"]
     }
   ]
 }

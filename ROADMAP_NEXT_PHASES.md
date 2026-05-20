@@ -1,7 +1,7 @@
 # Roadmap — Next Phases — caesar-ai-incident-atlas
 
 **Created:** 20 May 2026 (T032)
-**Last updated:** 20 May 2026 (T035)
+**Last updated:** 20 May 2026 (T040)
 **Baseline:** Public MVP v0.6.7 frozen. 10 records. All governance gates closed.
 **Status:** Planning document only. No records created. No implementation. CT approval required before any record creation or integration work.
 
@@ -19,8 +19,9 @@ See `ROADMAP.md` for the full historical phase plan.
 **T037 complete** — Batch-1 source packs finalized. Source URLs verified. See `BATCH1_FINAL_SOURCE_PACKS.md`, `BATCH1_DRAFTING_READINESS_MATRIX.md`, `BATCH1_SOURCE_URL_REGISTER.md`.
 **T038 complete** — First new incident record drafted from CAND-013: INC-0011 (Spirometry race bias). Dataset now 11 records.
 **T039 complete** — INC-0011 G-01/G-02 signed off with caution. INC-0011 live and governance-approved. See `INC0011_GATE_SIGNOFF_RECORD.md`.
-**Next:** T040 — Second Record Drafting Approval, or T040 — Dataset Polish.
-**Prerequisite:** CT approval required before any INC-0011+ record is created. G-01/G-02 approval does not extend to new records.
+**T040 complete** — INC-0012 drafted from CAND-008 (AI hiring disability bias). Dataset: 12 records. INC-0012 prepared for CT review. See `INC0012_GOVERNANCE_REVIEW_NOTE.md`.
+**Next:** T041 — INC-0012 Source/Wording Gate Sign-Off + Live Smoke Test.
+**Prerequisite:** CT approval required before INC-0012 is treated as governance-approved. G-01/G-02 approval for INC-0001–INC-0011 does not extend to INC-0012.
 
 **Candidate selection criteria (planning gate):**
 - Incident must be publicly reported with at least one verifiable primary source.

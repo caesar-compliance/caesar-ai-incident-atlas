@@ -1,7 +1,7 @@
 # Development Roadmap — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T035)
-**Status:** v0.7 Dataset Expansion Planning in progress. T035 P1 source packs complete. First batch recommendation: CAND-013, CAND-008, CAND-011, CAND-010. Next: T036 CT First Drafting Batch Selection (planning only).
+**Last updated:** 20 May 2026 (T040)
+**Status:** v0.7 Dataset Expansion in progress. T040 complete — INC-0012 drafted from CAND-008. Dataset: 12 records. Next: T041 INC-0012 Source/Wording Gate Sign-Off.
 
 ---
 
@@ -59,7 +59,9 @@
 
 **T039 complete** — INC-0011 G-01/G-02 signed off with caution. INC-0011 live at https://atlas.caesar.no/. Dataset: 11 records governance-approved. See `INC0011_GATE_SIGNOFF_RECORD.md`.
 
-**Recommended next step:** T040 — Second Record Drafting Approval (recommend CAND-008 or CAND-010), or T040 — Dataset Polish.
+**T040 complete** — Second new incident record drafted from CAND-008: INC-0012 (AI hiring disability bias — EEOC + DOJ ADA guidance). Dataset now 12 records. INC-0012 prepared for CT review. See `INC0012_GOVERNANCE_REVIEW_NOTE.md`.
+
+**Recommended next step:** T041 — INC-0012 Source/Wording Gate Sign-Off + Live Smoke Test.
 
 ---
 

@@ -78,17 +78,17 @@ print("Checking data/incidents/ …")
 record_paths = sorted(glob.glob(INCIDENTS_GLOB))
 print(f"  INC files found: {len(record_paths)}")
 
-if len(record_paths) != 10:
-    fail(f"Expected exactly 10 INC-*.json files, found {len(record_paths)}")
+if len(record_paths) != 12:
+    fail(f"Expected exactly 12 INC-*.json files, found {len(record_paths)}")
 
-# ── Check 3: No INC-0011 or higher ────────────────────────────────────────────
+# ── Check 3: No INC-0013 or higher ────────────────────────────────────────────
 def _inc_num(path):
     m = re.search(r"INC-(\d{4})", os.path.basename(path))
     return int(m.group(1)) if m else 0
 
-over = [p for p in record_paths if _inc_num(p) >= 11]
+over = [p for p in record_paths if _inc_num(p) >= 13]
 if over:
-    fail(f"INC-0011 or higher found: {[os.path.basename(p) for p in over]}")
+    fail(f"INC-0013 or higher found: {[os.path.basename(p) for p in over]}")
 
 # ── Check 4: Parse and validate each record ───────────────────────────────────
 records = []

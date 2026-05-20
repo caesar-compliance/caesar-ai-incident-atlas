@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T039)
+**Last updated:** 20 May 2026 (T040)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.7.7` |
-| Current phase | `T039 — INC-0011 G-01/G-02 signed off with caution. Dataset: 11 records live. Ready for second record drafting approval.` |
+| Current version | `0.7.8` |
+| Current phase | `T040 — INC-0012 drafted from CAND-008. Dataset: 12 records. INC-0012 prepared for CT review.` |
 | Status | `active` |
-| Latest completed task | `T039 — INC-0011 Source/Wording Gate Sign-Off + Live Smoke Test` |
-| Active work item | `T039 — complete. INC-0011 G-01/G-02 approved with caution. INC-0011 live at https://atlas.caesar.no/. Dataset: 11 records. Ready for T040.` |
-| Next recommended step | `T040 — Second Record Drafting Approval (recommend CAND-008 or CAND-010), or T040 — Dataset Polish if CT defers` |
+| Latest completed task | `T040 — Draft Second New Incident Record from CAND-008` |
+| Active work item | `T040 — complete. INC-0012 drafted from CAND-008. Dataset: 12 records. INC-0012 prepared for CT review. Ready for T041.` |
+| Next recommended step | `T041 — INC-0012 Source/Wording Gate Sign-Off + Live Smoke Test` |
 
 ---
 
@@ -61,6 +61,8 @@
 | T037 — Batch-1 Source Pack Finalization | **Complete** — Source packs finalized for 4 selected candidates. URLs verified. No records created. | 20 May 2026 |
 | T038 — Draft First New Incident Record | **Complete** — INC-0011 drafted from CAND-013. Dataset: 11 records. Governance review note prepared. | 20 May 2026 |
 | T039 — INC-0011 Gate Sign-Off + Smoke Test | **Complete** — G-01/G-02 approved with caution. INC-0011 live. `INC0011_GATE_SIGNOFF_RECORD.md` created. | 20 May 2026 |
+| T040 — Draft Second New Incident Record (CAND-008) | **Complete** — INC-0012 drafted. Dataset: 12 records. Governance review note prepared. | 20 May 2026 |
+| v0.7.8 Dataset Expansion — INC-0012 drafted | Complete — 12 records; INC-0012 prepared for CT review | 20 May 2026 |
 | v0.7.7 Dataset Expansion — INC-0011 signed off | Complete — 11 records; INC-0011 governance-approved | 20 May 2026 |
 | v0.7.6 Dataset Expansion — first new record | Complete — 11 records (INC-0001 through INC-0011) | 20 May 2026 |
 | v0.5 Static Site — local prototype | Complete — T012 | 19 May 2026 |
