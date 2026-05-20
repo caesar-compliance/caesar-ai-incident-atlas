@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T035)
+**Last updated:** 20 May 2026 (T038)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.7.5` |
-| Current phase | `T037 — Batch-1 source packs finalized. Source URLs verified for CAND-013, CAND-008, CAND-011, CAND-010. All remain not_approved_candidate. No records created. Awaiting CT approval for first record drafting (T038).` |
+| Current version | `0.7.6` |
+| Current phase | `T038 — First new incident record drafted from CAND-013 (INC-0011). Dataset now 11 records. INC-0011 prepared for CT review; not automatically covered by G-01/G-02 approval for INC-0001–INC-0010.` |
 | Status | `active` |
-| Latest completed task | `T037 — Batch-1 Source Pack Finalization` |
-| Active work item | `T037 — complete. BATCH1_FINAL_SOURCE_PACKS.md, BATCH1_DRAFTING_READINESS_MATRIX.md, BATCH1_SOURCE_URL_REGISTER.md created. Source URLs verified for CAND-013, CAND-008, CAND-011, CAND-010. All remain not_approved_candidate. No records created.` |
-| Next recommended step | `T038 — CT Approval for First Record Drafting, or T038 — Source Pack Refinement if CT defers` |
+| Latest completed task | `T038 — Draft First New Incident Record (CAND-013 → INC-0011)` |
+| Active work item | `T038 — complete. INC-0011 drafted from CAND-013. Dataset: 11 records (INC-0001–INC-0011). INC0011_GOVERNANCE_REVIEW_NOTE.md prepared. INC-0011 requires separate CT sign-off before governance approval.` |
+| Next recommended step | `T039 — INC-0011 Source/Wording Gate Sign-Off + Live Smoke Test, or T039 — Draft Second Approved Candidate if CT approves another` |
 
 ---
 
@@ -59,7 +59,9 @@
 | T035 — P1 Candidate Source Pack Planning | **Complete** — Source packs for all 8 P1 candidates; 6 ready for CT review; 1 deferred (CAND-002 needs Tier 1); 1 counsel-gated (CAND-004). First batch: CAND-013, 008, 011, 010. | 20 May 2026 |
 | T036 — CT First Drafting Batch Selection | **Complete** — First drafting batch selected: CAND-013, CAND-008, CAND-011, CAND-010. All remain `not_approved_candidate`. No records created. | 20 May 2026 |
 | T037 — Batch-1 Source Pack Finalization | **Complete** — Source packs finalized for 4 selected candidates. URLs verified. No records created. | 20 May 2026 |
+| T038 — Draft First New Incident Record | **Complete** — INC-0011 drafted from CAND-013. Dataset: 11 records. Governance review note prepared. | 20 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete — 10 records (INC-0001 through INC-0010) | 19 May 2026 |
+| v0.7.6 Dataset Expansion — first new record | Complete — 11 records (INC-0001 through INC-0011) | 20 May 2026 |
 | v0.5 Static Site — local prototype | Complete — T012 | 19 May 2026 |
 | v0.5.1 Static Site — local functional MVP | Complete — T013 | 19 May 2026 |
 | v0.5.2 Local QA tooling | Complete — T014 | 19 May 2026 |

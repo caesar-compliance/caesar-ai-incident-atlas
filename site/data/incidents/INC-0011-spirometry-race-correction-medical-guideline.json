@@ -1,0 +1,51 @@
+{
+  "incident_id": "INC-0011",
+  "title": "Medical society issues revised guidance on race-based correction factors in pulmonary function testing algorithms",
+  "date": "18 July 2023",
+  "date_note": "Date of ATS official statement publication. Research and concerns regarding race-based spirometry correction predate this statement.",
+  "sector": ["healthcare-medical"],
+  "ai_system_context": "Spirometry interpretation algorithms and reference equations that apply race-based or race-ethnicity correction factors to pulmonary function test results, used to assess lung function and diagnose respiratory conditions.",
+  "summary": "According to an official statement published by the American Thoracic Society in July 2023, longstanding clinical practice incorporated race-based correction factors into spirometry interpretation algorithms. These algorithms adjusted predicted lung function values based on a patient's reported race or ethnicity, which could affect diagnostic thresholds and clinical decisions. The ATS statement reviewed evidence that such race-based adjustments may contribute to disparities in respiratory disease diagnosis and treatment. The society recommended shifting toward race-neutral reference equations and identified the need for continued research into the clinical and equitable implications of spirometry interpretation practices. This represents a documented case where medical algorithms incorporated demographic factors that professional societies later reassessed for potential bias effects.",
+  "failure_modes": ["FM-BIAS"],
+  "severity": "high",
+  "confidence": "high",
+  "controls": ["CTL-TEST-002", "CTL-DOC-001", "CTL-OVER-001", "CTL-RISK-001"],
+  "evidence_required": [
+    "EV-002 — Bias testing record: evidence of demographic disparity testing for diagnostic algorithms before deployment",
+    "EV-011 — Model documentation: documentation of reference equation selection rationale and demographic factor inclusion",
+    "EV-004 — Human oversight record: evidence of clinical review processes that consider algorithmic outputs in context",
+    "EV-001 — AI system register: documentation of spirometry interpretation systems and their algorithmic basis"
+  ],
+  "lessons": [
+    "Medical algorithms that incorporate demographic factors such as race or ethnicity require rigorous pre-deployment evaluation for potential disparate impact on different patient populations.",
+    "Healthcare organisations should document the rationale for selecting specific reference equations or algorithmic adjustments, including demographic factors, and review this documentation periodically against emerging evidence.",
+    "Clinical decision-support algorithms require human oversight that considers individual patient context rather than relying solely on algorithmic thresholds that may incorporate population-level assumptions.",
+    "Professional societies and healthcare institutions should maintain processes for reassessing algorithmic practices when new evidence emerges regarding potential bias or disparate outcomes."
+  ],
+  "sources": [
+    {
+      "url": "https://site.thoracic.org/about-us/news/ats-publishes-official-statement-on-race-ethnicity-and-pulmonary-function-test-interpretation",
+      "source_type": "agency_report",
+      "accessed": "20 May 2026",
+      "title": "ATS Publishes Official Statement on Race, Ethnicity and Pulmonary Function Test Interpretation — American Thoracic Society, July 2023"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38607551/",
+      "source_type": "academic_paper",
+      "accessed": "20 May 2026",
+      "title": "Application of the European Respiratory Society/American Thoracic Society Spirometry Standards and Race-Neutral Equations in the COPDGene Study — PubMed PMID 38607551"
+    }
+  ],
+  "harms": [
+    "Potential disparities in respiratory disease diagnosis and treatment decisions based on race-adjusted algorithmic thresholds",
+    "Delayed or missed diagnoses in populations subject to race-based correction factors",
+    "Reduced access to interventions such as lung transplants based on algorithmically adjusted metrics"
+  ],
+  "affected_stakeholders": [
+    "Patients undergoing pulmonary function testing",
+    "Healthcare providers interpreting spirometry results",
+    "Medical device manufacturers providing spirometry software",
+    "Respiratory medicine specialists and clinical laboratories"
+  ],
+  "impact": "The ATS official statement represents a significant professional society reassessment of long-established clinical algorithms. The statement acknowledged that race-based correction factors in spirometry may contribute to health disparities and recommended transition toward race-neutral approaches. Academic research has documented that race-based adjustments could affect clinical decisions including diagnosis severity classification, treatment eligibility, and access to procedures such as lung transplantation. The case illustrates how algorithmic practices embedded in medical standards require ongoing governance review as evidence regarding potential bias effects evolves."
+}

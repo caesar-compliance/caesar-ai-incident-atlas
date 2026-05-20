@@ -1,7 +1,7 @@
 {
   "version": "0.2",
   "generated": "19 May 2026",
-  "note": "Index of INC-0001 through INC-0010 only. Do not add INC-0011 or higher without Control Tower approval.",
+  "note": "Index of INC-0001 through INC-0011. INC-0011 added under CT approval (T038). G-01/G-02 approval for INC-0001–INC-0010 does not automatically extend to INC-0011.",
   "incidents": [
     {
       "incident_id": "INC-0001",
@@ -102,6 +102,16 @@
       "severity": "medium",
       "confidence": "medium",
       "failure_modes": ["FM-BIAS", "FM-TRANS"]
+    },
+    {
+      "incident_id": "INC-0011",
+      "file": "../data/incidents/INC-0011-spirometry-race-correction-medical-guideline.json",
+      "title": "Medical society issues revised guidance on race-based correction factors in pulmonary function testing algorithms",
+      "date": "18 July 2023",
+      "sector": ["healthcare-medical"],
+      "severity": "high",
+      "confidence": "high",
+      "failure_modes": ["FM-BIAS"]
     }
   ]
 }

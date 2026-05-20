@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.7.6] - 20 May 2026
+
+### Added
+
+- **T038 — Draft First New Incident Record (CAND-013 → INC-0011).** Created first new incident record from approved candidate CAND-013: `INC-0011-spirometry-race-correction-medical-guideline.json`. Record documents ATS official statement on race-based correction factors in pulmonary function testing algorithms. Updated `data/incident-index.json` and `site/data/incident-index.json` to include INC-0011. Created `INC0011_GOVERNANCE_REVIEW_NOTE.md` with source/license review and wording/legal-risk review for CT sign-off. Dataset now 11 records (INC-0001 through INC-0011). INC-0011 prepared for CT review; not automatically covered by G-01/G-02 approval for INC-0001–INC-0010. Updated lifecycle docs: `PROJECT_STATE.md`, `NEXT_ACTIONS.md`, `CHANGELOG.md`. Created `work-items/T038-create-inc0011-cand013/`. No scraping or bulk downloads. Not legal advice. Branch: `records/T038-create-inc0011-cand013`.
+
+### Status (T038)
+
+- **Dataset**: 11 records, INC-0001–INC-0011
+- **New records**: 1 (INC-0011 from CAND-013)
+- **Source**: ATS official statement + PubMed (Tier 1 + Tier 2)
+- **Failure mode**: FM-BIAS
+- **Severity**: high; **Confidence**: high
+- **G-01/G-02 approval**: INC-0001–INC-0010 approved with caution; INC-0011 requires separate CT sign-off
+- **Safety**: No DNS/CNAME/hosting changes, no secrets, no scraping, no imports, no analytics, repo root not exposed. Not legal advice.
+
+### Validation (T038)
+
+- `python3 tools/validate_dataset.py` — PASS; 11 records; data and site sync confirmed
+- INC-0011 files created in data/incidents/ and site/data/incidents/
+- No CNAME; no internal docs in site/
+- `git diff --check` — clean
+
+---
+
 ## [0.7.5] - 20 May 2026
 
 ### Added

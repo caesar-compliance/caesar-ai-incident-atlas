@@ -1,12 +1,13 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T037)
+**Last updated:** 20 May 2026 (T038)
 
 ---
 
 ## Execution Boundaries
 
-This repository is in the **v0.7 Dataset Expansion Planning** phase. Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/`. **G-10 PASS** (20 May 2026). **G-01 APPROVED with caution** (20 May 2026). **G-02 APPROVED with caution** (20 May 2026). All 12 governance gates closed — current 10-record MVP only. Public MVP baseline frozen at `64c7267`. Gate closeout: `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md`. Baseline freeze: `PUBLIC_MVP_BASELINE_FREEZE.md`. Roadmap split: `ROADMAP_NEXT_PHASES.md`. **T033 complete** — dataset expansion planning criteria created. **T034 complete** — 15 planning-only candidates drafted. **T035 complete** — Source packs for all 8 P1 candidates; 6 ready for CT review; 1 deferred (CAND-002 needs Tier 1); 1 counsel-gated (CAND-004). First batch: CAND-013, 008, 011, 010. **T036 complete** — First drafting batch selected. **T037 complete** — Source packs finalized for 4 selected candidates. URLs verified. All remain `not_approved_candidate`. No records created. Next: T038 — CT approval for first record drafting or defer.
+This repository is in the **v0.7 Dataset Expansion Planning** phase. Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/`. **G-10 PASS** (20 May 2026). **G-01 APPROVED with caution** (20 May 2026). **G-02 APPROVED with caution** (20 May 2026). All 12 governance gates closed — current 10-record MVP only. Public MVP baseline frozen at `64c7267`. Gate closeout: `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md`. Baseline freeze: `PUBLIC_MVP_BASELINE_FREEZE.md`. Roadmap split: `ROADMAP_NEXT_PHASES.md`. **T033 complete** — dataset expansion planning criteria created. **T034 complete** — 15 planning-only candidates drafted. **T035 complete** — Source packs for all 8 P1 candidates; 6 ready for CT review; 1 deferred (CAND-002 needs Tier 1); 1 counsel-gated (CAND-004). First batch: CAND-013, 008, 011, 010. **T033–T038 complete** — Dataset expansion planning criteria, 15 candidate shortlist, P1 source packs, CT first drafting batch selection, batch-1 source pack finalization, and first new incident record (INC-0011 from CAND-013) completed. Dataset: 11 records. INC-0011 prepared for CT review; not automatically covered by G-01/G-02 approval for INC-0001–INC-0010.
+> Next: T039 — INC-0011 Source/Wording Gate Sign-Off + Live Smoke Test, or T039 — Draft Second Approved Candidate if CT approves. See [ROADMAP_NEXT_PHASES.md](ROADMAP_NEXT_PHASES.md) for the roadmap split.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -56,13 +57,16 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T035 — P1 Candidate Source Pack Planning | **Complete** — Source packs for all 8 P1 candidates; 6 ready for CT review; 1 deferred (CAND-002 needs Tier 1); 1 counsel-gated (CAND-004). First batch: CAND-013, 008, 011, 010. | 20 May 2026 |
 | T036 — CT First Drafting Batch Selection | **Complete** — First batch selected: CAND-013, CAND-008, CAND-011, CAND-010. | 20 May 2026 |
 | T037 — Batch-1 Source Pack Finalization | **Complete** — Source URLs verified. No records created. | 20 May 2026 |
+| T038 — Draft First New Incident Record | **Complete** — INC-0011 drafted from CAND-013. Dataset: 11 records. Governance review note prepared. | 20 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated | 19 May 2026 |
 
 ---
 
-## Status: T035 Complete — P1 Source Packs Prepared
+## Status: T038 Complete — First New Record Drafted (INC-0011)
 
 **Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/`.**
+**Dataset now contains 11 records (INC-0001 through INC-0011).**
+**INC-0011 governance review note prepared — pending CT sign-off.**
 
 **Deployment facts (locked):**
 - GitHub Pages source: GitHub Actions workflow (`.github/workflows/pages.yml`)
@@ -80,15 +84,15 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 - **G-02**: ✅ **APPROVED with caution** — current public MVP wording cleared (20 May 2026)
 - All other gates (G-03 through G-12): ✅ closed
 
-**T032 complete.** Public MVP baseline frozen at `64c7267`. `PUBLIC_MVP_BASELINE_FREEZE.md` and `ROADMAP_NEXT_PHASES.md` created. No records, data, source, or legal content changed. No DNS/CNAME/hosting changes. Approval scope remains current 10-record public MVP only.
+**T032 complete.** Public MVP baseline frozen at `64c7267`. `PUBLIC_MVP_BASELINE_FREEZE.md` and `ROADMAP_NEXT_PHASES.md` created. No records, data, source, or legal content changed. No DNS/CNAME/hosting changes. **G-01/G-02 approval covers INC-0001–INC-0010. INC-0011 requires separate CT sign-off before governance approval.**
 
 See `PUBLICATION_RISK_GATE.md` for gate status. See `PRODUCT_POLISH_BACKLOG.md` for future work. See `ROADMAP_NEXT_PHASES.md` for v0.7–v1.0 roadmap split.
 
-## Next Recommended Step: T038
+## Next Recommended Step: T039
 
-**T038 — CT Approval for First Record Drafting.** CT reviews `BATCH1_FINAL_SOURCE_PACKS.md`, `BATCH1_DRAFTING_READINESS_MATRIX.md`, and `BATCH1_SOURCE_URL_REGISTER.md`. CT decides: (Option A) approve one candidate for first drafting (recommend CAND-013 as safest); (Option B) approve 2–4 candidates for batch drafting; (Option C) defer drafting. No record creation until CT explicit approval received and all 12 gates cleared per candidate.
+**T039 — INC-0011 Source/Wording Gate Sign-Off + Live Smoke Test.** CT reviews `INC0011_GOVERNANCE_REVIEW_NOTE.md`. Options: (A) CT approves INC-0011 for publication — source and wording gates pass; (B) CT requests wording revisions; (C) CT defers INC-0011 pending additional review. After CT sign-off, run live smoke test to verify INC-0011 appears at `https://atlas.caesar.no/#INC-0011`.
 
-**Alternative T038:** Source Pack Refinement — if CT requires additional verification for any candidate before drafting approval.
+**Alternative T039:** Draft Second Approved Candidate — if CT explicitly approves another candidate from batch-1 (CAND-008, CAND-010, or CAND-011).
 
 ---
 
