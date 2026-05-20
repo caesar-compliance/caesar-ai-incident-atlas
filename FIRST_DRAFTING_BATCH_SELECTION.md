@@ -161,7 +161,18 @@ Before any candidate becomes a real incident record (INC-0011+), the following g
 
 ---
 
-## 5. Explicit Non-Approval Statement
+## 5. T037 Source Pack Finalization
+
+**T037 complete (20 May 2026).** Source packs finalized for all 4 batch-1 candidates:
+- `BATCH1_FINAL_SOURCE_PACKS.md` — verified primary/secondary source URLs per candidate
+- `BATCH1_DRAFTING_READINESS_MATRIX.md` — readiness tables and drafting order recommendation
+- `BATCH1_SOURCE_URL_REGISTER.md` — source URL register with reproduction rules
+
+All 4 candidates remain `not_approved_candidate`. No records created. No data changed.
+
+---
+
+## 6. Explicit Non-Approval Statement
 
 This document explicitly states:
 
@@ -172,6 +183,6 @@ This document explicitly states:
 
 ---
 
-*See `FIRST_DRAFTING_BATCH_GATE_MATRIX.md` for compact gate matrix. See `FUTURE_RECORD_DRAFTING_TASK_OUTLINE.md` for future drafting workflow template.*
+*See `FIRST_DRAFTING_BATCH_GATE_MATRIX.md` for compact gate matrix. See `FUTURE_RECORD_DRAFTING_TASK_OUTLINE.md` for future drafting workflow template. See `BATCH1_FINAL_SOURCE_PACKS.md` for T037 source verification.*
 
 **Disclaimer:** This document is planning material only. It does not constitute legal advice, legal clearance, or approval for any new incident records. Not legal advice.

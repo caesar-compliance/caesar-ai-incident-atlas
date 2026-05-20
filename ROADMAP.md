@@ -53,7 +53,9 @@
 
 **T036 complete** — First drafting batch selected: CAND-013, CAND-008, CAND-011, CAND-010. All remain `not_approved_candidate`. See `FIRST_DRAFTING_BATCH_SELECTION.md`.
 
-**Recommended next step:** T037 — Batch-1 Source Pack Finalization (planning/review only, no record creation) or explicit CT approval for first record drafting.
+**T037 complete** — Batch-1 source packs finalized. Source URLs verified for all 4 candidates. See `BATCH1_FINAL_SOURCE_PACKS.md`.
+
+**Recommended next step:** T038 — CT Approval for First Record Drafting, or defer.
 
 ---
 

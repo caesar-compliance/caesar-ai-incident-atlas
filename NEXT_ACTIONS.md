@@ -1,12 +1,12 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T035)
+**Last updated:** 20 May 2026 (T037)
 
 ---
 
 ## Execution Boundaries
 
-This repository is in the **v0.7 Dataset Expansion Planning** phase. Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/`. **G-10 PASS** (20 May 2026). **G-01 APPROVED with caution** (20 May 2026). **G-02 APPROVED with caution** (20 May 2026). All 12 governance gates closed — current 10-record MVP only. Public MVP baseline frozen at `64c7267`. Gate closeout: `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md`. Baseline freeze: `PUBLIC_MVP_BASELINE_FREEZE.md`. Roadmap split: `ROADMAP_NEXT_PHASES.md`. **T033 complete** — dataset expansion planning criteria created. **T034 complete** — 15 planning-only candidates drafted. **T035 complete** — source packs for all 8 P1 candidates; 6 ready for CT review. **T036 complete** — first drafting batch selected: CAND-013, CAND-008, CAND-011, CAND-010. All remain `not_approved_candidate`. No records created. Next: T037 source pack finalization or CT approval for first record drafting.
+This repository is in the **v0.7 Dataset Expansion Planning** phase. Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/`. **G-10 PASS** (20 May 2026). **G-01 APPROVED with caution** (20 May 2026). **G-02 APPROVED with caution** (20 May 2026). All 12 governance gates closed — current 10-record MVP only. Public MVP baseline frozen at `64c7267`. Gate closeout: `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md`. Baseline freeze: `PUBLIC_MVP_BASELINE_FREEZE.md`. Roadmap split: `ROADMAP_NEXT_PHASES.md`. **T033 complete** — dataset expansion planning criteria created. **T034 complete** — 15 planning-only candidates drafted. **T035 complete** — Source packs for all 8 P1 candidates; 6 ready for CT review; 1 deferred (CAND-002 needs Tier 1); 1 counsel-gated (CAND-004). First batch: CAND-013, 008, 011, 010. **T036 complete** — First drafting batch selected. **T037 complete** — Source packs finalized for 4 selected candidates. URLs verified. All remain `not_approved_candidate`. No records created. Next: T038 — CT approval for first record drafting or defer.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -53,8 +53,10 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T032 — Public MVP v0.7 Status Freeze + Roadmap Split | **Complete** — Baseline frozen at `64c7267`; `PUBLIC_MVP_BASELINE_FREEZE.md` + `ROADMAP_NEXT_PHASES.md` created |
 | T033 — Dataset Expansion Planning for INC-0011+ Candidates | **Complete** — Candidate criteria, source gates, review workflow, candidate template created. No records. No data changes. |
 | T034 — Candidate Shortlist Draft for INC-0011+ Planning | **Complete** — 15 planning-only candidates; triage matrix; 12-gate record creation checklist. No records. No data changes. |
-| T035 — P1 Candidate Source Pack Planning | **Complete** — Source packs for 8 P1 candidates; 6 CT-ready; 1 deferred; 1 counsel-gated. First batch: CAND-013, 008, 011, 010. |
-| v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated |
+| T035 — P1 Candidate Source Pack Planning | **Complete** — Source packs for all 8 P1 candidates; 6 ready for CT review; 1 deferred (CAND-002 needs Tier 1); 1 counsel-gated (CAND-004). First batch: CAND-013, 008, 011, 010. | 20 May 2026 |
+| T036 — CT First Drafting Batch Selection | **Complete** — First batch selected: CAND-013, CAND-008, CAND-011, CAND-010. | 20 May 2026 |
+| T037 — Batch-1 Source Pack Finalization | **Complete** — Source URLs verified. No records created. | 20 May 2026 |
+| v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated | 19 May 2026 |
 
 ---
 
@@ -82,11 +84,11 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 
 See `PUBLICATION_RISK_GATE.md` for gate status. See `PRODUCT_POLISH_BACKLOG.md` for future work. See `ROADMAP_NEXT_PHASES.md` for v0.7–v1.0 roadmap split.
 
-## Next Recommended Step: T036
+## Next Recommended Step: T038
 
-**T036 — CT First Drafting Batch Selection (planning only, no record creation).** CT reviews `P1_CANDIDATE_PRIORITIZATION_RECOMMENDATION.md` and selects which candidates from the recommended first batch (CAND-013, CAND-008, CAND-011, CAND-010) to proceed with. CT provides explicit written approval for each selected candidate. No record creation until CT approval received and all 12 gates in `INCIDENT_RECORD_CREATION_GATE_CHECKLIST.md` cleared per candidate.
+**T038 — CT Approval for First Record Drafting.** CT reviews `BATCH1_FINAL_SOURCE_PACKS.md`, `BATCH1_DRAFTING_READINESS_MATRIX.md`, and `BATCH1_SOURCE_URL_REGISTER.md`. CT decides: (Option A) approve one candidate for first drafting (recommend CAND-013 as safest); (Option B) approve 2–4 candidates for batch drafting; (Option C) defer drafting. No record creation until CT explicit approval received and all 12 gates cleared per candidate.
 
-**Alternative T036:** Source Pack Refinement for deferred candidates — verify DWP/ICO/parliament Tier 1 source for CAND-002; confirm CourtListener URL for CAND-010; confirm US Senate letter URL for CAND-003.
+**Alternative T038:** Source Pack Refinement — if CT requires additional verification for any candidate before drafting approval.
 
 ---
 

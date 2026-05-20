@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.7.5] - 20 May 2026
+
+### Added
+
+- **T037 — Batch-1 Source Pack Finalization.** Manual source lookup performed for 4 selected batch-1 candidates: CAND-013 (Spirometry race bias — ATS statement + PubMed), CAND-008 (AI hiring disability bias — EEOC + DOJ guidance), CAND-011 (Retail facial recognition ICO — ICO statement + Southern Co-op), CAND-010 (LLM legal sanctions — Johnson v. Dunn CourtListener). Created `BATCH1_FINAL_SOURCE_PACKS.md` with verified source URLs, source-risk assessments, and drafting readiness per candidate. Created `BATCH1_DRAFTING_READINESS_MATRIX.md` with readiness tables, safest-to-riskiest drafting order, and T038 options. Created `BATCH1_SOURCE_URL_REGISTER.md` with source reproduction rules and license summary. Updated planning docs: `FIRST_DRAFTING_BATCH_SELECTION.md`, `FIRST_DRAFTING_BATCH_GATE_MATRIX.md`, `FUTURE_RECORD_DRAFTING_TASK_OUTLINE.md`. Updated lifecycle docs: `PROJECT_STATE.md`, `NEXT_ACTIONS.md`, `ROADMAP.md`, `ROADMAP_NEXT_PHASES.md`. Created `work-items/T037-batch1-source-pack-finalization/`. No incident records created. No data, source, site, or governance gate changes. No scraping or bulk downloads. Not legal advice. Branch: `planning/T037-batch1-source-pack-finalization`.
+
+### Status (T037)
+
+- **Dataset**: 10 records, INC-0001–INC-0010, unchanged
+- **New records**: 0
+- **Candidates**: 4 batch-1 candidates source-verified; all remain `not_approved_candidate`
+- **Source packs ready**: CAND-013 (ATS+PubMed), CAND-008 (EEOC+DOJ), CAND-011 (ICO+company), CAND-010 (CourtListener)
+- **Drafting order**: CAND-013 (safest) → CAND-008 → CAND-010 → CAND-011 (riskiest)
+- **G-01/G-02 approval**: Remains limited to current 10-record MVP — no expansion
+- **Safety**: No DNS/CNAME/hosting changes, no secrets, no scraping, no imports, no analytics, repo root not exposed. Not legal advice.
+
+### Validation (T037)
+
+- `python3 tools/validate_dataset.py` — PASS; 10 records; no data changes
+- No INC-0011+ files created; no site/ changes; no CNAME
+- `git diff --check` — clean
+
+---
+
 ## [0.7.3] - 20 May 2026
 
 ### Added

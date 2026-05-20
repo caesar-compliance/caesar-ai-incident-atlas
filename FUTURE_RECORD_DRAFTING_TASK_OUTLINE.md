@@ -24,10 +24,10 @@ Before any drafting begins, confirm:
 |---|---|
 | CT explicit approval for record creation | Required |
 | Candidate selected from `FIRST_DRAFTING_BATCH_SELECTION.md` | Required |
-| Source pack finalized and reviewed | Required |
-| Primary source URL confirmed stable | Required |
+| Source pack finalized and reviewed | **Complete (T037)** — see `BATCH1_FINAL_SOURCE_PACKS.md` |
+| Primary source URL confirmed stable | **Complete (T037)** — see `BATCH1_SOURCE_URL_REGISTER.md` |
 | Wording/legal-risk review completed | Required |
-| Counsel gate resolved (if triggered) | Required |
+| Counsel gate resolved (if triggered) | Not required for batch-1 candidates |
 | G-01/G-02 equivalent approval scope defined | Required |
 
 ---
