@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.7.8] - 20 May 2026
+
+### Added
+
+- **T040 — Draft Second New Incident Record from CAND-008.** Created INC-0012: "Federal regulators issue joint guidance warning that AI-based hiring tools may violate disability discrimination protections". Sources: 3× Tier 1 US government public domain (EEOC ADA guidance, DOJ ADA.gov guidance, EEOC-DOJ joint press release). Updated `data/incident-index.json` and `site/data/incident-index.json`. Created `INC0012_GOVERNANCE_REVIEW_NOTE.md` with source/license and wording/legal-risk review. Updated governance docs: `PUBLICATION_RISK_GATE.md`, `GOVERNANCE_GATE_DECISION_RECORD.md`, `GOVERNANCE_SIGNOFF_PACK.md`. Updated lifecycle docs. Created `work-items/T040-create-inc0012-cand008/`.
+
+### Status (T040)
+
+- **Dataset**: 12 records, INC-0001–INC-0012
+- **INC-0012 status**: `prepared_for_CT_review` — not yet governance-approved
+- **Source**: EEOC + DOJ + joint press release (3× Tier 1, all US government public domain)
+- **Wording**: Regulatory guidance framing, no named employer, hedged language — low risk
+- **Approval scope**: INC-0012 requires separate CT sign-off; G-01/G-02 for INC-0001–INC-0011 does not extend
+- **Safety**: No DNS/CNAME/hosting changes, no secrets, no scraping, no copied source text, no analytics, repo root not exposed. Not legal advice.
+
+### Validation (T040)
+
+- `python3 tools/validate_dataset.py` — 12 records expected
+- `site/data/` synchronized with root `data/`
+- No INC-0013+ files
+- No internal docs in `site/`
+- Workflow uploads only `site/`
+- `git diff --check` — clean
+
+---
+
 ## [0.7.7] - 20 May 2026
 
 ### Added

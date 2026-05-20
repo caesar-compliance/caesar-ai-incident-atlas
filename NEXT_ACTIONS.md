@@ -1,13 +1,13 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T039)
+**Last updated:** 20 May 2026 (T040)
 
 ---
 
 ## Execution Boundaries
 
-This repository is in the **v0.7 Dataset Expansion Planning** phase. Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/`. **G-10 PASS** (20 May 2026). **G-01 APPROVED with caution** (20 May 2026). **G-02 APPROVED with caution** (20 May 2026). All 12 governance gates closed — current 10-record MVP only. Public MVP baseline frozen at `64c7267`. Gate closeout: `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md`. Baseline freeze: `PUBLIC_MVP_BASELINE_FREEZE.md`. Roadmap split: `ROADMAP_NEXT_PHASES.md`. **T033 complete** — dataset expansion planning criteria created. **T034 complete** — 15 planning-only candidates drafted. **T035 complete** — Source packs for all 8 P1 candidates; 6 ready for CT review; 1 deferred (CAND-002 needs Tier 1); 1 counsel-gated (CAND-004). First batch: CAND-013, 008, 011, 010. **T033–T039 complete** — Dataset expansion planning criteria, 15 candidate shortlist, P1 source packs, CT first drafting batch selection, batch-1 source pack finalization, first new incident record (INC-0011), and INC-0011 gate sign-off completed. Dataset: 11 records live. INC-0011 G-01/G-02 approved with caution.
-> Next: T040 — Second Record Drafting Approval (recommend CAND-008 or CAND-010), or T040 — Dataset Polish. See [ROADMAP_NEXT_PHASES.md](ROADMAP_NEXT_PHASES.md) for the roadmap split.
+This repository is in the **v0.7 Dataset Expansion Planning** phase. Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/`. **G-10 PASS** (20 May 2026). **G-01 APPROVED with caution** (20 May 2026). **G-02 APPROVED with caution** (20 May 2026). All 12 governance gates closed — current 10-record MVP only. Public MVP baseline frozen at `64c7267`. Gate closeout: `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md`. Baseline freeze: `PUBLIC_MVP_BASELINE_FREEZE.md`. Roadmap split: `ROADMAP_NEXT_PHASES.md`. **T033 complete** — dataset expansion planning criteria created. **T034 complete** — 15 planning-only candidates drafted. **T035 complete** — Source packs for all 8 P1 candidates; 6 ready for CT review; 1 deferred (CAND-002 needs Tier 1); 1 counsel-gated (CAND-004). First batch: CAND-013, 008, 011, 010. **T033–T040 complete** — Dataset expansion planning criteria, 15 candidate shortlist, P1 source packs, CT first drafting batch selection, batch-1 source pack finalization, first new incident record (INC-0011), INC-0011 gate sign-off, and second new incident record (INC-0012 from CAND-008) completed. Dataset: 12 records. INC-0011 G-01/G-02 approved with caution. INC-0012 prepared for CT review.
+> Next: T041 — INC-0012 Source/Wording Gate Sign-Off + Live Smoke Test. See [ROADMAP_NEXT_PHASES.md](ROADMAP_NEXT_PHASES.md) for the roadmap split.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -59,15 +59,17 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T037 — Batch-1 Source Pack Finalization | **Complete** — Source URLs verified. No records created. | 20 May 2026 |
 | T038 — Draft First New Incident Record | **Complete** — INC-0011 drafted from CAND-013. Dataset: 11 records. Governance review note prepared. | 20 May 2026 |
 | T039 — INC-0011 Gate Sign-Off + Smoke Test | **Complete** — G-01/G-02 approved with caution; INC-0011 live; signoff record created. | 20 May 2026 |
+| T040 — Draft Second New Incident Record (CAND-008) | **Complete** — INC-0012 drafted. Dataset: 12 records. Governance review note prepared. | 20 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated | 19 May 2026 |
 
 ---
 
-## Status: T039 Complete — INC-0011 Signed Off and Live
+## Status: T040 Complete — INC-0012 Drafted and Prepared for CT Review
 
 **Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/`.**
-**Dataset contains 11 records (INC-0001 through INC-0011).**
+**Dataset contains 12 records (INC-0001 through INC-0012).**
 **INC-0011 G-01/G-02 approved with caution — live and governance-approved.**
+**INC-0012 review status: `prepared_for_CT_review`. Not yet governance-approved.**
 
 **Deployment facts (locked):**
 - GitHub Pages source: GitHub Actions workflow (`.github/workflows/pages.yml`)
@@ -85,15 +87,15 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 - **G-02**: ✅ **APPROVED with caution** — current public MVP wording cleared (20 May 2026)
 - All other gates (G-03 through G-12): ✅ closed
 
-**T032 complete.** Public MVP baseline frozen at `64c7267`. `PUBLIC_MVP_BASELINE_FREEZE.md` and `ROADMAP_NEXT_PHASES.md` created. No records, data, source, or legal content changed. No DNS/CNAME/hosting changes. **G-01/G-02 approval: INC-0001–INC-0010 approved with caution (T031); INC-0011 approved with caution (T039). Future records require separate sign-off.**
+**T032 complete.** Public MVP baseline frozen at `64c7267`. `PUBLIC_MVP_BASELINE_FREEZE.md` and `ROADMAP_NEXT_PHASES.md` created. No records, data, source, or legal content changed. No DNS/CNAME/hosting changes. **G-01/G-02 approval: INC-0001–INC-0010 approved with caution (T031); INC-0011 approved with caution (T039); INC-0012 prepared for CT review (T040). Future records require separate sign-off.**
 
 See `PUBLICATION_RISK_GATE.md` for gate status. See `PRODUCT_POLISH_BACKLOG.md` for future work. See `ROADMAP_NEXT_PHASES.md` for v0.7–v1.0 roadmap split.
 
-## Next Recommended Step: T040
+## Next Recommended Step: T041
 
-**T040 — Second Record Drafting Approval.** CT reviews `BATCH1_DRAFTING_READINESS_MATRIX.md`. Options: (A) Approve CAND-008 (AI hiring disability bias — policy frame, no named entity, lowest risk); (B) Approve CAND-010 (LLM legal sanctions — court record, distinct from INC-0001); (C) Approve CAND-011 (ICO facial recognition — requires accurate non-enforcement framing); (D) Defer second record pending further review.
+**T041 — INC-0012 Source/Wording Gate Sign-Off + Live Smoke Test.** CT reviews `INC0012_GOVERNANCE_REVIEW_NOTE.md`. If source/wording review is satisfactory, CT signs off INC-0012 G-01/G-02 equivalent. Live deployment and smoke test confirm 12 records visible.
 
-**Alternative T040:** Dataset Polish — if CT wants to refine INC-0011 display, search functionality, or other site improvements before adding more records.
+**Alternative T041:** Draft Third Record (CAND-011 or CAND-010) — only if CT explicitly approves another candidate.
 
 ---
 

@@ -270,6 +270,12 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T035-p1-candidate-source-packs/VALIDATION.md` | T035 validation | Validation checklist for T035. |
 | `work-items/T035-p1-candidate-source-packs/IMPLEMENTATION_REPORT.md` | T035 report | Final implementation report for T035 — source pack summary, files created, validation results, confirmation statements. |
 | `work-items/T035-p1-candidate-source-packs/DECISIONS.md` | T035 decisions | 10 decisions (DEC-T035-001–010) including readiness ranking, CAND-002 demotion, CAND-004 counsel gate, first batch selection, T036 next step. |
+| `data/incidents/INC-0012-ai-hiring-disability-bias-eeoc-doj-guidance.json` | Incident record | INC-0012: EEOC + DOJ joint guidance on AI hiring disability discrimination. (T040) |
+| `INC0012_GOVERNANCE_REVIEW_NOTE.md` | INC-0012 governance review | T040: Source/license and wording/legal-risk review for INC-0012. Status: `prepared_for_CT_review`. Not legal advice. (T040) |
+| `work-items/T040-create-inc0012-cand008/TASK.md` | T040 task | Task scope checklist for INC-0012 drafting. |
+| `work-items/T040-create-inc0012-cand008/VALIDATION.md` | T040 validation | Validation checklist for T040. |
+| `work-items/T040-create-inc0012-cand008/IMPLEMENTATION_REPORT.md` | T040 report | Concise final report for T040. |
+| `work-items/T040-create-inc0012-cand008/DECISIONS.md` | T040 decisions | Decisions made during T040 (max 10). |
 
 ---
 

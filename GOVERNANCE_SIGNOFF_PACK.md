@@ -1,6 +1,6 @@
 # Governance Sign-Off Pack — caesar-ai-incident-atlas
 
-**Task:** T025 — Source/License + Wording Review Sign-Off Pack (updated T026 — Source Risk Hardening; updated T027 — INC-0006 Source Risk Decision Packet)
+**Task:** T025 — Source/License + Wording Review Sign-Off Pack (updated T026 — Source Risk Hardening; updated T027 — INC-0006 Source Risk Decision Packet; updated T040 — INC-0012 added)
 **Date:** 20 May 2026
 **Version:** 0.6.7
 **Status:** ✅ G-01 APPROVED with caution · ✅ G-02 APPROVED with caution — NOT LEGAL ADVICE
@@ -9,6 +9,8 @@
 **T029 Update:** Governance gate decision record prepared: `GOVERNANCE_GATE_DECISION_RECORD.md`. No explicit CT approval statements received in task prompt. G-01/G-02 remain pending. Decision packet ready for CT/counsel review.
 **T030 Update:** Counsel follow-up packet prepared: `COUNSEL_REVIEW_PACKET_INC0006.md`. Narrow review question and four decision options (A–D) provided for CT/counsel. Exact optional CT sign-off language included. No approval recorded. G-01/G-02 remain pending. INC-0006 remains counsel-review/caution item.
 **T031 Update:** Explicit CT approval received (20 May 2026). G-01 and G-02 approved with caution for current 10-record public MVP. INC-0006 Reuters citation accepted with caution. See §5 for recorded sign-off. Not legal advice. Does not approve future records, scraping, external datasets, broader distribution, or copied third-party text.
+**T038 Update:** INC-0011 added under CT approval. G-01/G-02 approval for INC-0001–INC-0010 does not automatically extend to INC-0011. See `INC0011_GATE_SIGNOFF_RECORD.md`.
+**T040 Update:** INC-0012 added from CAND-008 (AI hiring disability bias — EEOC + DOJ ADA guidance). Dataset now 12 records. INC-0012 review status: `prepared_for_CT_review`. G-01/G-02 approval for INC-0001–INC-0011 does not extend to INC-0012. See `INC0012_GOVERNANCE_REVIEW_NOTE.md`.
 
 ---
 

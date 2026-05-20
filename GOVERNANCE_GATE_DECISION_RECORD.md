@@ -7,6 +7,7 @@
 **Status:** ✅ G-01 APPROVED with caution · ✅ G-02 APPROVED with caution — NOT LEGAL ADVICE
 **T030 Update:** Counsel follow-up packet prepared: `COUNSEL_REVIEW_PACKET_INC0006.md`. Narrow review question and four decision options (A–D) provided for CT/counsel. Exact optional CT sign-off language included. No approval recorded. G-01/G-02 remain pending.
 **T031 Update:** Explicit CT approval received (20 May 2026). G-01 and G-02 approved with caution for current 10-record public MVP. See §5 for recorded decisions. Not legal advice.
+**T040 Update:** INC-0012 added from CAND-008 (AI hiring disability bias — EEOC + DOJ ADA guidance). Dataset now 12 records. INC-0012 review status: `prepared_for_CT_review`. G-01/G-02 approval for INC-0001–INC-0011 does not extend to INC-0012. See `INC0012_GOVERNANCE_REVIEW_NOTE.md`.
 
 ---
 
