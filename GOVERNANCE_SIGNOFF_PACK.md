@@ -1,13 +1,14 @@
 # Governance Sign-Off Pack — caesar-ai-incident-atlas
 
-**Task:** T025 — Source/License + Wording Review Sign-Off Pack (updated T026 — Source Risk Hardening; updated T027 — INC-0006 Source Risk Decision Packet)  
-**Date:** 20 May 2026  
-**Version:** 0.6.3  
-**Status:** Prepared for CT/counsel sign-off — NOT LEGAL ADVICE  
-**T026 Update:** INC-0005 court record added; INC-0008 US DEFIANCE Act record added; INC-0009 NIH/PubMed record added. INC-0009 moved from Needs counsel review → Sign-off with caution. INC-0006 unchanged — counsel review still recommended.  
+**Task:** T025 — Source/License + Wording Review Sign-Off Pack (updated T026 — Source Risk Hardening; updated T027 — INC-0006 Source Risk Decision Packet)
+**Date:** 20 May 2026
+**Version:** 0.6.7
+**Status:** ✅ G-01 APPROVED with caution · ✅ G-02 APPROVED with caution — NOT LEGAL ADVICE
+**T026 Update:** INC-0005 court record added; INC-0008 US DEFIANCE Act record added; INC-0009 NIH/PubMed record added. INC-0009 moved from Needs counsel review → Sign-off with caution. INC-0006 unchanged — counsel review still recommended.
 **T027 Update:** Targeted source search for INC-0006 completed (20 May 2026). No safer public-domain replacement source found. Reuters remains sole primary source. No data or wording changes. Decision packet created: `INC0006_SOURCE_RISK_DECISION_PACKET.md`. INC-0006 G-01 status remains Needs counsel review. Recommended CT action: seek narrow counsel confirmation on Reuters URL citation acceptability before G-01 final sign-off.
 **T029 Update:** Governance gate decision record prepared: `GOVERNANCE_GATE_DECISION_RECORD.md`. No explicit CT approval statements received in task prompt. G-01/G-02 remain pending. Decision packet ready for CT/counsel review.
 **T030 Update:** Counsel follow-up packet prepared: `COUNSEL_REVIEW_PACKET_INC0006.md`. Narrow review question and four decision options (A–D) provided for CT/counsel. Exact optional CT sign-off language included. No approval recorded. G-01/G-02 remain pending. INC-0006 remains counsel-review/caution item.
+**T031 Update:** Explicit CT approval received (20 May 2026). G-01 and G-02 approved with caution for current 10-record public MVP. INC-0006 Reuters citation accepted with caution. See §5 for recorded sign-off. Not legal advice. Does not approve future records, scraping, external datasets, broader distribution, or copied third-party text.
 
 ---
 
@@ -18,8 +19,8 @@
 | Technical Public MVP | ✅ LIVE + VERIFIED at `https://atlas.caesar.no/` |
 | Version | v0.6.2 |
 | G-10 Browser smoke test | ✅ PASS (CT confirmation 20 May 2026) |
-| G-01 Source/license review | ⚠ Prepared for CT/counsel sign-off |
-| G-02 Wording/legal-risk review | ⚠ Prepared for CT/counsel sign-off |
+| G-01 Source/license review | ✅ **APPROVED with caution** — 20 May 2026, INC-0006 Reuters citation accepted with caution |
+| G-02 Wording/legal-risk review | ✅ **APPROVED with caution** — 20 May 2026, current public MVP wording cleared |
 | Dataset | 10 records (INC-0001 through INC-0010) — no new records added |
 | No legal advice | This document does not constitute legal advice |
 
@@ -111,39 +112,32 @@ Scanned for: "caused by", "proved", "illegal", "guilty", "fraud", "discriminated
 
 ## 5. Final CT Sign-Off Section
 
-> **This section to be completed by Control Tower or designated counsel. Do not pre-fill as approved.**
-
 ### G-01 Source/License CT Decision
 
-- [ ] All 10 source URLs cleared for public citation
-- [ ] Cleared with caveats (specify):
-- [ ] Needs replacement for:
-- [ ] Deferred pending:
+- [x] **Cleared with caveats:** INC-0006 Reuters citation accepted with caution — URL citation only, no text reproduced, all claims hedged with "reportedly". Residual risk accepted for non-commercial public MVP only.
+- All other 9 records: 6 ready for sign-off (public-domain sources), 3 sign-off with caution (see §2 table).
 
-**G-01 Reviewer:** _______________  
-**G-01 Date:** _______________  
-**G-01 Notes:** _______________
+**G-01 Approval:** "CT approves G-01 source/license sign-off with INC-0006 Reuters citation accepted with caution."
+**G-01 Reviewer:** Control Tower / Artem
+**G-01 Date:** 20 May 2026
+**G-01 Notes:** Approval is narrow — current 10-record public MVP only. Does not approve future records, scraping, external dataset import, or copied third-party text. Not legal advice.
 
 ### G-02 Wording/Legal-Risk CT Decision
 
-- [ ] All 10 record summaries cleared for public display
-- [ ] Cleared with caveats (specify):
-- [ ] Needs revision for:
-- [ ] Needs counsel review before display:
-- [ ] Deferred pending:
+- [x] **All 10 record summaries cleared for public display** — with caution note for INC-0006.
+- INC-0006: "reportedly" hedging present; no intentional discrimination claim; no legal liability conclusion; company did not publicly confirm all details — stated in record.
 
-**G-02 Reviewer:** _______________  
-**G-02 Date:** _______________  
-**G-02 Notes:** _______________
+**G-02 Approval:** "CT approves G-02 wording/legal-risk sign-off for current public MVP wording."
+**G-02 Reviewer:** Control Tower / Artem
+**G-02 Date:** 20 May 2026
+**G-02 Notes:** Approval covers current wording of all 10 records. Does not approve future wording changes, additional records, or broader distribution without separate review. Not legal advice.
 
 ### Overall Governance Sign-Off
 
-- [ ] Technical Public MVP + Governance review COMPLETE — ready for broader distribution
-- [ ] Governance review PARTIAL — conditions apply (specify):
-- [ ] Governance review INCOMPLETE — further review required
+- [x] **Governance review PARTIAL — conditions apply:** G-01 and G-02 approved with caution for current 10-record public MVP. INC-0006 caution note retained. Future records, dataset expansion, broader distribution, or wording changes require separate CT review.
 
-**CT Final Signatory:** _______________  
-**Final Sign-Off Date:** _______________
+**CT Final Signatory:** Control Tower / Artem
+**Final Sign-Off Date:** 20 May 2026
 
 ---
 
@@ -156,6 +150,7 @@ Scanned for: "caused by", "proved", "illegal", "guilty", "fraud", "discriminated
 - `SOURCE_AND_CITATION_POLICY_DRAFT.md` — Wording rules and citation policy (T003)
 - `PRODUCT_POLISH_BACKLOG.md` — Future work backlog (T024)
 - `SOURCE_RISK_HARDENING_REPORT.md` — T026 source risk hardening detail (sources added, records changed, validation results)
+- `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md` — T031 final gate closeout record
 
 ---
 

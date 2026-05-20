@@ -35,6 +35,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.6.7] - 20 May 2026
+
+### Added
+
+- **T031 — Record G-01/G-02 Sign-Off with INC-0006 Accepted with Caution.** Explicit CT approval received and recorded. Created `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md` with: (1) full 12-gate status table (all gates closed/approved), (2) exact CT approval language, (3) G-01 final status (approved with caution; INC-0006 Reuters URL accepted), (4) G-02 final status (approved with caution; current MVP wording cleared), (5) INC-0006 caution note, (6) scope of approval, (7) exclusions, (8) next review triggers. Updated governance docs: `GOVERNANCE_SIGNOFF_PACK.md` (§5 completed with signed-off G-01/G-02 checkboxes; version 0.6.7), `GOVERNANCE_GATE_DECISION_RECORD.md` (§5 final decision recorded; version 0.6.7), `PUBLICATION_RISK_GATE.md` (G-01/G-02 marked approved with caution; summary updated), `RELEASE_CANDIDATE_GATE.md` (T031 status note). Updated lifecycle docs: `PROJECT_STATE.md` (v0.6.7, T031 complete), `NEXT_ACTIONS.md` (all gates closed, T032 options), `CHANGELOG.md`, `REPO_INVENTORY.md`, `README.md`, `site/README.md`. Created `work-items/T031-record-gates-signoff/` with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, DECISIONS.md. No incident data, source URLs, or legal content changed. Branch: `governance/T031-record-gates-signoff`.
+
+### Status (T031)
+
+- **Technical Public MVP**: LIVE + VERIFIED at `https://atlas.caesar.no/`
+- **G-10**: ✅ PASS
+- **G-01**: ✅ APPROVED with caution — INC-0006 Reuters citation accepted with caution (20 May 2026)
+- **G-02**: ✅ APPROVED with caution — current public MVP wording cleared (20 May 2026)
+- **All 12 governance gates**: closed/approved
+- **New records**: 0
+- **Data changes**: None
+- **Source/legal changes**: None
+- **Safety**: No DNS/CNAME/hosting changes, no secrets, no scraping, no external scripts, no analytics, repo root not exposed, no incident data changes. Approval is narrow — current 10-record public MVP only. Not legal advice.
+
+### Validation (T031)
+
+- `python3 tools/validate_dataset.py` — PASS; 10 records; no data changes
+- `grep -R "../data/" site/assets/app.js site/index.html` — clean
+- `find site -maxdepth 4 \( -name "CNAME" -o -path "*/work-items/*" -o -path "*/docs/*" \)` — empty
+- No external scripts added; no analytics/tracking added
+- `grep -R "upload-pages-artifact" .github/workflows/pages.yml` — confirmed
+- `grep -R "path: site" .github/workflows/pages.yml` — confirmed
+
+---
+
 ## [0.6.6] - 20 May 2026
 
 ### Added

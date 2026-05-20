@@ -13,6 +13,7 @@
 > **T027 INC-0006 Source Risk Decision Packet Status:** Targeted source search found no safer replacement for INC-0006. Reuters remains sole primary source. No data or wording changes. Decision packet: `INC0006_SOURCE_RISK_DECISION_PACKET.md`. G-01 INC-0006: Needs counsel review (unchanged).
 **T029 Governance Gate Decision Pack Status:** Governance gate decision record prepared: `GOVERNANCE_GATE_DECISION_RECORD.md`. No explicit CT approval statements received in task prompt. G-01/G-02 remain pending. Decision packet ready for CT/counsel review.
 **T030 INC-0006 Counsel Review Follow-Up Packet Status:** Counsel follow-up packet prepared: `COUNSEL_REVIEW_PACKET_INC0006.md`. No data changes. No approval recorded. G-01/G-02 remain pending.
+**T031 Record G-01/G-02 Sign-Off Status:** ✅ G-01 APPROVED with caution (20 May 2026) — INC-0006 Reuters citation accepted with caution. ✅ G-02 APPROVED with caution (20 May 2026) — current public MVP wording cleared. All 12 gates now closed/approved. See `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md`.
 
 ---
 

@@ -2,10 +2,11 @@
 
 **Task:** T029 — Governance Gate Decision Pack + Optional G-01/G-02 Sign-Off Recording  
 **Date:** 20 May 2026  
-**Version:** 0.6.6
+**Version:** 0.6.7
 **Branch:** `governance/T029-gate-decision-pack`
-**Status:** Decision record prepared — NOT LEGAL ADVICE
+**Status:** ✅ G-01 APPROVED with caution · ✅ G-02 APPROVED with caution — NOT LEGAL ADVICE
 **T030 Update:** Counsel follow-up packet prepared: `COUNSEL_REVIEW_PACKET_INC0006.md`. Narrow review question and four decision options (A–D) provided for CT/counsel. Exact optional CT sign-off language included. No approval recorded. G-01/G-02 remain pending.
+**T031 Update:** Explicit CT approval received (20 May 2026). G-01 and G-02 approved with caution for current 10-record public MVP. See §5 for recorded decisions. Not legal advice.
 
 ---
 
@@ -14,11 +15,11 @@
 | Item | Status |
 |---|---|
 | Technical Public MVP | ✅ **LIVE + VERIFIED** at `https://atlas.caesar.no/` |
-| Version | v0.6.4 |
+| Version | v0.6.7 |
 | Dataset | 10 records (INC-0001 through INC-0010) |
 | G-10 | ✅ **PASS** — Control Tower manual browser confirmation on 20 May 2026 |
-| G-01 | ⚠ **Pending** — source/license review requires CT sign-off |
-| G-02 | ⚠ **Pending** — wording/legal-risk review requires CT/counsel sign-off |
+| G-01 | ✅ **APPROVED with caution** — 20 May 2026, INC-0006 Reuters citation accepted with caution |
+| G-02 | ✅ **APPROVED with caution** — 20 May 2026, current public MVP wording cleared |
 | Not legal advice | This document does not constitute legal advice |
 
 **Live site verification (20 May 2026):**
@@ -119,36 +120,39 @@
 
 ## 5. Final Decision Section
 
-**Explicit Approval Check:** Task prompt does not contain required explicit approval statements:
-- Missing: "CT approves G-01 source/license sign-off with INC-0006 Reuters citation accepted with caution."
-- Missing: "CT approves G-02 wording/legal-risk sign-off for current public MVP wording."
+**Approval Received (T031, 20 May 2026):** Explicit CT approval statements provided in T031 task prompt:
+- ✅ "CT approves G-01 source/license sign-off with INC-0006 Reuters citation accepted with caution."
+- ✅ "CT approves G-02 wording/legal-risk sign-off for current public MVP wording."
 
-**Current Status:** G-01 and G-02 remain PENDING.
+**Current Status:** G-01 and G-02 APPROVED with caution.
 
 ### G-01 Decision:
-- **Status:** PENDING
-- **Blocker:** INC-0006 Reuters citation requires counsel review
-- **Other records:** 9 ready (6 ready for sign-off, 3 sign-off with caution)
-- **Recommended next step:** Seek narrow counsel confirmation on Reuters URL citation acceptability
+- **Status:** ✅ APPROVED with caution
+- **Approval:** "CT approves G-01 source/license sign-off with INC-0006 Reuters citation accepted with caution."
+- **Reviewer:** Control Tower / Artem
+- **Date:** 20 May 2026
+- **Scope:** Current 10-record public MVP only. INC-0006 Reuters URL citation accepted; no text reproduced; all claims hedged with "reportedly". Does not approve future records, scraping, external dataset import, or copied third-party text.
 
 ### G-02 Decision:
-- **Status:** PENDING  
-- **Assessment:** All 10 records wording-ready (9 ready for sign-off, 1 sign-off with caution)
-- **Blocker:** Requires CT/counsel formal review process
-- **Recommended next step:** CT/counsel can proceed with review - wording is sound
+- **Status:** ✅ APPROVED with caution
+- **Approval:** "CT approves G-02 wording/legal-risk sign-off for current public MVP wording."
+- **Reviewer:** Control Tower / Artem
+- **Date:** 20 May 2026
+- **Scope:** Current wording of all 10 records. INC-0006 caution note retained. Does not approve future wording changes, additional records, or broader distribution without separate review.
 
-### Reviewer:
-- **Status:** Placeholder pending explicit CT/counsel review
-
-### Date:
-- **Status:** 20 May 2026 (decision packet prepared)
+### Overall Status:
+- **G-01:** ✅ APPROVED with caution — 20 May 2026
+- **G-02:** ✅ APPROVED with caution — 20 May 2026
+- **G-10:** ✅ PASS — 20 May 2026
+- **Technical Public MVP:** ✅ LIVE + VERIFIED
 
 ### Notes:
-- Technical Public MVP remains LIVE + VERIFIED
-- No records, sources, or legal content changed in T029
-- INC-0006 remains the sole material source-risk item
-- All other records ready for sign-off with appropriate caution levels
-- Decision packet prepared for CT/counsel review
+- Technical Public MVP remains LIVE + VERIFIED at `https://atlas.caesar.no/`
+- INC-0006 accepted with caution — Reuters citation only, no text reproduced
+- Future records, dataset expansion, or wording changes require new CT review
+- This approval does not constitute legal advice
+- This approval does not cover broader distribution or commercial use
+- See `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md` for full gate closeout record
 
 ---
 
@@ -165,11 +169,18 @@
 - No approval claimed without explicit CT statements
 - No legal advice provided
 
+**T031 scope:**
+- Recorded explicit CT approval for G-01 and G-02
+- No incident data, source URLs, or legal content changed
+- No DNS, CNAME, or hosting changes
+- Not legal advice
+
 ---
 
 ## References
 
 - `COUNSEL_REVIEW_PACKET_INC0006.md` — T030 narrow counsel follow-up packet
+- `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md` — T031 final gate closeout record
 - `GOVERNANCE_SIGNOFF_PACK.md` — Current G-01/G-02 review tables
 - `INC0006_SOURCE_RISK_DECISION_PACKET.md` — Detailed INC-0006 analysis
 - `SOURCE_RISK_HARDENING_REPORT.md` — T026/T027 source improvements

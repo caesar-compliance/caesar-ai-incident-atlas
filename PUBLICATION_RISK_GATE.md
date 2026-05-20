@@ -10,8 +10,8 @@
 
 | # | Criterion | Status | Notes |
 |---|---|---|---|
-| G-01 | **Source/license review** — all 10 incident source URLs cleared for public citation | ⚠ **Pending** | `LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md` exists but formal sign-off not recorded |
-| G-02 | **Wording/legal risk review** — record summaries and lessons reviewed for defamation/liability | ⚠ **Pending** | No formal legal review completed |
+| G-01 | **Source/license review** — all 10 incident source URLs cleared for public citation | ✅ **APPROVED with caution** | CT sign-off 20 May 2026. INC-0006 Reuters citation accepted with caution. See `GOVERNANCE_SIGNOFF_PACK.md` §5. |
+| G-02 | **Wording/legal risk review** — record summaries and lessons reviewed for defamation/liability | ✅ **APPROVED with caution** | CT sign-off 20 May 2026. Current public MVP wording cleared. See `GOVERNANCE_SIGNOFF_PACK.md` §5. |
 | G-03 | **Domain/hosting decision** — CT selects URL and hosting option | ✅ **Pass** | GitHub Pages. Custom domain `atlas.caesar.no` active. DNS manually configured. HTTPS enforced. (T022) |
 | G-04 | **Local QA pass** — `python3 tools/validate_dataset.py` exits 0 | ✅ **Pass** | Confirmed T015 + T016 |
 | G-05 | **No external frontend dependencies** — no CDN, fonts, analytics in `site/` | ✅ **Pass** | grep scan clean (T015) |
@@ -30,12 +30,12 @@
 | Status | Count |
 |---|---|
 | ✅ Pass | 9 |
-| ⚠ Pending | 2 |
+| ✅ Approved with caution | 2 |
 | ✅ Cleared | 1 |
 
-**Status: TECHNICAL PUBLIC MVP LIVE + VERIFIED.** `https://atlas.caesar.no/` — GitHub Pages, GitHub Actions, HTTPS enforced.
+**Status: TECHNICAL PUBLIC MVP LIVE + VERIFIED · ALL GATES CLOSED.** `https://atlas.caesar.no/` — GitHub Pages, GitHub Actions, HTTPS enforced.
 
-G-12 cleared (T021). G-03 resolved (T022): custom domain `atlas.caesar.no` active, HTTPS certificate approved and enforced. **G-10 PASS (T024):** Control Tower manual browser confirmation on 20 May 2026. HTTP→HTTPS redirect confirmed (301), JSON loads HTTP 200 with all 10 records, interactive UI verified. **G-01/G-02 remain pending** CT sign-off (source/license review and wording/legal-risk review).
+G-12 cleared (T021). G-03 resolved (T022): custom domain `atlas.caesar.no` active, HTTPS certificate approved and enforced. **G-10 PASS (T024):** Control Tower manual browser confirmation on 20 May 2026. **G-01 APPROVED with caution (T031):** CT sign-off 20 May 2026; INC-0006 Reuters citation accepted with caution. **G-02 APPROVED with caution (T031):** CT sign-off 20 May 2026; current public MVP wording cleared.
 
 **T026 Source Risk Hardening (20 May 2026):** Public-domain court record, US DEFIANCE Act, and NIH/PubMed sources added to INC-0005, INC-0008, INC-0009. INC-0009 upgraded from Needs counsel review → Sign-off with caution. INC-0006 counsel review still recommended. See `SOURCE_RISK_HARDENING_REPORT.md` and updated `GOVERNANCE_SIGNOFF_PACK.md`.
 
@@ -44,6 +44,8 @@ G-12 cleared (T021). G-03 resolved (T022): custom domain `atlas.caesar.no` activ
 **T029 Governance Gate Decision Pack (20 May 2026):** Governance gate decision record prepared: `GOVERNANCE_GATE_DECISION_RECORD.md`. No explicit CT approval statements received in task prompt. G-01/G-02 remain pending. Decision packet ready for CT/counsel review. INC-0006 remains the sole material G-01 caution item.
 
 **T030 INC-0006 Counsel Review Follow-Up Packet (20 May 2026):** Counsel follow-up packet prepared: `COUNSEL_REVIEW_PACKET_INC0006.md`. Narrow review question and four decision options (A–D) prepared for CT/counsel. Exact optional CT sign-off language included. No data changes. No approval recorded. G-01/G-02 remain pending.
+
+**T031 Record G-01/G-02 Sign-Off (20 May 2026):** Explicit CT approval received. G-01 approved with caution (INC-0006 Reuters citation accepted with caution). G-02 approved with caution (current public MVP wording cleared). Approval is narrow — current 10-record public MVP only. Not legal advice. Gate closeout: `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md`.
 
 **Review Pack Available:** See `PUBLIC_RELEASE_REVIEW_PACK.md` for detailed source/license review table, wording/legal-risk review table, and manual browser smoke-test checklist for G-10 completion.
 
