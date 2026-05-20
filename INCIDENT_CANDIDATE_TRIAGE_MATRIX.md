@@ -90,6 +90,8 @@ Maps each candidate to the product governance logic: **incident → failure mode
 
 ---
 
+**T036 Status:** First drafting batch selected — CAND-013, CAND-008, CAND-011, CAND-010. All remain `not_approved_candidate`. See `FIRST_DRAFTING_BATCH_SELECTION.md`.
+
 *See `INCIDENT_CANDIDATE_SHORTLIST_DRAFT.md` for full candidate entries. See `INCIDENT_RECORD_CREATION_GATE_CHECKLIST.md` for the gate checklist before any candidate becomes a real record.*
 
 **Disclaimer:** This matrix is planning material only. No candidate is approved for record creation. Not legal advice.

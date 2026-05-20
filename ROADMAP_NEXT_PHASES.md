@@ -15,7 +15,8 @@ See `ROADMAP.md` for the full historical phase plan.
 **T033 complete** — planning criteria, source gates, review workflow, candidate template created.
 **T034 complete** — 15 planning-only candidates drafted; triage matrix and 12-gate checklist created.
 **T035 complete** — Source packs for all 8 P1 candidates. 6 CT-ready; CAND-002 deferred (needs Tier 1); CAND-004 counsel-gated. First batch: CAND-013, CAND-008, CAND-011, CAND-010.
-**Next:** T036 — CT First Drafting Batch Selection (planning only, no record creation).
+**T036 complete** — First drafting batch selected: CAND-013, CAND-008, CAND-011, CAND-010. All remain `not_approved_candidate`.
+**Next:** T037 — Batch-1 Source Pack Finalization (planning/review only, no record creation) or explicit CT approval for first record drafting.
 **Prerequisite:** CT approval required before any INC-0011+ record is created. G-01/G-02 approval does not extend to new records.
 
 **Candidate selection criteria (planning gate):**

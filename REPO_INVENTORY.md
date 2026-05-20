@@ -222,6 +222,9 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `P1_CANDIDATE_SOURCE_PACKS.md` | P1 source packs | T035: Source packs for all 8 P1 candidates. Source URLs, tiers, risk assessments, wording-risk notes, drafting readiness per candidate. Planning only. Not legal advice. (T035) |
 | `P1_CANDIDATE_SOURCE_RISK_MATRIX.md` | P1 source risk matrix | T035: Overview table (8 candidates), readiness ranking (safest to riskiest), exclusion/defer list, source tier summary. Planning only. Not legal advice. (T035) |
 | `P1_CANDIDATE_PRIORITIZATION_RECOMMENDATION.md` | First batch recommendation | T035: Recommends 4-candidate first drafting batch (CAND-013, CAND-008, CAND-011, CAND-010). Lists deferred candidates, counsel-gate candidates, and source-gap candidates. Planning only. Not legal advice. (T035) |
+| `FIRST_DRAFTING_BATCH_SELECTION.md` | Batch selection record | T036: CT first drafting batch selection decision record. Selected candidates: CAND-013, CAND-008, CAND-011, CAND-010. All remain `not_approved_candidate`. Planning only. Not legal advice. (T036) |
+| `FIRST_DRAFTING_BATCH_GATE_MATRIX.md` | Batch gate matrix | T036: Compact tables for selected and deferred candidates. Source-readiness, risk levels, counsel needs, future suitability. Planning only. Not legal advice. (T036) |
+| `FUTURE_RECORD_DRAFTING_TASK_OUTLINE.md` | Drafting task template | T036: Template/outline for future T037+ record drafting tasks. Preconditions, workflow, validation commands, approval rules. Not for execution until CT approves. (T036) |
 | `work-items/T024-public-mvp-lock/TASK.md` | T024 task | Task scope checklist. |
 | `work-items/T024-public-mvp-lock/VALIDATION.md` | T024 validation | Validation checklist. |
 | `work-items/T024-public-mvp-lock/IMPLEMENTATION_REPORT.md` | T024 report | Concise final report. |

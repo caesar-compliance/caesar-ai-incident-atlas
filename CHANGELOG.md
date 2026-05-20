@@ -26,6 +26,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.7.4] - 20 May 2026
+
+### Added
+
+- **T036 — CT First Drafting Batch Selection.** Selected first drafting batch of 4 candidates for future INC-0011+ work: CAND-013 (Spirometry race bias), CAND-008 (AI hiring disability bias), CAND-011 (Retail facial recognition ICO), CAND-010 (LLM legal sanctions). Created `FIRST_DRAFTING_BATCH_SELECTION.md` with status summary, selected batch details, deferred candidates rationale, batch-1 drafting gates, and explicit non-approval statement. Created `FIRST_DRAFTING_BATCH_GATE_MATRIX.md` with compact tables for selected and deferred candidates. Created `FUTURE_RECORD_DRAFTING_TASK_OUTLINE.md` as template for future T037+ drafting tasks. Updated planning docs and lifecycle docs with T036 status. No incident records created. No data, source, site, or governance gate changes. No scraping or bulk downloads. Branch: `planning/T036-first-drafting-batch-selection`.
+
+### Status (T036)
+
+- **Dataset**: 10 records, INC-0001–INC-0010, unchanged
+- **New records**: 0
+- **Candidates**: 4 selected for first drafting batch; all remain `not_approved_candidate`
+- **Deferred P1 candidates**: CAND-001, CAND-002, CAND-003, CAND-004 (see `FIRST_DRAFTING_BATCH_SELECTION.md` for rationale)
+- **First batch**: CAND-013, CAND-008, CAND-011, CAND-010
+- **G-01/G-02 approval**: Remains limited to current 10-record MVP — no expansion
+- **Safety**: No DNS/CNAME/hosting changes, no secrets, no scraping, no imports, no analytics, repo root not exposed. Not legal advice.
+
+### Validation (T036)
+
+- `python3 tools/validate_dataset.py` — PASS; 10 records; no data changes
+- No INC-0011+ files created; no site/ changes; no CNAME
+- `git diff --check` — clean
+
+---
+
 ## [0.7.2] - 20 May 2026
 
 ### Added

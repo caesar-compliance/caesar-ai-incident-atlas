@@ -127,7 +127,7 @@ The following 4 candidates are recommended as the first drafting batch based on 
 
 ---
 
-**Recommended T036:** CT First Drafting Batch Selection — CT reviews this recommendation and selects which candidates from the batch-1 list to proceed with, activates counsel gate for CAND-004 if desired, and provides explicit approval language for each selected candidate.
+**T036 Complete:** CT First Drafting Batch Selection completed. Selected batch-1 candidates: CAND-013, CAND-008, CAND-011, CAND-010. All remain `not_approved_candidate`. See `FIRST_DRAFTING_BATCH_SELECTION.md`.
 
 ---
 

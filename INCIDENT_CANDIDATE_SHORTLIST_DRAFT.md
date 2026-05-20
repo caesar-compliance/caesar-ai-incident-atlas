@@ -411,6 +411,8 @@ Before candidates are listed, the current dataset coverage is summarised to guid
 
 ---
 
+**T036 Status:** First drafting batch selected — CAND-013, CAND-008, CAND-011, CAND-010. All candidates remain `not_approved_candidate`. No records created. See `FIRST_DRAFTING_BATCH_SELECTION.md`.
+
 *See `INCIDENT_CANDIDATE_TRIAGE_MATRIX.md` for structured priority and source-readiness matrices. See `INCIDENT_RECORD_CREATION_GATE_CHECKLIST.md` for the gate checklist required before any candidate becomes a real record.*
 
 **Disclaimer:** This document is planning material only. No candidate listed here is approved for publication. No new incident records were created. No sources are legally cleared. All candidates have status `not_approved_candidate`. Not legal advice.

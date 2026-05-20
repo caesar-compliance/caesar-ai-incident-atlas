@@ -71,6 +71,8 @@ Ranked from safest to draft first, to most complex:
 
 ---
 
+**T036 Status:** First drafting batch selected — CAND-013, CAND-008, CAND-011, CAND-010. All remain `not_approved_candidate`. See `FIRST_DRAFTING_BATCH_SELECTION.md` and `FIRST_DRAFTING_BATCH_GATE_MATRIX.md`.
+
 *See `P1_CANDIDATE_SOURCE_PACKS.md` for full source pack detail. See `P1_CANDIDATE_PRIORITIZATION_RECOMMENDATION.md` for first-batch recommendation.*
 
 **Disclaimer:** Planning material only. Not legal advice.
