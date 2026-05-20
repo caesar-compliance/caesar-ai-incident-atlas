@@ -1,10 +1,11 @@
 # Governance Sign-Off Pack — caesar-ai-incident-atlas
 
-**Task:** T025 — Source/License + Wording Review Sign-Off Pack (updated T026 — Source Risk Hardening)  
+**Task:** T025 — Source/License + Wording Review Sign-Off Pack (updated T026 — Source Risk Hardening; updated T027 — INC-0006 Source Risk Decision Packet)  
 **Date:** 20 May 2026  
-**Version:** 0.6.2  
+**Version:** 0.6.3  
 **Status:** Prepared for CT/counsel sign-off — NOT LEGAL ADVICE  
-**T026 Update:** INC-0005 court record added; INC-0008 US DEFIANCE Act record added; INC-0009 NIH/PubMed record added. INC-0009 moved from Needs counsel review → Sign-off with caution. INC-0006 unchanged — counsel review still recommended.
+**T026 Update:** INC-0005 court record added; INC-0008 US DEFIANCE Act record added; INC-0009 NIH/PubMed record added. INC-0009 moved from Needs counsel review → Sign-off with caution. INC-0006 unchanged — counsel review still recommended.  
+**T027 Update:** Targeted source search for INC-0006 completed (20 May 2026). No safer public-domain replacement source found. Reuters remains sole primary source. No data or wording changes. Decision packet created: `INC0006_SOURCE_RISK_DECISION_PACKET.md`. INC-0006 G-01 status remains Needs counsel review. Recommended CT action: seek narrow counsel confirmation on Reuters URL citation acceptability before G-01 final sign-off.
 
 ---
 
@@ -31,7 +32,7 @@
 | INC-0003 | Airline chatbot provides incorrect fare policy information | Canadian Tribunal | Tribunal decision | Public domain — lowest risk | ✅ Yes | ✅ Yes — tribunal finding paraphrased | Ready for sign-off | Moffatt v. Air Canada — public domain Canadian tribunal decision |
 | INC-0004 | Dutch court finds automated welfare risk-scoring system incompatible with fundamental rights | Dutch Court | Court decision | Public domain — lowest risk | ✅ Yes | ✅ Yes — court ruling paraphrased | Ready for sign-off | ECLI:NL:RBDHA:2020:1878 — public domain Dutch court decision |
 | INC-0005 | Facial recognition misidentification contributes to wrongful arrest | Court Record + Federal Research + NGO | Court docket (CourtListener/RECAP) + NIST FRVT + ACLU docs | Public domain court record + public domain NIST; ACLU supporting only | ✅ Yes | ✅ Yes — sources cited, no reproduction | Sign-off with caution | T026: court record added (Williams v. City of Detroit, E.D. Mich.) — NIST + court now primary anchors; ACLU demoted to supporting |
-| INC-0006 | AI-based resume screening tool discontinued after reportedly penalising female candidates | News Media | Reuters investigative report | Fair use citation; Reuters T&Cs apply | ✅ Yes | ✅ Yes — "reportedly" hedging, no substantial copying | Needs counsel review | Highest source risk — Reuters T&C compliance should be confirmed |
+| INC-0006 | AI-based resume screening tool discontinued after reportedly penalising female candidates | News Media | Reuters investigative report | Fair use citation; Reuters T&Cs apply | ✅ Yes | ✅ Yes — "reportedly" hedging, no substantial copying | Needs counsel review | T027: targeted source search found no safer replacement. Reuters remains sole primary source. Decision packet: `INC0006_SOURCE_RISK_DECISION_PACKET.md`. Recommended CT action: seek counsel confirmation on Reuters URL citation. |
 | INC-0007 | Automated content moderation system incorrectly removes legitimate health-related content | Company Statement | Meta company statements | Fair use citation; Meta terms apply | ✅ Yes | ✅ Yes — paraphrase only | Ready for sign-off | Meta's own statements used as source |
 | INC-0008 | AI image generation tools used to produce non-consensual intimate imagery | Company + Legislation | Microsoft statement + UK OSA + US Congress (DEFIANCE Act) | Company statement fair use; UK legislation public domain; US legislation public domain | ✅ Yes | ✅ Yes — confidence: medium flagged | Sign-off with caution | T026: US DEFIANCE Act S.3696 congress.gov record added; two public-domain legislative sources now present; confidence medium per record |
 | INC-0009 | Healthcare resource allocation algorithm found to systematically underestimate illness severity in Black patients | Academic Paper + Public Institutional | Science journal article + PubMed/NIH NLM index | AAAS reliance reduced; NIH NLM public domain index added | ✅ Yes | ✅ Yes — no paper text reproduced | Sign-off with caution | T026: PubMed PMID 31649194 (NIH NLM — public domain) added; AAAS sole-reliance concern materially reduced |
@@ -43,7 +44,7 @@
 |---|---|---|
 | Ready for sign-off | 6 | INC-0001, INC-0002, INC-0003, INC-0004, INC-0007, INC-0010 |
 | Sign-off with caution | 3 | INC-0005 (court record + NIST — T026), INC-0008 (company + 2× public legislation — T026), INC-0009 (Science + NIH/PubMed — T026) |
-| Needs counsel review | 1 | INC-0006 (Reuters T&Cs — no safe replacement found) |
+| Needs counsel review | 1 | INC-0006 (Reuters T&Cs — T027 targeted search found no safer replacement; decision packet prepared; counsel confirmation recommended) |
 | Needs source replacement | 0 | — |
 
 ---
@@ -57,7 +58,7 @@
 | INC-0003 | Company liability claims | Low | Air Canada — public litigation | ✅ Yes — "tribunal found" | Ready for sign-off | Direct paraphrase of tribunal decision |
 | INC-0004 | Government system criticism | Low | Dutch government — public litigation | ✅ Yes — "court found" | Ready for sign-off | Direct paraphrase of judicial finding |
 | INC-0005 | Law enforcement + individual harm | Low | Individual not named in summary | ✅ Yes — "contributes to" hedging | Ready for sign-off | Porcha Woodridge not named; source cited |
-| INC-0006 | Company characterization (Amazon) | Low-Medium | Amazon — publicly reported | ✅ Yes — "reportedly" hedging | Sign-off with caution | "Reportedly" hedge present; company discontinued tool per report |
+| INC-0006 | Company characterization (Amazon) | Low-Medium | Amazon — publicly reported | ✅ Yes — "reportedly" hedging | Sign-off with caution | T027: wording review confirms adequate hedging. No wording changes required. "Reportedly" hedge present; company did not publicly confirm all details — stated in record. |
 | INC-0007 | Platform criticism | Low | Meta — own statements used | ✅ Yes — "incorrectly removes" describes outcome | Ready for sign-off | Meta's own statements used; no defamatory characterization |
 | INC-0008 | Platform operators + legislative context | Low | Microsoft — statement used | ✅ Yes — confidence: medium displayed | Ready for sign-off | Medium confidence flagged appropriately |
 | INC-0009 | Healthcare system criticism | Low | Algorithm vendor acknowledged findings | ✅ Yes — "systematically underestimate" per paper | Ready for sign-off | Vendor acknowledged findings; no hospitals named |

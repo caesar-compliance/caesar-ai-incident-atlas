@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T026)
+**Last updated:** 20 May 2026 (T027)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -202,8 +202,9 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T023-browser-smoke-redirect/IMPLEMENTATION_REPORT.md` | T023 report | Final report with URL check results, G-10 status, safety confirmations, remaining risks. |
 | `work-items/T023-browser-smoke-redirect/DECISIONS.md` | T023 decisions | Decisions made during T023. |
 | `PRODUCT_POLISH_BACKLOG.md` | Product backlog | Compact backlog for future work: MVP polish, dataset expansion themes, Governance OS integration, technical backlog, hard gates. (T024) |
-| `GOVERNANCE_SIGNOFF_PACK.md` | Governance sign-off pack | G-01 source/license and G-02 wording/legal-risk review tables for CT/counsel sign-off. Updated in T026. (T025, T026) |
-| `SOURCE_RISK_HARDENING_REPORT.md` | Source risk hardening report | T026 hardening detail: per-record assessment, sources added, before/after risk status, validation results, counsel review recommendations. (T026) |
+| `GOVERNANCE_SIGNOFF_PACK.md` | Governance sign-off pack | G-01 source/license and G-02 wording/legal-risk review tables for CT/counsel sign-off. Updated T026 and T027. (T025, T026, T027) |
+| `SOURCE_RISK_HARDENING_REPORT.md` | Source risk hardening report | T026 hardening detail plus T027 addendum: INC-0006 targeted source search result and risk assessment. (T026, T027) |
+| `INC0006_SOURCE_RISK_DECISION_PACKET.md` | INC-0006 source risk decision packet | T027: problem statement, targeted source search result table, Options A/B/C assessment, wording risk, recommended CT decision, proposed sign-off language, disclaimer. (T027) |
 | `work-items/T024-public-mvp-lock/TASK.md` | T024 task | Task scope checklist. |
 | `work-items/T024-public-mvp-lock/VALIDATION.md` | T024 validation | Validation checklist. |
 | `work-items/T024-public-mvp-lock/IMPLEMENTATION_REPORT.md` | T024 report | Concise final report. |
@@ -216,6 +217,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T026-source-risk-hardening/VALIDATION.md` | T026 validation | Validation checklist. |
 | `work-items/T026-source-risk-hardening/IMPLEMENTATION_REPORT.md` | T026 report | Concise final report. |
 | `work-items/T026-source-risk-hardening/DECISIONS.md` | T026 decisions | Decisions made during T026. |
+| `work-items/T027-inc0006-source-resolution/TASK.md` | T027 task | Task scope checklist for INC-0006 source risk resolution. |
+| `work-items/T027-inc0006-source-resolution/VALIDATION.md` | T027 validation | Validation checklist for T027. |
+| `work-items/T027-inc0006-source-resolution/IMPLEMENTATION_REPORT.md` | T027 report | Concise final report for T027. |
+| `work-items/T027-inc0006-source-resolution/DECISIONS.md` | T027 decisions | 10 decisions including source search outcome, option selection, version bump, counsel confirmation path. |
 
 ---
 

@@ -39,6 +39,8 @@ G-12 cleared (T021). G-03 resolved (T022): custom domain `atlas.caesar.no` activ
 
 **T026 Source Risk Hardening (20 May 2026):** Public-domain court record, US DEFIANCE Act, and NIH/PubMed sources added to INC-0005, INC-0008, INC-0009. INC-0009 upgraded from Needs counsel review → Sign-off with caution. INC-0006 counsel review still recommended. See `SOURCE_RISK_HARDENING_REPORT.md` and updated `GOVERNANCE_SIGNOFF_PACK.md`.
 
+**T027 INC-0006 Source Risk Decision Packet (20 May 2026):** Targeted source search for INC-0006 found no safer public-domain replacement. Reuters remains sole primary source. No data or wording changes. Decision packet created: `INC0006_SOURCE_RISK_DECISION_PACKET.md`. G-01 INC-0006 status: Needs counsel review (unchanged). Recommended CT action: seek narrow counsel confirmation on Reuters URL citation before G-01 final sign-off.
+
 **Review Pack Available:** See `PUBLIC_RELEASE_REVIEW_PACK.md` for detailed source/license review table, wording/legal-risk review table, and manual browser smoke-test checklist for G-10 completion.
 
 **Gate Closure Report (T019):** See `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md` for consolidated evidence assessment — G-01/G-02 reviewed and ready for CT sign-off, G-03 hosting recommendation table, G-10 static checks and manual checklist, remaining blocker table.

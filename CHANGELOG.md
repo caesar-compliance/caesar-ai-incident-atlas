@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.6.3] - 20 May 2026
+
+### Added
+
+- **T027 — Targeted INC-0006 Counsel/Source-Risk Resolution Pack.** Performed targeted manual source search for safer public-domain or official-record sources for INC-0006 (Amazon AI recruiting tool, Reuters-sourced). Search covered: official Amazon company pages, court/regulator/government records, EEOC guidance, US Congress hearing records, and independent academic/institutional records. Result: no qualifying safer source found. Reuters investigative report remains sole primary source. Wording confirmed adequately hedged — no data or wording changes made. Created `INC0006_SOURCE_RISK_DECISION_PACKET.md` with problem statement, search results, Options A/B/C assessment, wording risk assessment, recommended CT decision, proposed sign-off language, and disclaimer. Updated `SOURCE_RISK_HARDENING_REPORT.md` (T027 addendum), `GOVERNANCE_SIGNOFF_PACK.md` (INC-0006 G-01 and G-02 rows, T027 header note), `PROJECT_STATE.md` (v0.6.3), `NEXT_ACTIONS.md` (T027 status, T028 options), `CHANGELOG.md`, `REPO_INVENTORY.md`, `PUBLICATION_RISK_GATE.md`, `RELEASE_CANDIDATE_GATE.md`, `README.md`. Created `work-items/T027-inc0006-source-resolution/` with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, DECISIONS.md. Branch: `review/T027-inc0006-source-resolution`.
+
+### Status (T027)
+
+- **Technical Public MVP**: LIVE + VERIFIED at `https://atlas.caesar.no/`
+- **G-10**: PASS
+- **G-01**: Pending — INC-0006 Needs counsel review (unchanged)
+- **G-02**: Pending CT/counsel sign-off
+- **INC-0006 data**: No change
+- **INC-0006 wording**: No change — already adequately hedged
+- **Safer source found**: No
+- **New incident records**: 0
+- **Safety**: No DNS/CNAME/hosting changes, no secrets, no scraping, no new records, repo root not exposed
+
+### Validation (T027)
+
+- `python3 tools/validate_dataset.py` — PASS; 10 records; no data changes
+
+---
+
 ## [0.6.2] - 20 May 2026
 
 ### Added
