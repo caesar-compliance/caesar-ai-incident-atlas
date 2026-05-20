@@ -17,7 +17,8 @@ See `ROADMAP.md` for the full historical phase plan.
 **T035 complete** — Source packs for all 8 P1 candidates. 6 CT-ready; CAND-002 deferred (needs Tier 1); CAND-004 counsel-gated. First batch: CAND-013, CAND-008, CAND-011, CAND-010.
 **T036 complete** — First drafting batch selected: CAND-013, CAND-008, CAND-011, CAND-010. All remain `not_approved_candidate`.
 **T037 complete** — Batch-1 source packs finalized. Source URLs verified. See `BATCH1_FINAL_SOURCE_PACKS.md`, `BATCH1_DRAFTING_READINESS_MATRIX.md`, `BATCH1_SOURCE_URL_REGISTER.md`.
-**Next:** T038 — CT Approval for First Record Drafting, or defer if CT wants further refinement.
+**T038 complete** — First new incident record drafted from CAND-013: INC-0011 (Spirometry race bias). Dataset now 11 records. See `INC0011_GOVERNANCE_REVIEW_NOTE.md`.
+**Next:** T039 — INC-0011 Source/Wording Gate Sign-Off + Live Smoke Test, or T039 — Draft Second Approved Candidate if CT approves another.
 **Prerequisite:** CT approval required before any INC-0011+ record is created. G-01/G-02 approval does not extend to new records.
 
 **Candidate selection criteria (planning gate):**

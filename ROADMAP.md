@@ -55,7 +55,9 @@
 
 **T037 complete** — Batch-1 source packs finalized. Source URLs verified for all 4 candidates. See `BATCH1_FINAL_SOURCE_PACKS.md`.
 
-**Recommended next step:** T038 — CT Approval for First Record Drafting, or defer.
+**T038 complete** — First new incident record drafted from CAND-013: INC-0011 (Spirometry race bias). Dataset now 11 records. See `INC0011_GOVERNANCE_REVIEW_NOTE.md` for review status. INC-0011 requires separate CT sign-off before governance approval.
+
+**Recommended next step:** T039 — INC-0011 Source/Wording Gate Sign-Off + Live Smoke Test, or T039 — Draft Second Approved Candidate if CT approves.
 
 ---
 
