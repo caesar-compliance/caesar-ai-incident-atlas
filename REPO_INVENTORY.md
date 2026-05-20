@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T032)
+**Last updated:** 20 May 2026 (T033)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -211,7 +211,11 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `COUNSEL_REVIEW_PACKET_INC0006.md` | INC-0006 counsel follow-up packet | T030: Narrow counsel/CT review packet for INC-0006 Reuters citation. Review question, current record status, four decision options (A–D), optional CT sign-off language, scope boundary. No data changes. Not legal advice. (T030) |
 | `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md` | Governance gate closeout | T031: Final gate closeout record. 12-gate status table (all closed), exact CT approval language, G-01/G-02 final status, INC-0006 caution note, scope, exclusions, next review triggers. (T031) |
 | `PUBLIC_MVP_BASELINE_FREEZE.md` | Baseline freeze record | T032: Public MVP baseline freeze. Baseline status table, frozen rules, INC-0006 caution, next review triggers. Approval scope: current 10-record MVP only. Not legal advice. (T032) |
-| `ROADMAP_NEXT_PHASES.md` | Next phases roadmap | T032: Compact v0.7–v1.0 roadmap split. v0.7 Dataset Expansion Planning, v0.8 Governance OS Integration Planning, v0.9 Public Quality Polish, v1.0 Expanded Public Release Criteria. (T032) |
+| `ROADMAP_NEXT_PHASES.md` | Next phases roadmap | T032: Compact v0.7–v1.0 roadmap split. v0.7 Dataset Expansion Planning, v0.8 Governance OS Integration Planning, v0.9 Public Quality Polish, v1.0 Expanded Public Release Criteria. Updated T033. (T032, T033) |
+| `DATASET_EXPANSION_CANDIDATE_CRITERIA.md` | Candidate selection criteria | T033: Defines candidate selection criteria for INC-0011+ records. Covers AI relevance, public interest, source availability, source quality preference order, wording requirements, privacy/reputational screen, jurisdiction diversity, category diversity, exclusion rules. Planning only. Not legal advice. (T033) |
+| `SOURCE_QUALITY_GATES_FOR_NEW_RECORDS.md` | Source quality gates | T033: Defines minimum source requirements for new records. Preferred source categories (Tier 1–3), minimum source count guidance, counsel review triggers, caution wording requirements, source/license notes, prohibited practices. Planning only. Not legal advice. (T033) |
+| `INCIDENT_CANDIDATE_REVIEW_WORKFLOW.md` | Candidate review workflow | T033: Describes 9-stage future candidate review workflow: candidate idea → source collection → source risk review → wording/legal risk review → draft record → validation → CT gate → counsel gate → public release batch. Planning only. Not legal advice. (T033) |
+| `INCIDENT_CANDIDATE_SHORTLIST_TEMPLATE.md` | Candidate shortlist template | T033: Reusable template for future INC-0011+ candidate shortlists. All fields defined. Placeholder/illustrative example only — no real candidates. Planning only. Not legal advice. (T033) |
 | `work-items/T024-public-mvp-lock/TASK.md` | T024 task | Task scope checklist. |
 | `work-items/T024-public-mvp-lock/VALIDATION.md` | T024 validation | Validation checklist. |
 | `work-items/T024-public-mvp-lock/IMPLEMENTATION_REPORT.md` | T024 report | Concise final report. |
@@ -245,6 +249,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T032-public-mvp-freeze-roadmap/VALIDATION.md` | T032 validation | Validation checklist for T032. |
 | `work-items/T032-public-mvp-freeze-roadmap/IMPLEMENTATION_REPORT.md` | T032 report | Concise final report for T032. |
 | `work-items/T032-public-mvp-freeze-roadmap/DECISIONS.md` | T032 decisions | Decisions made during T032 (max 10). |
+| `work-items/T033-dataset-expansion-planning/TASK.md` | T033 task | Task scope, constraints, deliverables, and baseline confirmation for T033 dataset expansion planning. |
+| `work-items/T033-dataset-expansion-planning/VALIDATION.md` | T033 validation | Validation checklist for T033 — constraint, deliverable, and dataset checks. |
+| `work-items/T033-dataset-expansion-planning/IMPLEMENTATION_REPORT.md` | T033 report | Final implementation report for T033 — files created, files updated, validation results, confirmation statements. |
+| `work-items/T033-dataset-expansion-planning/DECISIONS.md` | T033 decisions | 10 decisions (DEC-T033-001 through DEC-T033-010) including scope, deliverables, no-approval policy, version bump, T034 next step. |
 
 ---
 
