@@ -1,12 +1,12 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T028)
+**Last updated:** 20 May 2026 (T029)
 
 ---
 
 ## Execution Boundaries
 
-This repository is in the **T028 Public MVP Polish** phase. Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/`. **G-10 PASS** (20 May 2026). T028 applied public-facing UI/UX improvements: About/methodology panel, OG/canonical meta tags, public footer, robots.txt, sitemap.xml, mobile density improvements, focus-visible states. No records, sources, or legal content changed. G-01/G-02 remain pending explicit CT/counsel sign-off.
+This repository is in the **T029 Governance Gate Decision Pack** phase. Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/`. **G-10 PASS** (20 May 2026). T029 prepared governance decision record: `GOVERNANCE_GATE_DECISION_RECORD.md`. No explicit CT approval received. G-01/G-02 remain pending explicit CT/counsel sign-off. INC-0006 remains the sole material G-01 caution item.
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -47,11 +47,12 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T026 — Source Risk Hardening Pass for Public MVP | **Complete** — Sources hardened for INC-0005, INC-0008, INC-0009; INC-0006 counsel review unchanged |
 | T027 — Targeted INC-0006 Counsel/Source-Risk Resolution Pack | **Complete** — Targeted source search; no safer source found; decision packet created; no data/wording changes |
 | T028 — Public MVP Polish Pass | **Complete** — About section, OG meta, footer, robots.txt, sitemap.xml, mobile density, focus states; no records/sources/legal content changed |
+| T029 — Governance Gate Decision Pack | **Complete** — Governance decision record prepared; no explicit CT approval received; G-01/G-02 remain pending; decision packet ready for review |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated |
 
 ---
 
-## Status: T024 Complete — Technical Public MVP LIVE + VERIFIED
+## Status: T029 Complete — Governance Gate Decision Pack Prepared
 
 **Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/`.**
 
@@ -82,11 +83,15 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 
 See `PUBLICATION_RISK_GATE.md` for full gate status. See `PRODUCT_POLISH_BACKLOG.md` for future work backlog.
 
-## Next Recommended Step: T029 — CT/Counsel Sign-Off Recording for G-01/G-02
+## Next Recommended Step: T030 — Counsel Review Follow-Up for INC-0006
 
-**T028 is complete.** Public MVP polish pass applied: About/methodology panel, OG/canonical meta, public footer, robots.txt, sitemap.xml, mobile density, focus-visible states. Version bumped to v0.6.4. No records, sources, or legal content changed.
+**T029 is complete.** Governance decision record prepared: `GOVERNANCE_GATE_DECISION_RECORD.md`. No explicit CT approval statements received in task prompt. G-01/G-02 remain pending.
 
-**T029 — CT/Counsel Sign-Off Recording for G-01/G-02:** CT accepts current INC-0006 caution level and completes G-01/G-02 sign-off in `GOVERNANCE_SIGNOFF_PACK.md` §5. Recommended to first seek narrow counsel confirmation on Reuters URL citation acceptability per `INC0006_SOURCE_RISK_DECISION_PACKET.md` §6.
+**T030 — Counsel Review Follow-Up for INC-0006:** Since no explicit CT approval was received in T029, the recommended next step is to seek narrow counsel confirmation on Reuters URL citation acceptability per `INC0006_SOURCE_RISK_DECISION_PACKET.md` §6. Once counsel confirmation is received, CT can complete G-01/G-02 sign-off in `GOVERNANCE_SIGNOFF_PACK.md` §5.
+
+**Alternative T030 paths (if CT prefers):**
+- T030 — Public MVP v0.7 Status Freeze + Roadmap Split (if CT provides explicit approval)
+- T030 — Dataset Expansion Planning, planning only, no record creation
 
 ---
 

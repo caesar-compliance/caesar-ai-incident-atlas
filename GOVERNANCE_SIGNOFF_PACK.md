@@ -6,6 +6,7 @@
 **Status:** Prepared for CT/counsel sign-off — NOT LEGAL ADVICE  
 **T026 Update:** INC-0005 court record added; INC-0008 US DEFIANCE Act record added; INC-0009 NIH/PubMed record added. INC-0009 moved from Needs counsel review → Sign-off with caution. INC-0006 unchanged — counsel review still recommended.  
 **T027 Update:** Targeted source search for INC-0006 completed (20 May 2026). No safer public-domain replacement source found. Reuters remains sole primary source. No data or wording changes. Decision packet created: `INC0006_SOURCE_RISK_DECISION_PACKET.md`. INC-0006 G-01 status remains Needs counsel review. Recommended CT action: seek narrow counsel confirmation on Reuters URL citation acceptability before G-01 final sign-off.
+**T029 Update:** Governance gate decision record prepared: `GOVERNANCE_GATE_DECISION_RECORD.md`. No explicit CT approval statements received in task prompt. G-01/G-02 remain pending. Decision packet ready for CT/counsel review.
 
 ---
 

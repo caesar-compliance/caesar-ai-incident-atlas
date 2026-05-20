@@ -11,6 +11,7 @@
 > **T024 Public MVP Lock Status:** Technical Public MVP **LIVE + VERIFIED** at `https://atlas.caesar.no/`. HTTP→HTTPS redirect confirmed (301). JSON endpoint HTTP 200 with all 10 records. **G-10 PASS** — Control Tower manual browser confirmation on 20 May 2026. G-01 source/license review and G-02 wording/legal-risk review remain pending CT sign-off. See `PRODUCT_POLISH_BACKLOG.md` for future work.
 > **T026 Source Risk Hardening Status:** Source risk materially reduced for INC-0005, INC-0008, INC-0009. INC-0009 upgraded from Needs counsel review → Sign-off with caution. INC-0006 counsel review still recommended. See `SOURCE_RISK_HARDENING_REPORT.md`.
 > **T027 INC-0006 Source Risk Decision Packet Status:** Targeted source search found no safer replacement for INC-0006. Reuters remains sole primary source. No data or wording changes. Decision packet: `INC0006_SOURCE_RISK_DECISION_PACKET.md`. G-01 INC-0006: Needs counsel review (unchanged).
+**T029 Governance Gate Decision Pack Status:** Governance gate decision record prepared: `GOVERNANCE_GATE_DECISION_RECORD.md`. No explicit CT approval statements received in task prompt. G-01/G-02 remain pending. Decision packet ready for CT/counsel review.
 
 ---
 

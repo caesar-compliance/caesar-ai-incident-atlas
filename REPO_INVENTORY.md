@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T028)
+**Last updated:** 20 May 2026 (T029)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -207,6 +207,7 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `GOVERNANCE_SIGNOFF_PACK.md` | Governance sign-off pack | G-01 source/license and G-02 wording/legal-risk review tables for CT/counsel sign-off. Updated T026 and T027. (T025, T026, T027) |
 | `SOURCE_RISK_HARDENING_REPORT.md` | Source risk hardening report | T026 hardening detail plus T027 addendum: INC-0006 targeted source search result and risk assessment. (T026, T027) |
 | `INC0006_SOURCE_RISK_DECISION_PACKET.md` | INC-0006 source risk decision packet | T027: problem statement, targeted source search result table, Options A/B/C assessment, wording risk, recommended CT decision, proposed sign-off language, disclaimer. (T027) |
+| `GOVERNANCE_GATE_DECISION_RECORD.md` | Governance gate decision record | T029: Final governance gate decision package for G-01/G-02. Current MVP status, source/license table, wording/legal-risk table, INC-0006 decision section, final decision placeholders. No explicit CT approval received. (T029) |
 | `work-items/T024-public-mvp-lock/TASK.md` | T024 task | Task scope checklist. |
 | `work-items/T024-public-mvp-lock/VALIDATION.md` | T024 validation | Validation checklist. |
 | `work-items/T024-public-mvp-lock/IMPLEMENTATION_REPORT.md` | T024 report | Concise final report. |

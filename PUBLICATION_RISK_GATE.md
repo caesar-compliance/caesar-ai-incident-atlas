@@ -41,6 +41,8 @@ G-12 cleared (T021). G-03 resolved (T022): custom domain `atlas.caesar.no` activ
 
 **T027 INC-0006 Source Risk Decision Packet (20 May 2026):** Targeted source search for INC-0006 found no safer public-domain replacement. Reuters remains sole primary source. No data or wording changes. Decision packet created: `INC0006_SOURCE_RISK_DECISION_PACKET.md`. G-01 INC-0006 status: Needs counsel review (unchanged). Recommended CT action: seek narrow counsel confirmation on Reuters URL citation before G-01 final sign-off.
 
+**T029 Governance Gate Decision Pack (20 May 2026):** Governance gate decision record prepared: `GOVERNANCE_GATE_DECISION_RECORD.md`. No explicit CT approval statements received in task prompt. G-01/G-02 remain pending. Decision packet ready for CT/counsel review. INC-0006 remains the sole material G-01 caution item.
+
 **Review Pack Available:** See `PUBLIC_RELEASE_REVIEW_PACK.md` for detailed source/license review table, wording/legal-risk review table, and manual browser smoke-test checklist for G-10 completion.
 
 **Gate Closure Report (T019):** See `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md` for consolidated evidence assessment — G-01/G-02 reviewed and ready for CT sign-off, G-03 hosting recommendation table, G-10 static checks and manual checklist, remaining blocker table.

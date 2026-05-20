@@ -35,6 +35,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.6.5] - 20 May 2026
+
+### Added
+
+- **T029 — Governance Gate Decision Pack.** Prepared final governance gate decision package for G-01 and G-02 after T025–T027 source/wording review work. Created `GOVERNANCE_GATE_DECISION_RECORD.md` with compact sections: (1) Current public MVP status (Technical Public MVP: LIVE + VERIFIED, 10 records, G-10 PASS), (2) G-01 source/license status table for INC-0001–INC-0010 (6 ready for sign-off, 3 sign-off with caution, 1 needs counsel review — INC-0006 Reuters citation), (3) G-02 wording/legal-risk status table (9 ready for sign-off, 1 sign-off with caution — INC-0006), (4) INC-0006 decision section with Options A/B/C assessment, (5) Final decision section. No explicit CT approval statements received in task prompt, so G-01/G-02 remain pending. Updated `GOVERNANCE_SIGNOFF_PACK.md` (T029 header note), `PUBLICATION_RISK_GATE.md` (T029 status), `RELEASE_CANDIDATE_GATE.md` (T029 status), `PROJECT_STATE.md` (v0.6.4, T029 complete), `NEXT_ACTIONS.md` (T029 status, T030 options), `REPO_INVENTORY.md` (T029 files). No records, sources, or legal content changed. No DNS/CNAME/hosting/secrets changes.
+
+### Status (T029)
+
+- **Technical Public MVP**: LIVE + VERIFIED at `https://atlas.caesar.no/`
+- **G-10**: PASS
+- **G-01**: Pending — INC-0006 Reuters citation needs counsel confirmation
+- **G-02**: Pending CT/counsel sign-off (wording is sound)
+- **New records**: 0
+- **Data changes**: None
+- **Source/legal changes**: None
+- **Safety**: No DNS/CNAME/hosting changes, no secrets, no scraping, no external scripts, no analytics, repo root not exposed
+
+### Validation (T029)
+
+- `python3 tools/validate_dataset.py` — PASS; 10 records; no data changes
+- `grep -R "../data/" site/assets/app.js site/index.html` — clean
+- `find site -maxdepth 4 \( -name "CNAME" -o -path "*/work-items/*" -o -path "*/docs/*" \)` — empty
+- No external scripts added; no analytics/tracking added
+- `grep -R "upload-pages-artifact" .github/workflows/pages.yml` — confirmed
+- `grep -R "path: site" .github/workflows/pages.yml` — confirmed
+
+---
+
 ## [0.6.3] - 20 May 2026
 
 ### Added

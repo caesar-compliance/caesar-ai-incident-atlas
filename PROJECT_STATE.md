@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T028)
+**Last updated:** 20 May 2026 (T029)
 
 ---
 
@@ -10,11 +10,11 @@
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
 | Current version | `0.6.4` |
-| Current phase | `T028 — Public MVP Polish Pass. Technical Public MVP: LIVE + VERIFIED. About/methodology section, OG metadata, footer, robots.txt, sitemap.xml, accessibility improvements added. No new records. G-01/G-02 still pending.` |
+| Current phase | `T029 — Governance Gate Decision Pack. Technical Public MVP: LIVE + VERIFIED. Governance decision record prepared. No explicit CT approval received. G-01/G-02 still pending.` |
 | Status | `active` |
-| Latest completed task | `T028 — Public MVP Polish Pass` |
-| Active work item | `T028 — complete. Public MVP polish pass: About/methodology panel, OG/canonical meta, public footer, status panel v0.6.4, robots.txt, sitemap.xml, mobile density improvements, focus-visible states. No records/sources/legal content changed.` |
-| Next recommended step | `T029 — CT/Counsel Sign-Off Recording for G-01/G-02` |
+| Latest completed task | `T029 — Governance Gate Decision Pack` |
+| Active work item | `T029 — complete. Governance decision record prepared: GOVERNANCE_GATE_DECISION_RECORD.md. No explicit CT approval received. G-01/G-02 remain pending. Decision packet ready for CT/counsel review.` |
+| Next recommended step | `T030 — Counsel Review Follow-Up for INC-0006 (if G-01/G-02 pending) or Public MVP v0.7 Status Freeze (if G-01/G-02 approved)` |
 
 ---
 
@@ -49,7 +49,8 @@
 | T025 — Source/License + Wording Review Sign-Off Pack | **Complete** — Governance sign-off pack prepared; G-01/G-02 ready for CT/counsel sign-off | 20 May 2026 |
 | T026 — Source Risk Hardening Pass for Public MVP | **Complete** — Court record + US DEFIANCE Act + NIH/PubMed added; INC-0009 upgraded; INC-0006 counsel review unchanged | 20 May 2026 |
 | T027 — Targeted INC-0006 Counsel/Source-Risk Resolution Pack | **Complete** — Targeted source search; no safer source found; decision packet created; no data/wording changes | 20 May 2026 |
-| T028 — Public MVP Polish Pass | **Complete** — About section, OG meta, footer, robots.txt, sitemap.xml, focus states, mobile density; no records changed | 20 May 2026 |
+| T028 — Public MVP Polish Pass | **Complete** — About section, OG meta, footer, robots.txt, sitemap.xml, mobile density, focus states; no records/sources/legal content changed | 20 May 2026 |
+| T029 — Governance Gate Decision Pack | **Complete** — Governance decision record prepared; no explicit CT approval received; G-01/G-02 remain pending; decision packet ready for review | 20 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete — 10 records (INC-0001 through INC-0010) | 19 May 2026 |
 | v0.5 Static Site — local prototype | Complete — T012 | 19 May 2026 |
 | v0.5.1 Static Site — local functional MVP | Complete — T013 | 19 May 2026 |
