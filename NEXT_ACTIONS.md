@@ -1,19 +1,18 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T040)
+**Last updated:** 21 May 2026 (T042)
 
 ---
 
 ## Execution Boundaries
 
-This repository is in the **v0.7 Dataset Expansion Planning** phase. Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/`. **G-10 PASS** (20 May 2026). **G-01 APPROVED with caution** (20 May 2026). **G-02 APPROVED with caution** (20 May 2026). All 12 governance gates closed — current 10-record MVP only. Public MVP baseline frozen at `64c7267`. Gate closeout: `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md`. Baseline freeze: `PUBLIC_MVP_BASELINE_FREEZE.md`. Roadmap split: `ROADMAP_NEXT_PHASES.md`. **T033 complete** — dataset expansion planning criteria created. **T034 complete** — 15 planning-only candidates drafted. **T035 complete** — Source packs for all 8 P1 candidates; 6 ready for CT review; 1 deferred (CAND-002 needs Tier 1); 1 counsel-gated (CAND-004). First batch: CAND-013, 008, 011, 010. **T033–T040 complete** — Dataset expansion planning criteria, 15 candidate shortlist, P1 source packs, CT first drafting batch selection, batch-1 source pack finalization, first new incident record (INC-0011), INC-0011 gate sign-off, and second new incident record (INC-0012 from CAND-008) completed. Dataset: 12 records. INC-0011 G-01/G-02 approved with caution. INC-0012 prepared for CT review.
-> Next: T041 — INC-0012 Source/Wording Gate Sign-Off + Live Smoke Test. See [ROADMAP_NEXT_PHASES.md](ROADMAP_NEXT_PHASES.md) for the roadmap split.
+This repository is in the **v0.8.0 Product Pivot** phase. The product has pivoted from "public AI incident database" to "AI Legal & Governance Case Atlas — a case-to-control intelligence layer."
 
-The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
+Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/` with exactly 12 validated incident records.
 
-The clean-room policy is active. See `CLEAN_ROOM_IMPLEMENTATION_POLICY.md` and `LOCAL_ARCHITECTURE_MINING_PLAN.md` before studying any external source.
+The new product pivot architecture and policies are now active. See `PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md` and related documents before performing any new task or record drafting.
 
-The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION_PLAN.md`, `FIRST_INCIDENT_SELECTION_CRITERIA.md`, `SOURCE_VERIFICATION_WORKFLOW.md`, and `LICENSE_AND_SOURCE_SAFETY_CHECKLIST.md` before starting any incident curation work.
+The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md` before studying any local reference directories.
 
 ---
 
@@ -60,42 +59,31 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T038 — Draft First New Incident Record | **Complete** — INC-0011 drafted from CAND-013. Dataset: 11 records. Governance review note prepared. | 20 May 2026 |
 | T039 — INC-0011 Gate Sign-Off + Smoke Test | **Complete** — G-01/G-02 approved with caution; INC-0011 live; signoff record created. | 20 May 2026 |
 | T040 — Draft Second New Incident Record (CAND-008) | **Complete** — INC-0012 drafted. Dataset: 12 records. Governance review note prepared. | 20 May 2026 |
+| T042 — Product Pivot to AI Legal & Governance Case Atlas | **Complete** — Strategic pivot to Legal & Governance Case Atlas documented. Decoupled conceptual watcher pipeline and reference rules added. | 21 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated | 19 May 2026 |
 
 ---
 
-## Status: T040 Complete — INC-0012 Drafted and Prepared for CT Review
+## Status: T042 Complete — Strategic Product Pivot Recorded
 
-**Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/`.**
-**Dataset contains 12 records (INC-0001 through INC-0012).**
-**INC-0011 G-01/G-02 approved with caution — live and governance-approved.**
-**INC-0012 review status: `prepared_for_CT_review`. Not yet governance-approved.**
+**Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/` with exactly 12 validated incident records.**
+**Strategic direction, models, publishing policies, and reference lab guardrails have been recorded.**
 
-**Deployment facts (locked):**
-- GitHub Pages source: GitHub Actions workflow (`.github/workflows/pages.yml`)
-- Public root: `site/`
-- Custom domain: `atlas.caesar.no`
-- HTTPS certificate: approved (expires 2026-08-18)
-- Enforce HTTPS: enabled
-- Repo root: not exposed
-- No Cloudflare/Netlify/Coolify/VPS
-- No secrets
+**Active boundaries and policies:**
+- `PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md` (Repositioning & Value Chain)
+- `CASE_TO_CONTROL_PRODUCT_MODEL.md` (Fields, Mappings, checklists)
+- `AUTOMATION_AND_PUBLISHING_POLICY.md` (Ingestion gates & clean-room rules)
+- `DIGEST_PRODUCT_MODEL.md` (Weekly/Monthly RSS static plans)
+- `SOURCE_REGISTRY_AND_WATCHER_ARCHITECTURE.md` (Ingestion pipeline stages)
+- `REFERENCE_LAB_USAGE_NOTE.md` (Local reference lab usage policy)
 
-**Gate status (all closed):**
-- **G-10**: ✅ **PASS** — Control Tower manual browser confirmation on 20 May 2026
-- **G-01**: ✅ **APPROVED with caution** — INC-0006 Reuters citation accepted with caution (20 May 2026)
-- **G-02**: ✅ **APPROVED with caution** — current public MVP wording cleared (20 May 2026)
-- All other gates (G-03 through G-12): ✅ closed
+---
 
-**T032 complete.** Public MVP baseline frozen at `64c7267`. `PUBLIC_MVP_BASELINE_FREEZE.md` and `ROADMAP_NEXT_PHASES.md` created. No records, data, source, or legal content changed. No DNS/CNAME/hosting changes. **G-01/G-02 approval: INC-0001–INC-0010 approved with caution (T031); INC-0011 approved with caution (T039); INC-0012 prepared for CT review (T040). Future records require separate sign-off.**
+## Next Recommended Step: T043
 
-See `PUBLICATION_RISK_GATE.md` for gate status. See `PRODUCT_POLISH_BACKLOG.md` for future work. See `ROADMAP_NEXT_PHASES.md` for v0.7–v1.0 roadmap split.
+**T043 — Implement Watcher or Ingestion Invariant Checklists.** Prepare standard validation scripts for automated ingestion and draft programmatic checks matching the `AUTOMATION_AND_PUBLISHING_POLICY.md` rules.
 
-## Next Recommended Step: T041
-
-**T041 — INC-0012 Source/Wording Gate Sign-Off + Live Smoke Test.** CT reviews `INC0012_GOVERNANCE_REVIEW_NOTE.md`. If source/wording review is satisfactory, CT signs off INC-0012 G-01/G-02 equivalent. Live deployment and smoke test confirm 12 records visible.
-
-**Alternative T041:** Draft Third Record (CAND-011 or CAND-010) — only if CT explicitly approves another candidate.
+**Alternative T043:** Technical Public Site Polish — apply styling polish and layout updates to the static site to align with the new Case Atlas branding.
 
 ---
 

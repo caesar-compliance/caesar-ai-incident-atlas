@@ -1,0 +1,28 @@
+# Task Checklist — T042 Product Pivot
+
+- [x] Create compact docs:
+  - [x] PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md
+  - [x] CASE_TO_CONTROL_PRODUCT_MODEL.md
+  - [x] AUTOMATION_AND_PUBLISHING_POLICY.md
+  - [x] DIGEST_PRODUCT_MODEL.md
+  - [x] SOURCE_REGISTRY_AND_WATCHER_ARCHITECTURE.md
+  - [x] REFERENCE_LAB_USAGE_NOTE.md
+- [x] Update minimally:
+  - [x] PROJECT_STATE.md
+  - [x] NEXT_ACTIONS.md
+  - [x] README.md
+  - [x] SPEC.md
+  - [x] ARCHITECTURE.md
+  - [x] ROADMAP.md
+  - [x] ROADMAP_NEXT_PHASES.md
+  - [x] CHANGELOG.md
+  - [x] REPO_INVENTORY.md
+  - [x] docs/DECISION_LOG.md
+- [x] Perform validation:
+  - [x] Validate no changes to codebase or build configs
+  - [x] Run python3 tools/validate_dataset.py and ensure it passes with exactly 12 records
+  - [x] Verify git status and check diff rules
+- [/] Commit, push and merge:
+  - [x] Create branch docs/T042-product-pivot-legal-governance-case-atlas (already on it)
+  - [/] Commit changes
+  - [ ] Merge to main and push main

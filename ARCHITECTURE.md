@@ -1,66 +1,98 @@
 # Architecture — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026
-**Version:** 0.4.0 (dataset MVP — full 10-record batch complete)
-**Status:** 10 incident records (INC-0001 through INC-0010) created and formally validated (T008–T010)
+**Last updated:** 21 May 2026
+**Version:** 0.8.0 (strategic product pivot to AI Legal & Governance Case Atlas)
+**Status:** 12 case records (INC-0001 through INC-0012) created and formally validated (T008–T042)
 
 ---
 
 ## 1. Overview
 
-Caesar AI Incident Atlas is structured as a curated dataset with a governance mapping layer. The architecture is designed to be simple, maintainable, and useful as a standalone product while integrating with the broader Caesar AI Governance Hub ecosystem.
+The Caesar AI Legal & Governance Case Atlas is structured as an automated data curation pipeline coupled with a semantic "case-to-control" intelligence layer. The architecture is designed to be highly reliable, legally sound, and modular, acting as the centralized risk intelligence feed that integrates with the broader Caesar AI Governance Hub ecosystem.
 
-The core design principle is:
+The core architectural flow is:
 
 ```
-curated incident data
-+ failure mode taxonomy
-+ control mapping
-+ evidence mapping
-= practical governance knowledge base
+unstructured regulatory case
+→ automated watcher discovery
+→ risk gating & clean-room summarization
+→ case-to-control semantic mapping
+→ client checklist & training lesson generation
+→ push syndication via digests & RSS feeds
 ```
 
 ---
 
-## 2. High-Level Architecture
+## 2. High-Level Architecture & 10-Stage Ingestion Pipeline
+
+The Case Atlas is built around a ten-stage automated ingestion pipeline that transforms unstructured regulatory data into structured governance intelligence:
+
+```
+[1. Source Registry]
+       │ (Canonical monitoring endpoints & official authorities)
+       ▼
+ [2. Watcher]
+       │ (RSS feeds, scrapers, and portal observers)
+       ▼
+[3. Candidate Log]
+       │ (Assigned CAND-XXXX identifier for raw triage)
+       ▼
+  [4. Dedupe]
+       │ (Cross-checks Candidate URLs to prevent duplicates)
+       ▼
+[5. Source-Risk Gate]
+       │ (Classifies source credibility: Green, Yellow, Red)
+       ▼
+[6. Clean-Room Summary]
+       │ (AI Agent generates original, neutral hedged summary)
+       ▼
+[7. Classification]
+       │ (Tags primary sectors, legal domains, system types)
+       ▼
+[8. Control Mapping]
+       │ (Case → Risks → Missing Controls → Evidence)
+       ▼
+ [9. Public Case]
+       │ (JSON written to site/data/incidents/ & statically deployed)
+       ▼
+ [10. Digest]
+       │ (Generates weekly/monthly archives & RSS XML feeds)
+```
+
+### 2.1 Component Layer Diagram
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    Incident Dataset Layer                   │
-│   Curated incident records with structured metadata         │
-│   Source citations, severity, impact, confidence fields     │
+│                    Ingestion & Watcher Layer                │
+│  Monitors endpoints → Deduplicates → Evaluates source risk │
 └──────────────────────────────┬──────────────────────────────┘
                                │
                                ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    Taxonomy Layer                           │
-│   Failure mode taxonomy (privacy, bias, hallucination,      │
-│   safety, security, unauthorized action, transparency,      │
-│   reliability, AI agent failures)                           │
-│   Sector taxonomy (healthcare, finance, public sector, etc) │
+│                    Case Intelligence Layer                  │
+│  Converts events into 21-field Case Records in clean-room   │
+│  Applies Failure Mode & Sector taxonomies                   │
 └──────────────────────────────┬──────────────────────────────┘
                                │
                                ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    Mapping Layer                            │
-│   Incident → failure mode mapping                           │
-│   Failure mode → control mapping                            │
-│   Control → evidence mapping                                │
+│                    Case-to-Control Mapping Layer            │
+│  Maps Case → Legal Risk → Missing Controls                   │
+│  Identifies Required Evidence & compiles Vendor Questions   │
 └──────────────────────────────┬──────────────────────────────┘
                                │
                                ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    Export Layer                             │
-│   caesar-ai-evidence JSON export                            │
-│   Markdown report export                                    │
-│   Future: static site generator                             │
+│                    Publishing & Distribution Layer           │
+│  Compiles Weekly/Monthly static digests & RSS feeds         │
+│  Exports standardized JSON payloads for downstream tools     │
 └──────────────────────────────┬──────────────────────────────┘
                                │
                                ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    Integration Layer                        │
-│   caesar-ai-evidence (incident-mapping schema)              │
-│   Future: caesar-ai-governance-os (risk library module)     │
+│                    Integration & OS Layer                   │
+│  caesar-ai-evidence (incident-mapping schema)              │
+│  Future: caesar-ai-governance-os Risk Intelligence Engine  │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -68,48 +100,35 @@ curated incident data
 
 ## 3. Data Model
 
-### 3.1 Incident record
+### 3.1 Case record (21-Field Schema)
 
-The core data unit is the incident record. See [docs/DATA_MODEL_DRAFT.md](docs/DATA_MODEL_DRAFT.md) for the full schema draft and [V0_2_DRAFT_PRODUCT_CONTRACT.md](V0_2_DRAFT_PRODUCT_CONTRACT.md) for the resolved v0.2 contract decisions.
-
-Key decisions locked in v0.2 contract:
-
-| Decision | Resolution |
-|---|---|
-| Incident ID format | `INC-0001` — sequential, zero-padded four digits |
-| Required fields | 11 fields required; all others optional or deferred |
-| Evidence requirements | Free-text strings for v0.2; EV- IDs deferred to v0.3 |
-| Export format | One file per incident |
-| Schema strictness | Lenient for v0.2 |
+The core data unit in the Atlas is the Case record. The model has expanded to a 21-field schema that captures deep compliance and remediation intelligence.
 
 Key fields:
 
 ```json
 {
-  "incident_id": "INC-001",
-  "title": "string",
-  "date": "19 May 2026",
-  "sources": [
-    {
-      "url": "string",
-      "database": "AIID | OECD | AIAAIC | MIT | news | official",
-      "accessed": "19 May 2026"
-    }
-  ],
-  "summary": "string",
-  "sector": ["string"],
-  "system_type": "string",
-  "failure_modes": ["FM-PRIV", "FM-HALL"],
-  "harms": ["string"],
-  "risk_categories": ["string"],
-  "affected_stakeholders": ["string"],
-  "severity": "low | medium | high | critical",
-  "impact": "string",
-  "confidence": "low | medium | high",
-  "controls": ["CTL-DOC-001", "CTL-OVER-001"],
-  "evidence_required": ["string"],
-  "lessons": ["string"],
-  "related_incidents": ["INC-002"]
+  "case_id": "CASE-0013",
+  "case_title": "string",
+  "case_type": "enforcement | lawsuit | regulator_guidance | court_decision | settlement | public_sector_incident | vendor_governance_failure | serious_incident_report | commercial_ai_failure | official_investigation",
+  "jurisdiction": "string",
+  "source_authority": "string",
+  "source_tier": "Green | Yellow | Red",
+  "legal_domain": "privacy_biometrics | employment_hiring | consumer_protection | healthcare | financial_services | public_sector | legal_hallucination | vendor_risk | governance_failure | disability_discrimination",
+  "commercial_domain": "string",
+  "ai_system_type": "string",
+  "affected_party": "string",
+  "legal_commercial_relevance": "string",
+  "failure_mode": ["FM-PRIV", "FM-HALL"],
+  "business_risk": "string",
+  "missing_controls": ["CTL-DOC-001", "CTL-OVER-001"],
+  "required_evidence": ["EV-001"],
+  "vendor_questions": ["string"],
+  "training_lesson": "string",
+  "public_summary": "string",
+  "source_urls": ["string"],
+  "publish_status": "candidate | draft | reviewed | published",
+  "digest_tags": ["string"]
 }
 ```
 

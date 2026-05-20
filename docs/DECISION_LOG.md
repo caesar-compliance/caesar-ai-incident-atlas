@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T018A — DEC-100)
+**Last updated:** 21 May 2026 (T042 — DEC-108)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -1281,4 +1281,25 @@ T006 must not mass-import data and must not create final incident records unless
 
 ---
 
-**Last updated:** 20 May 2026 (T019 — DEC-107)
+### [DEC-108] — 21 May 2026 — Strategic Product Pivot to AI Legal & Governance Case Atlas
+
+**Status:** Approved
+
+**Decisions:**
+
+1. **De-positioning from general incident collection (D1).** Caesar AI Incident Atlas is no longer positioned as a general AI incident database.
+2. **Re-positioning as AI Legal & Governance Case Atlas (D2).** The product is rebranded and refocused as the AI Legal & Governance Case Atlas — a strategic case-to-control intelligence layer.
+3. **Refined target case scope (D3).** Target cases are specifically limited to high-impact legal, regulatory, commercial, governance, vendor, employment, privacy, healthcare, finance, public-sector, and high-impact AI cases.
+4. **Core value chain re-alignment (D4).** The core value of the product is delivered through the end-to-end "case-to-control" intelligence pipeline: case → legal/commercial risk → missing governance control → evidence requirement → client checklist → training lesson → digest.
+5. **Source-tiered risk gating (D5).** An automation-first watcher ingestion pipeline is the desired engineering direction, but publication is source-tiered and risk-gated to prevent unverified or illegal distribution.
+6. **Regulatory and judicial source preference (D6).** Official regulators, government authorities, and courts are the preferred primary sources (Green Tier).
+7. **Clean-room reference-only policy for competitor data (D7).** External/competitor databases (e.g., AIID, OECD, AIAAIC) may be used for discovery and reference only; they are strictly never copied or bulk-imported.
+8. **Clean-room summarization rules (D8).** All public-facing summaries must be clean-room, original Caesar-written summaries in hedged, factual language.
+9. **Digests as first-class product output (D9).** Weekly and monthly static digests are established as core, first-class product outputs.
+10. **Incremental distribution strategy (D10).** RSS feeds and static digest archives are established as the primary distribution channels at launch; email subscription (via listmonk, Resend, or SES) and subscriber databases are deferred to later stages.
+
+**Rationale:** The pivot moves Caesar away from low-differentiation general incident cataloging towards proprietary compliance mapping and audit-readiness. This aligns with client needs for audit readiness, third-party risk management, and actionable training precedents. It also enforces clean-room boundaries, protecting Caesar's intellectual property and ensuring strict licensing compliance.
+
+---
+
+**Last updated:** 21 May 2026 (T042 — DEC-108)

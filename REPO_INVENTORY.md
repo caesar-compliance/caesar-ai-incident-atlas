@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T035)
+**Last updated:** 21 May 2026 (T042)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -137,6 +137,12 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T010-second-wave-incident-record-batch/VALIDATION.md` | T010 validation | Constraint and deliverable validation checklist for T010. |
 | `work-items/T010-second-wave-incident-record-batch/IMPLEMENTATION_REPORT.md` | T010 report | Implementation report with records created, source gate summary, validation results. |
 | `work-items/T010-second-wave-incident-record-batch/DECISIONS.md` | T010 decisions | 10 decisions including gate outcomes, anchor choices, confidence ratings, T011 gate. |
+| `PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md` | Product Pivot | Strategic positioning of the AI Legal & Governance Case Atlas, core value chain, and transition from incident database to compliance intelligence layer. (T042) |
+| `CASE_TO_CONTROL_PRODUCT_MODEL.md` | Case-to-Control Model | Specification of the 21-field case schema, control-evidence structural mapping, vendor audit questions, client checklists, and developer lessons. (T042) |
+| `AUTOMATION_AND_PUBLISHING_POLICY.md` | Ingestion Policy | Definition of automated discovery rules, source-risk gating, clean-room original summarization, and human-in-the-loop validation gates. (T042) |
+| `DIGEST_PRODUCT_MODEL.md` | Digest Model | Details on weekly and monthly static briefings, RSS XML feed structures, and future email syndication roadmap. (T042) |
+| `SOURCE_REGISTRY_AND_WATCHER_ARCHITECTURE.md` | Watcher Architecture | Conceptual design of the 10-stage watcher, deduplication, risk gate, and ingestion transformation pipeline. (T042) |
+| `REFERENCE_LAB_USAGE_NOTE.md` | Reference Lab Policy | Rules governing the separation and clean-room implementation of reference-lab learnings, safeguarding against copyleft contamination. (T042) |
 
 ## docs/ Directory
 
@@ -276,6 +282,11 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T040-create-inc0012-cand008/VALIDATION.md` | T040 validation | Validation checklist for T040. |
 | `work-items/T040-create-inc0012-cand008/IMPLEMENTATION_REPORT.md` | T040 report | Concise final report for T040. |
 | `work-items/T040-create-inc0012-cand008/DECISIONS.md` | T040 decisions | Decisions made during T040 (max 10). |
+| `work-items/T042-product-pivot-legal-governance-case-atlas/TASK.md` | T042 task | Task scope checklist for T042 strategic product pivot. |
+| `work-items/T042-product-pivot-legal-governance-case-atlas/VALIDATION.md` | T042 validation | Validation checklist for T042. |
+| `work-items/T042-product-pivot-legal-governance-case-atlas/IMPLEMENTATION_REPORT.md` | T042 report | Comprehensive final report for T042. |
+| `work-items/T042-product-pivot-legal-governance-case-atlas/DECISIONS.md` | T042 decisions | Strategic product pivot decisions (DEC-108 documenting D1 through D10). |
+
 
 ---
 

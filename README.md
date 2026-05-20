@@ -1,15 +1,15 @@
-# Caesar AI Incident Atlas
+# Caesar AI Legal & Governance Case Atlas
 
-> Public AI incident atlas for governance, source review, evidence readiness, and public deployment-safe incident records.
+> A case-to-control intelligence layer that translates real-world AI failures, legal actions, and regulatory decisions into structured compliance controls and evidence requirements.
 
 **Live site:** [atlas.caesar.no](https://atlas.caesar.no/)
 
 | | |
 |---|---|
-| **Status** | Technical Public MVP live (v0.7.8) |
+| **Status** | Technical Public MVP live (v0.8.0) |
 | **Hosting** | GitHub Pages — static site (`site/`) |
-| **Dataset** | 12 curated incident records (INC-0001–INC-0012) |
-| **Safety** | Source review and publication gates apply — not legal advice |
+| **Dataset** | 12 curated case records (INC-0001–INC-0012) |
+| **Safety** | Strict source-risk gates and clean-room summaries apply — not legal advice |
 
 Part of the [Caesar AI Governance Hub](https://github.com/caesar-compliance/caesar-ai-governance-hub) ecosystem.
 
@@ -17,27 +17,26 @@ Part of the [Caesar AI Governance Hub](https://github.com/caesar-compliance/caes
 
 ## What it does
 
-- Maps **publicly reported AI incidents** to failure modes, governance controls, and evidence requirements.
+- Maps **significant legal and commercial cases** to failure modes, organizational controls, and evidence requirements.
+- Compiles **actionable vendor questionnaires, client checklists, and case-based training lessons**.
 - Provides a **searchable static public site** with sector filters and structured metadata.
-- Maintains **source review and citation discipline** — summaries are not legal conclusions.
+- Maintains **rigorous source review and citation discipline** through a three-tiered source-risk gate.
 - Supports **evidence export** to [caesar-ai-evidence](https://github.com/caesar-compliance/caesar-ai-evidence) format.
-- Keeps public data **static and reviewable** — no runtime backend or live monitoring.
+- Disseminates structured periodic risk intelligence via **RSS feeds and static digest archives**.
 
 ## What it is not
 
-- **Not legal advice** — incident summaries support governance review, not compliance guarantees.
-- **Not a complete incident database** — coverage grows incrementally under source-quality gates.
-- **Not a scraper or live feed** — records are curated, verified, and gate-reviewed before publication.
+- **Not legal advice** — case summaries and checklists support governance review, not compliance guarantees.
+- **Not a general-purpose incident database** — coverage is strictly limited to cases with legal, regulatory, or commercial governance significance.
+- **Not an automated scraper or unverified live feed** — every record is compiled under strict clean-room writing rules and manual publication gates.
 
 ---
 
-## Governance chain
+## Core Value Chain
 
-```text
-incident → failure mode → relevant controls → required evidence → lessons for governance
-```
+$$\text{Case} \rightarrow \text{Legal/Commercial Risk} \rightarrow \text{Missing Governance Control} \rightarrow \text{Evidence Requirement} \rightarrow \text{Client Checklist} \rightarrow \text{Training Lesson} \rightarrow \text{Digest}$$
 
-Caesar AI Incident Atlas does not replace the AI Incident Database, OECD AI Incidents Monitor, or AIAAIC Repository. It adds a practical governance mapping layer on top of publicly reported incidents.
+Caesar AI Legal & Governance Case Atlas does not compete with general incident feeds. It adds a practical case-to-control mapping layer on top of verified public domain decisions and regulator actions.
 
 ---
 
@@ -181,6 +180,12 @@ Related repositories:
 | [REPO_INVENTORY.md](REPO_INVENTORY.md) | File registry |
 | [PROJECT_STATE.md](PROJECT_STATE.md) | Current project phase and status |
 | [NEXT_ACTIONS.md](NEXT_ACTIONS.md) | Prioritized next steps |
+| [PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md](PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md) | Strategic pivot positioning and value chain definitions |
+| [CASE_TO_CONTROL_PRODUCT_MODEL.md](CASE_TO_CONTROL_PRODUCT_MODEL.md) | Schema design and case-to-control mapping models |
+| [AUTOMATION_AND_PUBLISHING_POLICY.md](AUTOMATION_AND_PUBLISHING_POLICY.md) | Ingestion rules, source risk gates, and wording guidelines |
+| [DIGEST_PRODUCT_MODEL.md](DIGEST_PRODUCT_MODEL.md) | Digest output formats, RSS feeds, and static archiving policies |
+| [SOURCE_REGISTRY_AND_WATCHER_ARCHITECTURE.md](SOURCE_REGISTRY_AND_WATCHER_ARCHITECTURE.md) | 10-stage automated pipeline conceptual architecture |
+| [REFERENCE_LAB_USAGE_NOTE.md](REFERENCE_LAB_USAGE_NOTE.md) | Local reference lab clean-room rewrite rules and license guide |
 | [LOCAL_ARCHITECTURE_MINING_PLAN.md](LOCAL_ARCHITECTURE_MINING_PLAN.md) | Policy for studying external sources locally |
 | [CLEAN_ROOM_IMPLEMENTATION_POLICY.md](CLEAN_ROOM_IMPLEMENTATION_POLICY.md) | License classification table and clean-room process |
 | [THIRD_PARTY_REPOSITORY_REVIEW_TEMPLATE.md](THIRD_PARTY_REPOSITORY_REVIEW_TEMPLATE.md) | Template for documenting source reviews |

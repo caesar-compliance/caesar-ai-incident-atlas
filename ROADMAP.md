@@ -1,7 +1,7 @@
 # Development Roadmap — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T040)
-**Status:** v0.7 Dataset Expansion in progress. T040 complete — INC-0012 drafted from CAND-008. Dataset: 12 records. Next: T041 INC-0012 Source/Wording Gate Sign-Off.
+**Last updated:** 21 May 2026 (T042)
+**Status:** v0.8.0 Strategic Product Pivot complete. Product direction, schemas, ingestion pipelines, publishing policies, and reference-lab usage guidelines documented. Dataset: 12 records. Next: T043 Ingestion Invariant Validation scripts.
 
 ---
 
@@ -396,18 +396,20 @@ v0.1 Foundation
 
 ---
 
-## Phase v0.5 — Export Integration
+## Phase v0.8 — Strategic Pivot & Integration Mapping (v0.8.0)
 
-**Status:** Planned
+**Status:** In Progress / Strategic Pivot Complete (21 May 2026)
 
-**Goal:** Formalize export to `caesar-ai-evidence` and prepare for Governance OS integration.
+**Goal:** Reorient the product from a public incident database to the Caesar AI Legal & Governance Case Atlas (Case-to-Control Intelligence Layer), define the conceptual watcher/ingestion pipeline, map future Governance OS integrations, and establish watcher validation script specifications.
 
 **Deliverables:**
-- Stable export format for `caesar-ai-evidence` incident-mapping schema.
-- Export CLI command or script.
-- Integration documentation for `caesar-ai-evidence`.
-- Sector-specific risk profile exports.
-- Evidence gap report generation based on incident patterns.
+- `PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md` — strategic positioning and core value chain.
+- `CASE_TO_CONTROL_PRODUCT_MODEL.md` — 21-field case schema, vendor questions, and training lesson outputs.
+- `AUTOMATION_AND_PUBLISHING_POLICY.md` — source-tiered discovery, gating, and clean-room policies.
+- `DIGEST_PRODUCT_MODEL.md` — weekly/monthly digest schedules, RSS feed architectures.
+- `SOURCE_REGISTRY_AND_WATCHER_ARCHITECTURE.md` — 10-stage automated watcher/ingestion conceptual architecture.
+- `REFERENCE_LAB_USAGE_NOTE.md` — reference lab separation, CC ShareAlike & copyleft rules.
+- Watcher validation scripts and ingestion invariant checks (planned for T043).
 
 ---
 

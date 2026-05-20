@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T040)
+**Last updated:** 21 May 2026 (T042)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.7.8` |
-| Current phase | `T040 — INC-0012 drafted from CAND-008. Dataset: 12 records. INC-0012 prepared for CT review.` |
+| Current version | `0.8.0` |
+| Current phase | `T042 — Strategic Pivot to AI Legal & Governance Case Atlas` |
 | Status | `active` |
-| Latest completed task | `T040 — Draft Second New Incident Record from CAND-008` |
-| Active work item | `T040 — complete. INC-0012 drafted from CAND-008. Dataset: 12 records. INC-0012 prepared for CT review. Ready for T041.` |
-| Next recommended step | `T041 — INC-0012 Source/Wording Gate Sign-Off + Live Smoke Test` |
+| Latest completed task | `T042 — Product Pivot to AI Legal & Governance Case Atlas` |
+| Active work item | `T042 — complete. Recorded new strategic direction, conceptual architecture pipelines, and clean-room reference policies. Dataset: 12 records.` |
+| Next recommended step | `T043 — Implement Watcher or Ingestion Invariant Checklists` |
 
 ---
 
@@ -62,16 +62,11 @@
 | T038 — Draft First New Incident Record | **Complete** — INC-0011 drafted from CAND-013. Dataset: 11 records. Governance review note prepared. | 20 May 2026 |
 | T039 — INC-0011 Gate Sign-Off + Smoke Test | **Complete** — G-01/G-02 approved with caution. INC-0011 live. `INC0011_GATE_SIGNOFF_RECORD.md` created. | 20 May 2026 |
 | T040 — Draft Second New Incident Record (CAND-008) | **Complete** — INC-0012 drafted. Dataset: 12 records. Governance review note prepared. | 20 May 2026 |
+| T042 — Product Pivot to AI Legal & Governance Case Atlas | **Complete** — Strategic pivot to Legal & Governance Case Atlas documented. Decoupled conceptual watcher pipeline and reference rules added. | 21 May 2026 |
+| v0.8.0 Product Pivot — Strategic repositioning | Complete — Strategic docs, mapping models, and automation policies created | 21 May 2026 |
 | v0.7.8 Dataset Expansion — INC-0012 drafted | Complete — 12 records; INC-0012 prepared for CT review | 20 May 2026 |
 | v0.7.7 Dataset Expansion — INC-0011 signed off | Complete — 11 records; INC-0011 governance-approved | 20 May 2026 |
 | v0.7.6 Dataset Expansion — first new record | Complete — 11 records (INC-0001 through INC-0011) | 20 May 2026 |
-| v0.5 Static Site — local prototype | Complete — T012 | 19 May 2026 |
-| v0.5.1 Static Site — local functional MVP | Complete — T013 | 19 May 2026 |
-| v0.5.2 Local QA tooling | Complete — T014 | 19 May 2026 |
-| v0.5.3 Local release candidate | Complete — T015 | 19 May 2026 |
-| v0.5.4 Public deployment plan | Complete — T016 | 19 May 2026 |
-| v0.5.5 Static publish package | Complete — T017 | 20 May 2026 |
-| v0.5.6 Deployment readiness gate closure | Complete — T019 | 20 May 2026 |
 | v0.5 Static Site — public deployment | **Live** — `https://atlas.caesar.no/` | 20 May 2026 |
 | v0.5 Export Integration | Planned | — |
 | v1.0 Stable Public Release | Planned | — |
@@ -81,12 +76,12 @@
 
 ## What This Repository Is
 
-Caesar AI Incident Atlas is a curated public incident knowledge base that maps real-world AI failures to failure modes, governance controls, and evidence requirements.
+Caesar AI Legal & Governance Case Atlas is a curated case-to-control intelligence layer that translates real-world legal proceedings, regulator enforcement actions, and commercial failures into actionable compliance controls, evidence requirements, vendor questions, and training lessons.
 
-Its primary value is the governance mapping layer:
+Its primary value is the strategic case-to-control value chain:
 
 ```
-incident → failure mode → relevant controls → required evidence → lessons
+case → legal/commercial risk → missing governance control → evidence requirement → client checklist → training lesson → digest
 ```
 
 ---
@@ -113,6 +108,12 @@ See `V0_2_DRAFT_PRODUCT_CONTRACT.md` for the full contract.
 
 | Document | Purpose |
 |---|---|
+| `PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md` | Core document detailing the strategic pivot and value chain |
+| `CASE_TO_CONTROL_PRODUCT_MODEL.md` | Data model definitions, target case types, and output structures |
+| `AUTOMATION_AND_PUBLISHING_POLICY.md` | Ingestion restraints, source risk gates, and clean-room policies |
+| `DIGEST_PRODUCT_MODEL.md` | Format specifications and staged plans for weekly/monthly digests |
+| `SOURCE_REGISTRY_AND_WATCHER_ARCHITECTURE.md` | Conceptual watcher and ingestion pipeline architecture |
+| `REFERENCE_LAB_USAGE_NOTE.md` | Guardrails for local reference lab use and license containment |
 | `V0_2_DRAFT_PRODUCT_CONTRACT.md` | Stable v0.2 product model contract |
 | `SOURCE_AND_CITATION_POLICY_DRAFT.md` | Citation rules, confidence levels, wording rules |
 | `V0_2_FIELD_PRIORITY_TABLE.md` | Field priority table (required / optional / later) |

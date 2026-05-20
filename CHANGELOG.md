@@ -7,6 +7,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.8.0] - 21 May 2026
+
+### Added
+
+- **T042 — Strategic Product Pivot to AI Legal & Governance Case Atlas.** Formally documented the new strategic direction pivoting from a public AI incident database to the Caesar AI Legal & Governance Case Atlas (a case-to-control intelligence layer).
+- Created six strategic architecture and policy documents:
+  - `PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md`: Details the strategic positioning and the core value chain: case → risk → missing control → evidence → client checklist → training lesson → digest.
+  - `CASE_TO_CONTROL_PRODUCT_MODEL.md`: Establishes the 21-field case schema, structural mapping relationships, vendor audit questionnaires, client remediation checklists, and developer/executive training lessons.
+  - `AUTOMATION_AND_PUBLISHING_POLICY.md`: Lays down clear source-risk gates and rules for source-tiered auto-discovery, auto-drafting, clean-room original summaries, and human-in-the-loop validation policies.
+  - `DIGEST_PRODUCT_MODEL.md`: Details weekly and monthly static briefings, RSS XML syndication feeds, and future listmonk/SES distribution strategies without external integrations or subscriber databases.
+  - `SOURCE_REGISTRY_AND_WATCHER_ARCHITECTURE.md`: Presents the conceptual architecture for the 10-stage watcher and automated ingestion pipeline.
+  - `REFERENCE_LAB_USAGE_NOTE.md`: Clarifies the clean-room research boundaries and policies governing the reference lab, protecting Caesar codebases from AGPL-3.0 and other copyleft licenses.
+- Created four work-item documents tracking this pivot under `work-items/T042-product-pivot-legal-governance-case-atlas/`:
+  - `TASK.md`: Detailed work checklist.
+  - `VALIDATION.md`: Automated QA and compliance checklist.
+  - `DECISIONS.md`: Records decisions D1 through D10.
+  - `IMPLEMENTATION_REPORT.md`: Comprehensive final execution report.
+- Appended decision log entry `[DEC-108] — 21 May 2026 — Strategic Product Pivot to AI Legal & Governance Case Atlas` documenting decisions D1–D10 in `docs/DECISION_LOG.md`.
+
+### Changed
+
+- Updated `SPEC.md` to align the Purpose and Problem sections with the Case-to-Control intelligence layer and the case-to-evidence pipeline.
+- Updated `ARCHITECTURE.md` to incorporate the 10-stage ingestion pipeline and the 21-field case schema JSON structures.
+- Updated `ROADMAP.md` & `ROADMAP_NEXT_PHASES.md` to rebrand Phase v0.8 to focus on the v0.8.0 Strategic Pivot and integration mapping.
+- Updated `README.md` to introduce the Case Atlas positioning, specify the new repository structure, and display the core value chain.
+- Updated lifecycle files `PROJECT_STATE.md` and `NEXT_ACTIONS.md` to establish the new v0.8.0 milestone baseline.
+- Registered all 10 new strategic policy and work-item documents in `REPO_INVENTORY.md`.
+
+### Status (T042)
+
+- **Dataset**: Exactly 12 case records (INC-0001 through INC-0012) verified and validated. No new case records created.
+- **Safety**: No DNS, CNAME, hosting, secrets, or dependency changes. Public root remains `site/`. GitHub Pages workflow continues to upload only `site/`. Sibling repositories remain entirely untouched.
+
+---
+
 ## [Unreleased] - Repository presentation polish (20 May 2026)
 
 ### Changed

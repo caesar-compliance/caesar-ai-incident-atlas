@@ -57,34 +57,41 @@ See `ROADMAP.md` for the full historical phase plan.
 
 ---
 
-## v0.8 — Caesar AI Evidence / Governance OS Integration Planning
+## v0.8 — Strategic Pivot & Integration Mapping (v0.8.0)
 
-**Status:** Planning only — no integration implementation.
-**Prerequisite:** Stable v0.7 dataset; CT approval to begin integration planning.
+**Status:** In Progress / Strategic Pivot Complete (21 May 2026)
 
-**Mapping exercise (planning only):**
+**Goal:** Reorient the product from a public incident database to the Caesar AI Legal & Governance Case Atlas (Case-to-Control Intelligence Layer), define the conceptual watcher/ingestion pipeline, map future Governance OS integrations, and establish watcher validation script specifications.
 
-For each of the 10 (and future) incident records, map to:
+**Completed strategic deliverables:**
+- `PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md` — strategic positioning and core value chain.
+- `CASE_TO_CONTROL_PRODUCT_MODEL.md` — 21-field case schema, vendor questions, and training lesson outputs.
+- `AUTOMATION_AND_PUBLISHING_POLICY.md` — source-tiered discovery, gating, and clean-room policies.
+- `DIGEST_PRODUCT_MODEL.md` — weekly/monthly digest schedules, RSS feed architectures.
+- `SOURCE_REGISTRY_AND_WATCHER_ARCHITECTURE.md` — 10-stage automated watcher/ingestion conceptual architecture.
+- `REFERENCE_LAB_USAGE_NOTE.md` — reference lab separation, CC ShareAlike & copyleft rules.
 
-| Incident field | Integration target |
+**Next implementation focus (planned for T043):**
+- Implementation of watcher/ingestion validation scripts.
+- Creation of automated validation invariants to enforce the 21-field schema and source risk tiers.
+
+**Mapping exercise (21-field schema):**
+
+For each of the 12 (and future) case records, map to:
+
+| Case Field | Integration Target |
 |---|---|
-| `failure_modes` | Failure mode — caesar-ai-evidence |
-| `controls` | Affected control — Governance OS control library |
-| `evidence_required` | Required evidence object — caesar-ai-evidence schema |
-| `lessons` | Governance lesson — Governance OS risk intelligence |
-| `incident_id` + metadata | Future evidence object ID anchor |
-| `controls` | Future Governance OS control object reference |
-
-**Planning deliverables (when approved):**
-- Field mapping draft per incident (update `INCIDENT_FIELD_MAPPING_DRAFTS.md`).
-- Export format proposal compatible with `caesar-ai-evidence` schema.
-- Control coverage heatmap concept (which controls are most frequently implicated).
-- Evidence gap report concept (which evidence types are most frequently missing).
+| `failure_mode` | Failure mode — caesar-ai-evidence |
+| `missing_controls` | Affected control — Governance OS control library |
+| `required_evidence` | Required evidence object — caesar-ai-evidence schema |
+| `training_lesson` | Governance training — Governance OS risk intelligence |
+| `case_id` + metadata | Future evidence object ID anchor |
+| `missing_controls` | Future Governance OS control object reference |
 
 **Hard gates:**
+- No automated collection or scraping scripts live until validation tools are signed off by the Control Tower.
 - No integration code implemented until CT approves implementation scope.
 - No changes to `caesar-ai-evidence` or sibling repositories from this repository.
-- Mapping drafts are documentation only — not live integration.
 
 ---
 

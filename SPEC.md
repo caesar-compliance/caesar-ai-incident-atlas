@@ -1,26 +1,28 @@
 # Specification — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026
-**Version:** 0.4.0 (dataset MVP — full 10-record batch complete)
-**Status:** 10 incident records (INC-0001 through INC-0010) created and validated (T008–T010)
+**Last updated:** 21 May 2026
+**Version:** 0.8.0 (strategic product pivot to AI Legal & Governance Case Atlas)
+**Status:** 12 case records (INC-0001 through INC-0012) created and validated (T008–T042)
 
 ---
 
 ## 1. Purpose
 
-Caesar AI Incident Atlas is a curated public incident knowledge base that maps real-world AI failures to failure modes, governance controls, and evidence requirements.
+The Caesar AI Legal & Governance Case Atlas is a strategic "case-to-control" intelligence layer that turns real-world legal, regulatory, and commercial AI failure cases into structured organizational governance intelligence.
 
-Its primary value is not incident collection — public databases such as AIID, OECD AI Incidents Monitor, and AIAAIC already do that well. Its primary value is the governance mapping layer:
+The Atlas is no longer positioned as a general AI incident database. Public databases (such as AIID, OECD AI Incidents Monitor, and AIAAIC) focus on volume and general incident collection. The unique value of the Caesar Case Atlas is its structured, end-to-end "case-to-control" semantic mapping pipeline:
 
 ```
-incident
-→ failure mode
-→ relevant controls
-→ required evidence
-→ lessons for governance
+case
+→ legal/commercial risk
+→ missing governance control
+→ evidence requirement
+→ client checklist
+→ training lesson
+→ digest
 ```
 
-This mapping helps consultants, risk teams, and compliance teams explain why specific AI governance controls are needed, using real-world failures as practical examples.
+This pipeline translates unstructured court decisions, regulatory enforcement actions, and vendor failures into actionable, audit-ready compliance checklists and executive-level training modules. It enables consultants, risk teams, and developers to explain exactly why specific governance controls are required using real-world case precedents as evidence.
 
 ---
 
@@ -38,16 +40,17 @@ This mapping helps consultants, risk teams, and compliance teams explain why spe
 
 ## 3. Problem Solved
 
-AI governance teams often struggle to explain why specific controls are needed. Abstract risk frameworks are hard to communicate to business stakeholders. Real-world AI failures make the case concretely.
+AI compliance, legal, and risk teams struggle to translate abstract AI regulatory frameworks (like the EU AI Act or FTC guidelines) and broad risk frameworks into concrete compliance activities. Furthermore, communicating the necessity of specific controls to executive stakeholders or third-party vendors is difficult without tangible real-world precedents.
 
-Caesar AI Incident Atlas bridges this gap by:
+The Caesar AI Legal & Governance Case Atlas bridges this gap by:
 
-- curating publicly reported AI incidents with structured metadata;
-- mapping each incident to a failure mode taxonomy;
-- mapping each failure mode to practical governance controls;
-- mapping each control to the evidence that should exist to demonstrate it is active;
-- providing sector filters so teams can find incidents relevant to their domain;
-- exporting mappings to the `caesar-ai-evidence` format for use in governance evidence packs.
+- Curating highly targeted legal, regulatory, and commercial AI case precedents with rigorous metadata;
+- Mapping every case to the specific legal risks, failure modes, and business impacts realized;
+- Translating each event into the precise organizational controls that were missing or failed;
+- Specifying the exact audit-ready evidence requirements needed to verify those controls are active;
+- Synthesizing vendor onboarding questions and non-technical training lessons derived from the case;
+- Providing an actionable remediation checklist for Caesar clients to harden their internal AI workflows;
+- Distributing weekly and monthly briefings to ensure compliance teams stay aligned with changing legal requirements.
 
 ---
 
