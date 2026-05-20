@@ -1,7 +1,7 @@
 # Development Roadmap — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T034)
-**Status:** v0.7 Dataset Expansion Planning in progress. T034 candidate shortlist drafted (15 candidates, all not_approved_candidate). Next: T035 Candidate Source Pack Planning (P1 candidates, planning only).
+**Last updated:** 20 May 2026 (T035)
+**Status:** v0.7 Dataset Expansion Planning in progress. T035 P1 source packs complete. First batch recommendation: CAND-013, CAND-008, CAND-011, CAND-010. Next: T036 CT First Drafting Batch Selection (planning only).
 
 ---
 
@@ -40,6 +40,18 @@
 **All 15 candidates status `not_approved_candidate`.** No new records created. No data, source, site, deployment, or governance gate changed. No G-01/G-02 scope expansion. Approval scope remains the current 10-record public MVP only. Not legal advice.
 
 **Recommended next step:** T035 — Candidate Source Pack Planning for P1 candidates (planning only, no record creation).
+
+---
+
+## T035 — P1 Candidate Source Pack Planning
+
+**Status:** Complete (20 May 2026) — Version 0.7.3
+
+**Deliverables created:** `P1_CANDIDATE_SOURCE_PACKS.md` (source packs for all 8 P1 candidates), `P1_CANDIDATE_SOURCE_RISK_MATRIX.md` (overview + readiness ranking + defer list), `P1_CANDIDATE_PRIORITIZATION_RECOMMENDATION.md` (4-candidate first batch recommendation), `work-items/T035-p1-candidate-source-packs/`.
+
+**6 candidates `source_pack_ready_for_CT_review`.** CAND-002 downgraded to P2 (needs Tier 1 source). CAND-004 `needs_counsel_gate`. First batch recommendation: CAND-013, CAND-008, CAND-011, CAND-010. No new records. No data, source, site, deployment, or governance gate changed. Not legal advice.
+
+**Recommended next step:** T036 — CT First Drafting Batch Selection (planning only, no record creation).
 
 ---
 
