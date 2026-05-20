@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.7.3] - 20 May 2026
+
+### Added
+
+- **T035 — P1 Candidate Source Pack Planning.** Manual source lookup performed for all 8 P1 candidates (CAND-001, CAND-002, CAND-003, CAND-004, CAND-008, CAND-010, CAND-011, CAND-013). Created `P1_CANDIDATE_SOURCE_PACKS.md` with source URLs, tiers, risk assessments, and drafting readiness per candidate. Created `P1_CANDIDATE_SOURCE_RISK_MATRIX.md` with overview table, readiness ranking, and exclusion/defer list. Created `P1_CANDIDATE_PRIORITIZATION_RECOMMENDATION.md` recommending first drafting batch of 4 candidates (CAND-013, CAND-008, CAND-011, CAND-010). Created `work-items/T035-p1-candidate-source-packs/`. Updated lifecycle docs. No incident data, source URLs, site, or governance gate changed. No scraping or bulk downloads. Branch: `planning/T035-p1-candidate-source-packs`.
+
+### Status (T035)
+
+- **Dataset**: 10 records, INC-0001–INC-0010, unchanged
+- **New records**: 0
+- **Candidates**: All 8 P1 candidates reviewed; all remain `not_approved_candidate`
+- **Source packs ready for CT**: 6 (CAND-001, CAND-003, CAND-008, CAND-010, CAND-011, CAND-013)
+- **Needs primary source**: 1 (CAND-002 — downgraded to P2)
+- **Needs counsel gate**: 1 (CAND-004)
+- **First batch recommendation**: CAND-013, CAND-008, CAND-011, CAND-010
+- **Safety**: No DNS/CNAME/hosting changes, no secrets, no scraping, no imports, no analytics, repo root not exposed. Not legal advice.
+
+---
+
 ## [0.7.2] - 20 May 2026
 
 ### Added

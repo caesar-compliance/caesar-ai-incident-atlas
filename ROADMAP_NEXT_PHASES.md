@@ -1,7 +1,7 @@
 # Roadmap — Next Phases — caesar-ai-incident-atlas
 
 **Created:** 20 May 2026 (T032)
-**Last updated:** 20 May 2026 (T034)
+**Last updated:** 20 May 2026 (T035)
 **Baseline:** Public MVP v0.6.7 frozen. 10 records. All governance gates closed.
 **Status:** Planning document only. No records created. No implementation. CT approval required before any record creation or integration work.
 
@@ -13,8 +13,9 @@ See `ROADMAP.md` for the full historical phase plan.
 ## v0.7 — Dataset Expansion Planning
 
 **T033 complete** — planning criteria, source gates, review workflow, candidate template created.
-**T034 complete** — 15 planning-only candidates drafted (CAND-001–CAND-015); triage matrix and 12-gate record creation checklist created. All candidates `not_approved_candidate`.
-**Next:** T035 — Candidate Source Pack Planning for P1 candidates (planning only, no records).
+**T034 complete** — 15 planning-only candidates drafted; triage matrix and 12-gate checklist created.
+**T035 complete** — Source packs for all 8 P1 candidates. 6 CT-ready; CAND-002 deferred (needs Tier 1); CAND-004 counsel-gated. First batch: CAND-013, CAND-008, CAND-011, CAND-010.
+**Next:** T036 — CT First Drafting Batch Selection (planning only, no record creation).
 **Prerequisite:** CT approval required before any INC-0011+ record is created. G-01/G-02 approval does not extend to new records.
 
 **Candidate selection criteria (planning gate):**

@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T034)
+**Last updated:** 20 May 2026 (T035)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -219,6 +219,9 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `INCIDENT_CANDIDATE_SHORTLIST_DRAFT.md` | Candidate shortlist draft | T034: 15 planning-only candidates (CAND-001–CAND-015). All status `not_approved_candidate`. No candidates approved. Covers 10 sectors, multiple jurisdictions. Planning only. Not legal advice. (T034) |
 | `INCIDENT_CANDIDATE_TRIAGE_MATRIX.md` | Candidate triage matrix | T034: Three matrices — priority (P1/P2/P3), source readiness, governance value (incident→failure mode→controls→evidence→lesson). Planning only. Not legal advice. (T034) |
 | `INCIDENT_RECORD_CREATION_GATE_CHECKLIST.md` | Record creation gate checklist | T034: 12-gate checklist required before any candidate becomes a real record. Supplements 9-stage workflow from T033. Planning only. Not legal advice. (T034) |
+| `P1_CANDIDATE_SOURCE_PACKS.md` | P1 source packs | T035: Source packs for all 8 P1 candidates. Source URLs, tiers, risk assessments, wording-risk notes, drafting readiness per candidate. Planning only. Not legal advice. (T035) |
+| `P1_CANDIDATE_SOURCE_RISK_MATRIX.md` | P1 source risk matrix | T035: Overview table (8 candidates), readiness ranking (safest to riskiest), exclusion/defer list, source tier summary. Planning only. Not legal advice. (T035) |
+| `P1_CANDIDATE_PRIORITIZATION_RECOMMENDATION.md` | First batch recommendation | T035: Recommends 4-candidate first drafting batch (CAND-013, CAND-008, CAND-011, CAND-010). Lists deferred candidates, counsel-gate candidates, and source-gap candidates. Planning only. Not legal advice. (T035) |
 | `work-items/T024-public-mvp-lock/TASK.md` | T024 task | Task scope checklist. |
 | `work-items/T024-public-mvp-lock/VALIDATION.md` | T024 validation | Validation checklist. |
 | `work-items/T024-public-mvp-lock/IMPLEMENTATION_REPORT.md` | T024 report | Concise final report. |
@@ -260,6 +263,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T034-candidate-shortlist-draft/VALIDATION.md` | T034 validation | Validation checklist for T034. |
 | `work-items/T034-candidate-shortlist-draft/IMPLEMENTATION_REPORT.md` | T034 report | Final implementation report for T034 — candidate summary, files created, validation results, confirmation statements. |
 | `work-items/T034-candidate-shortlist-draft/DECISIONS.md` | T034 decisions | 10 decisions (DEC-T034-001–010) including candidate count, sector diversity, priority assignments, counsel-required candidates, T035 next step. |
+| `work-items/T035-p1-candidate-source-packs/TASK.md` | T035 task | Task scope checklist for P1 candidate source pack planning. |
+| `work-items/T035-p1-candidate-source-packs/VALIDATION.md` | T035 validation | Validation checklist for T035. |
+| `work-items/T035-p1-candidate-source-packs/IMPLEMENTATION_REPORT.md` | T035 report | Final implementation report for T035 — source pack summary, files created, validation results, confirmation statements. |
+| `work-items/T035-p1-candidate-source-packs/DECISIONS.md` | T035 decisions | 10 decisions (DEC-T035-001–010) including readiness ranking, CAND-002 demotion, CAND-004 counsel gate, first batch selection, T036 next step. |
 
 ---
 
