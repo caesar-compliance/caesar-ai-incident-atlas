@@ -7,6 +7,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.7.0] - 20 May 2026
+
+### Added
+
+- **T032 — Public MVP v0.7 Status Freeze + Roadmap Split.** Created `PUBLIC_MVP_BASELINE_FREEZE.md` with: (1) baseline status table (URL, commit, dataset size, public root, gate status, approval scope), (2) frozen baseline rules (no record changes, no new records, no scraping/import, no source/legal wording changes, no DNS changes, no third-party text), (3) INC-0006 caution summary, (4) next review triggers. Created `ROADMAP_NEXT_PHASES.md` with compact v0.7–v1.0 roadmap split: v0.7 Dataset Expansion Planning (planning only), v0.8 Caesar AI Evidence / Governance OS Integration Planning, v0.9 Public Quality Polish, v1.0 Expanded Public Release Criteria. Updated `ROADMAP.md` with T032 reference block (current baseline, next phases pointer, recommended next step). Updated lifecycle docs: `PROJECT_STATE.md` (v0.7.0, T032 complete), `NEXT_ACTIONS.md` (T032 status, T033 recommended), `CHANGELOG.md`, `REPO_INVENTORY.md`, `README.md`, `site/README.md`, `PRODUCT_POLISH_BACKLOG.md`, `PUBLICATION_RISK_GATE.md`, `RELEASE_CANDIDATE_GATE.md`, `DEPLOYMENT_READINESS_CHECKLIST.md`. Created `work-items/T032-public-mvp-freeze-roadmap/` with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, DECISIONS.md. No incident data, source URLs, or legal content changed. No DNS/CNAME/hosting/secrets changes. Branch: `status/T032-public-mvp-freeze-roadmap`.
+
+### Status (T032)
+
+- **Technical Public MVP**: LIVE + VERIFIED at `https://atlas.caesar.no/`
+- **Baseline commit**: `64c7267`
+- **Dataset**: 10 records, INC-0001–INC-0010, unchanged
+- **G-10**: ✅ PASS
+- **G-01**: ✅ APPROVED with caution — frozen for current 10-record MVP
+- **G-02**: ✅ APPROVED with caution — frozen for current 10-record MVP
+- **All 12 governance gates**: closed/approved
+- **New records**: 0
+- **Data changes**: None
+- **Source/legal changes**: None
+- **Safety**: No DNS/CNAME/hosting changes, no secrets, no scraping, no external scripts, no analytics, repo root not exposed, no incident data changes. Approval scope is narrow — current 10-record public MVP only. Not legal advice.
+
+### Validation (T032)
+
+- `python3 tools/validate_dataset.py` — PASS; 10 records; no data changes
+- `grep -R "../data/" site/assets/app.js site/index.html` — clean
+- `find site -maxdepth 4 \( -name "CNAME" -o -path "*/work-items/*" -o -path "*/docs/*" \)` — empty
+- No external scripts added; no analytics/tracking added
+- `grep -R "upload-pages-artifact" .github/workflows/pages.yml` — confirmed
+- `grep -R "path: site" .github/workflows/pages.yml` — confirmed
+
+---
+
 ## [0.6.4] - 20 May 2026
 
 ### Added

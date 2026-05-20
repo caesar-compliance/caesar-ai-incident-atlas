@@ -47,6 +47,8 @@ G-12 cleared (T021). G-03 resolved (T022): custom domain `atlas.caesar.no` activ
 
 **T031 Record G-01/G-02 Sign-Off (20 May 2026):** Explicit CT approval received. G-01 approved with caution (INC-0006 Reuters citation accepted with caution). G-02 approved with caution (current public MVP wording cleared). Approval is narrow — current 10-record public MVP only. Not legal advice. Gate closeout: `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md`.
 
+**T032 Public MVP Baseline Freeze (20 May 2026):** Public MVP baseline frozen at `64c7267` (v0.7.0). Frozen rules, INC-0006 caution, and next review triggers recorded in `PUBLIC_MVP_BASELINE_FREEZE.md`. Roadmap split in `ROADMAP_NEXT_PHASES.md`. No incident data, source, or legal content changed. No DNS/CNAME/hosting changes. Approval scope unchanged — current 10-record public MVP only. Next: T033 Dataset Expansion Planning (planning only).
+
 **Review Pack Available:** See `PUBLIC_RELEASE_REVIEW_PACK.md` for detailed source/license review table, wording/legal-risk review table, and manual browser smoke-test checklist for G-10 completion.
 
 **Gate Closure Report (T019):** See `PUBLIC_RELEASE_GATE_CLOSURE_REPORT.md` for consolidated evidence assessment — G-01/G-02 reviewed and ready for CT sign-off, G-03 hosting recommendation table, G-10 static checks and manual checklist, remaining blocker table.

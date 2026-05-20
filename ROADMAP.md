@@ -1,7 +1,23 @@
 # Development Roadmap — caesar-ai-incident-atlas
 
-**Last updated:** 19 May 2026
-**Status:** Blueprint phase complete. Dataset and site phases planned.
+**Last updated:** 20 May 2026 (T032)
+**Status:** Public MVP baseline frozen. All governance gates closed. Next: v0.7 Dataset Expansion Planning.
+
+---
+
+## T032 — Public MVP Baseline Freeze and Roadmap Split
+
+**Status:** Complete (20 May 2026) — Version 0.7.0
+
+**Public MVP baseline frozen at commit `64c7267` (T031).** 10 records (INC-0001–INC-0010). Live at `https://atlas.caesar.no/`. All 12 governance gates closed. G-01/G-02 approved with caution. G-10 PASS.
+
+**No new records approved.** No dataset expansion, scraping, or import is approved. Approval scope is the current 10-record public MVP only. See `PUBLIC_MVP_BASELINE_FREEZE.md` for frozen rules.
+
+**Next phases:** See `ROADMAP_NEXT_PHASES.md` for the compact v0.7–v1.0 roadmap split.
+
+**Recommended next step:** T033 — v0.7 Dataset Expansion Planning (planning only, no record creation).
+
+---
 
 ---
 
