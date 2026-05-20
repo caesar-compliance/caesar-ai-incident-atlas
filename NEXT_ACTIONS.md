@@ -1,12 +1,12 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T033)
+**Last updated:** 20 May 2026 (T034)
 
 ---
 
 ## Execution Boundaries
 
-This repository is in the **v0.7 Dataset Expansion Planning** phase. Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/`. **G-10 PASS** (20 May 2026). **G-01 APPROVED with caution** (20 May 2026). **G-02 APPROVED with caution** (20 May 2026). All 12 governance gates closed — current 10-record MVP only. Public MVP baseline frozen at `64c7267`. Gate closeout: `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md`. Baseline freeze: `PUBLIC_MVP_BASELINE_FREEZE.md`. Roadmap split: `ROADMAP_NEXT_PHASES.md`. **T033 complete** — dataset expansion planning criteria created. No records created. No data changed. No G-01/G-02 scope expansion. Next action: T034 Candidate Shortlist Draft (planning only, no records).
+This repository is in the **v0.7 Dataset Expansion Planning** phase. Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/`. **G-10 PASS** (20 May 2026). **G-01 APPROVED with caution** (20 May 2026). **G-02 APPROVED with caution** (20 May 2026). All 12 governance gates closed — current 10-record MVP only. Public MVP baseline frozen at `64c7267`. Gate closeout: `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md`. Baseline freeze: `PUBLIC_MVP_BASELINE_FREEZE.md`. Roadmap split: `ROADMAP_NEXT_PHASES.md`. **T033 complete** — dataset expansion planning criteria created. **T034 complete** — 15 planning-only candidates drafted (CAND-001–CAND-015), all `not_approved_candidate`; triage matrix and 12-gate record creation checklist created. No records created. No data changed. No G-01/G-02 scope expansion. Next action: T035 Candidate Source Pack Planning (P1 candidates, planning only).
 
 The v0.2 draft contract is stable. See `V0_2_DRAFT_PRODUCT_CONTRACT.md` before starting any implementation work.
 
@@ -52,11 +52,12 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 | T031 — Record G-01/G-02 Sign-Off with INC-0006 Accepted with Caution | **Complete** — Explicit CT approval recorded; G-01 and G-02 approved with caution; all 12 gates closed |
 | T032 — Public MVP v0.7 Status Freeze + Roadmap Split | **Complete** — Baseline frozen at `64c7267`; `PUBLIC_MVP_BASELINE_FREEZE.md` + `ROADMAP_NEXT_PHASES.md` created |
 | T033 — Dataset Expansion Planning for INC-0011+ Candidates | **Complete** — Candidate criteria, source gates, review workflow, candidate template created. No records. No data changes. |
+| T034 — Candidate Shortlist Draft for INC-0011+ Planning | **Complete** — 15 planning-only candidates; triage matrix; 12-gate record creation checklist. No records. No data changes. |
 | v0.4 Dataset MVP — full 10-record batch | Complete — INC-0001 through INC-0010 validated |
 
 ---
 
-## Status: T033 Complete — Dataset Expansion Planning Created
+## Status: T034 Complete — Candidate Shortlist Drafted
 
 **Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/`.**
 
@@ -80,9 +81,11 @@ The T004 preparation documents are now complete. See `DATASET_MVP_IMPLEMENTATION
 
 See `PUBLICATION_RISK_GATE.md` for gate status. See `PRODUCT_POLISH_BACKLOG.md` for future work. See `ROADMAP_NEXT_PHASES.md` for v0.7–v1.0 roadmap split.
 
-## Next Recommended Step: T034
+## Next Recommended Step: T035
 
-**T034 — Candidate Shortlist Draft (planning only, no record creation).** Using the criteria defined in T033 (`DATASET_EXPANSION_CANDIDATE_CRITERIA.md`), the source gates (`SOURCE_QUALITY_GATES_FOR_NEW_RECORDS.md`), and the candidate template (`INCIDENT_CANDIDATE_SHORTLIST_TEMPLATE.md`), prepare an initial shortlist of INC-0011+ candidate incidents with working titles, jurisdictions, sectors, potential source categories, and risk levels. No record creation. Each candidate still requires its own full source review, wording/legal review, CT gate, and counsel gate before any record may be created. G-01/G-02 approval does not extend to new candidates.
+**T035 — Candidate Source Pack Planning for P1 candidates (planning only, no record creation).** Using the 8 P1 candidates identified in `INCIDENT_CANDIDATE_TRIAGE_MATRIX.md` (CAND-001, CAND-002, CAND-003, CAND-004, CAND-008, CAND-010, CAND-011, CAND-013), create a source pack for each: verify primary source URL, confirm source tier, assess license and reproduction risk, flag counsel gate triggers. No record creation. Each candidate still requires CT approval, source/license review, wording/legal review, and counsel gate before any record may be created.
+
+**Alternative T035:** CT Candidate Prioritization Review — CT selects a subset of P1 candidates to proceed to source pack rather than all 8.
 
 ---
 

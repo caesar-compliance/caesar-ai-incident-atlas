@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T033)
+**Last updated:** 20 May 2026 (T034)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.7.1` |
-| Current phase | `T033 — Dataset Expansion Planning complete. Planning criteria, source gates, review workflow, and candidate template created. No records created. No data changed. Next: T034 Candidate Shortlist Draft (planning only).` |
+| Current version | `0.7.2` |
+| Current phase | `T034 — Candidate Shortlist Draft complete. 15 planning-only candidates (CAND-001–CAND-015) drafted. No records created. No data changed. Next: T035 Candidate Source Pack Planning (P1 candidates, planning only).` |
 | Status | `active` |
-| Latest completed task | `T033 — Dataset Expansion Planning for INC-0011+ Candidates` |
-| Active work item | `T033 — complete. Dataset expansion planning docs created: DATASET_EXPANSION_CANDIDATE_CRITERIA.md, SOURCE_QUALITY_GATES_FOR_NEW_RECORDS.md, INCIDENT_CANDIDATE_REVIEW_WORKFLOW.md, INCIDENT_CANDIDATE_SHORTLIST_TEMPLATE.md. No records created. No data/source/legal/site changes. No G-01/G-02 scope expansion.` |
-| Next recommended step | `T034 — Candidate Shortlist Draft (planning only, no record creation)` |
+| Latest completed task | `T034 — Candidate Shortlist Draft for INC-0011+ Planning` |
+| Active work item | `T034 — complete. INCIDENT_CANDIDATE_SHORTLIST_DRAFT.md (15 candidates), INCIDENT_CANDIDATE_TRIAGE_MATRIX.md, INCIDENT_RECORD_CREATION_GATE_CHECKLIST.md created. All candidates not_approved_candidate. No records, no data/source/legal/site changes, no G-01/G-02 expansion.` |
+| Next recommended step | `T035 — Candidate Source Pack Planning for P1 candidates (planning only, no record creation)` |
 
 ---
 
@@ -55,6 +55,7 @@
 | T031 — Record G-01/G-02 Sign-Off with INC-0006 Accepted with Caution | **Complete** — Explicit CT approval recorded; G-01 and G-02 approved with caution; all 12 governance gates closed; gate closeout: `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md` | 20 May 2026 |
 | T032 — Public MVP v0.7 Status Freeze + Roadmap Split | **Complete** — Public MVP baseline frozen at `64c7267`; `PUBLIC_MVP_BASELINE_FREEZE.md` + `ROADMAP_NEXT_PHASES.md` created; lifecycle docs updated; no records/data/source/legal changes | 20 May 2026 |
 | T033 — Dataset Expansion Planning for INC-0011+ Candidates | **Complete** — Candidate criteria, source quality gates, review workflow, and candidate shortlist template created. No records, no data, no site, no gate changes. | 20 May 2026 |
+| T034 — Candidate Shortlist Draft for INC-0011+ Planning | **Complete** — 15 planning-only candidates drafted; triage matrix and gate checklist created. No records, no data changes, no gate expansion. | 20 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete — 10 records (INC-0001 through INC-0010) | 19 May 2026 |
 | v0.5 Static Site — local prototype | Complete — T012 | 19 May 2026 |
 | v0.5.1 Static Site — local functional MVP | Complete — T013 | 19 May 2026 |

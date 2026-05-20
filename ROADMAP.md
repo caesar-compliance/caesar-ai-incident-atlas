@@ -1,7 +1,7 @@
 # Development Roadmap — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T033)
-**Status:** v0.7 Dataset Expansion Planning in progress. T033 planning criteria complete. Next: T034 Candidate Shortlist Draft (planning only).
+**Last updated:** 20 May 2026 (T034)
+**Status:** v0.7 Dataset Expansion Planning in progress. T034 candidate shortlist drafted (15 candidates, all not_approved_candidate). Next: T035 Candidate Source Pack Planning (P1 candidates, planning only).
 
 ---
 
@@ -30,6 +30,16 @@
 **Recommended next step:** T034 — Candidate Shortlist Draft (planning only, no record creation).
 
 ---
+
+## T034 — Candidate Shortlist Draft for INC-0011+ Planning
+
+**Status:** Complete (20 May 2026) — Version 0.7.2
+
+**Deliverables created:** `INCIDENT_CANDIDATE_SHORTLIST_DRAFT.md` (15 candidates CAND-001–CAND-015), `INCIDENT_CANDIDATE_TRIAGE_MATRIX.md` (priority/source readiness/governance value matrices), `INCIDENT_RECORD_CREATION_GATE_CHECKLIST.md` (12-gate checklist), `work-items/T034-candidate-shortlist-draft/`.
+
+**All 15 candidates status `not_approved_candidate`.** No new records created. No data, source, site, deployment, or governance gate changed. No G-01/G-02 scope expansion. Approval scope remains the current 10-record public MVP only. Not legal advice.
+
+**Recommended next step:** T035 — Candidate Source Pack Planning for P1 candidates (planning only, no record creation).
 
 ---
 

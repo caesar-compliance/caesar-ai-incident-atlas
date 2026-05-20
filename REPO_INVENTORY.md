@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T033)
+**Last updated:** 20 May 2026 (T034)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -216,6 +216,9 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `SOURCE_QUALITY_GATES_FOR_NEW_RECORDS.md` | Source quality gates | T033: Defines minimum source requirements for new records. Preferred source categories (Tier 1–3), minimum source count guidance, counsel review triggers, caution wording requirements, source/license notes, prohibited practices. Planning only. Not legal advice. (T033) |
 | `INCIDENT_CANDIDATE_REVIEW_WORKFLOW.md` | Candidate review workflow | T033: Describes 9-stage future candidate review workflow: candidate idea → source collection → source risk review → wording/legal risk review → draft record → validation → CT gate → counsel gate → public release batch. Planning only. Not legal advice. (T033) |
 | `INCIDENT_CANDIDATE_SHORTLIST_TEMPLATE.md` | Candidate shortlist template | T033: Reusable template for future INC-0011+ candidate shortlists. All fields defined. Placeholder/illustrative example only — no real candidates. Planning only. Not legal advice. (T033) |
+| `INCIDENT_CANDIDATE_SHORTLIST_DRAFT.md` | Candidate shortlist draft | T034: 15 planning-only candidates (CAND-001–CAND-015). All status `not_approved_candidate`. No candidates approved. Covers 10 sectors, multiple jurisdictions. Planning only. Not legal advice. (T034) |
+| `INCIDENT_CANDIDATE_TRIAGE_MATRIX.md` | Candidate triage matrix | T034: Three matrices — priority (P1/P2/P3), source readiness, governance value (incident→failure mode→controls→evidence→lesson). Planning only. Not legal advice. (T034) |
+| `INCIDENT_RECORD_CREATION_GATE_CHECKLIST.md` | Record creation gate checklist | T034: 12-gate checklist required before any candidate becomes a real record. Supplements 9-stage workflow from T033. Planning only. Not legal advice. (T034) |
 | `work-items/T024-public-mvp-lock/TASK.md` | T024 task | Task scope checklist. |
 | `work-items/T024-public-mvp-lock/VALIDATION.md` | T024 validation | Validation checklist. |
 | `work-items/T024-public-mvp-lock/IMPLEMENTATION_REPORT.md` | T024 report | Concise final report. |
@@ -253,6 +256,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T033-dataset-expansion-planning/VALIDATION.md` | T033 validation | Validation checklist for T033 — constraint, deliverable, and dataset checks. |
 | `work-items/T033-dataset-expansion-planning/IMPLEMENTATION_REPORT.md` | T033 report | Final implementation report for T033 — files created, files updated, validation results, confirmation statements. |
 | `work-items/T033-dataset-expansion-planning/DECISIONS.md` | T033 decisions | 10 decisions (DEC-T033-001 through DEC-T033-010) including scope, deliverables, no-approval policy, version bump, T034 next step. |
+| `work-items/T034-candidate-shortlist-draft/TASK.md` | T034 task | Task scope checklist for candidate shortlist draft. |
+| `work-items/T034-candidate-shortlist-draft/VALIDATION.md` | T034 validation | Validation checklist for T034. |
+| `work-items/T034-candidate-shortlist-draft/IMPLEMENTATION_REPORT.md` | T034 report | Final implementation report for T034 — candidate summary, files created, validation results, confirmation statements. |
+| `work-items/T034-candidate-shortlist-draft/DECISIONS.md` | T034 decisions | 10 decisions (DEC-T034-001–010) including candidate count, sector diversity, priority assignments, counsel-required candidates, T035 next step. |
 
 ---
 

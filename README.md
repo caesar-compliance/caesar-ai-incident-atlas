@@ -26,7 +26,7 @@ The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](
 
 ## Project Status
 
-> **Technical Public MVP: LIVE + VERIFIED at [`https://atlas.caesar.no/`](https://atlas.caesar.no/)** — GitHub Pages, GitHub Actions, public root `site/`. Version: v0.7.1.
+> **Technical Public MVP: LIVE + VERIFIED at [`https://atlas.caesar.no/`](https://atlas.caesar.no/)** — GitHub Pages, GitHub Actions, public root `site/`. Version: v0.7.2.
 > **Public MVP baseline frozen at commit `64c7267` (T032, 20 May 2026).**
 > **G-10 PASS** — Control Tower manual browser confirmation on 20 May 2026.
 > **G-01 APPROVED with caution** — CT sign-off 20 May 2026. INC-0006 Reuters citation accepted with caution.
@@ -34,8 +34,8 @@ The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](
 > **All 12 governance gates closed.** Gate closeout: `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md`. Baseline freeze: `PUBLIC_MVP_BASELINE_FREEZE.md`.
 > The 10 incident records (INC-0001 through INC-0010) are publicly accessible. No governance blockers remain for the current public MVP.
 > Approval is narrow — current 10-record public MVP only. No new records approved. Not legal advice.
-> **T033 complete** — Dataset expansion planning criteria created (20 May 2026). No new records. No data changed. See `DATASET_EXPANSION_CANDIDATE_CRITERIA.md`, `SOURCE_QUALITY_GATES_FOR_NEW_RECORDS.md`, `INCIDENT_CANDIDATE_REVIEW_WORKFLOW.md`, `INCIDENT_CANDIDATE_SHORTLIST_TEMPLATE.md`.
-> Next: T034 — Candidate Shortlist Draft (planning only, no records). See [ROADMAP_NEXT_PHASES.md](ROADMAP_NEXT_PHASES.md) for the roadmap split.
+> **T033 complete** — Dataset expansion planning criteria created. **T034 complete** — 15 planning-only candidates drafted (CAND-001–CAND-015), all `not_approved_candidate`; triage matrix and 12-gate record creation checklist created. No new records. No data changed.
+> Next: T035 — Candidate Source Pack Planning for P1 candidates (planning only, no records). See [ROADMAP_NEXT_PHASES.md](ROADMAP_NEXT_PHASES.md) for the roadmap split.
 
 ---
 
