@@ -7,6 +7,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.7.1] - 20 May 2026
+
+### Added
+
+- **T033 — Dataset Expansion Planning for INC-0011+ Candidates.** Created four dataset expansion planning documents: (1) `DATASET_EXPANSION_CANDIDATE_CRITERIA.md` — defines candidate selection criteria for INC-0011+ records including AI incident relevance, public interest value, source availability, source quality preference order, neutral wording requirement, privacy/reputational risk screen, jurisdiction diversity, category diversity, no sensationalism, no unsupported allegations, no paywalled-only sole-source reliance, no single-source weak entries without CT/counsel approval, and automatic exclusion rules; (2) `SOURCE_QUALITY_GATES_FOR_NEW_RECORDS.md` — defines preferred source categories (court/regulatory/government Tier 1, peer-reviewed/official statements Tier 2, reputable journalism Tier 3), minimum source count guidance (two preferred; one requires CT approval + caution wording), when counsel review is required, when caution wording is mandatory, source/license notes (no text reproduction, no AIID/AIAAIC/OECD data without license review, no scraping); (3) `INCIDENT_CANDIDATE_REVIEW_WORKFLOW.md` — describes full 9-stage future workflow: candidate idea → source collection → source risk review → wording/legal risk review → draft record → technical validation → CT gate → counsel gate if required → public release batch; explicitly states candidate planning does not approve records, each record requires its own review, G-01/G-02 does not automatically extend to new records; (4) `INCIDENT_CANDIDATE_SHORTLIST_TEMPLATE.md` — reusable candidate shortlist template with all required fields; placeholder/illustrative example only (fictional), no real candidates listed. Updated lifecycle docs: `ROADMAP.md` (T033 block added), `ROADMAP_NEXT_PHASES.md` (T033 complete; T034 as next step), `PROJECT_STATE.md` (v0.7.1, T033 complete), `NEXT_ACTIONS.md` (T033 complete, T034 recommended), `CHANGELOG.md` (this entry), `REPO_INVENTORY.md` (T033 files), `README.md` (T033 status). Created `work-items/T033-dataset-expansion-planning/` with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, DECISIONS.md. No incident data, source URLs, or legal content changed. No site changes. No DNS/CNAME/hosting/secrets changes. Branch: `planning/T033-dataset-expansion-candidates`.
+
+### Status (T033)
+
+- **Technical Public MVP**: LIVE + VERIFIED at `https://atlas.caesar.no/`
+- **Baseline commit**: `64c7267` (unchanged)
+- **Dataset**: 10 records, INC-0001–INC-0010, unchanged
+- **G-10**: ✅ PASS (unchanged)
+- **G-01**: ✅ APPROVED with caution — frozen for current 10-record MVP (unchanged)
+- **G-02**: ✅ APPROVED with caution — frozen for current 10-record MVP (unchanged)
+- **All 12 governance gates**: closed/approved — current 10-record MVP only (unchanged)
+- **New records**: 0
+- **Data changes**: None
+- **Source/legal changes**: None
+- **Site changes**: None
+- **Safety**: No DNS/CNAME/hosting changes, no secrets, no scraping, no external scripts, no analytics, repo root not exposed, no incident data changes. Approval scope remains current 10-record public MVP only. Not legal advice.
+
+### Validation (T033)
+
+- `python3 tools/validate_dataset.py` — PASS; 10 records; no data changes
+- `grep -R "../data/" site/assets/app.js site/index.html` — clean
+- `find site -maxdepth 4 \( -name "CNAME" -o -path "*/work-items/*" -o -path "*/docs/*" \)` — empty
+- `git diff --check` — clean
+- No external scripts added; no analytics/tracking added; no incident JSON files added
+
+---
+
 ## [0.7.0] - 20 May 2026
 
 ### Added

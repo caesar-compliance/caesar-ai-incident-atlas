@@ -1,18 +1,21 @@
 # Roadmap — Next Phases — caesar-ai-incident-atlas
 
-**Created:** 20 May 2026 (T032)  
-**Baseline:** Public MVP v0.6.7 frozen. 10 records. All governance gates closed.  
+**Created:** 20 May 2026 (T032)
+**Last updated:** 20 May 2026 (T033)
+**Baseline:** Public MVP v0.6.7 frozen. 10 records. All governance gates closed.
 **Status:** Planning document only. No records created. No implementation. CT approval required before any record creation or integration work.
 
-See `PUBLIC_MVP_BASELINE_FREEZE.md` for frozen baseline rules.  
+See `PUBLIC_MVP_BASELINE_FREEZE.md` for frozen baseline rules.
 See `ROADMAP.md` for the full historical phase plan.
 
 ---
 
 ## v0.7 — Dataset Expansion Planning
 
-**Status:** Planning only — no record creation until CT approval.  
-**Prerequisite:** CT approval required before any INC-0011+ record is created.
+**Status:** T033 complete — planning criteria created. No records created. No data changed.
+**T033 deliverables:** `DATASET_EXPANSION_CANDIDATE_CRITERIA.md`, `SOURCE_QUALITY_GATES_FOR_NEW_RECORDS.md`, `INCIDENT_CANDIDATE_REVIEW_WORKFLOW.md`, `INCIDENT_CANDIDATE_SHORTLIST_TEMPLATE.md`.
+**Next:** T034 — Candidate Shortlist Draft (planning only, no records).
+**Prerequisite:** CT approval required before any INC-0011+ record is created. G-01/G-02 approval does not extend to new records.
 
 **Candidate selection criteria (planning gate):**
 - Incident must be publicly reported with at least one verifiable primary source.
@@ -50,7 +53,7 @@ See `ROADMAP.md` for the full historical phase plan.
 
 ## v0.8 — Caesar AI Evidence / Governance OS Integration Planning
 
-**Status:** Planning only — no integration implementation.  
+**Status:** Planning only — no integration implementation.
 **Prerequisite:** Stable v0.7 dataset; CT approval to begin integration planning.
 
 **Mapping exercise (planning only):**
@@ -81,7 +84,7 @@ For each of the 10 (and future) incident records, map to:
 
 ## v0.9 — Public Quality Polish
 
-**Status:** Planned — can begin after v0.7 or in parallel with planning.  
+**Status:** Planned — can begin after v0.7 or in parallel with planning.
 **Prerequisite:** No new records required. Can proceed on current 10-record baseline.
 
 **Items:**

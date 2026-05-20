@@ -1,7 +1,7 @@
 # Development Roadmap — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T032)
-**Status:** Public MVP baseline frozen. All governance gates closed. Next: v0.7 Dataset Expansion Planning.
+**Last updated:** 20 May 2026 (T033)
+**Status:** v0.7 Dataset Expansion Planning in progress. T033 planning criteria complete. Next: T034 Candidate Shortlist Draft (planning only).
 
 ---
 
@@ -16,6 +16,18 @@
 **Next phases:** See `ROADMAP_NEXT_PHASES.md` for the compact v0.7–v1.0 roadmap split.
 
 **Recommended next step:** T033 — v0.7 Dataset Expansion Planning (planning only, no record creation).
+
+---
+
+## T033 — Dataset Expansion Planning for INC-0011+ Candidates
+
+**Status:** Complete (20 May 2026) — Version 0.7.1
+
+**Deliverables created:** `DATASET_EXPANSION_CANDIDATE_CRITERIA.md`, `SOURCE_QUALITY_GATES_FOR_NEW_RECORDS.md`, `INCIDENT_CANDIDATE_REVIEW_WORKFLOW.md`, `INCIDENT_CANDIDATE_SHORTLIST_TEMPLATE.md`, `work-items/T033-dataset-expansion-planning/`.
+
+**No new records created.** No data, source, site, deployment, or governance gate changed. No G-01/G-02 scope expansion. Approval scope remains the current 10-record public MVP only. Not legal advice.
+
+**Recommended next step:** T034 — Candidate Shortlist Draft (planning only, no record creation).
 
 ---
 
