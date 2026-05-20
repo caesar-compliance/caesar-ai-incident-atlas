@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.7.7] - 20 May 2026
+
+### Added
+
+- **T039 — INC-0011 Source/Wording Gate Sign-Off + Live Smoke Test.** Reviewed and signed off INC-0011 G-01 (source/license) and G-02 (wording/legal-risk) gates with caution. Created `INC0011_GATE_SIGNOFF_RECORD.md` documenting approval scope, source verification, wording review, and sign-off status. Verified INC-0011 live at https://atlas.caesar.no/ — 11 records visible in public JSON. Updated `INC0011_GOVERNANCE_REVIEW_NOTE.md` with approved status. Updated lifecycle docs: `PROJECT_STATE.md`, `NEXT_ACTIONS.md`, `CHANGELOG.md`. Created `work-items/T039-inc0011-gate-smoke/`. INC-0011 now governance-approved; future records still require separate sign-off. Not legal advice.
+
+### Status (T039)
+
+- **Dataset**: 11 records, INC-0001–INC-0011
+- **INC-0011 status**: G-01/G-02 approved with caution; live and governance-approved
+- **Source**: ATS + PubMed (Tier 1 + Tier 2) — verified
+- **Wording**: Factual, hedged, no legal conclusions — verified
+- **Live verification**: INC-0011 visible at https://atlas.caesar.no/data/incident-index.json
+- **Approval scope**: INC-0011 only; does not extend to future records
+- **Safety**: No DNS/CNAME/hosting changes, no secrets, no scraping, no new records, no analytics, repo root not exposed. Not legal advice.
+
+### Validation (T039)
+
+- `python3 tools/validate_dataset.py` — 11 records (expected after T038)
+- Live JSON check — PASS; 11 records including INC-0011
+- `git diff --check` — clean
+- No new records created; no data changes beyond T038
+
+---
+
 ## [0.7.6] - 20 May 2026
 
 ### Added

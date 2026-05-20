@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 20 May 2026 (T038)
+**Last updated:** 20 May 2026 (T039)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.7.6` |
-| Current phase | `T038 — First new incident record drafted from CAND-013 (INC-0011). Dataset now 11 records. INC-0011 prepared for CT review; not automatically covered by G-01/G-02 approval for INC-0001–INC-0010.` |
+| Current version | `0.7.7` |
+| Current phase | `T039 — INC-0011 G-01/G-02 signed off with caution. Dataset: 11 records live. Ready for second record drafting approval.` |
 | Status | `active` |
-| Latest completed task | `T038 — Draft First New Incident Record (CAND-013 → INC-0011)` |
-| Active work item | `T038 — complete. INC-0011 drafted from CAND-013. Dataset: 11 records (INC-0001–INC-0011). INC0011_GOVERNANCE_REVIEW_NOTE.md prepared. INC-0011 requires separate CT sign-off before governance approval.` |
-| Next recommended step | `T039 — INC-0011 Source/Wording Gate Sign-Off + Live Smoke Test, or T039 — Draft Second Approved Candidate if CT approves another` |
+| Latest completed task | `T039 — INC-0011 Source/Wording Gate Sign-Off + Live Smoke Test` |
+| Active work item | `T039 — complete. INC-0011 G-01/G-02 approved with caution. INC-0011 live at https://atlas.caesar.no/. Dataset: 11 records. Ready for T040.` |
+| Next recommended step | `T040 — Second Record Drafting Approval (recommend CAND-008 or CAND-010), or T040 — Dataset Polish if CT defers` |
 
 ---
 
@@ -60,7 +60,8 @@
 | T036 — CT First Drafting Batch Selection | **Complete** — First drafting batch selected: CAND-013, CAND-008, CAND-011, CAND-010. All remain `not_approved_candidate`. No records created. | 20 May 2026 |
 | T037 — Batch-1 Source Pack Finalization | **Complete** — Source packs finalized for 4 selected candidates. URLs verified. No records created. | 20 May 2026 |
 | T038 — Draft First New Incident Record | **Complete** — INC-0011 drafted from CAND-013. Dataset: 11 records. Governance review note prepared. | 20 May 2026 |
-| v0.4 Dataset MVP — full 10-record batch | Complete — 10 records (INC-0001 through INC-0010) | 19 May 2026 |
+| T039 — INC-0011 Gate Sign-Off + Smoke Test | **Complete** — G-01/G-02 approved with caution. INC-0011 live. `INC0011_GATE_SIGNOFF_RECORD.md` created. | 20 May 2026 |
+| v0.7.7 Dataset Expansion — INC-0011 signed off | Complete — 11 records; INC-0011 governance-approved | 20 May 2026 |
 | v0.7.6 Dataset Expansion — first new record | Complete — 11 records (INC-0001 through INC-0011) | 20 May 2026 |
 | v0.5 Static Site — local prototype | Complete — T012 | 19 May 2026 |
 | v0.5.1 Static Site — local functional MVP | Complete — T013 | 19 May 2026 |

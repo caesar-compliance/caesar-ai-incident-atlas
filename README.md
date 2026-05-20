@@ -26,7 +26,7 @@ The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](
 
 ## Project Status
 
-> **Technical Public MVP: LIVE + VERIFIED at [`https://atlas.caesar.no/`](https://atlas.caesar.no/)** — GitHub Pages, GitHub Actions, public root `site/`. Version: v0.7.6.
+> **Technical Public MVP: LIVE + VERIFIED at [`https://atlas.caesar.no/`](https://atlas.caesar.no/)** — GitHub Pages, GitHub Actions, public root `site/`. Version: v0.7.7.
 > **Public MVP baseline frozen at commit `64c7267` (T032, 20 May 2026).**
 > **G-10 PASS** — Control Tower manual browser confirmation on 20 May 2026.
 > **G-01 APPROVED with caution** — CT sign-off 20 May 2026. INC-0006 Reuters citation accepted with caution.
@@ -34,8 +34,8 @@ The repository is part of the Caesar AI Governance Hub ecosystem at [caesar.no](
 > **All 12 governance gates closed.** Gate closeout: `PUBLIC_MVP_GOVERNANCE_GATE_CLOSEOUT.md`. Baseline freeze: `PUBLIC_MVP_BASELINE_FREEZE.md`.
 > The 10 incident records (INC-0001 through INC-0010) are publicly accessible. No governance blockers remain for the current public MVP.
 > Approval is narrow — current 10-record public MVP only. No new records approved. Not legal advice.
-> **T033–T038 complete** — Dataset expansion planning criteria, 15 candidate shortlist, P1 source packs, CT first drafting batch selection, batch-1 source pack finalization, and first new incident record (INC-0011 from CAND-013) completed. Dataset: 11 records. INC-0011 prepared for CT review; not automatically covered by G-01/G-02 approval for INC-0001–INC-0010.
-> Next: T039 — INC-0011 Source/Wording Gate Sign-Off + Live Smoke Test, or T039 — Draft Second Approved Candidate. See [ROADMAP_NEXT_PHASES.md](ROADMAP_NEXT_PHASES.md) for the roadmap split.
+> **T033–T039 complete** — Dataset expansion planning criteria, 15 candidate shortlist, P1 source packs, CT first drafting batch selection, batch-1 source pack finalization, first new incident record (INC-0011), and INC-0011 gate sign-off completed. Dataset: 11 records live. INC-0011 G-01/G-02 approved with caution and live.
+> Next: T040 — Second Record Drafting Approval, or T040 — Dataset Polish. See [ROADMAP_NEXT_PHASES.md](ROADMAP_NEXT_PHASES.md) for the roadmap split.
 
 ---
 
