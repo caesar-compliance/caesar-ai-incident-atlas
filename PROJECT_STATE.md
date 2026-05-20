@@ -12,9 +12,9 @@
 | Current version | `0.7.3` |
 | Current phase | `T035 — P1 source packs complete. 6 candidates ready for CT review; 1 deferred (CAND-002 needs Tier 1 source); 1 counsel-gated (CAND-004). First batch recommendation: CAND-013, CAND-008, CAND-011, CAND-010. No records created.` |
 | Status | `active` |
-| Latest completed task | `T035 — P1 Candidate Source Pack Planning` |
-| Active work item | `T035 — complete. P1_CANDIDATE_SOURCE_PACKS.md, P1_CANDIDATE_SOURCE_RISK_MATRIX.md, P1_CANDIDATE_PRIORITIZATION_RECOMMENDATION.md created. All candidates not_approved_candidate. No records, no data/source/site changes, no G-01/G-02 expansion.` |
-| Next recommended step | `T036 — CT First Drafting Batch Selection (planning only, no record creation)` |
+| Latest completed task | `T036 — CT First Drafting Batch Selection` |
+| Active work item | `T036 — complete. FIRST_DRAFTING_BATCH_SELECTION.md, FIRST_DRAFTING_BATCH_GATE_MATRIX.md, FUTURE_RECORD_DRAFTING_TASK_OUTLINE.md created. First batch selected: CAND-013, CAND-008, CAND-011, CAND-010. All remain not_approved_candidate. No records created.` |
+| Next recommended step | `T037 — Batch-1 Source Pack Finalization (planning/review only, no record creation) or explicit CT approval for first record drafting` |
 
 ---
 
@@ -56,7 +56,8 @@
 | T032 — Public MVP v0.7 Status Freeze + Roadmap Split | **Complete** — Public MVP baseline frozen at `64c7267`; `PUBLIC_MVP_BASELINE_FREEZE.md` + `ROADMAP_NEXT_PHASES.md` created; lifecycle docs updated; no records/data/source/legal changes | 20 May 2026 |
 | T033 — Dataset Expansion Planning for INC-0011+ Candidates | **Complete** — Candidate criteria, source quality gates, review workflow, and candidate shortlist template created. No records, no data, no site, no gate changes. | 20 May 2026 |
 | T034 — Candidate Shortlist Draft for INC-0011+ Planning | **Complete** — 15 planning-only candidates drafted; triage matrix and gate checklist created. No records, no data changes, no gate expansion. | 20 May 2026 |
-| T035 — P1 Candidate Source Pack Planning | **Complete** — Source packs for all 8 P1 candidates; 6 ready for CT review; 1 deferred (CAND-002); 1 counsel-gated (CAND-004). First batch: CAND-013, 008, 011, 010. | 20 May 2026 |
+| T035 — P1 Candidate Source Pack Planning | **Complete** — Source packs for all 8 P1 candidates; 6 ready for CT review; 1 deferred (CAND-002 needs Tier 1); 1 counsel-gated (CAND-004). First batch: CAND-013, 008, 011, 010. | 20 May 2026 |
+| T036 — CT First Drafting Batch Selection | **Complete** — First drafting batch selected: CAND-013, CAND-008, CAND-011, CAND-010. All remain `not_approved_candidate`. No records created. | 20 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete — 10 records (INC-0001 through INC-0010) | 19 May 2026 |
 | v0.5 Static Site — local prototype | Complete — T012 | 19 May 2026 |
 | v0.5.1 Static Site — local functional MVP | Complete — T013 | 19 May 2026 |

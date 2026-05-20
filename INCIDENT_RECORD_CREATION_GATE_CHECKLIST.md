@@ -143,6 +143,8 @@ Each gate below must be completed and documented before a candidate proceeds to 
 
 ---
 
+**T036 Status:** First drafting batch selected (CAND-013, CAND-008, CAND-011, CAND-010). These candidates may proceed through gates when CT approves. See `FIRST_DRAFTING_BATCH_SELECTION.md`.
+
 *See `INCIDENT_CANDIDATE_REVIEW_WORKFLOW.md` for the full 9-stage workflow. See `SOURCE_QUALITY_GATES_FOR_NEW_RECORDS.md` for source quality requirements. See `DATASET_EXPANSION_CANDIDATE_CRITERIA.md` for candidate selection criteria.*
 
 **Disclaimer:** This checklist is planning material only. It does not constitute legal advice, legal clearance, or approval for any new incident records. Counsel review requirements are operational guidance only and do not substitute for actual legal advice. Not legal advice.

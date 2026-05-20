@@ -51,7 +51,9 @@
 
 **6 candidates `source_pack_ready_for_CT_review`.** CAND-002 downgraded to P2 (needs Tier 1 source). CAND-004 `needs_counsel_gate`. First batch recommendation: CAND-013, CAND-008, CAND-011, CAND-010. No new records. No data, source, site, deployment, or governance gate changed. Not legal advice.
 
-**Recommended next step:** T036 — CT First Drafting Batch Selection (planning only, no record creation).
+**T036 complete** — First drafting batch selected: CAND-013, CAND-008, CAND-011, CAND-010. All remain `not_approved_candidate`. See `FIRST_DRAFTING_BATCH_SELECTION.md`.
+
+**Recommended next step:** T037 — Batch-1 Source Pack Finalization (planning/review only, no record creation) or explicit CT approval for first record drafting.
 
 ---
 
