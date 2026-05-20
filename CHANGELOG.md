@@ -7,6 +7,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.6.4] - 20 May 2026
+
+### Added
+
+- **T028 — Public MVP Polish Pass.** Applied focused public-facing UI/UX improvements to the static site. Changes: (1) `site/index.html` — added OG meta tags (`og:type`, `og:title`, `og:description`, `og:url`, `og:site_name`), canonical URL `https://atlas.caesar.no/`, updated header version badge to `v0.6.4 · 10 incidents · Live MVP`, updated notice banner (removed "Local MVP" / "Not publicly deployed" text, added "Public MVP live" and "not legal advice"), added About/Methodology panel in sidebar explaining the dataset, governance mapping chain, dataset metadata (10 records, v0.6.4, MVP verified 20 May 2026, GitHub Pages / static, source review in progress), and not-legal-advice disclaimer, added public footer with Live MVP, 10 curated records, v0.6.4, GitHub Pages / static, Not legal advice, caesar.no link. (2) `site/assets/styles.css` — added `.about-panel`, `.about-heading`, `.about-text`, `.about-mapping`, `.about-meta-list`, `.about-disclaimer`, `.app-footer`, `.footer-*` styles; added `focus-visible` outline rules for `.search-input`, `.sort-select`, `.filter-reset`, `.copy-link-btn`, `.footer-link`; improved mobile density (reduced padding on `.incident-card`, `.main`, `.app-header`, `.footer-inner`). (3) `site/assets/app.js` — updated `updateStatusPanel()` to show `v0.6.4` version, `Records` count, and `MVP verified 20 May 2026` instead of reading first-record source access date. (4) `site/robots.txt` — added (conservative: `Allow: /`, sitemap reference). (5) `site/sitemap.xml` — added (single URL: `https://atlas.caesar.no/`). No new incident records. No data, source, or legal content changes. No DNS/CNAME/hosting changes. No external dependencies.
+
+### Status (T028)
+
+- **Technical Public MVP**: LIVE + VERIFIED at `https://atlas.caesar.no/`
+- **G-10**: PASS
+- **G-01**: Pending — INC-0006 counsel confirmation unchanged
+- **G-02**: Pending CT/counsel sign-off
+- **New records**: 0
+- **Data changes**: None
+- **Source/legal changes**: None
+- **Safety**: No DNS/CNAME/hosting changes, no secrets, no scraping, no external scripts, no analytics, repo root not exposed
+
+### Validation (T028)
+
+- `python3 tools/validate_dataset.py` — PASS; 10 records; no data changes
+- `grep -R "../data/" site/assets/app.js site/index.html` — clean
+- `find site -maxdepth 4 \( -name "CNAME" -o -path "*/work-items/*" -o -path "*/docs/*" \)` — empty
+- No external scripts added; no analytics/tracking added
+- `grep -R "upload-pages-artifact" .github/workflows/pages.yml` — confirmed
+- `grep -R "path: site" .github/workflows/pages.yml` — confirmed
+
+---
+
 ## [0.6.3] - 20 May 2026
 
 ### Added

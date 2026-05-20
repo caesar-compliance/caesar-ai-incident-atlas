@@ -1,7 +1,8 @@
 # Product Polish Backlog — caesar-ai-incident-atlas
 
 **Created:** 20 May 2026 (T024)  
-**Status:** Technical Public MVP LIVE + VERIFIED at `https://atlas.caesar.no/`. G-01/G-02 pending.
+**Last updated:** 20 May 2026 (T028)
+**Status:** Technical Public MVP LIVE + VERIFIED at `https://atlas.caesar.no/`. v0.6.4. T028 polish pass complete. G-01/G-02 pending.
 
 ---
 
@@ -9,14 +10,14 @@
 
 Lightweight UI/UX improvements that do not require new incident records:
 
-- Improve mobile card density for smaller screens
+- ~~Improve mobile card density for smaller screens~~ ✓ T028
 - Improve empty states (no search results, filter clears)
-- Add visible "last updated" / dataset version badge
-- Add simple methodology / about page explaining the governance mapping
+- ~~Add visible "last updated" / dataset version badge~~ ✓ T028
+- ~~Add simple methodology / about page explaining the governance mapping~~ ✓ T028
 - Add clearer source/evidence panel in detail view
 - Add export/copy citation improvements
 - Add subtle loading skeleton for data fetch
-- Improve focus states for accessibility
+- ~~Improve focus states for accessibility~~ ✓ T028
 - Add keyboard shortcut for search focus
 
 ---
@@ -58,8 +59,8 @@ incident → failure mode → affected controls → required evidence → govern
 
 Infrastructure and quality improvements:
 
-- Lightweight sitemap.xml and robots.txt
-- Metadata/SEO improvements (title, description, OG tags)
+- ~~Lightweight sitemap.xml and robots.txt~~ ✓ T028
+- ~~Metadata/SEO improvements (title, description, OG tags)~~ ✓ T028
 - Accessibility pass (WCAG 2.1 AA compliance check)
 - Print/export view for incident cards
 - Regression smoke checklist for releases

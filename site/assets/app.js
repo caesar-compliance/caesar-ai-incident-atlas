@@ -78,13 +78,14 @@ function showError(msg) {
 function updateStatusPanel() {
   const el = document.getElementById("status-panel");
   if (!el || !allIncidents.length) return;
-  const accessed = allIncidents[0]?.sources?.[0]?.accessed || "19 May 2026";
   el.innerHTML =
     `<span class="sp-item"><span class="sp-label">Dataset</span> INC-0001–INC-0010</span>` +
     `<span class="sp-sep">·</span>` +
-    `<span class="sp-item"><span class="sp-label">Total</span> ${allIncidents.length} records</span>` +
+    `<span class="sp-item"><span class="sp-label">Records</span> ${allIncidents.length}</span>` +
     `<span class="sp-sep">·</span>` +
-    `<span class="sp-item"><span class="sp-label">Last verified</span> ${esc(accessed)}</span>` +
+    `<span class="sp-item"><span class="sp-label">Version</span> v0.6.4</span>` +
+    `<span class="sp-sep">·</span>` +
+    `<span class="sp-item"><span class="sp-label">MVP verified</span> 20 May 2026</span>` +
     `<span class="sp-sep">·</span>` +
     `<span class="sp-item sp-caution">⚠ Draft taxonomy labels active</span>`;
 }
