@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.7.2] - 20 May 2026
+
+### Added
+
+- **T034 — Candidate Shortlist Draft for INC-0011+ Planning.** Created `INCIDENT_CANDIDATE_SHORTLIST_DRAFT.md` with 15 planning-only candidates (CAND-001 through CAND-015), all status `not_approved_candidate`: sectors covered include `finance-credit`, `finance-banking`, `finance-fraud`, `education`, `criminal-justice`, `insurance`, `enterprise-ai-agents`, `public-sector` (UK), `healthcare-medical`, `legal-compliance`, `retail-ecommerce`, `media-content`, `hiring-employment`. Jurisdictions: US, UK, EU, AU, Global. Priority assignments: 8×P1, 5×P2, 2×P3. Created `INCIDENT_CANDIDATE_TRIAGE_MATRIX.md` with priority matrix, source readiness matrix, and governance value matrix. Created `INCIDENT_RECORD_CREATION_GATE_CHECKLIST.md` with 12 gates required before any candidate becomes a real record. Created `work-items/T034-candidate-shortlist-draft/` with TASK.md, VALIDATION.md, IMPLEMENTATION_REPORT.md, DECISIONS.md. Updated lifecycle docs. No incident data, source URLs, or legal content changed. No site changes. No DNS/CNAME/hosting/secrets changes. Branch: `planning/T034-candidate-shortlist-draft`.
+
+### Status (T034)
+
+- **Dataset**: 10 records, INC-0001–INC-0010, unchanged
+- **New records**: 0
+- **Candidates**: 15 drafted, all `not_approved_candidate`
+- **G-01/G-02**: ✅ APPROVED with caution — frozen for current 10-record MVP (unchanged)
+- **Data/source/legal/site changes**: None
+- **Safety**: No DNS/CNAME/hosting changes, no secrets, no scraping, no imports, no analytics, repo root not exposed. Not legal advice.
+
+### Validation (T034)
+
+- `python3 tools/validate_dataset.py` — PASS; 10 records; no data changes
+- `git diff --check` — clean
+- No INC-0011+ files created; no site/ changes; no CNAME
+
+---
+
 ## [0.7.1] - 20 May 2026
 
 ### Added
