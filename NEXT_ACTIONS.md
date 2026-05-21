@@ -1,6 +1,6 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T061)
+**Last updated:** 21 May 2026 (T061-FIX Complete)
 
 ---
 
@@ -170,16 +170,17 @@ The following tasks require Artem / Control Tower review before execution:
 - **Safety:** No network fetch, no remote write, no cron, no deploy, no INC-0014, public count remains 13, latest remains INC-0013
 - **Next:** Run `node scripts/watch-green-sources.mjs` for real fetch cycle, or proceed with hosted activation
 
-## T061 — Bounded Real Green-Source Manual Run (Complete — 21 May 2026)
+## T061 — Bounded Real Green-Source Manual Run (Complete + Fix Applied — 21 May 2026)
 
 - `data/watch/config/manual-green-run-policy.json` — safety policy with bounded fetch limits
-- `scripts/run-bounded-green-source-manual-run.mjs` — bounded runner with `--execute-green-fetch` flag
+- `scripts/run-bounded-green-source-manual-run.mjs` — bounded runner with `--execute-green-fetch` flag; **FIXED:** added `status` field output
 - `scripts/build-private-candidate-signals.mjs` — metadata-only signal builder
-- `scripts/validate-bounded-green-source-run.mjs` — 25-check safety validator
+- `scripts/validate-bounded-green-source-run.mjs` — 25-check safety validator; **FIXED:** tightened to require valid run status and non-zero attempted sources
 - `scripts/export-hosted-watch-run-payloads.mjs` — exports T061 real-green payloads
 - `scripts/run-local-automation-cycle.mjs` — added `--with-bounded-green-run` flag
 - `scripts/export-ops-status.mjs` — added `bounded_green_run_status` field
 - `scripts/validate-hosted-sync-safety.mjs` — expanded with 8 T061 checks (32–39)
+- **T061-FIX Executed:** `GREEN-RUN-20260521-202417` — 4 sources fetched (ICO, CNIL, EDPB, EU Commission), 3 failed (FTC, EEOC, DOJ 404), 0 skipped, 4 candidate signals generated
 - Generated artifacts: `real-green-run-latest.json`, `data/watch/private/runs/<run_id>/` (run.json, source-observations.json, candidate-signals.json, safety-manifest.json)
 - **Safety:** No secrets, no remote write, no deploy, no cron, no INC-0014, public count 13, latest INC-0013
 - **Next:** Review candidate signals, promote through review console, or proceed with hosted activation

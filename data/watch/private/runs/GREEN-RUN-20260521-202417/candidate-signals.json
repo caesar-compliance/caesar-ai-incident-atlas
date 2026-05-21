@@ -1,0 +1,170 @@
+{
+  "_schema": "caesar-atlas/watch/candidate-signals/v1",
+  "run_id": "GREEN-RUN-20260521-202417",
+  "generated_at": "2026-05-21T18:24:26.491Z",
+  "signal_count": 4,
+  "signals": [
+    {
+      "signal_id": "SIG-7355036B",
+      "candidate_hash": "ca4df6dd1c503954",
+      "source_id": "ico-ai-and-algorithms",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/",
+      "detected_at": "2026-05-21T18:24:26.491Z",
+      "keyword_group_hits": {
+        "ai_terms": {
+          "count": 2,
+          "terms": [
+            "AI",
+            "algorithm"
+          ]
+        },
+        "legal_terms": {
+          "count": 2,
+          "terms": [
+            "guidance",
+            "GDPR"
+          ]
+        }
+      },
+      "total_keyword_hits": 4,
+      "legal_governance_relevance": "high",
+      "candidate_status": "private_signal",
+      "public_publish_ready": false,
+      "requires_human_review": true,
+      "raw_text_stored": false,
+      "html_stored": false,
+      "source_observation_ref": {
+        "fetched_at": "2026-05-21T18:24:17.087Z",
+        "http_status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "content_hash": "9897456277b299ae538e915f7b537dfd51af8fa6ef9d4ca2605f2fa908bc5f0e",
+        "content_length": 42147
+      },
+      "signal_metadata": {
+        "risk_tier": "green",
+        "etag": null,
+        "last_modified": null
+      },
+      "_processing_note": "Metadata-only signal. No full text or HTML stored per T061 policy."
+    },
+    {
+      "signal_id": "SIG-82E713BC",
+      "candidate_hash": "de74cd58af136964",
+      "source_id": "cnil-ai",
+      "source_url": "https://www.cnil.fr/fr/intelligence-artificielle",
+      "detected_at": "2026-05-21T18:24:26.491Z",
+      "keyword_group_hits": {
+        "ai_terms": {
+          "count": 1,
+          "terms": [
+            "AI"
+          ]
+        }
+      },
+      "total_keyword_hits": 1,
+      "legal_governance_relevance": "low",
+      "candidate_status": "private_signal",
+      "public_publish_ready": false,
+      "requires_human_review": true,
+      "raw_text_stored": false,
+      "html_stored": false,
+      "source_observation_ref": {
+        "fetched_at": "2026-05-21T18:24:17.087Z",
+        "http_status": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "content_hash": "ce3781ae6a1f1f9606c0cb9b3685dec704f5935ce7413ffd78b44740ebd00fdb",
+        "content_length": 102165
+      },
+      "signal_metadata": {
+        "risk_tier": "green",
+        "etag": null,
+        "last_modified": "Thu, 21 May 2026 18:05:20 GMT"
+      },
+      "_processing_note": "Metadata-only signal. No full text or HTML stored per T061 policy."
+    },
+    {
+      "signal_id": "SIG-8B004750",
+      "candidate_hash": "4ef0bde5c2c8bc3d",
+      "source_id": "edpb-ai",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines_en",
+      "detected_at": "2026-05-21T18:24:26.491Z",
+      "keyword_group_hits": {
+        "ai_terms": {
+          "count": 1,
+          "terms": [
+            "AI"
+          ]
+        },
+        "legal_terms": {
+          "count": 1,
+          "terms": [
+            "data protection"
+          ]
+        }
+      },
+      "total_keyword_hits": 2,
+      "legal_governance_relevance": "high",
+      "candidate_status": "private_signal",
+      "public_publish_ready": false,
+      "requires_human_review": true,
+      "raw_text_stored": false,
+      "html_stored": false,
+      "source_observation_ref": {
+        "fetched_at": "2026-05-21T18:24:17.087Z",
+        "http_status": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "content_hash": "bc031f00ff8c372f0867fa237a35841450c0a3ba129b9d1fdea1a40f7fb13fef",
+        "content_length": 121207
+      },
+      "signal_metadata": {
+        "risk_tier": "green",
+        "etag": "\"1779386645-gzip\"",
+        "last_modified": "Thu, 21 May 2026 18:04:05 GMT"
+      },
+      "_processing_note": "Metadata-only signal. No full text or HTML stored per T061 policy."
+    },
+    {
+      "signal_id": "SIG-C6C00DD4",
+      "candidate_hash": "0d4f4df03a891aad",
+      "source_id": "european-commission-ai-act",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-algorithm-systems",
+      "detected_at": "2026-05-21T18:24:26.491Z",
+      "keyword_group_hits": {
+        "ai_terms": {
+          "count": 3,
+          "terms": [
+            "AI",
+            "algorithm",
+            "AI act"
+          ]
+        }
+      },
+      "total_keyword_hits": 3,
+      "legal_governance_relevance": "low",
+      "candidate_status": "private_signal",
+      "public_publish_ready": false,
+      "requires_human_review": true,
+      "raw_text_stored": false,
+      "html_stored": false,
+      "source_observation_ref": {
+        "fetched_at": "2026-05-21T18:24:17.087Z",
+        "http_status": 200,
+        "content_type": "text/html; charset=UTF-8",
+        "content_hash": "1d8995d5ae3dcaa1193ce96cc7c35a5aa30ec6382f9ec57b67731aded880b4e4",
+        "content_length": 43363
+      },
+      "signal_metadata": {
+        "risk_tier": "green",
+        "etag": "\"1779386455-gzip\"",
+        "last_modified": "Thu, 21 May 2026 18:00:55 GMT"
+      },
+      "_processing_note": "Metadata-only signal. No full text or HTML stored per T061 policy."
+    }
+  ],
+  "_rebuild_history": [
+    {
+      "rebuilt_at": "2026-05-21T18:24:26.491Z",
+      "signal_count": 4
+    }
+  ]
+}

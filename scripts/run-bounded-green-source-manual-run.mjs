@@ -393,11 +393,14 @@ for (const item of sourcesToFetch) {
 }
 
 // Write output files
+const runStatus = failedCount > 0 ? 'completed_with_failures' : 'completed';
+
 const runJson = {
   run_id: runId,
   created_at: now,
   mode: policy.mode,
   policy_version: policy.version,
+  status: runStatus,
   fetch_completed_at: new Date().toISOString(),
   sources_total: sourcesToFetch.length,
   sources_fetched: fetchedCount,
@@ -469,6 +472,7 @@ writeJson(LATEST_RUN_PATH, {
   run_id: runId,
   run_dir: path.relative(ROOT, runDir),
   created_at: now,
+  status: runStatus,
   sources_fetched: fetchedCount,
   sources_skipped: skippedCount,
   sources_failed: failedCount,

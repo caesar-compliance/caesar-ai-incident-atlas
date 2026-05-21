@@ -21,6 +21,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Work item docs: `work-items/T061-bounded-green-source-manual-run/` TASK.md, VALIDATION.md, DECISIONS.md, IMPLEMENTATION_REPORT.md.
   - **Safety:** No secrets, no .env, no wrangler.toml, no remote Supabase migration, no remote Supabase writes, no Worker deploy, no cron, no Pages config change, no public site mutation, no INC-0014, public count remains 13, latest remains INC-0013.
 
+### Fixed (T061 Completion Fix)
+- **T061-FIX — Bounded Green-Source Manual Run Actually Executed.**
+  - First real bounded Green-source fetch executed: `GREEN-RUN-20260521-202417` (4 sources fetched successfully, 3 failed with HTTP 404, 0 skipped).
+  - `run-bounded-green-source-manual-run.mjs`: Added `status` field (`completed`/`completed_with_failures`) to run outputs.
+  - `validate-bounded-green-source-run.mjs`: Tightened validator to require valid run status and non-zero attempted source count; no longer accepts "run not performed" state as PASS.
+  - All failed sources recorded with explicit metadata (source_id, fetch_status, failure_reason, attempted_at).
+  - 4 candidate signals generated from successful fetches (ICO, CNIL, EDPB, EU Commission).
+  - All 25+ safety validators pass.
+
 ## [0.19.0] - 21 May 2026
 
 ### Added

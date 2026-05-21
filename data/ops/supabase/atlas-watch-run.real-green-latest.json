@@ -1,0 +1,22 @@
+{
+  "_schema": "caesar-atlas/supabase-payload/atlas-watch-run/real-green/v1",
+  "generated_at": "2026-05-21T18:24:26.663Z",
+  "mode": "dry_run_export",
+  "remote_write_attempted": false,
+  "cron_triggered": false,
+  "note": "Sanitized payload for atlas_watch_runs from real bounded green-source run. No raw HTML/body. No remote write.",
+  "run": {
+    "run_id": "GREEN-RUN-20260521-202417",
+    "created_at": "2026-05-21T18:24:17.087Z",
+    "mode": "manual_bounded_green_only",
+    "sources_total": 0,
+    "sources_fetched": 4,
+    "sources_skipped": 0,
+    "sources_failed": 3,
+    "candidate_signals": 4,
+    "public_publish_count": 0,
+    "remote_write_attempted": false,
+    "cron_triggered": false,
+    "public_site_mutated": false
+  }
+}

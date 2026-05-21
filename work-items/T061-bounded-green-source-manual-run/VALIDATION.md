@@ -45,8 +45,26 @@
 - [x] No raw bodies stored
 - [x] No long third-party text stored
 
+## T061 Fix Validation (Post-Execution)
+
+**Fix Date:** 2026-05-21
+
+**Fix Branch:** `fix/T061-execute-bounded-green-run`
+
+### Validator Tightening Applied
+- [x] `run-bounded-green-source-manual-run.mjs`: Added `status` field output
+- [x] `validate-bounded-green-source-run.mjs`: Added status validation (completed/completed_with_failures)
+- [x] `validate-bounded-green-source-run.mjs`: Added total sources attempted > 0 check
+
+### Actual Run Results
+- [x] `--execute-green-fetch` executed: GREEN-RUN-20260521-202417
+- [x] Run status: `completed_with_failures` (4 fetched, 3 failed, 0 skipped)
+- [x] Failed sources recorded with metadata: ftc-ai-enforcement, eeoc-ai-guidance, doj-ada-ai-guidance
+- [x] 4 candidate signals generated from successful fetches
+- [x] No raw HTML/body stored (metadata only)
+
 ## Validator Results
-- [x] validate-bounded-green-source-run.mjs: PASS
+- [x] validate-bounded-green-source-run.mjs: PASS (with tightened checks)
 - [x] validate-hosted-sync-safety.mjs: PASS
 - [x] validate-manual-watch-run.mjs: PASS
 - [x] validate-ops-status.mjs: PASS

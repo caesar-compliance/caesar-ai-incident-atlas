@@ -13,7 +13,7 @@
 | Current phase | `T061 — Bounded Real Green-Source Manual Run + Private Candidate Signals` |
 | Status | `active` |
 | Latest completed task | `T061 — Bounded Real Green-Source Manual Run + Private Candidate Signals` |
-| Active work item | `T061 — complete. First bounded real Green-source manual run executed. Private candidate signal outputs in data/watch/private/runs/. Safety validators passing. automation_mode: manual_local. bounded_green_run_status: last_run_available. 13 public records.` |
+| Active work item | `T061-FIX complete. Bounded Green-source manual run actually executed with --execute-green-fetch. GREEN-RUN-20260521-202417: 4 fetched (ICO/CNIL/EDPB/EU Commission), 3 failed (FTC/EEOC/DOJ 404), 4 candidate signals. Validator tightened. 13 public records.` |
 | Next recommended step | `Review candidate signals, promote through review console, or proceed with hosted activation (follow checklist from print-hosted-activation-commands.mjs)` |
 
 ---
@@ -65,7 +65,7 @@
 | T042 — Product Pivot to AI Legal & Governance Case Atlas | **Complete** — Strategic pivot to Legal & Governance Case Atlas documented. Decoupled conceptual watcher pipeline and reference rules added. | 21 May 2026 |
 | T059 — Hosted Activation Preflight | **Complete** — Local migration smoke, hosted activation preflight, operator command checklist. Safety validators expanded. All preflight tools operational. No remote infrastructure touched. | 21 May 2026 |
 | T060 — Manual Watch Run Queue | **Complete** — Manual queue (7 green sources), run envelope, hosted payloads, validator. run-local-automation-cycle + export-ops-status + validate-hosted-sync-safety all updated. | 21 May 2026 |
-| T061 — Bounded Real Green-Source Manual Run | **Complete** — First real Green-source fetch, private candidate signals, safety validators. run-bounded-green-source-manual-run + build-private-candidate-signals + validate-bounded-green-source-run. | 21 May 2026 |
+| T061 — Bounded Real Green-Source Manual Run | **Complete + Fix Applied** — First real Green-source fetch executed (GREEN-RUN-20260521-202417: 4 fetched, 3 failed, 4 signals). Validator tightened to require actual run completion. | 21 May 2026 |
 | v0.8.0 Product Pivot — Strategic repositioning | Complete — Strategic docs, mapping models, and automation policies created | 21 May 2026 |
 | v0.7.8 Dataset Expansion — INC-0012 drafted | Complete — 12 records; INC-0012 prepared for CT review | 20 May 2026 |
 | v0.7.7 Dataset Expansion — INC-0011 signed off | Complete — 11 records; INC-0011 governance-approved | 20 May 2026 |

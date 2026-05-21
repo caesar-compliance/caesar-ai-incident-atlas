@@ -72,13 +72,27 @@ if (!policy) {
   }
 }
 
-// ── 2. Latest run file exists ────────────────────────────────────────────────
+// ── 2. Latest run file exists and has valid status ───────────────────────────
 const latestRun = readJson(LATEST_RUN_PATH);
 if (!latestRun) {
   fail('real-green-run-latest.json not found — run not performed');
 } else {
   pass('real-green-run-latest.json exists');
   logDetail('run_id: ' + latestRun.run_id);
+  // T061 fix: require valid run status
+  const validStatuses = ['completed', 'completed_with_failures'];
+  if (validStatuses.includes(latestRun.status)) {
+    pass('run status is ' + latestRun.status);
+  } else {
+    fail('run status is ' + latestRun.status + ' (expected completed or completed_with_failures)');
+  }
+  // T061 fix: require at least one source was attempted
+  const totalAttempted = (latestRun.sources_fetched || 0) + (latestRun.sources_skipped || 0) + (latestRun.sources_failed || 0);
+  if (totalAttempted > 0) {
+    pass('total sources attempted: ' + totalAttempted);
+  } else {
+    fail('no sources were attempted (fetched+skipped+failed = 0)');
+  }
 }
 
 // ── 3. Private run directory exists ──────────────────────────────────────────

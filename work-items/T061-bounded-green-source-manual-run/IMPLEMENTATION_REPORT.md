@@ -16,26 +16,61 @@ First controlled real Green-source manual monitoring pass with private, metadata
 | `work-items/T061-bounded-green-source-manual-run/IMPLEMENTATION_REPORT.md` | This report |
 | `work-items/T061-bounded-green-source-manual-run/DECISIONS.md` | Decisions log |
 
-## Files Modified
+## Files Modified (Including T061 Fix)
 
 | File | Change |
 |---|---|
+| `scripts/run-bounded-green-source-manual-run.mjs` | **T061 FIX:** Added `status` field (completed/completed_with_failures) to run.json and real-green-run-latest.json |
+| `scripts/validate-bounded-green-source-run.mjs` | **T061 FIX:** Tightened validator to require valid run status and at least one attempted source |
 | `scripts/export-hosted-watch-run-payloads.mjs` | Added T061 real-green payload export |
 | `scripts/run-local-automation-cycle.mjs` | Added --with-bounded-green-run flag |
 | `scripts/export-ops-status.mjs` | Added bounded_green_run_status fields |
 | `scripts/validate-hosted-sync-safety.mjs` | Added T061 checks (32-39) |
 
-## Run Results (Example)
+## Run Results (T061 Fix — Actual Execution)
+
+**Fix Branch:** `fix/T061-execute-bounded-green-run`
+
+**Actual Run Executed:** `2026-05-21T18:24:17Z`
 
 ```
-Run ID: GREEN-RUN-20260521-XXXXXX
+Run ID: GREEN-RUN-20260521-202417
+Status: completed_with_failures
 Sources:
   Total:    7
-  Fetched:  7
+  Fetched:  4 (ICO, CNIL, EDPB, EU Commission)
   Skipped:  0
-  Failed:   0
-Candidate signals: 7 (metadata-only)
+  Failed:   3 (FTC 404, EEOC 404, DOJ 404)
+Candidate signals: 4 (metadata-only)
 ```
+
+### Failed Sources Recorded
+
+| Source | Status | Failure Reason |
+|---|---|---|
+| ftc-ai-enforcement | failed | HTTP 404 |
+| eeoc-ai-guidance | failed | HTTP 404 |
+| doj-ada-ai-guidance | failed | HTTP 404 |
+
+### Successful Sources
+
+| Source | Status | Content Hash |
+|---|---|---|
+| ico-ai-and-algorithms | success | SHA-256 (observed) |
+| cnil-ai | success | SHA-256 (observed) |
+| edpb-ai | success | SHA-256 (observed) |
+| european-commission-ai-act | success | SHA-256 (observed) |
+
+### Files Generated
+
+- `data/ops/watch-runs/real-green-run-latest.json`
+- `data/watch/private/runs/GREEN-RUN-20260521-202417/run.json`
+- `data/watch/private/runs/GREEN-RUN-20260521-202417/source-observations.json`
+- `data/watch/private/runs/GREEN-RUN-20260521-202417/candidate-signals.json`
+- `data/watch/private/runs/GREEN-RUN-20260521-202417/safety-manifest.json`
+- `data/ops/supabase/atlas-watch-run.real-green-latest.json`
+- `data/ops/supabase/atlas-source-observations.real-green-latest.json`
+- `data/ops/supabase/atlas-candidate-signals.real-green-latest.json`
 
 ## Safety Confirmations
 
