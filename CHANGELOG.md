@@ -5,6 +5,28 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.15.0] - 21 May 2026
+
+### Added
+- **T056 — Real Automated Monitoring Architecture + Hosted Data Starter.**
+  - `docs/automation/REAL_AUTOMATED_MONITORING_ARCHITECTURE.md` — architecture decision: static site + repo as source of truth + Supabase (future DB) + Cloudflare Worker (future edge) + GitHub Actions (deploy/build).
+  - `infra/supabase/schema.sql` — 7-table Postgres schema (atlas_sources, atlas_watch_runs, atlas_candidates, atlas_drafts, atlas_promotion_packets, atlas_public_records, atlas_digest_runs). Not applied.
+  - `infra/supabase/README.md` — integration instructions and gate conditions.
+  - `infra/cloudflare-worker/src/index.js` — Worker skeleton (GET /health, /status, /public-records, /latest-run; POST /watch/run disabled by default).
+  - `infra/cloudflare-worker/wrangler.example.toml` — deployment config template (no credentials).
+  - `infra/cloudflare-worker/README.md` — deployment instructions and safety notes.
+  - `scripts/export-ops-status.mjs` — reads incident index + watch runs → writes sanitised ops status to `data/ops/` and `site/data/ops/`.
+  - `scripts/validate-ops-status.mjs` — validates ops JSON: record count = 13, latest = INC-0013, no secrets/drafts/candidates leaked, automation_mode not live_scheduled_enabled.
+  - `scripts/run-local-automation-cycle.mjs` — one-command local cycle: pipeline → export → validate → build-pages (optional) → rss → validate-site. Logs to `data/ops/latest-local-automation-cycle.log`.
+  - `data/ops/latest-status.json` — ops status (internal copy).
+  - `data/ops/latest-watch-run-public.json` — sanitised watch run summary (internal copy).
+  - `site/data/ops/latest-status.json` — ops status (public, served by GitHub Pages).
+  - `site/data/ops/latest-watch-run-public.json` — sanitised watch run summary (public).
+  - `site/index.html` — Monitoring Status panel added to sidebar.
+  - `site/assets/app.js` — `loadMonitoringStatus()` / `renderMonitoringStatus()` + `formatRelativeTime()`.
+  - `site/assets/styles.css` — monitoring panel styles (`.monitoring-list`, `.mon-label`, `.mon-val`, `.mon-json-link`).
+  - Work item: `work-items/T056-real-automated-monitoring-architecture/`
+
 ## [0.14.0] - 21 May 2026
 
 ### Added

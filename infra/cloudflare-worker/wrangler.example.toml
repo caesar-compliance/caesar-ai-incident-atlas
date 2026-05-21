@@ -1,0 +1,19 @@
+name = "caesar-ai-incident-atlas"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+# Copy this file to wrangler.toml and fill in your account details.
+# Do NOT commit wrangler.toml with real account_id or credentials.
+
+account_id = "YOUR_CLOUDFLARE_ACCOUNT_ID"
+
+[vars]
+ENABLE_WATCH_RUNS = "false"
+
+# Secrets (set via `wrangler secret put`, never in this file):
+# SUPABASE_URL
+# SUPABASE_ANON_KEY
+
+# Scheduled trigger (disabled — enable after Supabase integration is complete):
+# [[triggers.crons]]
+# crons = ["0 */6 * * *"]

@@ -1,0 +1,20 @@
+{
+  "_schema": "caesar-atlas-ops-status/v1",
+  "generated_at": "2026-05-21T15:49:12.190Z",
+  "public_record_count": 13,
+  "latest_public_record_id": "INC-0013",
+  "last_pipeline_run_at": "2026-05-21T14:45:38.634Z",
+  "source_count": 7,
+  "candidate_count_summary": {
+    "total": 0,
+    "case_quality": 0,
+    "monitor": 0,
+    "noise": 0
+  },
+  "case_quality_ready_count": 0,
+  "automation_mode": "manual_local",
+  "next_step": "Configure Supabase + Cloudflare Worker secrets to enable hosted_ready mode",
+  "public_site_url": "https://atlas.caesar.no",
+  "data_endpoint": "https://atlas.caesar.no/data/incident-index.json",
+  "ops_status_endpoint": "https://atlas.caesar.no/data/ops/latest-status.json"
+}

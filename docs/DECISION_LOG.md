@@ -1,12 +1,22 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T054 — DEC-120)
+**Last updated:** 21 May 2026 (T056 — DEC-125)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
 ---
 
 ## Decision History
+
+### [DEC-121 – DEC-125] — 21 May 2026 — T056 Real Automated Monitoring Architecture
+
+**Status:** Approved
+
+- **DEC-121:** Static site remains public frontend. Repo JSON is source of truth for approved public records. No SSR or JS framework.
+- **DEC-122:** Supabase is recommended operational DB for candidates/runs/drafts/reviews. Schema defined (`infra/supabase/schema.sql`). Integration gated on secrets being configured.
+- **DEC-123:** Cloudflare Worker is recommended API/cron edge layer. Skeleton in `infra/cloudflare-worker/`. `POST /watch/run` disabled by default. Not deployed in this task.
+- **DEC-124:** Public site consumes static `site/data/ops/latest-status.json` for monitoring status display. No backend calls from public site.
+- **DEC-125:** `automation_mode: manual_local` is the initial state. The validate script rejects `live_scheduled_enabled`. Moving to `hosted_ready` requires Supabase + Worker integration in a future task.
 
 ### [DEC-114 – DEC-120] — 21 May 2026 — T054 Publish Approved PKT-0006 as INC-0013
 
