@@ -4,16 +4,27 @@ compatibility_date = "2024-01-01"
 
 # Copy this file to wrangler.toml and fill in your account details.
 # Do NOT commit wrangler.toml with real account_id or credentials.
+# wrangler.toml is gitignored by default.
 
 account_id = "YOUR_CLOUDFLARE_ACCOUNT_ID"
 
 [vars]
+# Watch run trigger — disabled by default for safety.
+# Set to "true" only after Control Tower approval and Supabase integration.
 ENABLE_WATCH_RUNS = "false"
 
-# Secrets (set via `wrangler secret put`, never in this file):
-# SUPABASE_URL
-# SUPABASE_ANON_KEY
+# Required environment variables (set via `wrangler secret put`, NEVER in this file):
+# SUPABASE_URL           — Your Supabase project URL (e.g., https://xxxx.supabase.co)
+# SUPABASE_SERVICE_ROLE_KEY — Service role key for backend operations (NEVER expose to frontend)
+#
+# To set secrets:
+#   wrangler secret put SUPABASE_URL
+#   wrangler secret put SUPABASE_SERVICE_ROLE_KEY
+#
+# Optional environment variables:
+# OPS_STATUS_JSON        — Inline ops status JSON for fallback mode
+# LATEST_RUN_JSON        — Inline latest run JSON for fallback mode
 
-# Scheduled trigger (disabled — enable after Supabase integration is complete):
+# Scheduled trigger (disabled — enable after Supabase integration is complete and CT approved):
 # [[triggers.crons]]
 # crons = ["0 */6 * * *"]

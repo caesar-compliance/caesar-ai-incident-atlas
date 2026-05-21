@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T057)
+**Last updated:** 21 May 2026 (T058)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.15.0` |
-| Current phase | `T057 — Supabase Hosted Sync Dry Run` |
+| Current version | `0.17.0` |
+| Current phase | `T058 — Cloudflare Worker ↔ Supabase API Integration` |
 | Status | `active` |
-| Latest completed task | `T057 — Supabase Local/Cloud Bootstrap + Hosted Sync Dry Run` |
-| Active work item | `T057 — complete. Supabase schema validated, bootstrap payloads exported, dry-run sync passing, CF Worker routes tested. 13 public records. automation_mode: manual_local.` |
-| Next recommended step | `T058 — Configure real Supabase project + apply schema + connect Worker` |
+| Latest completed task | `T058 — Worker Supabase API Integration, Mocked + Guarded Live Probe` |
+| Active work item | `T058 — complete. Worker has dual-mode (fallback/live) Supabase integration. 22 local tests pass. Guarded live probe ready. 13 public records. automation_mode: manual_local.` |
+| Next recommended step | `T059 — Create Supabase project + apply schema + deploy Worker + run live probe` |
 
 ---
 

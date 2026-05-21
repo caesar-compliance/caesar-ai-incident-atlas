@@ -1,0 +1,17 @@
+{
+  "_schema": "atlas-live-probe/skip/v1",
+  "executed_at": "2026-05-21T16:45:16.421Z",
+  "mode": "skipped_no_env",
+  "remote_read_attempted": false,
+  "missing_env": [
+    "SUPABASE_URL",
+    "SUPABASE_SERVICE_ROLE_KEY",
+    "ATLAS_CONFIRM_HOSTED_SYNC=YES"
+  ],
+  "next_steps": [
+    "Set SUPABASE_URL in .env (never commit)",
+    "Set SUPABASE_SERVICE_ROLE_KEY in .env (never commit)",
+    "Set ATLAS_CONFIRM_HOSTED_SYNC=YES to enable live probe"
+  ],
+  "note": "This is a guarded live probe. It requires explicit confirmation and credentials to run."
+}

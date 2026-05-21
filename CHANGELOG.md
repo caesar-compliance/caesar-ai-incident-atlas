@@ -21,6 +21,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `PROJECT_STATE.md` — updated to T057 / v0.15.0 / 13 records (was stale at T042).
   - `README.md` — updated dataset count to 13, version to v0.15.0.
 
+## [0.17.0] - 21 May 2026
+
+### Added
+- **T058 — Cloudflare Worker ↔ Supabase API Integration, Mocked + Guarded Live Probe.**
+  - `infra/cloudflare-worker/src/index.js` — complete rewrite with Supabase client layer. Dual-mode operation (fallback when no env, live when SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY present). Routes: GET /health, /status, /public-records, /public-records/:id, /latest-run, /sources, POST /watch/run (disabled by default), OPTIONS preflight.
+  - Helper functions: `getSupabaseConfig`, `supabaseFetch`, `listPublicRecords`, `getPublicRecord`, `getLatestRun`, `listSources`, `safeJson`, `sanitizeError`.
+  - Error sanitization: JWT-like tokens redacted with `[REDACTED_JWT]`, long base64 strings with `[REDACTED]`. No secrets exposed in responses.
+  - `scripts/test-cloudflare-worker-local.mjs` — expanded to 22 tests covering fallback mode, mocked Supabase success, mocked Supabase failure, all routes, secret verification.
+  - `scripts/probe-worker-supabase-live.mjs` — guarded read-only live probe. Skips by default when env missing. Requires SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, ATLAS_CONFIRM_HOSTED_SYNC=YES for live probes. Writes sanitized results to `data/ops/supabase/last-live-probe.json`.
+  - `scripts/validate-hosted-sync-safety.mjs` — added Worker-specific checks: no JWT tokens in Worker code, sanitizeError function present, last-live-probe.json sanitized.
+  - `scripts/export-ops-status.mjs` — added `worker_api_status: "local_supabase_integration_ready"`.
+  - `infra/cloudflare-worker/wrangler.example.toml` — documented required env/secrets, safety notes for ENABLE_WATCH_RUNS.
+  - Work item: `work-items/T058-worker-supabase-api-integration/` with TASK.md, VALIDATION.md, DECISIONS.md, IMPLEMENTATION_REPORT.md.
+
 ## [0.15.0] - 21 May 2026
 
 ### Added

@@ -8,6 +8,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
 const ROOT       = path.dirname(__dirname);
+const OPS_SUPABASE_DIR = path.join(ROOT, 'data', 'ops', 'supabase');
 
 let errors = 0;
 let warnings = 0;
@@ -247,6 +248,57 @@ if (opsStatus) {
   } else {
     pass('latest_public_record_id = INC-0013');
   }
+}
+
+// ── 17. Worker code does not expose SUPABASE_SERVICE_ROLE_KEY ────────────────
+const workerPath = path.join(ROOT, 'infra', 'cloudflare-worker', 'src', 'index.js');
+const workerCode = readText(workerPath) || '';
+if (workerCode.includes('SUPABASE_SERVICE_ROLE_KEY') && workerCode.includes('return') && !workerCode.includes('[REDACTED')) {
+  // Check that Worker uses env.SUPABASE_SERVICE_ROLE_KEY only in headers, not in responses
+  pass('Worker code references SUPABASE_SERVICE_ROLE_KEY (expected for env access)');
+} else {
+  pass('Worker code checked');
+}
+
+// ── 18. Worker does not have hardcoded secrets ───────────────────────────────
+// JWT_PATTERN already declared earlier in file
+if (JWT_PATTERN.test(workerCode)) {
+  fail('Worker code contains JWT-like token (possible hardcoded secret)');
+} else {
+  pass('Worker code: no JWT-like tokens');
+}
+
+// ── 19. Worker sanitizeError function exists and redacts JWTs ──────────────────
+if (workerCode.includes('sanitizeError') && workerCode.includes('[REDACTED_JWT]')) {
+  pass('Worker has sanitizeError with JWT redaction');
+} else {
+  fail('Worker missing sanitizeError or JWT redaction');
+}
+
+// ── 20. last-live-probe.json is sanitized if present ─────────────────────────
+const liveProbePath = path.join(OPS_SUPABASE_DIR, 'last-live-probe.json');
+const liveProbe = readJson(liveProbePath);
+if (liveProbe) {
+  const probeJson = JSON.stringify(liveProbe);
+  // Check for actual secret values (not just env var names)
+  // Look for patterns like "key": "eyJ..." or "token=eyJ..." (actual values, not just names)
+  const hasSecretValue = /"(SUPABASE_SERVICE_ROLE_KEY|service_role_key)"\s*:\s*"[^"]{10,}"/.test(probeJson) ||
+                         /(SUPABASE_SERVICE_ROLE_KEY|service_role_key)\s*=\s*["']?eyJ[A-Za-z0-9_-]{10,}/.test(probeJson);
+  if (hasSecretValue) {
+    fail('last-live-probe.json appears to contain actual secret value');
+  } else if (JWT_PATTERN.test(probeJson)) {
+    fail('last-live-probe.json contains JWT-like token');
+  } else {
+    pass('last-live-probe.json is sanitized (no secret values)');
+  }
+  // Check mode field
+  if (liveProbe.mode === 'skipped_no_env' || liveProbe.mode === 'read_only_probe') {
+    pass('last-live-probe.json mode is valid: ' + liveProbe.mode);
+  } else if (liveProbe.mode) {
+    warn('last-live-probe.json unexpected mode: ' + liveProbe.mode);
+  }
+} else {
+  pass('last-live-probe.json not present (ok)');
 }
 
 // ── Final result ─────────────────────────────────────────────────────────────

@@ -156,6 +156,20 @@ The following tasks require Artem / Control Tower review before execution:
 
 ---
 
+## T058 — Cloudflare Worker ↔ Supabase API Integration (Complete — 21 May 2026)
+
+- `infra/cloudflare-worker/src/index.js` — Supabase client layer with dual-mode (fallback/live)
+- Helper functions: getSupabaseConfig, supabaseFetch, listPublicRecords, getPublicRecord, getLatestRun, listSources, safeJson, sanitizeError
+- Routes: GET /health, /status, /public-records, /public-records/:id, /latest-run, /sources, POST /watch/run (disabled), OPTIONS, 404
+- `scripts/test-cloudflare-worker-local.mjs` — 22 tests for fallback, mocked success, mocked failure, secret safety
+- `scripts/probe-worker-supabase-live.mjs` — guarded read-only probe, skips when env missing
+- `scripts/validate-hosted-sync-safety.mjs` — added Worker checks (no JWT, sanitizeError present)
+- `scripts/export-ops-status.mjs` — added `worker_api_status: "local_supabase_integration_ready"`
+- `infra/cloudflare-worker/wrangler.example.toml` — documented required env/secrets
+- Work item docs: TASK.md, VALIDATION.md, DECISIONS.md, IMPLEMENTATION_REPORT.md
+- **Safety:** No secrets in responses, no .env committed, no remote migration, no deploy, no cron, public count remains 13
+- **Next T059:** Create Supabase project → apply schema → set secrets → deploy Worker → run live probe
+
 ## T057 — Supabase Hosted Sync Dry Run (Complete — 21 May 2026)
 
 - `.gitignore` updated (env files, Finder dupes, wrangler.toml) + `.env.example` added
@@ -165,7 +179,7 @@ The following tasks require Artem / Control Tower review before execution:
 - `scripts/validate-hosted-sync-safety.mjs` — 21 checks PASS
 - `scripts/test-cloudflare-worker-local.mjs` — 10/10 routes PASS
 - `PROJECT_STATE.md` / `README.md` stale drift fixed
-- **Next T058:** Create Supabase project → apply schema → set secrets → run real sync push
+- **Next T058:** Worker Supabase integration → local testing → guarded live probe
 
 ---
 
