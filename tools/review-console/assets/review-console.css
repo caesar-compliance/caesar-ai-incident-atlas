@@ -218,6 +218,16 @@ body {
   box-shadow: inset 3px 0 0 var(--color-primary);
 }
 
+.draft-item.quality-blocked-item {
+  border-left: 3px solid #7a1a1a;
+  opacity: 0.75;
+}
+
+.draft-item.quality-blocked-item:hover {
+  border-left-color: #dc3545;
+  opacity: 1;
+}
+
 .draft-item-header {
   display: flex;
   justify-content: space-between;

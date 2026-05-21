@@ -1,11 +1,14 @@
 {
-  "generated_at": "2026-05-21T13:08:34.149Z",
+  "generated_at": "2026-05-21T13:50:24.599Z",
   "total_candidates": 6,
+  "promotion_eligible_count": 3,
+  "blocked_count": 3,
+  "no_publication_candidate_ready": false,
   "ranked_candidates": [
     {
-      "packet_id": "PKT-0001",
-      "draft_id": "DRAFT-0001",
-      "candidate_id": "CAND-0018",
+      "packet_id": "PKT-0002",
+      "draft_id": "DRAFT-0002",
+      "candidate_id": "CAND-0019",
       "suggested_public_case_id": "INC-0013",
       "suggested_public_filename": "inc-0013.json",
       "score": 130,
@@ -22,6 +25,10 @@
       ],
       "risk_flags": [],
       "source_tier": "green",
+      "quality_class": "likely_guidance",
+      "quality_score": 84,
+      "promotion_eligible": true,
+      "promotion_blockers": [],
       "promotion_pre_allowed": false,
       "requires_control_tower_approval": true,
       "requires_legal_review": false,
@@ -48,9 +55,9 @@
       "rank": 1
     },
     {
-      "packet_id": "PKT-0002",
-      "draft_id": "DRAFT-0002",
-      "candidate_id": "CAND-0019",
+      "packet_id": "PKT-0004",
+      "draft_id": "DRAFT-0004",
+      "candidate_id": "CAND-0021",
       "suggested_public_case_id": "INC-0013",
       "suggested_public_filename": "inc-0013.json",
       "score": 130,
@@ -67,6 +74,10 @@
       ],
       "risk_flags": [],
       "source_tier": "green",
+      "quality_class": "likely_guidance",
+      "quality_score": 76,
+      "promotion_eligible": true,
+      "promotion_blockers": [],
       "promotion_pre_allowed": false,
       "requires_control_tower_approval": true,
       "requires_legal_review": false,
@@ -93,9 +104,9 @@
       "rank": 2
     },
     {
-      "packet_id": "PKT-0003",
-      "draft_id": "DRAFT-0003",
-      "candidate_id": "CAND-0020",
+      "packet_id": "PKT-0006",
+      "draft_id": "DRAFT-0006",
+      "candidate_id": "CAND-0023",
       "suggested_public_case_id": "INC-0013",
       "suggested_public_filename": "inc-0013.json",
       "score": 130,
@@ -112,6 +123,10 @@
       ],
       "risk_flags": [],
       "source_tier": "green",
+      "quality_class": "likely_case",
+      "quality_score": 84,
+      "promotion_eligible": true,
+      "promotion_blockers": [],
       "promotion_pre_allowed": false,
       "requires_control_tower_approval": true,
       "requires_legal_review": false,
@@ -138,12 +153,12 @@
       "rank": 3
     },
     {
-      "packet_id": "PKT-0004",
-      "draft_id": "DRAFT-0004",
-      "candidate_id": "CAND-0021",
+      "packet_id": "PKT-0003",
+      "draft_id": "DRAFT-0003",
+      "candidate_id": "CAND-0020",
       "suggested_public_case_id": "INC-0013",
       "suggested_public_filename": "inc-0013.json",
-      "score": 130,
+      "score": -70,
       "ranking_reasons": [
         "Green source tier (+50)",
         "Source URL verified (+15)",
@@ -155,8 +170,14 @@
         "Evidence requirements clear (+5)",
         "Clean-room confirmed: no source text copied (+15)"
       ],
-      "risk_flags": [],
+      "risk_flags": [
+        "QUALITY SCORE TOO LOW: 68 < 70 threshold"
+      ],
       "source_tier": "green",
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 68,
+      "promotion_eligible": false,
+      "promotion_blockers": [],
       "promotion_pre_allowed": false,
       "requires_control_tower_approval": true,
       "requires_legal_review": false,
@@ -188,7 +209,7 @@
       "candidate_id": "CAND-0022",
       "suggested_public_case_id": "INC-0013",
       "suggested_public_filename": "inc-0013.json",
-      "score": 130,
+      "score": -70,
       "ranking_reasons": [
         "Green source tier (+50)",
         "Source URL verified (+15)",
@@ -200,8 +221,14 @@
         "Evidence requirements clear (+5)",
         "Clean-room confirmed: no source text copied (+15)"
       ],
-      "risk_flags": [],
+      "risk_flags": [
+        "QUALITY SCORE TOO LOW: 68 < 70 threshold"
+      ],
       "source_tier": "green",
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 68,
+      "promotion_eligible": false,
+      "promotion_blockers": [],
       "promotion_pre_allowed": false,
       "requires_control_tower_approval": true,
       "requires_legal_review": false,
@@ -228,12 +255,12 @@
       "rank": 5
     },
     {
-      "packet_id": "PKT-0006",
-      "draft_id": "DRAFT-0006",
-      "candidate_id": "CAND-0023",
+      "packet_id": "PKT-0001",
+      "draft_id": "DRAFT-0001",
+      "candidate_id": "CAND-0018",
       "suggested_public_case_id": "INC-0013",
       "suggested_public_filename": "inc-0013.json",
-      "score": 130,
+      "score": -870,
       "ranking_reasons": [
         "Green source tier (+50)",
         "Source URL verified (+15)",
@@ -245,8 +272,19 @@
         "Evidence requirements clear (+5)",
         "Clean-room confirmed: no source text copied (+15)"
       ],
-      "risk_flags": [],
+      "risk_flags": [
+        "QUALITY BLOCKED: quality_class=\"generic_page\" — not eligible for promotion",
+        "QUALITY SCORE TOO LOW: 15 < 70 threshold",
+        "PROMOTION BLOCKERS: Generic title pattern: \"make a complaint\" +1 more"
+      ],
       "source_tier": "green",
+      "quality_class": "generic_page",
+      "quality_score": 15,
+      "promotion_eligible": false,
+      "promotion_blockers": [
+        "Generic title pattern: \"make a complaint\"",
+        "Generic URL pattern: \"/make-a-complaint\""
+      ],
       "promotion_pre_allowed": false,
       "requires_control_tower_approval": true,
       "requires_legal_review": false,
@@ -274,15 +312,19 @@
     }
   ],
   "top_recommendation": {
-    "top_packet_id": "PKT-0001",
-    "top_draft_id": "DRAFT-0001",
-    "top_candidate_id": "CAND-0018",
+    "top_packet_id": "PKT-0002",
+    "top_draft_id": "DRAFT-0002",
+    "top_candidate_id": "CAND-0019",
     "top_score": 130,
+    "top_quality_class": "likely_guidance",
+    "top_promotion_eligible": true,
+    "no_publication_candidate_ready": false,
+    "best_eligible_packet_id": "PKT-0002",
     "reason": "Highest scoring packet (130 points). Green source tier (+50); Source URL verified (+15); Legal domain classified (+10).",
     "risks": [],
     "required_approval": "Control Tower approval required before any public promotion",
     "next_steps": [
-      "1. Review top candidate in local review console",
+      "1. Review PKT-0002 in local review console",
       "2. Complete curator risk review checklist",
       "3. Obtain Control Tower explicit approval",
       "4. Add approval to data/reviews/real/approved-promotions.json",

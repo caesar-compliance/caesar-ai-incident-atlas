@@ -49,8 +49,8 @@
   "_preview_metadata": {
     "from_draft": "DRAFT-0002",
     "from_packet": "PKT-0002",
-    "rank": 2,
-    "generated_at": "2026-05-21T13:08:51.442Z",
+    "rank": 1,
+    "generated_at": "2026-05-21T13:50:29.316Z",
     "promotion_blocked_reason": "No explicit Control Tower approval in approved-promotions.json"
   }
 }

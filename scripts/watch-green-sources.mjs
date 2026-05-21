@@ -112,6 +112,71 @@ function matchKeywords(title, url, keywordsConfig) {
   };
 }
 
+// 3b. Inline generic-page quality gate
+const GENERIC_TITLE_BLOCKERS_WATCHER = [
+  'make a complaint', 'contact us', 'about us', 'privacy notice', 'privacy policy',
+  'cookie policy', 'accessibility', 'terms of use', 'terms and conditions',
+  'site map', 'sitemap', 'subscribe', 'newsletter', 'media enquiry',
+  'how to complain', 'report a concern', 'feedback', 'frequently asked questions',
+  'faq', 'help centre', 'help center', 'get in touch', 'find us', 'our team',
+  'vacancies', 'careers at', 'work for us', 'work with us', 'join us',
+  'register', 'login', 'sign in', 'sign up', 'welcome to', 'home page', 'homepage',
+  'procurement', 'tender', 'contract notice', 'webinar', 'conference', 'workshop',
+  'seminar', 'training course', 'job posting', 'job vacancy', 'apply now',
+];
+
+const GENERIC_URL_BLOCKERS_WATCHER = [
+  '/make-a-complaint', '/contact', '/contact-us', '/about', '/about-us',
+  '/events', '/event/', '/jobs', '/careers', '/vacancies',
+  '/webinar', '/subscribe', '/newsletter', '/help', '/faq',
+  '/feedback', '/login', '/register', '/sign-in', '/signup',
+  '/privacy', '/cookie', '/terms', '/sitemap', '/procurement',
+  '/tender', '/suppliers', '/accessibility',
+];
+
+function inlineQualityCheck(title, url) {
+  const t = (title || '').toLowerCase();
+  const u = (url || '').toLowerCase();
+
+  const rejectionReasons = [];
+
+  for (const blocker of GENERIC_TITLE_BLOCKERS_WATCHER) {
+    if (t.includes(blocker)) {
+      rejectionReasons.push(`Generic title: "${blocker}"`);
+    }
+  }
+  for (const blocker of GENERIC_URL_BLOCKERS_WATCHER) {
+    if (u.includes(blocker)) {
+      rejectionReasons.push(`Generic URL: "${blocker}"`);
+    }
+  }
+
+  const isGeneric = rejectionReasons.length > 0;
+
+  // Determine basic quality class
+  let quality_class = 'unclassified';
+  let quality_score = isGeneric ? 15 : 60;
+
+  if (isGeneric) {
+    quality_class = 'generic_page';
+  } else {
+    const combined = `${t} ${u}`;
+    const hasEnforcement = ['enforcement', 'investigation', 'penalty', 'fine', 'sanction', 'settlement', 'judgment', 'court', 'ruling', 'decision', 'lawsuit'].some(s => combined.includes(s));
+    const hasGuidance = ['guidance', 'guidelines', 'opinion', 'framework', 'consultation', 'regulation', 'directive'].some(s => combined.includes(s));
+    if (hasEnforcement) { quality_class = 'likely_case'; quality_score = 75; }
+    else if (hasGuidance) { quality_class = 'likely_guidance'; quality_score = 72; }
+    else { quality_class = 'likely_regulatory_update'; quality_score = 62; }
+  }
+
+  return {
+    quality_class,
+    quality_score,
+    promotion_eligible: !isGeneric && quality_score >= 70,
+    rejection_reasons: rejectionReasons,
+    is_generic: isGeneric,
+  };
+}
+
 // 4. HTML link extractor
 function extractHtmlLinks(html, baseUrlString) {
   const links = [];
@@ -342,6 +407,27 @@ async function watch() {
       // Check if keyword filters match (includes stronger exclusion via matchKeywords)
       const check = matchKeywords(link.title, link.url, keywordsConfig);
       if (check.matches) {
+        // Run inline quality gate BEFORE writing candidate
+        const quality = inlineQualityCheck(link.title, link.url);
+
+        if (quality.is_generic) {
+          logWarning(`Generic page blocked: "${link.title}" [${link.url}] — ${quality.rejection_reasons[0] || 'generic pattern'}`);
+          summary.skipped_items++;
+          summary.detected_candidates.push({
+            candidate_id: null,
+            source_id: target.source_id,
+            source_url: link.url,
+            title: link.title,
+            keywords: check.keywords,
+            quality_class: quality.quality_class,
+            quality_score: quality.quality_score,
+            promotion_eligible: false,
+            rejection_reasons: quality.rejection_reasons,
+            blocked_as_generic: true,
+          });
+          continue;
+        }
+
         detectedCount++;
         
         // Generate new candidate record
@@ -354,7 +440,7 @@ async function watch() {
         // Determine preliminary_case_type
         let preliminary_case_type = 'regulator_guidance';
         const lowerTitle = link.title.toLowerCase();
-        if (lowerTitle.includes('enforcement') || lowerTitle.includes('settlement') || lowerTitle.includes('complaint') || lowerTitle.includes('investigation') || lowerTitle.includes('penalty')) {
+        if (lowerTitle.includes('enforcement') || lowerTitle.includes('settlement') || lowerTitle.includes('investigation') || lowerTitle.includes('penalty')) {
           preliminary_case_type = 'enforcement';
         } else if (lowerTitle.includes('court') || lowerTitle.includes('judgment') || lowerTitle.includes('lawsuit')) {
           preliminary_case_type = 'lawsuit';
@@ -374,6 +460,10 @@ async function watch() {
           confidence_score: 0.85,
           dedupe_key,
           status: 'real_detected',
+          quality_class: quality.quality_class,
+          quality_score: quality.quality_score,
+          promotion_eligible: quality.promotion_eligible,
+          rejection_reasons: quality.rejection_reasons,
           risk_flags: ['no_risk_detected'],
           notes: `Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: ${target.jurisdiction}.`
         };
@@ -386,14 +476,19 @@ async function watch() {
         
         const candidatePath = path.join(dailyDir, `${candidate_id}.json`);
         fs.writeFileSync(candidatePath, JSON.stringify(candidateRecord, null, 2), 'utf8');
-        logSuccess(`Detected candidate stored: ${candidate_id} -> ${candidatePath}`);
+        logSuccess(`Detected candidate stored: ${candidate_id} [${quality.quality_class}|score:${quality.quality_score}] -> ${candidatePath}`);
 
         summary.detected_candidates.push({
           candidate_id,
           source_id: target.source_id,
           source_url: link.url,
           title: link.title,
-          keywords: check.keywords
+          keywords: check.keywords,
+          quality_class: quality.quality_class,
+          quality_score: quality.quality_score,
+          promotion_eligible: quality.promotion_eligible,
+          rejection_reasons: quality.rejection_reasons,
+          blocked_as_generic: false,
         });
       } else {
         summary.skipped_items++;
@@ -412,13 +507,18 @@ async function watch() {
   fs.writeFileSync(runLogPath, JSON.stringify(summary, null, 2), 'utf8');
 
   // Write latest-watch-summary.json (always overwritten with most recent run)
+  const promotionEligibleCount = summary.detected_candidates.filter(c => c.promotion_eligible === true).length;
+  const genericBlockedCount = summary.detected_candidates.filter(c => c.blocked_as_generic === true).length;
+
   const latestSummary = {
     run_timestamp: summary.run_timestamp,
     source_health: summary.source_health,
     sources_ok: summary.source_health.filter(s => s.status === 'ok').length,
     sources_failed: summary.source_health.filter(s => s.status === 'failed').length,
     sources_skipped: summary.source_health.filter(s => s.status === 'skipped').length,
-    detected_candidates_count: summary.detected_candidates.length,
+    detected_candidates_count: summary.detected_candidates.filter(c => c.candidate_id !== null).length,
+    generic_blocked_count: genericBlockedCount,
+    promotion_eligible_count: promotionEligibleCount,
     skipped_items: summary.skipped_items,
     errors_count: summary.errors.length,
     run_log_path: runLogPath
@@ -433,12 +533,14 @@ async function watch() {
   console.log(`Run Time:       ${runTimestamp}`);
   console.log(`Log Path:       ${runLogPath}`);
   console.log(`Summary Path:   ${LATEST_SUMMARY_PATH}`);
-  console.log(`Sources OK:     ${latestSummary.sources_ok}`);
-  console.log(`Sources Failed: ${latestSummary.sources_failed}`);
-  console.log(`Sources Skipped:${latestSummary.sources_skipped}`);
-  console.log(`Detected:       ${summary.detected_candidates.length} candidate(s)`);
-  console.log(`Skipped:        ${summary.skipped_items} non-matching link(s)`);
-  console.log(`Errors:         ${summary.errors.length} encountered`);
+  console.log(`Sources OK:          ${latestSummary.sources_ok}`);
+  console.log(`Sources Failed:      ${latestSummary.sources_failed}`);
+  console.log(`Sources Skipped:     ${latestSummary.sources_skipped}`);
+  console.log(`Candidates stored:   ${latestSummary.detected_candidates_count}`);
+  console.log(`Generic blocked:     ${latestSummary.generic_blocked_count}`);
+  console.log(`Promotion eligible:  ${latestSummary.promotion_eligible_count}`);
+  console.log(`Skipped (no match):  ${summary.skipped_items} link(s)`);
+  console.log(`Errors:              ${summary.errors.length} encountered`);
   console.log('==========================================\n');
 }
 

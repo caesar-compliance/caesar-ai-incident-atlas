@@ -8,6 +8,12 @@
     "https://ico.org.uk/make-a-complaint/"
   ],
   "source_tier": "green",
+  "quality_class": "generic_page",
+  "quality_score": 15,
+  "promotion_blockers": [
+    "Generic title pattern: \"make a complaint\"",
+    "Generic URL pattern: \"/make-a-complaint\""
+  ],
   "required_reviews": [
     "curator_risk_review",
     "clean_room_wording_audit",

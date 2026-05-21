@@ -1,8 +1,9 @@
 {
-  "generated_at": "2026-05-21T13:08:56.782Z",
+  "generated_at": "2026-05-21T13:51:17.873Z",
   "dataset_type": "real_detected_candidates_local_only",
   "public": false,
   "publication_allowed": false,
+  "no_publication_candidate_ready": false,
   "candidates": [
     {
       "candidate_id": "CAND-0018",
@@ -24,7 +25,14 @@
       "risk_flags": [
         "no_risk_detected"
       ],
-      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK."
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK.",
+      "quality_class": "generic_page",
+      "quality_score": 15,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "Generic title pattern: \"make a complaint\"",
+        "Generic URL pattern: \"/make-a-complaint\""
+      ]
     },
     {
       "candidate_id": "CAND-0019",
@@ -47,7 +55,11 @@
       "risk_flags": [
         "no_risk_detected"
       ],
-      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK."
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK.",
+      "quality_class": "likely_guidance",
+      "quality_score": 84,
+      "promotion_eligible": true,
+      "rejection_reasons": []
     },
     {
       "candidate_id": "CAND-0020",
@@ -69,7 +81,11 @@
       "risk_flags": [
         "no_risk_detected"
       ],
-      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK."
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK.",
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 68,
+      "promotion_eligible": false,
+      "rejection_reasons": []
     },
     {
       "candidate_id": "CAND-0021",
@@ -91,7 +107,11 @@
       "risk_flags": [
         "no_risk_detected"
       ],
-      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK."
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK.",
+      "quality_class": "likely_guidance",
+      "quality_score": 76,
+      "promotion_eligible": true,
+      "rejection_reasons": []
     },
     {
       "candidate_id": "CAND-0022",
@@ -113,7 +133,11 @@
       "risk_flags": [
         "no_risk_detected"
       ],
-      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: EU."
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: EU.",
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 68,
+      "promotion_eligible": false,
+      "rejection_reasons": []
     },
     {
       "candidate_id": "CAND-0023",
@@ -135,7 +159,11 @@
       "risk_flags": [
         "no_risk_detected"
       ],
-      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: EU."
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: EU.",
+      "quality_class": "likely_case",
+      "quality_score": 84,
+      "promotion_eligible": true,
+      "rejection_reasons": []
     },
     {
       "candidate_id": "CAND-0024",
@@ -157,7 +185,14 @@
       "risk_flags": [
         "no_risk_detected"
       ],
-      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK."
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK.",
+      "quality_class": "generic_page",
+      "quality_score": 15,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "Generic title pattern: \"make a complaint\"",
+        "Generic URL pattern: \"/make-a-complaint\""
+      ]
     },
     {
       "candidate_id": "CAND-0025",
@@ -180,7 +215,11 @@
       "risk_flags": [
         "no_risk_detected"
       ],
-      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK."
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK.",
+      "quality_class": "likely_guidance",
+      "quality_score": 84,
+      "promotion_eligible": true,
+      "rejection_reasons": []
     },
     {
       "candidate_id": "CAND-0026",
@@ -202,7 +241,11 @@
       "risk_flags": [
         "no_risk_detected"
       ],
-      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK."
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK.",
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 68,
+      "promotion_eligible": false,
+      "rejection_reasons": []
     },
     {
       "candidate_id": "CAND-0027",
@@ -224,7 +267,11 @@
       "risk_flags": [
         "no_risk_detected"
       ],
-      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK."
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK.",
+      "quality_class": "likely_guidance",
+      "quality_score": 76,
+      "promotion_eligible": true,
+      "rejection_reasons": []
     },
     {
       "candidate_id": "CAND-0028",
@@ -246,7 +293,11 @@
       "risk_flags": [
         "no_risk_detected"
       ],
-      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: EU."
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: EU.",
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 68,
+      "promotion_eligible": false,
+      "rejection_reasons": []
     },
     {
       "candidate_id": "CAND-0029",
@@ -268,7 +319,11 @@
       "risk_flags": [
         "no_risk_detected"
       ],
-      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: EU."
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: EU.",
+      "quality_class": "likely_case",
+      "quality_score": 84,
+      "promotion_eligible": true,
+      "rejection_reasons": []
     }
   ],
   "drafts": [
@@ -312,8 +367,14 @@
       "training_lesson": "Regulatory bodies such as Information Commissioner's Office (ICO) issue guidance that directly affects AI system deployments. Organisations must maintain active monitoring processes to detect and respond to new guidance before it becomes an enforcement trigger.",
       "clean_room_summary": "Information Commissioner's Office (ICO) has published material relating to Make a complaint. This record reflects metadata detected during a manual Green-source watcher run on 2026-05-21. This draft is a Caesar-authored internal working document compiled from public metadata only. No source text has been copied. This is not legal advice. This draft requires curator review and Control Tower approval before any public use.",
       "source_risk_level": "green",
-      "publish_recommendation": "needs_legal_review",
+      "publish_recommendation": "blocked_low_quality",
       "review_status": "draft",
+      "quality_class": "generic_page",
+      "quality_score": 15,
+      "promotion_blockers": [
+        "Generic title pattern: \"make a complaint\"",
+        "Generic URL pattern: \"/make-a-complaint\""
+      ],
       "local_only": true,
       "public": false,
       "not_legal_advice": true,
@@ -368,7 +429,10 @@
       "not_legal_advice": true,
       "source_text_copied": false,
       "generated_at": "2026-05-21T12:56:01.266Z",
-      "pipeline_stage": "real_draft_needs_review"
+      "pipeline_stage": "real_draft_needs_review",
+      "quality_class": "likely_guidance",
+      "quality_score": 84,
+      "promotion_blockers": []
     },
     {
       "draft_id": "DRAFT-0003",
@@ -410,14 +474,17 @@
       "training_lesson": "Regulatory bodies such as Information Commissioner's Office (ICO) issue guidance that directly affects AI system deployments. Organisations must maintain active monitoring processes to detect and respond to new guidance before it becomes an enforcement trigger.",
       "clean_room_summary": "Information Commissioner's Office (ICO) has published material relating to Explaining decisions made with AI. This record reflects metadata detected during a manual Green-source watcher run on 2026-05-21. This draft is a Caesar-authored internal working document compiled from public metadata only. No source text has been copied. This is not legal advice. This draft requires curator review and Control Tower approval before any public use.",
       "source_risk_level": "green",
-      "publish_recommendation": "needs_legal_review",
+      "publish_recommendation": "blocked_low_quality",
       "review_status": "draft",
       "local_only": true,
       "public": false,
       "not_legal_advice": true,
       "source_text_copied": false,
       "generated_at": "2026-05-21T12:56:01.266Z",
-      "pipeline_stage": "real_draft_needs_review"
+      "pipeline_stage": "real_draft_needs_review",
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 68,
+      "promotion_blockers": []
     },
     {
       "draft_id": "DRAFT-0004",
@@ -466,7 +533,10 @@
       "not_legal_advice": true,
       "source_text_copied": false,
       "generated_at": "2026-05-21T12:56:01.267Z",
-      "pipeline_stage": "real_draft_needs_review"
+      "pipeline_stage": "real_draft_needs_review",
+      "quality_class": "likely_guidance",
+      "quality_score": 76,
+      "promotion_blockers": []
     },
     {
       "draft_id": "DRAFT-0005",
@@ -508,14 +578,17 @@
       "training_lesson": "Regulatory bodies such as European Data Protection Board (EDPB) issue guidance that directly affects AI system deployments. Organisations must maintain active monitoring processes to detect and respond to new guidance before it becomes an enforcement trigger.",
       "clean_room_summary": "European Data Protection Board (EDPB) has published material relating to FRFrançais. This record reflects metadata detected during a manual Green-source watcher run on 2026-05-21. This draft is a Caesar-authored internal working document compiled from public metadata only. No source text has been copied. This is not legal advice. This draft requires curator review and Control Tower approval before any public use.",
       "source_risk_level": "green",
-      "publish_recommendation": "needs_legal_review",
+      "publish_recommendation": "blocked_low_quality",
       "review_status": "draft",
       "local_only": true,
       "public": false,
       "not_legal_advice": true,
       "source_text_copied": false,
       "generated_at": "2026-05-21T12:56:01.267Z",
-      "pipeline_stage": "real_draft_needs_review"
+      "pipeline_stage": "real_draft_needs_review",
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 68,
+      "promotion_blockers": []
     },
     {
       "draft_id": "DRAFT-0006",
@@ -564,7 +637,10 @@
       "not_legal_advice": true,
       "source_text_copied": false,
       "generated_at": "2026-05-21T12:56:01.267Z",
-      "pipeline_stage": "real_draft_needs_review"
+      "pipeline_stage": "real_draft_needs_review",
+      "quality_class": "likely_case",
+      "quality_score": 84,
+      "promotion_blockers": []
     }
   ],
   "promotion_packets": [
@@ -578,6 +654,12 @@
         "https://ico.org.uk/make-a-complaint/"
       ],
       "source_tier": "green",
+      "quality_class": "generic_page",
+      "quality_score": 15,
+      "promotion_blockers": [
+        "Generic title pattern: \"make a complaint\"",
+        "Generic URL pattern: \"/make-a-complaint\""
+      ],
       "required_reviews": [
         "curator_risk_review",
         "clean_room_wording_audit",
@@ -652,7 +734,10 @@
         "local_only": true,
         "auto_publish": false
       },
-      "generated_at": "2026-05-21T12:56:04.814Z"
+      "generated_at": "2026-05-21T12:56:04.814Z",
+      "quality_class": "likely_guidance",
+      "quality_score": 84,
+      "promotion_blockers": []
     },
     {
       "packet_id": "PKT-0003",
@@ -695,7 +780,10 @@
         "local_only": true,
         "auto_publish": false
       },
-      "generated_at": "2026-05-21T12:56:04.814Z"
+      "generated_at": "2026-05-21T12:56:04.814Z",
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 68,
+      "promotion_blockers": []
     },
     {
       "packet_id": "PKT-0004",
@@ -738,7 +826,10 @@
         "local_only": true,
         "auto_publish": false
       },
-      "generated_at": "2026-05-21T12:56:04.814Z"
+      "generated_at": "2026-05-21T12:56:04.814Z",
+      "quality_class": "likely_guidance",
+      "quality_score": 76,
+      "promotion_blockers": []
     },
     {
       "packet_id": "PKT-0005",
@@ -781,7 +872,10 @@
         "local_only": true,
         "auto_publish": false
       },
-      "generated_at": "2026-05-21T12:56:04.814Z"
+      "generated_at": "2026-05-21T12:56:04.814Z",
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 68,
+      "promotion_blockers": []
     },
     {
       "packet_id": "PKT-0006",
@@ -824,18 +918,370 @@
         "local_only": true,
         "auto_publish": false
       },
-      "generated_at": "2026-05-21T12:56:04.815Z"
+      "generated_at": "2026-05-21T12:56:04.815Z",
+      "quality_class": "likely_case",
+      "quality_score": 84,
+      "promotion_blockers": []
     }
   ],
+  "ranked_candidates": {
+    "generated_at": "2026-05-21T13:50:24.599Z",
+    "total_candidates": 6,
+    "promotion_eligible_count": 3,
+    "blocked_count": 3,
+    "no_publication_candidate_ready": false,
+    "ranked_candidates": [
+      {
+        "packet_id": "PKT-0002",
+        "draft_id": "DRAFT-0002",
+        "candidate_id": "CAND-0019",
+        "suggested_public_case_id": "INC-0013",
+        "suggested_public_filename": "inc-0013.json",
+        "score": 130,
+        "ranking_reasons": [
+          "Green source tier (+50)",
+          "Source URL verified (+15)",
+          "Legal domain classified (+10)",
+          "Commercial domain classified (+10)",
+          "Governance lesson documented (+10)",
+          "Low defamation risk (+10)",
+          "Missing controls documented (+5)",
+          "Evidence requirements clear (+5)",
+          "Clean-room confirmed: no source text copied (+15)"
+        ],
+        "risk_flags": [],
+        "source_tier": "green",
+        "quality_class": "likely_guidance",
+        "quality_score": 84,
+        "promotion_eligible": true,
+        "promotion_blockers": [],
+        "promotion_pre_allowed": false,
+        "requires_control_tower_approval": true,
+        "requires_legal_review": false,
+        "required_reviews": [
+          "curator_risk_review",
+          "clean_room_wording_audit",
+          "legal_domain_classification_review",
+          "control_tower_publication_approval"
+        ],
+        "missing_information": [
+          "Independent curator review of proposed_case_title for neutrality and accuracy.",
+          "Legal domain classification confirmation by a qualified reviewer.",
+          "Control Tower sign-off on publication timing and risk posture."
+        ],
+        "safety_declarations": {
+          "not_approved": true,
+          "not_public": true,
+          "control_tower_approval_required": true,
+          "curator_review_required": true,
+          "clean_room_wording_review_required": true,
+          "local_only": true,
+          "auto_publish": false
+        },
+        "rank": 1
+      },
+      {
+        "packet_id": "PKT-0004",
+        "draft_id": "DRAFT-0004",
+        "candidate_id": "CAND-0021",
+        "suggested_public_case_id": "INC-0013",
+        "suggested_public_filename": "inc-0013.json",
+        "score": 130,
+        "ranking_reasons": [
+          "Green source tier (+50)",
+          "Source URL verified (+15)",
+          "Legal domain classified (+10)",
+          "Commercial domain classified (+10)",
+          "Governance lesson documented (+10)",
+          "Low defamation risk (+10)",
+          "Missing controls documented (+5)",
+          "Evidence requirements clear (+5)",
+          "Clean-room confirmed: no source text copied (+15)"
+        ],
+        "risk_flags": [],
+        "source_tier": "green",
+        "quality_class": "likely_guidance",
+        "quality_score": 76,
+        "promotion_eligible": true,
+        "promotion_blockers": [],
+        "promotion_pre_allowed": false,
+        "requires_control_tower_approval": true,
+        "requires_legal_review": false,
+        "required_reviews": [
+          "curator_risk_review",
+          "clean_room_wording_audit",
+          "legal_domain_classification_review",
+          "control_tower_publication_approval"
+        ],
+        "missing_information": [
+          "Independent curator review of proposed_case_title for neutrality and accuracy.",
+          "Legal domain classification confirmation by a qualified reviewer.",
+          "Control Tower sign-off on publication timing and risk posture."
+        ],
+        "safety_declarations": {
+          "not_approved": true,
+          "not_public": true,
+          "control_tower_approval_required": true,
+          "curator_review_required": true,
+          "clean_room_wording_review_required": true,
+          "local_only": true,
+          "auto_publish": false
+        },
+        "rank": 2
+      },
+      {
+        "packet_id": "PKT-0006",
+        "draft_id": "DRAFT-0006",
+        "candidate_id": "CAND-0023",
+        "suggested_public_case_id": "INC-0013",
+        "suggested_public_filename": "inc-0013.json",
+        "score": 130,
+        "ranking_reasons": [
+          "Green source tier (+50)",
+          "Source URL verified (+15)",
+          "Legal domain classified (+10)",
+          "Commercial domain classified (+10)",
+          "Governance lesson documented (+10)",
+          "Low defamation risk (+10)",
+          "Missing controls documented (+5)",
+          "Evidence requirements clear (+5)",
+          "Clean-room confirmed: no source text copied (+15)"
+        ],
+        "risk_flags": [],
+        "source_tier": "green",
+        "quality_class": "likely_case",
+        "quality_score": 84,
+        "promotion_eligible": true,
+        "promotion_blockers": [],
+        "promotion_pre_allowed": false,
+        "requires_control_tower_approval": true,
+        "requires_legal_review": false,
+        "required_reviews": [
+          "curator_risk_review",
+          "clean_room_wording_audit",
+          "legal_domain_classification_review",
+          "control_tower_publication_approval"
+        ],
+        "missing_information": [
+          "Independent curator review of proposed_case_title for neutrality and accuracy.",
+          "Legal domain classification confirmation by a qualified reviewer.",
+          "Control Tower sign-off on publication timing and risk posture."
+        ],
+        "safety_declarations": {
+          "not_approved": true,
+          "not_public": true,
+          "control_tower_approval_required": true,
+          "curator_review_required": true,
+          "clean_room_wording_review_required": true,
+          "local_only": true,
+          "auto_publish": false
+        },
+        "rank": 3
+      },
+      {
+        "packet_id": "PKT-0003",
+        "draft_id": "DRAFT-0003",
+        "candidate_id": "CAND-0020",
+        "suggested_public_case_id": "INC-0013",
+        "suggested_public_filename": "inc-0013.json",
+        "score": -70,
+        "ranking_reasons": [
+          "Green source tier (+50)",
+          "Source URL verified (+15)",
+          "Legal domain classified (+10)",
+          "Commercial domain classified (+10)",
+          "Governance lesson documented (+10)",
+          "Low defamation risk (+10)",
+          "Missing controls documented (+5)",
+          "Evidence requirements clear (+5)",
+          "Clean-room confirmed: no source text copied (+15)"
+        ],
+        "risk_flags": [
+          "QUALITY SCORE TOO LOW: 68 < 70 threshold"
+        ],
+        "source_tier": "green",
+        "quality_class": "likely_regulatory_update",
+        "quality_score": 68,
+        "promotion_eligible": false,
+        "promotion_blockers": [],
+        "promotion_pre_allowed": false,
+        "requires_control_tower_approval": true,
+        "requires_legal_review": false,
+        "required_reviews": [
+          "curator_risk_review",
+          "clean_room_wording_audit",
+          "legal_domain_classification_review",
+          "control_tower_publication_approval"
+        ],
+        "missing_information": [
+          "Independent curator review of proposed_case_title for neutrality and accuracy.",
+          "Legal domain classification confirmation by a qualified reviewer.",
+          "Control Tower sign-off on publication timing and risk posture."
+        ],
+        "safety_declarations": {
+          "not_approved": true,
+          "not_public": true,
+          "control_tower_approval_required": true,
+          "curator_review_required": true,
+          "clean_room_wording_review_required": true,
+          "local_only": true,
+          "auto_publish": false
+        },
+        "rank": 4
+      },
+      {
+        "packet_id": "PKT-0005",
+        "draft_id": "DRAFT-0005",
+        "candidate_id": "CAND-0022",
+        "suggested_public_case_id": "INC-0013",
+        "suggested_public_filename": "inc-0013.json",
+        "score": -70,
+        "ranking_reasons": [
+          "Green source tier (+50)",
+          "Source URL verified (+15)",
+          "Legal domain classified (+10)",
+          "Commercial domain classified (+10)",
+          "Governance lesson documented (+10)",
+          "Low defamation risk (+10)",
+          "Missing controls documented (+5)",
+          "Evidence requirements clear (+5)",
+          "Clean-room confirmed: no source text copied (+15)"
+        ],
+        "risk_flags": [
+          "QUALITY SCORE TOO LOW: 68 < 70 threshold"
+        ],
+        "source_tier": "green",
+        "quality_class": "likely_regulatory_update",
+        "quality_score": 68,
+        "promotion_eligible": false,
+        "promotion_blockers": [],
+        "promotion_pre_allowed": false,
+        "requires_control_tower_approval": true,
+        "requires_legal_review": false,
+        "required_reviews": [
+          "curator_risk_review",
+          "clean_room_wording_audit",
+          "legal_domain_classification_review",
+          "control_tower_publication_approval"
+        ],
+        "missing_information": [
+          "Independent curator review of proposed_case_title for neutrality and accuracy.",
+          "Legal domain classification confirmation by a qualified reviewer.",
+          "Control Tower sign-off on publication timing and risk posture."
+        ],
+        "safety_declarations": {
+          "not_approved": true,
+          "not_public": true,
+          "control_tower_approval_required": true,
+          "curator_review_required": true,
+          "clean_room_wording_review_required": true,
+          "local_only": true,
+          "auto_publish": false
+        },
+        "rank": 5
+      },
+      {
+        "packet_id": "PKT-0001",
+        "draft_id": "DRAFT-0001",
+        "candidate_id": "CAND-0018",
+        "suggested_public_case_id": "INC-0013",
+        "suggested_public_filename": "inc-0013.json",
+        "score": -870,
+        "ranking_reasons": [
+          "Green source tier (+50)",
+          "Source URL verified (+15)",
+          "Legal domain classified (+10)",
+          "Commercial domain classified (+10)",
+          "Governance lesson documented (+10)",
+          "Low defamation risk (+10)",
+          "Missing controls documented (+5)",
+          "Evidence requirements clear (+5)",
+          "Clean-room confirmed: no source text copied (+15)"
+        ],
+        "risk_flags": [
+          "QUALITY BLOCKED: quality_class=\"generic_page\" — not eligible for promotion",
+          "QUALITY SCORE TOO LOW: 15 < 70 threshold",
+          "PROMOTION BLOCKERS: Generic title pattern: \"make a complaint\" +1 more"
+        ],
+        "source_tier": "green",
+        "quality_class": "generic_page",
+        "quality_score": 15,
+        "promotion_eligible": false,
+        "promotion_blockers": [
+          "Generic title pattern: \"make a complaint\"",
+          "Generic URL pattern: \"/make-a-complaint\""
+        ],
+        "promotion_pre_allowed": false,
+        "requires_control_tower_approval": true,
+        "requires_legal_review": false,
+        "required_reviews": [
+          "curator_risk_review",
+          "clean_room_wording_audit",
+          "legal_domain_classification_review",
+          "control_tower_publication_approval"
+        ],
+        "missing_information": [
+          "Independent curator review of proposed_case_title for neutrality and accuracy.",
+          "Legal domain classification confirmation by a qualified reviewer.",
+          "Control Tower sign-off on publication timing and risk posture."
+        ],
+        "safety_declarations": {
+          "not_approved": true,
+          "not_public": true,
+          "control_tower_approval_required": true,
+          "curator_review_required": true,
+          "clean_room_wording_review_required": true,
+          "local_only": true,
+          "auto_publish": false
+        },
+        "rank": 6
+      }
+    ],
+    "top_recommendation": {
+      "top_packet_id": "PKT-0002",
+      "top_draft_id": "DRAFT-0002",
+      "top_candidate_id": "CAND-0019",
+      "top_score": 130,
+      "top_quality_class": "likely_guidance",
+      "top_promotion_eligible": true,
+      "no_publication_candidate_ready": false,
+      "best_eligible_packet_id": "PKT-0002",
+      "reason": "Highest scoring packet (130 points). Green source tier (+50); Source URL verified (+15); Legal domain classified (+10).",
+      "risks": [],
+      "required_approval": "Control Tower approval required before any public promotion",
+      "next_steps": [
+        "1. Review PKT-0002 in local review console",
+        "2. Complete curator risk review checklist",
+        "3. Obtain Control Tower explicit approval",
+        "4. Add approval to data/reviews/real/approved-promotions.json",
+        "5. Run promote-approved-case.mjs"
+      ]
+    },
+    "safety_note": "ALL candidates require Control Tower approval before public promotion. No automatic promotion will occur."
+  },
+  "quality_report_summary": {
+    "total_candidates": 12,
+    "promotion_eligible_count": 6,
+    "blocked_count": 6,
+    "class_summary": {
+      "generic_page": 2,
+      "likely_guidance": 4,
+      "likely_regulatory_update": 4,
+      "likely_case": 2
+    }
+  },
   "source_health_summary": null,
   "digests": [],
   "metadata": {
     "synthetic": false,
-    "purpose": "Local Review Console — Real Watcher Pipeline Data (T048)",
+    "purpose": "Local Review Console — Real Watcher Pipeline Data (T050)",
     "warning": "INTERNAL OPERATOR AUDIT ONLY - NOT FOR PUBLIC RELEASE",
     "confidential": true,
     "pipeline_stages": {
       "candidates": 12,
+      "promotion_eligible": 6,
+      "generic_blocked": 2,
+      "total_blocked": 6,
       "drafts": 6,
       "promotion_packets": 6
     }
