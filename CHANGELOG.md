@@ -5,6 +5,21 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.12.0] - Unreleased
+
+### Added
+- **T051 — High-Signal Official Source Adapters.** Built adapter framework for all Green sources so Atlas finds real AI enforcement/guidance pages instead of generic contact/about pages.
+  - `scripts/source-adapters/shared.mjs` — shared fetch, link extraction, negative/positive filter, keyword matching utilities.
+  - `scripts/source-adapters/ico-adapter.mjs`, `ftc-adapter.mjs`, `cnil-adapter.mjs`, `edpb-adapter.mjs`, `eu-commission-adapter.mjs`, `generic-official-adapter.mjs`.
+  - Watcher dispatches to named adapter per `source_id`; falls back to generic if unavailable.
+  - New T051 quality classes: `likely_enforcement_case`, `likely_regulatory_guidance`, `likely_official_decision`, `likely_policy_update`, `blocked_generic_page`, `blocked_low_relevance`.
+  - Per-class promotion thresholds; enforcement/decision ranked +40 above guidance +15.
+  - `no_case_quality_candidate_ready` flag propagated through pipeline and review console.
+  - `scripts/run-real-pipeline.mjs` — one-command runner for all 14 pipeline stages.
+  - `docs/watch/REAL_PIPELINE_ONE_COMMAND_RUNBOOK.md`.
+  - Review console: quality class filter, adapter metadata fields, CASE/GUIDANCE/BLOCKED badges, Adapter column in ranked table.
+  - Adapter run report: `data/watch/runs/latest-adapter-summary.json`.
+
 ## [0.11.0] - 21 May 2026
 
 ### Added

@@ -39,6 +39,19 @@
         </select>
       </div>
 
+      <!-- Quality class filter (real bundle only) -->
+      <div id="quality-class-filter" style="display:none; margin-bottom: 8px;">
+        <select id="quality-class-select" style="width:100%; padding:6px; border-radius:4px; border:1px solid #444; background:#222; color:#eee; font-family:inherit; font-size:12px;">
+          <option value="all">All Quality Classes</option>
+          <option value="likely_enforcement_case">Enforcement Case</option>
+          <option value="likely_official_decision">Official Decision</option>
+          <option value="likely_regulatory_guidance">Regulatory Guidance</option>
+          <option value="likely_policy_update">Policy Update</option>
+          <option value="blocked_generic_page">Blocked: Generic Page</option>
+          <option value="blocked_low_relevance">Blocked: Low Relevance</option>
+        </select>
+      </div>
+
       <!-- Real pipeline: stage tabs (hidden in mock mode) -->
       <div id="pipeline-stage-tabs" style="display:none; margin-bottom: 8px;">
         <div style="display:flex; gap:4px; flex-wrap:wrap;">
@@ -96,9 +109,10 @@
             </div>
           </div>
         </div>
-        <!-- Ranked Promotion Candidates (T049) -->
+        <!-- Ranked Promotion Candidates (T051) -->
         <div id="ranked-candidates-panel" style="display:none; margin-top:20px; padding:16px; background:#1a1a1a; border:1px solid #333; border-radius:6px;">
-          <h4 style="margin:0 0 12px 0; color:#fff; font-size:14px;">🏆 Ranked Promotion Candidates (T049)</h4>
+          <h4 style="margin:0 0 12px 0; color:#fff; font-size:14px;">🏆 Ranked Promotion Candidates — Top 5 (T051)</h4>
+          <div id="no-case-quality-banner" style="display:none; background:#dc3545; color:#fff; font-weight:700; font-size:11px; padding:6px 8px; border-radius:3px; margin-bottom:8px; text-align:center;">⚠ NO CASE-QUALITY CANDIDATE READY — no enforcement/decision class found</div>
           <div id="top-recommendation" style="margin-bottom:16px; padding:12px; background:#0d1f0d; border-left:3px solid #28a745; border-radius:4px;">
             <div style="font-size:12px; color:#28a745; font-weight:600; margin-bottom:4px;">TOP RECOMMENDATION</div>
             <div id="top-packet-id" style="font-size:16px; font-weight:600; color:#fff;">-</div>
@@ -120,6 +134,7 @@
                   <th style="text-align:right; padding:6px; color:#888; font-weight:500;">Score</th>
                   <th style="text-align:center; padding:6px; color:#888; font-weight:500;">Status</th>
                   <th style="text-align:left; padding:6px; color:#888; font-weight:500;">Quality</th>
+                  <th style="text-align:left; padding:6px; color:#888; font-weight:500;">Adapter</th>
                 </tr>
               </thead>
               <tbody id="ranked-list-body">
@@ -231,6 +246,9 @@
               <div><strong>Case Type:</strong> <span id="detail-case-type">enforcement</span></div>
               <div><strong>Source Authorities:</strong> <span id="detail-source-authorities">EEOC</span></div>
               <div><strong>Source URLs:</strong> <a id="detail-source-url" href="#" target="_blank" rel="noopener">Link</a></div>
+              <div><strong>Adapter:</strong> <span id="detail-adapter-name">—</span></div>
+              <div><strong>Extraction Method:</strong> <span id="detail-extraction-method">—</span></div>
+              <div><strong>Confidence Reason:</strong> <span id="detail-confidence-reason">—</span></div>
             </div>
           </div>
 

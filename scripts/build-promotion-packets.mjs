@@ -134,7 +134,10 @@ function build() {
     } catch (e) { /* skip */ }
   }
 
-  const BLOCKED_QUALITY_CLASSES = ['generic_page', 'low_relevance', 'event_or_webinar', 'job_or_procurement'];
+  const BLOCKED_QUALITY_CLASSES = [
+    'generic_page', 'low_relevance', 'event_or_webinar', 'job_or_procurement',
+    'blocked_generic_page', 'blocked_low_relevance',
+  ];
 
   let created = 0;
   let skipped = 0;

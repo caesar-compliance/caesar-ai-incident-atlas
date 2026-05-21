@@ -12,6 +12,24 @@ const REPORT_PATH = path.join(RUNS_DIR, 'latest-candidate-quality-report.json');
 
 const QUALITY_SCORE_THRESHOLD = 70;
 
+// T051 quality classes with per-class promotion thresholds
+const QUALITY_CLASS_THRESHOLDS = {
+  likely_enforcement_case:   75,
+  likely_regulatory_guidance: 80,
+  likely_official_decision:  75,
+  likely_policy_update:      null, // draft only, not promotion-ready
+  blocked_generic_page:      null, // never eligible
+  blocked_low_relevance:     null, // never eligible
+  // Legacy classes kept for backward compatibility
+  likely_case:               75,
+  likely_guidance:           80,
+  likely_regulatory_update:  null,
+  generic_page:              null,
+  low_relevance:             null,
+  event_or_webinar:          null,
+  job_or_procurement:        null,
+};
+
 // Generic page blockers — title patterns (lowercase match)
 const GENERIC_TITLE_BLOCKERS = [
   'make a complaint',
@@ -224,19 +242,19 @@ function classifyCandidate(candidate) {
   // ── CLASSIFY ──────────────────────────────────────────────────
 
   if (isEventUrl || isEventTitle) {
-    qualityClass = 'event_or_webinar';
+    qualityClass = 'blocked_generic_page';
     qualityScore = 10;
     if (!rejectionReasons.some(r => r.includes('event') || r.includes('webinar'))) {
       rejectionReasons.push('Event or webinar page detected');
     }
   } else if (isJobProcurementUrl || isJobTitle) {
-    qualityClass = 'job_or_procurement';
+    qualityClass = 'blocked_generic_page';
     qualityScore = 5;
     if (!rejectionReasons.some(r => r.includes('job') || r.includes('procurement'))) {
       rejectionReasons.push('Job or procurement page detected');
     }
   } else if (rejectionReasons.length > 0) {
-    qualityClass = 'generic_page';
+    qualityClass = 'blocked_generic_page';
     qualityScore = 15;
   } else {
     // No hard blockers — score positive signals
@@ -250,10 +268,10 @@ function classifyCandidate(candidate) {
     }
 
     // AI/algorithm relevance
-    const hasAiTerm = ['artificial intelligence', 'ai', 'algorithm', 'automated decision', 'machine learning', 'generative ai', 'chatbot', 'facial recognition', 'biometric'].some(t => combinedText.includes(t));
+    const hasAiTerm = ['artificial intelligence', 'ai', 'algorithm', 'automated decision', 'machine learning', 'generative ai', 'chatbot', 'facial recognition', 'biometric', 'ai act', 'ai system'].some(t => combinedText.includes(t));
 
     // Legal/regulatory relevance
-    const hasLegalTerm = ['enforcement', 'guidance', 'regulation', 'decision', 'ruling', 'judgment', 'investigation', 'penalty', 'settlement', 'court', 'lawsuit', 'opinion', 'framework', 'directive', 'act', 'consultation', 'gdpr', 'data protection'].some(t => combinedText.includes(t));
+    const hasLegalTerm = ['enforcement', 'guidance', 'regulation', 'decision', 'ruling', 'judgment', 'investigation', 'penalty', 'settlement', 'court', 'lawsuit', 'opinion', 'framework', 'directive', 'act', 'consultation', 'gdpr', 'data protection', 'sanction', 'fine'].some(t => combinedText.includes(t));
 
     if (!hasAiTerm) {
       rejectionReasons.push('No AI/algorithm relevance detected');
@@ -276,25 +294,33 @@ function classifyCandidate(candidate) {
       qualityScore -= 30;
     }
 
-    // Classify by score + signals
-    if (qualityScore >= 75 && hasAiTerm && hasLegalTerm) {
-      const hasEnforcement = ['enforcement', 'investigation', 'penalty', 'fine', 'sanction', 'settlement', 'judgment', 'court', 'ruling', 'decision', 'lawsuit'].some(t => combinedText.includes(t));
-      const hasGuidance = ['guidance', 'guidelines', 'opinion', 'framework', 'consultation', 'regulation', 'directive', 'act '].some(t => combinedText.includes(t));
-      const hasUpdate = ['update', 'new', 'amended', 'published', 'report', 'consultation'].some(t => combinedText.includes(t));
+    // Bonus if adapter-detected with confidence reason
+    if (candidate.adapter_name && candidate.confidence_reason) {
+      qualityScore += 5;
+    }
+
+    // Classify by score + signals — T051 quality classes
+    if (qualityScore >= 50 && hasAiTerm && hasLegalTerm) {
+      const hasEnforcement = ['enforcement', 'investigation', 'penalty', 'fine', 'sanction', 'settlement', 'lawsuit', 'action'].some(t => combinedText.includes(t));
+      const hasDecision = ['judgment', 'court', 'ruling', 'binding decision', 'binding-decision'].some(t => combinedText.includes(t));
+      const hasGuidance = ['guidance', 'guidelines', 'opinion', 'framework', 'consultation', 'regulation', 'directive'].some(t => combinedText.includes(t));
+      const hasPolicyUpdate = ['update', 'new', 'amended', 'published', 'report', 'policy'].some(t => combinedText.includes(t));
 
       if (hasEnforcement) {
-        qualityClass = 'likely_case';
+        qualityClass = 'likely_enforcement_case';
+      } else if (hasDecision) {
+        qualityClass = 'likely_official_decision';
       } else if (hasGuidance) {
-        qualityClass = 'likely_guidance';
-      } else if (hasUpdate) {
-        qualityClass = 'likely_regulatory_update';
+        qualityClass = 'likely_regulatory_guidance';
+      } else if (hasPolicyUpdate) {
+        qualityClass = 'likely_policy_update';
       } else {
-        qualityClass = 'likely_guidance';
+        qualityClass = 'likely_regulatory_guidance';
       }
-    } else if (qualityScore >= 50 && hasAiTerm) {
-      qualityClass = 'likely_regulatory_update';
+    } else if (qualityScore >= 30 && hasAiTerm) {
+      qualityClass = 'likely_policy_update';
     } else {
-      qualityClass = 'low_relevance';
+      qualityClass = 'blocked_low_relevance';
       if (rejectionReasons.length === 0) {
         rejectionReasons.push('Insufficient relevance signals');
       }
@@ -304,9 +330,11 @@ function classifyCandidate(candidate) {
   // Clamp score
   qualityScore = Math.max(0, Math.min(100, qualityScore));
 
-  // Promotion eligibility
-  const ineligibleClasses = ['generic_page', 'event_or_webinar', 'job_or_procurement', 'low_relevance'];
-  const promotionEligible = !ineligibleClasses.includes(qualityClass) && qualityScore >= QUALITY_SCORE_THRESHOLD && rejectionReasons.length === 0;
+  // Promotion eligibility — per-class threshold (T051)
+  const classThreshold = QUALITY_CLASS_THRESHOLDS[qualityClass];
+  const promotionEligible = classThreshold !== null && classThreshold !== undefined
+    && qualityScore >= classThreshold
+    && rejectionReasons.length === 0;
 
   return {
     quality_class: qualityClass,

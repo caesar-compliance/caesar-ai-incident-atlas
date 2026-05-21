@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let selectedDraft = null;
   let isRealBundle = false;
   let activeStage = 'candidates'; // candidates | drafts | packets | health
+  let activeQualityFilter = 'all';
 
   // DOM Elements
   const draftListContainer = document.getElementById('draft-list-container');
@@ -25,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const pipelineStageTabs = document.getElementById('pipeline-stage-tabs');
   const pipelineSummaryBar = document.getElementById('pipeline-summary-bar');
   const digestPreviewBlock = document.getElementById('digest-preview-block');
+  const qualityClassFilter = document.getElementById('quality-class-filter');
+  const qualityClassSelect = document.getElementById('quality-class-select');
 
   // Detail View DOM Elements
   const detailDraftId = document.getElementById('detail-draft-id');
@@ -98,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (stage === 'candidates') {
       sidebarHeaderTitle.textContent = 'Real Candidates';
-      renderSidebarReal(bundleData.candidates || []);
+      renderSidebarReal(applyQualityFilter(bundleData.candidates || []));
     } else if (stage === 'drafts') {
       sidebarHeaderTitle.textContent = 'Real Drafts';
       renderSidebarDrafts(bundleData.drafts || []);
@@ -144,6 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (pipelineStageTabs) pipelineStageTabs.style.display = 'block';
           if (pipelineSummaryBar) pipelineSummaryBar.style.display = 'block';
           if (digestPreviewBlock) digestPreviewBlock.style.display = 'none';
+          if (qualityClassFilter) qualityClassFilter.style.display = 'block';
 
           // Update tab counts
           const cands = bundleData.candidates || [];
@@ -164,8 +168,8 @@ document.addEventListener('DOMContentLoaded', () => {
           if (pcd) pcd.textContent = drafts.length;
           if (pcp) pcp.textContent = packets.length;
 
-          // Load ranked candidates (T049)
-          loadRankedCandidates();
+          // Load ranked candidates (T051)
+          loadRankedCandidates(data);
 
           activeStage = 'candidates';
           setActiveStage('candidates');
@@ -196,74 +200,104 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  // Load Ranked Candidates (T049)
-  function loadRankedCandidates() {
+  // Load Ranked Candidates (T051)
+  function loadRankedCandidates(bundleOrNull) {
     const rankedPanel = document.getElementById('ranked-candidates-panel');
     const rankedListBody = document.getElementById('ranked-list-body');
+    const noCaseQualityBanner = document.getElementById('no-case-quality-banner');
 
-    fetch('../../data/reviews/real/ranked-promotion-candidates.json')
-      .then(response => {
-        if (!response.ok) throw new Error('Ranked candidates not found');
-        return response.json();
-      })
-      .then(data => {
-        if (!data.ranked_candidates || data.ranked_candidates.length === 0) {
-          if (rankedPanel) rankedPanel.style.display = 'none';
-          return;
-        }
+    // Use bundle data if available, else fall back to direct file fetch
+    const rankedInBundle = bundleOrNull?.ranked_candidates;
+    const top5InBundle = bundleOrNull?.top_5_ranked;
 
-        // Show panel
-        if (rankedPanel) rankedPanel.style.display = 'block';
+    function renderRanked(data) {
+      if (!data || !data.ranked_candidates || data.ranked_candidates.length === 0) {
+        if (rankedPanel) rankedPanel.style.display = 'none';
+        return;
+      }
 
-        // Show no_publication_candidate_ready banner
-        const noReadyEl = document.getElementById('top-recommendation');
-        if (data.no_publication_candidate_ready && noReadyEl) {
-          noReadyEl.style.borderLeftColor = '#dc3545';
-          noReadyEl.style.background = '#1a0505';
+      if (rankedPanel) rankedPanel.style.display = 'block';
+
+      // no_case_quality_candidate_ready banner
+      if (noCaseQualityBanner) {
+        noCaseQualityBanner.style.display = (data.no_case_quality_candidate_ready || bundleOrNull?.no_case_quality_candidate_ready) ? 'block' : 'none';
+      }
+
+      // no_publication_candidate_ready banner
+      const noReadyEl = document.getElementById('top-recommendation');
+      if (data.no_publication_candidate_ready && noReadyEl) {
+        noReadyEl.style.borderLeftColor = '#dc3545';
+        noReadyEl.style.background = '#1a0505';
+        const existing = noReadyEl.querySelector('.no-ready-banner');
+        if (!existing) {
           const noReadyBanner = document.createElement('div');
+          noReadyBanner.className = 'no-ready-banner';
           noReadyBanner.style.cssText = 'background:#dc3545; color:#fff; font-weight:700; font-size:11px; padding:6px 8px; border-radius:3px; margin-bottom:8px; text-align:center;';
           noReadyBanner.textContent = '⚠ NO PUBLICATION CANDIDATE READY — ALL BLOCKED BY QUALITY GATES';
           noReadyEl.insertBefore(noReadyBanner, noReadyEl.firstChild);
         }
+      }
 
-        // Update top recommendation
-        const top = data.top_recommendation;
-        if (top) {
-          const topPacket = document.getElementById('top-packet-id');
-          const topDraft = document.getElementById('top-draft-id');
-          const topScore = document.getElementById('top-score');
-          const topReason = document.getElementById('top-reason');
+      const top = data.top_recommendation;
+      if (top) {
+        const topPacket = document.getElementById('top-packet-id');
+        const topDraft = document.getElementById('top-draft-id');
+        const topScore = document.getElementById('top-score');
+        const topReason = document.getElementById('top-reason');
+        if (topPacket) topPacket.textContent = top.top_packet_id || '-';
+        if (topDraft) topDraft.textContent = `Draft: ${top.top_draft_id || '-'} | Class: ${top.top_quality_class || 'unknown'} | Eligible: ${top.top_promotion_eligible}`;
+        if (topScore) topScore.textContent = `Score: ${top.top_score || 0} pts | Best eligible: ${top.best_eligible_packet_id || 'NONE'}`;
+        if (topReason) topReason.textContent = top.reason || '-';
+      }
 
-          if (topPacket) topPacket.textContent = top.top_packet_id || '-';
-          if (topDraft) topDraft.textContent = `Draft: ${top.top_draft_id || '-'} | Class: ${top.top_quality_class || 'unknown'} | Eligible: ${top.top_promotion_eligible}`;
-          if (topScore) topScore.textContent = `Score: ${top.top_score || 0} points | Best eligible: ${top.best_eligible_packet_id || 'NONE'}`;
-          if (topReason) topReason.textContent = top.reason || '-';
-        }
+      const CASE_QUALITY = ['likely_enforcement_case', 'likely_official_decision', 'likely_case'];
+      if (rankedListBody) {
+        rankedListBody.innerHTML = (data.ranked_candidates || []).slice(0, 5).map(c => {
+          const eligible = c.promotion_eligible;
+          const isCaseQ = CASE_QUALITY.includes(c.quality_class);
+          const statusColor = eligible ? '#28a745' : '#dc3545';
+          const statusText = eligible ? '✓ Eligible' : '✗ Blocked';
+          const qualityLabel = (c.quality_class || 'unknown').replace(/_/g, ' ');
+          const qualityColor = isCaseQ ? '#28a745' : '#aaa';
+          const badge = isCaseQ ? ' <span style="background:#155724;color:#d4edda;font-size:9px;padding:1px 4px;border-radius:2px;">CASE</span>' : '';
+          const adapterText = escapeHTML(c.adapter_name || '-');
+          return `
+            <tr style="border-bottom:1px solid #333; ${!eligible ? 'opacity:0.65;' : ''}">
+              <td style="padding:6px; color:#fff; font-weight:600;">${c.rank}</td>
+              <td style="padding:6px; color:#ccc;">${escapeHTML(c.packet_id || '-')}</td>
+              <td style="padding:6px; color:#888;">${escapeHTML(c.draft_id || '-')}</td>
+              <td style="padding:6px; text-align:right; color:#fff; font-weight:600;">${c.score}</td>
+              <td style="padding:6px; text-align:center; color:${statusColor}; font-size:11px;">${statusText}</td>
+              <td style="padding:6px; font-size:10px; color:${qualityColor};">${escapeHTML(qualityLabel)}${badge}</td>
+              <td style="padding:6px; font-size:10px; color:#777;">${adapterText}</td>
+            </tr>
+          `;
+        }).join('');
+      }
+    }
 
-        // Update ranked list table
-        if (rankedListBody) {
-          rankedListBody.innerHTML = data.ranked_candidates.slice(0, 5).map(c => {
-            const eligible = c.promotion_eligible;
-            const statusColor = eligible ? '#28a745' : '#dc3545';
-            const statusText = eligible ? '✓ Eligible' : '✗ Blocked';
-            const qualityLabel = (c.quality_class || 'unknown').replace(/_/g, ' ');
-            return `
-              <tr style="border-bottom:1px solid #333; ${!eligible ? 'opacity:0.65;' : ''}">
-                <td style="padding:6px; color:#fff; font-weight:600;">${c.rank}</td>
-                <td style="padding:6px; color:#ccc;">${c.packet_id}</td>
-                <td style="padding:6px; color:#888;">${c.draft_id}</td>
-                <td style="padding:6px; text-align:right; color:#fff; font-weight:600;">${c.score}</td>
-                <td style="padding:6px; text-align:center; color:${statusColor}; font-size:11px;">${statusText}</td>
-                <td style="padding:6px; font-size:10px; color:#aaa;">${escapeHTML(qualityLabel)}</td>
-              </tr>
-            `;
-          }).join('');
-        }
-      })
-      .catch(err => {
-        console.log('Ranked candidates not loaded:', err.message);
-        if (rankedPanel) rankedPanel.style.display = 'none';
-      });
+    if (rankedInBundle) {
+      renderRanked(rankedInBundle);
+    } else {
+      fetch('../../data/reviews/real/ranked-promotion-candidates.json')
+        .then(r => { if (!r.ok) throw new Error('not found'); return r.json(); })
+        .then(renderRanked)
+        .catch(err => {
+          console.log('Ranked candidates not loaded:', err.message);
+          if (rankedPanel) rankedPanel.style.display = 'none';
+        });
+    }
+  }
+
+  // Quality class filter listener
+  if (qualityClassSelect) {
+    qualityClassSelect.addEventListener('change', (e) => {
+      activeQualityFilter = e.target.value;
+      if (activeStage === 'candidates') {
+        const filtered = applyQualityFilter(bundleData.candidates || []);
+        renderSidebarReal(filtered);
+      }
+    });
   }
 
   // Stage tab click listeners
@@ -272,6 +306,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isRealBundle) setActiveStage(btn.dataset.stage);
     });
   });
+
+  function applyQualityFilter(candidates) {
+    if (activeQualityFilter === 'all') return candidates;
+    return candidates.filter(c => (c.quality_class || '') === activeQualityFilter);
+  }
 
   // 2. Render Mock Sidebar
   function renderSidebar(draftsToRender) {
@@ -795,7 +834,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
 
     detailCaseType.textContent = candidate.preliminary_case_type || 'regulator_guidance';
-    detailSourceAuthorities.textContent = candidate.source_id || 'Unknown';
+    detailSourceAuthorities.textContent = candidate.authority || candidate.source_id || 'Unknown';
 
     if (candidate.source_url) {
       detailSourceUrl.href = candidate.source_url;
@@ -805,6 +844,14 @@ document.addEventListener('DOMContentLoaded', () => {
       detailSourceUrl.href = '#';
       detailSourceUrl.textContent = 'None Provided';
     }
+
+    // Adapter metadata (T051)
+    const adapterNameEl = document.getElementById('detail-adapter-name');
+    const extractionMethodEl = document.getElementById('detail-extraction-method');
+    const confidenceReasonEl = document.getElementById('detail-confidence-reason');
+    if (adapterNameEl) adapterNameEl.textContent = candidate.adapter_name || '—';
+    if (extractionMethodEl) extractionMethodEl.textContent = candidate.extraction_method || '—';
+    if (confidenceReasonEl) confidenceReasonEl.textContent = candidate.confidence_reason || '—';
 
     // Risk and Tiers
     const tier = (candidate.source_tier || 'green').toLowerCase();
@@ -922,27 +969,45 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/'/g, '&#039;');
   }
 
-  // Helper: quality class badge HTML
+  // Helper: quality class badge HTML (T051 classes)
   function qualityBadgeHtml(qualityClass, qualityScore, promotionEligible) {
-    const BLOCKED_CLASSES = ['generic_page', 'event_or_webinar', 'job_or_procurement', 'low_relevance'];
+    const BLOCKED_CLASSES = [
+      'generic_page', 'event_or_webinar', 'job_or_procurement', 'low_relevance',
+      'blocked_generic_page', 'blocked_low_relevance',
+    ];
+    const CASE_QUALITY = ['likely_enforcement_case', 'likely_official_decision', 'likely_case'];
+    const GUIDANCE_QUALITY = ['likely_regulatory_guidance', 'likely_guidance'];
     const isBlocked = BLOCKED_CLASSES.includes(qualityClass) || promotionEligible === false;
+    const isCaseQuality = CASE_QUALITY.includes(qualityClass);
+    const isGuidanceOnly = GUIDANCE_QUALITY.includes(qualityClass);
 
     const colorMap = {
-      'likely_case': '#1a7a1a',
-      'likely_guidance': '#1a5a7a',
-      'likely_regulatory_update': '#4a4a1a',
-      'generic_page': '#7a1a1a',
-      'event_or_webinar': '#7a4a1a',
-      'job_or_procurement': '#5a2a2a',
-      'low_relevance': '#3a3a3a',
-      'unclassified': '#444',
+      'likely_enforcement_case':   '#155724',
+      'likely_official_decision':  '#0c3547',
+      'likely_regulatory_guidance':'#1a5a7a',
+      'likely_policy_update':      '#4a4a1a',
+      'blocked_generic_page':      '#7a1a1a',
+      'blocked_low_relevance':     '#3a3a3a',
+      'likely_case':               '#1a7a1a',
+      'likely_guidance':           '#1a5a7a',
+      'likely_regulatory_update':  '#4a4a1a',
+      'generic_page':              '#7a1a1a',
+      'event_or_webinar':          '#7a4a1a',
+      'job_or_procurement':        '#5a2a2a',
+      'low_relevance':             '#3a3a3a',
+      'unclassified':              '#444',
     };
     const bg = colorMap[qualityClass] || '#444';
     const label = qualityClass ? qualityClass.replace(/_/g, ' ') : 'unclassified';
     const scoreText = qualityScore != null ? ` (${qualityScore})` : '';
     const blockedText = isBlocked ? ' ✗' : ' ✓';
 
-    return `<span style="display:inline-block; background:${bg}; color:#eee; font-size:9px; padding:1px 5px; border-radius:3px; font-weight:600; margin-top:2px; letter-spacing:0.3px;">${escapeHTML(label)}${scoreText}${blockedText}</span>`;
+    let extra = '';
+    if (isCaseQuality && !isBlocked) extra = ' <span style="background:#d4edda;color:#155724;font-size:8px;padding:0 3px;border-radius:2px;margin-left:2px;">CASE</span>';
+    else if (isGuidanceOnly && !isBlocked) extra = ' <span style="background:#cce5ff;color:#004085;font-size:8px;padding:0 3px;border-radius:2px;margin-left:2px;">GUIDANCE</span>';
+    else if (isBlocked) extra = ' <span style="background:#f8d7da;color:#721c24;font-size:8px;padding:0 3px;border-radius:2px;margin-left:2px;">BLOCKED</span>';
+
+    return `<span style="display:inline-block; background:${bg}; color:#eee; font-size:9px; padding:1px 5px; border-radius:3px; font-weight:600; margin-top:2px; letter-spacing:0.3px;">${escapeHTML(label)}${scoreText}${blockedText}${extra}</span>`;
   }
 
   // Initialize load
