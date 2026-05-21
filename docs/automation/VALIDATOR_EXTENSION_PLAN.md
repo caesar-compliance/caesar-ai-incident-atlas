@@ -54,3 +54,10 @@ This **Validator Extension Plan** outlines the architecture for integrating regi
 As part of the T045 Offline Mock Auto-Discovery Prototype, a lightweight schema and safety validator has been deployed:
 - **`tools/validate_mock_schemas.py`**: Executes strict JSON schema compliance checks against `candidate.schema.json` and `case-draft.schema.json` using system Python `jsonschema` utilities.
 - **`scripts/validate-mock-pipeline.mjs`**: A comprehensive containment auditor validating file-level sandboxing, safety labeling (synthetic flags), registry configs, and ensuring absolutely no leaking into the client-facing sitemaps or public `site/` files.
+
+---
+
+## 4. T046 Implementation: Review Console & Promotion Gate Leakage Auditor
+
+As part of the T046 local review console task, a specialized validation script has been added to ensure the curation tooling remains local-only:
+- **`scripts/validate-review-console.mjs`**: Verifies that the review console directory is kept outside of `site/`, confirms that the aggregated `review-bundle.json` only contains mock/synthetic candidate data, and checks that zero synthetic review outcomes, decisions, or references leak into `site/data/`, the incident indices, or the public RSS feed files.

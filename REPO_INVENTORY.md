@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T044)
+**Last updated:** 21 May 2026 (T046)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -175,6 +175,16 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `mock-sources/official/healthcare-ai-risk-notice.json` | Mock Source Input | Synthetic regulator advisory note warning on healthcare algorithm diagnostic drift. (T045) |
 | `mock-sources/official/financial-services-ai-consumer-risk-note.json` | Mock Source Input | Synthetic consumer protection advisory regarding ML credit underwriting transparency. (T045) |
 | `mock-sources/yellow/vendor-governance-failure-note.json` | Mock Source Input | Synthetic yellow tier third-party chatbot hallucination media report. (T045) |
+| `scripts/build-review-bundle.mjs` | Review Compiler | Node script aggregating candidates, drafts, and digests into one single review bundle. (T046) |
+| `scripts/validate-review-console.mjs` | Leakage Auditor | Containment auditor ensuring zero mock references or review assets leak into the public site. (T046) |
+| `tools/review-console/index.html` | Review Dashboard | Local-only dark-mode dashboard for auditing case drafts and simulating promotion gates. (T046) |
+| `tools/review-console/assets/review-console.js` | Review Logic | Front-end controller driving fuzzy searches and Promotion Gate interactive state. (T046) |
+| `tools/review-console/assets/review-console.css` | Review Styles | Premium dark styles applying customized HSL-colors, glassmorphism, and responsive tables. (T046) |
+| `tools/review-console/README.md` | Review Runbook | Quickstart instructions and run guide for locally launching the review dashboard. (T046) |
+| `data/reviews/mock/mock-review-decisions.json` | Mock Decisions | Synthetic review decisions intercepting draft promotions with static gate parameters. (T046) |
+| `docs/review/PROMOTION_GATE_POLICY.md` | Promotion Policy | Definitive policy specifying the 10-stage pathway, curation gates, and CT sign-off mandates. (T046) |
+| `docs/review/DRAFT_REVIEW_WORKFLOW.md` | Review Workflow | Step-by-step curator instructions for vetting AI incident drafts in the console. (T046) |
+| `docs/review/PUBLICATION_PROMOTION_CHECKLIST.md` | Pre-Pub Checklist | Pre-publication technical, legal, and control completeness sanity verification checklist. (T046) |
 | `site/rss.xml` | Consolidated Feed | Public unified RSS 2.0 XML feed for all briefings. (T044) |
 | `site/digests/weekly.xml` | Weekly RSS Feed | Public RSS 2.0 XML feed for weekly operational briefs only. (T044) |
 | `site/digests/monthly.xml` | Monthly RSS Feed | Public RSS 2.0 XML feed for monthly strategic trends only. (T044) |
@@ -332,6 +342,15 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T044-static-weekly-monthly-digest-mvp/VALIDATION.md` | T044 validation | Automated and policy validation checklist for T044. (T044) |
 | `work-items/T044-static-weekly-monthly-digest-mvp/IMPLEMENTATION_REPORT.md` | T044 report | Concise final closeout report for T044. (T044) |
 | `work-items/T044-static-weekly-monthly-digest-mvp/DECISIONS.md` | T044 decisions | New static digests and RSS architecture decisions log. (T044) |
+| `work-items/T045-offline-mock-auto-discovery-prototype/TASK.md` | T045 task | Task scope checklist for T045 mock pipeline prototype. (T045) |
+| `work-items/T045-offline-mock-auto-discovery-prototype/VALIDATION.md` | T045 validation | Automated and containment safety validation checklist for T045. (T045) |
+| `work-items/T045-offline-mock-auto-discovery-prototype/IMPLEMENTATION_REPORT.md` | T045 report | Concise final closeout report for T045. (T045) |
+| `work-items/T045-offline-mock-auto-discovery-prototype/DECISIONS.md` | T045 decisions | Sandboxed mock pipeline auto-discovery decisions log. (T045) |
+| `work-items/T046-local-draft-review-console/TASK.md` | T046 task | Task scope checklist for T046 local review console. (T046) |
+| `work-items/T046-local-draft-review-console/VALIDATION.md` | T046 validation | Automated, safety, and containment validation checklist for T046. (T046) |
+| `work-items/T046-local-draft-review-console/IMPLEMENTATION_REPORT.md` | T046 report | Concise final closeout report for T046. (T046) |
+| `work-items/T046-local-draft-review-console/DECISIONS.md` | T046 decisions | Local review console and promotion gate decisions log. (T046) |
+
 
 
 ---

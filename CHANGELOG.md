@@ -5,6 +5,29 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.4] - 21 May 2026
+
+### Added
+- **T046 — Local Draft Review Console & Promotion Gate.** Created an offline, local-only case drafting audit dashboard and visual promotion gate simulator.
+- Developed the high-fidelity local-only Review Console UI (`tools/review-console/index.html`) using premium dark-theme and glassmorphism styling (`assets/review-console.css`), local-first responsive layouts, dynamic bundle fetching, and multi-stage Promotion Gate visualizers (`assets/review-console.js`).
+- Created a robust JSON database bundle compiler (`scripts/build-review-bundle.mjs`) to aggregate all mock candidates, drafts, and weekly preview digests into `tools/review-console/review-bundle.json`.
+- Deployed a comprehensive review validator script (`scripts/validate-review-console.mjs`) verifying all strict sandboxing boundaries, confirming zero leakage of synthetic mock records or review assets into `site/` or live indices.
+- Drafted curator procedures, checklists, and gating policies under `docs/review/`:
+  - `PROMOTION_GATE_POLICY.md` (Formal publication safeguards and branch rules)
+  - `DRAFT_REVIEW_WORKFLOW.md` (Curator operational audit guide)
+  - `PUBLICATION_PROMOTION_CHECKLIST.md` (Pre-publication compliance criteria)
+- Saved a mock review decision simulation catalog at `data/reviews/mock/mock-review-decisions.json`.
+- Logged task deliverables under `work-items/T046-local-draft-review-console/`.
+
+### Changed
+- Integrated T046 architectural summaries into `ARCHITECTURE.md`.
+- Updated lifecycle files `ROADMAP_NEXT_PHASES.md` and `NEXT_ACTIONS.md` to register task completion and subsequent milestones.
+- Appended decision log entry `[DEC-112]` in `docs/DECISION_LOG.md`.
+
+### Status (T046)
+- **Dataset**: Frozen at exactly 12 validated public incident records. Zero synthetic leaks.
+- **Review Gating**: Promotion gate interceptor successfully blocks self-promotion and mock leakages.
+
 ## [0.8.3] - 21 May 2026
 
 ### Added

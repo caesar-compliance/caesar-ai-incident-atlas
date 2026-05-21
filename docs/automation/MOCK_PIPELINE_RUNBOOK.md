@@ -52,3 +52,22 @@ node scripts/validate-mock-pipeline.mjs
 - **Candidate Outputs**: `data/candidates/mock/`
 - **Draft Case Packs**: `data/drafts/mock/`
 - **Weekly Digest Preview**: `data/digests/mock/mock-weekly-preview.json`
+
+---
+
+## 5. Local Draft Review Console
+
+To compile the review bundle database and launch the interactive curation review console:
+
+```bash
+# 1. Compile all mock candidates, drafts, and digests into one bundle
+node scripts/build-review-bundle.mjs
+
+# 2. Verify Review Console safety, containment, and lack of leaks
+node scripts/validate-review-console.mjs
+
+# 3. Launch local-only review console web dashboard
+python3 -m http.server 8000 --directory tools/review-console/
+```
+
+Open [http://localhost:8000](http://localhost:8000) in your web browser.

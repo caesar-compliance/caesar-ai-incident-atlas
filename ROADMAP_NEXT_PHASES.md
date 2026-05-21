@@ -1,8 +1,8 @@
 # Roadmap — Next Phases — caesar-ai-incident-atlas
 
 **Created:** 20 May 2026 (T032)
-**Last updated:** 20 May 2026 (T040)
-**Baseline:** Public MVP v0.6.7 frozen. 10 records. All governance gates closed.
+**Last updated:** 21 May 2026 (T046)
+**Baseline:** Public MVP v0.8.4. 12 records. Local review console and promotion gate simulator active.
 **Status:** Planning document only. No records created. No implementation. CT approval required before any record creation or integration work.
 
 See `PUBLIC_MVP_BASELINE_FREEZE.md` for frozen baseline rules.
@@ -89,7 +89,13 @@ See `ROADMAP.md` for the full historical phase plan.
 - Deployed a robust sandboxing auditor to guarantee zero data leakage of mock data into production site paths or client sitemaps/RSS feeds.
 - Formulated the developer operations guide under `docs/automation/MOCK_PIPELINE_RUNBOOK.md`.
 
-**Next implementation focus (planned for T046):**
+**T046 complete (21 May 2026):**
+- Created high-fidelity, local-only Review Console UI (`tools/review-console/`) with responsive dark mode and glassmorphism.
+- Implemented robust, dynamic bundle aggregator (`scripts/build-review-bundle.mjs`) to generate offline-only review metadata databases.
+- Deployed comprehensive automated review validators (`scripts/validate-review-console.mjs`) ensuring zero leakages or synthetic data promotions under `site/`.
+- Drafted curator workflow, checklists, and promotion gate policies under `docs/review/` and stored simulated decisions in `data/reviews/mock/mock-review-decisions.json`.
+
+**Next implementation focus:**
 - Refine clean-room automated translation capabilities and policy gates.
 - Deepen commercial & failure-mode taxonomy mapping rules and programmatic heuristics.
 

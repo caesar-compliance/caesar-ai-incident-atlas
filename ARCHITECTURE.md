@@ -1,8 +1,9 @@
 # Architecture — caesar-ai-incident-atlas
 
 **Last updated:** 21 May 2026
-**Version:** 0.8.2 (Static Weekly & Monthly Digests MVP)
-**Status:** 12 case records and static digest layers created, validated, and live (T044)
+**Version:** 0.8.4 (Local Draft Review Console & Promotion Gate)
+**Status:** 12 case records and static digest layers live; local review sandboxed console and promotion gate simulator active (T046)
+
 
 ---
 
@@ -515,3 +516,17 @@ Caesar repository (clean zone)
 | Proprietary SaaS | No | No | No — UX inspiration always permitted |
 
 For the full classification table and clean-room process, see `CLEAN_ROOM_IMPLEMENTATION_POLICY.md`.
+
+---
+
+## 12. Local-Only Draft Review Console & Promotion Gate (T046)
+
+To support curators in auditing discovered candidates and drafting weekly/monthly digest case previews prior to public deployment, the repository contains a high-fidelity local-only review console workspace.
+
+### 12.1 Security Containment & Sandboxing
+
+Strict containment protocols separate this workspace from the public `site/` root:
+- **Zero Leakage**: All reviewer tools and review bundles are stored entirely under non-public directories (`tools/review-console/`, `data/reviews/`, `docs/review/`).
+- **Static Aggregation**: A local script (`scripts/build-review-bundle.mjs`) aggregates mock candidates, drafts, and digests into an offline-only `review-bundle.json`.
+- **Automated Validation**: A validation runner (`scripts/validate-review-console.mjs`) guarantees no synthetic data, review configurations, or simulator logic leaks into public sitemaps, RSS feeds, or incident indexes.
+- **Promotion Gate Shield**: Self-promotion of drafts is programmatically barred. All mock drafts contain immutable synthetic markers and are intercepted at the Promotion Gate during curator evaluation simulations.
