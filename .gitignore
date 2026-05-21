@@ -6,8 +6,19 @@
 
 # Environment / secrets — never commit real values
 .env
+.env.local
+.env.*.local
+.env.runtime.local
+.env.cloudflare.local
 .env.*
 !.env.example
+!.env.runtime.example
+!.env.cloudflare.example
+.local/
+.local-secrets/
+secrets/
+*.secret
+*.secrets
 
 # Cloudflare Wrangler live config (keep only the example template)
 infra/cloudflare-worker/wrangler.toml
