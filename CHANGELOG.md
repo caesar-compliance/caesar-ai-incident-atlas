@@ -5,6 +5,21 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.14.0] - 21 May 2026
+
+### Added
+- **T055 — Public Case UX + Validator Fix + Live Atlas Polish.**
+  - `scripts/validate-real-drafts.mjs` — fixed stale INC-0013 checks; now verifies published filename; blocks INC-0014.
+  - `scripts/validate-digests.mjs` — removed now-stale INC-0013 safety block (INC-0013 is published).
+  - `scripts/build-public-case-pages.mjs` — generates static `site/cases/index.html` + 13 individual case pages.
+  - `scripts/validate-public-site.mjs` — 22-check public site smoke validator.
+  - `site/assets/app.js` — Record Type filter, Jurisdiction filter, guidance disclaimer in detail view, improved search coverage.
+  - `site/index.html` — Record Type and Jurisdiction sidebar filter groups.
+  - `site/assets/styles.css` — `.guidance-notice` banner, case page layout styles.
+  - `site/cases/` — 13 static case detail pages + directory index.
+  - `data/incident-index.json` + site copy — updated note field to reflect 13 records.
+  - RSS feeds rebuilt.
+
 ## [0.13.0] - 21 May 2026
 
 ### Added

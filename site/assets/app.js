@@ -16,7 +16,7 @@ const FM_LABELS = {
 
 /* ── State ── */
 let allIncidents  = [];
-let activeFilters = { sector: new Set(), severity: new Set(), confidence: new Set(), fm: new Set() };
+let activeFilters = { sector: new Set(), severity: new Set(), confidence: new Set(), fm: new Set(), recordType: new Set(), jurisdiction: new Set() };
 let openCards     = new Set();
 let currentSort   = "id-asc";
 let searchQuery   = "";
@@ -93,14 +93,22 @@ function updateStatusPanel() {
 
 /* ── Filter builder ── */
 function buildFilters(incidents) {
-  const sectors     = new Map();
-  const fms         = new Map();
+  const sectors       = new Map();
+  const fms           = new Map();
+  const recordTypes   = new Map();
+  const jurisdictions = new Map();
   const SEV_ORDER_LIST  = ["critical", "high", "medium", "low"];
   const CONF_ORDER_LIST = ["high", "medium", "low"];
 
   incidents.forEach(inc => {
     (inc.sector || []).forEach(s => sectors.set(s, (sectors.get(s) || 0) + 1));
     (inc.failure_modes || []).forEach(f => fms.set(f, (fms.get(f) || 0) + 1));
+    const rt = inc.record_type || "incident";
+    recordTypes.set(rt, (recordTypes.get(rt) || 0) + 1);
+    if (inc.jurisdiction) {
+      const jur = inc.jurisdiction;
+      jurisdictions.set(jur, (jurisdictions.get(jur) || 0) + 1);
+    }
   });
 
   const sevCounts = {}, confCounts = {};
@@ -109,10 +117,13 @@ function buildFilters(incidents) {
     confCounts[inc.confidence] = (confCounts[inc.confidence] || 0) + 1;
   });
 
-  renderFilterGroup("filter-sectors",   [...sectors.entries()], "sector",     v => sectorLabel(v));
-  renderFilterGroup("filter-severity",  SEV_ORDER_LIST.filter(s => sevCounts[s]).map(s => [s, sevCounts[s]]),   "severity",   v => cap(v));
-  renderFilterGroup("filter-confidence",CONF_ORDER_LIST.filter(c => confCounts[c]).map(c => [c, confCounts[c]]), "confidence", v => cap(v));
-  renderFilterGroup("filter-fm",        [...fms.entries()], "fm", v => (FM_LABELS[v] || v) + " (" + v + ")");
+  renderFilterGroup("filter-sectors",      [...sectors.entries()], "sector",     v => sectorLabel(v));
+  renderFilterGroup("filter-severity",     SEV_ORDER_LIST.filter(s => sevCounts[s]).map(s => [s, sevCounts[s]]),   "severity",   v => cap(v));
+  renderFilterGroup("filter-confidence",   CONF_ORDER_LIST.filter(c => confCounts[c]).map(c => [c, confCounts[c]]), "confidence", v => cap(v));
+  renderFilterGroup("filter-fm",           [...fms.entries()], "fm", v => (FM_LABELS[v] || v) + " (" + v + ")");
+  renderFilterGroup("filter-record-type",  [...recordTypes.entries()], "recordType", v => RECORD_TYPE_LABELS[v] || cap(v));
+  if (jurisdictions.size > 0)
+    renderFilterGroup("filter-jurisdiction", [...jurisdictions.entries()].sort((a,b)=>a[0].localeCompare(b[0])), "jurisdiction", v => v);
 }
 
 function renderFilterGroup(containerId, entries, filterKey, labelFn) {
@@ -144,13 +155,14 @@ function renderActiveChips() {
   const bar = document.getElementById("active-chips-bar");
   if (!bar) return;
   const chips = [];
-  const keyLabels = { sector: "Sector", severity: "Severity", confidence: "Confidence", fm: "FM" };
+  const keyLabels = { sector: "Sector", severity: "Severity", confidence: "Confidence", fm: "FM", recordType: "Type", jurisdiction: "Jurisdiction" };
   Object.entries(activeFilters).forEach(([k, vals]) => {
     vals.forEach(v => {
       let label = v;
       if (k === "sector")   label = sectorLabel(v);
       if (k === "severity" || k === "confidence") label = cap(v);
-      if (k === "fm")       label = (FM_LABELS[v] || v);
+      if (k === "fm")         label = (FM_LABELS[v] || v);
+      if (k === "recordType")  label = RECORD_TYPE_LABELS[v] || cap(v);
       chips.push({ key: k, value: v, label: keyLabels[k] + ": " + label });
     });
   });
@@ -190,6 +202,9 @@ function matchSearch(inc, q) {
     inc.summary,
     inc.ai_system_context,
     inc.impact,
+    inc.jurisdiction,
+    inc.record_type,
+    RECORD_TYPE_LABELS[inc.record_type] || "",
     ...(inc.lessons  || []),
     ...(inc.sector   || []).map(sectorLabel),
     ...(inc.failure_modes || []).map(f => (FM_LABELS[f] || f) + " " + f),
@@ -197,7 +212,7 @@ function matchSearch(inc, q) {
     ...(inc.evidence_required || []),
     ...(inc.harms || []),
     ...(inc.affected_stakeholders || []),
-    ...(inc.sources || []).map(s => (s.title || "") + " " + (s.source_type || "")),
+    ...(inc.sources || []).map(s => (s.title || "") + " " + (s.source_type || "") + " " + (s.url || "")),
   ].filter(Boolean).join(" ").toLowerCase();
   return haystack.includes(q);
 }
@@ -228,13 +243,15 @@ function parseDateApprox(d) {
 
 /* ── Apply + render ── */
 function applyAndRender() {
-  const { sector, severity, confidence, fm } = activeFilters;
+  const { sector, severity, confidence, fm, recordType, jurisdiction } = activeFilters;
   let result = allIncidents.filter(inc => {
-    if (sector.size     && ![...sector].some(s => (inc.sector||[]).includes(s)))        return false;
-    if (severity.size   && !severity.has(inc.severity))                                 return false;
-    if (confidence.size && !confidence.has(inc.confidence))                             return false;
-    if (fm.size         && ![...fm].some(f => (inc.failure_modes||[]).includes(f)))     return false;
-    if (!matchSearch(inc, searchQuery))                                                 return false;
+    if (sector.size       && ![...sector].some(s => (inc.sector||[]).includes(s)))          return false;
+    if (severity.size     && !severity.has(inc.severity))                                   return false;
+    if (confidence.size   && !confidence.has(inc.confidence))                               return false;
+    if (fm.size           && ![...fm].some(f => (inc.failure_modes||[]).includes(f)))       return false;
+    if (recordType.size   && !recordType.has(inc.record_type || "incident"))                return false;
+    if (jurisdiction.size && !jurisdiction.has(inc.jurisdiction))                           return false;
+    if (!matchSearch(inc, searchQuery))                                                     return false;
     return true;
   });
   result = sortIncidents(result);
@@ -249,6 +266,8 @@ function resetFilters() {
   if (searchEl) { searchEl.value = ""; searchQuery = ""; }
   applyAndRender();
   renderActiveChips();
+  const rtEl = document.getElementById("filter-record-type");
+  if (rtEl) rtEl.querySelectorAll(".filter-chip").forEach(c => c.classList.remove("active"));
 }
 
 /* ── Render list ── */
@@ -257,13 +276,13 @@ function renderList(incidents) {
   const countEl   = document.getElementById("result-count");
   const total     = allIncidents.length;
   const shown     = incidents.length;
-  countEl.textContent = shown + " of " + total + " incident" + (total !== 1 ? "s" : "");
+  countEl.textContent = shown + " of " + total + " record" + (total !== 1 ? "s" : "");
   countEl.setAttribute("aria-live", "polite");
 
   if (!shown) {
     const hasActiveFilter = Object.values(activeFilters).some(s => s.size) || searchQuery;
     container.innerHTML = `<div class="empty-state" role="status">
-      <p>${hasActiveFilter ? "No incidents match the current search or filters." : "No incidents available."}</p>
+      <p>${hasActiveFilter ? "No records match the current search or filters." : "No records available."}</p>
       ${hasActiveFilter ? `<button class="filter-reset" onclick="resetFilters()" style="margin:1rem auto 0;display:block;">Clear all filters</button>` : ""}
     </div>`;
     return;
@@ -376,8 +395,14 @@ function buildCard(inc) {
 function buildDetail(inc) {
   const sections = [];
 
+  const isGuidance = (inc.record_type === 'guidance' || inc.record_type === 'governance_case');
+
+  if (isGuidance) {
+    sections.push(`<div class="guidance-notice" role="note">Official guidance / governance case. Not an enforcement allegation.</div>`);
+  }
+
   if (inc.summary) {
-    const sectionLabel = (inc.record_type === 'guidance' || inc.record_type === 'governance_case') ? 'Summary' : 'What Happened';
+    const sectionLabel = isGuidance ? 'Summary' : 'What Happened';
     sections.push(detailSection(sectionLabel, `<div class="detail-text">${esc(inc.summary)}</div>`));
   }
 
@@ -399,15 +424,18 @@ function buildDetail(inc) {
   }
 
   if (inc.controls?.length)
-    sections.push(detailSection("Affected Controls",
+    sections.push(detailSection(isGuidance ? "Applicable Controls" : "Affected Controls",
       `<div class="controls-row">${inc.controls.map(c => `<span class="badge-ctl">${esc(c)}</span>`).join("")}</div>`));
+
+  if (inc.jurisdiction)
+    sections.push(detailSection("Jurisdiction", `<div class="detail-text">${esc(inc.jurisdiction)}</div>`));
 
   if (inc.evidence_required?.length)
     sections.push(detailSection("Evidence Required",
       `<ul class="detail-list">${inc.evidence_required.map(e => `<li>${esc(e)}</li>`).join("")}</ul>`));
 
   if (inc.lessons?.length)
-    sections.push(detailSection("Governance Lessons",
+    sections.push(detailSection(isGuidance ? "Governance Lesson" : "Governance Lessons",
       `<ul class="detail-list">${inc.lessons.map(l => `<li class="lesson">${esc(l)}</li>`).join("")}</ul>`));
 
   if (inc.affected_stakeholders?.length)

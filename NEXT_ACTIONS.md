@@ -71,6 +71,7 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 | T052 — Live Adapter Collection + Candidate Shortlist | **Complete** — Live pipeline run, adapter improvements (FTC/CNIL/EDPB/EU), case shortlist builder, review console shortlist tab, runbook | 21 May 2026 |
 | T053 — PKT-0006 Source Verification + Readiness + Preview | **Complete** — Source verification, control map, readiness report, publication preview | 21 May 2026 |
 | T054 — Publish Approved PKT-0006 as INC-0013 | **Complete** — INC-0013 published (EDPB guidance, Green-tier, CT approved). Dataset: 13 records. | 21 May 2026 |
+| T055 — Public Case UX + Validator Fix + Live Atlas Polish | **Complete** — Stale validators fixed, Record Type/Jurisdiction filters, guidance disclaimer, 13 static case pages, public site validator, RSS rebuilt. | 21 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete | 19 May 2026 |
 
 ---
@@ -99,9 +100,9 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 
 ---
 
-## Next Recommended Step: T049
+## Next Recommended Step: T056
 
-**T049 — Curator Review Workflow: First Human-in-the-Loop Draft Evaluation.** Operator/curator reviews the 6 real drafts in the local review console, marks checklist items, records observations, and prepares the first draft for potential promotion to a public case record (requires full Control Tower approval before any public creation).
+**T056 — Next Real Case Publication Cycle.** Run live adapter pipeline to collect fresh candidates, rank, select best PKT for Control Tower review, draft, verify, and publish INC-0014 (requires CT approval). Alternatively: digest refresh, jurisdiction enrichment on existing records, or taxonomy v0.3 finalisation.
 
 ---
 

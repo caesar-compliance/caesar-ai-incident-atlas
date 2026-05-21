@@ -65,7 +65,7 @@ Run the offline static digest validator from the **repository root**:
 node scripts/validate-digests.mjs
 ```
 
-This verifies that all weekly and monthly digests are structurally sound, cross-reference valid cases in `data/incident-index.json`, do not contain synthetic mock records or `INC-0013`, and that public site duplicate copies are perfectly in sync.
+This verifies that all weekly and monthly digests are structurally sound, cross-reference valid cases in `data/incident-index.json`, do not contain synthetic mock or candidate records, and that public site duplicate copies are perfectly in sync.
 
 ### 3. RSS Feed Compilation
 Compile the RSS XML feeds from the static digests:
@@ -106,4 +106,4 @@ Run `python3 tools/validate_dataset.py` and `node scripts/validate-digests.mjs` 
 
 ## Status
 
-**TECHNICAL PUBLIC MVP: LIVE + VERIFIED** — `https://atlas.caesar.no/` (GitHub Pages, GitHub Actions, T021/T022/T023/T024). Version: v0.8.2. **Static Digests Portal MVP fully integrated (T044, 21 May 2026).** `site/` is self-contained. No CNAME file in repo. HTTPS enforced. HTTP→HTTPS redirect confirmed. JSON data confirmed with exactly 12 records. All pipeline schemas, monitored registry drafts, and offline automated validators are fully integrated. No dynamic email or database backends added. Not legal advice.
+**TECHNICAL PUBLIC MVP: LIVE + VERIFIED** — `https://atlas.caesar.no/` (GitHub Pages, GitHub Actions, T021–T055). Version: v0.14.0. **13 published records (INC-0001–INC-0013).** Static case pages at `site/cases/`. Record Type and Jurisdiction filters active. Guidance/governance case records display disclaimer badge. Static Digests Portal fully integrated (T044). `site/` is self-contained. No CNAME file in repo. HTTPS enforced. RSS feeds rebuilt. All validators pass. Not legal advice.

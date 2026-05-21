@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INC-0003: Airline chatbot provides incorrect bereavement fare policy information; tribunal finds company bound by chatbot representation — Caesar AI Incident Atlas</title>
+  <meta name="description" content="According to a decision of the British Columbia Civil Resolution Tribunal dated February 2024, a customer contacted an airline&#39;s website chatbot seeking information about bereavement fare discounts fo">
+  <link rel="canonical" href="https://atlas.caesar.no/cases/INC-0003-air-canada-chatbot-contract-bc-crt/">
+  <link rel="stylesheet" href="../../assets/styles.css">
+</head>
+<body>
+
+<header class="app-header">
+  <a class="logo" href="../../" aria-label="Caesar AI Incident Atlas — home"><span>Caesar</span> AI Incident Atlas</a>
+  <div class="header-meta">
+    <a href="../../" style="color: var(--accent); text-decoration: none; font-size: 0.8rem;">← All Records</a>
+  </div>
+</header>
+
+<div class="case-page-layout">
+  <main class="case-main" role="main">
+
+    <div class="case-breadcrumb">
+      <a href="../../">Atlas</a> <span>›</span> <a href="../">Cases</a> <span>›</span> INC-0003
+    </div>
+
+    <div class="case-header">
+      <span class="inc-id">INC-0003</span>
+      <h1 class="case-title">Airline chatbot provides incorrect bereavement fare policy information; tribunal finds company bound by chatbot representation</h1>
+    </div>
+
+    <div class="card-meta" style="margin-bottom: 1.25rem;">
+      <span class="badge badge-date">14 February 2024</span>
+      
+      <span class="badge badge-sector">Retail &amp; E-commerce</span>
+      <span class="badge badge-sev-medium">Severity: Medium</span>
+      <span class="badge badge-conf-high">Confidence: High</span>
+      <span class="badge badge-fm">FM-HALL</span><span class="badge badge-fm">FM-UNAUTH</span>
+    </div>
+
+    <div class="case-body">
+      <div class="detail-section">
+    <div class="detail-label">What Happened</div>
+    <p class="detail-text">According to a decision of the British Columbia Civil Resolution Tribunal dated February 2024, a customer contacted an airline&#39;s website chatbot seeking information about bereavement fare discounts following a family bereavement. The chatbot provided information about the discount that was inconsistent with the company&#39;s actual bereavement fare policy. The customer relied on the chatbot&#39;s information and purchased a fare at full price, expecting to claim the discount retrospectively as described by the chatbot. The company declined the retrospective claim. The tribunal found that the company was liable for the representation made by its chatbot and ordered the company to pay the customer a partial refund. The tribunal rejected the company&#39;s argument that it bore no responsibility for the chatbot&#39;s statements. The case is publicly identified as Moffatt v. Air Canada, 2024 BCCRT 149.</p>
+  </div>
+      <div class="detail-section">
+    <div class="detail-label">AI System / Context</div>
+    <p class="detail-text">LLM-based customer service chatbot deployed on an airline&#39;s public website to handle customer queries, including fare policy information.</p>
+  </div>
+      <div class="detail-section">
+    <div class="detail-label">Harms</div>
+    <ul class="detail-list"><li>Financial loss to a customer who relied on incorrect fare policy information provided by the chatbot</li></ul>
+  </div>
+      <div class="detail-section">
+    <div class="detail-label">Impact</div>
+    <p class="detail-text">The BC Civil Resolution Tribunal ordered the company to pay a partial refund to the customer. The decision was widely reported and is cited as a significant precedent regarding organisational liability for AI agent representations in consumer service contexts.</p>
+  </div>
+      <div class="detail-section">
+    <div class="detail-label">Failure Modes</div>
+    <ul class="detail-list"><li><strong>FM-HALL</strong> — Hallucination</li><li><strong>FM-UNAUTH</strong> — Unauthorised Action</li></ul>
+  </div>
+      <div class="detail-section">
+    <div class="detail-label">Affected Controls</div>
+    <div class="controls-row"><span class="badge-ctl">CTL-OVER-001</span><span class="badge-ctl">CTL-AGENT-001</span><span class="badge-ctl">CTL-AGENT-002</span><span class="badge-ctl">CTL-TEST-001</span></div>
+  </div>
+      <div class="detail-section">
+    <div class="detail-label">Evidence Required</div>
+    <ul class="detail-list"><li>EV-008 — Agent activity log: log of chatbot interactions including the responses given to the customer</li><li>EV-004 — Human oversight record: evidence of human review processes for chatbot outputs in customer-facing contexts</li><li>EV-013 — Incident log: record of the customer complaint and subsequent tribunal proceedings</li><li>EV-001 — AI system register: documentation of the chatbot&#39;s authorised scope and policy information boundaries</li></ul>
+  </div>
+      <div class="detail-section">
+    <div class="detail-label">Governance Lessons</div>
+    <ul class="detail-list"><li class="lesson">Organisations deploying AI agents in customer-facing roles must define explicit agent scope boundaries and ensure agents cannot make commitments or representations that exceed their authorised scope.</li><li class="lesson">AI agent outputs that could constitute binding representations — such as descriptions of contractual terms or policy entitlements — should be subject to human review or include clear limitations on their reliability.</li><li class="lesson">Organisations should not disclaim legal responsibility for AI agent outputs where those agents are deployed as authoritative customer interfaces presenting company policy information.</li><li class="lesson">Pre-deployment testing for customer-facing AI agents should include evaluation of outputs for accuracy against current company policy before live deployment.</li></ul>
+  </div>
+      <div class="detail-section">
+    <div class="detail-label">Affected Stakeholders</div>
+    <ul class="detail-list"><li>Customers using AI-powered customer service interfaces</li><li>Consumer protection bodies</li><li>Organisations deploying customer-facing AI agents</li></ul>
+  </div>
+      <div class="detail-section">
+    <div class="detail-label">Sources</div>
+    <div class="source-item">
+        <div class="source-num">Source 1</div>
+        <a href="https://decisions.civilresolutionbc.ca/s/sfc/sfc-decision/a0k4X000009qFoSQAU" target="_blank" rel="noopener noreferrer">Moffatt v. Air Canada, 2024 BCCRT 149 — BC Civil Resolution Tribunal Decision, February 2024</a>
+        <div class="source-meta">
+          <span class="source-type-badge">tribunal decision</span>
+          <span class="source-accessed">Last verified: 19 May 2026</span>
+        </div>
+      </div>
+  </div>
+      <div class="detail-section">
+    <div class="detail-label">Date Note</div>
+    <p class="detail-text detail-muted">Date of the BC Civil Resolution Tribunal decision. The chatbot interaction occurred in November 2022. Tribunal decision date used as primary record anchor.</p>
+  </div>
+    </div>
+
+    <div class="case-disclaimer" role="note">
+      Not legal advice. This record is based on publicly available information.
+      Source and licence review tracked separately. For official guidance, consult the primary source.
+    </div>
+
+  </main>
+</div>
+
+<footer class="app-footer" role="contentinfo">
+  <div class="footer-inner">
+    <span class="footer-item footer-live">Live MVP</span>
+    <span class="footer-sep">·</span>
+    <span class="footer-item">13 curated records</span>
+    <span class="footer-sep">·</span>
+    <span class="footer-item">v0.6.5</span>
+    <span class="footer-sep">·</span>
+    <span class="footer-item footer-disclaimer">Not legal advice</span>
+    <span class="footer-sep">·</span>
+    <a class="footer-link" href="https://caesar.no" target="_blank" rel="noopener noreferrer">caesar.no</a>
+  </div>
+</footer>
+
+</body>
+</html>
