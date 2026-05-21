@@ -17,13 +17,24 @@ const LOG_PATH = path.join(OPS_DIR, 'latest-local-automation-cycle.log');
 
 if (!fs.existsSync(OPS_DIR)) fs.mkdirSync(OPS_DIR, { recursive: true });
 
+// T060: optional flag to include manual watch-run queue build/export steps
+// Default: OFF (safe). Enable with: node scripts/run-local-automation-cycle.mjs --with-watch-queue
+const WITH_WATCH_QUEUE = process.argv.includes('--with-watch-queue');
+
 const STAGES = [
-  { name: 'run-real-pipeline',          script: 'scripts/run-real-pipeline.mjs',           args: [],          optional: false },
-  { name: 'export-ops-status',          script: 'scripts/export-ops-status.mjs',           args: [],          optional: false },
-  { name: 'validate-ops-status',        script: 'scripts/validate-ops-status.mjs',         args: [],          optional: false },
-  { name: 'build-public-case-pages',    script: 'scripts/build-public-case-pages.mjs',     args: [],          optional: true  },
-  { name: 'build-rss-feeds',            script: 'scripts/build-rss-feeds.mjs',             args: [],          optional: false },
-  { name: 'validate-public-site',       script: 'scripts/validate-public-site.mjs',        args: [],          optional: false },
+  { name: 'run-real-pipeline',              script: 'scripts/run-real-pipeline.mjs',                   args: [],          optional: false },
+  { name: 'export-ops-status',              script: 'scripts/export-ops-status.mjs',                   args: [],          optional: false },
+  { name: 'validate-ops-status',            script: 'scripts/validate-ops-status.mjs',                 args: [],          optional: false },
+  { name: 'build-public-case-pages',        script: 'scripts/build-public-case-pages.mjs',             args: [],          optional: true  },
+  { name: 'build-rss-feeds',               script: 'scripts/build-rss-feeds.mjs',                     args: [],          optional: false },
+  { name: 'validate-public-site',           script: 'scripts/validate-public-site.mjs',                args: [],          optional: false },
+  // T060 — manual watch-run queue stages (optional, no network fetch, no publish, no remote write)
+  ...(WITH_WATCH_QUEUE ? [
+    { name: 'build-manual-watch-run-queue',     script: 'scripts/build-manual-watch-run-queue.mjs',    args: [],          optional: false },
+    { name: 'build-manual-watch-run-envelope',  script: 'scripts/build-manual-watch-run-envelope.mjs', args: [],         optional: false },
+    { name: 'export-hosted-watch-run-payloads', script: 'scripts/export-hosted-watch-run-payloads.mjs', args: [],        optional: false },
+    { name: 'validate-manual-watch-run',        script: 'scripts/validate-manual-watch-run.mjs',       args: [],          optional: false },
+  ] : []),
 ];
 
 const logStream = fs.createWriteStream(LOG_PATH, { flags: 'w' });

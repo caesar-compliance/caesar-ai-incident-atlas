@@ -1,7 +1,7 @@
 # Roadmap — Next Phases — caesar-ai-incident-atlas
 
 **Created:** 20 May 2026 (T032)
-**Last updated:** 21 May 2026 (T056)
+**Last updated:** 21 May 2026 (T060)
 **Baseline:** Public MVP v0.13.0. 13 records. INC-0013 (EDPB guidance, first real adapter-detected case) published under CT approval.
 **Status:** Active MVP. INC-0013 live. Promotion pipeline fully operational. Next: additional CT-approved promotions from remaining ranked packets.
 
@@ -169,6 +169,22 @@ For each of the 12 (and future) case records, map to:
 - New counsel review if broader commercial or licensed distribution is planned.
 - AIID CC BY-SA 4.0 ShareAlike clause reviewed before any AIID data import.
 - OECD/AIAAIC license verifications completed before any data from those sources is used.
+
+---
+
+## v1.2 — Manual Watch Run Queue (T060 — 21 May 2026)
+
+**T060 complete** — Real automation layer without live connections.
+
+- Manual watch-run queue: 7 green sources enumerated, no network fetch
+- Private run envelope: `WATCH-RUN-YYYYMMDD-HHMMSS`, status `queued`, all counters 0
+- Hosted payloads: `atlas-watch-run.manual-latest.json` + `atlas-watch-run-queue.manual-latest.json` (dry_run_export)
+- `validate-manual-watch-run.mjs`: 16-check safety suite
+- `run-local-automation-cycle.mjs`: optional `--with-watch-queue` flag
+- `export-ops-status.mjs`: `manual_watch_run_status: queue_ready`
+- `validate-hosted-sync-safety.mjs`: extended to 31 checks
+
+**Next T061:** Execute real watch run (`node scripts/watch-green-sources.mjs`), promote top candidate, or activate hosted infrastructure.
 
 ---
 

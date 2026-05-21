@@ -394,6 +394,101 @@ for (const fp of t059Files) {
 }
 if (!realUrlFound) pass('No real Supabase URLs in T059 generated files');
 
+// ── 25. T060: data/ops/watch-runs not copied into site/ ──────────────────────
+const siteWatchRunsDir = path.join(ROOT, 'site', 'data', 'ops', 'watch-runs');
+if (existsDir(siteWatchRunsDir)) {
+  fail('site/data/ops/watch-runs/ exists — private watch-run outputs must not be in public site');
+} else {
+  pass('site/data/ops/watch-runs/ not present in public site (correct)');
+}
+
+// ── 26. T060: hosted watch-run payloads are sanitized ────────────────────────
+const watchRunPayloadPath = path.join(OPS_SUPABASE_DIR, 'atlas-watch-run.manual-latest.json');
+const watchRunPayload = readJson(watchRunPayloadPath);
+if (watchRunPayload) {
+  const wrJson = JSON.stringify(watchRunPayload);
+  if (watchRunPayload.remote_write_attempted !== false) {
+    fail('atlas-watch-run.manual-latest.json: remote_write_attempted is not false');
+  } else {
+    pass('atlas-watch-run.manual-latest.json: remote_write_attempted = false');
+  }
+  if (watchRunPayload.cron_triggered !== false) {
+    fail('atlas-watch-run.manual-latest.json: cron_triggered is not false');
+  } else {
+    pass('atlas-watch-run.manual-latest.json: cron_triggered = false');
+  }
+  if (JWT_PATTERN.test(wrJson)) {
+    fail('atlas-watch-run.manual-latest.json: contains JWT-like token');
+  } else {
+    pass('atlas-watch-run.manual-latest.json: no JWT-like tokens');
+  }
+  if (watchRunPayload.run && watchRunPayload.run.public_publish_count !== 0) {
+    fail('atlas-watch-run.manual-latest.json: public_publish_count is not 0');
+  } else if (watchRunPayload.run) {
+    pass('atlas-watch-run.manual-latest.json: public_publish_count = 0');
+  }
+} else {
+  pass('atlas-watch-run.manual-latest.json not present (ok — run export-hosted-watch-run-payloads.mjs to generate)');
+}
+
+// ── 27. T060: no public case count change (still 13) ─────────────────────────
+// Already checked in check 16 — this re-confirms via incident index directly
+const incIndexPath27 = path.join(ROOT, 'data', 'incident-index.json');
+const incIndex27 = readJson(incIndexPath27);
+if (incIndex27) {
+  const count27 = (incIndex27.incidents || []).length;
+  if (count27 === 13) {
+    pass('T060 check: incident-index.json still has 13 records');
+  } else {
+    fail('T060 check: incident-index.json has ' + count27 + ' records, expected 13');
+  }
+} else {
+  fail('T060 check: cannot read data/incident-index.json');
+}
+
+// ── 28. T060: no INC-0014 in watch-run outputs ───────────────────────────────
+const watchRunsDir = path.join(ROOT, 'data', 'ops', 'watch-runs');
+let inc0014InWatchRuns = false;
+walkDir(watchRunsDir, (file) => {
+  const content = readText(file) || '';
+  if (content.includes('INC-0014')) {
+    fail('INC-0014 reference found in watch-run output: ' + path.relative(ROOT, file));
+    inc0014InWatchRuns = true;
+  }
+});
+if (!inc0014InWatchRuns) pass('No INC-0014 references in data/ops/watch-runs/ outputs');
+
+// ── 29. T060: no cron marker in ops outputs ───────────────────────────────────
+const manualRunPath = path.join(ROOT, 'data', 'ops', 'watch-runs', 'manual-run-latest.json');
+const manualRun = readJson(manualRunPath);
+if (manualRun) {
+  if (manualRun.cron_triggered === false) {
+    pass('manual-run-latest.json: cron_triggered = false');
+  } else {
+    fail('manual-run-latest.json: cron_triggered is not false');
+  }
+  if (manualRun.remote_write_attempted === false) {
+    pass('manual-run-latest.json: remote_write_attempted = false');
+  } else {
+    fail('manual-run-latest.json: remote_write_attempted is not false');
+  }
+  if (manualRun.public_site_mutated === false) {
+    pass('manual-run-latest.json: public_site_mutated = false');
+  } else {
+    fail('manual-run-latest.json: public_site_mutated is not false');
+  }
+} else {
+  pass('manual-run-latest.json not present (ok)');
+}
+
+// ── 30. T060: no Worker deployment marker ────────────────────────────────────
+// Confirmed by existing check 12 (wrangler.toml absent) — no new check needed
+pass('T060: no Worker deployment marker (covered by check 12)');
+
+// ── 31. T060: no Pages config change ─────────────────────────────────────────
+// Confirmed by existing checks 10/11 (pages.yml unchanged, no schedule)
+pass('T060: no Pages config change (covered by checks 10/11)');
+
 // ── Final result ─────────────────────────────────────────────────────────────
 process.stdout.write('\n');
 if (errors > 0) {
