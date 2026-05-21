@@ -1,0 +1,263 @@
+name: Dev runtime activate
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Type ACTIVATE_DEV_RUNTIME to confirm"
+        required: true
+        type: string
+      apply_schema:
+        description: "Apply Supabase dev schema (YES/NO)"
+        required: false
+        default: "NO"
+        type: choice
+        options:
+          - "NO"
+          - "YES"
+      deploy_worker:
+        description: "Deploy Cloudflare Worker (YES/NO)"
+        required: false
+        default: "YES"
+        type: choice
+        options:
+          - "NO"
+          - "YES"
+      set_worker_secrets:
+        description: "Set Worker secrets via wrangler (YES/NO)"
+        required: false
+        default: "YES"
+        type: choice
+        options:
+          - "NO"
+          - "YES"
+      enable_cron:
+        description: "Enable Worker cron triggers (YES/NO)"
+        required: false
+        default: "NO"
+        type: choice
+        options:
+          - "NO"
+          - "YES"
+      run_dry_ingestion:
+        description: "Run safe dry-run ingestion (YES/NO)"
+        required: false
+        default: "YES"
+        type: choice
+        options:
+          - "NO"
+          - "YES"
+      enable_network:
+        description: "Allow network execution (YES/NO)"
+        required: false
+        default: "NO"
+        type: choice
+        options:
+          - "NO"
+          - "YES"
+      run_live_ingestion_once:
+        description: "One-shot hosted sync push (YES/NO)"
+        required: false
+        default: "NO"
+        type: choice
+        options:
+          - "NO"
+          - "YES"
+      post_deploy_smoke:
+        description: "Post-deploy health smoke (YES/NO)"
+        required: false
+        default: "YES"
+        type: choice
+        options:
+          - "NO"
+          - "YES"
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  safety-gate:
+    runs-on: ubuntu-latest
+    environment: dev-runtime
+    steps:
+      - name: Confirm and policy gates
+        env:
+          CONFIRM: ${{ inputs.confirm }}
+          APPLY_SCHEMA: ${{ inputs.apply_schema }}
+          DEPLOY_WORKER: ${{ inputs.deploy_worker }}
+          ENABLE_CRON: ${{ inputs.enable_cron }}
+          ENABLE_NETWORK: ${{ inputs.enable_network }}
+          RUN_LIVE_ONCE: ${{ inputs.run_live_ingestion_once }}
+          VAR_WORKER_DEPLOY: ${{ vars.CLOUDFLARE_ENABLE_WORKER_DEPLOY }}
+          VAR_CRON: ${{ vars.CLOUDFLARE_ENABLE_CRON_TRIGGER }}
+          VAR_APPLY_SCHEMA: ${{ vars.APPLY_SUPABASE_SCHEMA }}
+          VAR_NETWORK: ${{ vars.ENABLE_NETWORK_EXECUTION }}
+          VAR_LIVE: ${{ vars.ENABLE_LIVE_INGESTION }}
+          VAR_SCHEDULED: ${{ vars.ENABLE_SCHEDULED_MONITORING }}
+        run: |
+          set -euo pipefail
+          fail() { echo "::error::$1"; exit 1; }
+          [ "$CONFIRM" = "ACTIVATE_DEV_RUNTIME" ] || fail "confirm must be ACTIVATE_DEV_RUNTIME"
+          [ "$DEPLOY_WORKER" != "YES" ] || [ "$VAR_WORKER_DEPLOY" = "true" ] || fail "CLOUDFLARE_ENABLE_WORKER_DEPLOY must be true when deploy_worker=YES"
+          [ "$ENABLE_CRON" != "YES" ] || [ "$VAR_CRON" = "false" ] || fail "CLOUDFLARE_ENABLE_CRON_TRIGGER must be false unless enable_cron=YES"
+          [ "$APPLY_SCHEMA" != "YES" ] || [ "$VAR_APPLY_SCHEMA" = "false" ] || fail "APPLY_SUPABASE_SCHEMA must be false unless apply_schema=YES"
+          [ "$ENABLE_NETWORK" != "YES" ] || [ "$VAR_NETWORK" = "false" ] || fail "ENABLE_NETWORK_EXECUTION must be false unless enable_network=YES"
+          [ "$RUN_LIVE_ONCE" != "YES" ] || [ "$VAR_LIVE" = "false" ] || fail "ENABLE_LIVE_INGESTION must be false unless run_live_ingestion_once=YES"
+          [ "$ENABLE_CRON" != "YES" ] || [ "$VAR_SCHEDULED" = "false" ] || fail "ENABLE_SCHEDULED_MONITORING must be false unless enable_cron=YES"
+          [ "$RUN_LIVE_ONCE" != "YES" ] || [ "$ENABLE_NETWORK" = "YES" ] || fail "run_live_ingestion_once requires enable_network=YES"
+          echo "PASS: safety gates"
+
+  activate:
+    needs: safety-gate
+    runs-on: ubuntu-latest
+    environment: dev-runtime
+    env:
+      RUNTIME_ENV: dev
+      SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+      SUPABASE_PROJECT_REF: ${{ vars.SUPABASE_PROJECT_REF }}
+      SUPABASE_PUBLISHABLE_KEY: ${{ vars.SUPABASE_PUBLISHABLE_KEY }}
+      SUPABASE_SCHEMA: ${{ vars.SUPABASE_SCHEMA }}
+      SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+      SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_WORKER_NAME: ${{ vars.CLOUDFLARE_WORKER_NAME }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Local validation
+        run: |
+          node scripts/test-cloudflare-worker-local.mjs
+          node scripts/preflight-hosted-activation.mjs
+
+      - name: Materialize CI runtime env (no secret values logged)
+        run: |
+          set -euo pipefail
+          umask 077
+          cat > .env.runtime.local <<'ENVEOF'
+          SUPABASE_PROJECT_NAME=caesar-incident-atlas-dev
+          SUPABASE_API_KEY_MODE=new
+          APPLY_SUPABASE_SCHEMA=false
+          ENABLE_LIVE_INGESTION=false
+          ENABLE_SCHEDULED_MONITORING=false
+          ENABLE_NETWORK_EXECUTION=false
+          ENABLE_WATCH_RUNS=false
+          ENVEOF
+          {
+            echo "SUPABASE_URL=${SUPABASE_URL}"
+            echo "SUPABASE_PROJECT_REF=${SUPABASE_PROJECT_REF}"
+            echo "SUPABASE_PUBLISHABLE_KEY=${SUPABASE_PUBLISHABLE_KEY}"
+            echo "SUPABASE_SECRET_KEY=${SUPABASE_SECRET_KEY}"
+            echo "SUPABASE_DB_URL=${SUPABASE_DB_URL}"
+            echo "SUPABASE_SCHEMA=${SUPABASE_SCHEMA}"
+          } >> .env.runtime.local
+          cat > .env.cloudflare.local <<'ENVEOF'
+          CLOUDFLARE_ENABLE_WORKER_DEPLOY=false
+          CLOUDFLARE_ENABLE_CRON_TRIGGER=false
+          ENVEOF
+          {
+            echo "CLOUDFLARE_ACCOUNT_ID=${CLOUDFLARE_ACCOUNT_ID}"
+            echo "CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}"
+            echo "CLOUDFLARE_WORKER_NAME=${CLOUDFLARE_WORKER_NAME}"
+          } >> .env.cloudflare.local
+
+      - name: Runtime credential sanity check
+        run: node scripts/runtime/check-service-credentials.mjs
+
+      - name: Apply Supabase schema
+        if: inputs.apply_schema == 'YES'
+        run: |
+          echo "::error::schema apply not implemented for caesar-ai-incident-atlas — use infra/supabase/schema.sql via operator process"
+          exit 1
+
+      - name: Setup wrangler
+        if: inputs.deploy_worker == 'YES' || inputs.set_worker_secrets == 'YES'
+        run: npm install -g wrangler@3
+
+      - name: Prepare Worker wrangler.toml
+        if: inputs.deploy_worker == 'YES' || inputs.set_worker_secrets == 'YES'
+        working-directory: infra/cloudflare-worker
+        run: |
+          set -euo pipefail
+          cp wrangler.example.toml wrangler.toml
+          sed -i "s/^name = .*/name = \"${CLOUDFLARE_WORKER_NAME}\"/" wrangler.toml
+          sed -i "s/^account_id = .*/account_id = \"${CLOUDFLARE_ACCOUNT_ID}\"/" wrangler.toml
+          if [ "${{ inputs.enable_cron }}" = "YES" ]; then
+            sed -i 's/^# \[\[triggers.crons\]\]/[[triggers.crons]]/' wrangler.toml
+            sed -i 's/^# crons = \["0 \*\/6 \* \* \*"\]/crons = ["0 */6 * * *"]/' wrangler.toml
+          fi
+
+      - name: Set Worker secrets
+        if: inputs.set_worker_secrets == 'YES'
+        working-directory: infra/cloudflare-worker
+        env:
+          WRANGLER_SEND_METRICS: "false"
+        run: |
+          set -euo pipefail
+          printf '%s' "${SUPABASE_URL}" | wrangler secret put SUPABASE_URL --name "${CLOUDFLARE_WORKER_NAME}"
+          printf '%s' "${SUPABASE_SECRET_KEY}" | wrangler secret put SUPABASE_SERVICE_ROLE_KEY --name "${CLOUDFLARE_WORKER_NAME}"
+          echo "Worker secrets configured (values not logged)"
+
+      - name: Deploy Worker
+        id: deploy_worker
+        if: inputs.deploy_worker == 'YES'
+        working-directory: infra/cloudflare-worker
+        env:
+          WRANGLER_SEND_METRICS: "false"
+        run: |
+          set -euo pipefail
+          DEPLOY_LOG="$(mktemp)"
+          wrangler deploy --name "${CLOUDFLARE_WORKER_NAME}" 2>&1 | tee "$DEPLOY_LOG"
+          WORKER_URL="$(grep -Eo 'https://[A-Za-z0-9._-]+\.workers\.dev' "$DEPLOY_LOG" | head -1 || true)"
+          if [ -z "$WORKER_URL" ]; then
+            WORKER_URL="https://${CLOUDFLARE_WORKER_NAME}.workers.dev"
+          fi
+          echo "worker_url=${WORKER_URL}" >> "$GITHUB_OUTPUT"
+
+      - name: Post-deploy health smoke
+        if: inputs.post_deploy_smoke == 'YES' && inputs.deploy_worker == 'YES' && steps.deploy_worker.outcome == 'success'
+        env:
+          WORKER_URL: ${{ steps.deploy_worker.outputs.worker_url }}
+        run: |
+          set -euo pipefail
+          ok=0
+          for p in /healthz /health /readyz; do
+            code="$(curl -sS -o /dev/null -w '%{http_code}' "${WORKER_URL}${p}" || echo 000)"
+            echo "${p}: HTTP ${code}"
+            if [ "$code" = "200" ] || [ "$code" = "204" ]; then ok=1; echo "PASS: ${p}"; break; fi
+          done
+          [ "$ok" = "1" ] || { echo "::warning::No health endpoint returned 200"; exit 0; }
+
+      - name: Dry-run ingestion
+        if: inputs.run_dry_ingestion == 'YES'
+        run: node scripts/sync-supabase-hosted.mjs
+
+      - name: One-shot hosted sync push
+        if: inputs.run_live_ingestion_once == 'YES' && inputs.enable_network == 'YES'
+        env:
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          ATLAS_CONFIRM_HOSTED_SYNC: "YES"
+          ATLAS_HOSTED_SYNC_MODE: "push"
+        run: |
+          echo "::error::Hosted sync push is gated separately — use operator-hosted activation after Control Tower approval (scripts/sync-supabase-hosted.mjs --push)"
+          exit 1
+
+      - name: Final summary
+        if: always()
+        run: |
+          {
+            echo "## Dev runtime activation summary"
+            echo "- Repo: caesar-ai-incident-atlas"
+            echo "- Worker: infra/cloudflare-worker (GET /health)"
+            echo "- Hosted sync push: not enabled in this workflow (legacy gate)"
+            echo "- Dry-run: scripts/sync-supabase-hosted.mjs (default dry-run)"
+            echo "- Schema apply: operator SQL only"
+            echo "- No DNS or custom routes"
+          } >> "$GITHUB_STEP_SUMMARY"
