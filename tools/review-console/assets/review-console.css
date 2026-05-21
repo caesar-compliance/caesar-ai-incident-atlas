@@ -865,6 +865,119 @@ body {
   display: none !important;
 }
 
+/* T048: Pipeline Status Labels */
+.pipeline-label {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 2px 6px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+.local-only-label {
+  background: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+}
+
+.not-public-label {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.not-approved-label {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.promotion-blocked-label {
+  background: rgba(239, 68, 68, 0.25);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  font-weight: 900;
+}
+
+/* T048: Stage Tabs */
+.stage-tab {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--color-text-muted);
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  font-family: var(--font-stack);
+  transition: background 0.15s;
+}
+
+.stage-tab:hover {
+  background: rgba(255,255,255,0.1);
+  color: var(--color-text-main);
+}
+
+.stage-tab.active {
+  background: rgba(99, 102, 241, 0.25);
+  border-color: rgba(99, 102, 241, 0.5);
+  color: #a5b4fc;
+  font-weight: 700;
+}
+
+/* T048: Pipeline Summary Bar */
+.pipeline-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.pipeline-stage-box {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px;
+  padding: 10px 14px;
+  text-align: center;
+  min-width: 100px;
+}
+
+.pipeline-stage-box.blocked-stage {
+  border-color: rgba(239, 68, 68, 0.4);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.ps-label {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.ps-count {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-main);
+}
+
+.ps-status {
+  font-size: 9px;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+.pipeline-arrow {
+  color: var(--color-text-muted);
+  font-size: 18px;
+  padding: 0 2px;
+}
+
 /* Scrollbar hardening */
 ::-webkit-scrollbar {
   width: 6px;

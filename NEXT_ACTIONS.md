@@ -65,15 +65,16 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 | T045 — Offline Mock Auto-Discovery Prototype | **Complete** | 21 May 2026 |
 | T046 — Local Draft Review Console & Promotion Gate | **Complete** | 21 May 2026 |
 | T047 — Real Green-Source Watcher MVP | **Complete** — Created manual CLI watcher, de-duplication, review bundle compiler, and safety containment auditor, with local review console interactive dropdown | 21 May 2026 |
+| T048 — Real Candidate-to-Draft Pipeline | **Complete** — Watcher hardening (fallback_urls, health reporting, timeout), build-real-case-drafts, build-promotion-packets, upgraded review console (stage tabs, pipeline bar, packet/health panels), full validation suite | 21 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete | 19 May 2026 |
 
 ---
 
-## Status: T047 Complete — Real Green-Source Watcher MVP Deployed
+## Status: T048 Complete — Real Candidate-to-Draft Pipeline Deployed
 
 **Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/` with exactly 12 validated incident records, a complete static digest portal, and live RSS syndication feeds.**
 
-**A real manual CLI-triggered Green-source watcher pipeline and de-duplicator is deployed and verified locally, storing detected candidates cleanly under non-public directories. The local Review Console UI (`tools/review-console/`) has been updated with a bundle dropdown selector to swap bundles and view discovered real metadata with active safety and containment gate blocks.**
+**The full local pipeline now runs end-to-end: Green-source watcher → dedupe → real case drafts (`data/drafts/real/`) → promotion packets (`data/promotion-packets/real/`) → review bundle → review console. The review console has been upgraded with pipeline stage tabs (Candidates / Drafts / Packets / Health), a pipeline summary bar, and local-only safety labels. All 6 real drafts and 6 promotion packets pass validation. No public exposure. `promotion_allowed: false` on all packets.**
 
 **Active boundaries, policies, and schemas:**
 - `PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md` (Repositioning & Value Chain)
@@ -93,9 +94,9 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 
 ---
 
-## Next Recommended Step: T048
+## Next Recommended Step: T049
 
-**T048 — Regulatory Translation and Fine-Grained Compliance Taxonomies.** Refine translation gate rules for foreign legal texts (e.g. CNIL, EDPB) and deepen taxonomy heuristics/programmatic mapping.
+**T049 — Curator Review Workflow: First Human-in-the-Loop Draft Evaluation.** Operator/curator reviews the 6 real drafts in the local review console, marks checklist items, records observations, and prepares the first draft for potential promotion to a public case record (requires full Control Tower approval before any public creation).
 
 ---
 

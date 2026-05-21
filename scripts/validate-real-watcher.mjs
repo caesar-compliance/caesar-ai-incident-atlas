@@ -150,9 +150,49 @@ function runValidation() {
   if (fs.existsSync(REAL_BUNDLE)) {
     logPass('Real review bundle exists locally in tools/review-console/ (outside site/).');
   } else {
-    // If not created yet, we warn, but let's count as failure if it's required to exist
     logWarning('tools/review-console/real-review-bundle.json does not exist yet. Please build it first.');
   }
+
+  // 8b. Verify latest-watch-summary.json exists after a watcher run
+  const LATEST_SUMMARY = path.join(ROOT, 'data', 'watch', 'runs', 'latest-watch-summary.json');
+  if (fs.existsSync(LATEST_SUMMARY)) {
+    logPass('latest-watch-summary.json exists in data/watch/runs/.');
+  } else {
+    logWarning('data/watch/runs/latest-watch-summary.json not found. Run watch-green-sources.mjs first.');
+  }
+
+  // 8c. Verify watcher config has fallback_urls on all enabled targets
+  try {
+    const config = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
+    const missingFallback = config.filter(t => t.enabled_for_manual_watch && (!t.fallback_urls || t.fallback_urls.length === 0));
+    if (missingFallback.length > 0) {
+      logWarning(`${missingFallback.length} enabled target(s) lack fallback_urls: ${missingFallback.map(t => t.source_id).join(', ')}`);
+    } else {
+      logPass('All enabled watch targets have fallback_urls configured.');
+    }
+  } catch (e) {
+    // already caught above
+  }
+
+  // 8d. Verify no real drafts or promotion packets under site/
+  const checkNoLocalPipelineInSite = (dir, label) => {
+    if (!fs.existsSync(dir)) return;
+    const items = fs.readdirSync(dir, { withFileTypes: true });
+    for (const item of items) {
+      const fullPath = path.join(dir, item.name);
+      if (item.isDirectory()) {
+        checkNoLocalPipelineInSite(fullPath, label);
+      } else if (item.isFile()) {
+        const nameLower = item.name.toLowerCase();
+        if (nameLower.includes('draft') || nameLower.includes('promotion') || nameLower.includes('packet')) {
+          logError(`Leakage detected! ${label} file found under public site root: ${fullPath}`);
+          failures++;
+        }
+      }
+    }
+  };
+  checkNoLocalPipelineInSite(SITE_DIR, 'Draft/Promotion');
+  logPass('Public site/ is clean of draft and promotion packet files.');
 
   // 9. Verify candidate files contain no full HTML body fields, have status real_detected, and source_tier green
   const REAL_CANDIDATES_DIR = path.join(ROOT, 'data', 'watch', 'real-candidates');

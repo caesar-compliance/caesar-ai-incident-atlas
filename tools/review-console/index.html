@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atlas Local Draft Review Console (Mock Simulator)</title>
+  <title>Atlas Local Draft Review Console (T048 Pipeline)</title>
   <!-- Load Local Stylings -->
   <link rel="stylesheet" href="assets/review-console.css">
 </head>
@@ -35,9 +35,20 @@
       <div class="sidebar-search" style="margin-bottom: 10px;">
         <select id="bundle-selector" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #444; background-color: #222; color: #eee; font-family: inherit; font-size: 13px; cursor: pointer;">
           <option value="review-bundle.json">Mock Drafts Bundle (review-bundle.json)</option>
-          <option value="real-review-bundle.json">Real Candidates Bundle (real-review-bundle.json)</option>
+          <option value="real-review-bundle.json">Real Pipeline Bundle (real-review-bundle.json)</option>
         </select>
       </div>
+
+      <!-- Real pipeline: stage tabs (hidden in mock mode) -->
+      <div id="pipeline-stage-tabs" style="display:none; margin-bottom: 8px;">
+        <div style="display:flex; gap:4px; flex-wrap:wrap;">
+          <button class="stage-tab active" data-stage="candidates" id="tab-candidates">Candidates <span id="tab-count-candidates" class="counter-badge" style="font-size:10px;">0</span></button>
+          <button class="stage-tab" data-stage="drafts" id="tab-drafts">Drafts <span id="tab-count-drafts" class="counter-badge" style="font-size:10px;">0</span></button>
+          <button class="stage-tab" data-stage="packets" id="tab-packets">Packets <span id="tab-count-packets" class="counter-badge" style="font-size:10px;">0</span></button>
+          <button class="stage-tab" data-stage="health" id="tab-health">Health</button>
+        </div>
+      </div>
+
       <div class="sidebar-search">
         <input type="text" id="draft-search" placeholder="Search...">
       </div>
@@ -55,13 +66,102 @@
       <!-- Welcome/Select message when no draft is active -->
       <div class="empty-state" id="empty-state">
         <div class="empty-state-icon">🛡️</div>
-        <h3>Select a Mock Draft to Begin Audit Review</h3>
-        <p>This console simulates the Control Tower Promotion Gate evaluation workflow for synthetic discovery case drafts.</p>
-        <div class="digest-quick-preview">
+        <h3 id="empty-state-title">Select a Draft to Begin Audit Review</h3>
+        <p id="empty-state-desc">This console simulates the Control Tower Promotion Gate evaluation workflow for discovery case drafts.</p>
+        <!-- Pipeline summary bar (real bundle only) -->
+        <div id="pipeline-summary-bar" style="display:none; margin-top:16px;">
+          <div class="pipeline-bar">
+            <div class="pipeline-stage-box" id="ps-candidates">
+              <div class="ps-label">CANDIDATES DETECTED</div>
+              <div class="ps-count" id="ps-count-candidates">0</div>
+              <div class="ps-status">candidate detected</div>
+            </div>
+            <div class="pipeline-arrow">→</div>
+            <div class="pipeline-stage-box" id="ps-drafts">
+              <div class="ps-label">DRAFTS GENERATED</div>
+              <div class="ps-count" id="ps-count-drafts">0</div>
+              <div class="ps-status">draft generated</div>
+            </div>
+            <div class="pipeline-arrow">→</div>
+            <div class="pipeline-stage-box" id="ps-packets">
+              <div class="ps-label">PACKETS CREATED</div>
+              <div class="ps-count" id="ps-count-packets">0</div>
+              <div class="ps-status">promotion packet created</div>
+            </div>
+            <div class="pipeline-arrow">→</div>
+            <div class="pipeline-stage-box blocked-stage" id="ps-approval">
+              <div class="ps-label">CONTROL TOWER</div>
+              <div class="ps-count">🔒</div>
+              <div class="ps-status">waiting for Control Tower approval</div>
+            </div>
+          </div>
+        </div>
+        <div class="digest-quick-preview" id="digest-preview-block">
           <h4>Weekly Discoveries Preview (Synthetic)</h4>
           <ul id="weekly-highlights-list">
             <li>No digest preview loaded.</li>
           </ul>
+        </div>
+      </div>
+
+      <!-- Source Health Panel (real bundle, health tab) -->
+      <div class="detail-grid hidden" id="health-detail">
+        <div class="detail-main-column" style="grid-column: span 2;">
+          <div class="draft-detail-header">
+            <h2>Source Health Summary</h2>
+            <p style="color: var(--color-muted); font-size:13px;">Last watcher run results. LOCAL ONLY — NOT PUBLIC.</p>
+          </div>
+          <div class="detail-card" id="health-detail-content">
+            <p style="color: var(--color-muted);">No health data loaded.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Promotion Packet Panel (real bundle, packets tab) -->
+      <div class="detail-grid hidden" id="packet-detail">
+        <div class="detail-main-column">
+          <div class="draft-detail-header">
+            <div class="id-row">
+              <span id="packet-id-badge" class="badge-draft" style="background:#555;">PKT-XXXX</span>
+              <span class="pipeline-label local-only-label">LOCAL ONLY</span>
+              <span class="pipeline-label not-public-label">NOT PUBLIC</span>
+              <span class="pipeline-label not-approved-label">NOT APPROVED</span>
+              <span class="pipeline-label promotion-blocked-label">PROMOTION BLOCKED</span>
+            </div>
+            <h2 id="packet-draft-title">Promotion Packet</h2>
+          </div>
+          <div class="detail-card alert-card">
+            <h3>Safety Declarations</h3>
+            <div id="packet-safety-content" style="font-size:13px; line-height:1.7;"></div>
+          </div>
+          <div class="detail-card">
+            <h3>Required Reviews</h3>
+            <ul id="packet-reviews-list" class="evidence-list"></ul>
+          </div>
+          <div class="detail-card">
+            <h3>Missing Information</h3>
+            <ul id="packet-missing-list" class="evidence-list"></ul>
+          </div>
+          <div class="detail-card">
+            <h3>Checklist (all must be completed before promotion)</h3>
+            <div id="packet-checklist-content" style="font-size:13px; line-height:1.8;"></div>
+          </div>
+        </div>
+        <div class="detail-sidebar-column">
+          <div class="sticky-sidebar-card">
+            <div class="card-title-lock">
+              <h3>Suggested Public ID</h3>
+              <span class="lock-icon">🔒</span>
+            </div>
+            <p class="sidebar-help-text" style="color: var(--color-warning); font-weight: bold;">SUGGESTION ONLY — NO INCIDENT CREATED</p>
+            <div style="font-size:13px; margin-top:8px;">
+              <div><strong>Suggested ID:</strong> <span id="packet-suggested-id">—</span></div>
+              <div><strong>Suggested Filename:</strong> <span id="packet-suggested-filename">—</span></div>
+              <div style="margin-top:10px; padding:8px; background: rgba(255,80,80,0.1); border-left: 3px solid var(--color-danger); border-radius:4px; font-size:12px;">
+                These are suggestions only. No public incident record has been created. Control Tower approval is required before any INC record may be created.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -75,6 +175,10 @@
             <div class="id-row">
               <span id="detail-draft-id" class="badge-draft">DRAFT-XXXX</span>
               <span id="detail-candidate-id" class="badge-candidate">CAND-XXXX</span>
+              <span id="detail-local-only-label" class="pipeline-label local-only-label hidden">LOCAL ONLY</span>
+              <span id="detail-not-public-label" class="pipeline-label not-public-label hidden">NOT PUBLIC</span>
+              <span id="detail-not-approved-label" class="pipeline-label not-approved-label hidden">NOT APPROVED</span>
+              <span id="detail-promotion-blocked-label" class="pipeline-label promotion-blocked-label hidden">PROMOTION BLOCKED</span>
             </div>
             <h2 id="detail-proposed-title">Proposed Case Title...</h2>
             <div class="domain-row">
@@ -157,17 +261,17 @@
         <div class="detail-sidebar-column">
           <div class="sticky-sidebar-card">
             <div class="card-title-lock">
-              <h3>Promotion Gate Simulation</h3>
+              <h3>Promotion Gate</h3>
               <span class="lock-icon">🔒</span>
             </div>
-            <p class="sidebar-help-text">Simulate the evaluation criteria required to promote this draft case into a public Atlas Incident record.</p>
+            <p class="sidebar-help-text">Evaluation criteria required to promote this draft case into a public Atlas Incident record.</p>
 
             <div class="gate-status-tracker">
-              <div class="status-step passed">
+              <div class="status-step passed" id="gate-step-detected">
                 <span class="step-check">✓</span>
-                <span class="step-text">Source Discovered (Mock)</span>
+                <span class="step-text" id="gate-step-detected-text">Source Discovered</span>
               </div>
-              <div class="status-step passed">
+              <div class="status-step passed" id="gate-step-schema">
                 <span class="step-check">✓</span>
                 <span class="step-text">Schema Validation Compliant</span>
               </div>
