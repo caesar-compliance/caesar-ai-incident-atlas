@@ -1,0 +1,15 @@
+{
+  "_schema": "atlas-bootstrap/watch-run/v1",
+  "generated_at": "2026-05-21T16:26:11.537Z",
+  "mode": "dry_run",
+  "run": {
+    "run_timestamp": "2026-05-21T14:45:38.634Z",
+    "mode": "local",
+    "sources_ok": 6,
+    "sources_failed": 1,
+    "sources_skipped": 0,
+    "detected_candidates": 35,
+    "promotion_eligible": 14,
+    "errors_count": 1
+  }
+}

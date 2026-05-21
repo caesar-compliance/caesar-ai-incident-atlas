@@ -398,6 +398,21 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `data/ops/latest-watch-run-public.json` | Run Summary | Internal sanitised latest watch run summary. (T056) |
 | `site/data/ops/latest-status.json` | Public Ops Status | Public ops status JSON served by GitHub Pages. (T056) |
 | `site/data/ops/latest-watch-run-public.json` | Public Run Summary | Public sanitised watch run summary served by GitHub Pages. (T056) |
+| `.env.example` | Env Reference | Env var placeholder reference — no secrets. Tracked. (T057) |
+| `scripts/validate-supabase-schema.mjs` | Schema Validator | 14-check SQL schema validator for infra/supabase/schema.sql. (T057) |
+| `scripts/export-supabase-bootstrap-payloads.mjs` | Bootstrap Exporter | Sanitized payload exporter → data/ops/supabase/ (sources, records, run, manifest). (T057) |
+| `scripts/sync-supabase-hosted.mjs` | Hosted Sync | Dry-run by default; 5-guard real push path; no remote sync in T057. (T057) |
+| `scripts/validate-hosted-sync-safety.mjs` | Safety Validator | 21-check hosted sync safety validator (env, tokens, site leakage, cron, CF, public count). (T057) |
+| `scripts/test-cloudflare-worker-local.mjs` | Worker Test | 10-route local Cloudflare Worker test without Wrangler/miniflare. (T057) |
+| `data/ops/supabase/atlas-sources.bootstrap.json` | Bootstrap Payload | 7-source sanitized bootstrap payload for Supabase atlas_sources. (T057) |
+| `data/ops/supabase/atlas-public-records.bootstrap.json` | Bootstrap Payload | 13-record sanitized bootstrap payload for Supabase atlas_public_records. (T057) |
+| `data/ops/supabase/atlas-latest-watch-run.bootstrap.json` | Bootstrap Payload | Latest watch run summary payload for Supabase atlas_watch_runs. (T057) |
+| `data/ops/supabase/bootstrap-manifest.json` | Bootstrap Manifest | Manifest with safety declarations (no secrets/drafts/raw HTML). (T057) |
+| `data/ops/supabase/last-hosted-sync-dry-run.json` | Dry-Run Result | Dry-run sync result (no remote sync performed). (T057) |
+| `work-items/T057-supabase-hosted-sync-dry-run/TASK.md` | T057 task | Task scope and deliverables for T057 hosted sync dry run. (T057) |
+| `work-items/T057-supabase-hosted-sync-dry-run/VALIDATION.md` | T057 validation | Validation checklist for hosted sync safety. (T057) |
+| `work-items/T057-supabase-hosted-sync-dry-run/IMPLEMENTATION_REPORT.md` | T057 report | Final report for T057 hosted sync dry-run bootstrap. (T057) |
+| `work-items/T057-supabase-hosted-sync-dry-run/DECISIONS.md` | T057 decisions | D-01–D-06 architecture decisions for T057. (T057) |
 
 ---
 

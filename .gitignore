@@ -1,1 +1,16 @@
 .DS_Store
+
+# Finder space-duplicate files (macOS artefacts — "filename 2.ext", "filename 3.ext", etc.)
+* [0-9].*
+* [0-9]/
+
+# Environment / secrets — never commit real values
+.env
+.env.*
+!.env.example
+
+# Cloudflare Wrangler live config (keep only the example template)
+infra/cloudflare-worker/wrangler.toml
+
+# Node
+node_modules/

@@ -1,0 +1,71 @@
+{
+  "_schema": "atlas-bootstrap/sources/v1",
+  "generated_at": "2026-05-21T16:26:11.537Z",
+  "mode": "dry_run",
+  "count": 7,
+  "records": [
+    {
+      "source_id": "ftc-ai-enforcement",
+      "label": "Federal Trade Commission (FTC) AI Enforcement",
+      "url": "https://www.ftc.gov/business-guidance/blog/2017/01/seriously-would-you-trust-artificial-intelligence-make-your-payroll-decisions",
+      "adapter_name": "ftc-adapter",
+      "risk_tier": "green",
+      "enabled": true,
+      "jurisdiction": "US"
+    },
+    {
+      "source_id": "eeoc-ai-guidance",
+      "label": "Equal Employment Opportunity Commission (EEOC) AI Guidance & Enforcement",
+      "url": "https://www.eeoc.gov/select-issues-assessing-adverse-impact-software-algorithms-and-artificial-intelligence",
+      "adapter_name": "generic-official-adapter",
+      "risk_tier": "green",
+      "enabled": true,
+      "jurisdiction": "US"
+    },
+    {
+      "source_id": "doj-ada-ai-guidance",
+      "label": "Department of Justice (DOJ) ADA AI Guidance",
+      "url": "https://www.ada.gov/resources/usdoj-ada-algorithm-guidance/",
+      "adapter_name": "generic-official-adapter",
+      "risk_tier": "green",
+      "enabled": true,
+      "jurisdiction": "US"
+    },
+    {
+      "source_id": "ico-ai-and-algorithms",
+      "label": "Information Commissioner's Office (ICO) AI and Algorithms",
+      "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/",
+      "adapter_name": "ico-adapter",
+      "risk_tier": "green",
+      "enabled": true,
+      "jurisdiction": "UK"
+    },
+    {
+      "source_id": "cnil-ai",
+      "label": "Commission Nationale de l'Informatique et des Libertés (CNIL) AI Portal",
+      "url": "https://www.cnil.fr/fr/intelligence-artificielle",
+      "adapter_name": "cnil-adapter",
+      "risk_tier": "green",
+      "enabled": true,
+      "jurisdiction": "FR"
+    },
+    {
+      "source_id": "edpb-ai",
+      "label": "European Data Protection Board (EDPB) AI Guidelines",
+      "url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines_en",
+      "adapter_name": "edpb-adapter",
+      "risk_tier": "green",
+      "enabled": true,
+      "jurisdiction": "EU"
+    },
+    {
+      "source_id": "european-commission-ai-act",
+      "label": "European Commission AI Act Portal & Board Reports",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-algorithm-systems",
+      "adapter_name": "eu-commission-adapter",
+      "risk_tier": "green",
+      "enabled": true,
+      "jurisdiction": "EU"
+    }
+  ]
+}

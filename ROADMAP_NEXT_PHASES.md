@@ -172,6 +172,23 @@ For each of the 12 (and future) case records, map to:
 
 ---
 
+## v1.1 — Hosted Sync Dry-Run Bootstrap (T057 — 21 May 2026)
+
+**T057 complete** — Backend readiness without live connections.
+
+- `.gitignore` hardened (env, Finder dupes, wrangler.toml); `.env.example` added
+- Supabase schema validated (14 checks PASS): `scripts/validate-supabase-schema.mjs`
+- Bootstrap payloads exported (sanitized): `data/ops/supabase/` — 7 sources, 13 records
+- Dry-run sync script: `scripts/sync-supabase-hosted.mjs` — 5-guard push path, dry-run default
+- 21-check hosted safety validator: `scripts/validate-hosted-sync-safety.mjs`
+- 10-route local Worker test: `scripts/test-cloudflare-worker-local.mjs`
+- `export-ops-status.mjs`: `hosted_sync_status: dry_run_ready`, `backend_mode: local_bootstrap_ready`
+- `PROJECT_STATE.md` + `README.md` stale drift resolved
+
+**Next T058:** Create Supabase project → apply `schema.sql` → configure secrets → first real hosted sync.
+
+---
+
 ## v1.0 — Hosted Automation Architecture (T056 — 21 May 2026)
 
 **T056 complete** — First real automation-ready architecture layer built.

@@ -6,9 +6,9 @@
 
 | | |
 |---|---|
-| **Status** | Technical Public MVP live (v0.8.0) |
+| **Status** | Public MVP live (v0.15.0) — automation-ready |
 | **Hosting** | GitHub Pages — static site (`site/`) |
-| **Dataset** | 12 curated case records (INC-0001–INC-0012) |
+| **Dataset** | 13 curated case records (INC-0001–INC-0013) |
 | **Safety** | Strict source-risk gates and clean-room summaries apply — not legal advice |
 
 Part of the [Caesar AI Governance Hub](https://github.com/caesar-compliance/caesar-ai-governance-hub) ecosystem.

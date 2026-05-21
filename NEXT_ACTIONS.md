@@ -156,6 +156,19 @@ The following tasks require Artem / Control Tower review before execution:
 
 ---
 
+## T057 — Supabase Hosted Sync Dry Run (Complete — 21 May 2026)
+
+- `.gitignore` updated (env files, Finder dupes, wrangler.toml) + `.env.example` added
+- `scripts/validate-supabase-schema.mjs` — 14-check SQL validator: PASS
+- `scripts/export-supabase-bootstrap-payloads.mjs` → `data/ops/supabase/` (7 sources, 13 records)
+- `scripts/sync-supabase-hosted.mjs` — dry-run PASS (all 5 guards missing by design)
+- `scripts/validate-hosted-sync-safety.mjs` — 21 checks PASS
+- `scripts/test-cloudflare-worker-local.mjs` — 10/10 routes PASS
+- `PROJECT_STATE.md` / `README.md` stale drift fixed
+- **Next T058:** Create Supabase project → apply schema → set secrets → run real sync push
+
+---
+
 ## T056 — Real Automated Monitoring Architecture (Complete — 21 May 2026)
 
 - Architecture decision: `docs/automation/REAL_AUTOMATED_MONITORING_ARCHITECTURE.md`

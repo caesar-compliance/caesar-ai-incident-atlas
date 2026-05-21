@@ -109,6 +109,8 @@ const opsStatus = {
   candidate_count_summary:   candidateCountSummary,
   case_quality_ready_count:  caseQualityReadyCount,
   automation_mode:           'manual_local',
+  hosted_sync_status:        'dry_run_ready',
+  backend_mode:              'local_bootstrap_ready',
   next_step:                 'Configure Supabase + Cloudflare Worker secrets to enable hosted_ready mode',
   public_site_url:           'https://atlas.caesar.no',
   data_endpoint:             'https://atlas.caesar.no/data/incident-index.json',

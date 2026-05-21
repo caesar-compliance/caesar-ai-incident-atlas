@@ -5,6 +5,22 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.16.0] - 21 May 2026
+
+### Added
+- **T057 — Supabase Local/Cloud Bootstrap + Hosted Sync Dry Run.**
+  - `.gitignore` — added env file rules (`.env`, `.env.*`, `!.env.example`), Finder duplicate pattern (`* 2.*`), `infra/cloudflare-worker/wrangler.toml`.
+  - `.env.example` — canonical env var reference with placeholders only (no secrets).
+  - `scripts/validate-supabase-schema.mjs` — 14-check SQL schema validator (required tables, risk tier guard, uniqueness, no secrets, no destructive statements, no scheduled jobs).
+  - `scripts/export-supabase-bootstrap-payloads.mjs` — exports sanitized bootstrap payloads to `data/ops/supabase/` (sources, public records, watch run, manifest).
+  - `scripts/sync-supabase-hosted.mjs` — dry-run by default; guarded real push requires 5 explicit conditions; writes `data/ops/supabase/last-hosted-sync-dry-run.json`.
+  - `scripts/validate-hosted-sync-safety.mjs` — 21-check safety validator (env, gitignore, tokens, site/ leakage, INC-0014, pages.yml, CF config, automation mode, public count).
+  - `scripts/test-cloudflare-worker-local.mjs` — 10-route local Worker test without Wrangler/miniflare; tests all routes including CORS preflight, disabled watch run, and 404.
+  - `data/ops/supabase/` — bootstrap payloads: `atlas-sources.bootstrap.json`, `atlas-public-records.bootstrap.json`, `atlas-latest-watch-run.bootstrap.json`, `bootstrap-manifest.json`, `last-hosted-sync-dry-run.json`.
+  - `scripts/export-ops-status.mjs` — added `hosted_sync_status: dry_run_ready` and `backend_mode: local_bootstrap_ready` fields.
+  - `PROJECT_STATE.md` — updated to T057 / v0.15.0 / 13 records (was stale at T042).
+  - `README.md` — updated dataset count to 13, version to v0.15.0.
+
 ## [0.15.0] - 21 May 2026
 
 ### Added

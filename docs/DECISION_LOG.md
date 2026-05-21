@@ -1,12 +1,23 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T056 — DEC-125)
+**Last updated:** 21 May 2026 (T057 — DEC-131)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
 ---
 
 ## Decision History
+
+### [DEC-126 – DEC-131] — 21 May 2026 — T057 Supabase Hosted Sync Dry Run
+
+**Status:** Approved
+
+- **DEC-126:** Finder `* 2.*` duplicate files are gitignored, not deleted. Keeps working tree clean without data loss.
+- **DEC-127:** `.env` and `.env.*` are always gitignored; `.env.example` is always tracked (`!.env.example`). No real values in example file.
+- **DEC-128:** `sync-supabase-hosted.mjs` requires 5 explicit guards for real push (`--push`, `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `ATLAS_CONFIRM_HOSTED_SYNC=YES`, `ATLAS_HOSTED_SYNC_MODE=push`). Missing any guard → dry-run only.
+- **DEC-129:** Bootstrap payloads export only safe public metadata (no raw HTML, no candidates, no drafts, no packets, no previews, no source internals). Public record fields limited to 8 safe fields already present in public `incident-index.json`.
+- **DEC-130:** Cloudflare Worker local test uses minimal `MockRequest`/`MockResponse` shim instead of Wrangler/miniflare to avoid npm dependencies. Node 18+ built-ins sufficient.
+- **DEC-131:** `export-ops-status.mjs` gains `hosted_sync_status: dry_run_ready` and `backend_mode: local_bootstrap_ready` as informational fields. `automation_mode` stays `manual_local` until Supabase connection is live.
 
 ### [DEC-121 – DEC-125] — 21 May 2026 — T056 Real Automated Monitoring Architecture
 

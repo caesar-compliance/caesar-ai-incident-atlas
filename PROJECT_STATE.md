@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T042)
+**Last updated:** 21 May 2026 (T057)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.8.0` |
-| Current phase | `T042 — Strategic Pivot to AI Legal & Governance Case Atlas` |
+| Current version | `0.15.0` |
+| Current phase | `T057 — Supabase Hosted Sync Dry Run` |
 | Status | `active` |
-| Latest completed task | `T042 — Product Pivot to AI Legal & Governance Case Atlas` |
-| Active work item | `T042 — complete. Recorded new strategic direction, conceptual architecture pipelines, and clean-room reference policies. Dataset: 12 records.` |
-| Next recommended step | `T043 — Implement Watcher or Ingestion Invariant Checklists` |
+| Latest completed task | `T057 — Supabase Local/Cloud Bootstrap + Hosted Sync Dry Run` |
+| Active work item | `T057 — complete. Supabase schema validated, bootstrap payloads exported, dry-run sync passing, CF Worker routes tested. 13 public records. automation_mode: manual_local.` |
+| Next recommended step | `T058 — Configure real Supabase project + apply schema + connect Worker` |
 
 ---
 
