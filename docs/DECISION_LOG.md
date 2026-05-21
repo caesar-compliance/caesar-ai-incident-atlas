@@ -1,12 +1,24 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T066 — DEC-160)
+**Last updated:** 21 May 2026 (T067 — DEC-165)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
 ---
 
 ## Decision History
+
+### [DEC-161 – DEC-165] — 21 May 2026 — T067 Private Promotion-Packet Dry-Run Preparation
+
+**Status:** Approved
+
+- **DEC-161:** Model `suggested_public_record_id` as a structured object (`suggested_id`, `id_status: "suggestion_only"`, `creates_public_record: false`) rather than a plain string to prevent any automated tool from treating the placeholder as a real incident assignment.
+- **DEC-162:** Enforce all safety booleans (`public_publish_ready`, `real_promotion_packet_created`, `public_preview_created`, `public_record_created`, `public_site_mutated`, `remote_write_attempted`, `raw_text_stored`, `html_stored`) as `enum: [false]` in JSON Schema to prevent accidental schema drift.
+- **DEC-163:** Generate a Caesar-native `proposed_public_summary` from metadata only (source name, control theme IDs, disclaimer) — no third-party text copy — to maintain clean-room compliance.
+- **DEC-164:** Strip `intake_id`, `decision_id`, `approval_id`, `candidate_hash`, `source_url`, `governance_chain`, and `proposed_evidence_questions` from the Supabase dry-run payload to prevent leaking private pipeline identifiers.
+- **DEC-165:** Pre-fill `legal_review_checklist` with `public_narrative_lawyer_approved: false` and `publication_risk_approved: false` enforced by schema `enum: [false]` to explicitly document the ungated items required before T068.
+
+---
 
 ### [DEC-156 – DEC-160] — 21 May 2026 — T066 Private Draft Candidate Packet Shaping
 

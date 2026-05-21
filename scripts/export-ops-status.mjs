@@ -22,6 +22,8 @@ const PRIVATE_DECISIONS_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews', 'deci
 const PRIVATE_PACKETS_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews', 'draft-candidate-packets', 'private-draft-candidate-packets-manifest.json');
 const PRIVATE_APPROVALS_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews', 'approvals', 'private-draft-approval-template-manifest.json');
 const PRIVATE_CANDIDATE_PACKAGE_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews', 'private-draft-candidates', 'private-draft-candidate-package-manifest.json');
+const PRIVATE_PROMO_DRY_RUN_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews', 'private-promotion-dry-runs', 'private-promotion-dry-run-manifest.json');
+
 
 const OUT_DIRS = [
   path.join(ROOT, 'data', 'ops'),
@@ -149,6 +151,14 @@ const privateDraftCandidateStatus = privateCandidatePackageManifest ? 'private_p
 const privateDraftCandidatePackageCount = privateCandidatePackageManifest ? (privateCandidatePackageManifest.package_count || 0) : 0;
 const privateDraftCandidatePublicReadyCount = 0;
 
+// ── Read T067 private promotion dry-run manifest ──────────────────────────
+const privatePromoDryRunManifest = readJson(PRIVATE_PROMO_DRY_RUN_MANIFEST_PATH);
+const privatePromotionDryRunStatus = privatePromoDryRunManifest ? 'private_dry_run_ready' : 'not_built';
+const privatePromotionDryRunCount = privatePromoDryRunManifest ? (privatePromoDryRunManifest.dry_run_count || 0) : 0;
+const privatePromotionPublicReadyCount = 0;
+
+
+
 // ── Build status JSON ──────────────────────────────────────────────────────
 const now = new Date().toISOString();
 
@@ -189,6 +199,10 @@ const opsStatus = {
   private_draft_candidate_status: privateDraftCandidateStatus,
   private_draft_candidate_package_count: privateDraftCandidatePackageCount,
   private_draft_candidate_public_ready_count: privateDraftCandidatePublicReadyCount,
+  // T067: Private promotion dry-run status
+  private_promotion_dry_run_status: privatePromotionDryRunStatus,
+  private_promotion_dry_run_count: privatePromotionDryRunCount,
+  private_promotion_public_ready_count: privatePromotionPublicReadyCount,
   next_step:                 'Configure Supabase + Cloudflare Worker secrets to enable hosted_ready mode',
   public_site_url:           'https://atlas.caesar.no',
   data_endpoint:             'https://atlas.caesar.no/data/incident-index.json',

@@ -1,6 +1,6 @@
 {
   "_schema": "caesar-atlas/supabase-payload/atlas-private-draft-candidate-package/private-latest/v1",
-  "generated_at": "2026-05-21T19:27:01.778Z",
+  "generated_at": "2026-05-21T19:39:56.950Z",
   "mode": "dry_run_export",
   "run_id": "GREEN-RUN-20260521-202417",
   "remote_write_attempted": false,
@@ -8,7 +8,7 @@
   "records": [
     {
       "package_id": "DRAFT-CAND-PKG-GREEN-RUN-20260521-202417-001",
-      "created_at": "2026-05-21T19:27:01.708Z",
+      "created_at": "2026-05-21T19:39:56.874Z",
       "source_run_id": "GREEN-RUN-20260521-202417",
       "intake_id": "INTAKE-GREEN-RUN-20260521-202417-001",
       "decision_id": "DECISION-GREEN-RUN-20260521-202417-001",

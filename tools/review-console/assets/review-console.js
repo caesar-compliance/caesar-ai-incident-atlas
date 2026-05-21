@@ -217,7 +217,72 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    if (bundleName === 'private-promotion-dry-run.json') {
+      isPrivateIntakeBundle = false;
+      isRealBundle = false;
+      safetyWarningBanner.innerHTML = `<strong>[CRITICAL WARNING]</strong> PRIVATE PROMOTION DRY-RUN ONLY &bull; NOT A REAL PROMOTION PACKET &bull; NO INC-0014 CREATED &bull; NO PUBLIC PREVIEW &bull; HUMAN LEGAL/GOVERNANCE REVIEW REQUIRED &bull; STRICTLY LOCAL SANDBOX`;
+      safetyLabel.textContent = "PRIVATE PROMOTION DRY-RUN";
+      if (safetyIndicator) {
+        safetyIndicator.className = 'pulse-orange';
+        safetyIndicator.style.backgroundColor = '#f97316';
+      }
+      if (pipelineStageTabs) pipelineStageTabs.style.display = 'none';
+      if (pipelineSummaryBar) pipelineSummaryBar.style.display = 'none';
+      if (digestPreviewBlock) digestPreviewBlock.style.display = 'none';
+      if (qualityClassFilter) qualityClassFilter.style.display = 'none';
+
+      sidebarHeaderTitle.textContent = "Promotion Dry-Runs";
+
+      fetch(`./data/private-promotion-dry-run.json`)
+      .then(r => r.json())
+      .then(dryRunData => {
+        bundleTimestampEl.textContent = dryRunData.generated_at
+          ? new Date(dryRunData.generated_at).toLocaleString()
+          : 'Unknown';
+
+        // Render sidebar
+        draftListContainer.innerHTML = '';
+        const item = document.createElement('div');
+        item.className = 'draft-item draft-item-private-dryrun';
+        item.style.cssText = 'padding:10px 12px; cursor:pointer; border-bottom:1px solid #2a2a2a; background:#0d1a0d;';
+        item.innerHTML = `
+          <div style="font-size:10px; color:#f97316; font-weight:700; text-transform:uppercase; margin-bottom:4px;">
+            ⚡ PRIVATE PROMOTION DRY-RUN
+          </div>
+          <div style="font-size:12px; font-weight:600; color:#fff; margin-bottom:2px;">
+            ${dryRunData.suggested_title || 'Promotion Dry-Run'}
+          </div>
+          <div style="font-size:10px; color:#888;">
+            ${dryRunData.source_run_id || '—'}
+          </div>
+          <div style="margin-top:6px; display:flex; gap:4px; flex-wrap:wrap;">
+            <span style="background:#1a1a0d; border:1px solid #f97316; color:#f97316; font-size:9px; padding:1px 5px; border-radius:3px;">
+              ${dryRunData.dry_run_status || 'private_promotion_dry_run'}
+            </span>
+            <span style="background:#1a0d0d; border:1px solid #ef4444; color:#ef4444; font-size:9px; padding:1px 5px; border-radius:3px;">
+              ${dryRunData.blocker_count || 0} blockers
+            </span>
+          </div>
+        `;
+        item.addEventListener('click', () => renderPrivatePromoDryRunDetail(dryRunData));
+        draftListContainer.appendChild(item);
+        // Auto-open detail
+        renderPrivatePromoDryRunDetail(dryRunData);
+      })
+      .catch(err => {
+        console.error("Error loading private promotion dry-run data:", err);
+        draftListContainer.innerHTML = `
+          <div class="loading-placeholder" style="color: var(--color-danger);">
+            Failed to load Private Promotion Dry-Run data.<br>
+            Please run the T067 workflow scripts first!
+          </div>
+        `;
+      });
+      return;
+    }
+
     isPrivateIntakeBundle = false;
+
 
     fetch(`./${bundleName}`)
       .then(response => {
@@ -1541,6 +1606,117 @@ document.addEventListener('DOMContentLoaded', () => {
     gateStepControl.querySelector('.step-text').textContent = 'Public Promotion Blocked';
   }
 
+  function renderPrivatePromoDryRunDetail(dryRunData) {
+    emptyStatePanel.classList.add('hidden');
+    if (healthDetailPanel) healthDetailPanel.classList.add('hidden');
+    if (packetDetailPanel) packetDetailPanel.classList.add('hidden');
+    activeDetailPanel.classList.remove('hidden');
+
+    ['detail-local-only-label', 'detail-not-public-label', 'detail-not-approved-label', 'detail-promotion-blocked-label'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('hidden');
+    });
+
+    const sugRec = dryRunData.suggested_public_record_id || {};
+
+    detailDraftId.textContent = 'PROMOTION_DRY_RUN';
+    detailCandidateId.textContent = dryRunData.package_id || '—';
+    detailProposedTitle.textContent = dryRunData.suggested_title || 'Promotion Dry-Run';
+    detailJurisdiction.textContent = 'Local (Private Dry-Run)';
+    detailLegalDomain.textContent = 'AI & Governance';
+    detailCommercialDomain.textContent = 'Promotion Dry-Run';
+
+    const gc = dryRunData.governance_chain || {};
+    detailCleanRoomSummary.innerHTML = `
+      <strong>Governance Chain / Synthesis (Caesar-native):</strong><br><br>
+      <div style="margin-bottom:6px;">• <strong>Signal:</strong> ${escapeHTML(gc.candidate_signal || '—')}</div>
+      <div style="margin-bottom:6px;">• <strong>Risk:</strong> ${escapeHTML(gc.legal_or_governance_risk || '—')}</div>
+      <div style="margin-bottom:6px;">• <strong>Failure Mode:</strong> ${escapeHTML(gc.likely_failure_mode || '—')}</div>
+      <div style="margin-bottom:6px;">• <strong>Controls:</strong> ${escapeHTML(gc.missing_controls || '—')}</div>
+      <div style="margin-bottom:6px;">• <strong>Required Evidence:</strong> ${escapeHTML(gc.required_evidence || '—')}</div>
+      <div style="margin-bottom:6px;">• <strong>Vendor Questions:</strong> ${escapeHTML(gc.vendor_questions || '—')}</div>
+      <div style="margin-bottom:6px;">• <strong>Training Lesson:</strong> ${escapeHTML(gc.training_lesson || '—')}</div>
+    `;
+
+    detailCaseType.textContent = dryRunData.suggested_record_type || 'candidate';
+    detailSourceAuthorities.textContent = dryRunData.source_run_id || 'Unknown';
+    detailSourceUrl.href = '#';
+    detailSourceUrl.textContent = 'Private dry-run — no source URL exposed';
+
+    const relevance = dryRunData.legal_governance_relevance || 'medium';
+    detailSourceTier.textContent = `RELEVANCE: ${relevance.toUpperCase()}`;
+    detailSourceTier.className = `tier-pill tier-${relevance === 'high' ? 'green' : relevance === 'low' ? 'red' : 'yellow'}`;
+    detailSourceRiskLevel.textContent = 'PRIVATE_PROMOTION_DRY_RUN';
+    detailSourceRiskLevel.className = 'risk-pill risk-orange';
+
+    detailPublishRecommendation.textContent = 'private_promotion_dry_run';
+    detailBusinessRisk.textContent = 'This is a private promotion dry-run bundle only. No INC-0014 created. No real promotion packet. No public preview. Human legal/governance review required before T068.';
+
+    populateList(detailFailureModesList, dryRunData.proposed_failure_modes || [], 'tag');
+    populateList(detailMissingControlsList, dryRunData.proposed_control_themes || [], 'control');
+    populateList(detailEvidenceList, [], 'evidence');
+    detailTrainingLesson.textContent = 'Pending human legal/governance review and T068 controlled review.';
+    populateList(detailVendorQuestionsList, [], 'question');
+
+    simulationResultPanel.classList.remove('hidden');
+    simulationResultPanel.innerHTML = `
+      <div class="result-header" style="background-color: #b45309; color: white; padding: 10px; border-radius: 4px; font-weight: bold; margin-bottom: 10px; text-align: center; font-size:12px; letter-spacing:0.05em;">
+        ⚡ PRIVATE PROMOTION DRY-RUN
+      </div>
+      <div class="result-body" style="font-size: 13px;">
+        <div style="padding: 10px; background: rgba(180, 83, 9, 0.08); border: 1px solid rgba(249, 115, 22, 0.4); border-radius: 6px; margin-bottom: 12px;">
+          <div style="font-weight: 700; color: #f97316; font-size: 13px; text-transform: uppercase;">
+            ${escapeHTML((dryRunData.dry_run_status || 'private_promotion_dry_run').replace(/_/g, ' '))}
+          </div>
+          <div style="font-size: 11px; color: var(--color-text-muted); margin-top: 4px;">
+            Created: ${dryRunData.created_at ? new Date(dryRunData.created_at).toLocaleString() : '—'}
+          </div>
+        </div>
+
+        <div style="margin-bottom: 8px; padding: 8px; background: #0d1a0d; border: 1px solid #22c55e33; border-radius:4px;">
+          <strong>Suggested Record ID:</strong>
+          <span style="color:#f97316; font-weight:600; margin-left:4px;">
+            ${escapeHTML(sugRec.suggested_id || 'INC-0014-SUGGESTED')}
+          </span>
+          <span style="font-size:10px; color:#888; margin-left:6px;">
+            (${escapeHTML(sugRec.id_status || 'suggestion_only')} — creates_public_record: ${sugRec.creates_public_record})
+          </span>
+        </div>
+
+        <div style="margin-bottom: 8px;">
+          <strong>Publication Blockers (${(dryRunData.publication_blockers || []).length}):</strong>
+          <ul style="color: var(--color-text-muted); padding-left: 20px; margin-top:4px;">
+            ${(dryRunData.publication_blockers || []).map(b => `<li>${escapeHTML(b)}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div style="margin-bottom: 8px;">
+          <strong>Missing Items Before T068 (${(dryRunData.missing_items || []).length}):</strong>
+          <ul style="color: var(--color-text-muted); padding-left: 20px; margin-top:4px;">
+            ${(dryRunData.missing_items || []).map(m => `<li>${escapeHTML(m)}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div style="margin-top: 12px; font-size: 11px; border-top: 1px solid var(--border-color); padding-top: 8px; color: #f97316; font-weight: bold;">
+          ⚡ Private promotion dry-run only &bull; Not a real promotion packet &bull; No INC-0014 created &bull; No public preview &bull; Human legal/governance review required
+        </div>
+      </div>
+    `;
+
+    gateStepCurator.className = 'status-step passed';
+    gateStepCurator.querySelector('.step-check').innerHTML = '✓';
+    gateStepCurator.querySelector('.step-text').textContent = 'Promotion Dry-Run Compiled';
+
+    gateStepWording.className = 'status-step pending';
+    gateStepWording.querySelector('.step-check').innerHTML = '○';
+    gateStepWording.querySelector('.step-text').textContent = 'Legal/Governance Review Required';
+
+    gateStepControl.className = 'status-step blocked';
+    gateStepControl.querySelector('.step-check').innerHTML = '🚫';
+    gateStepControl.querySelector('.step-text').textContent = 'Public Promotion Blocked';
+  }
+
   // Initialize load
   loadBundle('review-bundle.json');
+
 });

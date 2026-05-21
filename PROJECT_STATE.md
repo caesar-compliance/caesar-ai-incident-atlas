@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T066)
+**Last updated:** 21 May 2026 (T067)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.25.0` |
-| Current phase | `T066 — Private Draft Candidate Packet Shaping` |
+| Current version | `0.26.0` |
+| Current phase | `T067 — Private Promotion-Packet Dry-Run Preparation` |
 | Status | `complete` |
-| Latest completed task | `T066 — Private Draft Candidate Packet Shaping` |
-| Active work item | `T066 complete. Converted approved private draft-candidate packet into rich Caesar-native private draft candidate package containing synthesized governance chain, public readiness blocks, Supabase payload mapping dry-runs, and local review console overlays.` |
-| Next recommended step | `Execute T067 — private promotion-packet dry-run preparation.` |
+| Latest completed task | `T067 — Private Promotion-Packet Dry-Run Preparation` |
+| Active work item | `T067 complete. Converted T066 private draft candidate package into a private promotion dry-run bundle with Caesar-native synthesis, legal review checklist, publication blockers, Supabase dry-run payload, and console UI.` |
+| Next recommended step | `Execute T068 — controlled private promotion review/signoff.` |
 
 ---
 

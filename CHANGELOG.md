@@ -4,7 +4,23 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [0.26.0] - 21 May 2026
+
+### Added
+- **T067 — Private Promotion-Packet Dry-Run Preparation.**
+  - `schemas/pipeline/private-promotion-dry-run.schema.json` — Defines and strictly constrains private promotion dry-run bundle fields with JSON Schema `enum: [false]` on all safety booleans and `enum: [suggestion_only]` on the suggested public record ID.
+  - `scripts/build-private-promotion-dry-run.mjs` — Builds Caesar-native dry-run bundle from T066 package; includes governance chain, proposed summary, legal review checklist, and publication blockers.
+  - `scripts/export-review-console-private-promotion-dry-run-data.mjs` — Metadata-only console summary export to `tools/review-console/data/private-promotion-dry-run.json`.
+  - `scripts/export-hosted-private-promotion-dry-run-payloads.mjs` — Sanitized Supabase dry-run payload for future `atlas_private_promotion_dry_runs` table.
+  - `scripts/validate-private-promotion-dry-run.mjs` — 24-check validator covering schema, referential integrity, safety booleans, INC-0014 absence, public count, and site isolation.
+  - `scripts/run-private-promotion-dry-run-workflow.mjs` — Bounded local workflow runner.
+  - Updated `validate-hosted-sync-safety.mjs` with T067 dry-run status and hosted payload checks.
+  - Updated `export-ops-status.mjs` with `private_promotion_dry_run_status`, `private_promotion_dry_run_count`, `private_promotion_public_ready_count`.
+  - Updated Review Console HTML selector and JS handler + detail renderer for `private-promotion-dry-run.json`.
+  - Work item docs: `work-items/T067-private-promotion-packet-dry-run/`.
+
 ## [0.25.0] - 21 May 2026
+
 
 ### Added
 - **T066 — Private Draft Candidate Packet Shaping.**

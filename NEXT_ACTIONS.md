@@ -1,6 +1,7 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T066 Complete)
+**Last updated:** 21 May 2026 (T067 Complete)
+
 
 ---
 
@@ -79,6 +80,7 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 | T060 — Manual Watch Run Queue + Hosted Run Payloads | **Complete** — Private run envelope schemas, queue builder, and dry-run exporters | 21 May 2026 |
 | T061 — Bounded Real Green-Source Manual Run | **Complete** — manual green-tier fetches (ICO/CNIL/EDPB/EU Commission), 4 candidate signals | 21 May 2026 |
 | T066 — Private Draft Candidate Packet Shaping | **Complete** — rich private draft package schema, compiler builder, console widgets, Supabase dry-runs, workflow runner, and safety checker | 21 May 2026 |
+| T067 — Private Promotion-Packet Dry-Run Preparation | **Complete** — private promotion dry-run schema, builder, console exporter, hosted payload exporter, validator, workflow runner, review console UI update | 21 May 2026 |
 | T062 — Private Candidate Review Intake | **Complete** — converted T061 signals to private review intake records, schema, exporters, and safety checks | 21 May 2026 |
 | T065 — Controlled Approval of One Private Intake + Draft Candidate Packet | **Complete** — local-only approved marker generator, selected single candidate, promoted 1 decision, compiled 1 draft packet, updated console and hosted exporters, and added regression tests | 21 May 2026 |
 | T064 — Explicit Private Draft Approval Gate + Controlled Draft Packet Promotion | **Complete** — local-only explicit approval marker schema, generator, applier, updated controlled draft packet builder, dynamic validators, and console UI upgrades | 21 May 2026 |

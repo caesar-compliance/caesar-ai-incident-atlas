@@ -1,0 +1,262 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "caesar-atlas/pipeline/private-promotion-dry-run/v1",
+  "title": "Private Promotion Dry-Run Preparation Bundle",
+  "description": "Schema for a private promotion dry-run preparation bundle. This is NOT a real promotion packet. It is a local-only, human-review-gated dry-run bundle preparing a private draft candidate for future governance review. No public record is created.",
+  "type": "object",
+  "required": [
+    "dry_run_id",
+    "created_at",
+    "source_run_id",
+    "package_id",
+    "intake_id",
+    "decision_id",
+    "approval_id",
+    "candidate_hash",
+    "dry_run_status",
+    "suggested_public_record_id",
+    "suggested_title",
+    "suggested_record_type",
+    "legal_governance_relevance",
+    "governance_chain",
+    "proposed_public_summary",
+    "proposed_failure_modes",
+    "proposed_control_themes",
+    "proposed_evidence_questions",
+    "proposed_vendor_questions",
+    "legal_review_checklist",
+    "publication_blockers",
+    "missing_items",
+    "public_publish_ready",
+    "real_promotion_packet_created",
+    "public_preview_created",
+    "public_record_created",
+    "public_site_mutated",
+    "remote_write_attempted",
+    "raw_text_stored",
+    "html_stored",
+    "safety_flags"
+  ],
+  "properties": {
+    "dry_run_id": {
+      "type": "string",
+      "description": "Unique ID for this dry-run bundle.",
+      "pattern": "^PROMO-DRY-RUN-[A-Z0-9-]+$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 timestamp when this bundle was created."
+    },
+    "source_run_id": {
+      "type": "string",
+      "description": "Source Green-source run ID this dry-run derives from."
+    },
+    "package_id": {
+      "type": "string",
+      "description": "The parent T066 private draft candidate package ID."
+    },
+    "intake_id": {
+      "type": "string",
+      "description": "The parent intake record ID."
+    },
+    "decision_id": {
+      "type": "string",
+      "description": "The parent review decision ID."
+    },
+    "approval_id": {
+      "type": "string",
+      "description": "The parent Control Tower approval marker ID."
+    },
+    "candidate_hash": {
+      "type": "string",
+      "description": "Candidate content hash for referential integrity."
+    },
+    "dry_run_status": {
+      "type": "string",
+      "enum": ["private_promotion_dry_run"],
+      "description": "Status of this dry-run bundle. Must be 'private_promotion_dry_run' — not a real promotion."
+    },
+    "suggested_public_record_id": {
+      "type": "object",
+      "description": "Suggested (not real) public record ID for future human review. Must not create INC-0014.",
+      "required": ["suggested_id", "id_status", "creates_public_record"],
+      "properties": {
+        "suggested_id": {
+          "type": "string",
+          "description": "Placeholder suggested ID — for human review only.",
+          "enum": ["INC-0014-SUGGESTED", "NEXT_PUBLIC_RECORD_ID_RESERVED_FOR_REVIEW"]
+        },
+        "id_status": {
+          "type": "string",
+          "enum": ["suggestion_only"],
+          "description": "Must be 'suggestion_only' — not a real INC ID assignment."
+        },
+        "creates_public_record": {
+          "type": "boolean",
+          "enum": [false],
+          "description": "Must be false — this does not create a public record."
+        }
+      },
+      "additionalProperties": false
+    },
+    "suggested_title": {
+      "type": "string",
+      "description": "Proposed case title for human review. Not yet approved for public use."
+    },
+    "suggested_record_type": {
+      "type": "string",
+      "description": "Proposed record type (e.g. 'candidate')."
+    },
+    "legal_governance_relevance": {
+      "type": "string",
+      "enum": ["high", "medium", "low"],
+      "description": "Assessed legal/governance relevance level."
+    },
+    "governance_chain": {
+      "type": "object",
+      "description": "Caesar-native governance chain synthesis.",
+      "required": [
+        "candidate_signal",
+        "legal_or_governance_risk",
+        "likely_failure_mode",
+        "missing_controls",
+        "required_evidence",
+        "vendor_questions",
+        "training_lesson",
+        "client_checklist_items"
+      ],
+      "properties": {
+        "candidate_signal": { "type": "string" },
+        "legal_or_governance_risk": { "type": "string" },
+        "likely_failure_mode": { "type": "string" },
+        "missing_controls": { "type": "string" },
+        "required_evidence": { "type": "string" },
+        "vendor_questions": { "type": "string" },
+        "training_lesson": { "type": "string" },
+        "client_checklist_items": { "type": "string" }
+      }
+    },
+    "proposed_public_summary": {
+      "type": "string",
+      "description": "Draft public-facing summary (Caesar-native, metadata-only, not yet lawyer-approved)."
+    },
+    "proposed_failure_modes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Proposed failure mode taxonomy IDs."
+    },
+    "proposed_control_themes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Proposed control theme taxonomy IDs."
+    },
+    "proposed_evidence_questions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Proposed evidence questions for compliance gaps."
+    },
+    "proposed_vendor_questions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Proposed vendor due diligence questions."
+    },
+    "legal_review_checklist": {
+      "type": "object",
+      "description": "Checklist of legal/governance review items required before public promotion.",
+      "required": [
+        "source_classification_checked",
+        "no_third_party_text_copied",
+        "public_narrative_lawyer_approved",
+        "guidance_vs_enforcement_checked",
+        "evidence_requirements_identified",
+        "vendor_questions_identified",
+        "publication_risk_approved"
+      ],
+      "properties": {
+        "source_classification_checked": { "type": "boolean" },
+        "no_third_party_text_copied": { "type": "boolean" },
+        "public_narrative_lawyer_approved": { "type": "boolean", "enum": [false] },
+        "guidance_vs_enforcement_checked": { "type": "boolean" },
+        "evidence_requirements_identified": { "type": "boolean" },
+        "vendor_questions_identified": { "type": "boolean" },
+        "publication_risk_approved": { "type": "boolean", "enum": [false] }
+      }
+    },
+    "publication_blockers": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Ordered list of blockers preventing public promotion."
+    },
+    "missing_items": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of items missing before T068 controlled review can be authorized."
+    },
+    "public_publish_ready": {
+      "type": "boolean",
+      "enum": [false],
+      "description": "Must be false — not yet approved for public publication."
+    },
+    "real_promotion_packet_created": {
+      "type": "boolean",
+      "enum": [false],
+      "description": "Must be false — no real promotion packet created by T067."
+    },
+    "public_preview_created": {
+      "type": "boolean",
+      "enum": [false],
+      "description": "Must be false — no public preview created."
+    },
+    "public_record_created": {
+      "type": "boolean",
+      "enum": [false],
+      "description": "Must be false — no public incident record created."
+    },
+    "public_site_mutated": {
+      "type": "boolean",
+      "enum": [false],
+      "description": "Must be false — public site not mutated."
+    },
+    "remote_write_attempted": {
+      "type": "boolean",
+      "enum": [false],
+      "description": "Must be false — no remote writes performed."
+    },
+    "raw_text_stored": {
+      "type": "boolean",
+      "enum": [false],
+      "description": "Must be false — no raw third-party text stored."
+    },
+    "html_stored": {
+      "type": "boolean",
+      "enum": [false],
+      "description": "Must be false — no raw HTML stored."
+    },
+    "safety_flags": {
+      "type": "object",
+      "description": "Explicit safety flag assertions.",
+      "required": [
+        "no_raw_html",
+        "no_long_third_party_text",
+        "no_secrets_exposed",
+        "no_unauthorized_remote_writes",
+        "no_public_site_leak",
+        "no_inc_0014_created",
+        "no_real_promotion_packet",
+        "no_public_preview"
+      ],
+      "properties": {
+        "no_raw_html": { "type": "boolean", "enum": [true] },
+        "no_long_third_party_text": { "type": "boolean", "enum": [true] },
+        "no_secrets_exposed": { "type": "boolean", "enum": [true] },
+        "no_unauthorized_remote_writes": { "type": "boolean", "enum": [true] },
+        "no_public_site_leak": { "type": "boolean", "enum": [true] },
+        "no_inc_0014_created": { "type": "boolean", "enum": [true] },
+        "no_real_promotion_packet": { "type": "boolean", "enum": [true] },
+        "no_public_preview": { "type": "boolean", "enum": [true] }
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -312,6 +312,22 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T066-private-draft-candidate-shaping/VALIDATION.md` | T066 validation | Validation checklist and results. |
 | `work-items/T066-private-draft-candidate-shaping/IMPLEMENTATION_REPORT.md` | T066 report | Implementation report of files created. |
 | `work-items/T066-private-draft-candidate-shaping/DECISIONS.md` | T066 decisions | Decisions made during T066 task. |
+| `schemas/pipeline/private-promotion-dry-run.schema.json` | Dry-Run Schema | JSON Schema enforcing strict constraints on private promotion dry-run bundles. (T067) |
+| `scripts/build-private-promotion-dry-run.mjs` | Dry-Run Builder | Compiles Caesar-native private promotion dry-run bundle from T066 package. (T067) |
+| `scripts/export-hosted-private-promotion-dry-run-payloads.mjs` | Dry-Run Hosted Exporter | Exports sanitized Supabase dry-run payload for atlas_private_promotion_dry_runs. (T067) |
+| `scripts/export-review-console-private-promotion-dry-run-data.mjs` | Dry-Run Console Exporter | Exports metadata-only console summary to tools/review-console/data/. (T067) |
+| `scripts/validate-private-promotion-dry-run.mjs` | Dry-Run Validator | 24-check validator covering schema, safety, INC-0014 absence, and site isolation. (T067) |
+| `scripts/run-private-promotion-dry-run-workflow.mjs` | Dry-Run Workflow Runner | Bounded local runner orchestrating all T067 workflow steps. (T067) |
+| `tools/review-console/data/private-promotion-dry-run.json` | Dry-Run Console Data | Metadata-only console summary for Review Console UI. (T067) |
+| `data/reviews/private-promotion-dry-runs/private-promotion-dry-run-latest.json` | Latest Dry-Run Output | Structured latest private promotion dry-run bundle. (T067) |
+| `data/reviews/private-promotion-dry-runs/private-promotion-dry-run-manifest.json` | Dry-Run Manifest | Latest dry-run manifest with counts and safety status. (T067) |
+| `data/ops/supabase/atlas-private-promotion-dry-run.private-latest.json` | Hosted Dry-Run Payload | Sanitized atlas_private_promotion_dry_runs Supabase payload. (T067) |
+| `work-items/T067-private-promotion-packet-dry-run/TASK.md` | T067 task | Task checklist, scope, and status. |
+| `work-items/T067-private-promotion-packet-dry-run/VALIDATION.md` | T067 validation | Validation checklist and results. |
+| `work-items/T067-private-promotion-packet-dry-run/IMPLEMENTATION_REPORT.md` | T067 report | Implementation report of files created. |
+| `work-items/T067-private-promotion-packet-dry-run/DECISIONS.md` | T067 decisions | Decisions made during T067 task. |
+
+
 
 
 

@@ -1124,6 +1124,73 @@ if (hostedPkgPayload) {
   pass('T066: atlas-private-draft-candidate-package.private-latest.json not present (ok)');
 }
 
+// ── 67. T067: private promotion dry-run bundle checks ────────────────────────
+const promoDryRunLatestPath = path.join(ROOT, 'data', 'reviews', 'private-promotion-dry-runs', 'private-promotion-dry-run-latest.json');
+const promoDryRun = readJson(promoDryRunLatestPath);
+if (promoDryRun) {
+  if (promoDryRun.dry_run_status !== 'private_promotion_dry_run') {
+    fail('T067: private promotion dry-run dry_run_status is not private_promotion_dry_run');
+  } else {
+    pass('T067: private promotion dry-run dry_run_status = private_promotion_dry_run');
+  }
+  if (promoDryRun.public_publish_ready !== false) {
+    fail('T067: private promotion dry-run public_publish_ready is not false');
+  } else {
+    pass('T067: private promotion dry-run public_publish_ready = false');
+  }
+  if (promoDryRun.real_promotion_packet_created !== false) {
+    fail('T067: private promotion dry-run real_promotion_packet_created is not false');
+  } else {
+    pass('T067: private promotion dry-run real_promotion_packet_created = false');
+  }
+  if (promoDryRun.public_record_created !== false) {
+    fail('T067: private promotion dry-run public_record_created is not false');
+  } else {
+    pass('T067: private promotion dry-run public_record_created = false');
+  }
+  const sugRec = promoDryRun.suggested_public_record_id || {};
+  if (sugRec.id_status === 'suggestion_only' && sugRec.creates_public_record === false) {
+    pass('T067: suggested_public_record_id is suggestion_only (correct)');
+  } else {
+    fail('T067: suggested_public_record_id is not properly marked as suggestion_only');
+  }
+  const sf = promoDryRun.safety_flags || {};
+  if (sf.no_inc_0014_created === true && sf.no_real_promotion_packet === true && sf.no_public_preview === true) {
+    pass('T067: private promotion dry-run safety flags are valid');
+  } else {
+    fail('T067: private promotion dry-run safety flags are invalid');
+  }
+} else {
+  pass('T067: private promotion dry-run not present (ok — T067 not yet run)');
+}
+
+const hostedPromoDryRunPath = path.join(OPS_SUPABASE_DIR, 'atlas-private-promotion-dry-run.private-latest.json');
+const hostedPromoDryRun = readJson(hostedPromoDryRunPath);
+if (hostedPromoDryRun) {
+  if (hostedPromoDryRun.remote_write_attempted !== false) {
+    fail('T067: atlas-private-promotion-dry-run.private-latest.json remote_write_attempted is not false');
+  } else {
+    pass('T067: atlas-private-promotion-dry-run.private-latest.json remote_write_attempted = false');
+  }
+  const recs = hostedPromoDryRun.records || [];
+  let promoDryRunErrors = false;
+  for (const r of recs) {
+    if (r.public_publish_ready !== false) {
+      fail(`T067: hosted promotion dry-run record public_publish_ready is not false`);
+      promoDryRunErrors = true;
+    }
+    if (r.remote_write_attempted !== false) {
+      fail(`T067: hosted promotion dry-run record remote_write_attempted is not false`);
+      promoDryRunErrors = true;
+    }
+  }
+  if (!promoDryRunErrors) {
+    pass('T067: hosted promotion dry-run payload records are fully sanitized (correct)');
+  }
+} else {
+  pass('T067: atlas-private-promotion-dry-run.private-latest.json not present (ok)');
+}
+
 // ── Final result ─────────────────────────────────────────────────────────────
 
 process.stdout.write('\n');
