@@ -136,6 +136,9 @@ function buildDraftFromCandidate(candidate, draftId) {
     source_risk_level: 'green',
     publish_recommendation: 'needs_legal_review',
     review_status: 'draft',
+    quality_class: candidate.quality_class || 'unclassified',
+    quality_score: candidate.quality_score ?? null,
+    promotion_blockers: candidate.rejection_reasons || [],
     local_only: true,
     public: false,
     not_legal_advice: true,
@@ -194,11 +197,22 @@ function build() {
 
   let created = 0;
   let skipped = 0;
+  let blocked = 0;
 
   for (const candidate of candidates) {
     if (existingCandIds.has(candidate.candidate_id)) {
       console.log(`Skipping ${candidate.candidate_id} — draft already exists.`);
       skipped++;
+      continue;
+    }
+
+    // Quality gate: only build drafts for promotion-eligible candidates
+    if (candidate.promotion_eligible === false) {
+      const qClass = candidate.quality_class || 'unknown';
+      const reasons = (candidate.rejection_reasons || []).join('; ') || 'quality gate blocked';
+      console.log(`\x1b[33m[Blocked]\x1b[0m ${candidate.candidate_id} [${qClass}] — "${candidate.title}" — ${reasons}`);
+      blocked++;
+      existingCandIds.add(candidate.candidate_id);
       continue;
     }
 
@@ -216,10 +230,11 @@ function build() {
   console.log('\n==========================================');
   console.log('       Caesar Real Draft Build Report     ');
   console.log('==========================================');
-  console.log(`Candidates processed: ${candidates.length}`);
-  console.log(`Drafts created:       ${created}`);
-  console.log(`Drafts skipped:       ${skipped}`);
-  console.log(`Output dir:           ${DRAFTS_REAL_DIR}`);
+  console.log(`Candidates processed:          ${candidates.length}`);
+  console.log(`Drafts created:                ${created}`);
+  console.log(`Drafts skipped (existing):     ${skipped}`);
+  console.log(`Blocked (quality gate):        ${blocked}`);
+  console.log(`Output dir:                    ${DRAFTS_REAL_DIR}`);
   console.log('==========================================\n');
 }
 

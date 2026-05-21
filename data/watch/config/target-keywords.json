@@ -35,10 +35,33 @@
     "risk management"
   ],
   "exclusion_terms": [
-    "event",
+    "make a complaint",
+    "contact us",
+    "about us",
+    "privacy notice",
+    "privacy policy",
+    "cookie policy",
+    "accessibility statement",
+    "terms of use",
+    "terms and conditions",
+    "sitemap",
+    "frequently asked questions",
+    "help centre",
+    "help center",
     "webinar",
     "speech",
     "procurement notice",
-    "job posting"
+    "job posting",
+    "job vacancy",
+    "work for us",
+    "careers at",
+    "vacancies",
+    "tender notice",
+    "contract notice",
+    "annual report and accounts",
+    "newsletter",
+    "subscribe",
+    "feedback form",
+    "get in touch"
   ]
 }

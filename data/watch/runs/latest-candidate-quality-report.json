@@ -1,0 +1,141 @@
+{
+  "generated_at": "2026-05-21T13:43:48.079Z",
+  "total_candidates": 12,
+  "promotion_eligible_count": 6,
+  "blocked_count": 6,
+  "quality_score_threshold": 70,
+  "class_summary": {
+    "generic_page": 2,
+    "likely_guidance": 4,
+    "likely_regulatory_update": 4,
+    "likely_case": 2
+  },
+  "results": [
+    {
+      "candidate_id": "CAND-0018",
+      "title": "Make a complaint",
+      "source_url": "https://ico.org.uk/make-a-complaint/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "generic_page",
+      "quality_score": 15,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "Generic title pattern: \"make a complaint\"",
+        "Generic URL pattern: \"/make-a-complaint\""
+      ]
+    },
+    {
+      "candidate_id": "CAND-0019",
+      "title": "Artificial intelligence (AI) and data protection",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "likely_guidance",
+      "quality_score": 84,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0020",
+      "title": "Explaining decisions made with AI&nbsp;",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 68,
+      "promotion_eligible": false,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0021",
+      "title": "AI and data protection risk toolkit",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/ai-and-data-protection-risk-toolkit/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "likely_guidance",
+      "quality_score": 76,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0022",
+      "title": "FRFrançais",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_fr",
+      "source_id": "edpb-ai",
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 68,
+      "promotion_eligible": false,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0023",
+      "title": "Automated decision &amp; profiling (3)",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en?f%5B0%5D=opinions_topics%3A769",
+      "source_id": "edpb-ai",
+      "quality_class": "likely_case",
+      "quality_score": 84,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0024",
+      "title": "Make a complaint",
+      "source_url": "https://ico.org.uk/make-a-complaint/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "generic_page",
+      "quality_score": 15,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "Generic title pattern: \"make a complaint\"",
+        "Generic URL pattern: \"/make-a-complaint\""
+      ]
+    },
+    {
+      "candidate_id": "CAND-0025",
+      "title": "Artificial intelligence (AI) and data protection",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "likely_guidance",
+      "quality_score": 84,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0026",
+      "title": "Explaining decisions made with AI&nbsp;",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 68,
+      "promotion_eligible": false,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0027",
+      "title": "AI and data protection risk toolkit",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/ai-and-data-protection-risk-toolkit/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "likely_guidance",
+      "quality_score": 76,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0028",
+      "title": "FRFrançais",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_fr",
+      "source_id": "edpb-ai",
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 68,
+      "promotion_eligible": false,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0029",
+      "title": "Automated decision &amp; profiling (3)",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en?f%5B0%5D=opinions_topics%3A769",
+      "source_id": "edpb-ai",
+      "quality_class": "likely_case",
+      "quality_score": 84,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    }
+  ]
+}

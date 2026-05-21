@@ -215,6 +215,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // Show panel
         if (rankedPanel) rankedPanel.style.display = 'block';
 
+        // Show no_publication_candidate_ready banner
+        const noReadyEl = document.getElementById('top-recommendation');
+        if (data.no_publication_candidate_ready && noReadyEl) {
+          noReadyEl.style.borderLeftColor = '#dc3545';
+          noReadyEl.style.background = '#1a0505';
+          const noReadyBanner = document.createElement('div');
+          noReadyBanner.style.cssText = 'background:#dc3545; color:#fff; font-weight:700; font-size:11px; padding:6px 8px; border-radius:3px; margin-bottom:8px; text-align:center;';
+          noReadyBanner.textContent = '⚠ NO PUBLICATION CANDIDATE READY — ALL BLOCKED BY QUALITY GATES';
+          noReadyEl.insertBefore(noReadyBanner, noReadyEl.firstChild);
+        }
+
         // Update top recommendation
         const top = data.top_recommendation;
         if (top) {
@@ -224,23 +235,26 @@ document.addEventListener('DOMContentLoaded', () => {
           const topReason = document.getElementById('top-reason');
 
           if (topPacket) topPacket.textContent = top.top_packet_id || '-';
-          if (topDraft) topDraft.textContent = `Draft: ${top.top_draft_id || '-'}`;
-          if (topScore) topScore.textContent = `Score: ${top.top_score || 0} points`;
+          if (topDraft) topDraft.textContent = `Draft: ${top.top_draft_id || '-'} | Class: ${top.top_quality_class || 'unknown'} | Eligible: ${top.top_promotion_eligible}`;
+          if (topScore) topScore.textContent = `Score: ${top.top_score || 0} points | Best eligible: ${top.best_eligible_packet_id || 'NONE'}`;
           if (topReason) topReason.textContent = top.reason || '-';
         }
 
         // Update ranked list table
         if (rankedListBody) {
           rankedListBody.innerHTML = data.ranked_candidates.slice(0, 5).map(c => {
-            const statusColor = c.risk_flags?.length > 0 ? '#dc3545' : '#28a745';
-            const statusText = c.risk_flags?.length > 0 ? '⚠ Review' : '✓ Ready';
+            const eligible = c.promotion_eligible;
+            const statusColor = eligible ? '#28a745' : '#dc3545';
+            const statusText = eligible ? '✓ Eligible' : '✗ Blocked';
+            const qualityLabel = (c.quality_class || 'unknown').replace(/_/g, ' ');
             return `
-              <tr style="border-bottom:1px solid #333;">
+              <tr style="border-bottom:1px solid #333; ${!eligible ? 'opacity:0.65;' : ''}">
                 <td style="padding:6px; color:#fff; font-weight:600;">${c.rank}</td>
                 <td style="padding:6px; color:#ccc;">${c.packet_id}</td>
                 <td style="padding:6px; color:#888;">${c.draft_id}</td>
                 <td style="padding:6px; text-align:right; color:#fff; font-weight:600;">${c.score}</td>
                 <td style="padding:6px; text-align:center; color:${statusColor}; font-size:11px;">${statusText}</td>
+                <td style="padding:6px; font-size:10px; color:#aaa;">${escapeHTML(qualityLabel)}</td>
               </tr>
             `;
           }).join('');
@@ -324,12 +338,21 @@ document.addEventListener('DOMContentLoaded', () => {
       const isSelected = selectedDraft && selectedDraft.candidate_id === cand.candidate_id;
 
       const itemDiv = document.createElement('button');
-      itemDiv.className = `draft-item ${isSelected ? 'active' : ''}`;
+      const isBlocked = cand.promotion_eligible === false;
+      itemDiv.className = `draft-item ${isSelected ? 'active' : ''} ${isBlocked ? 'quality-blocked-item' : ''}`;
       itemDiv.setAttribute('data-id', cand.candidate_id);
 
       let tierColorClass = 'badge-green';
       if (cand.source_tier === 'yellow') tierColorClass = 'badge-yellow';
       if (cand.source_tier === 'red') tierColorClass = 'badge-red';
+
+      const qualityBadge = qualityBadgeHtml(cand.quality_class, cand.quality_score, cand.promotion_eligible);
+      const blockedLabel = isBlocked
+        ? `<span style="color:#dc3545; font-size:9px; font-weight:600;">✗ BLOCKED</span>`
+        : `<span style="color:#28a745; font-size:9px; font-weight:600;">✓ ELIGIBLE</span>`;
+      const rejectionText = (cand.rejection_reasons && cand.rejection_reasons.length > 0)
+        ? `<div style="font-size:9px; color:#dc3545; margin-top:2px; font-style:italic;">${escapeHTML(cand.rejection_reasons[0])}</div>`
+        : '';
 
       itemDiv.innerHTML = `
         <div class="draft-item-header">
@@ -337,6 +360,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="draft-item-tier ${tierColorClass}">${cand.source_tier || 'green'}</span>
         </div>
         <div class="draft-item-title">${escapeHTML(cand.title)}</div>
+        <div style="margin-top:3px;">${qualityBadge} ${blockedLabel}</div>
+        ${rejectionText}
         <div class="draft-item-meta">
           <span>${escapeHTML(cand.jurisdiction || 'US')} • ${escapeHTML(cand.preliminary_case_type || 'Unknown')}</span>
           <span>${escapeHTML(cand.status || 'real_detected')}</span>
@@ -895,6 +920,29 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/>/g, '&gt;')
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#039;');
+  }
+
+  // Helper: quality class badge HTML
+  function qualityBadgeHtml(qualityClass, qualityScore, promotionEligible) {
+    const BLOCKED_CLASSES = ['generic_page', 'event_or_webinar', 'job_or_procurement', 'low_relevance'];
+    const isBlocked = BLOCKED_CLASSES.includes(qualityClass) || promotionEligible === false;
+
+    const colorMap = {
+      'likely_case': '#1a7a1a',
+      'likely_guidance': '#1a5a7a',
+      'likely_regulatory_update': '#4a4a1a',
+      'generic_page': '#7a1a1a',
+      'event_or_webinar': '#7a4a1a',
+      'job_or_procurement': '#5a2a2a',
+      'low_relevance': '#3a3a3a',
+      'unclassified': '#444',
+    };
+    const bg = colorMap[qualityClass] || '#444';
+    const label = qualityClass ? qualityClass.replace(/_/g, ' ') : 'unclassified';
+    const scoreText = qualityScore != null ? ` (${qualityScore})` : '';
+    const blockedText = isBlocked ? ' ✗' : ' ✓';
+
+    return `<span style="display:inline-block; background:${bg}; color:#eee; font-size:9px; padding:1px 5px; border-radius:3px; font-weight:600; margin-top:2px; letter-spacing:0.3px;">${escapeHTML(label)}${scoreText}${blockedText}</span>`;
   }
 
   // Initialize load

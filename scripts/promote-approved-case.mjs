@@ -80,6 +80,9 @@ function ensureDir(dir) {
   }
 }
 
+const BLOCKED_QUALITY_CLASSES = ['generic_page', 'low_relevance', 'event_or_webinar', 'job_or_procurement'];
+const QUALITY_SCORE_THRESHOLD = 70;
+
 function validateApproval(approval, packet, draft) {
   const errors = [];
 
@@ -110,6 +113,24 @@ function validateApproval(approval, packet, draft) {
     if (!override) {
       errors.push(`${sourceTier.toUpperCase()} tier source requires explicit override_source_tier flag`);
     }
+  }
+
+  // Quality class gate — hard block
+  const qualityClass = packet?.quality_class || draft?.quality_class || null;
+  if (qualityClass && BLOCKED_QUALITY_CLASSES.includes(qualityClass)) {
+    errors.push(`QUALITY GATE BLOCKED: quality_class="${qualityClass}" — generic/low-relevance/event/job pages cannot be promoted`);
+  }
+
+  // Quality score gate
+  const qualityScore = packet?.quality_score ?? draft?.quality_score ?? null;
+  if (qualityScore !== null && qualityScore < QUALITY_SCORE_THRESHOLD) {
+    errors.push(`QUALITY SCORE TOO LOW: ${qualityScore} < ${QUALITY_SCORE_THRESHOLD} — promotion refused`);
+  }
+
+  // Promotion blockers
+  const promotionBlockers = packet?.promotion_blockers || draft?.promotion_blockers || [];
+  if (promotionBlockers.length > 0) {
+    errors.push(`PROMOTION BLOCKERS PRESENT: ${promotionBlockers[0]}`);
   }
 
   // Copied text check
@@ -282,10 +303,38 @@ function generateDryRunPreviews(rankedCandidates) {
     fs.unlinkSync(path.join(PREVIEWS_DIR, f));
   }
 
-  const previews = [];
-  const top5 = rankedCandidates.slice(0, 5);
+  // Filter to promotion-eligible candidates only
+  const eligibleCandidates = rankedCandidates.filter(c => c.promotion_eligible === true);
 
-  for (const candidate of top5) {
+  if (eligibleCandidates.length === 0) {
+    logWarning('No promotion-eligible candidates found for dry-run preview.');
+    // Write a no-candidate-ready report
+    const noCandidateReport = {
+      _dry_run_preview: true,
+      _public: false,
+      _not_approved: true,
+      no_publication_candidate_ready: true,
+      reason: 'All ranked candidates are blocked by quality gates (generic_page, low_relevance, event, job, or promotion_blockers). No dry-run preview generated.',
+      blocked_candidates: rankedCandidates.map(c => ({
+        packet_id: c.packet_id,
+        draft_id: c.draft_id,
+        quality_class: c.quality_class,
+        quality_score: c.quality_score,
+        promotion_eligible: c.promotion_eligible,
+        risk_flags: (c.risk_flags || []).slice(0, 2),
+      })),
+      generated_at: new Date().toISOString(),
+    };
+    const reportPath = path.join(PREVIEWS_DIR, 'no-candidate-ready-report.json');
+    fs.writeFileSync(reportPath, JSON.stringify(noCandidateReport, null, 2), 'utf8');
+    logWarning(`No-candidate-ready report written: ${reportPath}`);
+    return [];
+  }
+
+  const previews = [];
+  const top5Eligible = eligibleCandidates.slice(0, 5);
+
+  for (const candidate of top5Eligible) {
     const packet = loadPacket(candidate.packet_id);
     const draft = loadDraft(candidate.draft_id);
 

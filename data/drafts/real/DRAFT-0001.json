@@ -38,8 +38,14 @@
   "training_lesson": "Regulatory bodies such as Information Commissioner's Office (ICO) issue guidance that directly affects AI system deployments. Organisations must maintain active monitoring processes to detect and respond to new guidance before it becomes an enforcement trigger.",
   "clean_room_summary": "Information Commissioner's Office (ICO) has published material relating to Make a complaint. This record reflects metadata detected during a manual Green-source watcher run on 2026-05-21. This draft is a Caesar-authored internal working document compiled from public metadata only. No source text has been copied. This is not legal advice. This draft requires curator review and Control Tower approval before any public use.",
   "source_risk_level": "green",
-  "publish_recommendation": "needs_legal_review",
+  "publish_recommendation": "blocked_low_quality",
   "review_status": "draft",
+  "quality_class": "generic_page",
+  "quality_score": 15,
+  "promotion_blockers": [
+    "Generic title pattern: \"make a complaint\"",
+    "Generic URL pattern: \"/make-a-complaint\""
+  ],
   "local_only": true,
   "public": false,
   "not_legal_advice": true,

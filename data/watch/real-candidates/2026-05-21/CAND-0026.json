@@ -18,5 +18,9 @@
   "risk_flags": [
     "no_risk_detected"
   ],
-  "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK."
+  "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK.",
+  "quality_class": "likely_regulatory_update",
+  "quality_score": 68,
+  "promotion_eligible": false,
+  "rejection_reasons": []
 }

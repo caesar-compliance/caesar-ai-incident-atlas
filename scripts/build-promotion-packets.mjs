@@ -70,6 +70,9 @@ function buildPacketFromDraft(draft, packetId) {
     candidate_ids: draft.candidate_ids || [],
     source_urls: draft.source_urls || [],
     source_tier: draft.source_risk_level || 'green',
+    quality_class: draft.quality_class || 'unclassified',
+    quality_score: draft.quality_score ?? null,
+    promotion_blockers: draft.promotion_blockers || [],
     required_reviews: [
       'curator_risk_review',
       'clean_room_wording_audit',
@@ -131,8 +134,11 @@ function build() {
     } catch (e) { /* skip */ }
   }
 
+  const BLOCKED_QUALITY_CLASSES = ['generic_page', 'low_relevance', 'event_or_webinar', 'job_or_procurement'];
+
   let created = 0;
   let skipped = 0;
+  let blocked = 0;
 
   for (const file of draftFiles) {
     let draft;
@@ -146,6 +152,22 @@ function build() {
     if (existingDraftIds.has(draft.draft_id)) {
       console.log(`Skipping ${draft.draft_id} — packet already exists.`);
       skipped++;
+      continue;
+    }
+
+    // Quality gate: refuse packets for blocked quality classes
+    if (draft.quality_class && BLOCKED_QUALITY_CLASSES.includes(draft.quality_class)) {
+      console.log(`\x1b[31m[Blocked]\x1b[0m ${draft.draft_id} [${draft.quality_class}] — no promotion packet created.`);
+      blocked++;
+      existingDraftIds.add(draft.draft_id);
+      continue;
+    }
+
+    // Also refuse if promotion_blockers exist
+    if (draft.promotion_blockers && draft.promotion_blockers.length > 0) {
+      console.log(`\x1b[31m[Blocked]\x1b[0m ${draft.draft_id} — has promotion blockers: ${draft.promotion_blockers[0]}`);
+      blocked++;
+      existingDraftIds.add(draft.draft_id);
       continue;
     }
 
@@ -163,10 +185,11 @@ function build() {
   console.log('\n==========================================');
   console.log('    Caesar Promotion Packet Build Report  ');
   console.log('==========================================');
-  console.log(`Drafts processed:   ${draftFiles.length}`);
-  console.log(`Packets created:    ${created}`);
-  console.log(`Packets skipped:    ${skipped}`);
-  console.log(`Output dir:         ${PACKETS_REAL_DIR}`);
+  console.log(`Drafts processed:          ${draftFiles.length}`);
+  console.log(`Packets created:           ${created}`);
+  console.log(`Packets skipped (exists):  ${skipped}`);
+  console.log(`Blocked (quality gate):    ${blocked}`);
+  console.log(`Output dir:                ${PACKETS_REAL_DIR}`);
   console.log('NOTE: promotion_allowed is false on ALL packets.');
   console.log('NOTE: Suggested IDs are SUGGESTIONS only — no public records created.');
   console.log('==========================================\n');

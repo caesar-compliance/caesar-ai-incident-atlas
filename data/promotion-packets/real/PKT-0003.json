@@ -39,5 +39,8 @@
     "local_only": true,
     "auto_publish": false
   },
-  "generated_at": "2026-05-21T12:56:04.814Z"
+  "generated_at": "2026-05-21T12:56:04.814Z",
+  "quality_class": "likely_regulatory_update",
+  "quality_score": 68,
+  "promotion_blockers": []
 }

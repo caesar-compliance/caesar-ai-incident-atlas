@@ -45,5 +45,8 @@
   "not_legal_advice": true,
   "source_text_copied": false,
   "generated_at": "2026-05-21T12:56:01.267Z",
-  "pipeline_stage": "real_draft_needs_review"
+  "pipeline_stage": "real_draft_needs_review",
+  "quality_class": "likely_case",
+  "quality_score": 84,
+  "promotion_blockers": []
 }

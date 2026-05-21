@@ -52,10 +52,33 @@ function findCandidateForPacket(packet, bundle) {
   return bundle.candidates?.find(c => c.candidate_id === candidateId) || null;
 }
 
+const BLOCKED_QUALITY_CLASSES = ['generic_page', 'low_relevance', 'event_or_webinar', 'job_or_procurement'];
+const QUALITY_SCORE_THRESHOLD = 70;
+
 function scorePacket(packet, draft, candidate) {
   let score = 0;
   const reasons = [];
   const risks = [];
+
+  // Quality class gate (hard reject)
+  const qualityClass = packet.quality_class || draft?.quality_class || null;
+  const qualityScore = packet.quality_score ?? draft?.quality_score ?? null;
+  const promotionBlockers = packet.promotion_blockers || draft?.promotion_blockers || [];
+
+  if (qualityClass && BLOCKED_QUALITY_CLASSES.includes(qualityClass)) {
+    score -= 500;
+    risks.push(`QUALITY BLOCKED: quality_class="${qualityClass}" — not eligible for promotion`);
+  }
+
+  if (qualityScore !== null && qualityScore < QUALITY_SCORE_THRESHOLD) {
+    score -= 200;
+    risks.push(`QUALITY SCORE TOO LOW: ${qualityScore} < ${QUALITY_SCORE_THRESHOLD} threshold`);
+  }
+
+  if (promotionBlockers.length > 0) {
+    score -= 300;
+    risks.push(`PROMOTION BLOCKERS: ${promotionBlockers[0]}${promotionBlockers.length > 1 ? ` +${promotionBlockers.length - 1} more` : ''}`);
+  }
 
   // Source tier (critical): Green = good, Yellow/Red = reject
   const sourceTier = packet.source_tier || 'green';
@@ -169,6 +192,13 @@ function rankCandidates() {
 
     const scoring = scorePacket(packet, draft, candidate);
 
+    const qualityClass = packet.quality_class || draft?.quality_class || null;
+    const qualityScore = packet.quality_score ?? draft?.quality_score ?? null;
+    const promotionBlockers = packet.promotion_blockers || draft?.promotion_blockers || [];
+    const isQualityBlocked = (qualityClass && BLOCKED_QUALITY_CLASSES.includes(qualityClass)) ||
+      (qualityScore !== null && qualityScore < QUALITY_SCORE_THRESHOLD) ||
+      promotionBlockers.length > 0;
+
     ranked.push({
       packet_id: packet.packet_id,
       draft_id: packet.draft_id,
@@ -179,6 +209,10 @@ function rankCandidates() {
       ranking_reasons: scoring.reasons,
       risk_flags: scoring.risks,
       source_tier: scoring.source_tier,
+      quality_class: qualityClass,
+      quality_score: qualityScore,
+      promotion_eligible: !isQualityBlocked,
+      promotion_blockers: promotionBlockers,
       promotion_pre_allowed: scoring.promotion_allowed,
       requires_control_tower_approval: true,
       requires_legal_review: scoring.risks.some(r => r.includes('legal') || r.includes('defamation')),
@@ -198,26 +232,52 @@ function rankCandidates() {
 
   // Determine top recommendation
   const topCandidate = ranked[0];
+  const topIsEligible = topCandidate && topCandidate.promotion_eligible === true;
+
+  // Find best eligible candidate
+  const bestEligible = ranked.find(r => r.promotion_eligible === true);
+
   const recommendation = {
     top_packet_id: topCandidate?.packet_id || null,
     top_draft_id: topCandidate?.draft_id || null,
     top_candidate_id: topCandidate?.candidate_id || null,
     top_score: topCandidate?.score || 0,
-    reason: topCandidate ? `Highest scoring packet (${topCandidate.score} points). ${topCandidate.ranking_reasons.slice(0, 3).join('; ')}.` : 'No candidates available',
+    top_quality_class: topCandidate?.quality_class || null,
+    top_promotion_eligible: topIsEligible,
+    no_publication_candidate_ready: !bestEligible,
+    best_eligible_packet_id: bestEligible?.packet_id || null,
+    reason: topCandidate
+      ? (topIsEligible
+          ? `Highest scoring packet (${topCandidate.score} points). ${topCandidate.ranking_reasons.slice(0, 3).join('; ')}.`
+          : `Top packet is BLOCKED (${topCandidate.quality_class || 'unknown quality'}). Best eligible: ${bestEligible?.packet_id || 'none'}.`)
+      : 'No candidates available',
     risks: topCandidate?.risk_flags || [],
     required_approval: 'Control Tower approval required before any public promotion',
-    next_steps: [
-      '1. Review top candidate in local review console',
-      '2. Complete curator risk review checklist',
-      '3. Obtain Control Tower explicit approval',
-      '4. Add approval to data/reviews/real/approved-promotions.json',
-      '5. Run promote-approved-case.mjs'
-    ]
+    next_steps: bestEligible
+      ? [
+          `1. Review ${bestEligible.packet_id} in local review console`,
+          '2. Complete curator risk review checklist',
+          '3. Obtain Control Tower explicit approval',
+          '4. Add approval to data/reviews/real/approved-promotions.json',
+          '5. Run promote-approved-case.mjs'
+        ]
+      : [
+          'No promotion-eligible candidate found.',
+          'Run watch-green-sources.mjs to collect new candidates.',
+          'Run classify-candidate-quality.mjs to re-classify.',
+          'Review rejected candidates for manual escalation if warranted.'
+        ]
   };
+
+  const eligibleCount = ranked.filter(r => r.promotion_eligible).length;
+  const blockedCount = ranked.filter(r => !r.promotion_eligible).length;
 
   const output = {
     generated_at: new Date().toISOString(),
     total_candidates: ranked.length,
+    promotion_eligible_count: eligibleCount,
+    blocked_count: blockedCount,
+    no_publication_candidate_ready: !bestEligible,
     ranked_candidates: ranked,
     top_recommendation: recommendation,
     safety_note: 'ALL candidates require Control Tower approval before public promotion. No automatic promotion will occur.'
@@ -235,22 +295,31 @@ function rankCandidates() {
   console.log(`\n${'='.repeat(60)}`);
   console.log('  RANKING COMPLETE');
   console.log(`${'='.repeat(60)}`);
-  console.log(`Total packets ranked: ${ranked.length}`);
+  console.log(`Total packets ranked:   ${ranked.length}`);
+  console.log(`Promotion eligible:     ${output.promotion_eligible_count}`);
+  console.log(`Blocked:                ${output.blocked_count}`);
   console.log(`\nTop 5 Candidates:`);
   ranked.slice(0, 5).forEach(r => {
-    const status = r.risk_flags.length === 0 ? '✓' : '⚠';
-    console.log(`  ${status} Rank ${r.rank}: ${r.packet_id} (${r.draft_id}) - Score: ${r.score}`);
+    const eligible = r.promotion_eligible ? '\x1b[32m✓ ELIGIBLE\x1b[0m' : '\x1b[31m✗ BLOCKED\x1b[0m';
+    console.log(`  Rank ${r.rank}: ${r.packet_id} (${r.draft_id}) - Score: ${r.score} | ${eligible} | ${r.quality_class || 'unclassified'}`);
     if (r.risk_flags.length > 0) {
-      console.log(`      Risks: ${r.risk_flags[0]}${r.risk_flags.length > 1 ? ' +' + (r.risk_flags.length - 1) + ' more' : ''}`);
+      console.log(`    Risk: ${r.risk_flags[0]}${r.risk_flags.length > 1 ? ` +${r.risk_flags.length - 1} more` : ''}`);
     }
   });
 
   console.log(`\n${'='.repeat(60)}`);
   console.log('  TOP RECOMMENDATION');
   console.log(`${'='.repeat(60)}`);
+  if (output.no_publication_candidate_ready) {
+    console.log(`\x1b[33m[WARNING] NO PUBLICATION CANDIDATE READY\x1b[0m`);
+    console.log(`All current packets are blocked or ineligible for promotion.`);
+  }
   console.log(`Packet: ${recommendation.top_packet_id}`);
   console.log(`Draft:  ${recommendation.top_draft_id}`);
   console.log(`Score:  ${recommendation.top_score}`);
+  console.log(`Quality Class: ${recommendation.top_quality_class || 'unknown'}`);
+  console.log(`Promotion Eligible: ${recommendation.top_promotion_eligible}`);
+  console.log(`Best Eligible Packet: ${recommendation.best_eligible_packet_id || 'NONE'}`);
   console.log(`\nReason: ${recommendation.reason}`);
   if (recommendation.risks.length > 0) {
     console.log(`\nRisks:`);

@@ -4,14 +4,14 @@
   "_not_approved": true,
   "_warning": "THIS IS A DRY-RUN PREVIEW ONLY. NOT A PUBLIC RECORD. NOT APPROVED FOR PUBLICATION.",
   "incident_id": "INC-0013",
-  "title": "[PREVIEW] FRFrançais — European Data Protection Board (EDPB) (EU)",
+  "title": "[PREVIEW] Automated decision & profiling (3) — European Data Protection Board (EDPB) (EU)",
   "date": "21 May 2026",
   "date_note": "DRAFT PREVIEW: Date requires verification from actual source material",
   "sector": [
     "cross-sector AI governance"
   ],
   "ai_system_context": "DRAFT: AI governance case from EU jurisdiction",
-  "summary": "[DRAFT PREVIEW] European Data Protection Board (EDPB) has published material relating to FRFrançais. This record reflects metadata detected during a manual Green-source watcher run on 2026-05-21. This draft is a Caesar-authored internal working document compiled from public metadata only. No source text has been copied. This is not legal advice. This draft requires curator review and Control Tower approval before any public use.",
+  "summary": "[DRAFT PREVIEW] European Data Protection Board (EDPB) has published material relating to Automated decision & profiling (3). This record reflects metadata detected during a manual Green-source watcher run on 2026-05-21. This draft is a Caesar-authored internal working document compiled from public metadata only. No source text has been copied. This is not legal advice. This draft requires curator review and Control Tower approval before any public use.",
   "failure_modes": [
     "FM-GOVERNANCE-GAP",
     "FM-COMPLIANCE-DEFICIT"
@@ -33,7 +33,7 @@
   ],
   "sources": [
     {
-      "url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_fr",
+      "url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en?f%5B0%5D=opinions_topics%3A769",
       "source_type": "public_database_pointer",
       "accessed": "21 May 2026",
       "title": "[DRAFT] European Data Protection Board (EDPB) reference"
@@ -47,10 +47,10 @@
   ],
   "impact": "[DRAFT] Organisations using AI systems in EU face regulatory scrutiny from European Data Protection Board (EDPB). Failure to track and implement guidance from this source may result in enforcement action, fines, or operational restrictions. Relevant to AI procurement, deployment, and compliance programmes.",
   "_preview_metadata": {
-    "from_draft": "DRAFT-0005",
-    "from_packet": "PKT-0005",
-    "rank": 5,
-    "generated_at": "2026-05-21T13:08:51.443Z",
+    "from_draft": "DRAFT-0006",
+    "from_packet": "PKT-0006",
+    "rank": 3,
+    "generated_at": "2026-05-21T13:50:29.317Z",
     "promotion_blocked_reason": "No explicit Control Tower approval in approved-promotions.json"
   }
 }
