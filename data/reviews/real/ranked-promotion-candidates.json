@@ -1,0 +1,293 @@
+{
+  "generated_at": "2026-05-21T13:08:34.149Z",
+  "total_candidates": 6,
+  "ranked_candidates": [
+    {
+      "packet_id": "PKT-0001",
+      "draft_id": "DRAFT-0001",
+      "candidate_id": "CAND-0018",
+      "suggested_public_case_id": "INC-0013",
+      "suggested_public_filename": "inc-0013.json",
+      "score": 130,
+      "ranking_reasons": [
+        "Green source tier (+50)",
+        "Source URL verified (+15)",
+        "Legal domain classified (+10)",
+        "Commercial domain classified (+10)",
+        "Governance lesson documented (+10)",
+        "Low defamation risk (+10)",
+        "Missing controls documented (+5)",
+        "Evidence requirements clear (+5)",
+        "Clean-room confirmed: no source text copied (+15)"
+      ],
+      "risk_flags": [],
+      "source_tier": "green",
+      "promotion_pre_allowed": false,
+      "requires_control_tower_approval": true,
+      "requires_legal_review": false,
+      "required_reviews": [
+        "curator_risk_review",
+        "clean_room_wording_audit",
+        "legal_domain_classification_review",
+        "control_tower_publication_approval"
+      ],
+      "missing_information": [
+        "Independent curator review of proposed_case_title for neutrality and accuracy.",
+        "Legal domain classification confirmation by a qualified reviewer.",
+        "Control Tower sign-off on publication timing and risk posture."
+      ],
+      "safety_declarations": {
+        "not_approved": true,
+        "not_public": true,
+        "control_tower_approval_required": true,
+        "curator_review_required": true,
+        "clean_room_wording_review_required": true,
+        "local_only": true,
+        "auto_publish": false
+      },
+      "rank": 1
+    },
+    {
+      "packet_id": "PKT-0002",
+      "draft_id": "DRAFT-0002",
+      "candidate_id": "CAND-0019",
+      "suggested_public_case_id": "INC-0013",
+      "suggested_public_filename": "inc-0013.json",
+      "score": 130,
+      "ranking_reasons": [
+        "Green source tier (+50)",
+        "Source URL verified (+15)",
+        "Legal domain classified (+10)",
+        "Commercial domain classified (+10)",
+        "Governance lesson documented (+10)",
+        "Low defamation risk (+10)",
+        "Missing controls documented (+5)",
+        "Evidence requirements clear (+5)",
+        "Clean-room confirmed: no source text copied (+15)"
+      ],
+      "risk_flags": [],
+      "source_tier": "green",
+      "promotion_pre_allowed": false,
+      "requires_control_tower_approval": true,
+      "requires_legal_review": false,
+      "required_reviews": [
+        "curator_risk_review",
+        "clean_room_wording_audit",
+        "legal_domain_classification_review",
+        "control_tower_publication_approval"
+      ],
+      "missing_information": [
+        "Independent curator review of proposed_case_title for neutrality and accuracy.",
+        "Legal domain classification confirmation by a qualified reviewer.",
+        "Control Tower sign-off on publication timing and risk posture."
+      ],
+      "safety_declarations": {
+        "not_approved": true,
+        "not_public": true,
+        "control_tower_approval_required": true,
+        "curator_review_required": true,
+        "clean_room_wording_review_required": true,
+        "local_only": true,
+        "auto_publish": false
+      },
+      "rank": 2
+    },
+    {
+      "packet_id": "PKT-0003",
+      "draft_id": "DRAFT-0003",
+      "candidate_id": "CAND-0020",
+      "suggested_public_case_id": "INC-0013",
+      "suggested_public_filename": "inc-0013.json",
+      "score": 130,
+      "ranking_reasons": [
+        "Green source tier (+50)",
+        "Source URL verified (+15)",
+        "Legal domain classified (+10)",
+        "Commercial domain classified (+10)",
+        "Governance lesson documented (+10)",
+        "Low defamation risk (+10)",
+        "Missing controls documented (+5)",
+        "Evidence requirements clear (+5)",
+        "Clean-room confirmed: no source text copied (+15)"
+      ],
+      "risk_flags": [],
+      "source_tier": "green",
+      "promotion_pre_allowed": false,
+      "requires_control_tower_approval": true,
+      "requires_legal_review": false,
+      "required_reviews": [
+        "curator_risk_review",
+        "clean_room_wording_audit",
+        "legal_domain_classification_review",
+        "control_tower_publication_approval"
+      ],
+      "missing_information": [
+        "Independent curator review of proposed_case_title for neutrality and accuracy.",
+        "Legal domain classification confirmation by a qualified reviewer.",
+        "Control Tower sign-off on publication timing and risk posture."
+      ],
+      "safety_declarations": {
+        "not_approved": true,
+        "not_public": true,
+        "control_tower_approval_required": true,
+        "curator_review_required": true,
+        "clean_room_wording_review_required": true,
+        "local_only": true,
+        "auto_publish": false
+      },
+      "rank": 3
+    },
+    {
+      "packet_id": "PKT-0004",
+      "draft_id": "DRAFT-0004",
+      "candidate_id": "CAND-0021",
+      "suggested_public_case_id": "INC-0013",
+      "suggested_public_filename": "inc-0013.json",
+      "score": 130,
+      "ranking_reasons": [
+        "Green source tier (+50)",
+        "Source URL verified (+15)",
+        "Legal domain classified (+10)",
+        "Commercial domain classified (+10)",
+        "Governance lesson documented (+10)",
+        "Low defamation risk (+10)",
+        "Missing controls documented (+5)",
+        "Evidence requirements clear (+5)",
+        "Clean-room confirmed: no source text copied (+15)"
+      ],
+      "risk_flags": [],
+      "source_tier": "green",
+      "promotion_pre_allowed": false,
+      "requires_control_tower_approval": true,
+      "requires_legal_review": false,
+      "required_reviews": [
+        "curator_risk_review",
+        "clean_room_wording_audit",
+        "legal_domain_classification_review",
+        "control_tower_publication_approval"
+      ],
+      "missing_information": [
+        "Independent curator review of proposed_case_title for neutrality and accuracy.",
+        "Legal domain classification confirmation by a qualified reviewer.",
+        "Control Tower sign-off on publication timing and risk posture."
+      ],
+      "safety_declarations": {
+        "not_approved": true,
+        "not_public": true,
+        "control_tower_approval_required": true,
+        "curator_review_required": true,
+        "clean_room_wording_review_required": true,
+        "local_only": true,
+        "auto_publish": false
+      },
+      "rank": 4
+    },
+    {
+      "packet_id": "PKT-0005",
+      "draft_id": "DRAFT-0005",
+      "candidate_id": "CAND-0022",
+      "suggested_public_case_id": "INC-0013",
+      "suggested_public_filename": "inc-0013.json",
+      "score": 130,
+      "ranking_reasons": [
+        "Green source tier (+50)",
+        "Source URL verified (+15)",
+        "Legal domain classified (+10)",
+        "Commercial domain classified (+10)",
+        "Governance lesson documented (+10)",
+        "Low defamation risk (+10)",
+        "Missing controls documented (+5)",
+        "Evidence requirements clear (+5)",
+        "Clean-room confirmed: no source text copied (+15)"
+      ],
+      "risk_flags": [],
+      "source_tier": "green",
+      "promotion_pre_allowed": false,
+      "requires_control_tower_approval": true,
+      "requires_legal_review": false,
+      "required_reviews": [
+        "curator_risk_review",
+        "clean_room_wording_audit",
+        "legal_domain_classification_review",
+        "control_tower_publication_approval"
+      ],
+      "missing_information": [
+        "Independent curator review of proposed_case_title for neutrality and accuracy.",
+        "Legal domain classification confirmation by a qualified reviewer.",
+        "Control Tower sign-off on publication timing and risk posture."
+      ],
+      "safety_declarations": {
+        "not_approved": true,
+        "not_public": true,
+        "control_tower_approval_required": true,
+        "curator_review_required": true,
+        "clean_room_wording_review_required": true,
+        "local_only": true,
+        "auto_publish": false
+      },
+      "rank": 5
+    },
+    {
+      "packet_id": "PKT-0006",
+      "draft_id": "DRAFT-0006",
+      "candidate_id": "CAND-0023",
+      "suggested_public_case_id": "INC-0013",
+      "suggested_public_filename": "inc-0013.json",
+      "score": 130,
+      "ranking_reasons": [
+        "Green source tier (+50)",
+        "Source URL verified (+15)",
+        "Legal domain classified (+10)",
+        "Commercial domain classified (+10)",
+        "Governance lesson documented (+10)",
+        "Low defamation risk (+10)",
+        "Missing controls documented (+5)",
+        "Evidence requirements clear (+5)",
+        "Clean-room confirmed: no source text copied (+15)"
+      ],
+      "risk_flags": [],
+      "source_tier": "green",
+      "promotion_pre_allowed": false,
+      "requires_control_tower_approval": true,
+      "requires_legal_review": false,
+      "required_reviews": [
+        "curator_risk_review",
+        "clean_room_wording_audit",
+        "legal_domain_classification_review",
+        "control_tower_publication_approval"
+      ],
+      "missing_information": [
+        "Independent curator review of proposed_case_title for neutrality and accuracy.",
+        "Legal domain classification confirmation by a qualified reviewer.",
+        "Control Tower sign-off on publication timing and risk posture."
+      ],
+      "safety_declarations": {
+        "not_approved": true,
+        "not_public": true,
+        "control_tower_approval_required": true,
+        "curator_review_required": true,
+        "clean_room_wording_review_required": true,
+        "local_only": true,
+        "auto_publish": false
+      },
+      "rank": 6
+    }
+  ],
+  "top_recommendation": {
+    "top_packet_id": "PKT-0001",
+    "top_draft_id": "DRAFT-0001",
+    "top_candidate_id": "CAND-0018",
+    "top_score": 130,
+    "reason": "Highest scoring packet (130 points). Green source tier (+50); Source URL verified (+15); Legal domain classified (+10).",
+    "risks": [],
+    "required_approval": "Control Tower approval required before any public promotion",
+    "next_steps": [
+      "1. Review top candidate in local review console",
+      "2. Complete curator risk review checklist",
+      "3. Obtain Control Tower explicit approval",
+      "4. Add approval to data/reviews/real/approved-promotions.json",
+      "5. Run promote-approved-case.mjs"
+    ]
+  },
+  "safety_note": "ALL candidates require Control Tower approval before public promotion. No automatic promotion will occur."
+}

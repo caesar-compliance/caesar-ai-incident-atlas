@@ -5,6 +5,28 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.11.0] - 21 May 2026
+
+### Added
+- **T049 — Promotion CLI + Public Case Dry-Run + Candidate Ranking.** Built the real promotion machinery for Atlas with hard safety gates.
+- `scripts/rank-promotion-candidates.mjs` — scores all promotion packets by safety criteria (Green source +50, no copied text +15, legal/commercial domains +10 each, etc.), generates `data/reviews/real/ranked-promotion-candidates.json` with top 5 and recommendation. Top: PKT-0001 (DRAFT-0001) score 130.
+- `data/reviews/real/approved-promotions.json` — Control Tower approval registry. Empty `approvals: []` array = dry-run only mode. Single approval per run enforced.
+- `data/reviews/real/approved-promotions.example.json` — documented approval format with all required fields and override flags.
+- `scripts/promote-approved-case.mjs` — dual-mode CLI. No approval: generates 5 dry-run previews in `data/promotion-previews/real/` (marked `_dry_run_preview: true`, `_not_approved: true`, `_public: false`). With approval: promotes exactly ONE case with full audit trail.
+- `scripts/validate-promotion-dry-run.mjs` — comprehensive safety validation: public count = 12, no INC-0013 without approval, all dry-run flags present, no site/ leakage, no mock data promoted, no Yellow/Red sources.
+- Hard gates: empty approvals = dry-run only; multiple approvals rejected; Yellow/Red sources blocked without override; `source_text_copied: true` = hard block; existing public records blocked.
+- Review console upgraded: added ranked candidates panel (T049) showing top recommendation, score breakdown, and status: NOT APPROVED / NOT PUBLIC / Control Tower approval required.
+- `docs/review/PROMOTION_CLI_RUNBOOK.md` — quick reference for the promotion workflow.
+- Work items under `work-items/T049-promotion-cli-public-case-dry-run/`.
+
+### Changed
+- `NEXT_ACTIONS.md` updated to T049 complete.
+
+### Status (T049)
+- **Dataset**: Frozen at exactly 12 validated public incident records. Zero public leakages.
+- **Dry-Run Previews**: 5 preview files in `data/promotion-previews/real/` (preview-pkt-0001-inc-0013.json through preview-pkt-0005-inc-0013.json).
+- **Top Recommendation**: PKT-0001 / DRAFT-0001 (ICO Make a complaint) score 130. Not promoted — no approval exists.
+
 ## [0.10.0] - 21 May 2026
 
 ### Added

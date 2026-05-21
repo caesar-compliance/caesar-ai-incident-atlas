@@ -96,6 +96,38 @@
             </div>
           </div>
         </div>
+        <!-- Ranked Promotion Candidates (T049) -->
+        <div id="ranked-candidates-panel" style="display:none; margin-top:20px; padding:16px; background:#1a1a1a; border:1px solid #333; border-radius:6px;">
+          <h4 style="margin:0 0 12px 0; color:#fff; font-size:14px;">🏆 Ranked Promotion Candidates (T049)</h4>
+          <div id="top-recommendation" style="margin-bottom:16px; padding:12px; background:#0d1f0d; border-left:3px solid #28a745; border-radius:4px;">
+            <div style="font-size:12px; color:#28a745; font-weight:600; margin-bottom:4px;">TOP RECOMMENDATION</div>
+            <div id="top-packet-id" style="font-size:16px; font-weight:600; color:#fff;">-</div>
+            <div id="top-draft-id" style="font-size:12px; color:#888;">-</div>
+            <div id="top-score" style="font-size:12px; color:#aaa; margin-top:4px;">Score: -</div>
+            <div id="top-reason" style="font-size:12px; color:#ccc; margin-top:8px; line-height:1.4;">-</div>
+            <div style="margin-top:12px; padding:8px; background:#1a0f0f; border-radius:3px;">
+              <div style="font-size:11px; color:#dc3545; font-weight:600;">STATUS: NOT APPROVED / NOT PUBLIC</div>
+              <div style="font-size:11px; color:#888; margin-top:4px;">Control Tower approval required before promotion</div>
+            </div>
+          </div>
+          <div id="ranked-list-container" style="max-height:200px; overflow-y:auto;">
+            <table style="width:100%; font-size:12px; border-collapse:collapse;">
+              <thead>
+                <tr style="border-bottom:1px solid #444;">
+                  <th style="text-align:left; padding:6px; color:#888; font-weight:500;">Rank</th>
+                  <th style="text-align:left; padding:6px; color:#888; font-weight:500;">Packet</th>
+                  <th style="text-align:left; padding:6px; color:#888; font-weight:500;">Draft</th>
+                  <th style="text-align:right; padding:6px; color:#888; font-weight:500;">Score</th>
+                  <th style="text-align:center; padding:6px; color:#888; font-weight:500;">Status</th>
+                </tr>
+              </thead>
+              <tbody id="ranked-list-body">
+                <!-- Populated by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
         <div class="digest-quick-preview" id="digest-preview-block">
           <h4>Weekly Discoveries Preview (Synthetic)</h4>
           <ul id="weekly-highlights-list">

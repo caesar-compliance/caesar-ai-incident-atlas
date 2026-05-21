@@ -66,15 +66,16 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 | T046 — Local Draft Review Console & Promotion Gate | **Complete** | 21 May 2026 |
 | T047 — Real Green-Source Watcher MVP | **Complete** — Created manual CLI watcher, de-duplication, review bundle compiler, and safety containment auditor, with local review console interactive dropdown | 21 May 2026 |
 | T048 — Real Candidate-to-Draft Pipeline | **Complete** — Watcher hardening (fallback_urls, health reporting, timeout), build-real-case-drafts, build-promotion-packets, upgraded review console (stage tabs, pipeline bar, packet/health panels), full validation suite | 21 May 2026 |
+| T049 — Promotion CLI + Public Case Dry-Run | **Complete** — Rank candidates by safety score, dry-run previews, approval file format, promotion CLI with hard gates, validate-promotion-dry-run.mjs, review console ranked display | 21 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete | 19 May 2026 |
 
 ---
 
-## Status: T048 Complete — Real Candidate-to-Draft Pipeline Deployed
+## Status: T049 Complete — Promotion CLI and Public Case Dry-Run System Deployed
 
 **Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/` with exactly 12 validated incident records, a complete static digest portal, and live RSS syndication feeds.**
 
-**The full local pipeline now runs end-to-end: Green-source watcher → dedupe → real case drafts (`data/drafts/real/`) → promotion packets (`data/promotion-packets/real/`) → review bundle → review console. The review console has been upgraded with pipeline stage tabs (Candidates / Drafts / Packets / Health), a pipeline summary bar, and local-only safety labels. All 6 real drafts and 6 promotion packets pass validation. No public exposure. `promotion_allowed: false` on all packets.**
+**The full local pipeline now runs end-to-end with promotion machinery: Green-source watcher → dedupe → real case drafts (`data/drafts/real/`) → promotion packets (`data/promotion-packets/real/`) → **ranking & promotion CLI** → review bundle → review console. T049 adds: (1) `rank-promotion-candidates.mjs` - scores packets by safety criteria, (2) `approved-promotions.json` - Control Tower approval registry with hard gates, (3) `promote-approved-case.mjs` - dry-run preview generator or single-case promoter, (4) `validate-promotion-dry-run.mjs` - safety validation suite, (5) Review console ranked candidates display. All 6 real drafts ranked; PKT-0001 (DRAFT-0001) is top recommendation with score 130. No public records created without approval. Public dataset remains at exactly 12 records.**
 
 **Active boundaries, policies, and schemas:**
 - `PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md` (Repositioning & Value Chain)

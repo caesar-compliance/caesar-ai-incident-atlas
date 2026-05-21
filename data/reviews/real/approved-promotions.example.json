@@ -1,0 +1,48 @@
+{
+  "_description": "EXAMPLE FILE - This shows the format for Control Tower promotion approvals. Copy relevant fields to approved-promotions.json to approve a specific packet for promotion.",
+  "approvals": [
+    {
+      "packet_id": "PKT-0001",
+      "draft_id": "DRAFT-0001",
+      "approved_by": "Control Tower",
+      "approval_date": "2026-05-21",
+      "allowed_public_case_id": "INC-0013",
+      "allowed_public_filename": "inc-0013.json",
+      "approval_scope": "single_publication",
+      "approval_notes": "Curator review complete. Clean-room wording audit passed. Legal domain confirmed. Source verified as Green tier. Low defamation risk.",
+      "required_checklist": {
+        "curator_review_complete": true,
+        "clean_room_wording_approved": true,
+        "legal_domain_confirmed": true,
+        "control_tower_approved": true,
+        "publication_approved": true
+      },
+      "override_flags": {
+        "override_promotion_allowed": false,
+        "override_source_tier": false,
+        "override_copied_text_check": false
+      }
+    }
+  ],
+  "_safety_requirements": {
+    "approval_must_include": [
+      "packet_id (exact match)",
+      "draft_id (exact match)",
+      "approved_by: 'Control Tower' (exact string)",
+      "approval_date (ISO format)",
+      "allowed_public_case_id (INC-XXXX format)",
+      "allowed_public_filename (inc-xxxx.json format)"
+    ],
+    "approval_scope_options": [
+      "single_publication - approve only this one case",
+      "batch_publication - approve multiple cases (requires explicit listing)",
+      "emergency_override - requires second Control Tower approver"
+    ],
+    "blocked_conditions": [
+      "Yellow or Red source tier (unless emergency_override with dual approval)",
+      "source_text_copied: true (never allowed)",
+      "Existing public record with same incident_id",
+      "Missing required_reviews in packet"
+    ]
+  }
+}

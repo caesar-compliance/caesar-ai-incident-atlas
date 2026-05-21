@@ -164,6 +164,9 @@ document.addEventListener('DOMContentLoaded', () => {
           if (pcd) pcd.textContent = drafts.length;
           if (pcp) pcp.textContent = packets.length;
 
+          // Load ranked candidates (T049)
+          loadRankedCandidates();
+
           activeStage = 'candidates';
           setActiveStage('candidates');
         } else {
@@ -190,6 +193,62 @@ document.addEventListener('DOMContentLoaded', () => {
             Please run the corresponding generation script first!
           </div>
         `;
+      });
+  }
+
+  // Load Ranked Candidates (T049)
+  function loadRankedCandidates() {
+    const rankedPanel = document.getElementById('ranked-candidates-panel');
+    const rankedListBody = document.getElementById('ranked-list-body');
+
+    fetch('../../data/reviews/real/ranked-promotion-candidates.json')
+      .then(response => {
+        if (!response.ok) throw new Error('Ranked candidates not found');
+        return response.json();
+      })
+      .then(data => {
+        if (!data.ranked_candidates || data.ranked_candidates.length === 0) {
+          if (rankedPanel) rankedPanel.style.display = 'none';
+          return;
+        }
+
+        // Show panel
+        if (rankedPanel) rankedPanel.style.display = 'block';
+
+        // Update top recommendation
+        const top = data.top_recommendation;
+        if (top) {
+          const topPacket = document.getElementById('top-packet-id');
+          const topDraft = document.getElementById('top-draft-id');
+          const topScore = document.getElementById('top-score');
+          const topReason = document.getElementById('top-reason');
+
+          if (topPacket) topPacket.textContent = top.top_packet_id || '-';
+          if (topDraft) topDraft.textContent = `Draft: ${top.top_draft_id || '-'}`;
+          if (topScore) topScore.textContent = `Score: ${top.top_score || 0} points`;
+          if (topReason) topReason.textContent = top.reason || '-';
+        }
+
+        // Update ranked list table
+        if (rankedListBody) {
+          rankedListBody.innerHTML = data.ranked_candidates.slice(0, 5).map(c => {
+            const statusColor = c.risk_flags?.length > 0 ? '#dc3545' : '#28a745';
+            const statusText = c.risk_flags?.length > 0 ? '⚠ Review' : '✓ Ready';
+            return `
+              <tr style="border-bottom:1px solid #333;">
+                <td style="padding:6px; color:#fff; font-weight:600;">${c.rank}</td>
+                <td style="padding:6px; color:#ccc;">${c.packet_id}</td>
+                <td style="padding:6px; color:#888;">${c.draft_id}</td>
+                <td style="padding:6px; text-align:right; color:#fff; font-weight:600;">${c.score}</td>
+                <td style="padding:6px; text-align:center; color:${statusColor}; font-size:11px;">${statusText}</td>
+              </tr>
+            `;
+          }).join('');
+        }
+      })
+      .catch(err => {
+        console.log('Ranked candidates not loaded:', err.message);
+        if (rankedPanel) rankedPanel.style.display = 'none';
       });
   }
 

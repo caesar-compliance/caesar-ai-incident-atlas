@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T047)
+**Last updated:** 21 May 2026 (T049)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -193,6 +193,16 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `scripts/validate-real-watcher.mjs` | Ingestion Validator | Exquisite multi-vector containment and safety barrier compliance checker. (T047) |
 | `docs/watch/REAL_GREEN_SOURCE_WATCHER_RUNBOOK.md` | Watcher Runbook | Manual watch pipeline commands and operator security containment runbook. (T047) |
 | `tools/review-console/real-review-bundle.json` | Real Review Bundle | Local-only compiled review bundle of real discovered candidate records. (T047) |
+| `scripts/build-real-case-drafts.mjs` | Draft Builder | Converts unique real candidates into DRAFT-NNNN.json files with safety flags. (T048) |
+| `scripts/validate-real-drafts.mjs` | Draft Validator | Validates real drafts for required fields, safety flags, no leakage to site/. (T048) |
+| `scripts/build-promotion-packets.mjs` | Packet Builder | Generates PKT-NNNN.json promotion packets with promotion_allowed: false. (T048) |
+| `scripts/validate-promotion-packets.mjs` | Packet Validator | Validates safety declarations, checklist state, no incidents created. (T048) |
+| `scripts/rank-promotion-candidates.mjs` | Promotion Ranker | Scores packets by safety criteria, generates ranked-candidates.json. (T049) |
+| `scripts/promote-approved-case.mjs` | Promotion CLI | Dual-mode: dry-run previews OR promote single approved case. (T049) |
+| `scripts/validate-promotion-dry-run.mjs` | Promotion Safety Validator | Validates no public records without approval, no site/ leakage. (T049) |
+| `data/reviews/real/approved-promotions.json` | Approval Registry | Control Tower approval registry. Empty = dry-run only. (T049) |
+| `data/reviews/real/approved-promotions.example.json` | Approval Example | Documented approval format with required fields and override flags. (T049) |
+| `docs/review/PROMOTION_CLI_RUNBOOK.md` | Promotion Runbook | Quick reference for ranking, previewing, and promoting cases. (T049) |
 | `site/rss.xml` | Consolidated Feed | Public unified RSS 2.0 XML feed for all briefings. (T044) |
 | `site/digests/weekly.xml` | Weekly RSS Feed | Public RSS 2.0 XML feed for weekly operational briefs only. (T044) |
 | `site/digests/monthly.xml` | Monthly RSS Feed | Public RSS 2.0 XML feed for monthly strategic trends only. (T044) |
@@ -362,6 +372,14 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T047-real-green-source-watcher-mvp/VALIDATION.md` | T047 validation | Automated, safety, and containment validation checklist for T047. (T047) |
 | `work-items/T047-real-green-source-watcher-mvp/IMPLEMENTATION_REPORT.md` | T047 report | Concise final closeout report for T047. (T047) |
 | `work-items/T047-real-green-source-watcher-mvp/DECISIONS.md` | T047 decisions | Real watcher MVP and local review integration decisions log. (T047) |
+| `work-items/T048-real-candidate-draft-pipeline/TASK.md` | T048 task | Task scope checklist for T048 real candidate-to-draft pipeline. (T048) |
+| `work-items/T048-real-candidate-draft-pipeline/VALIDATION.md` | T048 validation | Validation checklist for real drafts and promotion packets. (T048) |
+| `work-items/T048-real-candidate-draft-pipeline/IMPLEMENTATION_REPORT.md` | T048 report | Final report for T048 candidate-to-draft pipeline. (T048) |
+| `work-items/T048-real-candidate-draft-pipeline/DECISIONS.md` | T048 decisions | Real candidate pipeline decisions log. (T048) |
+| `work-items/T049-promotion-cli-public-case-dry-run/TASK.md` | T049 task | Task scope checklist for T049 promotion CLI and dry-run. (T049) |
+| `work-items/T049-promotion-cli-public-case-dry-run/VALIDATION.md` | T049 validation | Validation checklist for promotion safety. (T049) |
+| `work-items/T049-promotion-cli-public-case-dry-run/IMPLEMENTATION_REPORT.md` | T049 report | Final report for T049 promotion machinery. (T049) |
+| `work-items/T049-promotion-cli-public-case-dry-run/DECISIONS.md` | T049 decisions | Promotion CLI and approval system decisions log. (T049) |
 
 ---
 

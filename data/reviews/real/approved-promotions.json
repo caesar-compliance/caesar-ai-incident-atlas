@@ -1,0 +1,5 @@
+{
+  "approvals": [],
+  "_note": "This file contains explicit Control Tower approvals for promoting drafts to public incident records. Only packets listed here with complete approval metadata may be promoted. Empty by default - no automatic promotions.",
+  "_safety": "If this file is empty or approvals array is empty, promote-approved-case.mjs will generate dry-run previews only and will NOT create any public records."
+}
