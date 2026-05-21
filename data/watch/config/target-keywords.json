@@ -1,0 +1,44 @@
+{
+  "ai_terms": [
+    "artificial intelligence",
+    "AI",
+    "algorithm",
+    "automated decision",
+    "machine learning",
+    "generative AI",
+    "chatbot"
+  ],
+  "legal_terms": [
+    "enforcement",
+    "discrimination",
+    "disability",
+    "privacy",
+    "biometric",
+    "consumer protection",
+    "unfair",
+    "deceptive",
+    "settlement",
+    "guidance",
+    "court",
+    "investigation",
+    "complaint"
+  ],
+  "commercial_terms": [
+    "hiring",
+    "employment",
+    "healthcare",
+    "financial services",
+    "credit",
+    "insurance",
+    "vendor",
+    "public sector",
+    "risk management"
+  ],
+  "exclusion_terms": [
+    "event",
+    "webinar",
+    "speech",
+    "procurement notice",
+    "job posting"
+  ]
+}

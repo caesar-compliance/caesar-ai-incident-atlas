@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T046)
+**Last updated:** 21 May 2026 (T047)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -185,6 +185,14 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `docs/review/PROMOTION_GATE_POLICY.md` | Promotion Policy | Definitive policy specifying the 10-stage pathway, curation gates, and CT sign-off mandates. (T046) |
 | `docs/review/DRAFT_REVIEW_WORKFLOW.md` | Review Workflow | Step-by-step curator instructions for vetting AI incident drafts in the console. (T046) |
 | `docs/review/PUBLICATION_PROMOTION_CHECKLIST.md` | Pre-Pub Checklist | Pre-publication technical, legal, and control completeness sanity verification checklist. (T046) |
+| `data/watch/config/green-source-watch-targets.json` | Watcher Config | Catalog of 7 official approved Green-tier watch target authorities. (T047) |
+| `data/watch/config/target-keywords.json` | Watcher Keywords | Controlled curated keyword groups (AI, legal, commercial, exclusions). (T047) |
+| `scripts/watch-green-sources.mjs` | Pipeline Watcher | Live Green-source fetches and keyword-matching index/feed engine. (T047) |
+| `scripts/dedupe-real-candidates.mjs` | Pipeline Deduplicator | Local candidate duplicate evaluation and containment audit logger. (T047) |
+| `scripts/build-real-review-bundle.mjs` | Review Compiler | Compiles raw discovered candidates into the local review console database. (T047) |
+| `scripts/validate-real-watcher.mjs` | Ingestion Validator | Exquisite multi-vector containment and safety barrier compliance checker. (T047) |
+| `docs/watch/REAL_GREEN_SOURCE_WATCHER_RUNBOOK.md` | Watcher Runbook | Manual watch pipeline commands and operator security containment runbook. (T047) |
+| `tools/review-console/real-review-bundle.json` | Real Review Bundle | Local-only compiled review bundle of real discovered candidate records. (T047) |
 | `site/rss.xml` | Consolidated Feed | Public unified RSS 2.0 XML feed for all briefings. (T044) |
 | `site/digests/weekly.xml` | Weekly RSS Feed | Public RSS 2.0 XML feed for weekly operational briefs only. (T044) |
 | `site/digests/monthly.xml` | Monthly RSS Feed | Public RSS 2.0 XML feed for monthly strategic trends only. (T044) |
@@ -350,8 +358,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T046-local-draft-review-console/VALIDATION.md` | T046 validation | Automated, safety, and containment validation checklist for T046. (T046) |
 | `work-items/T046-local-draft-review-console/IMPLEMENTATION_REPORT.md` | T046 report | Concise final closeout report for T046. (T046) |
 | `work-items/T046-local-draft-review-console/DECISIONS.md` | T046 decisions | Local review console and promotion gate decisions log. (T046) |
-
-
+| `work-items/T047-real-green-source-watcher-mvp/TASK.md` | T047 task | Task scope checklist for T047 real Green-source watcher MVP. (T047) |
+| `work-items/T047-real-green-source-watcher-mvp/VALIDATION.md` | T047 validation | Automated, safety, and containment validation checklist for T047. (T047) |
+| `work-items/T047-real-green-source-watcher-mvp/IMPLEMENTATION_REPORT.md` | T047 report | Concise final closeout report for T047. (T047) |
+| `work-items/T047-real-green-source-watcher-mvp/DECISIONS.md` | T047 decisions | Real watcher MVP and local review integration decisions log. (T047) |
 
 ---
 

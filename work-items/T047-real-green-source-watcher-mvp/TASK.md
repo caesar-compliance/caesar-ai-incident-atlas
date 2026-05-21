@@ -1,0 +1,28 @@
+# T047 — Real Green-Source Watcher MVP Task Checklist
+
+- [x] Create watch configuration files
+  - [x] `data/watch/config/green-source-watch-targets.json`
+  - [x] `data/watch/config/target-keywords.json`
+- [x] Create manual CLI watcher script
+  - [x] `scripts/watch-green-sources.mjs`
+- [x] Create candidate de-duplicator script
+  - [x] `scripts/dedupe-real-candidates.mjs`
+- [x] Create real local review bundle aggregator script
+  - [x] `scripts/build-real-review-bundle.mjs`
+- [x] Create real watcher compliance & safety auditor script
+  - [x] `scripts/validate-real-watcher.mjs`
+- [x] Update local review console to support bundle selection
+  - [x] `tools/review-console/index.html`
+  - [x] `tools/review-console/assets/review-console.js`
+- [x] Create minimal runbook documentation
+  - [x] `docs/watch/REAL_GREEN_SOURCE_WATCHER_RUNBOOK.md`
+- [x] Run comprehensive manual and automated validation tests
+  - [x] Trailing whitespace check (`git diff --check`)
+  - [x] Safety containment auditor check (`node scripts/validate-real-watcher.mjs`)
+  - [x] Existing suite verification (`python3 tools/validate_dataset.py`, etc.)
+- [x] Document work items and update project lifecycle logs
+  - [x] `work-items/T047-real-green-source-watcher-mvp/TASK.md`
+  - [x] `work-items/T047-real-green-source-watcher-mvp/VALIDATION.md`
+  - [x] `work-items/T047-real-green-source-watcher-mvp/IMPLEMENTATION_REPORT.md`
+  - [x] `work-items/T047-real-green-source-watcher-mvp/DECISIONS.md`
+  - [x] Lifecycle updates: `ARCHITECTURE.md`, `ROADMAP_NEXT_PHASES.md`, `NEXT_ACTIONS.md`, `CHANGELOG.md`, `REPO_INVENTORY.md`, `docs/DECISION_LOG.md`

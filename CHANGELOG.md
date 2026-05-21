@@ -5,6 +5,27 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.9.0] - 21 May 2026
+
+### Added
+- **T047 — Real Green-Source Watcher MVP.** Built the first real, manual CLI-triggered Green-source watcher pipeline and de-duplicator.
+- Deployed a vanilla Node ESM watch script (`scripts/watch-green-sources.mjs`) executing manual operator fetches to 7 official Green-tier targets, parsing links/feeds via regex tools, filtering against curation keywords (`data/watch/config/target-keywords.json`), and saving local candidate files.
+- Built a duplicate checker engine (`scripts/dedupe-real-candidates.mjs`) identifying duplicate candidate URLs or SHA-256 dedupe keys.
+- Programmed a real review bundle compiler (`scripts/build-real-review-bundle.mjs`) compiling raw candidates into `tools/review-console/real-review-bundle.json`.
+- Integrated a secure toggle dropdown in `tools/review-console/index.html` allowing curators to swap review bundles in the local console dashboard.
+- Hardcoded a multi-vector safety auditor (`scripts/validate-real-watcher.mjs`) enforcing containment bounds, Green-only targets, and zero public leakage under `site/`.
+- Authored the operator runbook under `docs/watch/REAL_GREEN_SOURCE_WATCHER_RUNBOOK.md`.
+- Tracked task files under `work-items/T047-real-green-source-watcher-mvp/`.
+
+### Changed
+- Extended `schemas/pipeline/candidate.schema.json` to include the `real_detected` status enum value.
+- Updated the local review console dashboard script (`tools/review-console/assets/review-console.js`) to parse the real review bundle, populate metadata, and render a prominent `PROMOTION BLOCKED` warning banner.
+- Updated lifecycle files `ARCHITECTURE.md`, `ROADMAP_NEXT_PHASES.md`, `NEXT_ACTIONS.md`, `REPO_INVENTORY.md`, and `docs/DECISION_LOG.md` (`DEC-113`).
+
+### Status (T047)
+- **Dataset**: Core incident catalog frozen at exactly 12 validated incident records. Zero public leakages.
+- **Ingestion**: Raw real candidates are successfully sandboxed locally outside `site/` with strict human-in-the-loop clean-room curation gates.
+
 ## [0.8.4] - 21 May 2026
 
 ### Added

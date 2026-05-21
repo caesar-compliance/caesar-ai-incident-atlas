@@ -1,0 +1,79 @@
+[
+  {
+    "source_id": "ftc-ai-enforcement",
+    "display_name": "Federal Trade Commission (FTC) AI Enforcement",
+    "jurisdiction": "US",
+    "source_tier": "green",
+    "url": "https://www.ftc.gov/news-events/topics/competition-consumer-protection-ai",
+    "fetch_mode": "html_index",
+    "enabled_for_manual_watch": true,
+    "max_links_per_run": 10,
+    "allowed_use": "metadata_candidate_detection_only"
+  },
+  {
+    "source_id": "eeoc-ai-guidance",
+    "display_name": "Equal Employment Opportunity Commission (EEOC) AI Guidance & Enforcement",
+    "jurisdiction": "US",
+    "source_tier": "green",
+    "url": "https://www.eeoc.gov/select-issues-assessing-adverse-impact-software-algorithms-and-artificial-intelligence",
+    "fetch_mode": "html_index",
+    "enabled_for_manual_watch": true,
+    "max_links_per_run": 5,
+    "allowed_use": "metadata_candidate_detection_only"
+  },
+  {
+    "source_id": "doj-ada-ai-guidance",
+    "display_name": "Department of Justice (DOJ) ADA AI Guidance",
+    "jurisdiction": "US",
+    "source_tier": "green",
+    "url": "https://www.ada.gov/resources/usdoj-ada-algorithm-guidance/",
+    "fetch_mode": "html_index",
+    "enabled_for_manual_watch": true,
+    "max_links_per_run": 5,
+    "allowed_use": "metadata_candidate_detection_only"
+  },
+  {
+    "source_id": "ico-ai-and-algorithms",
+    "display_name": "Information Commissioner's Office (ICO) AI and Algorithms",
+    "jurisdiction": "UK",
+    "source_tier": "green",
+    "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/",
+    "fetch_mode": "html_index",
+    "enabled_for_manual_watch": true,
+    "max_links_per_run": 10,
+    "allowed_use": "metadata_candidate_detection_only"
+  },
+  {
+    "source_id": "cnil-ai",
+    "display_name": "Commission Nationale de l'Informatique et des Libertés (CNIL) AI Portal",
+    "jurisdiction": "FR",
+    "source_tier": "green",
+    "url": "https://www.cnil.fr/fr/intelligence-artificielle",
+    "fetch_mode": "html_index",
+    "enabled_for_manual_watch": true,
+    "max_links_per_run": 10,
+    "allowed_use": "metadata_candidate_detection_only"
+  },
+  {
+    "source_id": "edpb-ai",
+    "display_name": "European Data Protection Board (EDPB) AI Guidelines",
+    "jurisdiction": "EU",
+    "source_tier": "green",
+    "url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines_en",
+    "fetch_mode": "html_index",
+    "enabled_for_manual_watch": true,
+    "max_links_per_run": 10,
+    "allowed_use": "metadata_candidate_detection_only"
+  },
+  {
+    "source_id": "european-commission-ai-act",
+    "display_name": "European Commission AI Act Portal & Board Reports",
+    "jurisdiction": "EU",
+    "source_tier": "green",
+    "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-algorithm-systems",
+    "fetch_mode": "html_index",
+    "enabled_for_manual_watch": true,
+    "max_links_per_run": 10,
+    "allowed_use": "metadata_candidate_detection_only"
+  }
+]

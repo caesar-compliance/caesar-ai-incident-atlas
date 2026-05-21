@@ -1,8 +1,10 @@
 // Interactive Client JS for Local Draft Review Console Simulation
+// Supports both mock review-bundle.json and real-review-bundle.json local-only data
 
 document.addEventListener('DOMContentLoaded', () => {
   let bundleData = { candidates: [], drafts: [], digests: [] };
   let selectedDraft = null;
+  let isRealBundle = false;
 
   // DOM Elements
   const draftListContainer = document.getElementById('draft-list-container');
@@ -12,6 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const emptyStatePanel = document.getElementById('empty-state');
   const activeDetailPanel = document.getElementById('active-detail');
   const weeklyHighlightsList = document.getElementById('weekly-highlights-list');
+  const sidebarHeaderTitle = document.getElementById('sidebar-header-title');
+  const safetyWarningBanner = document.querySelector('.safety-warning-banner');
+  const safetyLabel = document.querySelector('.safety-label');
+  const safetyIndicator = document.querySelector('.safety-indicator span:first-child');
+  const bundleSelector = document.getElementById('bundle-selector');
 
   // Detail View DOM Elements
   const detailDraftId = document.getElementById('detail-draft-id');
@@ -46,36 +53,87 @@ document.addEventListener('DOMContentLoaded', () => {
   const gateStepWording = document.getElementById('gate-step-wording');
   const gateStepControl = document.getElementById('gate-step-control');
 
-  // 1. Initial Load of review-bundle.json
-  fetch('./review-bundle.json')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      bundleData = data;
+  // Define original contents of simulationResultPanel for resetting
+  const originalResultHtml = `
+    <div class="result-header">
+      <span class="result-badge badge-blocked">PROMOTION BLOCKED</span>
+    </div>
+    <div class="result-body">
+      <p><strong>Reason:</strong> Synthetic mock data drafts cannot be promoted to public Atlas records. The Promotion Gate has intercepted this attempt.</p>
+      <div class="gate-error-message">
+        <strong>ERROR: MOCK_CONTAINMENT_RULE_VIOLATION</strong><br>
+        Offline mock auto-discovery drafts are strictly confined to the local reviewer console database and cannot be pushed onto site/ public incidents list.
+      </div>
+      <div class="gate-checklist-item">
+        <span>Approved for Publication:</span> <strong>False</strong>
+      </div>
+      <div class="gate-checklist-item">
+        <span>Status:</span> <strong>mock_review_only</strong>
+      </div>
+    </div>
+  `;
 
-      // Update global UI info
-      bundleTimestampEl.textContent = data.generated_at
-        ? new Date(data.generated_at).toLocaleString()
-        : 'Unknown';
+  // 1. Load Bundle Function
+  function loadBundle(bundleName) {
+    draftListContainer.innerHTML = '<div class="loading-placeholder">Loading bundle data...</div>';
+    emptyStatePanel.classList.remove('hidden');
+    activeDetailPanel.classList.add('hidden');
+    selectedDraft = null;
 
-      renderSidebar(bundleData.drafts);
-      renderDigestPreview();
-    })
-    .catch(err => {
-      console.error('Error fetching review-bundle.json:', err);
-      draftListContainer.innerHTML = `
-        <div class="loading-placeholder" style="color: var(--color-danger);">
-          Failed to load local review bundle.<br>
-          Run <code>node scripts/build-review-bundle.mjs</code> first!
-        </div>
-      `;
-    });
+    fetch(`./${bundleName}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        bundleData = data;
+        isRealBundle = (data.dataset_type === "real_detected_candidates_local_only");
 
-  // 2. Render Sidebar
+        // Update global UI info
+        bundleTimestampEl.textContent = data.generated_at
+          ? new Date(data.generated_at).toLocaleString()
+          : 'Unknown';
+
+        if (isRealBundle) {
+          // Real detected candidates view
+          sidebarHeaderTitle.textContent = "Real Candidates";
+          safetyWarningBanner.innerHTML = `<strong>[CRITICAL SECURITY ALERT]</strong> REAL WATCHER CANDIDATE METADATA • NOT APPROVED FOR PUBLIC SITE • NOT LEGAL ADVICE • STRICTLY LOCAL DATABASE`;
+          safetyLabel.textContent = "LOCAL-ONLY REAL CANDIDATES";
+          if (safetyIndicator) {
+            safetyIndicator.className = 'pulse-green';
+            safetyIndicator.style.backgroundColor = 'var(--color-success)';
+          }
+
+          renderSidebarReal(bundleData.candidates);
+          weeklyHighlightsList.innerHTML = '<li>Local-only real candidate database loaded. No synthetic weekly previews available.</li>';
+        } else {
+          // Synthetic mock view
+          sidebarHeaderTitle.textContent = "Mock Draft Cases";
+          safetyWarningBanner.innerHTML = `<strong>[CRITICAL WARNING]</strong> SYNTHETIC MOCK DATA ONLY • NOT APPROVED FOR PUBLIC ATLAS • NOT LEGAL ADVICE • STRICTLY LOCAL SANDBOX`;
+          safetyLabel.textContent = "OFFLINE MOCK AUDIT SIMULATION";
+          if (safetyIndicator) {
+            safetyIndicator.className = 'pulse-red';
+            safetyIndicator.style.backgroundColor = 'var(--color-danger)';
+          }
+
+          renderSidebar(bundleData.drafts);
+          renderDigestPreview();
+        }
+      })
+      .catch(err => {
+        console.error(`Error fetching ${bundleName}:`, err);
+        draftListContainer.innerHTML = `
+          <div class="loading-placeholder" style="color: var(--color-danger);">
+            Failed to load bundle: ${bundleName}<br>
+            Please run the corresponding generation script first!
+          </div>
+        `;
+      });
+  }
+
+  // 2. Render Mock Sidebar
   function renderSidebar(draftsToRender) {
     draftListContainer.innerHTML = '';
     draftCountEl.textContent = draftsToRender.length;
@@ -124,21 +182,76 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Search Filter
+  // 3. Render Real Sidebar
+  function renderSidebarReal(candidatesToRender) {
+    draftListContainer.innerHTML = '';
+    draftCountEl.textContent = candidatesToRender.length;
+
+    if (candidatesToRender.length === 0) {
+      draftListContainer.innerHTML = `
+        <div class="loading-placeholder">No real candidates found.</div>
+      `;
+      return;
+    }
+
+    candidatesToRender.forEach(cand => {
+      const isSelected = selectedDraft && selectedDraft.candidate_id === cand.candidate_id;
+
+      const itemDiv = document.createElement('button');
+      itemDiv.className = `draft-item ${isSelected ? 'active' : ''}`;
+      itemDiv.setAttribute('data-id', cand.candidate_id);
+
+      let tierColorClass = 'badge-green';
+      if (cand.source_tier === 'yellow') tierColorClass = 'badge-yellow';
+      if (cand.source_tier === 'red') tierColorClass = 'badge-red';
+
+      itemDiv.innerHTML = `
+        <div class="draft-item-header">
+          <span class="draft-item-id">${cand.candidate_id}</span>
+          <span class="draft-item-tier ${tierColorClass}">${cand.source_tier || 'green'}</span>
+        </div>
+        <div class="draft-item-title">${escapeHTML(cand.title)}</div>
+        <div class="draft-item-meta">
+          <span>${escapeHTML(cand.jurisdiction || 'US')} • ${escapeHTML(cand.preliminary_case_type || 'Unknown')}</span>
+          <span>${escapeHTML(cand.status || 'real_detected')}</span>
+        </div>
+      `;
+
+      itemDiv.addEventListener('click', () => {
+        selectCandidate(cand.candidate_id);
+      });
+
+      draftListContainer.appendChild(itemDiv);
+    });
+  }
+
+  // 4. Search Filter
   draftSearchInput.addEventListener('input', (e) => {
     const query = e.target.value.toLowerCase();
-    const filtered = bundleData.drafts.filter(draft => {
-      return (
-        draft.draft_id.toLowerCase().includes(query) ||
-        draft.proposed_case_title.toLowerCase().includes(query) ||
-        (draft.jurisdiction && draft.jurisdiction.toLowerCase().includes(query)) ||
-        (draft.case_type && draft.case_type.toLowerCase().includes(query))
-      );
-    });
-    renderSidebar(filtered);
+    if (isRealBundle) {
+      const filtered = bundleData.candidates.filter(c => {
+        return (
+          c.candidate_id.toLowerCase().includes(query) ||
+          c.title.toLowerCase().includes(query) ||
+          (c.jurisdiction && c.jurisdiction.toLowerCase().includes(query)) ||
+          (c.preliminary_case_type && c.preliminary_case_type.toLowerCase().includes(query))
+        );
+      });
+      renderSidebarReal(filtered);
+    } else {
+      const filtered = bundleData.drafts.filter(draft => {
+        return (
+          draft.draft_id.toLowerCase().includes(query) ||
+          draft.proposed_case_title.toLowerCase().includes(query) ||
+          (draft.jurisdiction && draft.jurisdiction.toLowerCase().includes(query)) ||
+          (draft.case_type && draft.case_type.toLowerCase().includes(query))
+        );
+      });
+      renderSidebar(filtered);
+    }
   });
 
-  // 4. Select Draft Action
+  // 5. Select Draft Action (Mock)
   function selectDraft(draftId) {
     selectedDraft = bundleData.drafts.find(d => d.draft_id === draftId);
     if (!selectedDraft) return;
@@ -154,8 +267,9 @@ document.addEventListener('DOMContentLoaded', () => {
     emptyStatePanel.classList.add('hidden');
     activeDetailPanel.classList.remove('hidden');
 
-    // Reset simulator results
+    // Reset simulator results for mock draft
     simulationResultPanel.classList.add('hidden');
+    simulationResultPanel.innerHTML = originalResultHtml;
     gateStepCurator.className = 'status-step pending';
     gateStepCurator.querySelector('.step-check').innerHTML = '○';
     gateStepWording.className = 'status-step pending';
@@ -213,13 +327,111 @@ document.addEventListener('DOMContentLoaded', () => {
     populateList(detailVendorQuestionsList, selectedDraft.vendor_questions || [], 'question');
   }
 
-  // 5. Populate List Helper
+  // 6. Select Candidate Action (Real)
+  function selectCandidate(candId) {
+    const candidate = bundleData.candidates.find(c => c.candidate_id === candId);
+    if (!candidate) return;
+
+    selectedDraft = candidate; // Use selectedDraft variable for active tracking
+
+    // Redraw sidebar to highlight active
+    const activeQuery = draftSearchInput.value.toLowerCase();
+    const currentList = activeQuery
+      ? bundleData.candidates.filter(c => c.candidate_id.toLowerCase().includes(activeQuery) || c.title.toLowerCase().includes(activeQuery))
+      : bundleData.candidates;
+    renderSidebarReal(currentList);
+
+    // Hide empty state and show details
+    emptyStatePanel.classList.add('hidden');
+    activeDetailPanel.classList.remove('hidden');
+
+    // Display strict local containment warning immediately
+    simulationResultPanel.classList.remove('hidden');
+    simulationResultPanel.innerHTML = `
+      <div class="result-header" style="background-color: var(--color-danger); color: white; padding: 10px; border-radius: 4px; font-weight: bold; margin-bottom: 10px; text-align: center;">
+        PROMOTION BLOCKED
+      </div>
+      <div class="result-body" style="font-size: 13px;">
+        <p><strong>Reason:</strong> Real detected candidates are kept strictly in a secure local database outside the public site folder to prevent premature publication.</p>
+        <div class="gate-error-message" style="border-left: 3px solid var(--color-danger); padding-left: 8px; margin-top: 10px; font-style: normal; color: var(--color-text);">
+          <strong>SAFETY CONSTRAINTS:</strong><br>
+          • Local-only metadata record<br>
+          • Not approved for public release<br>
+          • Candidate metadata only<br>
+          • Not legal advice
+        </div>
+        <div class="gate-checklist-item" style="margin-top: 8px;">
+          <span>Approved for Publication:</span> <strong>False</strong>
+        </div>
+        <div class="gate-checklist-item">
+          <span>Status:</span> <strong>real_detected</strong>
+        </div>
+      </div>
+    `;
+
+    gateStepCurator.className = 'status-step pending';
+    gateStepCurator.querySelector('.step-check').innerHTML = '○';
+    gateStepWording.className = 'status-step pending';
+    gateStepWording.querySelector('.step-check').innerHTML = '○';
+    gateStepControl.className = 'status-step blocked';
+    gateStepControl.querySelector('.step-check').innerHTML = '🚫';
+
+    // Populate Fields
+    detailDraftId.textContent = 'REAL_CANDIDATE';
+    detailCandidateId.textContent = candidate.candidate_id;
+    detailProposedTitle.textContent = candidate.title;
+    detailJurisdiction.textContent = candidate.jurisdiction || 'US';
+    detailLegalDomain.textContent = 'Pending Classification';
+    detailCommercialDomain.textContent = 'Pending Classification';
+
+    // Display metadata notes & keywords cleanly
+    detailCleanRoomSummary.innerHTML = `
+      <strong>Caesar Curator Internal Notes:</strong><br>
+      ${escapeHTML(candidate.notes || 'Factual candidate record automatically detected during manual watcher run.')}<br><br>
+      <strong>Detected Keywords:</strong><br>
+      ${(candidate.detected_keywords || []).map(k => `<span style="display:inline-block; background:#333; padding:2px 8px; border-radius:10px; margin-right:5px; font-size:11px; margin-top:5px; color:#ddd; border:1px solid #555;">${escapeHTML(k)}</span>`).join('')}
+    `;
+
+    detailCaseType.textContent = candidate.preliminary_case_type || 'regulator_guidance';
+    detailSourceAuthorities.textContent = candidate.source_id || 'Unknown';
+
+    if (candidate.source_url) {
+      detailSourceUrl.href = candidate.source_url;
+      detailSourceUrl.textContent = candidate.source_url;
+      detailSourceUrl.classList.remove('hidden');
+    } else {
+      detailSourceUrl.href = '#';
+      detailSourceUrl.textContent = 'None Provided';
+    }
+
+    // Risk and Tiers
+    const tier = (candidate.source_tier || 'green').toLowerCase();
+    detailSourceTier.textContent = tier.toUpperCase();
+    detailSourceTier.className = `tier-pill tier-${tier}`;
+
+    detailSourceRiskLevel.textContent = 'LOCAL_ONLY';
+    detailSourceRiskLevel.className = 'risk-pill risk-green';
+
+    detailPublishRecommendation.textContent = 'publication_blocked_local_only';
+    detailBusinessRisk.textContent = 'This is a real-world candidate record and is held strictly in the non-public data/watch/ folder. Direct promotion to the public Atlas dataset is disallowed without clean-room copy editing.';
+
+    // Clear list items since they don't apply to raw candidates
+    populateList(detailFailureModesList, [], 'tag');
+    populateList(detailMissingControlsList, [], 'control');
+    populateList(detailEvidenceList, [], 'evidence');
+
+    // Insights
+    detailTrainingLesson.textContent = 'This is raw candidate metadata detected via watch triggers. No curator insights are compiled yet.';
+    populateList(detailVendorQuestionsList, [], 'question');
+  }
+
+  // 7. Populate List Helper
   function populateList(element, items, type) {
     element.innerHTML = '';
     if (!items || items.length === 0) {
       const li = document.createElement('li');
-      li.textContent = `No ${type} entries associated.`;
-      if (type === 'question') li.style.fontStyle = 'italic';
+      li.textContent = isRealBundle ? `N/A for raw candidates` : `No ${type} entries associated.`;
+      if (type === 'question' || isRealBundle) li.style.fontStyle = 'italic';
       element.appendChild(li);
       return;
     }
@@ -231,7 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Digest Preview Panel in Empty State
+  // 8. Digest Preview Panel in Empty State
   function renderDigestPreview() {
     weeklyHighlightsList.innerHTML = '';
     if (bundleData.digests && bundleData.digests.length > 0) {
@@ -251,11 +463,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 7. Simulated Gate Controls
+  // 9. Simulated Gate Controls
   btnSimulateAudit.addEventListener('click', () => {
     if (!selectedDraft) return;
 
-    // Fast multi-stage animation simulation
+    if (isRealBundle) {
+      alert('[Audit Gate Warning] Raw candidate metadata records are blocked from simulated Curator/Wording promotion gates until promoted to a formal draft JSON structure.');
+      return;
+    }
+
+    // Fast multi-stage animation simulation for mock drafts
     setTimeout(() => {
       // Step 1 Curator
       gateStepCurator.className = 'status-step passed';
@@ -281,8 +498,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   btnSimulateReject.addEventListener('click', () => {
     if (!selectedDraft) return;
-    alert(`[Simulation] Draft ${selectedDraft.draft_id} rejected and archived successfully under mock review flow parameters.`);
+    const id = isRealBundle ? selectedDraft.candidate_id : selectedDraft.draft_id;
+    alert(`[Simulation] Record ${id} rejected and archived successfully under mock review flow parameters.`);
   });
+
+  // Bundle Selector Listener
+  if (bundleSelector) {
+    bundleSelector.addEventListener('change', (e) => {
+      loadBundle(e.target.value);
+    });
+  }
 
   // Helper Escape HTML
   function escapeHTML(str) {
@@ -294,4 +519,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#039;');
   }
+
+  // Initialize load
+  loadBundle('review-bundle.json');
 });

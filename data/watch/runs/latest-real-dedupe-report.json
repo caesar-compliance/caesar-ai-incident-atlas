@@ -1,0 +1,64 @@
+{
+  "deduplicated_at": "2026-05-21T12:41:00.446Z",
+  "total_candidates_scanned": 12,
+  "unique_count": 6,
+  "duplicate_count": 6,
+  "unique_candidate_ids": [
+    "CAND-0018",
+    "CAND-0019",
+    "CAND-0020",
+    "CAND-0021",
+    "CAND-0022",
+    "CAND-0023"
+  ],
+  "duplicates": [
+    {
+      "candidate_id": "CAND-0024",
+      "title": "Make a complaint",
+      "source_url": "https://ico.org.uk/make-a-complaint/",
+      "dedupe_key": "1f4bd803f361cddf3a8ee6d4b4e4be895756de0874c185fe859fbe2825c7a35c",
+      "detected_at": "2026-05-21T12:40:56.002Z",
+      "duplicate_of": "CAND-0018"
+    },
+    {
+      "candidate_id": "CAND-0025",
+      "title": "Artificial intelligence (AI) and data protection",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
+      "dedupe_key": "06aa62950fe0a4076ac60d1dbad80b6ec9580fa76e898d68c1149109ba8213fe",
+      "detected_at": "2026-05-21T12:40:56.002Z",
+      "duplicate_of": "CAND-0019"
+    },
+    {
+      "candidate_id": "CAND-0026",
+      "title": "Explaining decisions made with AI&nbsp;",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/",
+      "dedupe_key": "888a017fa31e1b50d2a77fee1250ff7c5c666227cd50fe3ecc0ea7f3ebd070b4",
+      "detected_at": "2026-05-21T12:40:56.002Z",
+      "duplicate_of": "CAND-0020"
+    },
+    {
+      "candidate_id": "CAND-0027",
+      "title": "AI and data protection risk toolkit",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/ai-and-data-protection-risk-toolkit/",
+      "dedupe_key": "a6f288353aa2852b9cb657e695b6a7d72f9320ff5f4f93e7f2d48abacd776af1",
+      "detected_at": "2026-05-21T12:40:56.002Z",
+      "duplicate_of": "CAND-0021"
+    },
+    {
+      "candidate_id": "CAND-0028",
+      "title": "FRFrançais",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_fr",
+      "dedupe_key": "bb2f4fd1646ed4f32d892529f62db670bdb193cbeea594271053c7a3b8ea04e4",
+      "detected_at": "2026-05-21T12:40:56.002Z",
+      "duplicate_of": "CAND-0022"
+    },
+    {
+      "candidate_id": "CAND-0029",
+      "title": "Automated decision &amp; profiling (3)",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en?f%5B0%5D=opinions_topics%3A769",
+      "dedupe_key": "4ca40506dc716ff2bbc62f39490f5c13e3fd30045c252da8d94613a37653d4d2",
+      "detected_at": "2026-05-21T12:40:56.002Z",
+      "duplicate_of": "CAND-0023"
+    }
+  ]
+}

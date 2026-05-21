@@ -1,6 +1,6 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T045 — DEC-111)
+**Last updated:** 21 May 2026 (T047 — DEC-113)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
@@ -1373,4 +1373,21 @@ T006 must not mass-import data and must not create final incident records unless
 
 ---
 
-**Last updated:** 21 May 2026 (T046 — DEC-112)
+### [DEC-113] — 21 May 2026 — Real Green-Source Watcher MVP (T047)
+
+**Status:** Approved
+
+**Decisions:**
+
+1. **Vanilla Node ESM with 0 Third-Party Fetch/Scrape Dependencies (D38):** Rely strictly on Node's built-in `fetch` and custom Regular Expression based indexing/feed parsers. This guarantees clean execution on any workstation without requiring external node_modules packages (e.g. cheerio, playright).
+2. **Metadata-Only Safe-Harbor Candidate Format (D39):** Store strictly non-copyrighted public metadata (title, URL, publication date, detected keywords, jurisdiction, Caesar curator internal notes) and never save full HTML bodies, CSS, or third-party article text. This protects Caesar against intellectual property issues.
+3. **Double-Layer Deduplication Engine (D40):** Implemented programmatic duplicate filtering matching by both exact URL and SHA-256 dedupe key. Early detection matches are flagged in reporting JSONs without mutating or deleting raw source files.
+4. **Curator Review Console Cross-Bundle Integration (D41):** Added dropdown interface selection in the local console sidebar allowing curators to seamlessly swap between the mock review bundle and the real candidate bundle.
+5. **Curator Warning and Promotion-Gate Invariant (D42):** Real candidate records are rendered with strong safety banners highlighting their local-only metadata status. They are hard-blocked from curation promotion gates until Curry/Clean-room copy editing occurs.
+6. **Multi-Vector Safety Containment Auditor (D43):** Built a dedicated script validating that only official Green-tier targets are loaded, Yellow/Red discovery reference catalogs (like AIID, OECD, AIAAIC) are never fetched, public incident databases are unmodified, sitemaps are clean, and no secrets are committed.
+
+**Rationale:** Establishes a real, robust, manual CLI-triggered watch pipeline that discovers real AI governance/legal precedents and enables local auditing without any public leaks, external packages, or cron schedule exposures.
+
+---
+
+**Last updated:** 21 May 2026 (T047 — DEC-113)

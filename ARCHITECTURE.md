@@ -1,8 +1,8 @@
 # Architecture — caesar-ai-incident-atlas
 
 **Last updated:** 21 May 2026
-**Version:** 0.8.4 (Local Draft Review Console & Promotion Gate)
-**Status:** 12 case records and static digest layers live; local review sandboxed console and promotion gate simulator active (T046)
+**Version:** 0.9.0 (Real Green-Source Watcher MVP)
+**Status:** 12 case records and static digest layers live; local review console active; manual Green-source watch pipeline MVP established (T047)
 
 
 ---
@@ -530,3 +530,22 @@ Strict containment protocols separate this workspace from the public `site/` roo
 - **Static Aggregation**: A local script (`scripts/build-review-bundle.mjs`) aggregates mock candidates, drafts, and digests into an offline-only `review-bundle.json`.
 - **Automated Validation**: A validation runner (`scripts/validate-review-console.mjs`) guarantees no synthetic data, review configurations, or simulator logic leaks into public sitemaps, RSS feeds, or incident indexes.
 - **Promotion Gate Shield**: Self-promotion of drafts is programmatically barred. All mock drafts contain immutable synthetic markers and are intercepted at the Promotion Gate during curator evaluation simulations.
+
+---
+
+## 13. Real Green-Source Watcher MVP (T047)
+
+To transition from synthetic auto-discovery prototypes to real incident mapping, a manual, operator-triggered Green-source watcher pipeline has been integrated into the repository.
+
+### 13.1 Architecture Overview
+
+The manual watcher pipeline operates via four sequential CLI scripts executed by the operator:
+1. **Source Watcher (`scripts/watch-green-sources.mjs`)**: Fetches active Green watch targets, extracts relative/absolute index page or RSS XML feed links, filters links against a target keyword dictionary, assigns sequential candidate IDs (`CAND-XXXX`), and writes local JSON candidate metadata.
+2. **De-duplication (`scripts/dedupe-real-candidates.mjs`)**: Scans all compiled real candidates, evaluates duplicates based on URL and SHA-256 dedupe keys, and compiles a containment audit report.
+3. **Bundle Compiler (`scripts/build-real-review-bundle.mjs`)**: Aggregates all detected real candidate metadata into a local-only `real-review-bundle.json`.
+4. **Safety & Containment Auditor (`scripts/validate-real-watcher.mjs`)**: A dedicated validator verifying that only official Green-tier targets were loaded, Yellow/Red databases (AIID, OECD, AIAAIC) were not fetched, sitemaps are untouched, and sitemaps/incident datasets are free of leakage.
+
+### 13.2 Containment Boundaries
+- **No public leakage**: All real candidate JSON records and logs reside strictly under non-public folders (`data/watch/real-candidates/`, `data/watch/runs/`, and `tools/review-console/real-review-bundle.json`). Under no circumstances is any real candidate file written to `site/` or index datasets.
+- **Metadata-Only Safe-Harbor**: Watch targets extract and record only key metadata (source, url, title, jurisdiction, detected keywords, and Caesar internal Curator notes). No full page bodies or copyrighted third-party articles are ever stored.
+- **Local Console Toggle**: The Review Console includes an interactive sidebar bundle-selector. The operator can load `real-review-bundle.json` to review discovered live metadata, which displays a prominent, stylized warning banner stating that curation/promotion gates are blocked for raw candidate records.

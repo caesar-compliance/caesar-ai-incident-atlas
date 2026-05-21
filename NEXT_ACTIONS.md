@@ -1,6 +1,6 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T046)
+**Last updated:** 21 May 2026 (T047)
 
 ---
 
@@ -64,15 +64,16 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 | T044 — Static Weekly and Monthly Digest MVP | **Complete** — Built static operational digests, monthly strategic digests, custom validator and RSS feed generator, and portal index links | 21 May 2026 |
 | T045 — Offline Mock Auto-Discovery Prototype | **Complete** | 21 May 2026 |
 | T046 — Local Draft Review Console & Promotion Gate | **Complete** | 21 May 2026 |
+| T047 — Real Green-Source Watcher MVP | **Complete** — Created manual CLI watcher, de-duplication, review bundle compiler, and safety containment auditor, with local review console interactive dropdown | 21 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete | 19 May 2026 |
 
 ---
 
-## Status: T046 Complete — Local Draft Review Console & Promotion Gate Deployed
+## Status: T047 Complete — Real Green-Source Watcher MVP Deployed
 
 **Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/` with exactly 12 validated incident records, a complete static digest portal, and live RSS syndication feeds.**
 
-**A high-fidelity local-only Review Console UI (`tools/review-console/`) with responsive dark mode and glassmorphism is active, enabling curators to audit discovered candidates, review drafts, and run simulated Promotion Gate audits. Comprehensive offline aggregation builders and safety validators are fully deployed in the workspace.**
+**A real manual CLI-triggered Green-source watcher pipeline and de-duplicator is deployed and verified locally, storing detected candidates cleanly under non-public directories. The local Review Console UI (`tools/review-console/`) has been updated with a bundle dropdown selector to swap bundles and view discovered real metadata with active safety and containment gate blocks.**
 
 **Active boundaries, policies, and schemas:**
 - `PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md` (Repositioning & Value Chain)
@@ -85,14 +86,16 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 - `docs/review/DRAFT_REVIEW_WORKFLOW.md` (Curator Runbook)
 - `docs/review/PUBLICATION_PROMOTION_CHECKLIST.md` (Pre-publication checklist)
 - `tools/review-console/index.html` (Local Review Console UI page)
-- `scripts/build-review-bundle.mjs` (Bundle Aggregator)
-- `scripts/validate-review-console.mjs` (Containment Safety Auditor)
+- `scripts/build-review-bundle.mjs` (Mock Bundle Aggregator)
+- `scripts/build-real-review-bundle.mjs` (Real Bundle Aggregator)
+- `scripts/validate-real-watcher.mjs` (Real Watcher Containment Auditor)
+- `docs/watch/REAL_GREEN_SOURCE_WATCHER_RUNBOOK.md` (Manual Ingestion Runbook)
 
 ---
 
-## Next Recommended Step: T047
+## Next Recommended Step: T048
 
-**T047 — Regulatory Translation and Fine-Grained Compliance Taxonomies.** Refine translation gate rules for legal texts and deepen taxonomy heuristics.
+**T048 — Regulatory Translation and Fine-Grained Compliance Taxonomies.** Refine translation gate rules for foreign legal texts (e.g. CNIL, EDPB) and deepen taxonomy heuristics/programmatic mapping.
 
 ---
 

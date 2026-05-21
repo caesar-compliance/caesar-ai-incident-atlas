@@ -29,11 +29,17 @@
     <!-- Sidebar: list of mock drafts -->
     <aside class="console-sidebar">
       <div class="sidebar-title">
-        <h2>Mock Draft Cases</h2>
+        <h2 id="sidebar-header-title">Mock Draft Cases</h2>
         <span id="draft-count" class="counter-badge">0</span>
       </div>
+      <div class="sidebar-search" style="margin-bottom: 10px;">
+        <select id="bundle-selector" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #444; background-color: #222; color: #eee; font-family: inherit; font-size: 13px; cursor: pointer;">
+          <option value="review-bundle.json">Mock Drafts Bundle (review-bundle.json)</option>
+          <option value="real-review-bundle.json">Real Candidates Bundle (real-review-bundle.json)</option>
+        </select>
+      </div>
       <div class="sidebar-search">
-        <input type="text" id="draft-search" placeholder="Search mock drafts...">
+        <input type="text" id="draft-search" placeholder="Search...">
       </div>
       <nav class="draft-list" id="draft-list-container">
         <div class="loading-placeholder">Loading review bundle data...</div>

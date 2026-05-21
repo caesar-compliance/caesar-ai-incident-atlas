@@ -1,9 +1,9 @@
 # Roadmap — Next Phases — caesar-ai-incident-atlas
 
 **Created:** 20 May 2026 (T032)
-**Last updated:** 21 May 2026 (T046)
-**Baseline:** Public MVP v0.8.4. 12 records. Local review console and promotion gate simulator active.
-**Status:** Planning document only. No records created. No implementation. CT approval required before any record creation or integration work.
+**Last updated:** 21 May 2026 (T047)
+**Baseline:** Public MVP v0.8.4. 12 records. Local review console and manual green-source watch pipeline MVP active.
+**Status:** Active MVP implementation in progress. No public records created or sitemaps updated. Live Green fetches are strictly manual and sandboxed locally.
 
 See `PUBLIC_MVP_BASELINE_FREEZE.md` for frozen baseline rules.
 See `ROADMAP.md` for the full historical phase plan.
@@ -94,6 +94,14 @@ See `ROADMAP.md` for the full historical phase plan.
 - Implemented robust, dynamic bundle aggregator (`scripts/build-review-bundle.mjs`) to generate offline-only review metadata databases.
 - Deployed comprehensive automated review validators (`scripts/validate-review-console.mjs`) ensuring zero leakages or synthetic data promotions under `site/`.
 - Drafted curator workflow, checklists, and promotion gate policies under `docs/review/` and stored simulated decisions in `data/reviews/mock/mock-review-decisions.json`.
+
+**T047 complete (21 May 2026):**
+- Deployed real manual CLI Green-source watcher engine (`scripts/watch-green-sources.mjs`) to fetch index listings/feeds, parse them with custom regex tools, filter by AI keywords, and log real discovered incident candidates.
+- Built a duplicate checker engine (`scripts/dedupe-real-candidates.mjs`) verifying candidates via URL and SHA-256 dedupe keys.
+- Programmed a real review bundle compiler (`scripts/build-real-review-bundle.mjs`) aggregating discovered candidates into local review databases.
+- Integrated interactive bundle swapping in local-only Review Console UI with stylized `PROMOTION BLOCKED` warning banners and metadata note panels.
+- Hardcoded a multi-vector safety auditor (`scripts/validate-real-watcher.mjs`) ensuring 100% strict compliance boundaries, Green-only targets, and zero public leaks under `site/`.
+- Authored the operator runbook under `docs/watch/REAL_GREEN_SOURCE_WATCHER_RUNBOOK.md`.
 
 **Next implementation focus:**
 - Refine clean-room automated translation capabilities and policy gates.

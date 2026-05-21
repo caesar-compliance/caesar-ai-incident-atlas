@@ -1,0 +1,282 @@
+{
+  "generated_at": "2026-05-21T12:41:03.584Z",
+  "dataset_type": "real_detected_candidates_local_only",
+  "public": false,
+  "publication_allowed": false,
+  "candidates": [
+    {
+      "candidate_id": "CAND-0018",
+      "detected_at": "2026-05-21T12:38:39.066Z",
+      "source_id": "ico-ai-and-algorithms",
+      "source_url": "https://ico.org.uk/make-a-complaint/",
+      "title": "Make a complaint",
+      "date_published": "21 May 2026",
+      "detected_keywords": [
+        "AI",
+        "complaint"
+      ],
+      "preliminary_case_type": "enforcement",
+      "jurisdiction": "UK",
+      "source_tier": "green",
+      "confidence_score": 0.85,
+      "dedupe_key": "1f4bd803f361cddf3a8ee6d4b4e4be895756de0874c185fe859fbe2825c7a35c",
+      "status": "real_detected",
+      "risk_flags": [
+        "no_risk_detected"
+      ],
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK."
+    },
+    {
+      "candidate_id": "CAND-0019",
+      "detected_at": "2026-05-21T12:38:39.066Z",
+      "source_id": "ico-ai-and-algorithms",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
+      "title": "Artificial intelligence (AI) and data protection",
+      "date_published": "21 May 2026",
+      "detected_keywords": [
+        "artificial intelligence",
+        "AI",
+        "guidance"
+      ],
+      "preliminary_case_type": "regulator_guidance",
+      "jurisdiction": "UK",
+      "source_tier": "green",
+      "confidence_score": 0.85,
+      "dedupe_key": "06aa62950fe0a4076ac60d1dbad80b6ec9580fa76e898d68c1149109ba8213fe",
+      "status": "real_detected",
+      "risk_flags": [
+        "no_risk_detected"
+      ],
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK."
+    },
+    {
+      "candidate_id": "CAND-0020",
+      "detected_at": "2026-05-21T12:38:39.066Z",
+      "source_id": "ico-ai-and-algorithms",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/",
+      "title": "Explaining decisions made with AI&nbsp;",
+      "date_published": "21 May 2026",
+      "detected_keywords": [
+        "AI",
+        "guidance"
+      ],
+      "preliminary_case_type": "regulator_guidance",
+      "jurisdiction": "UK",
+      "source_tier": "green",
+      "confidence_score": 0.85,
+      "dedupe_key": "888a017fa31e1b50d2a77fee1250ff7c5c666227cd50fe3ecc0ea7f3ebd070b4",
+      "status": "real_detected",
+      "risk_flags": [
+        "no_risk_detected"
+      ],
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK."
+    },
+    {
+      "candidate_id": "CAND-0021",
+      "detected_at": "2026-05-21T12:38:39.066Z",
+      "source_id": "ico-ai-and-algorithms",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/ai-and-data-protection-risk-toolkit/",
+      "title": "AI and data protection risk toolkit",
+      "date_published": "21 May 2026",
+      "detected_keywords": [
+        "AI",
+        "guidance"
+      ],
+      "preliminary_case_type": "regulator_guidance",
+      "jurisdiction": "UK",
+      "source_tier": "green",
+      "confidence_score": 0.85,
+      "dedupe_key": "a6f288353aa2852b9cb657e695b6a7d72f9320ff5f4f93e7f2d48abacd776af1",
+      "status": "real_detected",
+      "risk_flags": [
+        "no_risk_detected"
+      ],
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK."
+    },
+    {
+      "candidate_id": "CAND-0022",
+      "detected_at": "2026-05-21T12:38:39.066Z",
+      "source_id": "edpb-ai",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_fr",
+      "title": "FRFrançais",
+      "date_published": "21 May 2026",
+      "detected_keywords": [
+        "AI",
+        "guidance"
+      ],
+      "preliminary_case_type": "regulator_guidance",
+      "jurisdiction": "EU",
+      "source_tier": "green",
+      "confidence_score": 0.85,
+      "dedupe_key": "bb2f4fd1646ed4f32d892529f62db670bdb193cbeea594271053c7a3b8ea04e4",
+      "status": "real_detected",
+      "risk_flags": [
+        "no_risk_detected"
+      ],
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: EU."
+    },
+    {
+      "candidate_id": "CAND-0023",
+      "detected_at": "2026-05-21T12:38:39.066Z",
+      "source_id": "edpb-ai",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en?f%5B0%5D=opinions_topics%3A769",
+      "title": "Automated decision &amp; profiling (3)",
+      "date_published": "21 May 2026",
+      "detected_keywords": [
+        "automated decision",
+        "guidance"
+      ],
+      "preliminary_case_type": "regulator_guidance",
+      "jurisdiction": "EU",
+      "source_tier": "green",
+      "confidence_score": 0.85,
+      "dedupe_key": "4ca40506dc716ff2bbc62f39490f5c13e3fd30045c252da8d94613a37653d4d2",
+      "status": "real_detected",
+      "risk_flags": [
+        "no_risk_detected"
+      ],
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: EU."
+    },
+    {
+      "candidate_id": "CAND-0024",
+      "detected_at": "2026-05-21T12:40:56.002Z",
+      "source_id": "ico-ai-and-algorithms",
+      "source_url": "https://ico.org.uk/make-a-complaint/",
+      "title": "Make a complaint",
+      "date_published": "21 May 2026",
+      "detected_keywords": [
+        "AI",
+        "complaint"
+      ],
+      "preliminary_case_type": "enforcement",
+      "jurisdiction": "UK",
+      "source_tier": "green",
+      "confidence_score": 0.85,
+      "dedupe_key": "1f4bd803f361cddf3a8ee6d4b4e4be895756de0874c185fe859fbe2825c7a35c",
+      "status": "real_detected",
+      "risk_flags": [
+        "no_risk_detected"
+      ],
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK."
+    },
+    {
+      "candidate_id": "CAND-0025",
+      "detected_at": "2026-05-21T12:40:56.002Z",
+      "source_id": "ico-ai-and-algorithms",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
+      "title": "Artificial intelligence (AI) and data protection",
+      "date_published": "21 May 2026",
+      "detected_keywords": [
+        "artificial intelligence",
+        "AI",
+        "guidance"
+      ],
+      "preliminary_case_type": "regulator_guidance",
+      "jurisdiction": "UK",
+      "source_tier": "green",
+      "confidence_score": 0.85,
+      "dedupe_key": "06aa62950fe0a4076ac60d1dbad80b6ec9580fa76e898d68c1149109ba8213fe",
+      "status": "real_detected",
+      "risk_flags": [
+        "no_risk_detected"
+      ],
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK."
+    },
+    {
+      "candidate_id": "CAND-0026",
+      "detected_at": "2026-05-21T12:40:56.002Z",
+      "source_id": "ico-ai-and-algorithms",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/",
+      "title": "Explaining decisions made with AI&nbsp;",
+      "date_published": "21 May 2026",
+      "detected_keywords": [
+        "AI",
+        "guidance"
+      ],
+      "preliminary_case_type": "regulator_guidance",
+      "jurisdiction": "UK",
+      "source_tier": "green",
+      "confidence_score": 0.85,
+      "dedupe_key": "888a017fa31e1b50d2a77fee1250ff7c5c666227cd50fe3ecc0ea7f3ebd070b4",
+      "status": "real_detected",
+      "risk_flags": [
+        "no_risk_detected"
+      ],
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK."
+    },
+    {
+      "candidate_id": "CAND-0027",
+      "detected_at": "2026-05-21T12:40:56.002Z",
+      "source_id": "ico-ai-and-algorithms",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/ai-and-data-protection-risk-toolkit/",
+      "title": "AI and data protection risk toolkit",
+      "date_published": "21 May 2026",
+      "detected_keywords": [
+        "AI",
+        "guidance"
+      ],
+      "preliminary_case_type": "regulator_guidance",
+      "jurisdiction": "UK",
+      "source_tier": "green",
+      "confidence_score": 0.85,
+      "dedupe_key": "a6f288353aa2852b9cb657e695b6a7d72f9320ff5f4f93e7f2d48abacd776af1",
+      "status": "real_detected",
+      "risk_flags": [
+        "no_risk_detected"
+      ],
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK."
+    },
+    {
+      "candidate_id": "CAND-0028",
+      "detected_at": "2026-05-21T12:40:56.002Z",
+      "source_id": "edpb-ai",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_fr",
+      "title": "FRFrançais",
+      "date_published": "21 May 2026",
+      "detected_keywords": [
+        "AI",
+        "guidance"
+      ],
+      "preliminary_case_type": "regulator_guidance",
+      "jurisdiction": "EU",
+      "source_tier": "green",
+      "confidence_score": 0.85,
+      "dedupe_key": "bb2f4fd1646ed4f32d892529f62db670bdb193cbeea594271053c7a3b8ea04e4",
+      "status": "real_detected",
+      "risk_flags": [
+        "no_risk_detected"
+      ],
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: EU."
+    },
+    {
+      "candidate_id": "CAND-0029",
+      "detected_at": "2026-05-21T12:40:56.002Z",
+      "source_id": "edpb-ai",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en?f%5B0%5D=opinions_topics%3A769",
+      "title": "Automated decision &amp; profiling (3)",
+      "date_published": "21 May 2026",
+      "detected_keywords": [
+        "automated decision",
+        "guidance"
+      ],
+      "preliminary_case_type": "regulator_guidance",
+      "jurisdiction": "EU",
+      "source_tier": "green",
+      "confidence_score": 0.85,
+      "dedupe_key": "4ca40506dc716ff2bbc62f39490f5c13e3fd30045c252da8d94613a37653d4d2",
+      "status": "real_detected",
+      "risk_flags": [
+        "no_risk_detected"
+      ],
+      "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: EU."
+    }
+  ],
+  "drafts": [],
+  "digests": [],
+  "metadata": {
+    "synthetic": false,
+    "purpose": "Local Review Console Real Watcher Data",
+    "warning": "INTERNAL OPERATOR AUDIT ONLY - NOT FOR PUBLIC RELEASE",
+    "confidential": true
+  }
+}
