@@ -1,6 +1,6 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T047)
+**Last updated:** 21 May 2026 (T056)
 
 ---
 
@@ -153,6 +153,18 @@ The following tasks require Artem / Control Tower review before execution:
 - v0.3 Dataset MVP — blocked until T006 dossier shortlist is approved.
 - Incident record creation — blocked until T006 is approved and workflow gates are passed.
 - Any mass import or scraping workflow — blocked unless separately approved.
+
+---
+
+## T056 — Real Automated Monitoring Architecture (Complete — 21 May 2026)
+
+- Architecture decision: `docs/automation/REAL_AUTOMATED_MONITORING_ARCHITECTURE.md`
+- Supabase schema starter: `infra/supabase/schema.sql`
+- Cloudflare Worker skeleton: `infra/cloudflare-worker/src/index.js`
+- Ops export/validate scripts: `scripts/export-ops-status.mjs`, `scripts/validate-ops-status.mjs`
+- Monitoring status panel live on public site (fetches `data/ops/latest-status.json`)
+- One-command cycle runner: `scripts/run-local-automation-cycle.mjs`
+- **Next T057:** Configure Supabase + Cloudflare Worker secrets → `hosted_ready` mode
 
 ---
 

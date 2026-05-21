@@ -381,6 +381,24 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T049-promotion-cli-public-case-dry-run/IMPLEMENTATION_REPORT.md` | T049 report | Final report for T049 promotion machinery. (T049) |
 | `work-items/T049-promotion-cli-public-case-dry-run/DECISIONS.md` | T049 decisions | Promotion CLI and approval system decisions log. (T049) |
 
+| `work-items/T056-real-automated-monitoring-architecture/TASK.md` | T056 task | Task scope and deliverables for T056 automation architecture. (T056) |
+| `work-items/T056-real-automated-monitoring-architecture/VALIDATION.md` | T056 validation | Validation checklist for automation architecture. (T056) |
+| `work-items/T056-real-automated-monitoring-architecture/IMPLEMENTATION_REPORT.md` | T056 report | Final report for T056 automation-ready architecture layer. (T056) |
+| `work-items/T056-real-automated-monitoring-architecture/DECISIONS.md` | T056 decisions | Architecture, infra, and ops export decisions (D-01–D-05). (T056) |
+| `docs/automation/REAL_AUTOMATED_MONITORING_ARCHITECTURE.md` | Architecture Decision | Locked architecture: static site + Supabase (future) + Cloudflare Worker (future). (T056) |
+| `infra/supabase/schema.sql` | DB Schema | 7-table Postgres schema for operational pipeline data. Not applied. (T056) |
+| `infra/supabase/README.md` | Infra Doc | Supabase integration instructions and gate conditions. (T056) |
+| `infra/cloudflare-worker/src/index.js` | Worker Skeleton | Cloudflare Worker route handlers (health/status/records/run). (T056) |
+| `infra/cloudflare-worker/wrangler.example.toml` | Config Template | Wrangler deployment template — no credentials. (T056) |
+| `infra/cloudflare-worker/README.md` | Infra Doc | Worker deployment guide and safety notes. (T056) |
+| `scripts/export-ops-status.mjs` | Ops Exporter | Reads index + watch runs; writes sanitised ops status to data/ops/ and site/data/ops/. (T056) |
+| `scripts/validate-ops-status.mjs` | Ops Validator | Validates ops JSON: count=13, INC-0013, no secrets/leaks, mode not live_scheduled_enabled. (T056) |
+| `scripts/run-local-automation-cycle.mjs` | Cycle Runner | One-command local automation: pipeline → export → validate → build → rss → validate-site. (T056) |
+| `data/ops/latest-status.json` | Ops Status | Internal sanitised pipeline ops status snapshot. (T056) |
+| `data/ops/latest-watch-run-public.json` | Run Summary | Internal sanitised latest watch run summary. (T056) |
+| `site/data/ops/latest-status.json` | Public Ops Status | Public ops status JSON served by GitHub Pages. (T056) |
+| `site/data/ops/latest-watch-run-public.json` | Public Run Summary | Public sanitised watch run summary served by GitHub Pages. (T056) |
+
 ---
 
 ## Planned Directories (Not Yet Created)

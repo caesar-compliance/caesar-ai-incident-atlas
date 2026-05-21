@@ -1,7 +1,7 @@
 # Roadmap — Next Phases — caesar-ai-incident-atlas
 
 **Created:** 20 May 2026 (T032)
-**Last updated:** 21 May 2026 (T054)
+**Last updated:** 21 May 2026 (T056)
 **Baseline:** Public MVP v0.13.0. 13 records. INC-0013 (EDPB guidance, first real adapter-detected case) published under CT approval.
 **Status:** Active MVP. INC-0013 live. Promotion pipeline fully operational. Next: additional CT-approved promotions from remaining ranked packets.
 
@@ -169,6 +169,21 @@ For each of the 12 (and future) case records, map to:
 - New counsel review if broader commercial or licensed distribution is planned.
 - AIID CC BY-SA 4.0 ShareAlike clause reviewed before any AIID data import.
 - OECD/AIAAIC license verifications completed before any data from those sources is used.
+
+---
+
+## v1.0 — Hosted Automation Architecture (T056 — 21 May 2026)
+
+**T056 complete** — First real automation-ready architecture layer built.
+
+- Architecture decision locked: `docs/automation/REAL_AUTOMATED_MONITORING_ARCHITECTURE.md`
+- Supabase operational DB schema: `infra/supabase/schema.sql` (7 tables, not yet connected)
+- Cloudflare Worker API/cron edge skeleton: `infra/cloudflare-worker/` (not yet deployed)
+- Ops export pipeline: `scripts/export-ops-status.mjs` → `site/data/ops/latest-status.json`
+- Public Monitoring Status panel live on `atlas.caesar.no`
+- One-command automation runner: `scripts/run-local-automation-cycle.mjs`
+
+**Next T057:** Connect Supabase + Cloudflare Worker → `hosted_ready` automation mode.
 
 ---
 

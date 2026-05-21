@@ -547,6 +547,67 @@ const RECORD_TYPE_LABELS = {
 
 function sectorLabel(id) { return SECTOR_NAMES[id] || id; }
 
+/* ── Monitoring Status Panel ── */
+async function loadMonitoringStatus() {
+  const el = document.getElementById("monitoring-status-content");
+  if (!el) return;
+  try {
+    const res = await fetch("data/ops/latest-status.json");
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const s = await res.json();
+    renderMonitoringStatus(el, s);
+  } catch {
+    el.innerHTML = `<span class="monitoring-loading" style="color:var(--muted);font-size:0.72rem;">Status unavailable — running locally.</span>`;
+  }
+}
+
+function renderMonitoringStatus(el, s) {
+  const modeLabel = {
+    manual_local:             "Manual / local",
+    hosted_ready:             "Hosted-ready",
+    live_scheduled_disabled:  "Live scheduled (disabled)",
+    live_scheduled_enabled:   "Live scheduled",
+  };
+  const mode = s.automation_mode || "manual_local";
+  const modeText = modeLabel[mode] || mode;
+  const modeClass = mode === "live_scheduled_enabled" ? "mon-val-live" : "mon-val-muted";
+
+  const lastRun = s.last_pipeline_run_at
+    ? formatRelativeTime(s.last_pipeline_run_at)
+    : "—";
+
+  const sources = s.source_count != null ? s.source_count : "—";
+  const cqCount = s.case_quality_ready_count != null ? s.case_quality_ready_count : "—";
+
+  el.innerHTML =
+    `<ul class="monitoring-list" aria-label="Monitoring status details">` +
+    `<li><span class="mon-label">Public records</span><span class="mon-val">${esc(String(s.public_record_count ?? "—"))}</span></li>` +
+    `<li><span class="mon-label">Latest record</span><span class="mon-val">${esc(s.latest_public_record_id ?? "—")}</span></li>` +
+    `<li><span class="mon-label">Automation mode</span><span class="mon-val ${modeClass}">${esc(modeText)}</span></li>` +
+    `<li><span class="mon-label">Last run</span><span class="mon-val">${esc(lastRun)}</span></li>` +
+    `<li><span class="mon-label">Sources monitored</span><span class="mon-val">${esc(String(sources))}</span></li>` +
+    `<li><span class="mon-label">Case-quality candidates</span><span class="mon-val">${esc(String(cqCount))}</span></li>` +
+    `<li><span class="mon-label">Live scheduled</span><span class="mon-val mon-val-muted">Disabled — coming next</span></li>` +
+    `</ul>` +
+    `<a class="mon-json-link" href="data/ops/latest-status.json" target="_blank" rel="noopener noreferrer" aria-label="View raw ops status JSON">ops status JSON →</a>`;
+}
+
+function formatRelativeTime(isoStr) {
+  try {
+    const d = new Date(isoStr);
+    const diffMs = Date.now() - d.getTime();
+    const diffH  = Math.floor(diffMs / 3600000);
+    const diffM  = Math.floor(diffMs / 60000);
+    if (diffM < 2)   return "just now";
+    if (diffM < 60)  return diffM + "m ago";
+    if (diffH < 24)  return diffH + "h ago";
+    const diffD = Math.floor(diffH / 24);
+    return diffD + "d ago";
+  } catch {
+    return isoStr;
+  }
+}
+
 /* ── Boot ── */
 document.addEventListener("DOMContentLoaded", () => {
   /* Search */
@@ -570,4 +631,5 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("hashchange", handleHashOnLoad);
 
   init();
+  loadMonitoringStatus();
 });
