@@ -322,6 +322,15 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `data/reviews/private-promotion-dry-runs/private-promotion-dry-run-latest.json` | Latest Dry-Run Output | Structured latest private promotion dry-run bundle. (T067) |
 | `data/reviews/private-promotion-dry-runs/private-promotion-dry-run-manifest.json` | Dry-Run Manifest | Latest dry-run manifest with counts and safety status. (T067) |
 | `data/ops/supabase/atlas-private-promotion-dry-run.private-latest.json` | Hosted Dry-Run Payload | Sanitized atlas_private_promotion_dry_runs Supabase payload. (T067) |
+| `schemas/pipeline/private-promotion-signoff.schema.json` | Signoff Schema | JSON Schema for private promotion review/signoff with hard publication blocks. (T068) |
+| `scripts/build-private-promotion-signoff.mjs` | Signoff Builder | Creates signoff record from T067 dry-run. (T068) |
+| `scripts/apply-private-promotion-signoff-decision.mjs` | Signoff Apply | Bounded local patch for review dimension statuses. (T068) |
+| `scripts/export-hosted-private-promotion-signoff-payloads.mjs` | Signoff Hosted Exporter | Sanitized atlas_private_promotion_signoffs payload. (T068) |
+| `scripts/export-review-console-private-promotion-signoff-data.mjs` | Signoff Console Exporter | Console metadata export. (T068) |
+| `scripts/validate-private-promotion-signoff.mjs` | Signoff Validator | Signoff safety and referential validator. (T068) |
+| `scripts/run-private-promotion-signoff-workflow.mjs` | Signoff Workflow | Bounded T068 workflow runner. (T068) |
+| `tools/review-console/data/private-promotion-signoff.json` | Signoff Console Data | Review Console signoff summary. (T068) |
+| `data/reviews/private-promotion-signoffs/private-promotion-signoff-latest.json` | Latest Signoff | Private promotion signoff record. (T068) |
 | `work-items/T067-private-promotion-packet-dry-run/TASK.md` | T067 task | Task checklist, scope, and status. |
 | `work-items/T067-private-promotion-packet-dry-run/VALIDATION.md` | T067 validation | Validation checklist and results. |
 | `work-items/T067-private-promotion-packet-dry-run/IMPLEMENTATION_REPORT.md` | T067 report | Implementation report of files created. |

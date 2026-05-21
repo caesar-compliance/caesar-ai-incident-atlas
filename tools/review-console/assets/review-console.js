@@ -281,6 +281,68 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    if (bundleName === 'private-promotion-signoff.json') {
+      isPrivateIntakeBundle = false;
+      isRealBundle = false;
+      safetyWarningBanner.innerHTML = `<strong>[CRITICAL WARNING]</strong> PRIVATE SIGNOFF ONLY &bull; NOT PUBLICATION APPROVAL &bull; NO REAL PROMOTION PACKET &bull; NO PUBLIC PREVIEW &bull; NO INC-0014 &bull; HUMAN LEGAL/GOVERNANCE REVIEW REQUIRED &bull; STRICTLY LOCAL SANDBOX`;
+      safetyLabel.textContent = "PRIVATE PROMOTION SIGNOFF";
+      if (safetyIndicator) {
+        safetyIndicator.className = 'pulse-orange';
+        safetyIndicator.style.backgroundColor = '#a855f7';
+      }
+      if (pipelineStageTabs) pipelineStageTabs.style.display = 'none';
+      if (pipelineSummaryBar) pipelineSummaryBar.style.display = 'none';
+      if (digestPreviewBlock) digestPreviewBlock.style.display = 'none';
+      if (qualityClassFilter) qualityClassFilter.style.display = 'none';
+
+      sidebarHeaderTitle.textContent = "Promotion Signoffs";
+
+      fetch(`./data/private-promotion-signoff.json`)
+      .then(r => r.json())
+      .then(signoffData => {
+        bundleTimestampEl.textContent = signoffData.generated_at
+          ? new Date(signoffData.generated_at).toLocaleString()
+          : 'Unknown';
+
+        draftListContainer.innerHTML = '';
+        const item = document.createElement('div');
+        item.className = 'draft-item draft-item-private-signoff';
+        item.style.cssText = 'padding:10px 12px; cursor:pointer; border-bottom:1px solid #2a2a2a; background:#120d1a;';
+        item.innerHTML = `
+          <div style="font-size:10px; color:#a855f7; font-weight:700; text-transform:uppercase; margin-bottom:4px;">
+            🔒 PRIVATE SIGNOFF
+          </div>
+          <div style="font-size:12px; font-weight:600; color:#fff; margin-bottom:2px;">
+            ${(signoffData.suggested_public_record_id || {}).suggested_id || 'Signoff Review'}
+          </div>
+          <div style="font-size:10px; color:#888;">
+            ${signoffData.source_run_id || '—'}
+          </div>
+          <div style="margin-top:6px; display:flex; gap:4px; flex-wrap:wrap;">
+            <span style="background:#1a0d1a; border:1px solid #a855f7; color:#a855f7; font-size:9px; padding:1px 5px; border-radius:3px;">
+              ${signoffData.signoff_status || 'private_review_pending'}
+            </span>
+            <span style="background:#1a0d0d; border:1px solid #ef4444; color:#ef4444; font-size:9px; padding:1px 5px; border-radius:3px;">
+              ${signoffData.unresolved_blocker_count || 0} blockers
+            </span>
+          </div>
+        `;
+        item.addEventListener('click', () => renderPrivatePromoSignoffDetail(signoffData));
+        draftListContainer.appendChild(item);
+        renderPrivatePromoSignoffDetail(signoffData);
+      })
+      .catch(err => {
+        console.error("Error loading private promotion signoff data:", err);
+        draftListContainer.innerHTML = `
+          <div class="loading-placeholder" style="color: var(--color-danger);">
+            Failed to load Private Promotion Signoff data.<br>
+            Please run the T068 workflow scripts first!
+          </div>
+        `;
+      });
+      return;
+    }
+
     isPrivateIntakeBundle = false;
 
 
@@ -1714,6 +1776,91 @@ document.addEventListener('DOMContentLoaded', () => {
     gateStepControl.className = 'status-step blocked';
     gateStepControl.querySelector('.step-check').innerHTML = '🚫';
     gateStepControl.querySelector('.step-text').textContent = 'Public Promotion Blocked';
+  }
+
+  function renderPrivatePromoSignoffDetail(signoffData) {
+    emptyStatePanel.classList.add('hidden');
+    if (healthDetailPanel) healthDetailPanel.classList.add('hidden');
+    if (packetDetailPanel) packetDetailPanel.classList.add('hidden');
+    activeDetailPanel.classList.remove('hidden');
+
+    ['detail-local-only-label', 'detail-not-public-label', 'detail-not-approved-label', 'detail-promotion-blocked-label'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('hidden');
+    });
+
+    const sugRec = signoffData.suggested_public_record_id || {};
+    const review = signoffData.review_status_summary || {};
+
+    detailDraftId.textContent = 'PROMOTION_SIGNOFF';
+    detailCandidateId.textContent = signoffData.dry_run_id || '—';
+    detailProposedTitle.textContent = (sugRec.suggested_id || 'INC-0014-SUGGESTED') + ' (suggestion only)';
+    detailJurisdiction.textContent = 'Local (Private Signoff)';
+    detailLegalDomain.textContent = 'AI & Governance';
+    detailCommercialDomain.textContent = 'Promotion Signoff Gate';
+
+    detailCleanRoomSummary.innerHTML = `
+      <strong>Private Promotion Signoff — Review Checklist:</strong><br><br>
+      <div style="margin-bottom:6px;">• <strong>Legal review:</strong> ${escapeHTML(review.legal_review_status || 'pending')}</div>
+      <div style="margin-bottom:6px;">• <strong>Source quotation:</strong> ${escapeHTML(review.source_quotation_review_status || 'pending')}</div>
+      <div style="margin-bottom:6px;">• <strong>Public narrative:</strong> ${escapeHTML(review.public_narrative_review_status || 'pending')}</div>
+      <div style="margin-bottom:6px;">• <strong>Publication risk:</strong> ${escapeHTML(review.publication_risk_review_status || 'pending')}</div>
+      <div style="margin-bottom:6px;">• <strong>Control Tower approval:</strong> ${escapeHTML(review.control_tower_publication_approval_status || 'pending')}</div>
+    `;
+
+    detailCaseType.textContent = 'signoff_gate';
+    detailSourceAuthorities.textContent = signoffData.source_run_id || 'Unknown';
+    detailSourceUrl.href = '#';
+    detailSourceUrl.textContent = 'Private signoff — no source URL exposed';
+
+    detailSourceTier.textContent = 'PRIVATE REVIEW GATE';
+    detailSourceTier.className = 'tier-pill tier-yellow';
+    detailSourceRiskLevel.textContent = 'PRIVATE_PROMOTION_SIGNOFF';
+    detailSourceRiskLevel.className = 'risk-pill risk-orange';
+
+    detailPublishRecommendation.textContent = signoffData.signoff_status || 'private_review_pending';
+    detailBusinessRisk.textContent = 'Private signoff only. Not publication approval. No real promotion packet. No public preview. No INC-0014.';
+
+    populateList(detailFailureModesList, [], 'tag');
+    populateList(detailMissingControlsList, [], 'control');
+    populateList(detailEvidenceList, [], 'evidence');
+    detailTrainingLesson.textContent = signoffData.next_allowed_step || 'Complete review checklist before T069.';
+    populateList(detailVendorQuestionsList, [], 'question');
+
+    simulationResultPanel.classList.remove('hidden');
+    simulationResultPanel.innerHTML = `
+      <div class="result-header" style="background-color: #7c3aed; color: white; padding: 10px; border-radius: 4px; font-weight: bold; margin-bottom: 10px; text-align: center; font-size:12px;">
+        🔒 PRIVATE PROMOTION SIGNOFF
+      </div>
+      <div class="result-body" style="font-size: 13px;">
+        <div style="padding: 10px; background: rgba(124, 58, 237, 0.08); border: 1px solid rgba(168, 85, 247, 0.4); border-radius: 6px; margin-bottom: 12px;">
+          <div style="font-weight: 700; color: #a855f7; text-transform: uppercase;">
+            ${escapeHTML((signoffData.signoff_status || 'private_review_pending').replace(/_/g, ' '))}
+          </div>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Unresolved Blockers (${signoffData.unresolved_blocker_count || 0}):</strong>
+          <ul style="color: var(--color-text-muted); padding-left: 20px; margin-top:4px;">
+            ${(signoffData.unresolved_blockers || []).map(b => `<li>${escapeHTML(b)}</li>`).join('')}
+          </ul>
+        </div>
+        <div style="margin-top: 12px; font-size: 11px; border-top: 1px solid var(--border-color); padding-top: 8px; color: #a855f7; font-weight: bold;">
+          Private signoff only &bull; Not publication approval &bull; No real promotion packet &bull; No public preview &bull; No INC-0014
+        </div>
+      </div>
+    `;
+
+    gateStepCurator.className = 'status-step passed';
+    gateStepCurator.querySelector('.step-check').innerHTML = '✓';
+    gateStepCurator.querySelector('.step-text').textContent = 'Signoff Record Created';
+
+    gateStepWording.className = 'status-step pending';
+    gateStepWording.querySelector('.step-check').innerHTML = '○';
+    gateStepWording.querySelector('.step-text').textContent = 'Human Review Checklist Pending';
+
+    gateStepControl.className = 'status-step blocked';
+    gateStepControl.querySelector('.step-check').innerHTML = '🚫';
+    gateStepControl.querySelector('.step-text').textContent = 'Publication Not Allowed';
   }
 
   // Initialize load

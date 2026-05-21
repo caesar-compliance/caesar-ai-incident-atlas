@@ -4,6 +4,19 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [0.27.0] - 21 May 2026
+
+### Added
+- **T068 — Controlled Private Promotion Review/Signoff.**
+  - `schemas/pipeline/private-promotion-signoff.schema.json` — Private signoff record with hard `enum: [false]` on all publication permission flags.
+  - `scripts/build-private-promotion-signoff.mjs` — Builds signoff from T067 dry-run with pending review checklist.
+  - `scripts/apply-private-promotion-signoff-decision.mjs` — Bounded local patch for review dimension statuses.
+  - `scripts/export-review-console-private-promotion-signoff-data.mjs` — Console metadata export.
+  - `scripts/export-hosted-private-promotion-signoff-payloads.mjs` — Sanitized payload for `atlas_private_promotion_signoffs`.
+  - `scripts/validate-private-promotion-signoff.mjs` — Signoff validator with safety and referential checks.
+  - `scripts/run-private-promotion-signoff-workflow.mjs` — Bounded local workflow runner.
+  - Updated `validate-hosted-sync-safety.mjs`, `export-ops-status.mjs`, Review Console for signoff view.
+
 ## [0.26.0] - 21 May 2026
 
 ### Added

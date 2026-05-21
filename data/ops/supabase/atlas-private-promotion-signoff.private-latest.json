@@ -1,0 +1,33 @@
+{
+  "_schema": "caesar-atlas/ops/supabase/private-promotion-signoff-payload/v1",
+  "generated_at": "2026-05-21T20:56:01.238Z",
+  "dry_run": "export_only",
+  "remote_write_attempted": false,
+  "table": "atlas_private_promotion_signoffs",
+  "note": "Private signoff export only. Not publication approval. No INC-0014. No public publish. No remote write.",
+  "records": [
+    {
+      "signoff_id": "SIGNOFF-GREEN-RUN-20260521-202417-001",
+      "created_at": "2026-05-21T20:56:01.161Z",
+      "source_run_id": "GREEN-RUN-20260521-202417",
+      "dry_run_id": "PROMO-DRY-RUN-GREEN-RUN-20260521-202417-001",
+      "package_id": "DRAFT-CAND-PKG-GREEN-RUN-20260521-202417-001",
+      "signoff_status": "private_review_blocked",
+      "legal_review_status": "pending",
+      "source_quotation_review_status": "pending",
+      "public_narrative_review_status": "pending",
+      "publication_risk_review_status": "pending",
+      "control_tower_publication_approval_status": "pending",
+      "unresolved_blocker_count": 6,
+      "resolved_checklist_count": 0,
+      "next_allowed_step": "complete_private_review_checklist_before_T069",
+      "public_publish_allowed": false,
+      "real_promotion_packet_allowed": false,
+      "public_preview_allowed": false,
+      "public_record_creation_allowed": false,
+      "remote_write_allowed": false,
+      "raw_text_storage_allowed": false,
+      "html_storage_allowed": false
+    }
+  ]
+}

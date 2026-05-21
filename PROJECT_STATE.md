@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T067)
+**Last updated:** 21 May 2026 (T068)
 
 ---
 
@@ -10,11 +10,11 @@
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
 | Current version | `0.26.0` |
-| Current phase | `T067 — Private Promotion-Packet Dry-Run Preparation` |
+| Current phase | `T068 — Controlled Private Promotion Review/Signoff` |
 | Status | `complete` |
-| Latest completed task | `T067 — Private Promotion-Packet Dry-Run Preparation` |
-| Active work item | `T067 complete. Converted T066 private draft candidate package into a private promotion dry-run bundle with Caesar-native synthesis, legal review checklist, publication blockers, Supabase dry-run payload, and console UI.` |
-| Next recommended step | `Execute T068 — controlled private promotion review/signoff.` |
+| Latest completed task | `T068 — Controlled Private Promotion Review/Signoff` |
+| Active work item | `T068 complete. Private promotion signoff record gates T067 dry-run with pending review checklist; no publication approval; all permission flags false.` |
+| Next recommended step | `Execute T069 — controlled promotion-packet candidate package (private dry-run only).` |
 
 ---
 

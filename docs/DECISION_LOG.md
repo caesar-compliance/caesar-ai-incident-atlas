@@ -1,12 +1,24 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T067 — DEC-165)
+**Last updated:** 21 May 2026 (T068 — DEC-170)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
 ---
 
 ## Decision History
+
+### [DEC-166 – DEC-170] — 21 May 2026 — T068 Controlled Private Promotion Review/Signoff
+
+**Status:** Approved
+
+- **DEC-166:** Introduce `private_promotion_signoff` as a separate artifact from T067 dry-run — signoff gates publication; dry-run prepares content only.
+- **DEC-167:** Default `signoff_status` to `private_review_blocked` when T067 publication blockers exist; all five review dimensions start `pending`.
+- **DEC-168:** `apply-private-promotion-signoff-decision.mjs` rejects setting all review fields to `passed` in one operation to preserve controlled baseline for automated validation.
+- **DEC-169:** Add `safety_flags.not_publication_approval: true` to make explicit that signoff is not Control Tower publish approval.
+- **DEC-170:** Ops status exposes only `private_promotion_signoff_status`, `private_promotion_signoff_count`, `private_promotion_public_allowed_count` — no signoff/dry-run/package IDs.
+
+---
 
 ### [DEC-161 – DEC-165] — 21 May 2026 — T067 Private Promotion-Packet Dry-Run Preparation
 

@@ -1,0 +1,53 @@
+{
+  "_schema": "caesar-atlas/review-console/private-promotion-signoff/v1",
+  "generated_at": "2026-05-21T20:56:01.201Z",
+  "label": "Private Promotion Signoff",
+  "label_warnings": [
+    "Private signoff only",
+    "Not publication approval",
+    "No real promotion packet",
+    "No public preview",
+    "No INC-0014"
+  ],
+  "signoff_count": 1,
+  "source_run_id": "GREEN-RUN-20260521-202417",
+  "dry_run_id": "PROMO-DRY-RUN-GREEN-RUN-20260521-202417-001",
+  "signoff_status": "private_review_blocked",
+  "suggested_public_record_id": {
+    "suggested_id": "INC-0014-SUGGESTED",
+    "id_status": "suggestion_only",
+    "creates_public_record": false
+  },
+  "review_status_summary": {
+    "legal_review_status": "pending",
+    "source_quotation_review_status": "pending",
+    "public_narrative_review_status": "pending",
+    "publication_risk_review_status": "pending",
+    "control_tower_publication_approval_status": "pending"
+  },
+  "unresolved_blocker_count": 6,
+  "unresolved_blockers": [
+    "human legal/governance review required",
+    "source quotation review required",
+    "no public-safe narrative approved",
+    "no promotion packet created",
+    "no preview generated",
+    "no Control Tower public publish approval"
+  ],
+  "public_publish_allowed": false,
+  "real_promotion_packet_allowed": false,
+  "public_preview_allowed": false,
+  "public_record_creation_allowed": false,
+  "next_allowed_step": "complete_private_review_checklist_before_T069",
+  "safety_flags": {
+    "no_raw_html": true,
+    "no_long_third_party_text": true,
+    "no_secrets_exposed": true,
+    "no_unauthorized_remote_writes": true,
+    "no_public_site_leak": true,
+    "no_inc_0014_created": true,
+    "no_real_promotion_packet": true,
+    "no_public_preview": true,
+    "not_publication_approval": true
+  }
+}

@@ -3,7 +3,7 @@
 **Created:** 20 May 2026 (T032)
 **Last updated:** 21 May 2026 (T066)
 **Baseline:** Public MVP v0.13.0. 13 records. INC-0013 (EDPB guidance, first real adapter-detected case) published under CT approval.
-**Status:** Active MVP. INC-0013 live. Promotion pipeline fully operational. Next: private promotion-packet dry-run preparation (T067).
+**Status:** Active MVP. INC-0013 live. Promotion pipeline fully operational. T067 dry-run and T068 signoff complete. Next: T069 promotion-packet candidate package (private).
 
 See `PUBLIC_MVP_BASELINE_FREEZE.md` for frozen baseline rules.
 See `ROADMAP.md` for the full historical phase plan.
@@ -217,7 +217,7 @@ For each of the 12 (and future) case records, map to:
 - Upgraded Review Console UI widgets and panels to render shaped packages safely.
 - Safety: Zero public leaks, public count remains 13, no INC-0014, all safety flags evaluated.
 
-**Next T067:** Private promotion-packet dry-run preparation.
+**Next T069:** Controlled promotion-packet candidate package (private dry-run only).
 
 ---
 

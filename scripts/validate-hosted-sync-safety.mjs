@@ -1191,6 +1191,65 @@ if (hostedPromoDryRun) {
   pass('T067: atlas-private-promotion-dry-run.private-latest.json not present (ok)');
 }
 
+// ── 68. T068: private promotion signoff checks ───────────────────────────────
+const promoSignoffLatestPath = path.join(ROOT, 'data', 'reviews', 'private-promotion-signoffs', 'private-promotion-signoff-latest.json');
+const promoSignoff = readJson(promoSignoffLatestPath);
+if (promoSignoff) {
+  const allowedStatuses = ['private_review_pending', 'private_review_blocked'];
+  if (!allowedStatuses.includes(promoSignoff.signoff_status)) {
+    fail(`T068: signoff_status is ${promoSignoff.signoff_status}, expected pending/blocked`);
+  } else {
+    pass(`T068: signoff_status = ${promoSignoff.signoff_status}`);
+  }
+  if (promoSignoff.public_publish_allowed !== false) {
+    fail('T068: public_publish_allowed is not false');
+  } else {
+    pass('T068: public_publish_allowed = false');
+  }
+  if (promoSignoff.real_promotion_packet_allowed !== false) {
+    fail('T068: real_promotion_packet_allowed is not false');
+  } else {
+    pass('T068: real_promotion_packet_allowed = false');
+  }
+  if ((promoSignoff.unresolved_blockers || []).length === 0) {
+    fail('T068: unresolved_blockers must be > 0');
+  } else {
+    pass('T068: unresolved_blockers present');
+  }
+  const sf68 = promoSignoff.safety_flags || {};
+  if (sf68.not_publication_approval === true && sf68.no_inc_0014_created === true) {
+    pass('T068: signoff safety flags valid');
+  } else {
+    fail('T068: signoff safety flags invalid');
+  }
+} else {
+  pass('T068: private promotion signoff not present (ok — T068 not yet run)');
+}
+
+const hostedPromoSignoffPath = path.join(OPS_SUPABASE_DIR, 'atlas-private-promotion-signoff.private-latest.json');
+const hostedPromoSignoff = readJson(hostedPromoSignoffPath);
+if (hostedPromoSignoff) {
+  if (hostedPromoSignoff.remote_write_attempted !== false) {
+    fail('T068: atlas-private-promotion-signoff.private-latest.json remote_write_attempted is not false');
+  } else {
+    pass('T068: atlas-private-promotion-signoff.private-latest.json remote_write_attempted = false');
+  }
+  const recs = hostedPromoSignoff.records || [];
+  let signoffPayloadErrors = false;
+  for (const r of recs) {
+    if (r.public_publish_allowed !== false || r.real_promotion_packet_allowed !== false) {
+      signoffPayloadErrors = true;
+    }
+  }
+  if (!signoffPayloadErrors) {
+    pass('T068: hosted signoff payload records sanitized');
+  } else {
+    fail('T068: hosted signoff payload has unsafe flags');
+  }
+} else {
+  pass('T068: atlas-private-promotion-signoff.private-latest.json not present (ok)');
+}
+
 // ── Final result ─────────────────────────────────────────────────────────────
 
 process.stdout.write('\n');

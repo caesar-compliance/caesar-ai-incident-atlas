@@ -1,0 +1,138 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "caesar-atlas/pipeline/private-promotion-signoff/v1",
+  "title": "Private Promotion Review Signoff Record",
+  "description": "Schema for a private promotion review/signoff record. This is NOT publication approval. It gates future promotion-packet work. No public record is created.",
+  "type": "object",
+  "required": [
+    "signoff_id",
+    "created_at",
+    "source_run_id",
+    "dry_run_id",
+    "package_id",
+    "intake_id",
+    "decision_id",
+    "approval_id",
+    "suggested_public_record_id",
+    "signoff_status",
+    "reviewer_mode",
+    "legal_review_status",
+    "source_quotation_review_status",
+    "public_narrative_review_status",
+    "publication_risk_review_status",
+    "control_tower_publication_approval_status",
+    "unresolved_blockers",
+    "resolved_checklist_items",
+    "signoff_notes",
+    "next_allowed_step",
+    "public_publish_allowed",
+    "real_promotion_packet_allowed",
+    "public_preview_allowed",
+    "public_record_creation_allowed",
+    "remote_write_allowed",
+    "raw_text_storage_allowed",
+    "html_storage_allowed",
+    "safety_flags"
+  ],
+  "properties": {
+    "signoff_id": {
+      "type": "string",
+      "pattern": "^SIGNOFF-[A-Z0-9-]+$"
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "source_run_id": { "type": "string" },
+    "dry_run_id": { "type": "string" },
+    "package_id": { "type": "string" },
+    "intake_id": { "type": "string" },
+    "decision_id": { "type": "string" },
+    "approval_id": { "type": "string" },
+    "suggested_public_record_id": {
+      "type": "object",
+      "required": ["suggested_id", "id_status", "creates_public_record"],
+      "properties": {
+        "suggested_id": {
+          "type": "string",
+          "enum": ["INC-0014-SUGGESTED", "NEXT_PUBLIC_RECORD_ID_RESERVED_FOR_REVIEW"]
+        },
+        "id_status": { "type": "string", "enum": ["suggestion_only"] },
+        "creates_public_record": { "type": "boolean", "enum": [false] }
+      },
+      "additionalProperties": false
+    },
+    "signoff_status": {
+      "type": "string",
+      "enum": [
+        "private_review_pending",
+        "private_review_blocked",
+        "private_review_ready_for_packet_dry_run",
+        "revoked"
+      ]
+    },
+    "reviewer_mode": { "type": "string" },
+    "legal_review_status": {
+      "type": "string",
+      "enum": ["pending", "blocked", "passed"]
+    },
+    "source_quotation_review_status": {
+      "type": "string",
+      "enum": ["pending", "blocked", "passed"]
+    },
+    "public_narrative_review_status": {
+      "type": "string",
+      "enum": ["pending", "blocked", "passed"]
+    },
+    "publication_risk_review_status": {
+      "type": "string",
+      "enum": ["pending", "blocked", "passed"]
+    },
+    "control_tower_publication_approval_status": {
+      "type": "string",
+      "enum": ["pending", "blocked", "passed"]
+    },
+    "unresolved_blockers": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "resolved_checklist_items": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "signoff_notes": { "type": "string" },
+    "next_allowed_step": { "type": "string" },
+    "public_publish_allowed": { "type": "boolean", "enum": [false] },
+    "real_promotion_packet_allowed": { "type": "boolean", "enum": [false] },
+    "public_preview_allowed": { "type": "boolean", "enum": [false] },
+    "public_record_creation_allowed": { "type": "boolean", "enum": [false] },
+    "remote_write_allowed": { "type": "boolean", "enum": [false] },
+    "raw_text_storage_allowed": { "type": "boolean", "enum": [false] },
+    "html_storage_allowed": { "type": "boolean", "enum": [false] },
+    "safety_flags": {
+      "type": "object",
+      "required": [
+        "no_raw_html",
+        "no_long_third_party_text",
+        "no_secrets_exposed",
+        "no_unauthorized_remote_writes",
+        "no_public_site_leak",
+        "no_inc_0014_created",
+        "no_real_promotion_packet",
+        "no_public_preview",
+        "not_publication_approval"
+      ],
+      "properties": {
+        "no_raw_html": { "type": "boolean", "enum": [true] },
+        "no_long_third_party_text": { "type": "boolean", "enum": [true] },
+        "no_secrets_exposed": { "type": "boolean", "enum": [true] },
+        "no_unauthorized_remote_writes": { "type": "boolean", "enum": [true] },
+        "no_public_site_leak": { "type": "boolean", "enum": [true] },
+        "no_inc_0014_created": { "type": "boolean", "enum": [true] },
+        "no_real_promotion_packet": { "type": "boolean", "enum": [true] },
+        "no_public_preview": { "type": "boolean", "enum": [true] },
+        "not_publication_approval": { "type": "boolean", "enum": [true] }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
