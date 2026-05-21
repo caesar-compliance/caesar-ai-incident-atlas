@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-21T12:41:03.584Z",
+  "generated_at": "2026-05-21T12:56:08.432Z",
   "dataset_type": "real_detected_candidates_local_only",
   "public": false,
   "publication_allowed": false,
@@ -271,12 +271,573 @@
       "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: EU."
     }
   ],
-  "drafts": [],
+  "drafts": [
+    {
+      "draft_id": "DRAFT-0001",
+      "candidate_ids": [
+        "CAND-0018"
+      ],
+      "proposed_case_title": "[DRAFT] Make a complaint — Information Commissioner's Office (ICO) (UK)",
+      "case_type": "enforcement",
+      "jurisdiction": "UK",
+      "source_authorities": [
+        "Information Commissioner's Office (ICO)"
+      ],
+      "source_urls": [
+        "https://ico.org.uk/make-a-complaint/"
+      ],
+      "legal_domain": "privacy_biometrics",
+      "commercial_domain": "cross-sector AI governance",
+      "failure_mode": [
+        "FM-ENFORCEMENT-ACTION",
+        "FM-REGULATORY-PENALTY"
+      ],
+      "business_risk": "Organisations using AI systems in UK face regulatory scrutiny from Information Commissioner's Office (ICO). Failure to track and implement guidance from this source may result in enforcement action, fines, or operational restrictions. Relevant to AI procurement, deployment, and compliance programmes.",
+      "missing_controls": [
+        "CTL-REGULATORY-MONITORING",
+        "CTL-ENFORCEMENT-RESPONSE-PLAN"
+      ],
+      "required_evidence": [
+        "Evidence of regulatory guidance monitoring process",
+        "Record of internal impact assessment against this guidance",
+        "Documentation of AI system inventory and applicable controls",
+        "Board or senior management sign-off on compliance posture"
+      ],
+      "vendor_questions": [
+        "Has your organisation reviewed the latest guidance from Information Commissioner's Office (ICO)?",
+        "Do you maintain a register of applicable AI regulations and guidance by jurisdiction?",
+        "What controls are in place to respond to new regulatory guidance within 30 days?",
+        "Can you demonstrate evidence of compliance gap analysis against this guidance?"
+      ],
+      "training_lesson": "Regulatory bodies such as Information Commissioner's Office (ICO) issue guidance that directly affects AI system deployments. Organisations must maintain active monitoring processes to detect and respond to new guidance before it becomes an enforcement trigger.",
+      "clean_room_summary": "Information Commissioner's Office (ICO) has published material relating to Make a complaint. This record reflects metadata detected during a manual Green-source watcher run on 2026-05-21. This draft is a Caesar-authored internal working document compiled from public metadata only. No source text has been copied. This is not legal advice. This draft requires curator review and Control Tower approval before any public use.",
+      "source_risk_level": "green",
+      "publish_recommendation": "needs_legal_review",
+      "review_status": "draft",
+      "local_only": true,
+      "public": false,
+      "not_legal_advice": true,
+      "source_text_copied": false,
+      "generated_at": "2026-05-21T12:56:01.250Z",
+      "pipeline_stage": "real_draft_needs_review"
+    },
+    {
+      "draft_id": "DRAFT-0002",
+      "candidate_ids": [
+        "CAND-0019"
+      ],
+      "proposed_case_title": "[DRAFT] Artificial intelligence (AI) and data protection — Information Commissioner's Office (ICO) (UK)",
+      "case_type": "regulator_guidance",
+      "jurisdiction": "UK",
+      "source_authorities": [
+        "Information Commissioner's Office (ICO)"
+      ],
+      "source_urls": [
+        "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/"
+      ],
+      "legal_domain": "privacy_biometrics",
+      "commercial_domain": "cross-sector AI governance",
+      "failure_mode": [
+        "FM-GOVERNANCE-GAP",
+        "FM-COMPLIANCE-DEFICIT"
+      ],
+      "business_risk": "Organisations using AI systems in UK face regulatory scrutiny from Information Commissioner's Office (ICO). Failure to track and implement guidance from this source may result in enforcement action, fines, or operational restrictions. Relevant to AI procurement, deployment, and compliance programmes.",
+      "missing_controls": [
+        "CTL-GUIDANCE-TRACKING",
+        "CTL-COMPLIANCE-UPDATE-PROCESS"
+      ],
+      "required_evidence": [
+        "Evidence of regulatory guidance monitoring process",
+        "Record of internal impact assessment against this guidance",
+        "Documentation of AI system inventory and applicable controls",
+        "Board or senior management sign-off on compliance posture"
+      ],
+      "vendor_questions": [
+        "Has your organisation reviewed the latest guidance from Information Commissioner's Office (ICO)?",
+        "Do you maintain a register of applicable AI regulations and guidance by jurisdiction?",
+        "What controls are in place to respond to new regulatory guidance within 30 days?",
+        "Can you demonstrate evidence of compliance gap analysis against this guidance?"
+      ],
+      "training_lesson": "Regulatory bodies such as Information Commissioner's Office (ICO) issue guidance that directly affects AI system deployments. Organisations must maintain active monitoring processes to detect and respond to new guidance before it becomes an enforcement trigger.",
+      "clean_room_summary": "Information Commissioner's Office (ICO) has published material relating to Artificial intelligence (AI) and data protection. This record reflects metadata detected during a manual Green-source watcher run on 2026-05-21. This draft is a Caesar-authored internal working document compiled from public metadata only. No source text has been copied. This is not legal advice. This draft requires curator review and Control Tower approval before any public use.",
+      "source_risk_level": "green",
+      "publish_recommendation": "needs_legal_review",
+      "review_status": "draft",
+      "local_only": true,
+      "public": false,
+      "not_legal_advice": true,
+      "source_text_copied": false,
+      "generated_at": "2026-05-21T12:56:01.266Z",
+      "pipeline_stage": "real_draft_needs_review"
+    },
+    {
+      "draft_id": "DRAFT-0003",
+      "candidate_ids": [
+        "CAND-0020"
+      ],
+      "proposed_case_title": "[DRAFT] Explaining decisions made with AI — Information Commissioner's Office (ICO) (UK)",
+      "case_type": "regulator_guidance",
+      "jurisdiction": "UK",
+      "source_authorities": [
+        "Information Commissioner's Office (ICO)"
+      ],
+      "source_urls": [
+        "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/"
+      ],
+      "legal_domain": "privacy_biometrics",
+      "commercial_domain": "cross-sector AI governance",
+      "failure_mode": [
+        "FM-GOVERNANCE-GAP",
+        "FM-COMPLIANCE-DEFICIT"
+      ],
+      "business_risk": "Organisations using AI systems in UK face regulatory scrutiny from Information Commissioner's Office (ICO). Failure to track and implement guidance from this source may result in enforcement action, fines, or operational restrictions. Relevant to AI procurement, deployment, and compliance programmes.",
+      "missing_controls": [
+        "CTL-GUIDANCE-TRACKING",
+        "CTL-COMPLIANCE-UPDATE-PROCESS"
+      ],
+      "required_evidence": [
+        "Evidence of regulatory guidance monitoring process",
+        "Record of internal impact assessment against this guidance",
+        "Documentation of AI system inventory and applicable controls",
+        "Board or senior management sign-off on compliance posture"
+      ],
+      "vendor_questions": [
+        "Has your organisation reviewed the latest guidance from Information Commissioner's Office (ICO)?",
+        "Do you maintain a register of applicable AI regulations and guidance by jurisdiction?",
+        "What controls are in place to respond to new regulatory guidance within 30 days?",
+        "Can you demonstrate evidence of compliance gap analysis against this guidance?"
+      ],
+      "training_lesson": "Regulatory bodies such as Information Commissioner's Office (ICO) issue guidance that directly affects AI system deployments. Organisations must maintain active monitoring processes to detect and respond to new guidance before it becomes an enforcement trigger.",
+      "clean_room_summary": "Information Commissioner's Office (ICO) has published material relating to Explaining decisions made with AI. This record reflects metadata detected during a manual Green-source watcher run on 2026-05-21. This draft is a Caesar-authored internal working document compiled from public metadata only. No source text has been copied. This is not legal advice. This draft requires curator review and Control Tower approval before any public use.",
+      "source_risk_level": "green",
+      "publish_recommendation": "needs_legal_review",
+      "review_status": "draft",
+      "local_only": true,
+      "public": false,
+      "not_legal_advice": true,
+      "source_text_copied": false,
+      "generated_at": "2026-05-21T12:56:01.266Z",
+      "pipeline_stage": "real_draft_needs_review"
+    },
+    {
+      "draft_id": "DRAFT-0004",
+      "candidate_ids": [
+        "CAND-0021"
+      ],
+      "proposed_case_title": "[DRAFT] AI and data protection risk toolkit — Information Commissioner's Office (ICO) (UK)",
+      "case_type": "regulator_guidance",
+      "jurisdiction": "UK",
+      "source_authorities": [
+        "Information Commissioner's Office (ICO)"
+      ],
+      "source_urls": [
+        "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/ai-and-data-protection-risk-toolkit/"
+      ],
+      "legal_domain": "privacy_biometrics",
+      "commercial_domain": "cross-sector AI governance",
+      "failure_mode": [
+        "FM-GOVERNANCE-GAP",
+        "FM-COMPLIANCE-DEFICIT"
+      ],
+      "business_risk": "Organisations using AI systems in UK face regulatory scrutiny from Information Commissioner's Office (ICO). Failure to track and implement guidance from this source may result in enforcement action, fines, or operational restrictions. Relevant to AI procurement, deployment, and compliance programmes.",
+      "missing_controls": [
+        "CTL-GUIDANCE-TRACKING",
+        "CTL-COMPLIANCE-UPDATE-PROCESS"
+      ],
+      "required_evidence": [
+        "Evidence of regulatory guidance monitoring process",
+        "Record of internal impact assessment against this guidance",
+        "Documentation of AI system inventory and applicable controls",
+        "Board or senior management sign-off on compliance posture"
+      ],
+      "vendor_questions": [
+        "Has your organisation reviewed the latest guidance from Information Commissioner's Office (ICO)?",
+        "Do you maintain a register of applicable AI regulations and guidance by jurisdiction?",
+        "What controls are in place to respond to new regulatory guidance within 30 days?",
+        "Can you demonstrate evidence of compliance gap analysis against this guidance?"
+      ],
+      "training_lesson": "Regulatory bodies such as Information Commissioner's Office (ICO) issue guidance that directly affects AI system deployments. Organisations must maintain active monitoring processes to detect and respond to new guidance before it becomes an enforcement trigger.",
+      "clean_room_summary": "Information Commissioner's Office (ICO) has published material relating to AI and data protection risk toolkit. This record reflects metadata detected during a manual Green-source watcher run on 2026-05-21. This draft is a Caesar-authored internal working document compiled from public metadata only. No source text has been copied. This is not legal advice. This draft requires curator review and Control Tower approval before any public use.",
+      "source_risk_level": "green",
+      "publish_recommendation": "needs_legal_review",
+      "review_status": "draft",
+      "local_only": true,
+      "public": false,
+      "not_legal_advice": true,
+      "source_text_copied": false,
+      "generated_at": "2026-05-21T12:56:01.267Z",
+      "pipeline_stage": "real_draft_needs_review"
+    },
+    {
+      "draft_id": "DRAFT-0005",
+      "candidate_ids": [
+        "CAND-0022"
+      ],
+      "proposed_case_title": "[DRAFT] FRFrançais — European Data Protection Board (EDPB) (EU)",
+      "case_type": "regulator_guidance",
+      "jurisdiction": "EU",
+      "source_authorities": [
+        "European Data Protection Board (EDPB)"
+      ],
+      "source_urls": [
+        "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_fr"
+      ],
+      "legal_domain": "privacy_biometrics",
+      "commercial_domain": "cross-sector AI governance",
+      "failure_mode": [
+        "FM-GOVERNANCE-GAP",
+        "FM-COMPLIANCE-DEFICIT"
+      ],
+      "business_risk": "Organisations using AI systems in EU face regulatory scrutiny from European Data Protection Board (EDPB). Failure to track and implement guidance from this source may result in enforcement action, fines, or operational restrictions. Relevant to AI procurement, deployment, and compliance programmes.",
+      "missing_controls": [
+        "CTL-GUIDANCE-TRACKING",
+        "CTL-COMPLIANCE-UPDATE-PROCESS"
+      ],
+      "required_evidence": [
+        "Evidence of regulatory guidance monitoring process",
+        "Record of internal impact assessment against this guidance",
+        "Documentation of AI system inventory and applicable controls",
+        "Board or senior management sign-off on compliance posture"
+      ],
+      "vendor_questions": [
+        "Has your organisation reviewed the latest guidance from European Data Protection Board (EDPB)?",
+        "Do you maintain a register of applicable AI regulations and guidance by jurisdiction?",
+        "What controls are in place to respond to new regulatory guidance within 30 days?",
+        "Can you demonstrate evidence of compliance gap analysis against this guidance?"
+      ],
+      "training_lesson": "Regulatory bodies such as European Data Protection Board (EDPB) issue guidance that directly affects AI system deployments. Organisations must maintain active monitoring processes to detect and respond to new guidance before it becomes an enforcement trigger.",
+      "clean_room_summary": "European Data Protection Board (EDPB) has published material relating to FRFrançais. This record reflects metadata detected during a manual Green-source watcher run on 2026-05-21. This draft is a Caesar-authored internal working document compiled from public metadata only. No source text has been copied. This is not legal advice. This draft requires curator review and Control Tower approval before any public use.",
+      "source_risk_level": "green",
+      "publish_recommendation": "needs_legal_review",
+      "review_status": "draft",
+      "local_only": true,
+      "public": false,
+      "not_legal_advice": true,
+      "source_text_copied": false,
+      "generated_at": "2026-05-21T12:56:01.267Z",
+      "pipeline_stage": "real_draft_needs_review"
+    },
+    {
+      "draft_id": "DRAFT-0006",
+      "candidate_ids": [
+        "CAND-0023"
+      ],
+      "proposed_case_title": "[DRAFT] Automated decision & profiling (3) — European Data Protection Board (EDPB) (EU)",
+      "case_type": "regulator_guidance",
+      "jurisdiction": "EU",
+      "source_authorities": [
+        "European Data Protection Board (EDPB)"
+      ],
+      "source_urls": [
+        "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en?f%5B0%5D=opinions_topics%3A769"
+      ],
+      "legal_domain": "privacy_biometrics",
+      "commercial_domain": "cross-sector AI governance",
+      "failure_mode": [
+        "FM-GOVERNANCE-GAP",
+        "FM-COMPLIANCE-DEFICIT"
+      ],
+      "business_risk": "Organisations using AI systems in EU face regulatory scrutiny from European Data Protection Board (EDPB). Failure to track and implement guidance from this source may result in enforcement action, fines, or operational restrictions. Relevant to AI procurement, deployment, and compliance programmes.",
+      "missing_controls": [
+        "CTL-GUIDANCE-TRACKING",
+        "CTL-COMPLIANCE-UPDATE-PROCESS"
+      ],
+      "required_evidence": [
+        "Evidence of regulatory guidance monitoring process",
+        "Record of internal impact assessment against this guidance",
+        "Documentation of AI system inventory and applicable controls",
+        "Board or senior management sign-off on compliance posture"
+      ],
+      "vendor_questions": [
+        "Has your organisation reviewed the latest guidance from European Data Protection Board (EDPB)?",
+        "Do you maintain a register of applicable AI regulations and guidance by jurisdiction?",
+        "What controls are in place to respond to new regulatory guidance within 30 days?",
+        "Can you demonstrate evidence of compliance gap analysis against this guidance?"
+      ],
+      "training_lesson": "Regulatory bodies such as European Data Protection Board (EDPB) issue guidance that directly affects AI system deployments. Organisations must maintain active monitoring processes to detect and respond to new guidance before it becomes an enforcement trigger.",
+      "clean_room_summary": "European Data Protection Board (EDPB) has published material relating to Automated decision & profiling (3). This record reflects metadata detected during a manual Green-source watcher run on 2026-05-21. This draft is a Caesar-authored internal working document compiled from public metadata only. No source text has been copied. This is not legal advice. This draft requires curator review and Control Tower approval before any public use.",
+      "source_risk_level": "green",
+      "publish_recommendation": "needs_legal_review",
+      "review_status": "draft",
+      "local_only": true,
+      "public": false,
+      "not_legal_advice": true,
+      "source_text_copied": false,
+      "generated_at": "2026-05-21T12:56:01.267Z",
+      "pipeline_stage": "real_draft_needs_review"
+    }
+  ],
+  "promotion_packets": [
+    {
+      "packet_id": "PKT-0001",
+      "draft_id": "DRAFT-0001",
+      "candidate_ids": [
+        "CAND-0018"
+      ],
+      "source_urls": [
+        "https://ico.org.uk/make-a-complaint/"
+      ],
+      "source_tier": "green",
+      "required_reviews": [
+        "curator_risk_review",
+        "clean_room_wording_audit",
+        "legal_domain_classification_review",
+        "control_tower_publication_approval"
+      ],
+      "missing_information": [
+        "Independent curator review of proposed_case_title for neutrality and accuracy.",
+        "Legal domain classification confirmation by a qualified reviewer.",
+        "Control Tower sign-off on publication timing and risk posture."
+      ],
+      "suggested_public_case_id": "INC-0013",
+      "suggested_public_filename": "inc-0013.json",
+      "promotion_allowed": false,
+      "reason_not_promoted": "This draft has not completed the required review gates. Control Tower approval, curator review, and clean-room wording audit are all mandatory prerequisites before any public incident record may be created.",
+      "checklist": {
+        "curator_review_complete": false,
+        "clean_room_wording_approved": false,
+        "legal_domain_confirmed": false,
+        "control_tower_approved": false,
+        "publication_approved": false
+      },
+      "safety_declarations": {
+        "not_approved": true,
+        "not_public": true,
+        "control_tower_approval_required": true,
+        "curator_review_required": true,
+        "clean_room_wording_review_required": true,
+        "local_only": true,
+        "auto_publish": false
+      },
+      "generated_at": "2026-05-21T12:56:04.812Z"
+    },
+    {
+      "packet_id": "PKT-0002",
+      "draft_id": "DRAFT-0002",
+      "candidate_ids": [
+        "CAND-0019"
+      ],
+      "source_urls": [
+        "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/"
+      ],
+      "source_tier": "green",
+      "required_reviews": [
+        "curator_risk_review",
+        "clean_room_wording_audit",
+        "legal_domain_classification_review",
+        "control_tower_publication_approval"
+      ],
+      "missing_information": [
+        "Independent curator review of proposed_case_title for neutrality and accuracy.",
+        "Legal domain classification confirmation by a qualified reviewer.",
+        "Control Tower sign-off on publication timing and risk posture."
+      ],
+      "suggested_public_case_id": "INC-0013",
+      "suggested_public_filename": "inc-0013.json",
+      "promotion_allowed": false,
+      "reason_not_promoted": "This draft has not completed the required review gates. Control Tower approval, curator review, and clean-room wording audit are all mandatory prerequisites before any public incident record may be created.",
+      "checklist": {
+        "curator_review_complete": false,
+        "clean_room_wording_approved": false,
+        "legal_domain_confirmed": false,
+        "control_tower_approved": false,
+        "publication_approved": false
+      },
+      "safety_declarations": {
+        "not_approved": true,
+        "not_public": true,
+        "control_tower_approval_required": true,
+        "curator_review_required": true,
+        "clean_room_wording_review_required": true,
+        "local_only": true,
+        "auto_publish": false
+      },
+      "generated_at": "2026-05-21T12:56:04.814Z"
+    },
+    {
+      "packet_id": "PKT-0003",
+      "draft_id": "DRAFT-0003",
+      "candidate_ids": [
+        "CAND-0020"
+      ],
+      "source_urls": [
+        "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/"
+      ],
+      "source_tier": "green",
+      "required_reviews": [
+        "curator_risk_review",
+        "clean_room_wording_audit",
+        "legal_domain_classification_review",
+        "control_tower_publication_approval"
+      ],
+      "missing_information": [
+        "Independent curator review of proposed_case_title for neutrality and accuracy.",
+        "Legal domain classification confirmation by a qualified reviewer.",
+        "Control Tower sign-off on publication timing and risk posture."
+      ],
+      "suggested_public_case_id": "INC-0013",
+      "suggested_public_filename": "inc-0013.json",
+      "promotion_allowed": false,
+      "reason_not_promoted": "This draft has not completed the required review gates. Control Tower approval, curator review, and clean-room wording audit are all mandatory prerequisites before any public incident record may be created.",
+      "checklist": {
+        "curator_review_complete": false,
+        "clean_room_wording_approved": false,
+        "legal_domain_confirmed": false,
+        "control_tower_approved": false,
+        "publication_approved": false
+      },
+      "safety_declarations": {
+        "not_approved": true,
+        "not_public": true,
+        "control_tower_approval_required": true,
+        "curator_review_required": true,
+        "clean_room_wording_review_required": true,
+        "local_only": true,
+        "auto_publish": false
+      },
+      "generated_at": "2026-05-21T12:56:04.814Z"
+    },
+    {
+      "packet_id": "PKT-0004",
+      "draft_id": "DRAFT-0004",
+      "candidate_ids": [
+        "CAND-0021"
+      ],
+      "source_urls": [
+        "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/ai-and-data-protection-risk-toolkit/"
+      ],
+      "source_tier": "green",
+      "required_reviews": [
+        "curator_risk_review",
+        "clean_room_wording_audit",
+        "legal_domain_classification_review",
+        "control_tower_publication_approval"
+      ],
+      "missing_information": [
+        "Independent curator review of proposed_case_title for neutrality and accuracy.",
+        "Legal domain classification confirmation by a qualified reviewer.",
+        "Control Tower sign-off on publication timing and risk posture."
+      ],
+      "suggested_public_case_id": "INC-0013",
+      "suggested_public_filename": "inc-0013.json",
+      "promotion_allowed": false,
+      "reason_not_promoted": "This draft has not completed the required review gates. Control Tower approval, curator review, and clean-room wording audit are all mandatory prerequisites before any public incident record may be created.",
+      "checklist": {
+        "curator_review_complete": false,
+        "clean_room_wording_approved": false,
+        "legal_domain_confirmed": false,
+        "control_tower_approved": false,
+        "publication_approved": false
+      },
+      "safety_declarations": {
+        "not_approved": true,
+        "not_public": true,
+        "control_tower_approval_required": true,
+        "curator_review_required": true,
+        "clean_room_wording_review_required": true,
+        "local_only": true,
+        "auto_publish": false
+      },
+      "generated_at": "2026-05-21T12:56:04.814Z"
+    },
+    {
+      "packet_id": "PKT-0005",
+      "draft_id": "DRAFT-0005",
+      "candidate_ids": [
+        "CAND-0022"
+      ],
+      "source_urls": [
+        "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_fr"
+      ],
+      "source_tier": "green",
+      "required_reviews": [
+        "curator_risk_review",
+        "clean_room_wording_audit",
+        "legal_domain_classification_review",
+        "control_tower_publication_approval"
+      ],
+      "missing_information": [
+        "Independent curator review of proposed_case_title for neutrality and accuracy.",
+        "Legal domain classification confirmation by a qualified reviewer.",
+        "Control Tower sign-off on publication timing and risk posture."
+      ],
+      "suggested_public_case_id": "INC-0013",
+      "suggested_public_filename": "inc-0013.json",
+      "promotion_allowed": false,
+      "reason_not_promoted": "This draft has not completed the required review gates. Control Tower approval, curator review, and clean-room wording audit are all mandatory prerequisites before any public incident record may be created.",
+      "checklist": {
+        "curator_review_complete": false,
+        "clean_room_wording_approved": false,
+        "legal_domain_confirmed": false,
+        "control_tower_approved": false,
+        "publication_approved": false
+      },
+      "safety_declarations": {
+        "not_approved": true,
+        "not_public": true,
+        "control_tower_approval_required": true,
+        "curator_review_required": true,
+        "clean_room_wording_review_required": true,
+        "local_only": true,
+        "auto_publish": false
+      },
+      "generated_at": "2026-05-21T12:56:04.814Z"
+    },
+    {
+      "packet_id": "PKT-0006",
+      "draft_id": "DRAFT-0006",
+      "candidate_ids": [
+        "CAND-0023"
+      ],
+      "source_urls": [
+        "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en?f%5B0%5D=opinions_topics%3A769"
+      ],
+      "source_tier": "green",
+      "required_reviews": [
+        "curator_risk_review",
+        "clean_room_wording_audit",
+        "legal_domain_classification_review",
+        "control_tower_publication_approval"
+      ],
+      "missing_information": [
+        "Independent curator review of proposed_case_title for neutrality and accuracy.",
+        "Legal domain classification confirmation by a qualified reviewer.",
+        "Control Tower sign-off on publication timing and risk posture."
+      ],
+      "suggested_public_case_id": "INC-0013",
+      "suggested_public_filename": "inc-0013.json",
+      "promotion_allowed": false,
+      "reason_not_promoted": "This draft has not completed the required review gates. Control Tower approval, curator review, and clean-room wording audit are all mandatory prerequisites before any public incident record may be created.",
+      "checklist": {
+        "curator_review_complete": false,
+        "clean_room_wording_approved": false,
+        "legal_domain_confirmed": false,
+        "control_tower_approved": false,
+        "publication_approved": false
+      },
+      "safety_declarations": {
+        "not_approved": true,
+        "not_public": true,
+        "control_tower_approval_required": true,
+        "curator_review_required": true,
+        "clean_room_wording_review_required": true,
+        "local_only": true,
+        "auto_publish": false
+      },
+      "generated_at": "2026-05-21T12:56:04.815Z"
+    }
+  ],
+  "source_health_summary": null,
   "digests": [],
   "metadata": {
     "synthetic": false,
-    "purpose": "Local Review Console Real Watcher Data",
+    "purpose": "Local Review Console — Real Watcher Pipeline Data (T048)",
     "warning": "INTERNAL OPERATOR AUDIT ONLY - NOT FOR PUBLIC RELEASE",
-    "confidential": true
+    "confidential": true,
+    "pipeline_stages": {
+      "candidates": 12,
+      "drafts": 6,
+      "promotion_packets": 6
+    }
   }
 }

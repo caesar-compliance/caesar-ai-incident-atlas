@@ -5,6 +5,30 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.10.0] - 21 May 2026
+
+### Added
+- **T048 — Real Candidate-to-Draft Pipeline.** Built end-to-end local pipeline converting real Green-source candidates into local-only draft case packs and promotion packets.
+- Watcher hardening: added `fallback_urls` and `timeout_ms` to all 7 targets in `green-source-watch-targets.json`; `fetchWithFallback()` in `watch-green-sources.mjs` with per-source health reporting (`ok/failed/skipped/http_status/error_message/used_fallback`) and `latest-watch-summary.json` output.
+- `scripts/build-real-case-drafts.mjs` — reads unique candidates (via dedupe report), generates `DRAFT-NNNN.json` in `data/drafts/real/` with `local_only: true`, `public: false`, `not_legal_advice: true`, `source_text_copied: false`, `publish_recommendation: needs_legal_review`.
+- `scripts/validate-real-drafts.mjs` — validates all required fields, safety flags, no forbidden full-text fields, no leakage to `site/`.
+- `scripts/build-promotion-packets.mjs` — generates `PKT-NNNN.json` in `data/promotion-packets/real/` with `promotion_allowed: false`, full safety_declarations, required_reviews checklist (all false), and suggested-only public INC ID.
+- `scripts/validate-promotion-packets.mjs` — validates all safety declarations, checklist state, no actual incidents created, no leakage to `site/`.
+- Review console upgraded with pipeline stage tabs (Candidates / Drafts / Packets / Health), pipeline summary bar, promotion packet detail panel, source health table, and `LOCAL ONLY / NOT PUBLIC / NOT APPROVED / PROMOTION BLOCKED` labels on all real records.
+- Added `data/drafts/real/` and `data/promotion-packets/real/` directories.
+- 6 real drafts (DRAFT-0001 to DRAFT-0006) and 6 promotion packets (PKT-0001 to PKT-0006) generated and validated.
+- Work items under `work-items/T048-real-candidate-draft-pipeline/`.
+
+### Changed
+- `scripts/build-real-review-bundle.mjs` — extended to include `drafts`, `promotion_packets`, `source_health_summary` fields.
+- `scripts/validate-real-watcher.mjs` — added checks for `latest-watch-summary.json`, `fallback_urls` presence, no drafts/packets under `site/`.
+- `tools/review-console/assets/review-console.css` — added pipeline label, stage tab, and pipeline bar styles.
+- `NEXT_ACTIONS.md` updated to T048 complete, T049 recommended.
+
+### Status (T048)
+- **Dataset**: Frozen at exactly 12 validated public incident records. Zero public leakages.
+- **Pipeline**: 6 real drafts + 6 promotion packets generated locally. `promotion_allowed: false` on all. No public exposure.
+
 ## [0.9.0] - 21 May 2026
 
 ### Added

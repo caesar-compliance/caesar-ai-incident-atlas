@@ -14,6 +14,7 @@ const KEYWORDS_PATH = path.join(ROOT, 'data', 'watch', 'config', 'target-keyword
 const REAL_CANDIDATES_DIR = path.join(ROOT, 'data', 'watch', 'real-candidates');
 const RUNS_DIR = path.join(ROOT, 'data', 'watch', 'runs');
 const MOCK_CANDIDATES_DIR = path.join(ROOT, 'data', 'candidates', 'mock');
+const LATEST_SUMMARY_PATH = path.join(RUNS_DIR, 'latest-watch-summary.json');
 
 function logInfo(msg) {
   console.log(`\x1b[34m[Watcher Info]\x1b[0m ${msg}`);
@@ -185,6 +186,36 @@ function extractFeedLinks(xml, baseUrlString) {
   return links;
 }
 
+// 6. Attempt fetch with fallback URL support
+async function fetchWithFallback(target, headers) {
+  const urls = [target.url, ...(target.fallback_urls || [])];
+  const timeoutMs = target.timeout_ms || 15000;
+
+  for (let i = 0; i < urls.length; i++) {
+    const url = urls[i];
+    const isFallback = i > 0;
+    try {
+      const response = await fetch(url, { headers, signal: AbortSignal.timeout(timeoutMs) });
+      if (!response.ok) {
+        const msg = `HTTP ${response.status} from ${url}`;
+        if (isFallback || i === urls.length - 1) {
+          return { ok: false, content: '', http_status: response.status, error_message: msg, used_url: url, used_fallback: isFallback };
+        }
+        logWarning(`Primary URL returned HTTP ${response.status} for ${target.source_id}, trying fallback...`);
+        continue;
+      }
+      const content = await response.text();
+      return { ok: true, content, http_status: response.status, error_message: null, used_url: url, used_fallback: isFallback };
+    } catch (e) {
+      if (isFallback || i === urls.length - 1) {
+        return { ok: false, content: '', http_status: null, error_message: e.message, used_url: url, used_fallback: isFallback };
+      }
+      logWarning(`Primary URL failed for ${target.source_id} (${e.message}), trying fallback...`);
+    }
+  }
+  return { ok: false, content: '', http_status: null, error_message: 'All URLs exhausted', used_url: target.url, used_fallback: false };
+}
+
 // Main Execution
 async function watch() {
   logInfo('Starting Real Green-Source Watcher run...');
@@ -202,7 +233,8 @@ async function watch() {
   const keywordsConfig = JSON.parse(fs.readFileSync(KEYWORDS_PATH, 'utf8'));
 
   const enabledTargets = targets.filter(t => t.enabled_for_manual_watch);
-  logInfo(`Found ${enabledTargets.length} enabled watch targets.`);
+  const skippedTargets = targets.filter(t => !t.enabled_for_manual_watch);
+  logInfo(`Found ${enabledTargets.length} enabled watch targets. ${skippedTargets.length} skipped.`);
 
   const runDate = new Date();
   const runTimestamp = runDate.toISOString();
@@ -210,6 +242,7 @@ async function watch() {
 
   const summary = {
     run_timestamp: runTimestamp,
+    source_health: [],
     fetched_sources: [],
     detected_candidates: [],
     skipped_items: 0,
@@ -222,47 +255,65 @@ async function watch() {
     'Accept-Language': 'en-US,en;q=0.5'
   };
 
+  // Record skipped targets in health report
+  for (const target of skippedTargets) {
+    summary.source_health.push({
+      source_id: target.source_id,
+      url: target.url,
+      status: 'skipped',
+      http_status: null,
+      error_message: 'disabled via enabled_for_manual_watch: false',
+      used_fallback: false
+    });
+  }
+
   for (const target of enabledTargets) {
     logInfo(`Fetching target: ${target.source_id} (${target.url}) ...`);
-    
-    let content = '';
-    try {
-      const response = await fetch(target.url, { headers, signal: AbortSignal.timeout(10000) });
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      content = await response.text();
-      logSuccess(`Fetched ${target.source_id} successfully (${content.length} bytes).`);
-      
-      summary.fetched_sources.push({
+
+    const fetchResult = await fetchWithFallback(target, headers);
+
+    if (!fetchResult.ok) {
+      logError(`Failed to fetch target ${target.source_id}: ${fetchResult.error_message}`);
+
+      const healthEntry = {
         source_id: target.source_id,
-        url: target.url,
-        status: 'success',
-        bytes: content.length
-      });
-    } catch (e) {
-      logError(`Failed to fetch target ${target.source_id}: ${e.message}`);
-      summary.errors.push({
-        source_id: target.source_id,
-        url: target.url,
-        error: e.message
-      });
-      
-      summary.fetched_sources.push({
-        source_id: target.source_id,
-        url: target.url,
+        url: fetchResult.used_url,
         status: 'failed',
-        error: e.message
-      });
+        http_status: fetchResult.http_status,
+        error_message: fetchResult.error_message,
+        used_fallback: fetchResult.used_fallback
+      };
+      summary.source_health.push(healthEntry);
+      summary.errors.push({ source_id: target.source_id, url: fetchResult.used_url, error: fetchResult.error_message });
+      summary.fetched_sources.push({ source_id: target.source_id, url: fetchResult.used_url, status: 'failed', error: fetchResult.error_message });
       continue;
     }
+
+    const content = fetchResult.content;
+    logSuccess(`Fetched ${target.source_id} successfully (${content.length} bytes)${fetchResult.used_fallback ? ' [via fallback]' : ''}.`);
+
+    summary.source_health.push({
+      source_id: target.source_id,
+      url: fetchResult.used_url,
+      status: 'ok',
+      http_status: fetchResult.http_status,
+      error_message: null,
+      used_fallback: fetchResult.used_fallback
+    });
+    summary.fetched_sources.push({
+      source_id: target.source_id,
+      url: fetchResult.used_url,
+      status: 'success',
+      bytes: content.length,
+      used_fallback: fetchResult.used_fallback
+    });
 
     // Extract links
     let extractedLinks = [];
     if (target.fetch_mode === 'feed') {
-      extractedLinks = extractFeedLinks(content, target.url);
+      extractedLinks = extractFeedLinks(content, fetchResult.used_url);
     } else {
-      extractedLinks = extractHtmlLinks(content, target.url);
+      extractedLinks = extractHtmlLinks(content, fetchResult.used_url);
     }
 
     logInfo(`Extracted ${extractedLinks.length} raw links from ${target.source_id}.`);
@@ -277,16 +328,18 @@ async function watch() {
       }
     }
 
-    let detectedCount = 0;
+    // Enforce max_links_per_run strictly — slice before keyword scan
     const maxLinks = target.max_links_per_run || 10;
+    const linksToScan = uniqueExtractedLinks.slice(0, maxLinks * 5); // scan up to 5x to find enough matches
+    let detectedCount = 0;
 
-    for (const link of uniqueExtractedLinks) {
+    for (const link of linksToScan) {
       if (detectedCount >= maxLinks) {
         logInfo(`Reached max_links_per_run limit of ${maxLinks} for target ${target.source_id}.`);
         break;
       }
 
-      // Check if keyword filters match
+      // Check if keyword filters match (includes stronger exclusion via matchKeywords)
       const check = matchKeywords(link.title, link.url, keywordsConfig);
       if (check.matches) {
         detectedCount++;
@@ -348,16 +401,30 @@ async function watch() {
     }
   }
 
-  // Write run log to data/watch/runs/watch-run-YYYY-MM-DDTHH-MM-SSZ.json
-  // Replace ':' with '-' in timestamp to be safe across OS filesystems
-  const safeTimestamp = runTimestamp.replace(/:/g, '-');
-  const runLogPath = path.join(RUNS_DIR, `watch-run-${safeTimestamp}.json`);
-
+  // Ensure runs directory exists
   if (!fs.existsSync(RUNS_DIR)) {
     fs.mkdirSync(RUNS_DIR, { recursive: true });
   }
 
+  // Write timestamped run log
+  const safeTimestamp = runTimestamp.replace(/:/g, '-');
+  const runLogPath = path.join(RUNS_DIR, `watch-run-${safeTimestamp}.json`);
   fs.writeFileSync(runLogPath, JSON.stringify(summary, null, 2), 'utf8');
+
+  // Write latest-watch-summary.json (always overwritten with most recent run)
+  const latestSummary = {
+    run_timestamp: summary.run_timestamp,
+    source_health: summary.source_health,
+    sources_ok: summary.source_health.filter(s => s.status === 'ok').length,
+    sources_failed: summary.source_health.filter(s => s.status === 'failed').length,
+    sources_skipped: summary.source_health.filter(s => s.status === 'skipped').length,
+    detected_candidates_count: summary.detected_candidates.length,
+    skipped_items: summary.skipped_items,
+    errors_count: summary.errors.length,
+    run_log_path: runLogPath
+  };
+  fs.writeFileSync(LATEST_SUMMARY_PATH, JSON.stringify(latestSummary, null, 2), 'utf8');
+  logSuccess(`Latest watch summary written to: ${LATEST_SUMMARY_PATH}`);
   
   // Print summary console output
   console.log('\n==========================================');
@@ -365,7 +432,10 @@ async function watch() {
   console.log('==========================================');
   console.log(`Run Time:       ${runTimestamp}`);
   console.log(`Log Path:       ${runLogPath}`);
-  console.log(`Sources Fetched:${summary.fetched_sources.filter(s => s.status === 'success').length} succeeded, ${summary.fetched_sources.filter(s => s.status === 'failed').length} failed`);
+  console.log(`Summary Path:   ${LATEST_SUMMARY_PATH}`);
+  console.log(`Sources OK:     ${latestSummary.sources_ok}`);
+  console.log(`Sources Failed: ${latestSummary.sources_failed}`);
+  console.log(`Sources Skipped:${latestSummary.sources_skipped}`);
   console.log(`Detected:       ${summary.detected_candidates.length} candidate(s)`);
   console.log(`Skipped:        ${summary.skipped_items} non-matching link(s)`);
   console.log(`Errors:         ${summary.errors.length} encountered`);

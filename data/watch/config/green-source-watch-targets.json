@@ -5,9 +5,13 @@
     "jurisdiction": "US",
     "source_tier": "green",
     "url": "https://www.ftc.gov/news-events/topics/competition-consumer-protection-ai",
+    "fallback_urls": [
+      "https://www.ftc.gov/policy/advocacy-research/tech-at-ftc/artificial-intelligence"
+    ],
     "fetch_mode": "html_index",
     "enabled_for_manual_watch": true,
     "max_links_per_run": 10,
+    "timeout_ms": 15000,
     "allowed_use": "metadata_candidate_detection_only"
   },
   {
@@ -16,9 +20,13 @@
     "jurisdiction": "US",
     "source_tier": "green",
     "url": "https://www.eeoc.gov/select-issues-assessing-adverse-impact-software-algorithms-and-artificial-intelligence",
+    "fallback_urls": [
+      "https://www.eeoc.gov/laws/guidance/questions-and-answers-clarify-and-provide-common-interpretation-uniform-guidelines"
+    ],
     "fetch_mode": "html_index",
     "enabled_for_manual_watch": true,
     "max_links_per_run": 5,
+    "timeout_ms": 15000,
     "allowed_use": "metadata_candidate_detection_only"
   },
   {
@@ -27,9 +35,13 @@
     "jurisdiction": "US",
     "source_tier": "green",
     "url": "https://www.ada.gov/resources/usdoj-ada-algorithm-guidance/",
+    "fallback_urls": [
+      "https://www.ada.gov/resources/"
+    ],
     "fetch_mode": "html_index",
     "enabled_for_manual_watch": true,
     "max_links_per_run": 5,
+    "timeout_ms": 15000,
     "allowed_use": "metadata_candidate_detection_only"
   },
   {
@@ -38,9 +50,13 @@
     "jurisdiction": "UK",
     "source_tier": "green",
     "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/",
+    "fallback_urls": [
+      "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/"
+    ],
     "fetch_mode": "html_index",
     "enabled_for_manual_watch": true,
     "max_links_per_run": 10,
+    "timeout_ms": 15000,
     "allowed_use": "metadata_candidate_detection_only"
   },
   {
@@ -49,9 +65,13 @@
     "jurisdiction": "FR",
     "source_tier": "green",
     "url": "https://www.cnil.fr/fr/intelligence-artificielle",
+    "fallback_urls": [
+      "https://www.cnil.fr/fr/thematique/intelligence-artificielle"
+    ],
     "fetch_mode": "html_index",
     "enabled_for_manual_watch": true,
     "max_links_per_run": 10,
+    "timeout_ms": 15000,
     "allowed_use": "metadata_candidate_detection_only"
   },
   {
@@ -60,9 +80,13 @@
     "jurisdiction": "EU",
     "source_tier": "green",
     "url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines_en",
+    "fallback_urls": [
+      "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en"
+    ],
     "fetch_mode": "html_index",
     "enabled_for_manual_watch": true,
     "max_links_per_run": 10,
+    "timeout_ms": 15000,
     "allowed_use": "metadata_candidate_detection_only"
   },
   {
@@ -71,9 +95,13 @@
     "jurisdiction": "EU",
     "source_tier": "green",
     "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-algorithm-systems",
+    "fallback_urls": [
+      "https://digital-strategy.ec.europa.eu/en/policies/european-approach-artificial-intelligence"
+    ],
     "fetch_mode": "html_index",
     "enabled_for_manual_watch": true,
     "max_links_per_run": 10,
+    "timeout_ms": 15000,
     "allowed_use": "metadata_candidate_detection_only"
   }
 ]
