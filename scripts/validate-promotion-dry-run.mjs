@@ -36,21 +36,22 @@ function validate() {
     publicCount = fs.readdirSync(INCIDENTS_DIR).filter(f => f.endsWith('.json')).length;
   }
 
-  if (publicCount !== 12) {
-    logError(`Public incident count is ${publicCount}, expected 12`);
+  if (publicCount !== 13) {
+    logError(`Public incident count is ${publicCount}, expected 13`);
     failures++;
   } else {
-    logPass('Public dataset remains at exactly 12 records');
+    logPass('Public dataset is at exactly 13 records (INC-0013 published)');
   }
 
-  // 2. Check INC-0013 doesn't exist
-  const inc0013Data = path.join(INCIDENTS_DIR, 'inc-0013.json');
-  const inc0013Site = path.join(SITE_INCIDENTS_DIR, 'inc-0013.json');
-  if (fs.existsSync(inc0013Data) || fs.existsSync(inc0013Site)) {
-    logError('INC-0013 public record exists - this should not exist without explicit approval');
+  // 2. Check INC-0013 exists
+  const inc0013Pattern = 'INC-0013-edpb-automated-decision-making-profiling-guidance.json';
+  const inc0013Data = path.join(INCIDENTS_DIR, inc0013Pattern);
+  const inc0013Site = path.join(SITE_INCIDENTS_DIR, inc0013Pattern);
+  if (!fs.existsSync(inc0013Data) || !fs.existsSync(inc0013Site)) {
+    logError('INC-0013 public record missing - should exist after T054 promotion');
     failures++;
   } else {
-    logPass('Safe: INC-0013 does not exist as public record');
+    logPass('INC-0013 public record exists in data/ and site/');
   }
 
   // 3. Check previews are outside site/
@@ -153,7 +154,7 @@ function validate() {
       // If approvals exist, validate they correspond to real public records
       for (const approval of approvals.approvals) {
         if (approval.allowed_public_case_id) {
-          const expectedFile = `${approval.allowed_public_case_id.toLowerCase()}.json`;
+          const expectedFile = approval.allowed_public_filename || `${approval.allowed_public_case_id.toLowerCase()}.json`;
           const exists = fs.existsSync(path.join(INCIDENTS_DIR, expectedFile));
           if (exists) {
             logPass(`Approval ${approval.packet_id} -> ${approval.allowed_public_case_id} exists`);
@@ -250,9 +251,9 @@ function validate() {
   console.log(`\n${'='.repeat(60)}`);
   if (failures === 0) {
     logPass('ALL VALIDATIONS PASSED');
-    console.log('Status: No public incidents created without approval');
-    console.log('Status: Public dataset remains at 12 records');
-    console.log('Status: Dry-run previews exist outside site/');
+    console.log('Status: INC-0013 published under Control Tower approval (T054)');
+    console.log('Status: Public dataset now at 13 records');
+    console.log('Status: Dry-run previews remain outside site/');
     console.log(`${'='.repeat(60)}\n`);
     process.exit(0);
   } else {

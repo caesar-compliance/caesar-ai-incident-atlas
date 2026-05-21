@@ -117,6 +117,11 @@
         "type": "string",
         "pattern": "^INC-[0-9]{4}$"
       }
+    },
+    "record_type": {
+      "type": "string",
+      "enum": ["incident", "guidance", "governance_case"],
+      "description": "Optional. Distinguishes enforcement incidents from regulatory guidance or governance cases. Defaults to 'incident' if absent."
     }
   },
   "$defs": {

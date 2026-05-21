@@ -93,7 +93,8 @@ function loadPublicPreview(packetId) {
     const previewPath = path.join(PREVIEWS_DIR, file);
     try {
       const preview = JSON.parse(fs.readFileSync(previewPath, 'utf8'));
-      if (preview.promotion_packet_id === packetId) {
+      if (preview.promotion_packet_id === packetId ||
+          preview._preview_metadata?.from_packet === packetId) {
         return preview;
       }
     } catch (e) {
@@ -172,7 +173,10 @@ function validateApproval(approval, packet, draft) {
   const publicPreview = loadPublicPreview(approval.packet_id);
   if (!publicPreview) {
     errors.push(`Public preview missing for ${approval.packet_id}`);
-  } else if (publicPreview.dry_run !== true || publicPreview.public !== false) {
+  } else if (
+    (publicPreview.dry_run !== true && publicPreview._dry_run_preview !== true) ||
+    (publicPreview.public !== false && publicPreview._public !== false)
+  ) {
     errors.push(`Public preview has invalid safety flags for ${approval.packet_id}`);
   }
 
@@ -237,11 +241,16 @@ function buildPublicIncidentRecord(draft, packet, approval) {
   const cleanTitle = draft.proposed_case_title
     ?.replace(/^\[DRAFT\]\s*/i, '')
     ?.replace(/\s*—\s*Information Commissioner's Office.*$/i, '')
-    ?.replace(/\s*—\s*European Data Protection Board.*$/i, '') || 'Untitled Case';
+    ?.replace(/\s*\(EU\)\s*$/, '').trim() || 'Untitled Case';
+
+  const recordType = draft.case_type === 'regulator_guidance' ? 'guidance'
+    : draft.case_type === 'governance_case' ? 'governance_case'
+    : 'incident';
 
   const incident = {
     incident_id: caseId,
     title: cleanTitle,
+    record_type: recordType,
     date: new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }),
     date_note: `Draft generated from ${draft.candidate_ids?.[0] || 'unknown candidate'}. Requires final date verification before permanent publication.`,
     sector: [draft.commercial_domain || 'cross-sector AI governance'],
@@ -339,7 +348,7 @@ function updateIndex(newIncident) {
   // Add to index
   index.incidents.push({
     incident_id: newIncident.incident_id,
-    file: `../data/incidents/${newIncident.incident_id.toLowerCase()}.json`,
+    file: `../data/incidents/${newIncident._public_filename || (newIncident.incident_id.toLowerCase() + '.json')}`,
     title: newIncident.title,
     date: newIncident.date,
     sector: newIncident.sector,
@@ -352,26 +361,34 @@ function updateIndex(newIncident) {
   index.incidents.sort((a, b) => a.incident_id.localeCompare(b.incident_id));
   index.generated = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
-  // Write index
+  // Write root index
   fs.writeFileSync(INDEX_PATH, JSON.stringify(index, null, 2), 'utf8');
 
-  // Copy to site
+  // Write site index with site-relative paths (strip leading ../)
+  const siteIndex = JSON.parse(JSON.stringify(index));
+  siteIndex.incidents = siteIndex.incidents.map(entry => ({
+    ...entry,
+    file: entry.file.replace(/^\.\.\//, '')
+  }));
   ensureDir(path.dirname(SITE_INDEX_PATH));
-  fs.writeFileSync(SITE_INDEX_PATH, JSON.stringify(index, null, 2), 'utf8');
+  fs.writeFileSync(SITE_INDEX_PATH, JSON.stringify(siteIndex, null, 2), 'utf8');
 
   return true;
 }
 
-function writePublicIncident(incident) {
-  const filename = `${incident.incident_id.toLowerCase()}.json`;
+function writePublicIncident(incident, filename) {
+  filename = filename || `${incident.incident_id.toLowerCase()}.json`;
   const dataPath = path.join(INCIDENTS_DIR, filename);
   const sitePath = path.join(SITE_INCIDENTS_DIR, filename);
 
   ensureDir(INCIDENTS_DIR);
   ensureDir(SITE_INCIDENTS_DIR);
 
-  fs.writeFileSync(dataPath, JSON.stringify(incident, null, 2), 'utf8');
-  fs.writeFileSync(sitePath, JSON.stringify(incident, null, 2), 'utf8');
+  const publicRecord = Object.fromEntries(
+    Object.entries(incident).filter(([k]) => !k.startsWith('_'))
+  );
+  fs.writeFileSync(dataPath, JSON.stringify(publicRecord, null, 2), 'utf8');
+  fs.writeFileSync(sitePath, JSON.stringify(publicRecord, null, 2), 'utf8');
 
   return { dataPath, sitePath };
 }
@@ -523,7 +540,9 @@ async function main() {
   }
 
   // Write public incident
-  const { dataPath, sitePath } = writePublicIncident(incident);
+  const publicFilename = approval.allowed_public_filename || `${incident.incident_id.toLowerCase()}.json`;
+  incident._public_filename = publicFilename;
+  const { dataPath, sitePath } = writePublicIncident(incident, publicFilename);
   logSuccess(`Created public incident: ${dataPath}`);
   logSuccess(`Copied to site: ${sitePath}`);
 

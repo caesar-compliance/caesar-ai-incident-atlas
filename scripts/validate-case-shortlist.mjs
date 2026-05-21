@@ -115,22 +115,28 @@ function validate() {
     const incidentsPath = path.join(siteDataPath, 'incidents');
     if (fs.existsSync(incidentsPath)) {
       const incidentFiles = fs.readdirSync(incidentsPath).filter(f => f.endsWith('.json'));
-      if (incidentFiles.length === 12) {
-        logPass('Public dataset remains at 12 records');
+      const approvalsPathSL = path.join(ROOT, 'data', 'reviews', 'real', 'approved-promotions.json');
+      let approvedCountSL = 0;
+      if (fs.existsSync(approvalsPathSL)) {
+        try { approvedCountSL = (JSON.parse(fs.readFileSync(approvalsPathSL,'utf8')).approvals||[]).length; } catch(e){}
+      }
+      const expectedSL = 12 + approvedCountSL;
+      if (incidentFiles.length === expectedSL) {
+        logPass(`Public dataset at expected count: ${expectedSL} records`);
       } else {
-        logFail(`Public dataset changed: ${incidentFiles.length} records`);
+        logFail(`Public dataset changed: ${incidentFiles.length} records (expected ${expectedSL})`);
         passed = false;
       }
     }
   }
 
-  // Check no INC-0013
-  const inc13Path = path.join(SITE_DIR, 'data', 'incidents', 'inc-0013.json');
-  if (fs.existsSync(inc13Path)) {
-    logFail('INC-0013 exists in public dataset');
+  // Check INC-0013 approved record exists (T054)
+  const inc13ApprovedPath = path.join(SITE_DIR, 'data', 'incidents', 'INC-0013-edpb-automated-decision-making-profiling-guidance.json');
+  if (!fs.existsSync(inc13ApprovedPath)) {
+    logFail('INC-0013 approved record (T054) missing from site/data/incidents/');
     passed = false;
   } else {
-    logPass('INC-0013 does not exist in public dataset');
+    logPass('INC-0013 approved record present in site/ (T054)');
   }
 
   // Summary

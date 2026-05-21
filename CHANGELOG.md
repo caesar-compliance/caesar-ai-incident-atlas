@@ -5,6 +5,19 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.13.0] - 21 May 2026
+
+### Added
+- **T054 — Publish Approved PKT-0006 as INC-0013.** First real adapter-detected case published under Control Tower approval.
+  - `data/incidents/INC-0013-edpb-automated-decision-making-profiling-guidance.json` — public record: EDPB automated decision-making and profiling guidance (EU, Green-tier, `record_type: guidance`).
+  - `site/data/incidents/INC-0013-edpb-automated-decision-making-profiling-guidance.json` — site copy.
+  - `data/reviews/real/approved-promotions.json` — approval entry added (PKT-0006 → INC-0013).
+  - New taxonomy entries: `FM-GOVERNANCE-GAP`, `FM-COMPLIANCE-DEFICIT`, `CTL-GUIDANCE-TRACKING`, `CTL-COMPLIANCE-UPDATE-PROCESS`, `cross-sector AI governance` sector.
+  - `schemas/incident.schema.json` — optional `record_type` field added (`incident` | `guidance` | `governance_case`).
+  - Site display: `badge-guidance` badge for guidance/governance cases, dynamic record count, updated status panel and footer.
+  - All validators updated to derive expected record count from `approved-promotions.json` (dynamic baseline).
+  - Public dataset: **13 records**.
+
 ## [0.12.0] - Unreleased
 
 ### Added

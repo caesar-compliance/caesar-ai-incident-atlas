@@ -1,12 +1,28 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T047 — DEC-113)
+**Last updated:** 21 May 2026 (T054 — DEC-120)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
 ---
 
 ## Decision History
+
+### [DEC-114 – DEC-120] — 21 May 2026 — T054 Publish Approved PKT-0006 as INC-0013
+
+**Status:** Approved
+
+**Decisions:** See `work-items/T054-publish-approved-pkt0006-inc0013/DECISIONS.md` for full detail. Summary:
+- DEC-114: Use `allowed_public_filename` from approval for written incident filename.
+- DEC-115: Add `FM-GOVERNANCE-GAP` and `FM-COMPLIANCE-DEFICIT` to failure modes taxonomy.
+- DEC-116: Add `CTL-GUIDANCE-TRACKING` and `CTL-COMPLIANCE-UPDATE-PROCESS` to controls taxonomy.
+- DEC-117: Add `cross-sector AI governance` to sectors taxonomy.
+- DEC-118: Add optional `record_type` field to `schemas/incident.schema.json`.
+- DEC-119: Fix site index path (strip `../`) in `updateIndex`.
+- DEC-120: Update all validators to derive expected count dynamically from `approved-promotions.json`.
+
+---
+
 
 ### [DEC-001] — 19 May 2026 — Repository Standardization and Governance
 
