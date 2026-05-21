@@ -156,6 +156,20 @@ The following tasks require Artem / Control Tower review before execution:
 
 ---
 
+## T060 — Manual Watch Run Queue + Hosted Run Payloads (Complete — 21 May 2026)
+
+- `schemas/pipeline/manual-watch-run.schema.json` — private run envelope schema (v1)
+- `scripts/build-manual-watch-run-queue.mjs` — deterministic queue (7 green sources, no network)
+- `scripts/build-manual-watch-run-envelope.mjs` — run envelope with self-validation; run_id: WATCH-RUN-YYYYMMDD-HHMMSS
+- `scripts/export-hosted-watch-run-payloads.mjs` — sanitized Supabase payloads (dry_run_export)
+- `scripts/validate-manual-watch-run.mjs` — 16-check safety validator
+- `scripts/run-local-automation-cycle.mjs` — optional `--with-watch-queue` flag added
+- `scripts/export-ops-status.mjs` — added `manual_watch_run_status: "queue_ready"`
+- `scripts/validate-hosted-sync-safety.mjs` — 7 T060 checks added (25–31)
+- Generated artifacts: `manual-queue-latest.json`, `manual-queue-manifest.json`, `manual-run-latest.json`, `atlas-watch-run.manual-latest.json`, `atlas-watch-run-queue.manual-latest.json`
+- **Safety:** No network fetch, no remote write, no cron, no deploy, no INC-0014, public count remains 13, latest remains INC-0013
+- **Next:** Run `node scripts/watch-green-sources.mjs` for real fetch cycle, or proceed with hosted activation
+
 ## T059 — Hosted Activation Preflight (Complete — 21 May 2026)
 
 - `scripts/smoke-supabase-local-migration.mjs` — bounded local schema validation; skips gracefully if runtime unavailable

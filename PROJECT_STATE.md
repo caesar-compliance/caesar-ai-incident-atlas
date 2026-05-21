@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T059)
+**Last updated:** 21 May 2026 (T060)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.18.0` |
-| Current phase | `T059 — Hosted Activation Preflight` |
+| Current version | `0.19.0` |
+| Current phase | `T060 — Manual Watch Run Queue + Hosted Run Payloads` |
 | Status | `active` |
-| Latest completed task | `T059 — Hosted Activation Preflight + Local Supabase Migration Smoke + Operator Go-Live Checklist` |
-| Active work item | `T059 — complete. All preflight tools operational: local migration smoke, hosted activation preflight, operator command checklist. Safety validators updated. 13 public records. automation_mode: manual_local. hosted_activation_status: preflight_ready.` |
-| Next recommended step | `Manual hosted activation when CT approves (follow printed checklist from print-hosted-activation-commands.mjs)` |
+| Latest completed task | `T060 — Manual Watch Run Queue + Hosted Run Payloads` |
+| Active work item | `T060 — complete. Manual watch-run queue (7 green sources), envelope, and hosted payloads built. Validators extended. automation_mode: manual_local. manual_watch_run_status: queue_ready. 13 public records.` |
+| Next recommended step | `Run node scripts/watch-green-sources.mjs to execute real fetch, then promote result through existing pipeline, or proceed with hosted activation (follow checklist from print-hosted-activation-commands.mjs)` |
 
 ---
 
@@ -64,6 +64,7 @@
 | T040 — Draft Second New Incident Record (CAND-008) | **Complete** — INC-0012 drafted. Dataset: 12 records. Governance review note prepared. | 20 May 2026 |
 | T042 — Product Pivot to AI Legal & Governance Case Atlas | **Complete** — Strategic pivot to Legal & Governance Case Atlas documented. Decoupled conceptual watcher pipeline and reference rules added. | 21 May 2026 |
 | T059 — Hosted Activation Preflight | **Complete** — Local migration smoke, hosted activation preflight, operator command checklist. Safety validators expanded. All preflight tools operational. No remote infrastructure touched. | 21 May 2026 |
+| T060 — Manual Watch Run Queue | **Complete** — Manual queue (7 green sources), run envelope, hosted payloads, validator. run-local-automation-cycle + export-ops-status + validate-hosted-sync-safety all updated. | 21 May 2026 |
 | v0.8.0 Product Pivot — Strategic repositioning | Complete — Strategic docs, mapping models, and automation policies created | 21 May 2026 |
 | v0.7.8 Dataset Expansion — INC-0012 drafted | Complete — 12 records; INC-0012 prepared for CT review | 20 May 2026 |
 | v0.7.7 Dataset Expansion — INC-0011 signed off | Complete — 11 records; INC-0011 governance-approved | 20 May 2026 |

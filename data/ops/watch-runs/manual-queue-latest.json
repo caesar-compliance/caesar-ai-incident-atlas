@@ -1,0 +1,87 @@
+{
+  "_schema": "caesar-atlas/ops/manual-watch-run-queue/v1",
+  "generated_at": "2026-05-21T17:49:02.327Z",
+  "queue_count": 7,
+  "enabled_count": 7,
+  "blocked_count": 0,
+  "allowed_source_risk_tiers": [
+    "green"
+  ],
+  "blocked_source_risk_tiers": [
+    "yellow",
+    "red"
+  ],
+  "keyword_group_count": 4,
+  "items": [
+    {
+      "source_id": "ftc-ai-enforcement",
+      "source_name": "Federal Trade Commission (FTC) AI Enforcement",
+      "risk_tier": "green",
+      "source_url": "https://www.ftc.gov/business-guidance/blog/2017/01/seriously-would-you-trust-artificial-intelligence-make-your-payroll-decisions",
+      "adapter_hint": "ftc-adapter",
+      "keyword_group_count": 4,
+      "enabled_for_manual_run": true,
+      "blocked_reason": null
+    },
+    {
+      "source_id": "eeoc-ai-guidance",
+      "source_name": "Equal Employment Opportunity Commission (EEOC) AI Guidance & Enforcement",
+      "risk_tier": "green",
+      "source_url": "https://www.eeoc.gov/select-issues-assessing-adverse-impact-software-algorithms-and-artificial-intelligence",
+      "adapter_hint": "generic-official-adapter",
+      "keyword_group_count": 4,
+      "enabled_for_manual_run": true,
+      "blocked_reason": null
+    },
+    {
+      "source_id": "doj-ada-ai-guidance",
+      "source_name": "Department of Justice (DOJ) ADA AI Guidance",
+      "risk_tier": "green",
+      "source_url": "https://www.ada.gov/resources/usdoj-ada-algorithm-guidance/",
+      "adapter_hint": "generic-official-adapter",
+      "keyword_group_count": 4,
+      "enabled_for_manual_run": true,
+      "blocked_reason": null
+    },
+    {
+      "source_id": "ico-ai-and-algorithms",
+      "source_name": "Information Commissioner's Office (ICO) AI and Algorithms",
+      "risk_tier": "green",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/",
+      "adapter_hint": "ico-adapter",
+      "keyword_group_count": 4,
+      "enabled_for_manual_run": true,
+      "blocked_reason": null
+    },
+    {
+      "source_id": "cnil-ai",
+      "source_name": "Commission Nationale de l'Informatique et des Libertés (CNIL) AI Portal",
+      "risk_tier": "green",
+      "source_url": "https://www.cnil.fr/fr/intelligence-artificielle",
+      "adapter_hint": "cnil-adapter",
+      "keyword_group_count": 4,
+      "enabled_for_manual_run": true,
+      "blocked_reason": null
+    },
+    {
+      "source_id": "edpb-ai",
+      "source_name": "European Data Protection Board (EDPB) AI Guidelines",
+      "risk_tier": "green",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines_en",
+      "adapter_hint": "edpb-adapter",
+      "keyword_group_count": 4,
+      "enabled_for_manual_run": true,
+      "blocked_reason": null
+    },
+    {
+      "source_id": "european-commission-ai-act",
+      "source_name": "European Commission AI Act Portal & Board Reports",
+      "risk_tier": "green",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-algorithm-systems",
+      "adapter_hint": "eu-commission-adapter",
+      "keyword_group_count": 4,
+      "enabled_for_manual_run": true,
+      "blocked_reason": null
+    }
+  ]
+}

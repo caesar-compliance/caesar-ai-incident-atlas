@@ -5,6 +5,22 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.19.0] - 21 May 2026
+
+### Added
+- **T060 — Manual Watch Run Queue + Hosted Run Payloads.**
+  - `schemas/pipeline/manual-watch-run.schema.json` — private run envelope schema (v1); enforces green-only tiers, `public_publish_count` max 0, `remote_write_attempted/cron_triggered/public_site_mutated` all `const: false`.
+  - `scripts/build-manual-watch-run-queue.mjs` — deterministic queue builder from `green-source-watch-targets.json`; no network fetch; yellow/red/AIID/OECD/AIAAIC blocked.
+  - `scripts/build-manual-watch-run-envelope.mjs` — private run envelope builder with inline self-validation; `run_id` format `WATCH-RUN-YYYYMMDD-HHMMSS`.
+  - `scripts/export-hosted-watch-run-payloads.mjs` — sanitized Supabase-ready payloads for `atlas_watch_runs` and `atlas_sources`; mode `dry_run_export`; no remote write.
+  - `scripts/validate-manual-watch-run.mjs` — 16-check validator: schema, queue files, envelope, hosted payloads, green-only, yellow/red blocked, AIID/OECD/AIAAIC blocked, no raw HTML, no long text, no secrets, no .env, no INC-0014, public count=13, site/ isolation.
+  - `scripts/run-local-automation-cycle.mjs` — added optional `--with-watch-queue` flag enabling 4 T060 stages; default behavior unchanged.
+  - `scripts/export-ops-status.mjs` — added `manual_watch_run_status: "queue_ready"`, `manual_queue_enabled_sources`, `manual_queue_blocked_sources` fields.
+  - `scripts/validate-hosted-sync-safety.mjs` — expanded with 7 T060 checks (25–31): watch-runs not in site/, payloads sanitized, count=13, no INC-0014 in watch-runs, no cron/remote-write markers.
+  - Generated artifacts: `manual-queue-latest.json` (7 sources, 7 enabled), `manual-queue-manifest.json`, `manual-run-latest.json` (queued), `atlas-watch-run.manual-latest.json`, `atlas-watch-run-queue.manual-latest.json`.
+  - Work item docs: `work-items/T060-manual-watch-run-queue/` TASK.md, VALIDATION.md, DECISIONS.md, IMPLEMENTATION_REPORT.md.
+  - **Safety:** No network fetch, no remote Supabase write, no Worker deploy, no cron, no public site mutation. Public count remains 13. Latest remains INC-0013. No INC-0014.
+
 ## [0.18.0] - 21 May 2026
 
 ### Added

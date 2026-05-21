@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "caesar-atlas/pipeline/manual-watch-run/v1",
+  "title": "Manual Watch Run Envelope",
+  "description": "Private operational run envelope for a manual local watch-run queue execution. No remote writes. No cron. No public site mutation.",
+  "type": "object",
+  "required": [
+    "run_id",
+    "created_at",
+    "mode",
+    "status",
+    "source_scope",
+    "allowed_source_risk_tiers",
+    "blocked_source_risk_tiers",
+    "candidate_count",
+    "draft_count",
+    "promotion_packet_count",
+    "public_publish_count",
+    "remote_write_attempted",
+    "cron_triggered",
+    "public_site_mutated",
+    "safety_flags",
+    "output_paths"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "description": "Unique deterministic run identifier, e.g. WATCH-RUN-YYYYMMDD-HHMMSS",
+      "pattern": "^WATCH-RUN-[0-9]{8}-[0-9]{6}$"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when the envelope was created"
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["manual_local"],
+      "description": "Run mode. Must be manual_local for T060."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["queued", "running", "complete", "failed"],
+      "description": "Run lifecycle status"
+    },
+    "source_scope": {
+      "type": "string",
+      "description": "Description of which sources are in scope"
+    },
+    "allowed_source_risk_tiers": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["green"] },
+      "minItems": 1,
+      "description": "Only green sources allowed by default",
+      "default": ["green"]
+    },
+    "blocked_source_risk_tiers": {
+      "type": "array",
+      "items": { "type": "string" },
+      "contains": { "enum": ["yellow", "red"] },
+      "description": "Must include yellow and red"
+    },
+    "candidate_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of raw candidates in queue or detected. 0 before fetch."
+    },
+    "draft_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of drafts built from this run. 0 for T060."
+    },
+    "promotion_packet_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of promotion packets built. 0 for T060."
+    },
+    "public_publish_count": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "Number of new public records published. Must be 0 for T060."
+    },
+    "remote_write_attempted": {
+      "type": "boolean",
+      "const": false,
+      "description": "Must be false. No remote writes allowed in T060."
+    },
+    "cron_triggered": {
+      "type": "boolean",
+      "const": false,
+      "description": "Must be false. No cron triggers in T060."
+    },
+    "public_site_mutated": {
+      "type": "boolean",
+      "const": false,
+      "description": "Must be false. Public site must not be mutated by this run."
+    },
+    "safety_flags": {
+      "type": "object",
+      "description": "Operational safety flag summary",
+      "properties": {
+        "only_green_sources_enabled": { "type": "boolean" },
+        "yellow_red_blocked": { "type": "boolean" },
+        "aiid_oecd_aiaaic_blocked": { "type": "boolean" },
+        "no_raw_html": { "type": "boolean" },
+        "no_third_party_text": { "type": "boolean" },
+        "no_secrets": { "type": "boolean" },
+        "no_env_committed": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "output_paths": {
+      "type": "object",
+      "description": "Paths to generated output files",
+      "properties": {
+        "manual_queue": { "type": "string" },
+        "manual_queue_manifest": { "type": "string" },
+        "manual_run_envelope": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "queue_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Total sources in the queue"
+    },
+    "enabled_source_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of sources enabled for the run"
+    },
+    "blocked_source_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of sources blocked from the run"
+    }
+  },
+  "additionalProperties": false
+}
