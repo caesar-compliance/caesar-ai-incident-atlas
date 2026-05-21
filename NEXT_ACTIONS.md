@@ -1,6 +1,6 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T056)
+**Last updated:** 21 May 2026 (T061)
 
 ---
 
@@ -169,6 +169,20 @@ The following tasks require Artem / Control Tower review before execution:
 - Generated artifacts: `manual-queue-latest.json`, `manual-queue-manifest.json`, `manual-run-latest.json`, `atlas-watch-run.manual-latest.json`, `atlas-watch-run-queue.manual-latest.json`
 - **Safety:** No network fetch, no remote write, no cron, no deploy, no INC-0014, public count remains 13, latest remains INC-0013
 - **Next:** Run `node scripts/watch-green-sources.mjs` for real fetch cycle, or proceed with hosted activation
+
+## T061 — Bounded Real Green-Source Manual Run (Complete — 21 May 2026)
+
+- `data/watch/config/manual-green-run-policy.json` — safety policy with bounded fetch limits
+- `scripts/run-bounded-green-source-manual-run.mjs` — bounded runner with `--execute-green-fetch` flag
+- `scripts/build-private-candidate-signals.mjs` — metadata-only signal builder
+- `scripts/validate-bounded-green-source-run.mjs` — 25-check safety validator
+- `scripts/export-hosted-watch-run-payloads.mjs` — exports T061 real-green payloads
+- `scripts/run-local-automation-cycle.mjs` — added `--with-bounded-green-run` flag
+- `scripts/export-ops-status.mjs` — added `bounded_green_run_status` field
+- `scripts/validate-hosted-sync-safety.mjs` — expanded with 8 T061 checks (32–39)
+- Generated artifacts: `real-green-run-latest.json`, `data/watch/private/runs/<run_id>/` (run.json, source-observations.json, candidate-signals.json, safety-manifest.json)
+- **Safety:** No secrets, no remote write, no deploy, no cron, no INC-0014, public count 13, latest INC-0013
+- **Next:** Review candidate signals, promote through review console, or proceed with hosted activation
 
 ## T059 — Hosted Activation Preflight (Complete — 21 May 2026)
 

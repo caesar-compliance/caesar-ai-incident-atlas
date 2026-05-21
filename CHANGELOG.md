@@ -5,6 +5,22 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.20.0] - 21 May 2026
+
+### Added
+- **T061 — Bounded Real Green-Source Manual Run + Private Candidate Signals.**
+  - `data/watch/config/manual-green-run-policy.json` — safety policy encoding all T061 constraints: green-only, no yellow/red, no AIID/OECD/AIAAIC, bounded fetch limits, metadata-only storage.
+  - `scripts/run-bounded-green-source-manual-run.mjs` — bounded Green-source runner; dry-run by default; requires `--execute-green-fetch` for network; enforces timeouts, response size limits, no full HTML/body storage.
+  - `scripts/build-private-candidate-signals.mjs` — metadata-only signal builder; zero signals allowed; no raw text/HTML stored; produces private candidate signal records.
+  - `scripts/validate-bounded-green-source-run.mjs` — 25-check safety validator: policy compliance, green-only sources, no yellow/red, no AIID/OECD/AIAAIC, no full HTML, no raw bodies, no long text, no secrets, no INC-0014, public count=13.
+  - `scripts/export-hosted-watch-run-payloads.mjs` — updated to export T061 real-green payloads: `atlas-watch-run.real-green-latest.json`, `atlas-source-observations.real-green-latest.json`, `atlas-candidate-signals.real-green-latest.json`; all sanitized, dry-run only.
+  - `scripts/run-local-automation-cycle.mjs` — added optional `--with-bounded-green-run` flag enabling 6 T061 stages; can combine with `--execute-green-fetch` for actual fetch.
+  - `scripts/export-ops-status.mjs` — added `bounded_green_run_status`, `last_green_run_source_count`, `last_green_run_signal_count` fields.
+  - `scripts/validate-hosted-sync-safety.mjs` — expanded with 8 T061 checks (32–39): private runs not in site/, real-green payloads sanitized, no raw HTML in private outputs, no cron/remote-write markers.
+  - Generated artifacts: `real-green-run-latest.json`, `data/watch/private/runs/<run_id>/` (run.json, source-observations.json, candidate-signals.json, safety-manifest.json).
+  - Work item docs: `work-items/T061-bounded-green-source-manual-run/` TASK.md, VALIDATION.md, DECISIONS.md, IMPLEMENTATION_REPORT.md.
+  - **Safety:** No secrets, no .env, no wrangler.toml, no remote Supabase migration, no remote Supabase writes, no Worker deploy, no cron, no Pages config change, no public site mutation, no INC-0014, public count remains 13, latest remains INC-0013.
+
 ## [0.19.0] - 21 May 2026
 
 ### Added

@@ -489,6 +489,88 @@ pass('T060: no Worker deployment marker (covered by check 12)');
 // Confirmed by existing checks 10/11 (pages.yml unchanged, no schedule)
 pass('T060: no Pages config change (covered by checks 10/11)');
 
+// ── 32. T061: data/watch/private/runs not copied into site/ ───────────────────
+const sitePrivateRunsDir = path.join(ROOT, 'site', 'data', 'watch', 'private');
+if (existsDir(sitePrivateRunsDir)) {
+  fail('site/data/watch/private/runs/ exists — private T061 run data must not be in public site');
+} else {
+  pass('T061: site/data/watch/private/ not present (correct)');
+}
+
+// ── 33. T061: hosted real-green payloads are sanitized ───────────────────────
+const realGreenRunPayloadPath = path.join(OPS_SUPABASE_DIR, 'atlas-watch-run.real-green-latest.json');
+const realGreenRunPayload = readJson(realGreenRunPayloadPath);
+if (realGreenRunPayload) {
+  if (realGreenRunPayload.remote_write_attempted === false) {
+    pass('T061: atlas-watch-run.real-green-latest.json remote_write_attempted = false');
+  } else {
+    fail('T061: atlas-watch-run.real-green-latest.json remote_write_attempted is not false');
+  }
+  if (realGreenRunPayload.cron_triggered === false) {
+    pass('T061: atlas-watch-run.real-green-latest.json cron_triggered = false');
+  } else {
+    fail('T061: atlas-watch-run.real-green-latest.json cron_triggered is not false');
+  }
+} else {
+  pass('T061: atlas-watch-run.real-green-latest.json not present (ok — run export-hosted-watch-run-payloads.mjs)');
+}
+
+// ── 34. T061: no raw HTML/body in private outputs ────────────────────────────
+const privateRunsDir = path.join(ROOT, 'data', 'watch', 'private', 'runs');
+const HTML_PATTERN_061 = /<!DOCTYPE html|<html[\s>]/i;
+let t061HtmlFound = false;
+if (existsDir(privateRunsDir)) {
+  walkDir(privateRunsDir, (file) => {
+    if (!file.endsWith('.json')) return;
+    const content = readText(file);
+    if (content && HTML_PATTERN_061.test(content)) {
+      fail('T061: Raw HTML found in private run output: ' + path.relative(ROOT, file));
+      t061HtmlFound = true;
+    }
+  });
+}
+if (!t061HtmlFound) pass('T061: No raw HTML in data/watch/private/runs/');
+
+// ── 35. T061: no public case count change ────────────────────────────────────
+// Covered by check 27
+pass('T061: public case count unchanged (covered by check 27)');
+
+// ── 36. T061: no INC-0014 ─────────────────────────────────────────────────────
+// Covered by check 28
+pass('T061: no INC-0014 (covered by check 28)');
+
+// ── 37. T061: no cron in private outputs ─────────────────────────────────────
+if (existsDir(privateRunsDir)) {
+  let t061CronFound = false;
+  walkDir(privateRunsDir, (file) => {
+    if (!file.endsWith('.json')) return;
+    const json = readJson(file);
+    if (json?.cron_triggered === true) {
+      fail('T061: cron_triggered=true found in: ' + path.relative(ROOT, file));
+      t061CronFound = true;
+    }
+  });
+  if (!t061CronFound) pass('T061: No cron_triggered=true in private run outputs');
+}
+
+// ── 38. T061: no remote write marker ─────────────────────────────────────────
+if (existsDir(privateRunsDir)) {
+  let t061RemoteWriteFound = false;
+  walkDir(privateRunsDir, (file) => {
+    if (!file.endsWith('.json')) return;
+    const json = readJson(file);
+    if (json?.remote_write_attempted === true) {
+      fail('T061: remote_write_attempted=true found in: ' + path.relative(ROOT, file));
+      t061RemoteWriteFound = true;
+    }
+  });
+  if (!t061RemoteWriteFound) pass('T061: No remote_write_attempted=true in private run outputs');
+}
+
+// ── 39. T061: no Worker deployment marker ─────────────────────────────────────
+// Covered by check 12 (wrangler.toml absent)
+pass('T061: no Worker deployment marker (covered by check 12)');
+
 // ── Final result ─────────────────────────────────────────────────────────────
 process.stdout.write('\n');
 if (errors > 0) {

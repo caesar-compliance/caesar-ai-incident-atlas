@@ -1,0 +1,68 @@
+{
+  "_schema": "caesar-atlas/watch/manual-green-run-policy/v1",
+  "mode": "manual_bounded_green_only",
+  "allowed_source_risk_tiers": ["green"],
+  "blocked_source_risk_tiers": ["yellow", "red"],
+  "blocked_source_ids": [
+    "aiid-discovery-reference",
+    "oecd-ai-incidents",
+    "aiaaic-discovery-reference"
+  ],
+  "blocked_source_patterns": ["aiid", "oecd", "aiaaic"],
+  "max_sources_per_run": 7,
+  "timeout_ms_per_source": 10000,
+  "max_response_bytes_per_source": 524288,
+  "max_links_per_source": 10,
+  "storage_policy": {
+    "store_full_html": false,
+    "store_raw_body": false,
+    "store_long_quotes": false,
+    "store_hashes": true,
+    "store_http_metadata": true,
+    "store_candidate_signals": true,
+    "max_text_window_bytes": 2048
+  },
+  "safety_flags": {
+    "remote_write_attempted": false,
+    "cron_triggered": false,
+    "public_site_mutated": false,
+    "public_publish_count": 0,
+    "allow_inc_0014_creation": false,
+    "allow_promotion_packets": false,
+    "allow_public_previews": false
+  },
+  "output_policy": {
+    "private_run_directory": "data/watch/private/runs/<run_id>/",
+    "public_site_exposure": false,
+    "supabase_remote_write": false,
+    "hosted_payload_export": true,
+    "candidate_signals_private_only": true
+  },
+  "validation_required": [
+    "policy_exists",
+    "run_latest_file_exists",
+    "private_run_directory_exists",
+    "source_observations_exist",
+    "candidate_signals_exist",
+    "hosted_dry_run_payloads_exist",
+    "only_green_sources_fetched",
+    "yellow_red_blocked",
+    "aiid_oecd_aiaaic_blocked",
+    "no_full_html_stored",
+    "no_raw_bodies_stored",
+    "no_long_third_party_text_stored",
+    "no_secrets_committed",
+    "no_env_committed",
+    "no_remote_write_attempted",
+    "cron_triggered_false",
+    "public_site_mutated_false",
+    "public_publish_count_zero",
+    "no_inc_0014_created",
+    "no_promotion_packet_created",
+    "no_public_preview_created",
+    "public_count_remains_13",
+    "latest_remains_inc_0013"
+  ],
+  "created_at": "2026-05-21T18:00:00Z",
+  "version": "1.0.0"
+}

@@ -21,6 +21,11 @@ if (!fs.existsSync(OPS_DIR)) fs.mkdirSync(OPS_DIR, { recursive: true });
 // Default: OFF (safe). Enable with: node scripts/run-local-automation-cycle.mjs --with-watch-queue
 const WITH_WATCH_QUEUE = process.argv.includes('--with-watch-queue');
 
+// T061: optional flag to include bounded green-source manual run
+// Default: OFF (safe). Enable with: node scripts/run-local-automation-cycle.mjs --with-bounded-green-run
+// Can combine: --with-bounded-green-run --execute-green-fetch (requires explicit --execute-green-fetch for network)
+const WITH_BOUNDED_GREEN = process.argv.includes('--with-bounded-green-run');
+
 const STAGES = [
   { name: 'run-real-pipeline',              script: 'scripts/run-real-pipeline.mjs',                   args: [],          optional: false },
   { name: 'export-ops-status',              script: 'scripts/export-ops-status.mjs',                   args: [],          optional: false },
@@ -34,6 +39,15 @@ const STAGES = [
     { name: 'build-manual-watch-run-envelope',  script: 'scripts/build-manual-watch-run-envelope.mjs', args: [],         optional: false },
     { name: 'export-hosted-watch-run-payloads', script: 'scripts/export-hosted-watch-run-payloads.mjs', args: [],        optional: false },
     { name: 'validate-manual-watch-run',        script: 'scripts/validate-manual-watch-run.mjs',       args: [],          optional: false },
+  ] : []),
+  // T061 — bounded green-source manual run stages
+  ...(WITH_BOUNDED_GREEN ? [
+    { name: 'build-manual-watch-run-queue',       script: 'scripts/build-manual-watch-run-queue.mjs',       args: [],          optional: false },
+    { name: 'build-manual-watch-run-envelope',    script: 'scripts/build-manual-watch-run-envelope.mjs',  args: [],          optional: false },
+    { name: 'run-bounded-green-source-manual-run', script: 'scripts/run-bounded-green-source-manual-run.mjs', args: process.argv.includes('--execute-green-fetch') ? ['--execute-green-fetch'] : [], optional: false },
+    { name: 'build-private-candidate-signals',    script: 'scripts/build-private-candidate-signals.mjs',    args: [],          optional: false },
+    { name: 'export-hosted-watch-run-payloads',  script: 'scripts/export-hosted-watch-run-payloads.mjs',  args: [],          optional: false },
+    { name: 'validate-bounded-green-source-run', script: 'scripts/validate-bounded-green-source-run.mjs', args: [],          optional: false },
   ] : []),
 ];
 

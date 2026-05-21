@@ -18,9 +18,14 @@ const ENVELOPE_PATH = path.join(ROOT, 'data', 'ops', 'watch-runs', 'manual-run-l
 const QUEUE_PATH    = path.join(ROOT, 'data', 'ops', 'watch-runs', 'manual-queue-latest.json');
 const TARGETS_PATH  = path.join(ROOT, 'data', 'watch', 'config', 'green-source-watch-targets.json');
 const OUT_DIR       = path.join(ROOT, 'data', 'ops', 'supabase');
+const LATEST_GREEN_RUN_PATH = path.join(ROOT, 'data', 'ops', 'watch-runs', 'real-green-run-latest.json');
 
 const RUN_OUT_PATH   = path.join(OUT_DIR, 'atlas-watch-run.manual-latest.json');
 const QUEUE_OUT_PATH = path.join(OUT_DIR, 'atlas-watch-run-queue.manual-latest.json');
+// T061: Real green run payload exports
+const REAL_GREEN_RUN_OUT_PATH = path.join(OUT_DIR, 'atlas-watch-run.real-green-latest.json');
+const REAL_GREEN_OBSERVATIONS_OUT_PATH = path.join(OUT_DIR, 'atlas-source-observations.real-green-latest.json');
+const REAL_GREEN_SIGNALS_OUT_PATH = path.join(OUT_DIR, 'atlas-candidate-signals.real-green-latest.json');
 
 function log(msg) { process.stdout.write(msg + '\n'); }
 
@@ -133,12 +138,112 @@ const queuePayload = {
   sources:                   sourcePayloads,
 };
 
-// ── Write outputs ──────────────────────────────────────────────────────────────
+// ── Write outputs (T060) ─────────────────────────────────────────────────────
 writeJson(RUN_OUT_PATH,   watchRunPayload);
 log('  atlas-watch-run.manual-latest.json');
 
 writeJson(QUEUE_OUT_PATH, queuePayload);
 log('  atlas-watch-run-queue.manual-latest.json');
+
+// ── T061: Real green run payload export ───────────────────────────────────────
+const greenRun = readJson(LATEST_GREEN_RUN_PATH);
+if (greenRun) {
+  const runDir = path.join(ROOT, greenRun.run_dir || `data/watch/private/runs/${greenRun.run_id}`);
+  const observations = readJson(path.join(runDir, 'source-observations.json'));
+  const signals = readJson(path.join(runDir, 'candidate-signals.json'));
+
+  // Sanitized watch run payload for atlas_watch_runs
+  const realGreenRunPayload = {
+    _schema: 'caesar-atlas/supabase-payload/atlas-watch-run/real-green/v1',
+    generated_at: now,
+    mode: 'dry_run_export',
+    remote_write_attempted: false,
+    cron_triggered: false,
+    note: 'Sanitized payload for atlas_watch_runs from real bounded green-source run. No raw HTML/body. No remote write.',
+    run: {
+      run_id: greenRun.run_id,
+      created_at: greenRun.created_at,
+      mode: greenRun.policy_mode || 'manual_bounded_green_only',
+      sources_total: greenRun.sources_total || 0,
+      sources_fetched: greenRun.sources_fetched || 0,
+      sources_skipped: greenRun.sources_skipped || 0,
+      sources_failed: greenRun.sources_failed || 0,
+      candidate_signals: greenRun.candidate_signals || 0,
+      public_publish_count: 0,
+      remote_write_attempted: false,
+      cron_triggered: false,
+      public_site_mutated: false,
+    }
+  };
+
+  // Sanitized source observations payload
+  const observationsPayload = observations ? {
+    _schema: 'caesar-atlas/supabase-payload/atlas-source-observations/real-green/v1',
+    generated_at: now,
+    mode: 'dry_run_export',
+    run_id: greenRun.run_id,
+    remote_write_attempted: false,
+    note: 'Sanitized source observations. Metadata only. No raw HTML/body.',
+    observations: (observations.observations || []).map(obs => ({
+      source_id: obs.source_id,
+      source_name: obs.source_name,
+      risk_tier: obs.risk_tier,
+      fetched_at: obs.fetched_at,
+      url: obs.url,
+      http_status: obs.http_status,
+      content_type: obs.content_type,
+      content_length_observed: obs.content_length_observed,
+      content_hash: obs.content_hash,
+      etag: obs.etag,
+      last_modified: obs.last_modified,
+      fetch_status: obs.fetch_status,
+      failure_reason: obs.failure_reason,
+    })),
+  } : null;
+
+  // Sanitized candidate signals payload
+  const signalsPayload = signals ? {
+    _schema: 'caesar-atlas/supabase-payload/atlas-candidate-signals/real-green/v1',
+    generated_at: now,
+    mode: 'dry_run_export',
+    run_id: greenRun.run_id,
+    remote_write_attempted: false,
+    note: 'Sanitized candidate signals. Metadata only. No raw text/HTML. Private signals only.',
+    signals: (signals.signals || []).map(sig => ({
+      signal_id: sig.signal_id,
+      candidate_hash: sig.candidate_hash,
+      source_id: sig.source_id,
+      source_url: sig.source_url,
+      detected_at: sig.detected_at,
+      keyword_group_hits: sig.keyword_group_hits,
+      total_keyword_hits: sig.total_keyword_hits,
+      legal_governance_relevance: sig.legal_governance_relevance,
+      candidate_status: sig.candidate_status,
+      public_publish_ready: sig.public_publish_ready,
+      requires_human_review: sig.requires_human_review,
+      raw_text_stored: sig.raw_text_stored,
+      html_stored: sig.html_stored,
+    })),
+  } : null;
+
+  writeJson(REAL_GREEN_RUN_OUT_PATH, realGreenRunPayload);
+  log('  atlas-watch-run.real-green-latest.json');
+
+  if (observationsPayload) {
+    writeJson(REAL_GREEN_OBSERVATIONS_OUT_PATH, observationsPayload);
+    log('  atlas-source-observations.real-green-latest.json');
+  }
+
+  if (signalsPayload) {
+    writeJson(REAL_GREEN_SIGNALS_OUT_PATH, signalsPayload);
+    log('  atlas-candidate-signals.real-green-latest.json');
+  }
+
+  log('\nT061 real-green payloads exported:');
+  log('  run_id: ' + greenRun.run_id);
+  log('  sources_fetched: ' + (greenRun.sources_fetched || 0));
+  log('  candidate_signals: ' + (greenRun.candidate_signals || 0));
+}
 
 log('\nexport-hosted-watch-run-payloads: OK');
 log('  Output: data/ops/supabase/');

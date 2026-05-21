@@ -16,6 +16,7 @@ const WATCH_RUNS_DIR          = path.join(ROOT, 'data', 'watch', 'runs');
 const SHORTLIST_PATH          = path.join(ROOT, 'data', 'candidates', 'case-shortlist.json');
 const QUALITY_REPORT_PATH     = path.join(ROOT, 'data', 'watch', 'runs', 'latest-candidate-quality-report.json');
 const MANUAL_QUEUE_MANIFEST_PATH = path.join(ROOT, 'data', 'ops', 'watch-runs', 'manual-queue-manifest.json');
+const REAL_GREEN_RUN_LATEST_PATH = path.join(ROOT, 'data', 'ops', 'watch-runs', 'real-green-run-latest.json');
 
 const OUT_DIRS = [
   path.join(ROOT, 'data', 'ops'),
@@ -103,6 +104,12 @@ const manualWatchRunStatus = manualQueueManifest ? 'queue_ready' : 'not_built';
 const manualQueueEnabledSources = manualQueueManifest ? (manualQueueManifest.enabled_count || 0) : null;
 const manualQueueBlockedSources = manualQueueManifest ? (manualQueueManifest.blocked_count || 0) : null;
 
+// ── Read T061 real green run for public status ────────────────────────────
+const realGreenRun = readJson(REAL_GREEN_RUN_LATEST_PATH);
+const boundedGreenRunStatus = realGreenRun ? 'last_run_available' : 'not_run_yet';
+const lastGreenRunSourceCount = realGreenRun ? (realGreenRun.sources_fetched || 0) : null;
+const lastGreenRunSignalCount = realGreenRun ? (realGreenRun.candidate_signals || 0) : null;
+
 // ── Build status JSON ──────────────────────────────────────────────────────
 const now = new Date().toISOString();
 
@@ -123,6 +130,10 @@ const opsStatus = {
   manual_watch_run_status:   manualWatchRunStatus,
   manual_queue_enabled_sources: manualQueueEnabledSources,
   manual_queue_blocked_sources: manualQueueBlockedSources,
+  // T061: Bounded green run status
+  bounded_green_run_status:  boundedGreenRunStatus,
+  last_green_run_source_count: lastGreenRunSourceCount,
+  last_green_run_signal_count: lastGreenRunSignalCount,
   next_step:                 'Configure Supabase + Cloudflare Worker secrets to enable hosted_ready mode',
   public_site_url:           'https://atlas.caesar.no',
   data_endpoint:             'https://atlas.caesar.no/data/incident-index.json',
