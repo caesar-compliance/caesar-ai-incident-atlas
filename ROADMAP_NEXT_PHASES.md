@@ -1,7 +1,7 @@
 # Roadmap — Next Phases — caesar-ai-incident-atlas
 
 **Created:** 20 May 2026 (T032)
-**Last updated:** 21 May 2026 (T060)
+**Last updated:** 21 May 2026 (T064)
 **Baseline:** Public MVP v0.13.0. 13 records. INC-0013 (EDPB guidance, first real adapter-detected case) published under CT approval.
 **Status:** Active MVP. INC-0013 live. Promotion pipeline fully operational. Next: additional CT-approved promotions from remaining ranked packets.
 
@@ -203,6 +203,58 @@ For each of the 12 (and future) case records, map to:
 - `validate-hosted-sync-safety.mjs`: extended to 31 checks
 
 **Next T061:** Execute real watch run (`node scripts/watch-green-sources.mjs`), promote top candidate, or activate hosted infrastructure.
+
+---
+
+## v1.5 — Explicit Private Draft Approval Gate (T064 — 21 May 2026)
+
+**T064 complete** — Local-only explicit approval gate and dry-run promotion.
+
+- Local-only explicit approval marker schema (`private-draft-approval-marker.schema.json`).
+- Template generator (`create-private-draft-approval-template.mjs`) generating disabled templates.
+- Approvals validator (`validate-private-draft-approval-markers.mjs`) ensuring zero active approvals.
+- CLI approval applier (`apply-explicit-private-draft-approval.mjs`) requiring matching parameters and verifying signature.
+- Programmatic end-to-end gate integration test suite (`test-private-draft-approval-gate.mjs`).
+- Upgraded controlled draft packet builder and decisions validator to strictly enforce dynamic active approval markers.
+- Upgraded review console UI exports and widgets to show explicit approval requirements.
+- Updated hosted payload exporter, safety validator, and ops status status checks.
+
+**Next T065:** Actual controlled approval of one selected intake.
+
+---
+
+## v1.4 — Reset Private Draft Approval and Restore Baseline (T063-FIX — 21 May 2026)
+
+**T063-FIX complete** — Reset all decisions to `needs_more_review` default status.
+
+- Restored baseline of 0 approved decisions and 0 packets.
+- Tightened decisions validator to block unauthorized baseline approvals.
+
+---
+
+## v1.3 — Private Review Console UI and Review Decision Packets (T063 — 21 May 2026)
+
+**T063 complete** — Private review decisions and draft packets workflow.
+
+- Private review decision schema (`private-review-decision.schema.json`).
+- Decision builder (`build-private-review-decisions.mjs`) and CLI patch applier (`apply-private-review-decision.mjs`).
+- Local draft candidate packet builder (`build-private-draft-candidate-packets.mjs`).
+- Integrated review console UI showing private review decisions and packets.
+- Decision validator and dry-run hosted exporters.
+
+**Next T064:** Explicit Private Draft Approval Gate.
+
+---
+
+## v1.2 — Private Candidate Review Intake (T062 — 21 May 2026)
+
+**T062 complete** — Converted real Green-source candidate signals into private review intake records.
+
+- Private candidate review intake schema and intake builder.
+- Sanitized review console exporter and Supabase-ready hosted exporter.
+- Dedicated safety validators and ops status integrations.
+
+**Next T063:** Private review decisions and draft packet promotion.
 
 ---
 

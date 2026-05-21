@@ -1,6 +1,6 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T063-FIX Complete)
+**Last updated:** 21 May 2026 (T064 Complete)
 
 ---
 
@@ -79,6 +79,7 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 | T060 — Manual Watch Run Queue + Hosted Run Payloads | **Complete** — Private run envelope schemas, queue builder, and dry-run exporters | 21 May 2026 |
 | T061 — Bounded Real Green-Source Manual Run | **Complete** — manual green-tier fetches (ICO/CNIL/EDPB/EU Commission), 4 candidate signals | 21 May 2026 |
 | T062 — Private Candidate Review Intake | **Complete** — converted T061 signals to private review intake records, schema, exporters, and safety checks | 21 May 2026 |
+| T064 — Explicit Private Draft Approval Gate + Controlled Draft Packet Promotion | **Complete** — local-only explicit approval marker schema, generator, applier, updated controlled draft packet builder, dynamic validators, and console UI upgrades | 21 May 2026 |
 | T063 — Private Review Console UI + Review Decision Packets | **Complete** — implemented local-only review decisions and draft packets workflow, patch CLI tool, upgraded review console UI, and strict safety validation | 21 May 2026 |
 | T063-FIX — Reset Private Draft Approval & Restore Baseline | **Complete** — Reset all decisions to needs_more_review, 0 approved, 0 draft packets baseline, and tightened validator | 21 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete | 19 May 2026 |
@@ -162,6 +163,36 @@ The following tasks require Artem / Control Tower review before execution:
 - v0.3 Dataset MVP — blocked until T006 dossier shortlist is approved.
 - Incident record creation — blocked until T006 is approved and workflow gates are passed.
 - Any mass import or scraping workflow — blocked unless separately approved.
+
+## T064 — Explicit Private Draft Approval Gate + Controlled Draft Packet Promotion (Complete — 21 May 2026)
+
+- `schemas/pipeline/private-draft-approval-marker.schema.json` — private draft approval marker schema enforcing scope and safety constraints.
+- `scripts/create-private-draft-approval-template.mjs` — template generator producing disabled "draft" template files.
+- `scripts/validate-private-draft-approval-markers.mjs` — approvals validator ensuring templates comply with schema.
+- `scripts/apply-explicit-private-draft-approval.mjs` — CLI tool to securely apply/verify the Control Tower signature for a private candidate.
+- `scripts/test-private-draft-approval-gate.mjs` — integration test suite auditing gate flow, mock promotions, schema validator, and baseline resets.
+- Upgraded `build-private-draft-candidate-packets.mjs` and `validate-private-review-decisions.mjs` to block packets unless a valid active marker is verified.
+- Upgraded review console exports and UI widgets to surface explicit approval gates.
+- **Safety:** Pristine baseline maintained (0 approved, 0 packets). No secrets or .env committed. Public count remains 13. Latest remains INC-0013. No INC-0014.
+- **Next:** Proceed to T065 actual controlled approval of one selected intake.
+
+## T063-FIX — Reset Private Draft Approval & Restore Baseline (Complete — 21 May 2026)
+
+- Reset all decisions to `needs_more_review` default status.
+- Restored baseline of 0 approved decisions and 0 packets.
+- Tightened `validate-private-review-decisions.mjs` to verify zero baseline approvals/packets.
+
+## T063 — Private Review Console UI + Review Decision Packets (Complete — 21 May 2026)
+
+- `schemas/pipeline/private-review-decision.schema.json` — private review decision schema defining fields and safety flags.
+- `scripts/build-private-review-decisions.mjs` — compiles review decisions from intake records.
+- `scripts/apply-private-review-decision.mjs` — applies a decision status for a given intake.
+- `scripts/build-private-draft-candidate-packets.mjs` — generates draft packets for approved decisions.
+- `scripts/export-review-console-decision-data.mjs` — compiles console-safe JSON decision files.
+- `scripts/export-hosted-review-decision-payloads.mjs` — hosted decisions/packets dry-run exporter.
+- `scripts/validate-private-review-decisions.mjs` — decision validator enforcing schema constraints.
+- `scripts/run-private-review-workflow.mjs` — local review cycle runner.
+
 
 ## T062 — Private Candidate Review Intake (Complete — 21 May 2026)
 

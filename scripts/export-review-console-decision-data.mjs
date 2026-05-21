@@ -1,5 +1,5 @@
-// export-review-console-decision-data.mjs (T063)
-// Exports private review decisions and draft packets to the local review console data folder.
+// export-review-console-decision-data.mjs (T063/T064)
+// Exports private review decisions, draft packets, and approval markers to the local review console data folder.
 // Bounded local-only execution. No remote writes, no site mutation, no public publish.
 
 import fs from 'fs';
@@ -12,9 +12,11 @@ const ROOT = path.dirname(__dirname);
 
 const SOURCE_DECIS_PATH = path.join(ROOT, 'data', 'reviews', 'decisions', 'private-review-decisions-latest.json');
 const SOURCE_PACKETS_PATH = path.join(ROOT, 'data', 'reviews', 'draft-candidate-packets', 'private-draft-candidate-packets-latest.json');
+const SOURCE_TEMPLATES_PATH = path.join(ROOT, 'data', 'reviews', 'approvals', 'private-draft-approval-template-latest.json');
 
 const TARGET_DECIS_PATH = path.join(ROOT, 'tools', 'review-console', 'data', 'private-review-decisions.json');
 const TARGET_PACKETS_PATH = path.join(ROOT, 'tools', 'review-console', 'data', 'private-draft-candidate-packets.json');
+const TARGET_TEMPLATES_PATH = path.join(ROOT, 'tools', 'review-console', 'data', 'private-draft-approvals.json');
 
 function log(msg) {
   process.stdout.write(`[Console Exporter] ${msg}\n`);
@@ -32,7 +34,7 @@ function writeJson(p, data) {
 }
 
 async function run() {
-  log('=== Exporting Private Decision Data to Review Console ===');
+  log('=== Exporting Private Decision & Approval Data to Review Console ===');
 
   const decisions = readJson(SOURCE_DECIS_PATH);
   if (!decisions) {
@@ -45,6 +47,8 @@ async function run() {
     log('FAIL: Private draft candidate packets latest file is missing.');
     process.exit(1);
   }
+
+  const templates = readJson(SOURCE_TEMPLATES_PATH) || { templates: [] };
 
   // Double check that we are not exporting secrets or raw third-party content
   const HTML_PATTERN = /<(!DOCTYPE )?html|<[a-z][\s\S]*>/i;
@@ -59,13 +63,32 @@ async function run() {
 
   sanitizeCheck(decisions, 'decisions');
   sanitizeCheck(packets, 'packets');
+  sanitizeCheck(templates, 'templates');
+
+  // Count active approvals (always 0 in baseline, but dynamically computed if needed)
+  const activeMarkersDir = path.join(ROOT, 'data', 'reviews', 'approvals', 'active-markers');
+  let activeApprovalCount = 0;
+  if (fs.existsSync(activeMarkersDir)) {
+    activeApprovalCount = fs.readdirSync(activeMarkersDir).filter(f => f.endsWith('.json')).length;
+  }
+
+  const approvalSummary = {
+    _schema: 'caesar-atlas/reviews/review-console-approvals-summary/v1',
+    run_id: decisions.run_id,
+    generated_at: new Date().toISOString(),
+    approval_template_count: templates.templates.length,
+    active_approval_count: activeApprovalCount,
+    templates: templates.templates
+  };
 
   // Write sanitized outputs directly to local review console private data folder
   writeJson(TARGET_DECIS_PATH, decisions);
   writeJson(TARGET_PACKETS_PATH, packets);
+  writeJson(TARGET_TEMPLATES_PATH, approvalSummary);
 
   log(`Successfully exported review decisions to: ${path.relative(ROOT, TARGET_DECIS_PATH)}`);
   log(`Successfully exported draft candidate packets to: ${path.relative(ROOT, TARGET_PACKETS_PATH)}`);
+  log(`Successfully exported draft approvals to: ${path.relative(ROOT, TARGET_TEMPLATES_PATH)}`);
   log('=== Console Exporter COMPLETE ===');
 }
 

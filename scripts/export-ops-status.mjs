@@ -20,6 +20,7 @@ const REAL_GREEN_RUN_LATEST_PATH = path.join(ROOT, 'data', 'ops', 'watch-runs', 
 const PRIVATE_INTAKE_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews', 'intake', 'private-candidate-intake-manifest.json');
 const PRIVATE_DECISIONS_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews', 'decisions', 'private-review-decisions-manifest.json');
 const PRIVATE_PACKETS_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews', 'draft-candidate-packets', 'private-draft-candidate-packets-manifest.json');
+const PRIVATE_APPROVALS_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews', 'approvals', 'private-draft-approval-template-manifest.json');
 
 const OUT_DIRS = [
   path.join(ROOT, 'data', 'ops'),
@@ -127,6 +128,12 @@ const privateReviewDecisionCount = privateDecisionsManifest ? (privateDecisionsM
 const privatePacketsManifest = readJson(PRIVATE_PACKETS_MANIFEST_PATH);
 const privateDraftCandidatePacketCount = privatePacketsManifest ? (privatePacketsManifest.packet_count || 0) : 0;
 
+// ── Read T064 private draft approval manifest ────────────────────────────
+const privateApprovalsManifest = readJson(PRIVATE_APPROVALS_MANIFEST_PATH);
+const privateDraftApprovalStatus = privateApprovalsManifest ? 'approval_gate_ready' : 'not_built';
+const privateDraftApprovalTemplateCount = privateApprovalsManifest ? (privateApprovalsManifest.approval_template_count || 0) : 0;
+const privateDraftActiveApprovalCount = 0;
+
 // ── Build status JSON ──────────────────────────────────────────────────────
 const now = new Date().toISOString();
 
@@ -159,6 +166,10 @@ const opsStatus = {
   review_decision_status:    reviewDecisionStatus,
   private_review_decision_count: privateReviewDecisionCount,
   private_draft_candidate_packet_count: privateDraftCandidatePacketCount,
+  // T064: Private draft approval gate status
+  private_draft_approval_status: privateDraftApprovalStatus,
+  private_draft_approval_template_count: privateDraftApprovalTemplateCount,
+  private_draft_active_approval_count: privateDraftActiveApprovalCount,
   next_step:                 'Configure Supabase + Cloudflare Worker secrets to enable hosted_ready mode',
   public_site_url:           'https://atlas.caesar.no',
   data_endpoint:             'https://atlas.caesar.no/data/incident-index.json',

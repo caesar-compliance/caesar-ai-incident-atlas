@@ -1,12 +1,24 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T063 — DEC-145)
+**Last updated:** 21 May 2026 (T064 — DEC-150)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
 ---
 
 ## Decision History
+
+### [DEC-146 – DEC-150] — 21 May 2026 — T064 Explicit Private Draft Approval Gate + Controlled Draft Packet Promotion
+
+**Status:** Approved
+
+- **DEC-146:** Create JSON Schema `schemas/pipeline/private-draft-approval-marker.schema.json` to define deterministic and restricted fields (`approval_id`, `created_at`, etc.) for local-only approval markers.
+- **DEC-147:** Generate template approval markers under `data/reviews/approvals/` with status "draft" and `control_tower_approval_present: false`.
+- **DEC-148:** Enforce matching of parameter inputs (`--intake-id`, `--decision-id`, `--approval-id`, `--control-tower-approval YES`, `--reason`) with an active, signature-verified marker file in CLI `apply-explicit-private-draft-approval.mjs`.
+- **DEC-149:** Design a fully isolated end-to-end integration test suite `scripts/test-private-draft-approval-gate.mjs` to dynamically verify gate flow, mock promotions, schema validator, and complete baseline restoration.
+- **DEC-150:** Export safe progress counts (`private_draft_approval_status: "approval_gate_ready"`, `private_draft_approval_template_count`, `private_draft_active_approval_count: 0`) to public `latest-status.json` to surface metrics without leaking approval keys or private signal paths.
+
+---
 
 ### [DEC-141 – DEC-145] — 21 May 2026 — T063 Private Review Console UI + Review Decision Packets
 

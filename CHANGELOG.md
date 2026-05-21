@@ -4,6 +4,21 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [0.23.0] - 21 May 2026
+
+### Added
+- **T064 — Explicit Private Draft Approval Gate + Controlled Draft Packet Promotion.**
+  - `schemas/pipeline/private-draft-approval-marker.schema.json` — local-only explicit approval marker schema; defines deterministic fields (`approval_id`, `created_at`, `approval_scope`, etc.) with strict constraints.
+  - `scripts/create-private-draft-approval-template.mjs` — template generator creating disabled "draft" templates in `data/reviews/approvals/`.
+  - `scripts/validate-private-draft-approval-markers.mjs` — approvals validator ensuring all templates conform to the schema and contain zero active approvals.
+  - `scripts/apply-explicit-private-draft-approval.mjs` — CLI tool to securely apply/verify the explicit Control Tower signature for a private candidate.
+  - Upgraded `build-private-draft-candidate-packets.mjs` to block packet creation unless a matching active approval marker is verified.
+  - Upgraded `validate-private-review-decisions.mjs` to dynamically support Baseline Mode and Explicit Approved Mode verification.
+  - `scripts/test-private-draft-approval-gate.mjs` — end-to-end integration test suite programmatically auditing gate flow, mock promotions, schema validator, and baseline resets.
+  - Upgraded review console exports and UI widgets to surface explicit approval gates.
+  - Upgraded hosted payload exporter, safety validator, and ops status integrations to support the new approval gate properties.
+  - Documented work items in `work-items/T064-explicit-private-draft-approval-gate/` `TASK.md`, `VALIDATION.md`, `IMPLEMENTATION_REPORT.md`, and `DECISIONS.md`.
+
 ## [0.22.1] - 21 May 2026
 
 ### Fixed

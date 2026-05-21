@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let isPrivateIntakeBundle = false;
   let privateDecisions = [];
   let privatePackets = [];
+  let privateApprovals = [];
   let activeStage = 'candidates'; // candidates | drafts | packets | health
   let activeQualityFilter = 'all';
 
@@ -151,12 +152,14 @@ document.addEventListener('DOMContentLoaded', () => {
       Promise.all([
         fetch(`./data/private-candidate-intake.json`).then(r => r.json()),
         fetch(`./data/private-review-decisions.json`).then(r => r.json()).catch(() => ({ decisions: [] })),
-        fetch(`./data/private-draft-candidate-packets.json`).then(r => r.json()).catch(() => ({ packets: [] }))
+        fetch(`./data/private-draft-candidate-packets.json`).then(r => r.json()).catch(() => ({ packets: [] })),
+        fetch(`./data/private-draft-approvals.json`).then(r => r.json()).catch(() => ({ templates: [] }))
       ])
-      .then(([intakeData, decisionsData, packetsData]) => {
+      .then(([intakeData, decisionsData, packetsData, approvalsData]) => {
         bundleData = intakeData;
         privateDecisions = decisionsData.decisions || [];
         privatePackets = packetsData.packets || [];
+        privateApprovals = approvalsData.templates || [];
 
         bundleTimestampEl.textContent = intakeData.generated_at
           ? new Date(intakeData.generated_at).toLocaleString()
@@ -1276,6 +1279,28 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     }
 
+    let approvalHtml = '';
+    const approval = privateApprovals.find(a => a.intake_id === record.intake_id);
+    if (approval) {
+      const isApproved = approval.control_tower_approval_present && approval.approval_status === 'approved_for_private_draft';
+      const gateBadge = isApproved
+        ? `<span style="display:inline-block; background:rgba(16,185,129,0.2); color:var(--color-success); padding:2px 8px; border-radius:4px; font-weight:700; font-size:11px;">✓ CT APPROVED</span>`
+        : `<span style="display:inline-block; background:rgba(239,68,68,0.2); color:var(--color-danger); padding:2px 8px; border-radius:4px; font-weight:700; font-size:11px;">🔒 CT APPROVAL REQUIRED</span>`;
+
+      approvalHtml = `
+        <div style="margin-top:12px; padding:12px; background: rgba(147, 51, 234, 0.06); border: 1px solid rgba(147, 51, 234, 0.3); border-radius: 8px;">
+          <div style="font-weight:700; color: #c084fc; font-size:12px; text-transform:uppercase; margin-bottom:6px;">🔐 EXPLICIT PRIVATE DRAFT APPROVAL GATE</div>
+          <div style="font-size:11px; margin-bottom:4px;"><strong>Approval ID:</strong> <span style="font-family:var(--font-mono);">${approval.approval_id}</span></div>
+          <div style="font-size:11px; margin-bottom:4px;"><strong>Scope:</strong> <span style="font-family:var(--font-mono);">${approval.approval_scope}</span></div>
+          <div style="font-size:11px; margin-bottom:6px;"><strong>Gate Status:</strong> ${gateBadge}</div>
+          <div style="font-size:11px; margin-bottom:4px;"><strong>Reason:</strong> ${escapeHTML(approval.approval_reason)}</div>
+          <div style="font-size:11px; color:#c084fc; margin-top:6px; border-top:1px solid rgba(147,51,234,0.15); padding-top:6px;">
+            Control Tower YES signature and Approval ID must match exactly to promote decision to private draft candidate packet.
+          </div>
+        </div>
+      `;
+    }
+
     let statusBg = 'var(--bg-primary)';
     let statusBorderColor = 'rgba(245, 158, 11, 0.3)';
     let statusTextCol = 'var(--color-warning)';
@@ -1320,6 +1345,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ⚠️ WARNING: Private/local only. Not public. No legal advice.
         </div>
 
+        ${approvalHtml}
         ${packetSummaryHtml}
       </div>
     `;

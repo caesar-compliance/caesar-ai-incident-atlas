@@ -954,6 +954,108 @@ pass('T063: no Worker deployment marker (covered by check 12)');
 // ── 60. T063: no Pages config change ─────────────────────────────────────────
 pass('T063: no Pages config change (covered by checks 10/11)');
 
+// ── 61. T064: approval templates not copied into site/ ───────────────────────
+const siteApprovalsDir = path.join(ROOT, 'site', 'data', 'reviews', 'approvals');
+if (existsDir(siteApprovalsDir)) {
+  fail('T064: site/data/reviews/approvals/ exists — private approval templates must not be in public site');
+} else {
+  pass('T064: site/data/reviews/approvals/ not present (correct)');
+}
+
+// ── 62. T064: no active approval markers in baseline ─────────────────────────
+const approvalsDir = path.join(ROOT, 'data', 'reviews', 'approvals');
+let activeApprovalsFound = false;
+if (existsDir(approvalsDir)) {
+  walkDir(approvalsDir, (file) => {
+    if (!file.endsWith('.json')) return;
+    const json = readJson(file);
+    if (json && Array.isArray(json.templates)) {
+      for (const template of json.templates) {
+        if (template.approval_status !== 'draft') {
+          fail(`T064: approval marker template ${template.approval_id} has status "${template.approval_status}" instead of draft`);
+          activeApprovalsFound = true;
+        }
+        if (template.control_tower_approval_present !== false) {
+          fail(`T064: approval marker template ${template.approval_id} has control_tower_approval_present true instead of false`);
+          activeApprovalsFound = true;
+        }
+      }
+    }
+  });
+}
+if (!activeApprovalsFound) pass('T064: no active approval markers in baseline (correct)');
+
+// ── 63. T064: approval marker hosted payload is sanitized ────────────────────
+const hostedApprovalsPath = path.join(OPS_SUPABASE_DIR, 'atlas-draft-approval-markers.private-latest.json');
+const hostedApprovals = readJson(hostedApprovalsPath);
+if (hostedApprovals) {
+  if (hostedApprovals.remote_write_attempted !== false) {
+    fail('T064: atlas-draft-approval-markers.private-latest.json remote_write_attempted is not false');
+  } else {
+    pass('T064: atlas-draft-approval-markers.private-latest.json remote_write_attempted = false');
+  }
+  if (hostedApprovals.active_approval_count !== 0) {
+    fail('T064: atlas-draft-approval-markers.private-latest.json active_approval_count is not 0');
+  } else {
+    pass('T064: atlas-draft-approval-markers.private-latest.json active_approval_count = 0');
+  }
+  const recs = hostedApprovals.records;
+  let recsError = false;
+  if (Array.isArray(recs)) {
+    for (const rec of recs) {
+      if (rec.approval_status !== 'draft') {
+        fail(`T064: hosted approval marker ${rec.approval_id} status is ${rec.approval_status} instead of draft`);
+        recsError = true;
+      }
+      if (rec.control_tower_approval_present !== false) {
+        fail(`T064: hosted approval marker ${rec.approval_id} has control_tower_approval_present true`);
+        recsError = true;
+      }
+    }
+    if (!recsError) pass('T064: hosted approval markers are fully sanitized templates (correct)');
+  } else {
+    fail('T064: hosted approvals records is not an array');
+  }
+} else {
+  pass('T064: atlas-draft-approval-markers.private-latest.json not present (ok)');
+}
+
+// ── 64. T064: no approved decisions exist without valid approval marker ─────────
+const decisionsLatestPath = path.join(ROOT, 'data', 'reviews', 'decisions', 'private-review-decisions-latest.json');
+const decisionsLatest = readJson(decisionsLatestPath);
+let approvedWithoutMarker = false;
+if (decisionsLatest && Array.isArray(decisionsLatest.decisions)) {
+  for (const d of decisionsLatest.decisions) {
+    if (d.decision_status === 'approve_for_private_draft') {
+      let foundMarker = false;
+      const templatesLatestPath = path.join(ROOT, 'data', 'reviews', 'approvals', 'private-draft-approval-template-latest.json');
+      const templatesLatest = readJson(templatesLatestPath);
+      if (templatesLatest && Array.isArray(templatesLatest.templates)) {
+        const match = templatesLatest.templates.find(t => t.intake_id === d.intake_id && t.decision_id === d.decision_id);
+        if (match && match.approval_status === 'approved_for_private_draft' && match.control_tower_approval_present === true) {
+          foundMarker = true;
+        }
+      }
+      if (!foundMarker) {
+        fail(`T064: decision ${d.decision_id} is approved_for_private_draft but has no active approved approval marker`);
+        approvedWithoutMarker = true;
+      }
+    }
+  }
+}
+if (!approvedWithoutMarker) pass('T064: no approved decisions exist without valid approval marker (correct)');
+
+// ── 65. T064: no draft candidate packets in baseline ───────────────────────────
+const packetsLatestPath = path.join(ROOT, 'data', 'reviews', 'draft-candidate-packets', 'private-draft-candidate-packets-latest.json');
+const packetsLatest = readJson(packetsLatestPath);
+if (packetsLatest && Array.isArray(packetsLatest.packets)) {
+  if (packetsLatest.packets.length !== 0) {
+    fail(`T064: packets list is not empty, found ${packetsLatest.packets.length} packets in baseline`);
+  } else {
+    pass('T064: no draft candidate packets in baseline (correct)');
+  }
+}
+
 // ── Final result ─────────────────────────────────────────────────────────────
 
 process.stdout.write('\n');

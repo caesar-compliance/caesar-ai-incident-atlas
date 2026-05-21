@@ -178,17 +178,62 @@ if (errors === 0) {
     pass(`Packets count matches approved decisions count: ${approvedCount}`);
   }
 
-  // T063 Baseline tightening: zero approvals and zero draft packets allowed
-  if (approvedCount !== 0) {
-    fail(`Baseline T063 requires 0 approved decisions, but found ${approvedCount}`);
+  // Baseline vs Explicit Approved-Private-Draft Mode
+  if (approvedCount === 0) {
+    pass('Baseline Mode active: 0 approved decisions detected (correct).');
+    if (packets.length !== 0) {
+      fail(`Baseline Mode expects 0 draft packets, but found ${packets.length}`);
+    } else {
+      pass('Baseline Mode: 0 draft packets detected (correct).');
+    }
   } else {
-    pass('Baseline T063 has 0 approved decisions');
-  }
+    pass(`Explicit Approved Mode active: ${approvedCount} approved decisions and ${packets.length} draft packets detected. Verifying approval markers...`);
+    const ACTIVE_MARKERS_DIR = path.join(ROOT, 'data', 'reviews', 'approvals', 'active-markers');
 
-  if (packets.length !== 0) {
-    fail(`Baseline T063 requires 0 draft packets, but found ${packets.length}`);
-  } else {
-    pass('Baseline T063 has 0 draft packets');
+    // Check decisions
+    decisions.forEach(d => {
+      if (d.decision_status === 'approve_for_private_draft') {
+        const indexSuffix = d.intake_id.split('-').slice(-1)[0];
+        const expectedApprovalId = d.approval_id || `APPROVAL-${runId}-${indexSuffix}`;
+        const markerPath = path.join(ACTIVE_MARKERS_DIR, `${expectedApprovalId}.json`);
+
+        if (!existsFile(markerPath)) {
+          fail(`Decision ${d.decision_id} approved for private draft but lacks corresponding active approval marker file: ${markerPath}`);
+        } else {
+          const marker = readJson(markerPath);
+          if (!marker) {
+            fail(`Approval marker file ${expectedApprovalId}.json is invalid/empty`);
+          } else {
+            if (marker.approval_status !== 'approved_for_private_draft') {
+              fail(`Approval marker ${expectedApprovalId} has status "${marker.approval_status}", expected "approved_for_private_draft"`);
+            }
+            if (marker.control_tower_approval_present !== true) {
+              fail(`Approval marker ${expectedApprovalId} missing control_tower_approval_present: true`);
+            }
+            if (marker.intake_id !== d.intake_id || marker.decision_id !== d.decision_id) {
+              fail(`Approval marker ${expectedApprovalId} has intake/decision ID mismatch`);
+            }
+            if (new Date(marker.expires_at) <= new Date()) {
+              fail(`Approval marker ${expectedApprovalId} is expired`);
+            }
+          }
+        }
+      }
+    });
+
+    // Check packets
+    packets.forEach(p => {
+      if (!p.approval_id) {
+        fail(`Draft candidate packet ${p.packet_id} is missing approval_id`);
+      } else {
+        const markerPath = path.join(ACTIVE_MARKERS_DIR, `${p.approval_id}.json`);
+        if (!existsFile(markerPath)) {
+          fail(`Draft candidate packet ${p.packet_id} references non-existent approval marker: ${p.approval_id}`);
+        } else {
+          pass(`Packet ${p.packet_id} successfully validated against active approval marker ${p.approval_id}`);
+        }
+      }
+    });
   }
 
   // D. Draft Packet Constraints

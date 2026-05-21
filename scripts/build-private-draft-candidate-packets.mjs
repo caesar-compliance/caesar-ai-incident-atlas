@@ -1,5 +1,6 @@
-// build-private-draft-candidate-packets.mjs (T063)
+// build-private-draft-candidate-packets.mjs (T063/T064)
 // Generates private draft-candidate-ready packets for approved review decisions.
+// Requires valid and active explicit approval markers.
 // Bounded local-only execution. No remote writes, no site mutation, no public publish.
 
 import fs from 'fs';
@@ -14,6 +15,7 @@ const LATEST_INTAKE_PATH = path.join(ROOT, 'data', 'reviews', 'intake', 'private
 const LATEST_DECIS_PATH = path.join(ROOT, 'data', 'reviews', 'decisions', 'private-review-decisions-latest.json');
 const LATEST_PACKETS_PATH = path.join(ROOT, 'data', 'reviews', 'draft-candidate-packets', 'private-draft-candidate-packets-latest.json');
 const LATEST_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews', 'draft-candidate-packets', 'private-draft-candidate-packets-manifest.json');
+const ACTIVE_MARKERS_DIR = path.join(ROOT, 'data', 'reviews', 'approvals', 'active-markers');
 
 function log(msg) {
   process.stdout.write(`[Packet Builder] ${msg}\n`);
@@ -96,7 +98,7 @@ async function run() {
   const packets = [];
   const now = new Date().toISOString();
 
-  approvedDecisions.forEach(decision => {
+  for (const decision of approvedDecisions) {
     const intakeId = decision.intake_id;
     const record = intakeMap.get(intakeId);
 
@@ -106,12 +108,46 @@ async function run() {
     }
 
     const indexSuffix = intakeId.split('-').slice(-1)[0];
+    const expectedApprovalId = decision.approval_id || `APPROVAL-${runId}-${indexSuffix}`;
     const packetId = `DRAFT-CAND-PKT-${runId}-${indexSuffix}`;
+
+    // Verify explicit active approval marker
+    const markerPath = path.join(ACTIVE_MARKERS_DIR, `${expectedApprovalId}.json`);
+    if (!fs.existsSync(markerPath)) {
+      log(`FAIL: Approved decision ${decision.decision_id} lacks corresponding active approval marker file: ${markerPath}`);
+      process.exit(1);
+    }
+
+    const marker = readJson(markerPath);
+    if (!marker) {
+      log(`FAIL: Approval marker at ${markerPath} is invalid or empty`);
+      process.exit(1);
+    }
+
+    if (marker.approval_status !== 'approved_for_private_draft') {
+      log(`FAIL: Approval marker ${expectedApprovalId} has non-active status: ${marker.approval_status}`);
+      process.exit(1);
+    }
+    if (marker.control_tower_approval_present !== true) {
+      log(`FAIL: Approval marker ${expectedApprovalId} is missing Control Tower signature`);
+      process.exit(1);
+    }
+    if (marker.intake_id !== intakeId || marker.decision_id !== decision.decision_id) {
+      log(`FAIL: Approval marker ${expectedApprovalId} data mismatch with decision/intake`);
+      process.exit(1);
+    }
+    if (new Date(marker.expires_at) <= new Date()) {
+      log(`FAIL: Approval marker ${expectedApprovalId} is expired`);
+      process.exit(1);
+    }
+
+    log(`Approval marker ${expectedApprovalId} is valid and active.`);
 
     const packet = {
       packet_id: packetId,
       intake_id: intakeId,
       decision_id: decision.decision_id,
+      approval_id: expectedApprovalId, // Embed approval reference!
       source_run_id: runId,
       candidate_hash: record.candidate_hash,
       suggested_record_type: record.suggested_record_type,
@@ -131,7 +167,7 @@ async function run() {
 
     packets.push(packet);
     log(`Built packet: ${packetId} for intake ID: ${intakeId}`);
-  });
+  }
 
   const manifest = {
     _schema: 'caesar-atlas/reviews/private-draft-candidate-packets-manifest/v1',

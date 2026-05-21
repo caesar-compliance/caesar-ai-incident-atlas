@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T063 — Private Review Console UI + Review Decision Packets; dataset now 13 records)
+**Last updated:** 21 May 2026 (T064 — Explicit Private Draft Approval Gate + Controlled Draft Packet Promotion; dataset remains 13 records)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -277,6 +277,20 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T063-private-review-console-decision-packets/VALIDATION.md` | T063 validation | Validation checklist and results. |
 | `work-items/T063-private-review-console-decision-packets/IMPLEMENTATION_REPORT.md` | T063 report | Implementation report of files created. |
 | `work-items/T063-private-review-console-decision-packets/DECISIONS.md` | T063 decisions | Decisions made during T063 task. |
+| `schemas/pipeline/private-draft-approval-marker.schema.json` | Approval Schema | JSON Schema validating private draft approval marker records. (T064) |
+| `scripts/create-private-draft-approval-template.mjs` | Template Generator | Programmatic builder generating disabled templates in data/reviews/approvals/. (T064) |
+| `scripts/validate-private-draft-approval-markers.mjs` | Approvals Validator | Node validator verifying templates against the approval schema. (T064) |
+| `scripts/apply-explicit-private-draft-approval.mjs` | Approval Applier | CLI tool securely patching Control Tower signatures on markers. (T064) |
+| `scripts/test-private-draft-approval-gate.mjs` | Gate Test Suite | Programmatic integration suite auditing the complete approval gate workflow. (T064) |
+| `tools/review-console/data/private-draft-approvals.json` | Console Input | Exporter template summary JSON for local review console UI. (T064) |
+| `data/reviews/approvals/private-draft-approval-template-latest.json` | Latest Template Output | Structured latest generated private draft approval templates. (T064) |
+| `data/reviews/approvals/private-draft-approval-template-manifest.json` | Template Manifest | Latest generated approval templates manifest. (T064) |
+| `data/ops/supabase/atlas-draft-approval-markers.private-latest.json` | Supabase Payload | Sanitized atlas_draft_approval_markers dry-run templates payload. (T064) |
+| `work-items/T064-explicit-private-draft-approval-gate/TASK.md` | T064 task | Task checklist, scope, and status. |
+| `work-items/T064-explicit-private-draft-approval-gate/VALIDATION.md` | T064 validation | Validation checklist and results. |
+| `work-items/T064-explicit-private-draft-approval-gate/IMPLEMENTATION_REPORT.md` | T064 report | Implementation report of files created. |
+| `work-items/T064-explicit-private-draft-approval-gate/DECISIONS.md` | T064 decisions | Decisions made during T064 task. |
+
 
 ## docs/ Directory
 
