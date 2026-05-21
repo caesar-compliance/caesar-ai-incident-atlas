@@ -1,9 +1,9 @@
 # Roadmap — Next Phases — caesar-ai-incident-atlas
 
 **Created:** 20 May 2026 (T032)
-**Last updated:** 21 May 2026 (T047)
-**Baseline:** Public MVP v0.8.4. 12 records. Local review console and manual green-source watch pipeline MVP active.
-**Status:** Active MVP implementation in progress. No public records created or sitemaps updated. Live Green fetches are strictly manual and sandboxed locally.
+**Last updated:** 21 May 2026 (T054)
+**Baseline:** Public MVP v0.13.0. 13 records. INC-0013 (EDPB guidance, first real adapter-detected case) published under CT approval.
+**Status:** Active MVP. INC-0013 live. Promotion pipeline fully operational. Next: additional CT-approved promotions from remaining ranked packets.
 
 See `PUBLIC_MVP_BASELINE_FREEZE.md` for frozen baseline rules.
 See `ROADMAP.md` for the full historical phase plan.

@@ -223,26 +223,32 @@ function validate() {
     logWarn(`${candidatesWithoutQualityFields} candidate(s) missing quality fields — run classify-candidate-quality.mjs`);
   }
 
-  // ── 6. Public dataset remains 12 ──
+  // ── 6. Public dataset count matches approved baseline ──
   let publicCount = 0;
   if (fs.existsSync(INCIDENTS_DIR)) {
     publicCount = fs.readdirSync(INCIDENTS_DIR).filter(f => f.endsWith('.json')).length;
   }
-  if (publicCount !== 12) {
-    logFail(`Public incident count is ${publicCount}, expected exactly 12`);
+  const approvalsPathCQ = path.join(ROOT, 'data', 'reviews', 'real', 'approved-promotions.json');
+  let approvedCountCQ = 0;
+  if (fs.existsSync(approvalsPathCQ)) {
+    try { approvedCountCQ = (JSON.parse(fs.readFileSync(approvalsPathCQ,'utf8')).approvals||[]).length; } catch(e){}
+  }
+  const expectedCQ = 12 + approvedCountCQ;
+  if (publicCount !== expectedCQ) {
+    logFail(`Public incident count is ${publicCount}, expected exactly ${expectedCQ}`);
     failures++;
   } else {
-    logPass('Public dataset remains at exactly 12 records');
+    logPass(`Public dataset at expected count: ${expectedCQ} records`);
   }
 
-  // ── 7. No INC-0013 exists ──
-  const inc0013 = path.join(INCIDENTS_DIR, 'inc-0013.json');
-  const inc0013Site = path.join(ROOT, 'site', 'data', 'incidents', 'inc-0013.json');
-  if (fs.existsSync(inc0013) || fs.existsSync(inc0013Site)) {
-    logFail('INC-0013 exists — this must not be created without explicit Control Tower approval');
+  // ── 7. INC-0013 approved record must exist (T054) ──
+  const inc0013Approved = path.join(INCIDENTS_DIR, 'INC-0013-edpb-automated-decision-making-profiling-guidance.json');
+  const inc0013SiteApproved = path.join(ROOT, 'site', 'data', 'incidents', 'INC-0013-edpb-automated-decision-making-profiling-guidance.json');
+  if (!fs.existsSync(inc0013Approved) || !fs.existsSync(inc0013SiteApproved)) {
+    logFail('INC-0013 approved record (T054) missing from data/ or site/');
     failures++;
   } else {
-    logPass('INC-0013 does not exist');
+    logPass('INC-0013 approved record present (T054 CT approval)');
   }
 
   // ── 8. CAND-0018 / "Make a complaint" was blocked ──

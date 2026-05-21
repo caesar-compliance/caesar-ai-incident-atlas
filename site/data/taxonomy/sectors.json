@@ -13,6 +13,7 @@
     {"id": "retail-ecommerce", "name": "Retail and e-commerce", "status": "draft", "description": "Retail/customer experience AI use; fewer v0.2 incidents."},
     {"id": "legal-compliance", "name": "Legal and compliance", "status": "stable", "description": "Legal workflows and compliance analysis AI use."},
     {"id": "transportation-autonomous", "name": "Transportation and autonomous systems", "status": "draft", "description": "Autonomy/logistics AI use; limited v0.2 incident coverage."},
-    {"id": "general", "name": "General / cross-sector", "status": "stable", "description": "Used when no single sector clearly applies."}
+    {"id": "general", "name": "General / cross-sector", "status": "stable", "description": "Used when no single sector clearly applies."},
+    {"id": "cross-sector AI governance", "name": "Cross-sector AI governance", "status": "stable", "description": "Regulatory guidance and governance cases that apply across all sectors."}
   ]
 }

@@ -69,13 +69,15 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 | T049 — Promotion CLI + Public Case Dry-Run | **Complete** — Rank candidates by safety score, dry-run previews, approval file format, promotion CLI with hard gates, validate-promotion-dry-run.mjs, review console ranked display | 21 May 2026 |
 | T051 — High-Signal Official Source Adapters | **Complete** — Adapter framework for Green sources, named adapters, quality classes, one-command runner, review console updates | 21 May 2026 |
 | T052 — Live Adapter Collection + Candidate Shortlist | **Complete** — Live pipeline run, adapter improvements (FTC/CNIL/EDPB/EU), case shortlist builder, review console shortlist tab, runbook | 21 May 2026 |
+| T053 — PKT-0006 Source Verification + Readiness + Preview | **Complete** — Source verification, control map, readiness report, publication preview | 21 May 2026 |
+| T054 — Publish Approved PKT-0006 as INC-0013 | **Complete** — INC-0013 published (EDPB guidance, Green-tier, CT approved). Dataset: 13 records. | 21 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete | 19 May 2026 |
 
 ---
 
 ## Status: T049 Complete — Promotion CLI and Public Case Dry-Run System Deployed
 
-**Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/` with exactly 12 validated incident records, a complete static digest portal, and live RSS syndication feeds.**
+**Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/` with exactly 13 validated incident records (INC-0001–INC-0013, including INC-0013 as first real adapter-detected guidance/governance case), a complete static digest portal, and live RSS syndication feeds.**
 
 **The full local pipeline now runs end-to-end with promotion machinery: Green-source watcher → dedupe → real case drafts (`data/drafts/real/`) → promotion packets (`data/promotion-packets/real/`) → **ranking & promotion CLI** → review bundle → review console. T049 adds: (1) `rank-promotion-candidates.mjs` - scores packets by safety criteria, (2) `approved-promotions.json` - Control Tower approval registry with hard gates, (3) `promote-approved-case.mjs` - dry-run preview generator or single-case promoter, (4) `validate-promotion-dry-run.mjs` - safety validation suite, (5) Review console ranked candidates display. All 6 real drafts ranked; PKT-0001 (DRAFT-0001) is top recommendation with score 130. No public records created without approval. Public dataset remains at exactly 12 records.**
 

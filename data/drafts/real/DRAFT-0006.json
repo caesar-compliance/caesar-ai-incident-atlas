@@ -36,7 +36,7 @@
     "Can you demonstrate evidence of compliance gap analysis against this guidance?"
   ],
   "training_lesson": "Regulatory bodies such as European Data Protection Board (EDPB) issue guidance that directly affects AI system deployments. Organisations must maintain active monitoring processes to detect and respond to new guidance before it becomes an enforcement trigger.",
-  "clean_room_summary": "European Data Protection Board (EDPB) has published material relating to Automated decision & profiling (3). This record reflects metadata detected during a manual Green-source watcher run on 2026-05-21. This draft is a Caesar-authored internal working document compiled from public metadata only. No source text has been copied. This is not legal advice. This draft requires curator review and Control Tower approval before any public use.",
+  "clean_room_summary": "European Data Protection Board (EDPB) has published material relating to automated decision-making and profiling. Source verification confirms official authority and accessibility. This record reflects metadata detected during regulatory monitoring. Organisations should review the original source material for detailed guidance. This is not legal advice.",
   "source_risk_level": "green",
   "publish_recommendation": "needs_legal_review",
   "review_status": "draft",

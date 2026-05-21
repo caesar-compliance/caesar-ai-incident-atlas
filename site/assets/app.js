@@ -78,14 +78,15 @@ function showError(msg) {
 function updateStatusPanel() {
   const el = document.getElementById("status-panel");
   if (!el || !allIncidents.length) return;
+  const lastId = allIncidents.reduce((a, b) => a.incident_id > b.incident_id ? a : b).incident_id;
   el.innerHTML =
-    `<span class="sp-item"><span class="sp-label">Dataset</span> INC-0001–INC-0010</span>` +
+    `<span class="sp-item"><span class="sp-label">Dataset</span> INC-0001–${esc(lastId)}</span>` +
     `<span class="sp-sep">·</span>` +
     `<span class="sp-item"><span class="sp-label">Records</span> ${allIncidents.length}</span>` +
     `<span class="sp-sep">·</span>` +
-    `<span class="sp-item"><span class="sp-label">Version</span> v0.6.4</span>` +
+    `<span class="sp-item"><span class="sp-label">Version</span> v0.6.5</span>` +
     `<span class="sp-sep">·</span>` +
-    `<span class="sp-item"><span class="sp-label">MVP verified</span> 20 May 2026</span>` +
+    `<span class="sp-item"><span class="sp-label">Updated</span> 21 May 2026</span>` +
     `<span class="sp-sep">·</span>` +
     `<span class="sp-item sp-caution">⚠ Draft taxonomy labels active</span>`;
 }
@@ -313,6 +314,8 @@ function buildCard(inc) {
     metaHtml += `<span class="badge ${isDraft ? "badge-draft" : "badge-sector"}" title="${isDraft ? "Draft taxonomy ID" : "Sector"}">${isDraft ? "⚠ draft · " : ""}${esc(sectorLabel(s))}</span>`;
   });
 
+  if (inc.record_type && inc.record_type !== 'incident')
+    metaHtml += `<span class="badge badge-guidance" title="Record type">${esc(RECORD_TYPE_LABELS[inc.record_type] || inc.record_type)}</span>`;
   metaHtml += `<span class="badge badge-sev-${esc(inc.severity)}" title="Severity">Severity: ${esc(cap(inc.severity))}</span>`;
   metaHtml += `<span class="badge badge-conf-${esc(inc.confidence)}" title="Confidence">Confidence: ${esc(cap(inc.confidence))}</span>`;
 
@@ -373,8 +376,10 @@ function buildCard(inc) {
 function buildDetail(inc) {
   const sections = [];
 
-  if (inc.summary)
-    sections.push(detailSection("What Happened", `<div class="detail-text">${esc(inc.summary)}</div>`));
+  if (inc.summary) {
+    const sectionLabel = (inc.record_type === 'guidance' || inc.record_type === 'governance_case') ? 'Summary' : 'What Happened';
+    sections.push(detailSection(sectionLabel, `<div class="detail-text">${esc(inc.summary)}</div>`));
+  }
 
   if (inc.ai_system_context)
     sections.push(detailSection("AI System / Context", `<div class="detail-text">${esc(inc.ai_system_context)}</div>`));
@@ -502,7 +507,14 @@ const SECTOR_NAMES = {
   "hiring-employment":        "Hiring & Employment",
   "media-content":            "Media & Content",
   "healthcare-medical":       "Healthcare",
-  "general":                  "General / Cross-sector"
+  "general":                  "General / Cross-sector",
+  "cross-sector AI governance": "Cross-sector AI Governance"
+};
+
+const RECORD_TYPE_LABELS = {
+  "guidance":       "Guidance / Governance Case",
+  "governance_case":"Governance Case",
+  "incident":       "Incident"
 };
 
 function sectorLabel(id) { return SECTOR_NAMES[id] || id; }

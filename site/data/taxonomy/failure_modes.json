@@ -76,6 +76,18 @@
       "name": "Approval Bypass",
       "status": "stable",
       "description": "Agent takes high-risk actions without required human approval."
+    },
+    {
+      "id": "FM-GOVERNANCE-GAP",
+      "name": "Governance Gap",
+      "status": "stable",
+      "description": "Absence or inadequacy of AI governance policies, processes, or controls required by regulation or best practice."
+    },
+    {
+      "id": "FM-COMPLIANCE-DEFICIT",
+      "name": "Compliance Deficit",
+      "status": "stable",
+      "description": "Failure to implement or demonstrate compliance with applicable AI regulations, guidance, or standards."
     }
   ]
 }

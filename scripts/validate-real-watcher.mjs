@@ -88,26 +88,32 @@ function runValidation() {
   checkNoWatcherInSite(SITE_DIR);
   logPass('Public site/ is completely clean of real watcher outputs.');
 
-  // 4. Verify no public incident count changed
+  // 4. Verify public incident count matches approved baseline (T054: 13 records)
   const INCIDENTS_DIR = path.join(ROOT, 'data', 'incidents');
+  const approvalsPathW = path.join(ROOT, 'data', 'reviews', 'real', 'approved-promotions.json');
+  let approvedCountW = 0;
+  if (fs.existsSync(approvalsPathW)) {
+    try { approvedCountW = (JSON.parse(fs.readFileSync(approvalsPathW,'utf8')).approvals||[]).length; } catch(e){}
+  }
+  const expectedW = 12 + approvedCountW;
   if (fs.existsSync(INCIDENTS_DIR)) {
     const files = fs.readdirSync(INCIDENTS_DIR).filter(f => f.endsWith('.json'));
-    if (files.length !== 12) {
-      logError(`Public incident count has changed! Expected 12, found ${files.length}.`);
+    if (files.length !== expectedW) {
+      logError(`Public incident count has changed! Expected ${expectedW}, found ${files.length}.`);
       failures++;
     } else {
-      logPass('Incident dataset matches target count of exactly 12.');
+      logPass(`Incident dataset matches expected count: ${expectedW} records.`);
     }
   }
 
-  // 5. Verify no INC-0013 public record exists
-  const INC_0013_ROOT = path.join(ROOT, 'data', 'incidents', 'inc-0013.json');
-  const INC_0013_SITE = path.join(ROOT, 'site', 'data', 'incidents', 'inc-0013.json');
-  if (fs.existsSync(INC_0013_ROOT) || fs.existsSync(INC_0013_SITE)) {
-    logError('Leakage detected! Public INC-0013 record has been created.');
+  // 5. Verify INC-0013 approved record exists (T054 CT approval)
+  const INC_0013_APPROVED = path.join(ROOT, 'data', 'incidents', 'INC-0013-edpb-automated-decision-making-profiling-guidance.json');
+  const INC_0013_SITE_APPROVED = path.join(ROOT, 'site', 'data', 'incidents', 'INC-0013-edpb-automated-decision-making-profiling-guidance.json');
+  if (!fs.existsSync(INC_0013_APPROVED) || !fs.existsSync(INC_0013_SITE_APPROVED)) {
+    logError('INC-0013 approved record (T054) is missing from data/ or site/');
     failures++;
   } else {
-    logPass('Safe: INC-0013 public record does not exist.');
+    logPass('INC-0013 approved record present in data/ and site/ (T054).');
   }
 
   // 6. Verify no scheduled GitHub workflow was enabled

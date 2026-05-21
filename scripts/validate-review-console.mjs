@@ -108,14 +108,14 @@ function run() {
   checkNoReviewDataInSite(SITE_DIR);
   logPass('Public site/ is clean of review decision data.');
 
-  // 6. no INC-0013 public record exists
-  const INC_0013_ROOT = path.join(ROOT, 'data', 'incidents', 'inc-0013.json');
-  const INC_0013_SITE = path.join(ROOT, 'site', 'data', 'incidents', 'inc-0013.json');
-  if (fs.existsSync(INC_0013_ROOT) || fs.existsSync(INC_0013_SITE)) {
-    logError('Leakage detected! Public INC-0013 record exists in data/ or site/.');
+  // 6. INC-0013 approved record must exist (T054 Control Tower approval)
+  const INC_0013_APPROVED = path.join(ROOT, 'data', 'incidents', 'INC-0013-edpb-automated-decision-making-profiling-guidance.json');
+  const INC_0013_SITE_APPROVED = path.join(ROOT, 'site', 'data', 'incidents', 'INC-0013-edpb-automated-decision-making-profiling-guidance.json');
+  if (!fs.existsSync(INC_0013_APPROVED) || !fs.existsSync(INC_0013_SITE_APPROVED)) {
+    logError('INC-0013 approved record (T054) missing from data/ or site/');
     failures++;
   } else {
-    logPass('Safe: Public INC-0013 does not exist.');
+    logPass('INC-0013 approved record present (T054).');
   }
 
   // 7. no mock data appears in site/data/incidents
@@ -138,7 +138,7 @@ function run() {
     const list = indexObj.incidents || [];
     for (const inc of list) {
       const id = inc.incident_id || '';
-      if (id.toLowerCase().includes('mock') || id.toLowerCase().includes('cand') || id.toLowerCase().includes('draft') || id === 'INC-0013') {
+      if (id.toLowerCase().includes('mock') || id.toLowerCase().includes('cand') || id.toLowerCase().includes('draft')) {
         logError(`Leakage detected in site index! Mock ID found: ${id}`);
         failures++;
       }

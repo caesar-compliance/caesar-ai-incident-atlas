@@ -254,7 +254,8 @@ body {
 .badge-conf-medium  { background: rgba(212,178,64,0.12);  color: #e0c050; border: 1px solid rgba(212,178,64,0.2); }
 .badge-conf-low     { background: rgba(224,92,92,0.12);   color: #ef8080; border: 1px solid rgba(224,92,92,0.2); }
 
-.badge-caution { background: rgba(212,178,64,0.1); color: #c8a830; border: 1px solid rgba(212,178,64,0.25); font-size: 0.67rem; }
+.badge-caution  { background: rgba(212,178,64,0.1); color: #c8a830; border: 1px solid rgba(212,178,64,0.25); font-size: 0.67rem; }
+.badge-guidance { background: rgba(80,168,200,0.1); color: #50a8c8; border: 1px solid rgba(80,168,200,0.25); font-size: 0.67rem; }
 
 /* ── Card detail (expanded) ── */
 .card-detail {

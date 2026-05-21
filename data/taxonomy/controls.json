@@ -20,6 +20,8 @@
     {"id": "CTL-AGENT-001", "name": "Agent scope definition", "category": "agent_governance", "status": "stable", "description": "Define and enforce explicit agent scope boundaries."},
     {"id": "CTL-AGENT-002", "name": "Agent approval workflow", "category": "agent_governance", "status": "stable", "description": "Require approval workflow for high-risk agent actions."},
     {"id": "CTL-AGENT-003", "name": "Agent activity logging", "category": "agent_governance", "status": "stable", "description": "Record agent actions, tool calls, and decisions."},
-    {"id": "CTL-ACCESS-001", "name": "Access controls", "category": "access_authorization", "status": "draft", "description": "Restrict AI system access to authorized roles only."}
+    {"id": "CTL-ACCESS-001", "name": "Access controls", "category": "access_authorization", "status": "draft", "description": "Restrict AI system access to authorized roles only."},
+    {"id": "CTL-GUIDANCE-TRACKING", "name": "Regulatory guidance tracking", "category": "compliance_monitoring", "status": "stable", "description": "Monitor and track regulatory guidance and requirements applicable to AI systems."},
+    {"id": "CTL-COMPLIANCE-UPDATE-PROCESS", "name": "Compliance update process", "category": "compliance_monitoring", "status": "stable", "description": "Maintain a documented process to incorporate new regulatory requirements and guidance into compliance posture."}
   ]
 }

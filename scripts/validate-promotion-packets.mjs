@@ -102,13 +102,24 @@ function run() {
     }
 
     // 5. suggested_public_case_id is only a suggestion — confirm no actual incident was created
+    // Exception: if this packet has an explicit Control Tower approval, the record is expected to exist.
+    const approvalsPath = path.join(ROOT, 'data', 'reviews', 'real', 'approved-promotions.json');
+    const approvedIds = new Set();
+    if (fs.existsSync(approvalsPath)) {
+      try {
+        const approvals = JSON.parse(fs.readFileSync(approvalsPath, 'utf8'));
+        for (const a of (approvals.approvals || [])) {
+          if (a.allowed_public_case_id) approvedIds.add(a.allowed_public_case_id);
+        }
+      } catch (e) {}
+    }
     const suggestedId = packet.suggested_public_case_id || '';
-    if (suggestedId) {
+    if (suggestedId && !approvedIds.has(suggestedId)) {
       const suggestedFile = suggestedId.toLowerCase().replace('inc-', 'inc-') + '.json';
       const incPath = path.join(INCIDENTS_DIR, suggestedFile);
       const sitePath = path.join(SITE_DIR, 'data', 'incidents', suggestedFile);
       if (fs.existsSync(incPath) || fs.existsSync(sitePath)) {
-        logError(`${id}: suggested_public_case_id '${suggestedId}' was actually created as a real incident record!`);
+        logError(`${id}: suggested_public_case_id '${suggestedId}' was actually created as a real incident record without CT approval!`);
         failures++;
       }
     }
@@ -146,25 +157,33 @@ function run() {
   checkNoPacketsInSite(SITE_DIR);
   logPass('Public site/ is clean of promotion packet files.');
 
-  // 9. No new public incident records created
+  // 9. Public incident count must match approved promotions + 12 baseline
   if (fs.existsSync(INCIDENTS_DIR)) {
+    const approvalsPath2 = path.join(ROOT, 'data', 'reviews', 'real', 'approved-promotions.json');
+    let approvedCount = 0;
+    if (fs.existsSync(approvalsPath2)) {
+      try {
+        const ap = JSON.parse(fs.readFileSync(approvalsPath2, 'utf8'));
+        approvedCount = (ap.approvals || []).length;
+      } catch (e) {}
+    }
+    const expectedCount = 12 + approvedCount;
     const files = fs.readdirSync(INCIDENTS_DIR).filter(f => f.endsWith('.json'));
-    if (files.length !== 12) {
-      logError(`Public incident count changed! Expected 12, found ${files.length}.`);
+    if (files.length !== expectedCount) {
+      logError(`Public incident count is ${files.length}, expected ${expectedCount} (12 baseline + ${approvedCount} approved).`);
       failures++;
     } else {
-      logPass('Incident dataset remains at exactly 12 records.');
+      logPass(`Incident dataset at expected count: ${expectedCount} records.`);
     }
   }
 
-  // 10. No INC-0013
-  const INC_0013 = path.join(INCIDENTS_DIR, 'inc-0013.json');
-  const INC_0013_SITE = path.join(SITE_DIR, 'data', 'incidents', 'inc-0013.json');
-  if (fs.existsSync(INC_0013) || fs.existsSync(INC_0013_SITE)) {
-    logError('INC-0013 public record was created — this is forbidden!');
+  // 10. INC-0013 must exist (approved under T054)
+  const INC_0013_APPROVED = path.join(INCIDENTS_DIR, 'INC-0013-edpb-automated-decision-making-profiling-guidance.json');
+  if (!fs.existsSync(INC_0013_APPROVED)) {
+    logError('INC-0013 (approved T054) is missing from data/incidents/');
     failures++;
   } else {
-    logPass('Safe: INC-0013 does not exist as a public record.');
+    logPass('INC-0013 approved record exists (T054).');
   }
 
   if (failures > 0) {
