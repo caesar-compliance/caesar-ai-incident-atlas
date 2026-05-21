@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T058)
+**Last updated:** 21 May 2026 (T059)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.17.0` |
-| Current phase | `T058 — Cloudflare Worker ↔ Supabase API Integration` |
+| Current version | `0.18.0` |
+| Current phase | `T059 — Hosted Activation Preflight` |
 | Status | `active` |
-| Latest completed task | `T058 — Worker Supabase API Integration, Mocked + Guarded Live Probe` |
-| Active work item | `T058 — complete. Worker has dual-mode (fallback/live) Supabase integration. 22 local tests pass. Guarded live probe ready. 13 public records. automation_mode: manual_local.` |
-| Next recommended step | `T059 — Create Supabase project + apply schema + deploy Worker + run live probe` |
+| Latest completed task | `T059 — Hosted Activation Preflight + Local Supabase Migration Smoke + Operator Go-Live Checklist` |
+| Active work item | `T059 — complete. All preflight tools operational: local migration smoke, hosted activation preflight, operator command checklist. Safety validators updated. 13 public records. automation_mode: manual_local. hosted_activation_status: preflight_ready.` |
+| Next recommended step | `Manual hosted activation when CT approves (follow printed checklist from print-hosted-activation-commands.mjs)` |
 
 ---
 
@@ -63,6 +63,7 @@
 | T039 — INC-0011 Gate Sign-Off + Smoke Test | **Complete** — G-01/G-02 approved with caution. INC-0011 live. `INC0011_GATE_SIGNOFF_RECORD.md` created. | 20 May 2026 |
 | T040 — Draft Second New Incident Record (CAND-008) | **Complete** — INC-0012 drafted. Dataset: 12 records. Governance review note prepared. | 20 May 2026 |
 | T042 — Product Pivot to AI Legal & Governance Case Atlas | **Complete** — Strategic pivot to Legal & Governance Case Atlas documented. Decoupled conceptual watcher pipeline and reference rules added. | 21 May 2026 |
+| T059 — Hosted Activation Preflight | **Complete** — Local migration smoke, hosted activation preflight, operator command checklist. Safety validators expanded. All preflight tools operational. No remote infrastructure touched. | 21 May 2026 |
 | v0.8.0 Product Pivot — Strategic repositioning | Complete — Strategic docs, mapping models, and automation policies created | 21 May 2026 |
 | v0.7.8 Dataset Expansion — INC-0012 drafted | Complete — 12 records; INC-0012 prepared for CT review | 20 May 2026 |
 | v0.7.7 Dataset Expansion — INC-0011 signed off | Complete — 11 records; INC-0011 governance-approved | 20 May 2026 |

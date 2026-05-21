@@ -110,6 +110,7 @@ const opsStatus = {
   case_quality_ready_count:  caseQualityReadyCount,
   automation_mode:           'manual_local',
   hosted_sync_status:        'dry_run_ready',
+  hosted_activation_status:  'preflight_ready',
   backend_mode:              'local_bootstrap_ready',
   worker_api_status:         'local_supabase_integration_ready',
   next_step:                 'Configure Supabase + Cloudflare Worker secrets to enable hosted_ready mode',

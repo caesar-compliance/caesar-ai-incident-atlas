@@ -156,6 +156,18 @@ The following tasks require Artem / Control Tower review before execution:
 
 ---
 
+## T059 — Hosted Activation Preflight (Complete — 21 May 2026)
+
+- `scripts/smoke-supabase-local-migration.mjs` — bounded local schema validation; skips gracefully if runtime unavailable
+- `scripts/preflight-hosted-activation.mjs` — readiness checker (not deployer); inspects env/config without remote connection
+- `scripts/print-hosted-activation-commands.mjs` — deterministic 20-step command checklist for human operator
+- `scripts/validate-hosted-sync-safety.mjs` — expanded to validate T059-generated files sanitized
+- `scripts/export-ops-status.mjs` — added `hosted_activation_status: "preflight_ready"`
+- Generated artifacts: `local-migration-smoke.json`, `hosted-activation-preflight.json`, `hosted-activation-manifest.json`
+- Work item docs: TASK.md, VALIDATION.md, DECISIONS.md, IMPLEMENTATION_REPORT.md
+- **Safety:** No remote Supabase touched, no Worker deployed, no cron enabled, public count remains 13, latest remains INC-0013, no INC-0014
+- **Next:** Manual hosted activation when CT approves (follow printed checklist)
+
 ## T058 — Cloudflare Worker ↔ Supabase API Integration (Complete — 21 May 2026)
 
 - `infra/cloudflare-worker/src/index.js` — Supabase client layer with dual-mode (fallback/live)

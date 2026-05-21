@@ -301,6 +301,99 @@ if (liveProbe) {
   pass('last-live-probe.json not present (ok)');
 }
 
+// ── 21. T059: local-migration-smoke.json is sanitized if present ─────────────
+const localSmokePath = path.join(OPS_SUPABASE_DIR, 'local-migration-smoke.json');
+const localSmoke = readJson(localSmokePath);
+if (localSmoke) {
+  const smokeJson = JSON.stringify(localSmoke);
+  const smokeHasSecret = /"(SUPABASE_URL|SUPABASE_SERVICE_ROLE_KEY)"\s*:\s*"[^"]{10,}"/.test(smokeJson) ||
+                         /(SUPABASE_URL|SUPABASE_SERVICE_ROLE_KEY)\s*=\s*["']?https?:\/\//.test(smokeJson);
+  if (smokeHasSecret) {
+    fail('local-migration-smoke.json appears to contain actual credentials');
+  } else {
+    pass('local-migration-smoke.json is sanitized (no credentials)');
+  }
+  // Check pass field
+  if (localSmoke.pass === true || localSmoke.pass === false) {
+    pass('local-migration-smoke.json has valid pass field: ' + localSmoke.pass);
+  } else if (localSmoke.pass !== undefined) {
+    warn('local-migration-smoke.json pass field unexpected value: ' + localSmoke.pass);
+  }
+} else {
+  pass('local-migration-smoke.json not present (ok)');
+}
+
+// ── 22. T059: hosted-activation-preflight.json is sanitized ──────────────────
+const preflightPath = path.join(OPS_SUPABASE_DIR, 'hosted-activation-preflight.json');
+const preflight = readJson(preflightPath);
+if (preflight) {
+  const preflightJson = JSON.stringify(preflight);
+  const preflightHasSecret = /"(SUPABASE_URL|SUPABASE_SERVICE_ROLE_KEY)"\s*:\s*"[^"]{10,}"/.test(preflightJson) ||
+                             /(SUPABASE_URL|SUPABASE_SERVICE_ROLE_KEY)\s*=\s*["']?https?:\/\//.test(preflightJson);
+  if (preflightHasSecret) {
+    fail('hosted-activation-preflight.json appears to contain actual credentials');
+  } else {
+    pass('hosted-activation-preflight.json is sanitized (no credentials)');
+  }
+  // Verify hosted_activation_ready is false (env not configured by design)
+  if (preflight.hosted_activation_ready === true) {
+    warn('hosted-activation-preflight.json shows hosted_activation_ready: true (unexpected without env)');
+  } else if (preflight.hosted_activation_ready === false) {
+    pass('hosted-activation-preflight.json shows hosted_activation_ready: false (expected)');
+  }
+} else {
+  pass('hosted-activation-preflight.json not present (ok)');
+}
+
+// ── 23. T059: hosted-activation-manifest.json is sanitized ────────────────────
+const activationManifestPath = path.join(OPS_SUPABASE_DIR, 'hosted-activation-manifest.json');
+const activationManifest = readJson(activationManifestPath);
+if (activationManifest) {
+  const manifestJson = JSON.stringify(activationManifest);
+  const manifestHasSecret = /"(SUPABASE_URL|SUPABASE_SERVICE_ROLE_KEY)"\s*:\s*"[^"]{10,}"/.test(manifestJson) ||
+                            /(SUPABASE_URL|SUPABASE_SERVICE_ROLE_KEY)\s*=\s*["']?https?:\/\//.test(manifestJson);
+  if (manifestHasSecret) {
+    fail('hosted-activation-manifest.json appears to contain actual credentials');
+  } else {
+    pass('hosted-activation-manifest.json is sanitized (no credentials)');
+  }
+  // Verify remote_mutation_performed is false
+  if (activationManifest.remote_mutation_performed === true) {
+    fail('hosted-activation-manifest.json shows remote_mutation_performed: true (not allowed)');
+  } else if (activationManifest.remote_mutation_performed === false) {
+    pass('hosted-activation-manifest.json shows remote_mutation_performed: false (correct)');
+  }
+  // Verify cloudflare_deploy_performed is false
+  if (activationManifest.cloudflare_deploy_performed === true) {
+    fail('hosted-activation-manifest.json shows cloudflare_deploy_performed: true (not allowed)');
+  } else if (activationManifest.cloudflare_deploy_performed === false) {
+    pass('hosted-activation-manifest.json shows cloudflare_deploy_performed: false (correct)');
+  }
+  // Verify cron_enabled is false
+  if (activationManifest.cron_enabled === true) {
+    fail('hosted-activation-manifest.json shows cron_enabled: true (not allowed)');
+  } else if (activationManifest.cron_enabled === false) {
+    pass('hosted-activation-manifest.json shows cron_enabled: false (correct)');
+  }
+} else {
+  pass('hosted-activation-manifest.json not present (ok)');
+}
+
+// ── 24. T059: No real Supabase URL in any generated files ───────────────────
+const REAL_SUPABASE_URL = /https:\/\/[a-z0-9-]+\.supabase\.co/i;
+let realUrlFound = false;
+const t059Files = [localSmokePath, preflightPath, activationManifestPath];
+for (const fp of t059Files) {
+  if (existsFile(fp)) {
+    const content = readText(fp) || '';
+    if (REAL_SUPABASE_URL.test(content)) {
+      fail('Real Supabase URL found in: ' + path.relative(ROOT, fp));
+      realUrlFound = true;
+    }
+  }
+}
+if (!realUrlFound) pass('No real Supabase URLs in T059 generated files');
+
 // ── Final result ─────────────────────────────────────────────────────────────
 process.stdout.write('\n');
 if (errors > 0) {

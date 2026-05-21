@@ -1,6 +1,6 @@
 {
   "_schema": "caesar-atlas-ops-status/v1",
-  "generated_at": "2026-05-21T16:46:20.689Z",
+  "generated_at": "2026-05-21T17:36:20.563Z",
   "public_record_count": 13,
   "latest_public_record_id": "INC-0013",
   "last_pipeline_run_at": "2026-05-21T14:45:38.634Z",
@@ -14,6 +14,7 @@
   "case_quality_ready_count": 0,
   "automation_mode": "manual_local",
   "hosted_sync_status": "dry_run_ready",
+  "hosted_activation_status": "preflight_ready",
   "backend_mode": "local_bootstrap_ready",
   "worker_api_status": "local_supabase_integration_ready",
   "next_step": "Configure Supabase + Cloudflare Worker secrets to enable hosted_ready mode",

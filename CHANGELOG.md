@@ -5,7 +5,19 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.16.0] - 21 May 2026
+## [0.18.0] - 21 May 2026
+
+### Added
+- **T059 — Hosted Activation Preflight + Local Supabase Migration Smoke + Operator Go-Live Checklist.**
+  - `scripts/smoke-supabase-local-migration.mjs` — bounded local schema validation; skips gracefully if runtime unavailable; writes `data/ops/supabase/local-migration-smoke.json`.
+  - `scripts/preflight-hosted-activation.mjs` — readiness checker (not deployer); inspects env/config without remote connection; writes `data/ops/supabase/hosted-activation-preflight.json` and `hosted-activation-manifest.json`.
+  - `scripts/print-hosted-activation-commands.mjs` — deterministic 20-step command checklist for human operator; all dangerous operations labeled with warnings; no commands executed automatically.
+  - `scripts/validate-hosted-sync-safety.mjs` — expanded to validate T059-generated files sanitized (no secrets, no real URLs/keys, proper pending states).
+  - `scripts/export-ops-status.mjs` — added `hosted_activation_status: "preflight_ready"` field.
+  - Work item docs: `work-items/T059-hosted-activation-preflight/TASK.md`, `VALIDATION.md`, `DECISIONS.md`, `IMPLEMENTATION_REPORT.md`.
+  - **Safety:** No remote Supabase touched, no Worker deployed, no cron enabled, public count remains 13, latest remains INC-0013, no INC-0014.
+
+## [0.17.0] - 21 May 2026
 
 ### Added
 - **T057 — Supabase Local/Cloud Bootstrap + Hosted Sync Dry Run.**
