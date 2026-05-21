@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-21T14:45:45.732Z",
+  "generated_at": "2026-05-21T18:38:10.892Z",
   "task": "T052",
   "shortlist_version": "1.0",
   "total_items": 5,
@@ -64,6 +64,34 @@
     },
     {
       "rank": 3,
+      "packet_id": "PKT-0008",
+      "draft_id": "DRAFT-0008",
+      "candidate_ids": [
+        "CAND-0061"
+      ],
+      "title": "AI Act — European Commission (EU)",
+      "source_authority": "European Commission",
+      "source_urls": [
+        "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"
+      ],
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 81,
+      "promotion_eligible": true,
+      "case_quality_ready": false,
+      "why_it_matters": "Regulatory guidance from European Commission. Provides compliance framework signals.",
+      "governance_value": "Shows emerging regulatory expectations. Monitor for future enforcement trends.",
+      "publication_risks": [
+        "Draft title needs curation"
+      ],
+      "missing_information": [
+        "Independent curator review of proposed_case_title for neutrality and accuracy.",
+        "Legal domain classification confirmation by a qualified reviewer.",
+        "Control Tower sign-off on publication timing and risk posture."
+      ],
+      "recommended_action": "needs_more_source_confirmation"
+    },
+    {
+      "rank": 4,
       "packet_id": "PKT-0009",
       "draft_id": "DRAFT-0009",
       "candidate_ids": [
@@ -91,50 +119,22 @@
       "recommended_action": "needs_more_source_confirmation"
     },
     {
-      "rank": 4,
-      "packet_id": "PKT-0007",
-      "draft_id": "DRAFT-0007",
+      "rank": 5,
+      "packet_id": "PKT-0009",
+      "draft_id": "DRAFT-0009",
       "candidate_ids": [
-        "CAND-0030"
+        "CAND-0064"
       ],
-      "title": "Algorithms, Artificial Intelligence, and Disability Discrimination in Hiring — US Department of Justice (DOJ) (US)",
-      "source_authority": "US Department of Justice (DOJ)",
+      "title": "AI Act Service Desk — European Commission (EU)",
+      "source_authority": "European Commission",
       "source_urls": [
-        "https://www.ada.gov/resources/ai-guidance/"
+        "https://ai-act-service-desk.ec.europa.eu/en"
       ],
       "quality_class": "likely_regulatory_guidance",
       "quality_score": 81,
       "promotion_eligible": true,
       "case_quality_ready": false,
-      "why_it_matters": "Regulatory guidance from US Department of Justice (DOJ). Provides compliance framework signals.",
-      "governance_value": "Shows emerging regulatory expectations. Monitor for future enforcement trends.",
-      "publication_risks": [
-        "Draft title needs curation"
-      ],
-      "missing_information": [
-        "Independent curator review of proposed_case_title for neutrality and accuracy.",
-        "Legal domain classification confirmation by a qualified reviewer.",
-        "Control Tower sign-off on publication timing and risk posture."
-      ],
-      "recommended_action": "needs_more_source_confirmation"
-    },
-    {
-      "rank": 5,
-      "packet_id": "PKT-0002",
-      "draft_id": "DRAFT-0002",
-      "candidate_ids": [
-        "CAND-0019"
-      ],
-      "title": "Artificial intelligence (AI) and data protection — Information Commissioner's Office (ICO) (UK)",
-      "source_authority": "Information Commissioner's Office (ICO)",
-      "source_urls": [
-        "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/"
-      ],
-      "quality_class": "likely_guidance",
-      "quality_score": 84,
-      "promotion_eligible": true,
-      "case_quality_ready": false,
-      "why_it_matters": "Regulatory guidance from Information Commissioner's Office (ICO). Provides compliance framework signals.",
+      "why_it_matters": "Regulatory guidance from European Commission. Provides compliance framework signals.",
       "governance_value": "Shows emerging regulatory expectations. Monitor for future enforcement trends.",
       "publication_risks": [
         "Draft title needs curation"

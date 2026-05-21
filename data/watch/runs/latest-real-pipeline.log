@@ -1,5 +1,5 @@
 === Caesar Real Pipeline Run ===
-Started: 2026-05-21T14:45:38.561Z
+Started: 2026-05-21T18:38:02.311Z
 ==================================================
 
 [watch-green-sources] Running scripts/watch-green-sources.mjs...
@@ -12,57 +12,57 @@ Started: 2026-05-21T14:45:38.561Z
 [34m[Watcher Info][0m Generic adapter ran for eeoc-ai-guidance: 0 links.
 [34m[Watcher Info][0m Processing target: doj-ada-ai-guidance via adapter...
 [34m[Watcher Info][0m Generic adapter ran for doj-ada-ai-guidance: 1 links.
-[32m[Watcher Success][0m Candidate stored: CAND-0100 [likely_guidance|score:72] adapter:generic-official-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0135 [likely_guidance|score:72] adapter:generic-official-adapter
 [34m[Watcher Info][0m Processing target: ico-ai-and-algorithms via adapter...
 [32m[Watcher Success][0m Adapter ico-adapter ran for ico-ai-and-algorithms: 4 links found.
-[32m[Watcher Success][0m Candidate stored: CAND-0101 [likely_guidance|score:72] adapter:ico-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0102 [likely_case|score:75] adapter:ico-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0103 [likely_guidance|score:72] adapter:ico-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0104 [likely_guidance|score:72] adapter:ico-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0136 [likely_guidance|score:72] adapter:ico-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0137 [likely_case|score:75] adapter:ico-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0138 [likely_guidance|score:72] adapter:ico-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0139 [likely_guidance|score:72] adapter:ico-adapter
 [34m[Watcher Info][0m Processing target: cnil-ai via adapter...
 [32m[Watcher Success][0m Adapter cnil-adapter ran for cnil-ai: 10 links found.
-[32m[Watcher Success][0m Candidate stored: CAND-0105 [likely_case|score:75] adapter:cnil-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0106 [likely_regulatory_update|score:62] adapter:cnil-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0107 [likely_regulatory_update|score:62] adapter:cnil-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0108 [likely_case|score:75] adapter:cnil-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0109 [likely_regulatory_update|score:62] adapter:cnil-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0110 [likely_regulatory_update|score:62] adapter:cnil-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0111 [likely_regulatory_update|score:62] adapter:cnil-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0112 [likely_regulatory_update|score:62] adapter:cnil-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0113 [likely_regulatory_update|score:62] adapter:cnil-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0114 [likely_regulatory_update|score:62] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0140 [likely_case|score:75] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0141 [likely_regulatory_update|score:62] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0142 [likely_regulatory_update|score:62] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0143 [likely_case|score:75] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0144 [likely_regulatory_update|score:62] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0145 [likely_regulatory_update|score:62] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0146 [likely_regulatory_update|score:62] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0147 [likely_regulatory_update|score:62] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0148 [likely_regulatory_update|score:62] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0149 [likely_regulatory_update|score:62] adapter:cnil-adapter
 [34m[Watcher Info][0m Processing target: edpb-ai via adapter...
 [32m[Watcher Success][0m Adapter edpb-adapter ran for edpb-ai: 10 links found.
-[32m[Watcher Success][0m Candidate stored: CAND-0115 [likely_guidance|score:72] adapter:edpb-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0116 [likely_guidance|score:72] adapter:edpb-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0117 [likely_case|score:75] adapter:edpb-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0118 [likely_regulatory_update|score:62] adapter:edpb-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0119 [likely_regulatory_update|score:62] adapter:edpb-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0120 [likely_regulatory_update|score:62] adapter:edpb-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0121 [likely_regulatory_update|score:62] adapter:edpb-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0122 [likely_guidance|score:72] adapter:edpb-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0123 [likely_guidance|score:72] adapter:edpb-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0124 [likely_guidance|score:72] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0150 [likely_guidance|score:72] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0151 [likely_guidance|score:72] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0152 [likely_case|score:75] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0153 [likely_regulatory_update|score:62] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0154 [likely_regulatory_update|score:62] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0155 [likely_regulatory_update|score:62] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0156 [likely_regulatory_update|score:62] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0157 [likely_guidance|score:72] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0158 [likely_guidance|score:72] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0159 [likely_guidance|score:72] adapter:edpb-adapter
 [34m[Watcher Info][0m Processing target: european-commission-ai-act via adapter...
 [32m[Watcher Success][0m Adapter eu-commission-adapter ran for european-commission-ai-act: 10 links found.
-[32m[Watcher Success][0m Candidate stored: CAND-0125 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0126 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0127 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0128 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0129 [likely_guidance|score:72] adapter:eu-commission-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0130 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0131 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0132 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0133 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0134 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0160 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0161 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0162 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0163 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0164 [likely_guidance|score:72] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0165 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0166 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0167 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0168 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0169 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
 [32m[Watcher Success][0m Adapter run report written to: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/watch/runs/latest-adapter-summary.json
 [32m[Watcher Success][0m Latest watch summary written to: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/watch/runs/latest-watch-summary.json
 
 ==========================================
        Caesar Watcher Run Summary         
 ==========================================
-Run Time:       2026-05-21T14:45:38.634Z
-Log Path:       /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/watch/runs/watch-run-2026-05-21T14-45-38.634Z.json
+Run Time:       2026-05-21T18:38:02.349Z
+Log Path:       /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/watch/runs/watch-run-2026-05-21T18-38-02.349Z.json
 Sources OK:          6
 Sources Failed:      1
 Sources Skipped:     0
@@ -78,7 +78,7 @@ Errors:              1 encountered
 [classify-candidate-quality] Running scripts/classify-candidate-quality.mjs...
 === Caesar Candidate Quality Classifier ===
 
-[Classifier] Found 117 candidate(s) to classify.
+[Classifier] Found 222 candidate(s) to classify.
 [31m[BLOCKED][0m  CAND-0018 | blocked_generic_page | score:15 | "Make a complaint"
            Reasons: Generic title pattern: "make a complaint"; Generic URL pattern: "/make-a-complaint"
 [32m[ELIGIBLE][0m CAND-0019 | likely_regulatory_guidance | score:84 | "Artificial intelligence (AI) and data protection"
@@ -94,121 +94,240 @@ Errors:              1 encountered
 [31m[BLOCKED][0m  CAND-0028 | likely_regulatory_guidance | score:68 | "FRFrançais"
 [32m[ELIGIBLE][0m CAND-0029 | likely_regulatory_guidance | score:84 | "Automated decision &amp; profiling (3)"
 [32m[ELIGIBLE][0m CAND-0030 | likely_regulatory_guidance | score:81 | "Algorithms, Artificial Intelligence, and Disability Discrimination in Hiring"
+[32m[ELIGIBLE][0m CAND-0030 | likely_regulatory_guidance | score:81 | "Algorithms, Artificial Intelligence, and Disability Discrimination in Hiring"
+[32m[ELIGIBLE][0m CAND-0031 | likely_regulatory_guidance | score:89 | "Artificial intelligence (AI) and data protection"
 [32m[ELIGIBLE][0m CAND-0031 | likely_regulatory_guidance | score:89 | "Artificial intelligence (AI) and data protection"
 [31m[BLOCKED][0m  CAND-0032 | likely_regulatory_guidance | score:73 | "Explaining decisions made with AI"
+[31m[BLOCKED][0m  CAND-0032 | likely_regulatory_guidance | score:73 | "Explaining decisions made with AI"
 [31m[BLOCKED][0m  CAND-0033 | likely_regulatory_guidance | score:73 | "Biometric data guidance: Biometric recognition"
+[31m[BLOCKED][0m  CAND-0033 | likely_regulatory_guidance | score:73 | "Biometric data guidance: Biometric recognition"
+[32m[ELIGIBLE][0m CAND-0034 | likely_regulatory_guidance | score:81 | "AI and data protection risk toolkit"
 [32m[ELIGIBLE][0m CAND-0034 | likely_regulatory_guidance | score:81 | "AI and data protection risk toolkit"
 [31m[BLOCKED][0m  CAND-0035 | blocked_low_relevance | score:25 | "Intelligence artificielle (IA)"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0035 | blocked_low_relevance | score:25 | "Intelligence artificielle (IA)"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0036 | likely_regulatory_guidance | score:65 | "Faire vérifier une décision automatisée"
 [31m[BLOCKED][0m  CAND-0036 | likely_regulatory_guidance | score:65 | "Faire vérifier une décision automatisée"
 [31m[BLOCKED][0m  CAND-0037 | blocked_low_relevance | score:53 | "Contrôler et sanctionner"
            Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0037 | blocked_low_relevance | score:53 | "Contrôler et sanctionner"
+           Reasons: No AI/algorithm relevance detected
 [31m[BLOCKED][0m  CAND-0038 | blocked_low_relevance | score:25 | "IA conversationnelle et santé mentale des jeunes : résultats de l’enquête européenne"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0038 | blocked_low_relevance | score:25 | "IA conversationnelle et santé mentale des jeunes : résultats de l’enquête européenne"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0039 | blocked_low_relevance | score:25 | "IA conversationnelle et santé mentale des jeunes : un débat européen inédit porté par la parole des jeunesses"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0039 | blocked_low_relevance | score:25 | "IA conversationnelle et santé mentale des jeunes : un débat européen inédit porté par la parole des jeunesses"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0040 | blocked_low_relevance | score:25 | "Page courante 1"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0040 | blocked_low_relevance | score:25 | "Page courante 1"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0041 | blocked_low_relevance | score:25 | "Page 2"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0041 | blocked_low_relevance | score:25 | "Page 2"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0042 | blocked_low_relevance | score:25 | "Page 3"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0042 | blocked_low_relevance | score:25 | "Page 3"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0043 | blocked_low_relevance | score:25 | "Dernière page Dernier »"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0043 | blocked_low_relevance | score:25 | "Dernière page Dernier »"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0044 | blocked_low_relevance | score:25 | "Intelligence artificielle (IA)"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0044 | blocked_low_relevance | score:25 | "Intelligence artificielle (IA)"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0045 | blocked_low_relevance | score:53 | "BGБългарски"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0045 | blocked_low_relevance | score:53 | "BGБългарски"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0046 | blocked_low_relevance | score:53 | "CSČeština"
            Reasons: No AI/algorithm relevance detected
 [31m[BLOCKED][0m  CAND-0046 | blocked_low_relevance | score:53 | "CSČeština"
            Reasons: No AI/algorithm relevance detected
 [31m[BLOCKED][0m  CAND-0047 | blocked_low_relevance | score:53 | "DADansk"
            Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0047 | blocked_low_relevance | score:53 | "DADansk"
+           Reasons: No AI/algorithm relevance detected
 [31m[BLOCKED][0m  CAND-0048 | blocked_low_relevance | score:53 | "DEDeutsch"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0048 | blocked_low_relevance | score:53 | "DEDeutsch"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0049 | blocked_low_relevance | score:53 | "ELΕλληνικά"
            Reasons: No AI/algorithm relevance detected
 [31m[BLOCKED][0m  CAND-0049 | blocked_low_relevance | score:53 | "ELΕλληνικά"
            Reasons: No AI/algorithm relevance detected
 [31m[BLOCKED][0m  CAND-0050 | blocked_low_relevance | score:53 | "ESEspañol"
            Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0050 | blocked_low_relevance | score:53 | "ESEspañol"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0051 | blocked_low_relevance | score:53 | "ETEesti"
+           Reasons: No AI/algorithm relevance detected
 [31m[BLOCKED][0m  CAND-0051 | blocked_low_relevance | score:53 | "ETEesti"
            Reasons: No AI/algorithm relevance detected
 [31m[BLOCKED][0m  CAND-0052 | blocked_low_relevance | score:53 | "FISuomi"
            Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0052 | blocked_low_relevance | score:53 | "FISuomi"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0053 | likely_regulatory_guidance | score:73 | "FRFrançais"
 [31m[BLOCKED][0m  CAND-0053 | likely_regulatory_guidance | score:73 | "FRFrançais"
 [31m[BLOCKED][0m  CAND-0054 | blocked_low_relevance | score:53 | "GAGaeilge"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0054 | blocked_low_relevance | score:53 | "GAGaeilge"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0055 | blocked_low_relevance | score:53 | "Activities"
            Reasons: No AI/algorithm relevance detected
 [31m[BLOCKED][0m  CAND-0055 | blocked_low_relevance | score:53 | "Activities"
            Reasons: No AI/algorithm relevance detected
 [31m[BLOCKED][0m  CAND-0056 | blocked_low_relevance | score:33 | "News"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0056 | blocked_low_relevance | score:33 | "News"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0057 | likely_policy_update | score:45 | "AI Office"
+           Reasons: No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0057 | likely_policy_update | score:45 | "AI Office"
            Reasons: No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0058 | blocked_low_relevance | score:33 | "News highlights"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0058 | blocked_low_relevance | score:33 | "News highlights"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0059 | likely_policy_update | score:53 | "Artificial Intelligence"
+           Reasons: No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0059 | likely_policy_update | score:53 | "Artificial Intelligence"
            Reasons: No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0060 | likely_enforcement_case | score:73 | "The Action Plan"
+[31m[BLOCKED][0m  CAND-0060 | likely_enforcement_case | score:73 | "The Action Plan"
 [32m[ELIGIBLE][0m CAND-0061 | likely_regulatory_guidance | score:81 | "AI Act"
+[32m[ELIGIBLE][0m CAND-0061 | likely_regulatory_guidance | score:81 | "AI Act"
+[31m[BLOCKED][0m  CAND-0062 | likely_regulatory_guidance | score:65 | "AI Factories and Gigafactories"
 [31m[BLOCKED][0m  CAND-0062 | likely_regulatory_guidance | score:65 | "AI Factories and Gigafactories"
 [31m[BLOCKED][0m  CAND-0063 | likely_policy_update | score:53 | "InvestAI Facility"
            Reasons: No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0063 | likely_policy_update | score:53 | "InvestAI Facility"
+           Reasons: No legal/regulatory relevance detected
+[32m[ELIGIBLE][0m CAND-0064 | likely_regulatory_guidance | score:81 | "AI Act Service Desk"
 [32m[ELIGIBLE][0m CAND-0064 | likely_regulatory_guidance | score:81 | "AI Act Service Desk"
 [32m[ELIGIBLE][0m CAND-0065 | likely_regulatory_guidance | score:81 | "Algorithms, Artificial Intelligence, and Disability Discrimination in Hiring"
+[32m[ELIGIBLE][0m CAND-0065 | likely_regulatory_guidance | score:81 | "Algorithms, Artificial Intelligence, and Disability Discrimination in Hiring"
+[32m[ELIGIBLE][0m CAND-0066 | likely_regulatory_guidance | score:89 | "Artificial intelligence (AI) and data protection"
 [32m[ELIGIBLE][0m CAND-0066 | likely_regulatory_guidance | score:89 | "Artificial intelligence (AI) and data protection"
 [31m[BLOCKED][0m  CAND-0067 | likely_regulatory_guidance | score:73 | "Explaining decisions made with AI"
+[31m[BLOCKED][0m  CAND-0067 | likely_regulatory_guidance | score:73 | "Explaining decisions made with AI"
+[31m[BLOCKED][0m  CAND-0068 | likely_regulatory_guidance | score:73 | "Biometric data guidance: Biometric recognition"
 [31m[BLOCKED][0m  CAND-0068 | likely_regulatory_guidance | score:73 | "Biometric data guidance: Biometric recognition"
 [32m[ELIGIBLE][0m CAND-0069 | likely_regulatory_guidance | score:81 | "AI and data protection risk toolkit"
+[32m[ELIGIBLE][0m CAND-0069 | likely_regulatory_guidance | score:81 | "AI and data protection risk toolkit"
+[31m[BLOCKED][0m  CAND-0070 | likely_regulatory_guidance | score:65 | "Faire vérifier une décision automatisée"
 [31m[BLOCKED][0m  CAND-0070 | likely_regulatory_guidance | score:65 | "Faire vérifier une décision automatisée"
 [31m[BLOCKED][0m  CAND-0071 | blocked_low_relevance | score:25 | "IA conversationnelle et santé mentale des jeunes : résultats de l’enquête européenne"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0071 | blocked_low_relevance | score:25 | "IA conversationnelle et santé mentale des jeunes : résultats de l’enquête européenne"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0072 | blocked_low_relevance | score:25 | "IA conversationnelle et santé mentale des jeunes : un débat européen inédit porté par la parole des jeunesses"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0072 | blocked_low_relevance | score:25 | "IA conversationnelle et santé mentale des jeunes : un débat européen inédit porté par la parole des jeunesses"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0073 | blocked_low_relevance | score:53 | "Liste des sanctions prononcées"
            Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0073 | blocked_low_relevance | score:53 | "Liste des sanctions prononcées"
+           Reasons: No AI/algorithm relevance detected
 [31m[BLOCKED][0m  CAND-0074 | blocked_low_relevance | score:25 | "Amende administrative de 27 millions d'euros et injonction"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0074 | blocked_low_relevance | score:25 | "Amende administrative de 27 millions d'euros et injonction"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0075 | blocked_low_relevance | score:25 | "Amende administrative de 15 millions d'euros et injonction"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0075 | blocked_low_relevance | score:25 | "Amende administrative de 15 millions d'euros et injonction"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0076 | blocked_low_relevance | score:25 | "Amende administrative de 5 millions d'euros et injonction"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0076 | blocked_low_relevance | score:25 | "Amende administrative de 5 millions d'euros et injonction"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0077 | blocked_low_relevance | score:25 | "Amende administrative de 900 000 euros et injonction"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0077 | blocked_low_relevance | score:25 | "Amende administrative de 900 000 euros et injonction"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0078 | blocked_low_relevance | score:25 | "Amende administrative de 80 000 euros"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0078 | blocked_low_relevance | score:25 | "Amende administrative de 80 000 euros"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0079 | blocked_low_relevance | score:25 | "Amende administrative de 325 millions d'euros et injonction"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0079 | blocked_low_relevance | score:25 | "Amende administrative de 325 millions d'euros et injonction"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0080 | blocked_low_relevance | score:53 | "Guidelines, Recommendations, Best Practices"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0080 | blocked_low_relevance | score:53 | "Guidelines, Recommendations, Best Practices"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0081 | blocked_low_relevance | score:53 | "Opinions"
            Reasons: No AI/algorithm relevance detected
 [31m[BLOCKED][0m  CAND-0081 | blocked_low_relevance | score:53 | "Opinions"
            Reasons: No AI/algorithm relevance detected
 [31m[BLOCKED][0m  CAND-0082 | blocked_low_relevance | score:53 | "Binding Decisions"
            Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0082 | blocked_low_relevance | score:53 | "Binding Decisions"
+           Reasons: No AI/algorithm relevance detected
 [31m[BLOCKED][0m  CAND-0083 | blocked_low_relevance | score:33 | "News"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0083 | blocked_low_relevance | score:33 | "News"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0084 | blocked_low_relevance | score:33 | "EDPB News"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0084 | blocked_low_relevance | score:33 | "EDPB News"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0085 | blocked_low_relevance | score:33 | "National News"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0085 | blocked_low_relevance | score:33 | "National News"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0086 | blocked_low_relevance | score:33 | "One-Stop-Shop News"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0086 | blocked_low_relevance | score:33 | "One-Stop-Shop News"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0087 | blocked_low_relevance | score:53 | "Guidelines 1/2026 on processing of personal data for scientific research purposes"
            Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0087 | blocked_low_relevance | score:53 | "Guidelines 1/2026 on processing of personal data for scientific research purposes"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0088 | blocked_low_relevance | score:33 | "Guidelines"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0088 | blocked_low_relevance | score:33 | "Guidelines"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0089 | blocked_low_relevance | score:53 | "Recommendations 1/2026 on the Application for Approval and on the elements and principles to be found in Processor Binding Corporate Rules (Art. 47 GDPR)"
            Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0089 | blocked_low_relevance | score:53 | "Recommendations 1/2026 on the Application for Approval and on the elements and principles to be found in Processor Binding Corporate Rules (Art. 47 GDPR)"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0090 | blocked_low_relevance | score:33 | "News"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0090 | blocked_low_relevance | score:33 | "News"
            Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0091 | likely_policy_update | score:45 | "AI Office"
            Reasons: No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0091 | likely_policy_update | score:45 | "AI Office"
+           Reasons: No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0092 | likely_policy_update | score:53 | "Artificial Intelligence"
+           Reasons: No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0092 | likely_policy_update | score:53 | "Artificial Intelligence"
            Reasons: No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0093 | likely_enforcement_case | score:73 | "The Action Plan"
+[31m[BLOCKED][0m  CAND-0093 | likely_enforcement_case | score:73 | "The Action Plan"
 [32m[ELIGIBLE][0m CAND-0094 | likely_regulatory_guidance | score:81 | "AI Act"
+[32m[ELIGIBLE][0m CAND-0094 | likely_regulatory_guidance | score:81 | "AI Act"
+[31m[BLOCKED][0m  CAND-0095 | likely_regulatory_guidance | score:65 | "AI Factories and Gigafactories"
 [31m[BLOCKED][0m  CAND-0095 | likely_regulatory_guidance | score:65 | "AI Factories and Gigafactories"
 [31m[BLOCKED][0m  CAND-0096 | likely_policy_update | score:53 | "InvestAI Facility"
            Reasons: No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0096 | likely_policy_update | score:53 | "InvestAI Facility"
+           Reasons: No legal/regulatory relevance detected
+[32m[ELIGIBLE][0m CAND-0097 | likely_regulatory_guidance | score:81 | "AI Act Service Desk"
 [32m[ELIGIBLE][0m CAND-0097 | likely_regulatory_guidance | score:81 | "AI Act Service Desk"
 [31m[BLOCKED][0m  CAND-0098 | likely_policy_update | score:61 | "AI innovation package to support Artificial Intelligence startups and SMEs"
+           Reasons: No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0098 | likely_policy_update | score:61 | "AI innovation package to support Artificial Intelligence startups and SMEs"
+           Reasons: No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0099 | likely_policy_update | score:45 | "AI thrives from the lab to the market"
            Reasons: No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0099 | likely_policy_update | score:45 | "AI thrives from the lab to the market"
            Reasons: No legal/regulatory relevance detected
@@ -272,21 +391,81 @@ Errors:              1 encountered
            Reasons: No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0134 | likely_policy_update | score:45 | "AI thrives from the lab to the market"
            Reasons: No legal/regulatory relevance detected
+[32m[ELIGIBLE][0m CAND-0135 | likely_regulatory_guidance | score:81 | "Algorithms, Artificial Intelligence, and Disability Discrimination in Hiring"
+[32m[ELIGIBLE][0m CAND-0136 | likely_regulatory_guidance | score:89 | "Artificial intelligence (AI) and data protection"
+[31m[BLOCKED][0m  CAND-0137 | likely_regulatory_guidance | score:73 | "Explaining decisions made with AI"
+[31m[BLOCKED][0m  CAND-0138 | likely_regulatory_guidance | score:73 | "Biometric data guidance: Biometric recognition"
+[32m[ELIGIBLE][0m CAND-0139 | likely_regulatory_guidance | score:81 | "AI and data protection risk toolkit"
+[31m[BLOCKED][0m  CAND-0140 | likely_regulatory_guidance | score:65 | "Faire vérifier une décision automatisée"
+[31m[BLOCKED][0m  CAND-0141 | blocked_low_relevance | score:25 | "IA conversationnelle et santé mentale des jeunes : résultats de l’enquête européenne"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0142 | blocked_low_relevance | score:25 | "IA conversationnelle et santé mentale des jeunes : un débat européen inédit porté par la parole des jeunesses"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0143 | blocked_low_relevance | score:53 | "Liste des sanctions prononcées"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0144 | blocked_low_relevance | score:25 | "Amende administrative de 27 millions d'euros et injonction"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0145 | blocked_low_relevance | score:25 | "Amende administrative de 15 millions d'euros et injonction"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0146 | blocked_low_relevance | score:25 | "Amende administrative de 5 millions d'euros et injonction"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0147 | blocked_low_relevance | score:25 | "Amende administrative de 900 000 euros et injonction"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0148 | blocked_low_relevance | score:25 | "Amende administrative de 80 000 euros"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0149 | blocked_low_relevance | score:25 | "Amende administrative de 325 millions d'euros et injonction"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0150 | blocked_low_relevance | score:53 | "Guidelines, Recommendations, Best Practices"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0151 | blocked_low_relevance | score:53 | "Opinions"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0152 | blocked_low_relevance | score:53 | "Binding Decisions"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0153 | blocked_low_relevance | score:33 | "News"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0154 | blocked_low_relevance | score:33 | "EDPB News"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0155 | blocked_low_relevance | score:33 | "National News"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0156 | blocked_low_relevance | score:33 | "One-Stop-Shop News"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0157 | blocked_low_relevance | score:53 | "Guidelines 1/2026 on processing of personal data for scientific research purposes"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0158 | blocked_low_relevance | score:33 | "Guidelines"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0159 | blocked_low_relevance | score:53 | "Recommendations 1/2026 on the Application for Approval and on the elements and principles to be found in Processor Binding Corporate Rules (Art. 47 GDPR)"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0160 | blocked_low_relevance | score:33 | "News"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0161 | likely_policy_update | score:45 | "AI Office"
+           Reasons: No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0162 | likely_policy_update | score:53 | "Artificial Intelligence"
+           Reasons: No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0163 | likely_enforcement_case | score:73 | "The Action Plan"
+[32m[ELIGIBLE][0m CAND-0164 | likely_regulatory_guidance | score:81 | "AI Act"
+[31m[BLOCKED][0m  CAND-0165 | likely_regulatory_guidance | score:65 | "AI Factories and Gigafactories"
+[31m[BLOCKED][0m  CAND-0166 | likely_policy_update | score:53 | "InvestAI Facility"
+           Reasons: No legal/regulatory relevance detected
+[32m[ELIGIBLE][0m CAND-0167 | likely_regulatory_guidance | score:81 | "AI Act Service Desk"
+[31m[BLOCKED][0m  CAND-0168 | likely_policy_update | score:61 | "AI innovation package to support Artificial Intelligence startups and SMEs"
+           Reasons: No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0169 | likely_policy_update | score:45 | "AI thrives from the lab to the market"
+           Reasons: No legal/regulatory relevance detected
 
 ============================================================
   QUALITY CLASSIFICATION COMPLETE
 ============================================================
-Total candidates:      117
-Promotion eligible:    19
-Blocked:               98
-Candidate files updated: 117
+Total candidates:      222
+Promotion eligible:    34
+Blocked:               188
+Candidate files updated: 222
 
 Class breakdown:
   blocked_generic_page: 2
-  likely_regulatory_guidance: 38
-  blocked_low_relevance: 61
-  likely_policy_update: 13
-  likely_enforcement_case: 3
+  likely_regulatory_guidance: 66
+  blocked_low_relevance: 122
+  likely_policy_update: 26
+  likely_enforcement_case: 6
 
 Report: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/watch/runs/latest-candidate-quality-report.json
 ============================================================
@@ -295,14 +474,14 @@ Report: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-inciden
 
 [dedupe-real-candidates] Running scripts/dedupe-real-candidates.mjs...
 === Running Real Candidate De-duplication ===
-Scanned 117 candidate file(s).
+Scanned 222 candidate file(s).
 
 ==========================================
        Caesar Deduplication Report        
 ==========================================
-Total Scanned:  117
+Total Scanned:  222
 Unique Items:   56
-Duplicates:     61
+Duplicates:     166
 Report Path:    /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/watch/runs/latest-real-dedupe-report.json
 ==========================================
 
@@ -311,7 +490,7 @@ Report Path:    /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai
 [build-real-case-drafts] Running scripts/build-real-case-drafts.mjs...
 === Building Real Case Drafts from Candidates ===
 Dedupe report loaded: 56 unique candidate(s).
-Processing 56 candidate(s) for draft generation.
+Processing 106 candidate(s) for draft generation.
 Skipping CAND-0018 — draft already exists.
 Skipping CAND-0019 — draft already exists.
 Skipping CAND-0020 — draft already exists.
@@ -319,62 +498,112 @@ Skipping CAND-0021 — draft already exists.
 Skipping CAND-0022 — draft already exists.
 Skipping CAND-0023 — draft already exists.
 Skipping CAND-0030 — draft already exists.
+Skipping CAND-0030 — draft already exists.
 [33m[Blocked][0m CAND-0033 [likely_regulatory_guidance] — "Biometric data guidance: Biometric recognition" — quality gate blocked
+Skipping CAND-0033 — draft already exists.
 [33m[Blocked][0m CAND-0035 [blocked_low_relevance] — "Intelligence artificielle (IA)" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0035 — draft already exists.
 [33m[Blocked][0m CAND-0036 [likely_regulatory_guidance] — "Faire vérifier une décision automatisée" — quality gate blocked
+Skipping CAND-0036 — draft already exists.
 [33m[Blocked][0m CAND-0037 [blocked_low_relevance] — "Contrôler et sanctionner" — No AI/algorithm relevance detected
+Skipping CAND-0037 — draft already exists.
 [33m[Blocked][0m CAND-0038 [blocked_low_relevance] — "IA conversationnelle et santé mentale des jeunes : résultats de l’enquête européenne" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0038 — draft already exists.
 [33m[Blocked][0m CAND-0039 [blocked_low_relevance] — "IA conversationnelle et santé mentale des jeunes : un débat européen inédit porté par la parole des jeunesses" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0039 — draft already exists.
 [33m[Blocked][0m CAND-0040 [blocked_low_relevance] — "Page courante 1" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0040 — draft already exists.
 [33m[Blocked][0m CAND-0041 [blocked_low_relevance] — "Page 2" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0041 — draft already exists.
 [33m[Blocked][0m CAND-0042 [blocked_low_relevance] — "Page 3" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0042 — draft already exists.
 [33m[Blocked][0m CAND-0043 [blocked_low_relevance] — "Dernière page Dernier »" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0043 — draft already exists.
 [33m[Blocked][0m CAND-0044 [blocked_low_relevance] — "Intelligence artificielle (IA)" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0044 — draft already exists.
 [33m[Blocked][0m CAND-0045 [blocked_low_relevance] — "BGБългарски" — No AI/algorithm relevance detected
+Skipping CAND-0045 — draft already exists.
 [33m[Blocked][0m CAND-0046 [blocked_low_relevance] — "CSČeština" — No AI/algorithm relevance detected
+Skipping CAND-0046 — draft already exists.
 [33m[Blocked][0m CAND-0047 [blocked_low_relevance] — "DADansk" — No AI/algorithm relevance detected
+Skipping CAND-0047 — draft already exists.
 [33m[Blocked][0m CAND-0048 [blocked_low_relevance] — "DEDeutsch" — No AI/algorithm relevance detected
+Skipping CAND-0048 — draft already exists.
 [33m[Blocked][0m CAND-0049 [blocked_low_relevance] — "ELΕλληνικά" — No AI/algorithm relevance detected
+Skipping CAND-0049 — draft already exists.
 [33m[Blocked][0m CAND-0050 [blocked_low_relevance] — "ESEspañol" — No AI/algorithm relevance detected
+Skipping CAND-0050 — draft already exists.
 [33m[Blocked][0m CAND-0051 [blocked_low_relevance] — "ETEesti" — No AI/algorithm relevance detected
+Skipping CAND-0051 — draft already exists.
 [33m[Blocked][0m CAND-0052 [blocked_low_relevance] — "FISuomi" — No AI/algorithm relevance detected
+Skipping CAND-0052 — draft already exists.
 [33m[Blocked][0m CAND-0054 [blocked_low_relevance] — "GAGaeilge" — No AI/algorithm relevance detected
+Skipping CAND-0054 — draft already exists.
 [33m[Blocked][0m CAND-0055 [blocked_low_relevance] — "Activities" — No AI/algorithm relevance detected
+Skipping CAND-0055 — draft already exists.
 [33m[Blocked][0m CAND-0056 [blocked_low_relevance] — "News" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0056 — draft already exists.
 [33m[Blocked][0m CAND-0057 [likely_policy_update] — "AI Office" — No legal/regulatory relevance detected
+Skipping CAND-0057 — draft already exists.
 [33m[Blocked][0m CAND-0058 [blocked_low_relevance] — "News highlights" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0058 — draft already exists.
 [33m[Blocked][0m CAND-0059 [likely_policy_update] — "Artificial Intelligence" — No legal/regulatory relevance detected
+Skipping CAND-0059 — draft already exists.
 [33m[Blocked][0m CAND-0060 [likely_enforcement_case] — "The Action Plan" — quality gate blocked
+Skipping CAND-0060 — draft already exists.
+Skipping CAND-0061 — draft already exists.
 Skipping CAND-0061 — draft already exists.
 [33m[Blocked][0m CAND-0062 [likely_regulatory_guidance] — "AI Factories and Gigafactories" — quality gate blocked
+Skipping CAND-0062 — draft already exists.
 [33m[Blocked][0m CAND-0063 [likely_policy_update] — "InvestAI Facility" — No legal/regulatory relevance detected
+Skipping CAND-0063 — draft already exists.
+Skipping CAND-0064 — draft already exists.
 Skipping CAND-0064 — draft already exists.
 [33m[Blocked][0m CAND-0073 [blocked_low_relevance] — "Liste des sanctions prononcées" — No AI/algorithm relevance detected
+Skipping CAND-0073 — draft already exists.
 [33m[Blocked][0m CAND-0074 [blocked_low_relevance] — "Amende administrative de 27 millions d'euros et injonction" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0074 — draft already exists.
 [33m[Blocked][0m CAND-0075 [blocked_low_relevance] — "Amende administrative de 15 millions d'euros et injonction" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0075 — draft already exists.
 [33m[Blocked][0m CAND-0076 [blocked_low_relevance] — "Amende administrative de 5 millions d'euros et injonction" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0076 — draft already exists.
 [33m[Blocked][0m CAND-0077 [blocked_low_relevance] — "Amende administrative de 900 000 euros et injonction" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0077 — draft already exists.
 [33m[Blocked][0m CAND-0078 [blocked_low_relevance] — "Amende administrative de 80 000 euros" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0078 — draft already exists.
 [33m[Blocked][0m CAND-0079 [blocked_low_relevance] — "Amende administrative de 325 millions d'euros et injonction" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0079 — draft already exists.
 [33m[Blocked][0m CAND-0080 [blocked_low_relevance] — "Guidelines, Recommendations, Best Practices" — No AI/algorithm relevance detected
+Skipping CAND-0080 — draft already exists.
 [33m[Blocked][0m CAND-0081 [blocked_low_relevance] — "Opinions" — No AI/algorithm relevance detected
+Skipping CAND-0081 — draft already exists.
 [33m[Blocked][0m CAND-0082 [blocked_low_relevance] — "Binding Decisions" — No AI/algorithm relevance detected
+Skipping CAND-0082 — draft already exists.
 [33m[Blocked][0m CAND-0083 [blocked_low_relevance] — "News" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0083 — draft already exists.
 [33m[Blocked][0m CAND-0084 [blocked_low_relevance] — "EDPB News" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0084 — draft already exists.
 [33m[Blocked][0m CAND-0085 [blocked_low_relevance] — "National News" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0085 — draft already exists.
 [33m[Blocked][0m CAND-0086 [blocked_low_relevance] — "One-Stop-Shop News" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0086 — draft already exists.
 [33m[Blocked][0m CAND-0087 [blocked_low_relevance] — "Guidelines 1/2026 on processing of personal data for scientific research purposes" — No AI/algorithm relevance detected
+Skipping CAND-0087 — draft already exists.
 [33m[Blocked][0m CAND-0088 [blocked_low_relevance] — "Guidelines" — No AI/algorithm relevance detected; No legal/regulatory relevance detected
+Skipping CAND-0088 — draft already exists.
 [33m[Blocked][0m CAND-0089 [blocked_low_relevance] — "Recommendations 1/2026 on the Application for Approval and on the elements and principles to be found in Processor Binding Corporate Rules (Art. 47 GDPR)" — No AI/algorithm relevance detected
+Skipping CAND-0089 — draft already exists.
 [33m[Blocked][0m CAND-0098 [likely_policy_update] — "AI innovation package to support Artificial Intelligence startups and SMEs" — No legal/regulatory relevance detected
+Skipping CAND-0098 — draft already exists.
 [33m[Blocked][0m CAND-0099 [likely_policy_update] — "AI thrives from the lab to the market" — No legal/regulatory relevance detected
+Skipping CAND-0099 — draft already exists.
 
 ==========================================
        Caesar Real Draft Build Report     
 ==========================================
-Candidates processed:          56
+Candidates processed:          106
 Drafts created:                0
-Drafts skipped (existing):     9
+Drafts skipped (existing):     59
 Blocked (quality gate):        47
 Output dir:                    /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/drafts/real
 ==========================================
@@ -383,10 +612,12 @@ Output dir:                    /Users/nazarkoartem/Desktop/Projects/caesar-compl
 
 [validate-real-drafts] Running scripts/validate-real-drafts.mjs...
 === Caesar Real Draft Validator ===
-[32m[Draft Validation Pass][0m Found 9 real draft file(s) to validate.
+[32m[Draft Validation Pass][0m Found 12 real draft file(s) to validate.
 [32m[Draft Validation Pass][0m Public site/ is clean of draft files.
-[32m[Draft Validation Pass][0m Safe: INC-0013 public record does not exist.
-[32m[Draft Validation Pass][0m ALL 9 real draft file(s) passed validation.
+[32m[Draft Validation Pass][0m Safe: no stale inc-0013.json leakage.
+[32m[Draft Validation Pass][0m INC-0013 published record present in data/ and site/data/ (correct filename).
+[32m[Draft Validation Pass][0m Safe: no INC-0014 record exists.
+[32m[Draft Validation Pass][0m ALL 12 real draft file(s) passed validation.
 [validate-real-drafts] PASS (exit 0)
 
 [build-promotion-packets] Running scripts/build-promotion-packets.mjs...
@@ -398,15 +629,18 @@ Skipping DRAFT-0004 — packet already exists.
 Skipping DRAFT-0005 — packet already exists.
 Skipping DRAFT-0006 — packet already exists.
 Skipping DRAFT-0007 — packet already exists.
+Skipping DRAFT-0007 — packet already exists.
 Skipping DRAFT-0008 — packet already exists.
+Skipping DRAFT-0008 — packet already exists.
+Skipping DRAFT-0009 — packet already exists.
 Skipping DRAFT-0009 — packet already exists.
 
 ==========================================
     Caesar Promotion Packet Build Report  
 ==========================================
-Drafts processed:          9
+Drafts processed:          12
 Packets created:           0
-Packets skipped (exists):  9
+Packets skipped (exists):  12
 Blocked (quality gate):    0
 Output dir:                /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/promotion-packets/real
 NOTE: promotion_allowed is false on ALL packets.
@@ -417,11 +651,11 @@ NOTE: Suggested IDs are SUGGESTIONS only — no public records created.
 
 [validate-promotion-packets] Running scripts/validate-promotion-packets.mjs...
 === Caesar Promotion Packet Validator ===
-[32m[Packet Validation Pass][0m Found 9 promotion packet(s) to validate.
+[32m[Packet Validation Pass][0m Found 12 promotion packet(s) to validate.
 [32m[Packet Validation Pass][0m Public site/ is clean of promotion packet files.
-[32m[Packet Validation Pass][0m Incident dataset remains at exactly 12 records.
-[32m[Packet Validation Pass][0m Safe: INC-0013 does not exist as a public record.
-[32m[Packet Validation Pass][0m ALL 9 promotion packet(s) passed validation.
+[32m[Packet Validation Pass][0m Incident dataset at expected count: 13 records.
+[32m[Packet Validation Pass][0m INC-0013 approved record exists (T054).
+[32m[Packet Validation Pass][0m ALL 12 promotion packet(s) passed validation.
 [validate-promotion-packets] PASS (exit 0)
 
 [rank-promotion-candidates] Running scripts/rank-promotion-candidates.mjs...
@@ -431,18 +665,17 @@ NOTE: Suggested IDs are SUGGESTIONS only — no public records created.
 ============================================================
   RANKING COMPLETE
 ============================================================
-Total packets ranked:   9
-Promotion eligible:     6
+Total packets ranked:   12
+Promotion eligible:     9
 Blocked:                3
 
 Top 5 Candidates:
   Rank 1: PKT-0006 (DRAFT-0006) - Score: 170 | [32m✓ ELIGIBLE[0m | likely_case
     Risk: No adapter confidence: adapter_name missing
   Rank 2: PKT-0008 (DRAFT-0008) - Score: 155 | [32m✓ ELIGIBLE[0m | likely_regulatory_guidance
-  Rank 3: PKT-0009 (DRAFT-0009) - Score: 155 | [32m✓ ELIGIBLE[0m | likely_regulatory_guidance
-  Rank 4: PKT-0007 (DRAFT-0007) - Score: 150 | [32m✓ ELIGIBLE[0m | likely_regulatory_guidance
-  Rank 5: PKT-0002 (DRAFT-0002) - Score: 145 | [32m✓ ELIGIBLE[0m | likely_guidance
-    Risk: No adapter confidence: adapter_name missing
+  Rank 3: PKT-0008 (DRAFT-0008) - Score: 155 | [32m✓ ELIGIBLE[0m | likely_regulatory_guidance
+  Rank 4: PKT-0009 (DRAFT-0009) - Score: 155 | [32m✓ ELIGIBLE[0m | likely_regulatory_guidance
+  Rank 5: PKT-0009 (DRAFT-0009) - Score: 155 | [32m✓ ELIGIBLE[0m | likely_regulatory_guidance
 
 ============================================================
   TOP RECOMMENDATION
@@ -491,14 +724,14 @@ Top 5 Items:
   2. PKT-0008 [31m[BLOCKED][0m
      Title: AI Act — European Commission (EU)
      Action: needs_more_source_confirmation
-  3. PKT-0009 [31m[BLOCKED][0m
+  3. PKT-0008 [31m[BLOCKED][0m
+     Title: AI Act — European Commission (EU)
+     Action: needs_more_source_confirmation
+  4. PKT-0009 [31m[BLOCKED][0m
      Title: AI Act Service Desk — European Commission (EU)
      Action: needs_more_source_confirmation
-  4. PKT-0007 [31m[BLOCKED][0m
-     Title: Algorithms, Artificial Intelligence, and Disability Discrimi...
-     Action: needs_more_source_confirmation
-  5. PKT-0002 [31m[BLOCKED][0m
-     Title: Artificial intelligence (AI) and data protection — Informati...
+  5. PKT-0009 [31m[BLOCKED][0m
+     Title: AI Act Service Desk — European Commission (EU)
      Action: needs_more_source_confirmation
 
 Shortlist written to: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/reviews/real/case-shortlist.json
@@ -513,8 +746,8 @@ Shortlist written to: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/cae
 [32m[PASS][0m Exactly 5 items in shortlist
 [32m[PASS][0m All items have required fields
 [32m[PASS][0m Shortlist not in site/ - local only
-[32m[PASS][0m Public dataset remains at 12 records
-[32m[PASS][0m INC-0013 does not exist in public dataset
+[32m[PASS][0m Public dataset at expected count: 13 records
+[32m[PASS][0m INC-0013 approved record present in site/ (T054)
 [34m[INFO][0m 1 items ready for Control Tower review
 [34m[INFO][0m Top ready: PKT-0006 - ready_for_control_tower_review
 
@@ -526,271 +759,8 @@ Shortlist written to: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/cae
 [promote-approved-case] Running scripts/promote-approved-case.mjs --dry-run...
 === Caesar Promotion CLI ===
 
-[33m[WARNING][0m No approvals found in approved-promotions.json
-[36m[PROMOTE][0m Mode: DRY-RUN ONLY (no public records will be created)
-[36m[PROMOTE][0m Generating dry-run previews (no approvals found)...
-[32m[SUCCESS][0m Generated preview: preview-pkt-0006-inc-0013.json
-[32m[SUCCESS][0m Generated preview: preview-pkt-0008-inc-0013.json
-[32m[SUCCESS][0m Generated preview: preview-pkt-0009-inc-0013.json
-[32m[SUCCESS][0m Generated preview: preview-pkt-0007-inc-0013.json
-[32m[SUCCESS][0m Generated preview: preview-pkt-0002-inc-0013.json
-
-============================================================
-  DRY-RUN SUMMARY
-============================================================
-Previews generated: 5
-Preview location: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/promotion-previews/real
-
-Status: NO PUBLIC RECORDS CREATED
-Action: Add approval to data/reviews/real/approved-promotions.json to promote
-============================================================
-
-[promote-approved-case] PASS (exit 0)
-
-[validate-promotion-dry-run] Running scripts/validate-promotion-dry-run.mjs...
-=== Promotion Dry-Run Validator ===
-
-[32m[PASS][0m Public dataset remains at exactly 12 records
-[32m[PASS][0m Safe: INC-0013 does not exist as public record
-[36m[INFO][0m Found 5 dry-run preview(s) in data/promotion-previews/real/
-[32m[PASS][0m All 5 preview(s) correctly flagged as dry-run
-[32m[PASS][0m No dry-run previews or unapproved content in site/
-[32m[PASS][0m No mock/draft/preview content in public incidents/
-[32m[PASS][0m approved-promotions.json valid (0 approval(s))
-[32m[PASS][0m Ranked candidates file exists (9 candidates)
-[36m[INFO][0m Found 1 source verification(s) in data/source-verifications/real/
-[32m[PASS][0m All 1 source verification(s) valid
-[36m[INFO][0m Found 1 control map(s) in data/control-maps/real/
-[32m[PASS][0m All 1 control map(s) valid
-
-============================================================
-[32m[PASS][0m ALL VALIDATIONS PASSED
-Status: No public incidents created without approval
-Status: Public dataset remains at 12 records
-Status: Dry-run previews exist outside site/
-============================================================
-
-[validate-promotion-dry-run] PASS (exit 0)
-
-[verify-promotion-source] Running scripts/verify-promotion-source.mjs PKT-0006...
-=== Source Verification for PKT-0006 ===
-
-[36m[VERIFY][0m Loaded packet PKT-0006 -> draft DRAFT-0006
-[36m[VERIFY][0m Verifying 1 source URL(s)...
-[36m[VERIFY][0m Checking: https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en?f%5B0%5D=opinions_topics%3A769
-[32m[SUCCESS][0m ✓ 200 text/html; charset=UTF-8
-
-============================================================
-  VERIFICATION SUMMARY
-============================================================
-Packet ID: PKT-0006
-Draft ID: DRAFT-0006
-Authority: European Data Protection Board (EDPB)
-Source tier: green
-Verification status: VERIFIED
-URLs checked: 1
-Accessible: 1
-Official source: Yes
-Metadata only: Yes
-Source text copied: Yes
-
-Verification written: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/source-verifications/real/PKT-0006-source-verification.json
-============================================================
-
-[verify-promotion-source] PASS (exit 0)
-
-[build-public-case-preview] Running scripts/build-public-case-preview.mjs PKT-0006...
-=== Building Publication Preview for PKT-0006 ===
-
-[36m[PREVIEW][0m Loaded packet PKT-0006 -> draft DRAFT-0006
-[36m[PREVIEW][0m Source verification status: verified
-[36m[PREVIEW][0m Building publication-ready preview...
-
-============================================================
-  PREVIEW SUMMARY
-============================================================
-Packet ID: PKT-0006
-Draft ID: DRAFT-0006
-Preview case ID: INC-0013
-Title: Automated decision & profiling (3) — European Data Protection Board (EDPB)
-Source verification: verified
-Clean-room wording: Yes
-Control Tower approval required: Yes
-Source text copied: No
-
-Preview written: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/publication-previews/real/inc-0013-preview.json
-
-Next: Review preview and run validate-public-case-preview.mjs
-============================================================
-
-[32m[SUCCESS][0m Publication preview created: inc-0013-preview.json
-[build-public-case-preview] PASS (exit 0)
-
-[validate-public-case-preview] Running scripts/validate-public-case-preview.mjs...
-=== Publication Preview Validator ===
-
-=== Validating Preview: inc-0013-preview.json ===
-
-[32m[PASS][0m Required field present: incident_id
-[32m[PASS][0m Required field present: title
-[32m[PASS][0m Required field present: date
-[32m[PASS][0m Required field present: sources
-[32m[PASS][0m Required field present: summary
-[32m[PASS][0m Required field present: failure_modes
-[32m[PASS][0m Required field present: severity
-[32m[PASS][0m Required field present: confidence
-[32m[PASS][0m Required field present: controls
-[32m[PASS][0m Required field present: evidence_required
-[32m[PASS][0m Required field present: lessons
-[32m[PASS][0m Incident ID format valid: INC-0013
-[32m[PASS][0m Date format valid: 21 May 2026
-[32m[PASS][0m Sources validation passed (1 sources)
-[32m[PASS][0m Safety flag correct: dry_run = true
-[32m[PASS][0m Safety flag correct: public = false
-[32m[PASS][0m Safety flag correct: not_approved = true
-[32m[PASS][0m Safety flag correct: source_text_copied = false
-[32m[PASS][0m Safety flag correct: control_tower_approval_required = true
-[32m[PASS][0m Source verification exists: PKT-0006-source-verification.json
-[32m[PASS][0m Source verification status: verified
-[32m[PASS][0m Promotion packet exists: PKT-0006.json
-[32m[PASS][0m Summary content safety checks completed
-[32m[PASS][0m Clean-room wording confirmed
-[32m[PASS][0m Public incident not yet created: INC-0013
-
-============================================================
-[32m[PASS][0m PREVIEW VALIDATION PASSED: inc-0013-preview.json
-Status: Ready for Control Tower review
-Status: All safety flags correctly set
-Status: Schema compliant
-============================================================
-
-[validate-public-case-preview] PASS (exit 0)
-
-[build-case-control-map] Running scripts/build-case-control-map.mjs PKT-0006...
-=== Building Control Map for PKT-0006 ===
-
-[36m[CONTROL-MAP][0m Loaded packet PKT-0006 -> draft DRAFT-0006
-[36m[CONTROL-MAP][0m Building control/evidence mapping...
-
-============================================================
-  CONTROL MAP SUMMARY
-============================================================
-Packet ID: PKT-0006
-Draft ID: DRAFT-0006
-Failure modes: FM-GOVERNANCE-GAP, FM-COMPLIANCE-DEFICIT
-Missing controls: 2 identified
-Required evidence: 4 items
-Vendor questions: 4 questions
-Frameworks mapped: 4
-  - EU AI Act: medium risk
-  - GDPR Automated Decision-Making & Profiling: high risk
-  - NIST AI RMF: medium risk
-  - ISO 42001: medium risk
-Status: local_review_only
-Control Tower approval required: Yes
-
-Control map written: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/control-maps/real/PKT-0006-control-map.json
-============================================================
-
-[32m[SUCCESS][0m Control map created: PKT-0006-control-map.json
-[build-case-control-map] PASS (exit 0)
-
-[build-promotion-readiness-report] Running scripts/build-promotion-readiness-report.mjs PKT-0006...
-=== Building Promotion Readiness Report for PKT-0006 ===
-
-[36m[READINESS][0m Assessing promotion readiness...
-
-============================================================
-  READINESS REPORT SUMMARY
-============================================================
-Packet ID: PKT-0006
-Draft ID: DRAFT-0006
-Recommended case: INC-0013
-Quality score: 84/100
-Source tier: GREEN
-Checks passed: 6/6
-Ready for Control Tower: YES
-
-Ready for Control Tower review. Add approval to data/reviews/real/approved-promotions.json to proceed.
-
-Readiness report written: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/reviews/real/PKT-0006-readiness-report.json
-============================================================
-
-[32m[SUCCESS][0m PKT-0006 is ready for Control Tower approval
-[build-promotion-readiness-report] PASS (exit 0)
-
-[build-real-review-bundle] Running scripts/build-real-review-bundle.mjs...
-=== Building Real Review Console Bundle ===
-Successfully built real review bundle at: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/tools/review-console/real-review-bundle.json
-  Candidates:              117
-  Promotion eligible:      19
-  Case-quality count:      3
-  Generic blocked:         2
-  Total blocked:           98
-  Drafts:                  9
-  Promotion packets:       9
-  Ranked data:             loaded
-  Shortlist:               5 items
-  Quality report:          loaded
-  Adapter summary:         loaded
-  Source health:           loaded
-  No candidate ready:      false
-  No case-quality ready:   false
-  Ready for review:        PKT-0006
-[build-real-review-bundle] PASS (exit 0)
-
-[validate-review-console] Running scripts/validate-review-console.mjs...
-=== Caesar Atlas Review Console & Gate Validator ===
-[32m[Review Security Pass][0m tools/review-console/ directory exists.
-[32m[Review Security Pass][0m Public site/ is clean of review console files.
-[32m[Review Security Pass][0m tools/review-console/review-bundle.json exists.
-[32m[Review Security Pass][0m Review bundle verified: contains only mock/synthetic candidates and drafts.
-[32m[Review Security Pass][0m Public site/ is clean of review decision data.
-[32m[Review Security Pass][0m Safe: Public INC-0013 does not exist.
-[32m[Review Security Pass][0m Public site/data/incidents remains completely clean.
-[32m[Review Security Pass][0m Public site/data/incident-index.json remains completely clean.
-[32m[Review Security Pass][0m Source registry entries remain inactive_draft and auto_publish_allowed is false.
-[32m[Review Security Pass][0m No scheduled GitHub workflow was enabled.
-[32m[Review Security Pass][0m GitHub Pages workflow target remains strictly site/.
-[32m[Review Security Pass][0m ALL REVIEW CONSOLE SECURITY AND CONTAINMENT CHECKS PASSED.
-[validate-review-console] PASS (exit 0)
-
-[validate-candidate-quality] Running scripts/validate-candidate-quality.mjs...
-=== Candidate Quality Validator (T050) ===
-
-[32m[PASS][0m Top ranked candidate [PKT-0006] is eligible: quality_class=likely_case, score=84
-[36m[INFO][0m Packet PKT-0001 has blocked quality_class "generic_page" — correctly marked promotion_allowed: false
-[32m[PASS][0m No promotion-allowed packets found for blocked generic pages (9 packets checked)
-[32m[PASS][0m No dry-run previews found for blocked generic pages (5 previews checked)
-[32m[PASS][0m At least one promotion-eligible candidate found: PKT-0006 [likely_case|score:84]
-[36m[INFO][0m Scanning 117 candidate file(s) for quality fields...
-[36m[INFO][0m Candidates with quality fields: 117/117
-[32m[PASS][0m Public dataset remains at exactly 12 records
-[32m[PASS][0m INC-0013 does not exist
-[32m[PASS][0m CAND-0018 "Make a complaint" correctly blocked: quality_class=blocked_generic_page, score=15
-[32m[PASS][0m PKT-0001 correctly has blocked quality_class: generic_page
-
-============================================================
-[32m[PASS][0m ALL CANDIDATE QUALITY VALIDATIONS PASSED
-============================================================
-
-[validate-candidate-quality] PASS (exit 0)
-
-[validate-real-watcher] Running scripts/validate-real-watcher.mjs...
-=== Caesar Atlas Real Watcher Compliance & Containment Auditor ===
-[32m[Safety Pass][0m Watcher config targets are strictly green tier.
-[32m[Safety Pass][0m AIID/OECD/AIAAIC databases are not present in real watcher targets.
-[32m[Safety Pass][0m Public site/ is completely clean of real watcher outputs.
-[32m[Safety Pass][0m Incident dataset matches target count of exactly 12.
-[32m[Safety Pass][0m Safe: INC-0013 public record does not exist.
-[32m[Safety Pass][0m Safe: GitHub Actions schedule triggers remain disabled.
-[32m[Safety Pass][0m Safe: All registry entries have auto_publish_allowed set to false.
-[32m[Safety Pass][0m Registry entries remain untouched as inactive_draft.
-[32m[Safety Pass][0m Real review bundle exists locally in tools/review-console/ (outside site/).
-[32m[Safety Pass][0m latest-watch-summary.json exists in data/watch/runs/.
-[32m[Safety Pass][0m All enabled watch targets have fallback_urls configured.
-[32m[Safety Pass][0m Public site/ is clean of draft and promotion packet files.
-[32m[Safety Pass][0m Audited 117 real candidate files for schema compliance and metadata safety.
-[32m[Safety Pass][0m Safe: No secrets/env files were found.
-[32m[Safety Pass][0m ALL REAL WATCHER COMPLIANCE AND SAFETY CONTAINMENT CHECKS PASSED.
-[validate-real-watcher] PASS (exit 0)
+[36m[PROMOTE][0m Found 1 approval(s)
+[36m[PROMOTE][0m Processing approval for packet: PKT-0006
+[31m[ERROR][0m Approval validation failed:
+  - Public record already exists: INC-0013-edpb-automated-decision-making-profiling-guidance.json
+[promote-approved-case] FAIL (exit 1)

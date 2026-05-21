@@ -571,6 +571,149 @@ if (existsDir(privateRunsDir)) {
 // Covered by check 12 (wrangler.toml absent)
 pass('T061: no Worker deployment marker (covered by check 12)');
 
+// ── 40. T062: data/reviews/intake private outputs are not copied into site/ ───
+const siteReviewsIntakeDir = path.join(ROOT, 'site', 'data', 'reviews', 'intake');
+if (existsDir(siteReviewsIntakeDir)) {
+  fail('site/data/reviews/intake/ exists — private T062 intake data must not be in public site');
+} else {
+  pass('T062: site/data/reviews/intake/ not present (correct)');
+}
+
+// ── 41. T062: tools/review-console/data private intake is not copied into site/
+const siteReviewConsoleDataDir = path.join(ROOT, 'site', 'tools', 'review-console', 'data');
+if (existsDir(siteReviewConsoleDataDir)) {
+  fail('site/tools/review-console/data/ exists — private T062 review console data must not be in public site');
+} else {
+  pass('T062: tools/review-console/data not present in public site (correct)');
+}
+
+// ── 42. T062: hosted review intake payload is sanitized ──────────────────────
+const reviewIntakePayloadPath = path.join(OPS_SUPABASE_DIR, 'atlas-review-intake.private-latest.json');
+const reviewIntakePayload = readJson(reviewIntakePayloadPath);
+if (reviewIntakePayload) {
+  if (reviewIntakePayload.remote_write_attempted !== false) {
+    fail('T062: atlas-review-intake.private-latest.json remote_write_attempted is not false');
+  } else {
+    pass('T062: atlas-review-intake.private-latest.json remote_write_attempted = false');
+  }
+
+  const records = reviewIntakePayload.records;
+  let intakePayloadErrors = false;
+  if (Array.isArray(records)) {
+    for (const record of records) {
+      if (record.remote_write_attempted !== false && record.remote_write_attempted !== undefined) {
+        fail(`T062: atlas-review-intake.private-latest.json remote_write_attempted is true in record ${record.intake_id}`);
+        intakePayloadErrors = true;
+      }
+      if (record.public_publish_ready !== false) {
+        fail(`T062: atlas-review-intake.private-latest.json public_publish_ready is not false in record ${record.intake_id}`);
+        intakePayloadErrors = true;
+      }
+      if (record.human_review_required !== true) {
+        fail(`T062: atlas-review-intake.private-latest.json human_review_required is not true in record ${record.intake_id}`);
+        intakePayloadErrors = true;
+      }
+      if (record.review_status !== 'needs_review') {
+        fail(`T062: atlas-review-intake.private-latest.json review_status is not needs_review in record ${record.intake_id}`);
+        intakePayloadErrors = true;
+      }
+      if (record.raw_text_stored !== false && record.raw_text_stored !== undefined) {
+        fail(`T062: atlas-review-intake.private-latest.json raw_text_stored is not false in record ${record.intake_id}`);
+        intakePayloadErrors = true;
+      }
+      if (record.html_stored !== false && record.html_stored !== undefined) {
+        fail(`T062: atlas-review-intake.private-latest.json html_stored is not false in record ${record.intake_id}`);
+        intakePayloadErrors = true;
+      }
+    }
+    if (!intakePayloadErrors) {
+      pass('T062: hosted review intake payload records are fully sanitized (correct)');
+    }
+  } else {
+    fail('T062: atlas-review-intake.private-latest.json records is not an array');
+  }
+} else {
+  pass('T062: atlas-review-intake.private-latest.json not present (ok)');
+}
+
+// ── 43. T062: no raw HTML/body in private review intake outputs ──────────────
+const intakeDir = path.join(ROOT, 'data', 'reviews', 'intake');
+const HTML_PATTERN_062 = /<!DOCTYPE html|<html[\s>]/i;
+let t062HtmlFound = false;
+if (existsDir(intakeDir)) {
+  walkDir(intakeDir, (file) => {
+    if (!file.endsWith('.json')) return;
+    const content = readText(file);
+    if (content && HTML_PATTERN_062.test(content)) {
+      fail('T062: Raw HTML found in private review intake output: ' + path.relative(ROOT, file));
+      t062HtmlFound = true;
+    }
+  });
+}
+if (!t062HtmlFound) pass('T062: No raw HTML in data/reviews/intake/');
+
+// ── 44. T062: no public case count change ────────────────────────────────────
+// Covered by check 27
+pass('T062: public case count unchanged (covered by check 27)');
+
+// ── 45. T062: no INC-0014 ────────────────────────────────────────────────────
+// Covered by check 28
+pass('T062: no INC-0014 (covered by check 28)');
+
+// ── 46. T062: no cron in private review intake outputs ───────────────────────
+if (existsDir(intakeDir)) {
+  let t062CronFound = false;
+  walkDir(intakeDir, (file) => {
+    if (!file.endsWith('.json')) return;
+    const json = readJson(file);
+    if (Array.isArray(json)) {
+      for (const item of json) {
+        if (item.cron_triggered === true) {
+          fail('T062: cron_triggered=true found in array element of: ' + path.relative(ROOT, file));
+          t062CronFound = true;
+        }
+      }
+    } else if (json && typeof json === 'object') {
+      if (json.cron_triggered === true) {
+        fail('T062: cron_triggered=true found in object of: ' + path.relative(ROOT, file));
+        t062CronFound = true;
+      }
+    }
+  });
+  if (!t062CronFound) pass('T062: No cron_triggered=true in private review intake outputs');
+}
+
+// ── 47. T062: no remote write marker in private review intake outputs ────────
+if (existsDir(intakeDir)) {
+  let t062RemoteWriteFound = false;
+  walkDir(intakeDir, (file) => {
+    if (!file.endsWith('.json')) return;
+    const json = readJson(file);
+    if (Array.isArray(json)) {
+      for (const item of json) {
+        if (item.remote_write_attempted === true) {
+          fail('T062: remote_write_attempted=true found in: ' + path.relative(ROOT, file));
+          t062RemoteWriteFound = true;
+        }
+      }
+    } else if (json && typeof json === 'object') {
+      if (json.remote_write_attempted === true) {
+        fail('T062: remote_write_attempted=true found in: ' + path.relative(ROOT, file));
+        t062RemoteWriteFound = true;
+      }
+    }
+  });
+  if (!t062RemoteWriteFound) pass('T062: No remote_write_attempted=true in private review intake outputs');
+}
+
+// ── 48. T062: no Worker deployment marker ────────────────────────────────────
+// Covered by check 12
+pass('T062: no Worker deployment marker (covered by check 12)');
+
+// ── 49. T062: no Pages config change ─────────────────────────────────────────
+// Covered by checks 10/11
+pass('T062: no Pages config change (covered by checks 10/11)');
+
 // ── Final result ─────────────────────────────────────────────────────────────
 process.stdout.write('\n');
 if (errors > 0) {

@@ -172,6 +172,16 @@ For each of the 12 (and future) case records, map to:
 
 ---
 
+## v1.4 — Private Candidate Review Intake (T062 — 21 May 2026)
+
+**T062 complete** — converted T061 real Green-source candidate signals into structured private review intake records.
+- Schema, builder, console exporter, hosted payload dry-run exporter, and validation suite.
+- Safety: Enforces zero public leaks, public count remains 13, no INC-0014.
+
+## v1.3 — Bounded Real Green-Source Manual Run (T061 — 21 May 2026)
+
+**T061 complete** — executed the first real Green-source monitoring run (`GREEN-RUN-20260521-202417`), successfully fetching from official sites, reporting failures cleanly, and generating 4 candidate signals.
+
 ## v1.2 — Manual Watch Run Queue (T060 — 21 May 2026)
 
 **T060 complete** — Real automation layer without live connections.

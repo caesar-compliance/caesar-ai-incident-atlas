@@ -17,6 +17,7 @@ const SHORTLIST_PATH          = path.join(ROOT, 'data', 'candidates', 'case-shor
 const QUALITY_REPORT_PATH     = path.join(ROOT, 'data', 'watch', 'runs', 'latest-candidate-quality-report.json');
 const MANUAL_QUEUE_MANIFEST_PATH = path.join(ROOT, 'data', 'ops', 'watch-runs', 'manual-queue-manifest.json');
 const REAL_GREEN_RUN_LATEST_PATH = path.join(ROOT, 'data', 'ops', 'watch-runs', 'real-green-run-latest.json');
+const PRIVATE_INTAKE_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews', 'intake', 'private-candidate-intake-manifest.json');
 
 const OUT_DIRS = [
   path.join(ROOT, 'data', 'ops'),
@@ -110,6 +111,12 @@ const boundedGreenRunStatus = realGreenRun ? 'last_run_available' : 'not_run_yet
 const lastGreenRunSourceCount = realGreenRun ? (realGreenRun.sources_fetched || 0) : null;
 const lastGreenRunSignalCount = realGreenRun ? (realGreenRun.candidate_signals || 0) : null;
 
+// ── Read T062 private candidate review intake manifest ────────────────────
+const privateIntakeManifest = readJson(PRIVATE_INTAKE_MANIFEST_PATH);
+const reviewIntakeStatus = privateIntakeManifest ? 'private_intake_ready' : 'not_built';
+const privateIntakeCount = privateIntakeManifest ? (privateIntakeManifest.intake_count || 0) : null;
+const privateIntakeNeedsReviewCount = privateIntakeManifest ? (privateIntakeManifest.needs_review_count || 0) : null;
+
 // ── Build status JSON ──────────────────────────────────────────────────────
 const now = new Date().toISOString();
 
@@ -134,6 +141,10 @@ const opsStatus = {
   bounded_green_run_status:  boundedGreenRunStatus,
   last_green_run_source_count: lastGreenRunSourceCount,
   last_green_run_signal_count: lastGreenRunSignalCount,
+  // T062: Private review intake status
+  review_intake_status:      reviewIntakeStatus,
+  private_intake_count:      privateIntakeCount,
+  private_intake_needs_review_count: privateIntakeNeedsReviewCount,
   next_step:                 'Configure Supabase + Cloudflare Worker secrets to enable hosted_ready mode',
   public_site_url:           'https://atlas.caesar.no',
   data_endpoint:             'https://atlas.caesar.no/data/incident-index.json',

@@ -72,6 +72,13 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 | T053 — PKT-0006 Source Verification + Readiness + Preview | **Complete** — Source verification, control map, readiness report, publication preview | 21 May 2026 |
 | T054 — Publish Approved PKT-0006 as INC-0013 | **Complete** — INC-0013 published (EDPB guidance, Green-tier, CT approved). Dataset: 13 records. | 21 May 2026 |
 | T055 — Public Case UX + Validator Fix + Live Atlas Polish | **Complete** — Stale validators fixed, Record Type/Jurisdiction filters, guidance disclaimer, 13 static case pages, public site validator, RSS rebuilt. | 21 May 2026 |
+| T056 — Real Automated Monitoring Architecture | **Complete** — Static site status panel, one-command automation cycle | 21 May 2026 |
+| T057 — Supabase Local/Cloud Bootstrap | **Complete** — Dry-run bootstrap schema exports and local/hosted sync scripts | 21 May 2026 |
+| T058 — Cloudflare Worker ↔ Supabase API | **Complete** — Dual-mode Worker client layer, error sanitization, mock/live tests | 21 May 2026 |
+| T059 — Hosted Activation Preflight | **Complete** — Schema smoke tests, activation preflight, operator go-live guide | 21 May 2026 |
+| T060 — Manual Watch Run Queue + Hosted Run Payloads | **Complete** — Private run envelope schemas, queue builder, and dry-run exporters | 21 May 2026 |
+| T061 — Bounded Real Green-Source Manual Run | **Complete** — manual green-tier fetches (ICO/CNIL/EDPB/EU Commission), 4 candidate signals | 21 May 2026 |
+| T062 — Private Candidate Review Intake | **Complete** — converted T061 signals to private review intake records, schema, exporters, and safety checks | 21 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete | 19 May 2026 |
 
 ---
@@ -154,7 +161,18 @@ The following tasks require Artem / Control Tower review before execution:
 - Incident record creation — blocked until T006 is approved and workflow gates are passed.
 - Any mass import or scraping workflow — blocked unless separately approved.
 
----
+## T062 — Private Candidate Review Intake (Complete — 21 May 2026)
+
+- `schemas/pipeline/private-candidate-review-intake.schema.json` — private candidate review intake record schema.
+- `scripts/build-private-candidate-review-intake.mjs` — builder converting T061 real-green candidate signals into structured review intake records under stable/latest runs.
+- `scripts/export-review-console-private-intake.mjs` — exporter compiling console-safe JSON files for human-in-the-loop audit dashboards (no raw text).
+- `scripts/export-hosted-review-intake-payloads.mjs` — dry-run exporter compiling sanitized Supabase-ready JSON payloads for the future `atlas_review_intake` table.
+- `scripts/validate-private-candidate-review-intake.mjs` — private intake validator verifying schema compliance, safety gates, and signal mappings.
+- `scripts/validate-hosted-sync-safety.mjs` — updated with 10 comprehensive T062 validation checks.
+- `scripts/run-local-automation-cycle.mjs` — integrated with `--with-review-intake` flag.
+- `scripts/export-ops-status.mjs` — added public dashboard counts `private_intake_count` and `private_intake_needs_review_count`.
+- **Safety:** Enforces zero public cases, zero promotion packets, zero public previews, zero Supabase writes, zero site/ leakage. Public count remains 13. Latest remains INC-0013. No INC-0014.
+- **Next:** Proceed to T063 Draft Candidate Promotion Review Console integrations.
 
 ## T060 — Manual Watch Run Queue + Hosted Run Payloads (Complete — 21 May 2026)
 

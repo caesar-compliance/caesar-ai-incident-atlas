@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-05-21T14:45:45.477Z",
-  "total_candidates": 117,
-  "promotion_eligible_count": 19,
-  "blocked_count": 98,
+  "generated_at": "2026-05-21T18:38:10.305Z",
+  "total_candidates": 222,
+  "promotion_eligible_count": 34,
+  "blocked_count": 188,
   "quality_score_threshold": 70,
   "class_summary": {
     "blocked_generic_page": 2,
-    "likely_regulatory_guidance": 38,
-    "blocked_low_relevance": 61,
-    "likely_policy_update": 13,
-    "likely_enforcement_case": 3
+    "likely_regulatory_guidance": 66,
+    "blocked_low_relevance": 122,
+    "likely_policy_update": 26,
+    "likely_enforcement_case": 6
   },
   "results": [
     {
@@ -149,6 +149,26 @@
       "rejection_reasons": []
     },
     {
+      "candidate_id": "CAND-0030",
+      "title": "Algorithms, Artificial Intelligence, and Disability Discrimination in Hiring",
+      "source_url": "https://www.ada.gov/resources/ai-guidance/",
+      "source_id": "doj-ada-ai-guidance",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 81,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0031",
+      "title": "Artificial intelligence (AI) and data protection",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 89,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
       "candidate_id": "CAND-0031",
       "title": "Artificial intelligence (AI) and data protection",
       "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
@@ -162,6 +182,26 @@
       "candidate_id": "CAND-0032",
       "title": "Explaining decisions made with AI",
       "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 73,
+      "promotion_eligible": false,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0032",
+      "title": "Explaining decisions made with AI",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 73,
+      "promotion_eligible": false,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0033",
+      "title": "Biometric data guidance: Biometric recognition",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/biometric-data-guidance-biometric-recognition/",
       "source_id": "ico-ai-and-algorithms",
       "quality_class": "likely_regulatory_guidance",
       "quality_score": 73,
@@ -189,6 +229,16 @@
       "rejection_reasons": []
     },
     {
+      "candidate_id": "CAND-0034",
+      "title": "AI and data protection risk toolkit",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/ai-and-data-protection-risk-toolkit/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 81,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
       "candidate_id": "CAND-0035",
       "title": "Intelligence artificielle (IA)",
       "source_url": "https://www.cnil.fr/fr/particulier-intelligence-artificielle-ia",
@@ -200,6 +250,29 @@
         "No AI/algorithm relevance detected",
         "No legal/regulatory relevance detected"
       ]
+    },
+    {
+      "candidate_id": "CAND-0035",
+      "title": "Intelligence artificielle (IA)",
+      "source_url": "https://www.cnil.fr/fr/particulier-intelligence-artificielle-ia",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0036",
+      "title": "Faire vérifier une décision automatisée",
+      "source_url": "https://www.cnil.fr/fr/vos-droits-lintervention-humaine-face-votre-profilage-ou-une-decision-automatisee",
+      "source_id": "cnil-ai",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 65,
+      "promotion_eligible": false,
+      "rejection_reasons": []
     },
     {
       "candidate_id": "CAND-0036",
@@ -224,9 +297,47 @@
       ]
     },
     {
+      "candidate_id": "CAND-0037",
+      "title": "Contrôler et sanctionner",
+      "source_url": "https://www.cnil.fr/fr/missions/mission-4-controler-et-sanctionner",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
       "candidate_id": "CAND-0038",
       "title": "IA conversationnelle et santé mentale des jeunes : résultats de l’enquête européenne",
       "source_url": "https://www.cnil.fr/fr/ia-conversationnelle-et-sante-mentale-des-jeunes-resultats-de-lenquete-europeenne",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0038",
+      "title": "IA conversationnelle et santé mentale des jeunes : résultats de l’enquête européenne",
+      "source_url": "https://www.cnil.fr/fr/ia-conversationnelle-et-sante-mentale-des-jeunes-resultats-de-lenquete-europeenne",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0039",
+      "title": "IA conversationnelle et santé mentale des jeunes : un débat européen inédit porté par la parole des jeunesses",
+      "source_url": "https://www.cnil.fr/fr/ia-conversationnelle-et-sante-mentale-la-parole-des-jeunesses",
       "source_id": "cnil-ai",
       "quality_class": "blocked_low_relevance",
       "quality_score": 25,
@@ -263,9 +374,48 @@
       ]
     },
     {
+      "candidate_id": "CAND-0040",
+      "title": "Page courante 1",
+      "source_url": "https://www.cnil.fr/fr/intelligence-artificielle?page=0",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
       "candidate_id": "CAND-0041",
       "title": "Page 2",
       "source_url": "https://www.cnil.fr/fr/intelligence-artificielle?page=1",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0041",
+      "title": "Page 2",
+      "source_url": "https://www.cnil.fr/fr/intelligence-artificielle?page=1",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0042",
+      "title": "Page 3",
+      "source_url": "https://www.cnil.fr/fr/intelligence-artificielle?page=2",
       "source_id": "cnil-ai",
       "quality_class": "blocked_low_relevance",
       "quality_score": 25,
@@ -302,6 +452,32 @@
       ]
     },
     {
+      "candidate_id": "CAND-0043",
+      "title": "Dernière page Dernier »",
+      "source_url": "https://www.cnil.fr/fr/intelligence-artificielle?page=12",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0044",
+      "title": "Intelligence artificielle (IA)",
+      "source_url": "https://www.cnil.fr/fr/tag/Intelligence%2Bartificielle%2B%28IA%29",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
       "candidate_id": "CAND-0044",
       "title": "Intelligence artificielle (IA)",
       "source_url": "https://www.cnil.fr/fr/tag/Intelligence%2Bartificielle%2B%28IA%29",
@@ -318,6 +494,30 @@
       "candidate_id": "CAND-0045",
       "title": "BGБългарски",
       "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_bg",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0045",
+      "title": "BGБългарски",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_bg",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0046",
+      "title": "CSČeština",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_cs",
       "source_id": "edpb-ai",
       "quality_class": "blocked_low_relevance",
       "quality_score": 53,
@@ -351,9 +551,45 @@
       ]
     },
     {
+      "candidate_id": "CAND-0047",
+      "title": "DADansk",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_da",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
       "candidate_id": "CAND-0048",
       "title": "DEDeutsch",
       "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_de",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0048",
+      "title": "DEDeutsch",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_de",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0049",
+      "title": "ELΕλληνικά",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_el",
       "source_id": "edpb-ai",
       "quality_class": "blocked_low_relevance",
       "quality_score": 53,
@@ -387,9 +623,45 @@
       ]
     },
     {
+      "candidate_id": "CAND-0050",
+      "title": "ESEspañol",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_es",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
       "candidate_id": "CAND-0051",
       "title": "ETEesti",
       "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_et",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0051",
+      "title": "ETEesti",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_et",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0052",
+      "title": "FISuomi",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_fi",
       "source_id": "edpb-ai",
       "quality_class": "blocked_low_relevance",
       "quality_score": 53,
@@ -421,10 +693,44 @@
       "rejection_reasons": []
     },
     {
+      "candidate_id": "CAND-0053",
+      "title": "FRFrançais",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_fr",
+      "source_id": "edpb-ai",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 73,
+      "promotion_eligible": false,
+      "rejection_reasons": []
+    },
+    {
       "candidate_id": "CAND-0054",
       "title": "GAGaeilge",
       "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_ga",
       "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0054",
+      "title": "GAGaeilge",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_ga",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0055",
+      "title": "Activities",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/activities",
+      "source_id": "european-commission-ai-act",
       "quality_class": "blocked_low_relevance",
       "quality_score": 53,
       "promotion_eligible": false,
@@ -458,6 +764,19 @@
       ]
     },
     {
+      "candidate_id": "CAND-0056",
+      "title": "News",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 33,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
       "candidate_id": "CAND-0057",
       "title": "AI Office",
       "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-office",
@@ -466,6 +785,31 @@
       "quality_score": 45,
       "promotion_eligible": false,
       "rejection_reasons": [
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0057",
+      "title": "AI Office",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-office",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_policy_update",
+      "quality_score": 45,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0058",
+      "title": "News highlights",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news?type=5%7C13",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 33,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
         "No legal/regulatory relevance detected"
       ]
     },
@@ -495,6 +839,28 @@
       ]
     },
     {
+      "candidate_id": "CAND-0059",
+      "title": "Artificial Intelligence",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/artificial-intelligence",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_policy_update",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0060",
+      "title": "The Action Plan",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-sets-course-europes-ai-leadership-ambitious-ai-continent-action-plan",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_enforcement_case",
+      "quality_score": 73,
+      "promotion_eligible": false,
+      "rejection_reasons": []
+    },
+    {
       "candidate_id": "CAND-0060",
       "title": "The Action Plan",
       "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-sets-course-europes-ai-leadership-ambitious-ai-continent-action-plan",
@@ -512,6 +878,26 @@
       "quality_class": "likely_regulatory_guidance",
       "quality_score": 81,
       "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0061",
+      "title": "AI Act",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 81,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0062",
+      "title": "AI Factories and Gigafactories",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-factories",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 65,
+      "promotion_eligible": false,
       "rejection_reasons": []
     },
     {
@@ -537,10 +923,42 @@
       ]
     },
     {
+      "candidate_id": "CAND-0063",
+      "title": "InvestAI Facility",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news/eu-launches-investai-initiative-mobilise-eu200-billion-investment-artificial-intelligence",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_policy_update",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
       "candidate_id": "CAND-0064",
       "title": "AI Act Service Desk",
       "source_url": "https://ai-act-service-desk.ec.europa.eu/en",
       "source_id": "european-commission-ai-act",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 81,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0064",
+      "title": "AI Act Service Desk",
+      "source_url": "https://ai-act-service-desk.ec.europa.eu/en",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 81,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0065",
+      "title": "Algorithms, Artificial Intelligence, and Disability Discrimination in Hiring",
+      "source_url": "https://www.ada.gov/resources/ai-guidance/",
+      "source_id": "doj-ada-ai-guidance",
       "quality_class": "likely_regulatory_guidance",
       "quality_score": 81,
       "promotion_eligible": true,
@@ -567,9 +985,39 @@
       "rejection_reasons": []
     },
     {
+      "candidate_id": "CAND-0066",
+      "title": "Artificial intelligence (AI) and data protection",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 89,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
       "candidate_id": "CAND-0067",
       "title": "Explaining decisions made with AI",
       "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 73,
+      "promotion_eligible": false,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0067",
+      "title": "Explaining decisions made with AI",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 73,
+      "promotion_eligible": false,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0068",
+      "title": "Biometric data guidance: Biometric recognition",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/biometric-data-guidance-biometric-recognition/",
       "source_id": "ico-ai-and-algorithms",
       "quality_class": "likely_regulatory_guidance",
       "quality_score": 73,
@@ -597,6 +1045,26 @@
       "rejection_reasons": []
     },
     {
+      "candidate_id": "CAND-0069",
+      "title": "AI and data protection risk toolkit",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/ai-and-data-protection-risk-toolkit/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 81,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0070",
+      "title": "Faire vérifier une décision automatisée",
+      "source_url": "https://www.cnil.fr/fr/vos-droits-lintervention-humaine-face-votre-profilage-ou-une-decision-automatisee",
+      "source_id": "cnil-ai",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 65,
+      "promotion_eligible": false,
+      "rejection_reasons": []
+    },
+    {
       "candidate_id": "CAND-0070",
       "title": "Faire vérifier une décision automatisée",
       "source_url": "https://www.cnil.fr/fr/vos-droits-lintervention-humaine-face-votre-profilage-ou-une-decision-automatisee",
@@ -610,6 +1078,32 @@
       "candidate_id": "CAND-0071",
       "title": "IA conversationnelle et santé mentale des jeunes : résultats de l’enquête européenne",
       "source_url": "https://www.cnil.fr/fr/ia-conversationnelle-et-sante-mentale-des-jeunes-resultats-de-lenquete-europeenne",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0071",
+      "title": "IA conversationnelle et santé mentale des jeunes : résultats de l’enquête européenne",
+      "source_url": "https://www.cnil.fr/fr/ia-conversationnelle-et-sante-mentale-des-jeunes-resultats-de-lenquete-europeenne",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0072",
+      "title": "IA conversationnelle et santé mentale des jeunes : un débat européen inédit porté par la parole des jeunesses",
+      "source_url": "https://www.cnil.fr/fr/ia-conversationnelle-et-sante-mentale-la-parole-des-jeunesses",
       "source_id": "cnil-ai",
       "quality_class": "blocked_low_relevance",
       "quality_score": 25,
@@ -645,9 +1139,47 @@
       ]
     },
     {
+      "candidate_id": "CAND-0073",
+      "title": "Liste des sanctions prononcées",
+      "source_url": "https://www.cnil.fr/fr/mots-cles/sanction",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
       "candidate_id": "CAND-0074",
       "title": "Amende administrative de 27 millions d'euros et injonction",
       "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000053352594",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0074",
+      "title": "Amende administrative de 27 millions d'euros et injonction",
+      "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000053352594",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0075",
+      "title": "Amende administrative de 15 millions d'euros et injonction",
+      "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000053352643",
       "source_id": "cnil-ai",
       "quality_class": "blocked_low_relevance",
       "quality_score": 25,
@@ -684,9 +1216,48 @@
       ]
     },
     {
+      "candidate_id": "CAND-0076",
+      "title": "Amende administrative de 5 millions d'euros et injonction",
+      "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000053408671",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
       "candidate_id": "CAND-0077",
       "title": "Amende administrative de 900 000 euros et injonction",
       "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000051630617",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0077",
+      "title": "Amende administrative de 900 000 euros et injonction",
+      "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000051630617",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0078",
+      "title": "Amende administrative de 80 000 euros",
+      "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000051660380",
       "source_id": "cnil-ai",
       "quality_class": "blocked_low_relevance",
       "quality_score": 25,
@@ -723,9 +1294,46 @@
       ]
     },
     {
+      "candidate_id": "CAND-0079",
+      "title": "Amende administrative de 325 millions d'euros et injonction",
+      "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000052182222",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
       "candidate_id": "CAND-0080",
       "title": "Guidelines, Recommendations, Best Practices",
       "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0080",
+      "title": "Guidelines, Recommendations, Best Practices",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0081",
+      "title": "Opinions",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/consistency-findings/opinions_en",
       "source_id": "edpb-ai",
       "quality_class": "blocked_low_relevance",
       "quality_score": 53,
@@ -759,9 +1367,47 @@
       ]
     },
     {
+      "candidate_id": "CAND-0082",
+      "title": "Binding Decisions",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/consistency-findings/binding-decisions_en",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
       "candidate_id": "CAND-0083",
       "title": "News",
       "source_url": "https://www.edpb.europa.eu/news/news_en",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 33,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0083",
+      "title": "News",
+      "source_url": "https://www.edpb.europa.eu/news/news_en",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 33,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0084",
+      "title": "EDPB News",
+      "source_url": "https://www.edpb.europa.eu/news/news_en?news_type=1",
       "source_id": "edpb-ai",
       "quality_class": "blocked_low_relevance",
       "quality_score": 33,
@@ -798,6 +1444,19 @@
       ]
     },
     {
+      "candidate_id": "CAND-0085",
+      "title": "National News",
+      "source_url": "https://www.edpb.europa.eu/news/news_en?news_type=2",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 33,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
       "candidate_id": "CAND-0086",
       "title": "One-Stop-Shop News",
       "source_url": "https://www.edpb.europa.eu/news/news_en?news_type=3",
@@ -808,6 +1467,31 @@
       "rejection_reasons": [
         "No AI/algorithm relevance detected",
         "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0086",
+      "title": "One-Stop-Shop News",
+      "source_url": "https://www.edpb.europa.eu/news/news_en?news_type=3",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 33,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0087",
+      "title": "Guidelines 1/2026 on processing of personal data for scientific research purposes",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/documents/public-consultations/2026/guidelines-12026-processing-personal-data_en",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
       ]
     },
     {
@@ -836,6 +1520,19 @@
       ]
     },
     {
+      "candidate_id": "CAND-0088",
+      "title": "Guidelines",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/our-documents/publication-type/guidelines_en",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 33,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
       "candidate_id": "CAND-0089",
       "title": "Recommendations 1/2026 on the Application for Approval and on the elements and principles to be found in Processor Binding Corporate Rules (Art. 47 GDPR)",
       "source_url": "https://www.edpb.europa.eu/our-work-tools/documents/public-consultations/2026/recommendations-12026-application-approval-and_en",
@@ -845,6 +1542,31 @@
       "promotion_eligible": false,
       "rejection_reasons": [
         "No AI/algorithm relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0089",
+      "title": "Recommendations 1/2026 on the Application for Approval and on the elements and principles to be found in Processor Binding Corporate Rules (Art. 47 GDPR)",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/documents/public-consultations/2026/recommendations-12026-application-approval-and_en",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0090",
+      "title": "News",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 33,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
       ]
     },
     {
@@ -873,6 +1595,30 @@
       ]
     },
     {
+      "candidate_id": "CAND-0091",
+      "title": "AI Office",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-office",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_policy_update",
+      "quality_score": 45,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0092",
+      "title": "Artificial Intelligence",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/artificial-intelligence",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_policy_update",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
       "candidate_id": "CAND-0092",
       "title": "Artificial Intelligence",
       "source_url": "https://digital-strategy.ec.europa.eu/en/policies/artificial-intelligence",
@@ -895,6 +1641,16 @@
       "rejection_reasons": []
     },
     {
+      "candidate_id": "CAND-0093",
+      "title": "The Action Plan",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-sets-course-europes-ai-leadership-ambitious-ai-continent-action-plan",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_enforcement_case",
+      "quality_score": 73,
+      "promotion_eligible": false,
+      "rejection_reasons": []
+    },
+    {
       "candidate_id": "CAND-0094",
       "title": "AI Act",
       "source_url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
@@ -902,6 +1658,26 @@
       "quality_class": "likely_regulatory_guidance",
       "quality_score": 81,
       "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0094",
+      "title": "AI Act",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 81,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0095",
+      "title": "AI Factories and Gigafactories",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-factories",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 65,
+      "promotion_eligible": false,
       "rejection_reasons": []
     },
     {
@@ -927,6 +1703,28 @@
       ]
     },
     {
+      "candidate_id": "CAND-0096",
+      "title": "InvestAI Facility",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news/eu-launches-investai-initiative-mobilise-eu200-billion-investment-artificial-intelligence",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_policy_update",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0097",
+      "title": "AI Act Service Desk",
+      "source_url": "https://ai-act-service-desk.ec.europa.eu/en",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 81,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
       "candidate_id": "CAND-0097",
       "title": "AI Act Service Desk",
       "source_url": "https://ai-act-service-desk.ec.europa.eu/en",
@@ -943,6 +1741,30 @@
       "source_id": "european-commission-ai-act",
       "quality_class": "likely_policy_update",
       "quality_score": 61,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0098",
+      "title": "AI innovation package to support Artificial Intelligence startups and SMEs",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-launches-ai-innovation-package-support-artificial-intelligence-startups-and-smes",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_policy_update",
+      "quality_score": 61,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0099",
+      "title": "AI thrives from the lab to the market",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-lab-market",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_policy_update",
+      "quality_score": 45,
       "promotion_eligible": false,
       "rejection_reasons": [
         "No legal/regulatory relevance detected"
@@ -1364,6 +2186,420 @@
     },
     {
       "candidate_id": "CAND-0134",
+      "title": "AI thrives from the lab to the market",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-lab-market",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_policy_update",
+      "quality_score": 45,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0135",
+      "title": "Algorithms, Artificial Intelligence, and Disability Discrimination in Hiring",
+      "source_url": "https://www.ada.gov/resources/ai-guidance/",
+      "source_id": "doj-ada-ai-guidance",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 81,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0136",
+      "title": "Artificial intelligence (AI) and data protection",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 89,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0137",
+      "title": "Explaining decisions made with AI",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 73,
+      "promotion_eligible": false,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0138",
+      "title": "Biometric data guidance: Biometric recognition",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/biometric-data-guidance-biometric-recognition/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 73,
+      "promotion_eligible": false,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0139",
+      "title": "AI and data protection risk toolkit",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/ai-and-data-protection-risk-toolkit/",
+      "source_id": "ico-ai-and-algorithms",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 81,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0140",
+      "title": "Faire vérifier une décision automatisée",
+      "source_url": "https://www.cnil.fr/fr/vos-droits-lintervention-humaine-face-votre-profilage-ou-une-decision-automatisee",
+      "source_id": "cnil-ai",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 65,
+      "promotion_eligible": false,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0141",
+      "title": "IA conversationnelle et santé mentale des jeunes : résultats de l’enquête européenne",
+      "source_url": "https://www.cnil.fr/fr/ia-conversationnelle-et-sante-mentale-des-jeunes-resultats-de-lenquete-europeenne",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0142",
+      "title": "IA conversationnelle et santé mentale des jeunes : un débat européen inédit porté par la parole des jeunesses",
+      "source_url": "https://www.cnil.fr/fr/ia-conversationnelle-et-sante-mentale-la-parole-des-jeunesses",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0143",
+      "title": "Liste des sanctions prononcées",
+      "source_url": "https://www.cnil.fr/fr/mots-cles/sanction",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0144",
+      "title": "Amende administrative de 27 millions d'euros et injonction",
+      "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000053352594",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0145",
+      "title": "Amende administrative de 15 millions d'euros et injonction",
+      "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000053352643",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0146",
+      "title": "Amende administrative de 5 millions d'euros et injonction",
+      "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000053408671",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0147",
+      "title": "Amende administrative de 900 000 euros et injonction",
+      "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000051630617",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0148",
+      "title": "Amende administrative de 80 000 euros",
+      "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000051660380",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0149",
+      "title": "Amende administrative de 325 millions d'euros et injonction",
+      "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000052182222",
+      "source_id": "cnil-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 25,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0150",
+      "title": "Guidelines, Recommendations, Best Practices",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0151",
+      "title": "Opinions",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/consistency-findings/opinions_en",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0152",
+      "title": "Binding Decisions",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/consistency-findings/binding-decisions_en",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0153",
+      "title": "News",
+      "source_url": "https://www.edpb.europa.eu/news/news_en",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 33,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0154",
+      "title": "EDPB News",
+      "source_url": "https://www.edpb.europa.eu/news/news_en?news_type=1",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 33,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0155",
+      "title": "National News",
+      "source_url": "https://www.edpb.europa.eu/news/news_en?news_type=2",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 33,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0156",
+      "title": "One-Stop-Shop News",
+      "source_url": "https://www.edpb.europa.eu/news/news_en?news_type=3",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 33,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0157",
+      "title": "Guidelines 1/2026 on processing of personal data for scientific research purposes",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/documents/public-consultations/2026/guidelines-12026-processing-personal-data_en",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0158",
+      "title": "Guidelines",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/our-documents/publication-type/guidelines_en",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 33,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0159",
+      "title": "Recommendations 1/2026 on the Application for Approval and on the elements and principles to be found in Processor Binding Corporate Rules (Art. 47 GDPR)",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/documents/public-consultations/2026/recommendations-12026-application-approval-and_en",
+      "source_id": "edpb-ai",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0160",
+      "title": "News",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "blocked_low_relevance",
+      "quality_score": 33,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No AI/algorithm relevance detected",
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0161",
+      "title": "AI Office",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-office",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_policy_update",
+      "quality_score": 45,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0162",
+      "title": "Artificial Intelligence",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/artificial-intelligence",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_policy_update",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0163",
+      "title": "The Action Plan",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-sets-course-europes-ai-leadership-ambitious-ai-continent-action-plan",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_enforcement_case",
+      "quality_score": 73,
+      "promotion_eligible": false,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0164",
+      "title": "AI Act",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 81,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0165",
+      "title": "AI Factories and Gigafactories",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-factories",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 65,
+      "promotion_eligible": false,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0166",
+      "title": "InvestAI Facility",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news/eu-launches-investai-initiative-mobilise-eu200-billion-investment-artificial-intelligence",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_policy_update",
+      "quality_score": 53,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0167",
+      "title": "AI Act Service Desk",
+      "source_url": "https://ai-act-service-desk.ec.europa.eu/en",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 81,
+      "promotion_eligible": true,
+      "rejection_reasons": []
+    },
+    {
+      "candidate_id": "CAND-0168",
+      "title": "AI innovation package to support Artificial Intelligence startups and SMEs",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-launches-ai-innovation-package-support-artificial-intelligence-startups-and-smes",
+      "source_id": "european-commission-ai-act",
+      "quality_class": "likely_policy_update",
+      "quality_score": 61,
+      "promotion_eligible": false,
+      "rejection_reasons": [
+        "No legal/regulatory relevance detected"
+      ]
+    },
+    {
+      "candidate_id": "CAND-0169",
       "title": "AI thrives from the lab to the market",
       "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-lab-market",
       "source_id": "european-commission-ai-act",

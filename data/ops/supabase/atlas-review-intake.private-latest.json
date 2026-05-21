@@ -1,0 +1,102 @@
+{
+  "_schema": "caesar-atlas/supabase-payload/atlas-review-intake/private-latest/v1",
+  "generated_at": "2026-05-21T18:39:54.250Z",
+  "mode": "dry_run_export",
+  "run_id": "GREEN-RUN-20260521-202417",
+  "remote_write_attempted": false,
+  "note": "Sanitized private review intake payload for atlas_review_intake table. No remote write. No raw HTML. No secrets.",
+  "records": [
+    {
+      "intake_id": "INTAKE-GREEN-RUN-20260521-202417-001",
+      "source_run_id": "GREEN-RUN-20260521-202417",
+      "source_signal_id": "SIG-7355036B",
+      "source_id": "ico-ai-and-algorithms",
+      "candidate_hash": "ca4df6dd1c503954",
+      "review_status": "needs_review",
+      "legal_governance_relevance": "high",
+      "suggested_record_type": "candidate",
+      "suggested_control_themes": [
+        "CTL-GUIDANCE-TRACKING",
+        "CTL-COMPLIANCE-UPDATE-PROCESS"
+      ],
+      "human_review_required": true,
+      "public_publish_ready": false,
+      "safety_flags": {
+        "no_raw_html": true,
+        "no_long_third_party_text": true,
+        "no_secrets_exposed": true,
+        "no_unauthorized_remote_writes": true,
+        "no_public_site_leak": true
+      }
+    },
+    {
+      "intake_id": "INTAKE-GREEN-RUN-20260521-202417-002",
+      "source_run_id": "GREEN-RUN-20260521-202417",
+      "source_signal_id": "SIG-82E713BC",
+      "source_id": "cnil-ai",
+      "candidate_hash": "de74cd58af136964",
+      "review_status": "needs_review",
+      "legal_governance_relevance": "low",
+      "suggested_record_type": "candidate",
+      "suggested_control_themes": [
+        "CTL-GUIDANCE-TRACKING",
+        "CTL-COMPLIANCE-UPDATE-PROCESS"
+      ],
+      "human_review_required": true,
+      "public_publish_ready": false,
+      "safety_flags": {
+        "no_raw_html": true,
+        "no_long_third_party_text": true,
+        "no_secrets_exposed": true,
+        "no_unauthorized_remote_writes": true,
+        "no_public_site_leak": true
+      }
+    },
+    {
+      "intake_id": "INTAKE-GREEN-RUN-20260521-202417-003",
+      "source_run_id": "GREEN-RUN-20260521-202417",
+      "source_signal_id": "SIG-8B004750",
+      "source_id": "edpb-ai",
+      "candidate_hash": "4ef0bde5c2c8bc3d",
+      "review_status": "needs_review",
+      "legal_governance_relevance": "high",
+      "suggested_record_type": "candidate",
+      "suggested_control_themes": [
+        "CTL-GUIDANCE-TRACKING",
+        "CTL-COMPLIANCE-UPDATE-PROCESS"
+      ],
+      "human_review_required": true,
+      "public_publish_ready": false,
+      "safety_flags": {
+        "no_raw_html": true,
+        "no_long_third_party_text": true,
+        "no_secrets_exposed": true,
+        "no_unauthorized_remote_writes": true,
+        "no_public_site_leak": true
+      }
+    },
+    {
+      "intake_id": "INTAKE-GREEN-RUN-20260521-202417-004",
+      "source_run_id": "GREEN-RUN-20260521-202417",
+      "source_signal_id": "SIG-C6C00DD4",
+      "source_id": "european-commission-ai-act",
+      "candidate_hash": "0d4f4df03a891aad",
+      "review_status": "needs_review",
+      "legal_governance_relevance": "low",
+      "suggested_record_type": "candidate",
+      "suggested_control_themes": [
+        "CTL-GUIDANCE-TRACKING",
+        "CTL-COMPLIANCE-UPDATE-PROCESS"
+      ],
+      "human_review_required": true,
+      "public_publish_ready": false,
+      "safety_flags": {
+        "no_raw_html": true,
+        "no_long_third_party_text": true,
+        "no_secrets_exposed": true,
+        "no_unauthorized_remote_writes": true,
+        "no_public_site_leak": true
+      }
+    }
+  ]
+}

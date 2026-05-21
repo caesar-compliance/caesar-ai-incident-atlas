@@ -26,6 +26,10 @@ const WITH_WATCH_QUEUE = process.argv.includes('--with-watch-queue');
 // Can combine: --with-bounded-green-run --execute-green-fetch (requires explicit --execute-green-fetch for network)
 const WITH_BOUNDED_GREEN = process.argv.includes('--with-bounded-green-run');
 
+// T062: optional flag to include private candidate review intake generation, export, and validation
+// Default: OFF (safe). Enable with: node scripts/run-local-automation-cycle.mjs --with-review-intake
+const WITH_REVIEW_INTAKE = process.argv.includes('--with-review-intake');
+
 const STAGES = [
   { name: 'run-real-pipeline',              script: 'scripts/run-real-pipeline.mjs',                   args: [],          optional: false },
   { name: 'export-ops-status',              script: 'scripts/export-ops-status.mjs',                   args: [],          optional: false },
@@ -48,6 +52,13 @@ const STAGES = [
     { name: 'build-private-candidate-signals',    script: 'scripts/build-private-candidate-signals.mjs',    args: [],          optional: false },
     { name: 'export-hosted-watch-run-payloads',  script: 'scripts/export-hosted-watch-run-payloads.mjs',  args: [],          optional: false },
     { name: 'validate-bounded-green-source-run', script: 'scripts/validate-bounded-green-source-run.mjs', args: [],          optional: false },
+  ] : []),
+  // T062 — private candidate review intake stages
+  ...(WITH_REVIEW_INTAKE ? [
+    { name: 'build-private-candidate-review-intake',    script: 'scripts/build-private-candidate-review-intake.mjs',    args: [],          optional: false },
+    { name: 'export-review-console-private-intake',    script: 'scripts/export-review-console-private-intake.mjs',    args: [],          optional: false },
+    { name: 'export-hosted-review-intake-payloads',    script: 'scripts/export-hosted-review-intake-payloads.mjs',    args: [],          optional: false },
+    { name: 'validate-private-candidate-review-intake', script: 'scripts/validate-private-candidate-review-intake.mjs', args: [],          optional: false },
   ] : []),
 ];
 

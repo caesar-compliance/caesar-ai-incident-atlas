@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T054 — INC-0013 published; dataset now 13 records)
+**Last updated:** 21 May 2026 (T062 — Private Candidate Review Intake; dataset now 13 records)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -233,6 +233,30 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T060-manual-watch-run-queue/DECISIONS.md` | T060 decisions | Decisions DEC-137 through DEC-142. |
 | `work-items/T060-manual-watch-run-queue/VALIDATION.md` | T060 validation | Validation checklist and results. |
 | `work-items/T060-manual-watch-run-queue/IMPLEMENTATION_REPORT.md` | T060 report | Implementation report with files created/modified. |
+| `data/watch/config/manual-green-run-policy.json` | Safety Policy | safety policy encoding all T061 constraints: green-only, no yellow/red, no AIID/OECD/AIAAIC, bounded fetch limits, metadata-only storage. (T061) |
+| `scripts/build-private-candidate-signals.mjs` | Signal Builder | metadata-only signal builder; zero signals allowed; no raw text/HTML stored; produces private candidate signal records. (T061) |
+| `scripts/validate-bounded-green-source-run.mjs` | Run Validator | 25-check safety validator verifying policy compliance, timeouts, response sizes, no full HTML, and no secrets. (T061) |
+| `data/ops/watch-runs/real-green-run-latest.json` | Run Output | Private run metadata output. (T061) |
+| `data/ops/supabase/atlas-candidate-signals.real-green-latest.json` | Ingestion Payload | Discovered candidate signals metadata. (T061) |
+| `data/ops/supabase/atlas-source-observations.real-green-latest.json` | Ingestion Payload | Discovered source observations metadata. (T061) |
+| `data/ops/supabase/atlas-watch-run.real-green-latest.json` | Ingestion Payload | Discovered watch run metadata. (T061) |
+| `work-items/T061-bounded-green-source-manual-run/TASK.md` | T061 task | Task checklist, scope, and status. |
+| `work-items/T061-bounded-green-source-manual-run/VALIDATION.md` | T061 validation | Validation checklist and results. |
+| `work-items/T061-bounded-green-source-manual-run/IMPLEMENTATION_REPORT.md` | T061 report | Implementation report of files created. |
+| `work-items/T061-bounded-green-source-manual-run/DECISIONS.md` | T061 decisions | Decisions made during T061 task. |
+| `schemas/pipeline/private-candidate-review-intake.schema.json` | Intake Schema | JSON Schema validating private review intake record shapes. (T062) |
+| `scripts/build-private-candidate-review-intake.mjs` | Intake Builder | Node script converting T061 signals into structured private review intake records. (T062) |
+| `scripts/export-review-console-private-intake.mjs` | Console Exporter | Exporter compiling console-safe metadata JSON for local review console dashboard. (T062) |
+| `scripts/export-hosted-review-intake-payloads.mjs` | Payload Exporter | Exporter compiling dry-run Supabase payloads for atlas_review_intake. (T062) |
+| `scripts/validate-private-candidate-review-intake.mjs` | Intake Validator | Private review intake validator verifying schema compliance and safety constants. (T062) |
+| `tools/review-console/data/private-candidate-intake.json` | Console Input | Local console private candidate intake data. (T062) |
+| `data/reviews/intake/private-candidate-intake-latest.json` | Intake Output | Structured latest private review intake records. (T062) |
+| `data/reviews/intake/private-candidate-intake-manifest.json` | Intake Manifest | Latest review intake manifest. (T062) |
+| `data/ops/supabase/atlas-review-intake.private-latest.json` | Supabase Payload | Sanitized atlas_review_intake dry-run payload. (T062) |
+| `work-items/T062-private-candidate-review-intake/TASK.md` | T062 task | Task checklist, scope, and status. |
+| `work-items/T062-private-candidate-review-intake/VALIDATION.md` | T062 validation | Validation checklist and results. |
+| `work-items/T062-private-candidate-review-intake/IMPLEMENTATION_REPORT.md` | T062 report | Implementation report of files created. |
+| `work-items/T062-private-candidate-review-intake/DECISIONS.md` | T062 decisions | Decisions made during T062 task. |
 
 ## docs/ Directory
 

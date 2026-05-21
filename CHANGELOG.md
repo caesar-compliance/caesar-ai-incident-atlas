@@ -5,6 +5,21 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.21.0] - 21 May 2026
+
+### Added
+- **T062 — Private Candidate Review Intake from Real Green-source Signals.**
+  - `schemas/pipeline/private-candidate-review-intake.schema.json` — private candidate review intake schema; enforces defaults (`review_status: "needs_review"`, `human_review_required: true`) and strict safety constants.
+  - `scripts/build-private-candidate-review-intake.mjs` — private review intake builder; converts T061 real Green-source private candidate signals into review intake records under stable per-run directories.
+  - `scripts/export-review-console-private-intake.mjs` — review console exporter; generates console-friendly private JSON with strict metadata/counts containment (no raw text).
+  - `scripts/export-hosted-review-intake-payloads.mjs` — hosted payload exporter; exports sanitized dry-run Supabase-ready JSON for the future `atlas_review_intake` table.
+  - `scripts/validate-private-candidate-review-intake.mjs` — private review intake validator verifying schema compliance, file presence, safety invariants, and signal mapping counts.
+  - `scripts/validate-hosted-sync-safety.mjs` — safety validator expanded to include 10 rigorous T062 validation checks.
+  - Integrated option `--with-review-intake` into local automation cycle script `run-local-automation-cycle.mjs`.
+  - Added safe numeric counts/statuses in `export-ops-status.mjs`.
+  - Documented task artifacts: `work-items/T062-private-candidate-review-intake/` `TASK.md`, `VALIDATION.md`, `IMPLEMENTATION_REPORT.md`, and `DECISIONS.md`.
+  - **Safety:** Enforces zero public cases, zero promotion packets, zero public previews, zero Supabase writes, zero site/ leakage. Public count remains 13. Latest remains INC-0013. No INC-0014.
+
 ## [0.20.0] - 21 May 2026
 
 ### Added
