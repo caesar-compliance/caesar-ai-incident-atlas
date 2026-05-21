@@ -1,0 +1,30 @@
+{
+  "_schema": "caesar-atlas/reviews/review-console-private-draft-candidate-package/v1",
+  "generated_at": "2026-05-21T19:27:01.745Z",
+  "package_count": 1,
+  "source_run_id": "GREEN-RUN-20260521-202417",
+  "intake_id": "INTAKE-GREEN-RUN-20260521-202417-001",
+  "approval_id": "APPROVAL-GREEN-RUN-20260521-202417-001",
+  "draft_status": "private_draft_candidate",
+  "public_publish_ready_count": 0,
+  "blockers": [
+    "human legal/governance review required",
+    "no source quotation review",
+    "no public-safe narrative approved",
+    "no promotion packet created",
+    "no publication preview created"
+  ],
+  "suggested_title": "AI Governance Review: Information Commissioner's Office (ICO) AI and Algorithms",
+  "suggested_control_themes": [
+    "CTL-GUIDANCE-TRACKING",
+    "CTL-COMPLIANCE-UPDATE-PROCESS"
+  ],
+  "suggested_evidence_questions": [
+    "Have we mapped and reviewed the latest guidance from Information Commissioner's Office (ICO) AI and Algorithms?",
+    "Is there a documented compliance gap assessment against Information Commissioner's Office (ICO) AI and Algorithms's guidelines?"
+  ],
+  "suggested_vendor_questions": [
+    "Does the vendor track and conform to AI governance guidance issued by Information Commissioner's Office (ICO) AI and Algorithms?",
+    "What evidence does the vendor provide to demonstrate compliance with the latest Information Commissioner's Office (ICO) AI and Algorithms standards?"
+  ]
+}

@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T063-FIX)
+**Last updated:** 21 May 2026 (T066)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.22.1` |
-| Current phase | `T063-FIX — Reset Private Draft Approval & Restore Baseline` |
-| Status | `active` |
-| Latest completed task | `T063-FIX — Reset Private Draft Approval & Restore Baseline` |
-| Active work item | `T063 complete. T063-FIX successfully reset all review decisions to needs_more_review, restoring 0 approved decisions and 0 draft packets baseline. Tightened validator controls to enforce zero baseline approvals.` |
-| Next recommended step | `Execute controlled private draft promotion in T064 (next phase).` |
+| Current version | `0.25.0` |
+| Current phase | `T066 — Private Draft Candidate Packet Shaping` |
+| Status | `complete` |
+| Latest completed task | `T066 — Private Draft Candidate Packet Shaping` |
+| Active work item | `T066 complete. Converted approved private draft-candidate packet into rich Caesar-native private draft candidate package containing synthesized governance chain, public readiness blocks, Supabase payload mapping dry-runs, and local review console overlays.` |
+| Next recommended step | `Execute T067 — private promotion-packet dry-run preparation.` |
 
 ---
 
@@ -69,6 +69,9 @@
 | T062 — Private Candidate Review Intake | **Complete** — Converted T061 Green-source signals into structured private review intake records. | 21 May 2026 |
 | T063 — Private Review Console UI + Review Decision Packets | **Complete** — Implemented local-only review decisions and draft packets workflow, patch CLI tool, upgraded review console UI, and strict safety validation. | 21 May 2026 |
 | T063-FIX — Reset Private Draft Approval & Restore Baseline | **Complete** — Reset all decisions to needs_more_review, 0 approved, 0 draft packets baseline, and tightened validator. | 21 May 2026 |
+| T064 — Explicit Private Draft Approval Gate + Controlled Draft Packet Promotion | **Complete** — local-only explicit approval marker schema, generator, applier, updated controlled draft packet builder, dynamic validators, and console UI upgrades. | 21 May 2026 |
+| T065 — Controlled Approval of One Private Intake + Draft Candidate Packet | **Complete** — local-only approved marker generator, selected single candidate, promoted 1 decision, compiled 1 draft packet, updated console and hosted exporters. | 21 May 2026 |
+| T066 — Private Draft Candidate Packet Shaping | **Complete** — rich private draft package schema, compiler builder, console widgets, Supabase dry-runs, workflow runner, and safety checker. | 21 May 2026 |
 | v0.8.0 Product Pivot — Strategic repositioning | Complete — Strategic docs, mapping models, and automation policies created | 21 May 2026 |
 | v0.7.8 Dataset Expansion — INC-0012 drafted | Complete — 12 records; INC-0012 prepared for CT review | 20 May 2026 |
 | v0.7.7 Dataset Expansion — INC-0011 signed off | Complete — 11 records; INC-0011 governance-approved | 20 May 2026 |

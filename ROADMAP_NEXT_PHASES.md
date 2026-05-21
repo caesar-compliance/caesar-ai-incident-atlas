@@ -1,9 +1,9 @@
 # Roadmap — Next Phases — caesar-ai-incident-atlas
 
 **Created:** 20 May 2026 (T032)
-**Last updated:** 21 May 2026 (T065)
+**Last updated:** 21 May 2026 (T066)
 **Baseline:** Public MVP v0.13.0. 13 records. INC-0013 (EDPB guidance, first real adapter-detected case) published under CT approval.
-**Status:** Active MVP. INC-0013 live. Promotion pipeline fully operational. Next: additional CT-approved promotions from remaining ranked packets.
+**Status:** Active MVP. INC-0013 live. Promotion pipeline fully operational. Next: private promotion-packet dry-run preparation (T067).
 
 See `PUBLIC_MVP_BASELINE_FREEZE.md` for frozen baseline rules.
 See `ROADMAP.md` for the full historical phase plan.
@@ -206,6 +206,21 @@ For each of the 12 (and future) case records, map to:
 
 ---
 
+## v1.7 — Private Draft Candidate Packet Shaping (T066 — 21 May 2026)
+
+**T066 complete** — Shaped approved private draft candidate packet into a richer Caesar-native private draft candidate package with strict metadata schemas and console UI widgets.
+
+- Designed strict schema `private-draft-candidate-package.schema.json` with draft status, readiness blocks, and safety flags.
+- Built compiler `build-private-draft-candidate-package.mjs` synthesizing the metadata governance chain.
+- Exported console data `export-review-console-private-draft-candidate-data.mjs` and Supabase dry-run payloads `export-hosted-private-draft-candidate-payloads.mjs`.
+- Implemented workflow runner `run-private-draft-candidate-workflow.mjs` and custom offline validator `validate-private-draft-candidate-package.mjs`.
+- Upgraded Review Console UI widgets and panels to render shaped packages safely.
+- Safety: Zero public leaks, public count remains 13, no INC-0014, all safety flags evaluated.
+
+**Next T067:** Private promotion-packet dry-run preparation.
+
+---
+
 ## v1.6 — Controlled Private Intake Approval (T065 — 21 May 2026)
 
 **T065 complete** — Controlled approval of exactly one private candidate intake record and draft-candidate ready packet.
@@ -219,7 +234,7 @@ For each of the 12 (and future) case records, map to:
 - Integrated dynamic active approvals count into ops status outputs.
 - Regression tests suite (`test-controlled-private-draft-approval.mjs`) verifying containment, duplicate rejection, and schema safety.
 
-**Next T066:** Private draft-to-candidate packet shaping.
+**Next:** T066 private draft candidate packet shaping.
 
 ---
 

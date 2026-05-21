@@ -298,6 +298,21 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T065-controlled-private-intake-approval/VALIDATION.md` | T065 validation | Validation checklist and results. |
 | `work-items/T065-controlled-private-intake-approval/IMPLEMENTATION_REPORT.md` | T065 report | Implementation report of files created. |
 | `work-items/T065-controlled-private-intake-approval/DECISIONS.md` | T065 decisions | Decisions made during T065 task. |
+| `schemas/pipeline/private-draft-candidate-package.schema.json` | Package Schema | JSON Schema validating rich private draft candidate package records. (T066) |
+| `scripts/build-private-draft-candidate-package.mjs` | Package Builder | CLI compiler forming structured private draft candidate packages from intake/rationales. (T066) |
+| `scripts/export-hosted-private-draft-candidate-payloads.mjs` | Hosted Payload Exporter | Sanitizes and exports dry-run payload formats matching future database schema. (T066) |
+| `scripts/export-review-console-private-draft-candidate-data.mjs` | Console Data Exporter | Prepares clean metadata-only summaries for local Review Console integration. (T066) |
+| `scripts/validate-private-draft-candidate-package.mjs` | Package Validator | Programmatic checker enforcing package structure, hash integrity, and strict safety. (T066) |
+| `scripts/run-private-draft-candidate-workflow.mjs` | Shaping Workflow Runner | Bounded local runner orchestration script managing packet promotion workflow steps. (T066) |
+| `tools/review-console/data/private-draft-candidate-package.json` | Console Package Data | Exported summary JSON utilized by local Review Console interface. (T066) |
+| `data/reviews/private-draft-candidates/private-draft-candidate-package-latest.json` | Latest Package Output | Structured latest generated private draft candidate package. (T066) |
+| `data/reviews/private-draft-candidates/private-draft-candidate-package-manifest.json` | Package Manifest | Latest generated package manifest with details and counts. (T066) |
+| `data/ops/supabase/atlas-private-draft-candidate-package.private-latest.json` | Hosted Dry-Run Payload | Dry-run atlas_private_draft_candidates payload sanitized of secrets and long text. (T066) |
+| `work-items/T066-private-draft-candidate-shaping/TASK.md` | T066 task | Task checklist, scope, and status. |
+| `work-items/T066-private-draft-candidate-shaping/VALIDATION.md` | T066 validation | Validation checklist and results. |
+| `work-items/T066-private-draft-candidate-shaping/IMPLEMENTATION_REPORT.md` | T066 report | Implementation report of files created. |
+| `work-items/T066-private-draft-candidate-shaping/DECISIONS.md` | T066 decisions | Decisions made during T066 task. |
+
 
 
 ## docs/ Directory

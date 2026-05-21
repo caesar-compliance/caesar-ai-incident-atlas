@@ -4,6 +4,20 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [0.25.0] - 21 May 2026
+
+### Added
+- **T066 — Private Draft Candidate Packet Shaping.**
+  - `schemas/pipeline/private-draft-candidate-package.schema.json` — Enforces deterministic fields (`package_id`, `draft_status: "private_draft_candidate"`, safety flags, public readiness indicators, and Caesar-native synthesis chain fields).
+  - `scripts/build-private-draft-candidate-package.mjs` — Compiles the single approved private draft candidate packet, intake details, decisions, and rationale into a unified in-place private draft candidate package.
+  - `scripts/export-hosted-private-draft-candidate-payloads.mjs` — Formats Supabase-ready dry-run payloads for the future `atlas_private_draft_candidates` table in a strictly sanitized fashion.
+  - `scripts/export-review-console-private-draft-candidate-data.mjs` — Prepares console-friendly metadata summaries outside `site/` bounds.
+  - `scripts/validate-private-draft-candidate-package.mjs` — High-integrity validation script verifying schema compliance, referential integrity, and rigorous safety invariants.
+  - `scripts/run-private-draft-candidate-workflow.mjs` — Isolated, bounded, local-only runner integrating all shaping steps and compiling concise logs.
+  - Updated review console dropdown and side-panel widgets to render structured private candidate packages under prominent "Private draft candidate only • Not public • No INC-0014 • Human review required" indicators.
+  - Expanded `validate-hosted-sync-safety.mjs` and `export-ops-status.mjs` to incorporate the new status properties and counts.
+  - Documented work items: `work-items/T066-private-draft-candidate-shaping/` `TASK.md`, `VALIDATION.md`, `IMPLEMENTATION_REPORT.md`, and `DECISIONS.md`.
+
 ## [0.24.0] - 21 May 2026
 
 ### Added

@@ -179,6 +179,44 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    if (bundleName === 'private-draft-candidate-package.json') {
+      isPrivateIntakeBundle = false;
+      isRealBundle = false;
+      safetyWarningBanner.innerHTML = `<strong>[CRITICAL WARNING]</strong> PRIVATE DRAFT CANDIDATE PACKAGE • NOT APPROVED FOR PUBLIC ATLAS • NOT LEGAL ADVICE • STRICTLY LOCAL SANDBOX`;
+      safetyLabel.textContent = "PRIVATE DRAFT PACKAGE REVIEW";
+      if (safetyIndicator) {
+        safetyIndicator.className = 'pulse-purple';
+        safetyIndicator.style.backgroundColor = '#9333ea';
+      }
+      if (pipelineStageTabs) pipelineStageTabs.style.display = 'none';
+      if (pipelineSummaryBar) pipelineSummaryBar.style.display = 'none';
+      if (digestPreviewBlock) digestPreviewBlock.style.display = 'none';
+      if (qualityClassFilter) qualityClassFilter.style.display = 'none';
+
+      sidebarHeaderTitle.textContent = "Private Draft Packages";
+
+      fetch(`./data/private-draft-candidate-package.json`)
+      .then(r => r.json())
+      .then(packageData => {
+        bundleData = { records: [packageData] };
+        bundleTimestampEl.textContent = packageData.generated_at || packageData.created_at
+          ? new Date(packageData.generated_at || packageData.created_at).toLocaleString()
+          : 'Unknown';
+
+        renderSidebarPrivatePackage(packageData);
+      })
+      .catch(err => {
+        console.error("Error loading private draft package:", err);
+        draftListContainer.innerHTML = `
+          <div class="loading-placeholder" style="color: var(--color-danger);">
+            Failed to load Private Draft Package.<br>
+            Please run the T066 workflow scripts first!
+          </div>
+        `;
+      });
+      return;
+    }
+
     isPrivateIntakeBundle = false;
 
     fetch(`./${bundleName}`)
@@ -1361,6 +1399,146 @@ document.addEventListener('DOMContentLoaded', () => {
     gateStepControl.className = 'status-step blocked';
     gateStepControl.querySelector('.step-check').innerHTML = '🚫';
     gateStepControl.querySelector('.step-text').textContent = 'Public Promotion Gate';
+  }
+
+  function renderSidebarPrivatePackage(pkg) {
+    draftListContainer.innerHTML = '';
+    draftCountEl.textContent = '1';
+
+    const itemDiv = document.createElement('button');
+    itemDiv.className = `draft-item active`;
+    itemDiv.setAttribute('data-id', pkg.package_id);
+
+    itemDiv.innerHTML = `
+      <div class="draft-item-header">
+        <span class="draft-item-id" style="color: #a855f7;">${pkg.package_id}</span>
+        <span class="draft-item-tier badge-purple" style="background:#6b21a8; color:#fff; font-size:9px; padding:1px 4px; border-radius:3px;">PRIVATE DRAFT</span>
+      </div>
+      <div class="draft-item-title">${escapeHTML(pkg.suggested_title)}</div>
+      <div class="draft-item-meta">
+        <span>Status: <strong>${escapeHTML(pkg.draft_status)}</strong></span>
+        <span>${escapeHTML(pkg.source_id)}</span>
+      </div>
+    `;
+
+    itemDiv.addEventListener('click', () => {
+      selectPrivatePackage(pkg);
+    });
+
+    draftListContainer.appendChild(itemDiv);
+    selectPrivatePackage(pkg);
+  }
+
+  function selectPrivatePackage(pkg) {
+    selectedDraft = pkg;
+    emptyStatePanel.classList.add('hidden');
+    if (healthDetailPanel) healthDetailPanel.classList.add('hidden');
+    if (packetDetailPanel) packetDetailPanel.classList.add('hidden');
+    activeDetailPanel.classList.remove('hidden');
+
+    ['detail-local-only-label', 'detail-not-public-label', 'detail-not-approved-label', 'detail-promotion-blocked-label'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('hidden');
+    });
+
+    detailDraftId.textContent = 'DRAFT_PACKAGE';
+    detailCandidateId.textContent = pkg.package_id;
+    detailProposedTitle.textContent = pkg.suggested_title;
+    detailJurisdiction.textContent = 'Local (Private)';
+    detailLegalDomain.textContent = 'AI & Governance';
+    detailCommercialDomain.textContent = 'Draft Package';
+
+    detailCleanRoomSummary.innerHTML = `
+      <strong>Governance Chain / Synthesis (Caesar-native):</strong><br><br>
+      <div style="margin-bottom:6px;">• <strong>Signal:</strong> ${escapeHTML(pkg.governance_chain.candidate_signal)}</div>
+      <div style="margin-bottom:6px;">• <strong>Risk:</strong> ${escapeHTML(pkg.governance_chain.legal_or_governance_risk)}</div>
+      <div style="margin-bottom:6px;">• <strong>Failure Mode:</strong> ${escapeHTML(pkg.governance_chain.likely_failure_mode)}</div>
+      <div style="margin-bottom:6px;">• <strong>Controls:</strong> ${escapeHTML(pkg.governance_chain.missing_controls)}</div>
+      <div style="margin-bottom:6px;">• <strong>Required Evidence:</strong> ${escapeHTML(pkg.governance_chain.required_evidence)}</div>
+      <div style="margin-bottom:6px;">• <strong>Vendor Questions:</strong> ${escapeHTML(pkg.governance_chain.vendor_questions)}</div>
+      <div style="margin-bottom:6px;">• <strong>Training Lesson:</strong> ${escapeHTML(pkg.governance_chain.training_lesson)}</div>
+      <div style="margin-bottom:6px;">• <strong>Client Checklist:</strong> ${escapeHTML(pkg.governance_chain.client_checklist_items)}</div>
+    `;
+
+    detailCaseType.textContent = pkg.suggested_record_type || 'candidate';
+    detailSourceAuthorities.textContent = pkg.source_name || 'Unknown';
+
+    if (pkg.source_url) {
+      detailSourceUrl.href = pkg.source_url;
+      detailSourceUrl.textContent = pkg.source_url;
+      detailSourceUrl.classList.remove('hidden');
+    } else {
+      detailSourceUrl.href = '#';
+      detailSourceUrl.textContent = 'None';
+    }
+
+    const relevance = pkg.legal_governance_relevance || 'medium';
+    detailSourceTier.textContent = `RELEVANCE: ${relevance.toUpperCase()}`;
+    detailSourceTier.className = `tier-pill tier-${relevance === 'high' ? 'green' : relevance === 'low' ? 'red' : 'yellow'}`;
+
+    detailSourceRiskLevel.textContent = 'PRIVATE_DRAFT_CANDIDATE';
+    detailSourceRiskLevel.className = 'risk-pill risk-green';
+
+    detailPublishRecommendation.textContent = 'private_draft_shaping';
+    detailBusinessRisk.textContent = 'This draft candidate package is private and strictly kept in-place. Direct promotion to the public Atlas dataset is disallowed.';
+
+    populateList(detailFailureModesList, pkg.suggested_failure_modes || [], 'tag');
+    populateList(detailMissingControlsList, pkg.suggested_control_themes || [], 'control');
+    populateList(detailEvidenceList, pkg.suggested_evidence_questions || [], 'evidence');
+    detailTrainingLesson.textContent = 'Vendor evaluation checklist items are rendered below.';
+    populateList(detailVendorQuestionsList, pkg.suggested_vendor_questions || [], 'question');
+
+    simulationResultPanel.classList.remove('hidden');
+    simulationResultPanel.innerHTML = `
+      <div class="result-header" style="background-color: #6b21a8; color: white; padding: 10px; border-radius: 4px; font-weight: bold; margin-bottom: 10px; text-align: center; font-size:12px; letter-spacing:0.05em;">
+        PRIVATE DRAFT CANDIDATE PACKAGE
+      </div>
+      <div class="result-body" style="font-size: 13px;">
+        <div style="padding: 10px; background: rgba(107, 33, 168, 0.05); border: 1px solid rgba(107, 33, 168, 0.3); border-radius: 6px; margin-bottom: 12px;">
+          <div style="font-weight: 700; color: #a855f7; font-size: 13px; text-transform: uppercase;">
+            ${escapeHTML(pkg.draft_status.replace(/_/g, ' '))}
+          </div>
+          <div style="font-size: 11px; color: var(--color-text-muted); margin-top: 4px;">
+            Created: ${new Date(pkg.created_at).toLocaleString()}
+          </div>
+        </div>
+
+        <div style="margin-bottom: 8px;">
+          <strong>Public Readiness:</strong>
+          <p style="color: var(--color-danger); font-weight: bold; margin-top:2px; text-transform: uppercase;">NOT READY — Promotion Blocked</p>
+        </div>
+
+        <div style="margin-bottom: 8px;">
+          <strong>Blockers (${pkg.public_readiness.blockers.length}):</strong>
+          <ul style="color: var(--color-text-muted); padding-left: 20px; margin-top:4px;">
+            ${pkg.public_readiness.blockers.map(b => `<li>${escapeHTML(b)}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div style="margin-bottom: 8px;">
+          <strong>Missing Review Items (${pkg.missing_review_items.length}):</strong>
+          <ul style="color: var(--color-text-muted); padding-left: 20px; margin-top:4px;">
+            ${pkg.missing_review_items.map(m => `<li>${escapeHTML(m)}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div style="margin-top: 12px; font-size: 11px; border-top: 1px solid var(--border-color); padding-top: 8px; color: var(--color-danger); font-weight: bold;">
+          ⚠️ Private draft candidate only • Not public • No INC-0014 • Human review required
+        </div>
+      </div>
+    `;
+
+    gateStepCurator.className = 'status-step passed';
+    gateStepCurator.querySelector('.step-check').innerHTML = '✓';
+    gateStepCurator.querySelector('.step-text').textContent = 'Intake Approved';
+
+    gateStepWording.className = 'status-step passed';
+    gateStepWording.querySelector('.step-check').innerHTML = '✓';
+    gateStepWording.querySelector('.step-text').textContent = 'Draft Package Synthesized';
+
+    gateStepControl.className = 'status-step blocked';
+    gateStepControl.querySelector('.step-check').innerHTML = '🚫';
+    gateStepControl.querySelector('.step-text').textContent = 'Public Promotion Blocked';
   }
 
   // Initialize load

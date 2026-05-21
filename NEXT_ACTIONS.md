@@ -1,6 +1,6 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T065 Complete)
+**Last updated:** 21 May 2026 (T066 Complete)
 
 ---
 
@@ -78,6 +78,7 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 | T059 — Hosted Activation Preflight | **Complete** — Schema smoke tests, activation preflight, operator go-live guide | 21 May 2026 |
 | T060 — Manual Watch Run Queue + Hosted Run Payloads | **Complete** — Private run envelope schemas, queue builder, and dry-run exporters | 21 May 2026 |
 | T061 — Bounded Real Green-Source Manual Run | **Complete** — manual green-tier fetches (ICO/CNIL/EDPB/EU Commission), 4 candidate signals | 21 May 2026 |
+| T066 — Private Draft Candidate Packet Shaping | **Complete** — rich private draft package schema, compiler builder, console widgets, Supabase dry-runs, workflow runner, and safety checker | 21 May 2026 |
 | T062 — Private Candidate Review Intake | **Complete** — converted T061 signals to private review intake records, schema, exporters, and safety checks | 21 May 2026 |
 | T065 — Controlled Approval of One Private Intake + Draft Candidate Packet | **Complete** — local-only approved marker generator, selected single candidate, promoted 1 decision, compiled 1 draft packet, updated console and hosted exporters, and added regression tests | 21 May 2026 |
 | T064 — Explicit Private Draft Approval Gate + Controlled Draft Packet Promotion | **Complete** — local-only explicit approval marker schema, generator, applier, updated controlled draft packet builder, dynamic validators, and console UI upgrades | 21 May 2026 |
@@ -164,6 +165,25 @@ The following tasks require Artem / Control Tower review before execution:
 - v0.3 Dataset MVP — blocked until T006 dossier shortlist is approved.
 - Incident record creation — blocked until T006 is approved and workflow gates are passed.
 - Any mass import or scraping workflow — blocked unless separately approved.
+
+## T066 — Private Draft Candidate Packet Shaping (Complete — 21 May 2026)
+
+- `schemas/pipeline/private-draft-candidate-package.schema.json` — private draft candidate package schema enforcing strict draft status, Caesar-native synthesis chain, readiness blocks, and safety containment parameters.
+- `scripts/build-private-draft-candidate-package.mjs` — builder converting the approved private draft packet into a structured private draft candidate package.
+- `scripts/export-hosted-private-draft-candidate-payloads.mjs` — compiled dry-run Supabase payload mapping to the future `atlas_private_draft_candidates` table.
+- `scripts/export-review-console-private-draft-candidate-data.mjs` — exports console-safe summary JSON outside `site/` boundaries.
+- `scripts/validate-private-draft-candidate-package.mjs` — programmatic validator checking schema compliance, parent markers, and safety limits.
+- `scripts/run-private-draft-candidate-workflow.mjs` — bounded workflow runner script.
+- Upgraded Review Console UI widgets and styles to securely render and highlight private draft candidate packages.
+- Integrated new indicators and status counts into `validate-hosted-sync-safety.mjs` and `export-ops-status.mjs`.
+
+## T065 — Controlled Approval of One Private Intake + Draft Candidate Packet (Complete — 21 May 2026)
+
+- Local-only active approved marker generator (`create-active-private-draft-approval.mjs`) to verify signature.
+- Generated exactly 1 active approval marker under `data/reviews/approvals/active-markers/`.
+- Promoted 1 review decision to `approve_for_private_draft` and built exactly 1 draft-candidate packet.
+- Upgraded review console data exporter to dynamically overlay active approvals on templates.
+- Regression tests suite (`test-controlled-private-draft-approval.mjs`) verifying containment, duplicate rejection, and schema safety.
 
 ## T064 — Explicit Private Draft Approval Gate + Controlled Draft Packet Promotion (Complete — 21 May 2026)
 

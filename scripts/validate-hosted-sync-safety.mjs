@@ -1059,6 +1059,71 @@ if (packetsLatest && Array.isArray(packetsLatest.packets)) {
   }
 }
 
+// ── 66. T066: private draft candidate package check ──────────────────────────────
+const packageLatestPath = path.join(ROOT, 'data', 'reviews', 'private-draft-candidates', 'private-draft-candidate-package-latest.json');
+const packageLatest = readJson(packageLatestPath);
+if (packageLatest) {
+  if (packageLatest.draft_status !== 'private_draft_candidate') {
+    fail('T066: private draft candidate package draft_status is not private_draft_candidate');
+  } else {
+    pass('T066: private draft candidate package draft_status = private_draft_candidate');
+  }
+  if (packageLatest.human_review_required !== true) {
+    fail('T066: private draft candidate package human_review_required is not true');
+  } else {
+    pass('T066: private draft candidate package human_review_required = true');
+  }
+  if (packageLatest.public_publish_ready !== false) {
+    fail('T066: private draft candidate package public_publish_ready is not false');
+  } else {
+    pass('T066: private draft candidate package public_publish_ready = false');
+  }
+
+  const sf = packageLatest.safety_flags || {};
+  if (sf.no_raw_html !== true || sf.no_long_third_party_text !== true || sf.no_secrets_exposed !== true) {
+    fail('T066: private draft candidate package safety flags are invalid');
+  } else {
+    pass('T066: private draft candidate package safety flags are valid');
+  }
+} else {
+  pass('T066: private draft candidate package latest not present (ok)');
+}
+
+const hostedPkgPayloadPath = path.join(OPS_SUPABASE_DIR, 'atlas-private-draft-candidate-package.private-latest.json');
+const hostedPkgPayload = readJson(hostedPkgPayloadPath);
+if (hostedPkgPayload) {
+  if (hostedPkgPayload.remote_write_attempted !== false) {
+    fail('T066: atlas-private-draft-candidate-package.private-latest.json remote_write_attempted is not false');
+  } else {
+    pass('T066: atlas-private-draft-candidate-package.private-latest.json remote_write_attempted = false');
+  }
+  const records = hostedPkgPayload.records;
+  let pkgPayloadErrors = false;
+  if (Array.isArray(records)) {
+    for (const record of records) {
+      if (record.remote_write_attempted !== false && record.remote_write_attempted !== undefined) {
+        fail(`T066: atlas-private-draft-candidate-package.private-latest.json remote_write_attempted is true in record ${record.package_id}`);
+        pkgPayloadErrors = true;
+      }
+      if (record.public_publish_ready !== false) {
+        fail(`T066: atlas-private-draft-candidate-package.private-latest.json public_publish_ready is not false in record ${record.package_id}`);
+        pkgPayloadErrors = true;
+      }
+      if (record.human_review_required !== true) {
+        fail(`T066: atlas-private-draft-candidate-package.private-latest.json human_review_required is not true in record ${record.package_id}`);
+        pkgPayloadErrors = true;
+      }
+    }
+    if (!pkgPayloadErrors) {
+      pass('T066: hosted private draft candidate package payload records are fully sanitized (correct)');
+    }
+  } else {
+    fail('T066: atlas-private-draft-candidate-package.private-latest.json records is not an array');
+  }
+} else {
+  pass('T066: atlas-private-draft-candidate-package.private-latest.json not present (ok)');
+}
+
 // ── Final result ─────────────────────────────────────────────────────────────
 
 process.stdout.write('\n');

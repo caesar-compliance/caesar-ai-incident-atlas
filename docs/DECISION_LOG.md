@@ -1,12 +1,36 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T065 — DEC-155)
+**Last updated:** 21 May 2026 (T066 — DEC-160)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
 ---
 
 ## Decision History
+
+### [DEC-156 – DEC-160] — 21 May 2026 — T066 Private Draft Candidate Packet Shaping
+
+**Status:** Approved
+
+- **DEC-156:** Define a new schema `schemas/pipeline/private-draft-candidate-package.schema.json` to enforce strict draft status, Caesar-native synthesis chains, readiness blocks, and safety parameters.
+- **DEC-157:** Build a specialized compiler `scripts/build-private-draft-candidate-package.mjs` to shape the raw approved private draft packet into a structured package (`data/reviews/private-draft-candidates/private-draft-candidate-package-latest.json`) using supporting run context.
+- **DEC-158:** Synthesize a complete local-only `governance_chain` mapping risks, failure modes, missing controls, evidence requirements, and checklists while keeping details metadata-only and brief.
+- **DEC-159:** Export sanitized dry-run Supabase payloads for future `atlas_private_draft_candidates` edge tables while completely blocking raw HTML or third-party body text.
+- **DEC-160:** Upgrade the programmatic validators to strictly enforce T066 package structural consistency, signature matches, and safety-block constraints before local deployment or build runs.
+
+---
+
+### [DEC-151 – DEC-155] — 21 May 2026 — T065 Controlled Approval of One Private Intake + Draft Candidate Packet
+
+**Status:** Approved
+
+- **DEC-151:** Select a single target intake record (`INTAKE-GREEN-RUN-20260521-202417-001`) from the real Green-run ingest to serve as the pioneer controlled private draft candidate.
+- **DEC-152:** Maintain an isolated control gate by approving exactly one intake, keeping all other candidate signals in the `needs_more_review` state.
+- **DEC-153:** Compile a structured draft candidate packet (`data/reviews/draft-candidate-packets/private-draft-candidate-packets-latest.json`) mapping only the approved decision.
+- **DEC-154:** Update Review Console UI to dynamically read and overlay active approvals to provide visual feedback for local draft triaging.
+- **DEC-155:** Export safe status metrics (`private_draft_active_approval_count: 1`, `private_draft_candidate_packet_count: 1`) in `latest-status.json` without leaking active keys, URLs, or notes to public repositories.
+
+---
 
 ### [DEC-146 – DEC-150] — 21 May 2026 — T064 Explicit Private Draft Approval Gate + Controlled Draft Packet Promotion
 
