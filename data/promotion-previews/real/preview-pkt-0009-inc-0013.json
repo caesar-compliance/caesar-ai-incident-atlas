@@ -1,0 +1,56 @@
+{
+  "_dry_run_preview": true,
+  "_public": false,
+  "_not_approved": true,
+  "_warning": "THIS IS A DRY-RUN PREVIEW ONLY. NOT A PUBLIC RECORD. NOT APPROVED FOR PUBLICATION.",
+  "incident_id": "INC-0013",
+  "title": "[PREVIEW] AI Act Service Desk — European Commission (EU)",
+  "date": "21 May 2026",
+  "date_note": "DRAFT PREVIEW: Date requires verification from actual source material",
+  "sector": [
+    "cross-sector AI governance"
+  ],
+  "ai_system_context": "DRAFT: AI governance case from EU jurisdiction",
+  "summary": "[DRAFT PREVIEW] European Commission has published material relating to AI Act Service Desk. This record reflects metadata detected during a manual Green-source watcher run on 2026-05-21. This draft is a Caesar-authored internal working document compiled from public metadata only. No source text has been copied. This is not legal advice. This draft requires curator review and Control Tower approval before any public use.",
+  "failure_modes": [
+    "FM-GOVERNANCE-GAP",
+    "FM-COMPLIANCE-DEFICIT"
+  ],
+  "severity": "medium",
+  "confidence": "medium",
+  "controls": [
+    "CTL-GUIDANCE-TRACKING",
+    "CTL-COMPLIANCE-UPDATE-PROCESS"
+  ],
+  "evidence_required": [
+    "Evidence of regulatory guidance monitoring process",
+    "Record of internal impact assessment against this guidance",
+    "Documentation of AI system inventory and applicable controls",
+    "Board or senior management sign-off on compliance posture"
+  ],
+  "lessons": [
+    "[DRAFT] Regulatory bodies such as European Commission issue guidance that directly affects AI system deployments. Organisations must maintain active monitoring processes to detect and respond to new guidance before it becomes an enforcement trigger."
+  ],
+  "sources": [
+    {
+      "url": "https://ai-act-service-desk.ec.europa.eu/en",
+      "source_type": "public_database_pointer",
+      "accessed": "21 May 2026",
+      "title": "[DRAFT] European Commission reference"
+    }
+  ],
+  "harms": [
+    "[DRAFT] Potential regulatory non-compliance"
+  ],
+  "affected_stakeholders": [
+    "[DRAFT] AI system operators"
+  ],
+  "impact": "[DRAFT] Organisations using AI systems in EU face regulatory scrutiny from European Commission. Failure to track and implement guidance from this source may result in enforcement action, fines, or operational restrictions. Relevant to AI procurement, deployment, and compliance programmes.",
+  "_preview_metadata": {
+    "from_draft": "DRAFT-0009",
+    "from_packet": "PKT-0009",
+    "rank": 3,
+    "generated_at": "2026-05-21T14:34:57.875Z",
+    "promotion_blocked_reason": "No explicit Control Tower approval in approved-promotions.json"
+  }
+}

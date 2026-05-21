@@ -19,7 +19,7 @@
     "no_risk_detected"
   ],
   "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK.",
-  "quality_class": "generic_page",
+  "quality_class": "blocked_generic_page",
   "quality_score": 15,
   "promotion_eligible": false,
   "rejection_reasons": [

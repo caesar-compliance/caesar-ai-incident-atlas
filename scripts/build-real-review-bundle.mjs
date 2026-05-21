@@ -12,6 +12,7 @@ const DRAFTS_REAL_DIR = path.join(ROOT, 'data', 'drafts', 'real');
 const PACKETS_REAL_DIR = path.join(ROOT, 'data', 'promotion-packets', 'real');
 const LATEST_SUMMARY_PATH = path.join(ROOT, 'data', 'watch', 'runs', 'latest-watch-summary.json');
 const RANKED_PATH = path.join(ROOT, 'data', 'reviews', 'real', 'ranked-promotion-candidates.json');
+const SHORTLIST_PATH = path.join(ROOT, 'data', 'reviews', 'real', 'case-shortlist.json');
 const QUALITY_REPORT_PATH = path.join(ROOT, 'data', 'watch', 'runs', 'latest-candidate-quality-report.json');
 const ADAPTER_SUMMARY_PATH = path.join(ROOT, 'data', 'watch', 'runs', 'latest-adapter-summary.json');
 const OUTPUT_FILE = path.join(ROOT, 'tools', 'review-console', 'real-review-bundle.json');
@@ -86,6 +87,16 @@ function build() {
     }
   }
 
+  // Load shortlist if available
+  let shortlistData = null;
+  if (fs.existsSync(SHORTLIST_PATH)) {
+    try {
+      shortlistData = JSON.parse(fs.readFileSync(SHORTLIST_PATH, 'utf8'));
+    } catch (e) {
+      console.warn('Could not load case-shortlist.json:', e.message);
+    }
+  }
+
   const eligibleCount = candidates.filter(c => c.promotion_eligible === true).length;
   const blockedCount = candidates.filter(c => c.promotion_eligible === false).length;
   const genericBlockedCount = candidates.filter(c =>
@@ -108,7 +119,16 @@ function build() {
     promotion_packets: packets,
     ranked_candidates: rankedData,
     top_5_ranked: rankedData?.ranked_candidates?.slice(0, 5) || [],
+    shortlist: shortlistData,
+    source_health: sourceHealth?.source_health || [],
     adapter_summary: adapterSummary,
+    adapter_success_summary: adapterSummary?.adapters_used?.map(a => ({
+      source_id: a.source_id,
+      adapter_name: a.adapter_name,
+      ok: a.ok,
+      links_found: a.links_found,
+      candidates_written: a.candidates_written
+    })) || [],
     quality_report_summary: qualityReport ? {
       total_candidates: qualityReport.total_candidates,
       promotion_eligible_count: qualityReport.promotion_eligible_count,
@@ -149,11 +169,15 @@ function build() {
   console.log(`  Drafts:                  ${drafts.length}`);
   console.log(`  Promotion packets:       ${packets.length}`);
   console.log(`  Ranked data:             ${rankedData ? 'loaded' : 'not available'}`);
+  console.log(`  Shortlist:               ${shortlistData ? `${shortlistData.items?.length || 0} items` : 'not available'}`);
   console.log(`  Quality report:          ${qualityReport ? 'loaded' : 'not available'}`);
   console.log(`  Adapter summary:         ${adapterSummary ? 'loaded' : 'not available'}`);
   console.log(`  Source health:           ${sourceHealth ? 'loaded' : 'not available'}`);
   console.log(`  No candidate ready:      ${noPublicationCandidateReady}`);
   console.log(`  No case-quality ready:   ${noCaseQualityReady}`);
+  if (shortlistData?.summary?.any_ready_for_control_tower) {
+    console.log(`  Ready for review:        ${shortlistData.summary.top_recommended_packet}`);
+  }
 }
 
 build();

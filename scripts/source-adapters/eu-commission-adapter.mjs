@@ -18,7 +18,15 @@ const EU_POSITIVE_URL_SEGMENTS = [
 
 const EU_NEGATIVE_PATHS = [
   '/contact', '/about', '/jobs', '/procurement', '/subscribe', '/newsletter',
-  '/accessibility', '/legal-notice', '/cookies',
+  '/accessibility', '/legal-notice', '/cookies', '/en/activities',
+  '/news?type=', '/news?f[', '/news?page=', '/newsletter/',
+  '/en/news?page',
+];
+
+const EU_POSITIVE_ENFORCEMENT_PATHS = [
+  '/enforcement', '/sanction', '/penalty', '/fine', '/decision',
+  '/regulatory-framework-ai', '/ai-act', '/artificial-intelligence',
+  '/algorithm', '/policy',
 ];
 
 export async function run(target, keywordsConfig) {

@@ -1,19 +1,22 @@
 {
-  "generated_at": "2026-05-21T13:50:24.599Z",
-  "total_candidates": 6,
-  "promotion_eligible_count": 3,
+  "generated_at": "2026-05-21T14:34:57.769Z",
+  "total_candidates": 9,
+  "promotion_eligible_count": 6,
   "blocked_count": 3,
   "no_publication_candidate_ready": false,
+  "no_case_quality_candidate_ready": false,
+  "best_case_quality_packet_id": "PKT-0006",
   "ranked_candidates": [
     {
-      "packet_id": "PKT-0002",
-      "draft_id": "DRAFT-0002",
-      "candidate_id": "CAND-0019",
+      "packet_id": "PKT-0006",
+      "draft_id": "DRAFT-0006",
+      "candidate_id": "CAND-0023",
       "suggested_public_case_id": "INC-0013",
       "suggested_public_filename": "inc-0013.json",
-      "score": 130,
+      "score": 170,
       "ranking_reasons": [
         "Green source tier (+50)",
+        "Case-quality class: likely_case (+40)",
         "Source URL verified (+15)",
         "Legal domain classified (+10)",
         "Commercial domain classified (+10)",
@@ -23,9 +26,11 @@
         "Evidence requirements clear (+5)",
         "Clean-room confirmed: no source text copied (+15)"
       ],
-      "risk_flags": [],
+      "risk_flags": [
+        "No adapter confidence: adapter_name missing"
+      ],
       "source_tier": "green",
-      "quality_class": "likely_guidance",
+      "quality_class": "likely_case",
       "quality_score": 84,
       "promotion_eligible": true,
       "promotion_blockers": [],
@@ -55,14 +60,16 @@
       "rank": 1
     },
     {
-      "packet_id": "PKT-0004",
-      "draft_id": "DRAFT-0004",
-      "candidate_id": "CAND-0021",
+      "packet_id": "PKT-0008",
+      "draft_id": "DRAFT-0008",
+      "candidate_id": "CAND-0061",
       "suggested_public_case_id": "INC-0013",
       "suggested_public_filename": "inc-0013.json",
-      "score": 130,
+      "score": 155,
       "ranking_reasons": [
         "Green source tier (+50)",
+        "Guidance class: likely_regulatory_guidance (+15)",
+        "Named adapter used: eu-commission-adapter (+10)",
         "Source URL verified (+15)",
         "Legal domain classified (+10)",
         "Commercial domain classified (+10)",
@@ -74,8 +81,8 @@
       ],
       "risk_flags": [],
       "source_tier": "green",
-      "quality_class": "likely_guidance",
-      "quality_score": 76,
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 81,
       "promotion_eligible": true,
       "promotion_blockers": [],
       "promotion_pre_allowed": false,
@@ -104,14 +111,16 @@
       "rank": 2
     },
     {
-      "packet_id": "PKT-0006",
-      "draft_id": "DRAFT-0006",
-      "candidate_id": "CAND-0023",
+      "packet_id": "PKT-0009",
+      "draft_id": "DRAFT-0009",
+      "candidate_id": "CAND-0064",
       "suggested_public_case_id": "INC-0013",
       "suggested_public_filename": "inc-0013.json",
-      "score": 130,
+      "score": 155,
       "ranking_reasons": [
         "Green source tier (+50)",
+        "Guidance class: likely_regulatory_guidance (+15)",
+        "Named adapter used: eu-commission-adapter (+10)",
         "Source URL verified (+15)",
         "Legal domain classified (+10)",
         "Commercial domain classified (+10)",
@@ -123,8 +132,8 @@
       ],
       "risk_flags": [],
       "source_tier": "green",
-      "quality_class": "likely_case",
-      "quality_score": 84,
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 81,
       "promotion_eligible": true,
       "promotion_blockers": [],
       "promotion_pre_allowed": false,
@@ -153,14 +162,16 @@
       "rank": 3
     },
     {
-      "packet_id": "PKT-0003",
-      "draft_id": "DRAFT-0003",
-      "candidate_id": "CAND-0020",
+      "packet_id": "PKT-0007",
+      "draft_id": "DRAFT-0007",
+      "candidate_id": "CAND-0030",
       "suggested_public_case_id": "INC-0013",
       "suggested_public_filename": "inc-0013.json",
-      "score": -70,
+      "score": 150,
       "ranking_reasons": [
         "Green source tier (+50)",
+        "Guidance class: likely_regulatory_guidance (+15)",
+        "Generic adapter used (+5)",
         "Source URL verified (+15)",
         "Legal domain classified (+10)",
         "Commercial domain classified (+10)",
@@ -170,13 +181,11 @@
         "Evidence requirements clear (+5)",
         "Clean-room confirmed: no source text copied (+15)"
       ],
-      "risk_flags": [
-        "QUALITY SCORE TOO LOW: 68 < 70 threshold"
-      ],
+      "risk_flags": [],
       "source_tier": "green",
-      "quality_class": "likely_regulatory_update",
-      "quality_score": 68,
-      "promotion_eligible": false,
+      "quality_class": "likely_regulatory_guidance",
+      "quality_score": 81,
+      "promotion_eligible": true,
       "promotion_blockers": [],
       "promotion_pre_allowed": false,
       "requires_control_tower_approval": true,
@@ -204,9 +213,113 @@
       "rank": 4
     },
     {
-      "packet_id": "PKT-0005",
-      "draft_id": "DRAFT-0005",
-      "candidate_id": "CAND-0022",
+      "packet_id": "PKT-0002",
+      "draft_id": "DRAFT-0002",
+      "candidate_id": "CAND-0019",
+      "suggested_public_case_id": "INC-0013",
+      "suggested_public_filename": "inc-0013.json",
+      "score": 145,
+      "ranking_reasons": [
+        "Green source tier (+50)",
+        "Guidance class: likely_guidance (+15)",
+        "Source URL verified (+15)",
+        "Legal domain classified (+10)",
+        "Commercial domain classified (+10)",
+        "Governance lesson documented (+10)",
+        "Low defamation risk (+10)",
+        "Missing controls documented (+5)",
+        "Evidence requirements clear (+5)",
+        "Clean-room confirmed: no source text copied (+15)"
+      ],
+      "risk_flags": [
+        "No adapter confidence: adapter_name missing"
+      ],
+      "source_tier": "green",
+      "quality_class": "likely_guidance",
+      "quality_score": 84,
+      "promotion_eligible": true,
+      "promotion_blockers": [],
+      "promotion_pre_allowed": false,
+      "requires_control_tower_approval": true,
+      "requires_legal_review": false,
+      "required_reviews": [
+        "curator_risk_review",
+        "clean_room_wording_audit",
+        "legal_domain_classification_review",
+        "control_tower_publication_approval"
+      ],
+      "missing_information": [
+        "Independent curator review of proposed_case_title for neutrality and accuracy.",
+        "Legal domain classification confirmation by a qualified reviewer.",
+        "Control Tower sign-off on publication timing and risk posture."
+      ],
+      "safety_declarations": {
+        "not_approved": true,
+        "not_public": true,
+        "control_tower_approval_required": true,
+        "curator_review_required": true,
+        "clean_room_wording_review_required": true,
+        "local_only": true,
+        "auto_publish": false
+      },
+      "rank": 5
+    },
+    {
+      "packet_id": "PKT-0004",
+      "draft_id": "DRAFT-0004",
+      "candidate_id": "CAND-0021",
+      "suggested_public_case_id": "INC-0013",
+      "suggested_public_filename": "inc-0013.json",
+      "score": 145,
+      "ranking_reasons": [
+        "Green source tier (+50)",
+        "Guidance class: likely_guidance (+15)",
+        "Source URL verified (+15)",
+        "Legal domain classified (+10)",
+        "Commercial domain classified (+10)",
+        "Governance lesson documented (+10)",
+        "Low defamation risk (+10)",
+        "Missing controls documented (+5)",
+        "Evidence requirements clear (+5)",
+        "Clean-room confirmed: no source text copied (+15)"
+      ],
+      "risk_flags": [
+        "No adapter confidence: adapter_name missing"
+      ],
+      "source_tier": "green",
+      "quality_class": "likely_guidance",
+      "quality_score": 76,
+      "promotion_eligible": true,
+      "promotion_blockers": [],
+      "promotion_pre_allowed": false,
+      "requires_control_tower_approval": true,
+      "requires_legal_review": false,
+      "required_reviews": [
+        "curator_risk_review",
+        "clean_room_wording_audit",
+        "legal_domain_classification_review",
+        "control_tower_publication_approval"
+      ],
+      "missing_information": [
+        "Independent curator review of proposed_case_title for neutrality and accuracy.",
+        "Legal domain classification confirmation by a qualified reviewer.",
+        "Control Tower sign-off on publication timing and risk posture."
+      ],
+      "safety_declarations": {
+        "not_approved": true,
+        "not_public": true,
+        "control_tower_approval_required": true,
+        "curator_review_required": true,
+        "clean_room_wording_review_required": true,
+        "local_only": true,
+        "auto_publish": false
+      },
+      "rank": 6
+    },
+    {
+      "packet_id": "PKT-0003",
+      "draft_id": "DRAFT-0003",
+      "candidate_id": "CAND-0020",
       "suggested_public_case_id": "INC-0013",
       "suggested_public_filename": "inc-0013.json",
       "score": -70,
@@ -222,7 +335,8 @@
         "Clean-room confirmed: no source text copied (+15)"
       ],
       "risk_flags": [
-        "QUALITY SCORE TOO LOW: 68 < 70 threshold"
+        "QUALITY SCORE TOO LOW: 68 < 70 threshold",
+        "No adapter confidence: adapter_name missing"
       ],
       "source_tier": "green",
       "quality_class": "likely_regulatory_update",
@@ -252,7 +366,59 @@
         "local_only": true,
         "auto_publish": false
       },
-      "rank": 5
+      "rank": 7
+    },
+    {
+      "packet_id": "PKT-0005",
+      "draft_id": "DRAFT-0005",
+      "candidate_id": "CAND-0022",
+      "suggested_public_case_id": "INC-0013",
+      "suggested_public_filename": "inc-0013.json",
+      "score": -70,
+      "ranking_reasons": [
+        "Green source tier (+50)",
+        "Source URL verified (+15)",
+        "Legal domain classified (+10)",
+        "Commercial domain classified (+10)",
+        "Governance lesson documented (+10)",
+        "Low defamation risk (+10)",
+        "Missing controls documented (+5)",
+        "Evidence requirements clear (+5)",
+        "Clean-room confirmed: no source text copied (+15)"
+      ],
+      "risk_flags": [
+        "QUALITY SCORE TOO LOW: 68 < 70 threshold",
+        "No adapter confidence: adapter_name missing"
+      ],
+      "source_tier": "green",
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 68,
+      "promotion_eligible": false,
+      "promotion_blockers": [],
+      "promotion_pre_allowed": false,
+      "requires_control_tower_approval": true,
+      "requires_legal_review": false,
+      "required_reviews": [
+        "curator_risk_review",
+        "clean_room_wording_audit",
+        "legal_domain_classification_review",
+        "control_tower_publication_approval"
+      ],
+      "missing_information": [
+        "Independent curator review of proposed_case_title for neutrality and accuracy.",
+        "Legal domain classification confirmation by a qualified reviewer.",
+        "Control Tower sign-off on publication timing and risk posture."
+      ],
+      "safety_declarations": {
+        "not_approved": true,
+        "not_public": true,
+        "control_tower_approval_required": true,
+        "curator_review_required": true,
+        "clean_room_wording_review_required": true,
+        "local_only": true,
+        "auto_publish": false
+      },
+      "rank": 8
     },
     {
       "packet_id": "PKT-0001",
@@ -275,7 +441,8 @@
       "risk_flags": [
         "QUALITY BLOCKED: quality_class=\"generic_page\" — not eligible for promotion",
         "QUALITY SCORE TOO LOW: 15 < 70 threshold",
-        "PROMOTION BLOCKERS: Generic title pattern: \"make a complaint\" +1 more"
+        "PROMOTION BLOCKERS: Generic title pattern: \"make a complaint\" +1 more",
+        "No adapter confidence: adapter_name missing"
       ],
       "source_tier": "green",
       "quality_class": "generic_page",
@@ -308,23 +475,25 @@
         "local_only": true,
         "auto_publish": false
       },
-      "rank": 6
+      "rank": 9
     }
   ],
   "top_recommendation": {
-    "top_packet_id": "PKT-0002",
-    "top_draft_id": "DRAFT-0002",
-    "top_candidate_id": "CAND-0019",
-    "top_score": 130,
-    "top_quality_class": "likely_guidance",
+    "top_packet_id": "PKT-0006",
+    "top_draft_id": "DRAFT-0006",
+    "top_candidate_id": "CAND-0023",
+    "top_score": 170,
+    "top_quality_class": "likely_case",
     "top_promotion_eligible": true,
     "no_publication_candidate_ready": false,
-    "best_eligible_packet_id": "PKT-0002",
-    "reason": "Highest scoring packet (130 points). Green source tier (+50); Source URL verified (+15); Legal domain classified (+10).",
-    "risks": [],
+    "best_eligible_packet_id": "PKT-0006",
+    "reason": "Highest scoring packet (170 points). Green source tier (+50); Case-quality class: likely_case (+40); Source URL verified (+15).",
+    "risks": [
+      "No adapter confidence: adapter_name missing"
+    ],
     "required_approval": "Control Tower approval required before any public promotion",
     "next_steps": [
-      "1. Review PKT-0002 in local review console",
+      "1. Review PKT-0006 in local review console",
       "2. Complete curator risk review checklist",
       "3. Obtain Control Tower explicit approval",
       "4. Add approval to data/reviews/real/approved-promotions.json",

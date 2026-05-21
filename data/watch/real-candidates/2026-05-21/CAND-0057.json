@@ -1,0 +1,32 @@
+{
+  "candidate_id": "CAND-0057",
+  "detected_at": "2026-05-21T14:28:48.471Z",
+  "source_id": "european-commission-ai-act",
+  "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-office",
+  "title": "AI Office",
+  "date_published": "21 May 2026",
+  "detected_keywords": [
+    "eu_commission_policy_page"
+  ],
+  "preliminary_case_type": "regulator_guidance",
+  "jurisdiction": "EU",
+  "source_tier": "green",
+  "confidence_score": 0.85,
+  "dedupe_key": "f37ebc766aaa61d70d751b680dea88cd98199a1afbe3c1cb109d79a2043a1ea7",
+  "status": "real_detected",
+  "quality_class": "likely_policy_update",
+  "quality_score": 45,
+  "promotion_eligible": false,
+  "rejection_reasons": [
+    "No legal/regulatory relevance detected"
+  ],
+  "risk_flags": [
+    "no_risk_detected"
+  ],
+  "adapter_name": "eu-commission-adapter",
+  "extraction_method": "eu_commission_html_policy_scan",
+  "confidence_reason": "EU Commission adapter: policy/AI-Act page matched (general)",
+  "authority": "European Commission",
+  "category": "general",
+  "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: EU. Adapter: eu-commission-adapter."
+}

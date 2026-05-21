@@ -18,6 +18,9 @@ const EDPB_POSITIVE_URL_SEGMENTS = [
 
 const EDPB_NEGATIVE_PATHS = [
   '/about-edpb', '/members', '/national', '/contact', '/jobs', '/procurement',
+  '_bg', '_cs', '_da', '_de', '_el', '_es', '_et', '_fi', '_fr', '_ga',
+  '_hr', '_hu', '_it', '_lt', '_lv', '_mt', '_nl', '_pl', '_pt', '_ro',
+  '_sk', '_sl', '_sv',
 ];
 
 export async function run(target, keywordsConfig) {

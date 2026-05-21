@@ -1,0 +1,32 @@
+{
+  "candidate_id": "CAND-0082",
+  "detected_at": "2026-05-21T14:34:49.542Z",
+  "source_id": "edpb-ai",
+  "source_url": "https://www.edpb.europa.eu/our-work-tools/consistency-findings/binding-decisions_en",
+  "title": "Binding Decisions",
+  "date_published": "21 May 2026",
+  "detected_keywords": [
+    "edpb_document_section"
+  ],
+  "preliminary_case_type": "court_decision",
+  "jurisdiction": "EU",
+  "source_tier": "green",
+  "confidence_score": 0.85,
+  "dedupe_key": "86fb912778b1a74cb34c69bf34eab0cc4e265829efd8ba52936a428156d1a739",
+  "status": "real_detected",
+  "quality_class": "blocked_low_relevance",
+  "quality_score": 53,
+  "promotion_eligible": false,
+  "rejection_reasons": [
+    "No AI/algorithm relevance detected"
+  ],
+  "risk_flags": [
+    "no_risk_detected"
+  ],
+  "adapter_name": "edpb-adapter",
+  "extraction_method": "edpb_html_document_scan",
+  "confidence_reason": "EDPB adapter: document section URL matched (official_decision)",
+  "authority": "European Data Protection Board (EDPB)",
+  "category": "official_decision",
+  "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: EU. Adapter: edpb-adapter."
+}

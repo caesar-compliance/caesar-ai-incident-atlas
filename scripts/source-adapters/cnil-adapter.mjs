@@ -17,6 +17,10 @@ const CNIL_NEGATIVE_PATHS = [
   '/fr/la-cnil/qui-sommes-nous',
   '/fr/acceder',
   '/fr/professionnel/se-former',
+  '?page=',
+  '/fr/tag/',
+  '/fr/particulier-',
+  '/fr/missions/',
 ];
 
 // French AI/enforcement terms added to keyword check

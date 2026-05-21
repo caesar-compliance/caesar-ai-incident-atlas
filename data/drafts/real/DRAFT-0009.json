@@ -1,0 +1,52 @@
+{
+  "draft_id": "DRAFT-0009",
+  "candidate_ids": [
+    "CAND-0064"
+  ],
+  "proposed_case_title": "[DRAFT] AI Act Service Desk — European Commission (EU)",
+  "case_type": "regulator_guidance",
+  "jurisdiction": "EU",
+  "source_authorities": [
+    "European Commission"
+  ],
+  "source_urls": [
+    "https://ai-act-service-desk.ec.europa.eu/en"
+  ],
+  "legal_domain": "privacy_biometrics",
+  "commercial_domain": "cross-sector AI governance",
+  "failure_mode": [
+    "FM-GOVERNANCE-GAP",
+    "FM-COMPLIANCE-DEFICIT"
+  ],
+  "business_risk": "Organisations using AI systems in EU face regulatory scrutiny from European Commission. Failure to track and implement guidance from this source may result in enforcement action, fines, or operational restrictions. Relevant to AI procurement, deployment, and compliance programmes.",
+  "missing_controls": [
+    "CTL-GUIDANCE-TRACKING",
+    "CTL-COMPLIANCE-UPDATE-PROCESS"
+  ],
+  "required_evidence": [
+    "Evidence of regulatory guidance monitoring process",
+    "Record of internal impact assessment against this guidance",
+    "Documentation of AI system inventory and applicable controls",
+    "Board or senior management sign-off on compliance posture"
+  ],
+  "vendor_questions": [
+    "Has your organisation reviewed the latest guidance from European Commission?",
+    "Do you maintain a register of applicable AI regulations and guidance by jurisdiction?",
+    "What controls are in place to respond to new regulatory guidance within 30 days?",
+    "Can you demonstrate evidence of compliance gap analysis against this guidance?"
+  ],
+  "training_lesson": "Regulatory bodies such as European Commission issue guidance that directly affects AI system deployments. Organisations must maintain active monitoring processes to detect and respond to new guidance before it becomes an enforcement trigger.",
+  "clean_room_summary": "European Commission has published material relating to AI Act Service Desk. This record reflects metadata detected during a manual Green-source watcher run on 2026-05-21. This draft is a Caesar-authored internal working document compiled from public metadata only. No source text has been copied. This is not legal advice. This draft requires curator review and Control Tower approval before any public use.",
+  "source_risk_level": "green",
+  "publish_recommendation": "needs_legal_review",
+  "review_status": "draft",
+  "quality_class": "likely_regulatory_guidance",
+  "quality_score": 81,
+  "promotion_blockers": [],
+  "local_only": true,
+  "public": false,
+  "not_legal_advice": true,
+  "source_text_copied": false,
+  "generated_at": "2026-05-21T14:28:56.166Z",
+  "pipeline_stage": "real_draft_needs_review"
+}

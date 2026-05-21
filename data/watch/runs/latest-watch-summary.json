@@ -1,0 +1,78 @@
+{
+  "run_timestamp": "2026-05-21T14:34:49.542Z",
+  "source_health": [
+    {
+      "source_id": "ftc-ai-enforcement",
+      "url": "https://www.ftc.gov/business-guidance/blog/2017/01/seriously-would-you-trust-artificial-intelligence-make-your-payroll-decisions",
+      "status": "failed",
+      "http_status": null,
+      "error_message": "HTTP 404",
+      "used_fallback": false,
+      "adapter_name": "ftc-adapter"
+    },
+    {
+      "source_id": "eeoc-ai-guidance",
+      "url": "https://www.eeoc.gov/laws/guidance/questions-and-answers-clarify-and-provide-common-interpretation-uniform-guidelines",
+      "status": "ok",
+      "http_status": 200,
+      "error_message": null,
+      "used_fallback": false,
+      "adapter_name": "generic-official-adapter"
+    },
+    {
+      "source_id": "doj-ada-ai-guidance",
+      "url": "https://www.ada.gov/resources/",
+      "status": "ok",
+      "http_status": 200,
+      "error_message": null,
+      "used_fallback": false,
+      "adapter_name": "generic-official-adapter"
+    },
+    {
+      "source_id": "ico-ai-and-algorithms",
+      "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/",
+      "status": "ok",
+      "http_status": 200,
+      "error_message": null,
+      "used_fallback": false,
+      "adapter_name": "ico-adapter"
+    },
+    {
+      "source_id": "cnil-ai",
+      "url": "https://www.cnil.fr/fr/intelligence-artificielle",
+      "status": "ok",
+      "http_status": 200,
+      "error_message": null,
+      "used_fallback": false,
+      "adapter_name": "cnil-adapter"
+    },
+    {
+      "source_id": "edpb-ai",
+      "url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines_en",
+      "status": "ok",
+      "http_status": 200,
+      "error_message": null,
+      "used_fallback": false,
+      "adapter_name": "edpb-adapter"
+    },
+    {
+      "source_id": "european-commission-ai-act",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-algorithm-systems",
+      "status": "ok",
+      "http_status": 200,
+      "error_message": null,
+      "used_fallback": false,
+      "adapter_name": "eu-commission-adapter"
+    }
+  ],
+  "sources_ok": 6,
+  "sources_failed": 1,
+  "sources_skipped": 0,
+  "detected_candidates_count": 35,
+  "generic_blocked_count": 0,
+  "promotion_eligible_count": 14,
+  "skipped_items": 0,
+  "errors_count": 1,
+  "run_log_path": "/Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/watch/runs/watch-run-2026-05-21T14-34-49.542Z.json",
+  "adapter_summary_path": "/Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/watch/runs/latest-adapter-summary.json"
+}

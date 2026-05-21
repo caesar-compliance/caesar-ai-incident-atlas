@@ -1,0 +1,32 @@
+{
+  "candidate_id": "CAND-0068",
+  "detected_at": "2026-05-21T14:34:49.542Z",
+  "source_id": "ico-ai-and-algorithms",
+  "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/biometric-data-guidance-biometric-recognition/",
+  "title": "Biometric data guidance: Biometric recognition",
+  "date_published": "21 May 2026",
+  "detected_keywords": [
+    "biometric",
+    "guidance",
+    "GDPR"
+  ],
+  "preliminary_case_type": "regulator_guidance",
+  "jurisdiction": "UK",
+  "source_tier": "green",
+  "confidence_score": 0.85,
+  "dedupe_key": "6ca6a3514dd9a0ce79420048304c7cbe9405a992b53cd029817064a078d4c7ff",
+  "status": "real_detected",
+  "quality_class": "likely_regulatory_guidance",
+  "quality_score": 73,
+  "promotion_eligible": false,
+  "rejection_reasons": [],
+  "risk_flags": [
+    "no_risk_detected"
+  ],
+  "adapter_name": "ico-adapter",
+  "extraction_method": "ico_html_enforcement_scan",
+  "confidence_reason": "ICO adapter: high-signal path matched (guidance)",
+  "authority": "Information Commissioner's Office (ICO)",
+  "category": "guidance",
+  "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK. Adapter: ico-adapter."
+}

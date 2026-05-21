@@ -58,6 +58,7 @@
           <button class="stage-tab active" data-stage="candidates" id="tab-candidates">Candidates <span id="tab-count-candidates" class="counter-badge" style="font-size:10px;">0</span></button>
           <button class="stage-tab" data-stage="drafts" id="tab-drafts">Drafts <span id="tab-count-drafts" class="counter-badge" style="font-size:10px;">0</span></button>
           <button class="stage-tab" data-stage="packets" id="tab-packets">Packets <span id="tab-count-packets" class="counter-badge" style="font-size:10px;">0</span></button>
+          <button class="stage-tab" data-stage="shortlist" id="tab-shortlist">Shortlist</button>
           <button class="stage-tab" data-stage="health" id="tab-health">Health</button>
         </div>
       </div>
@@ -144,11 +145,71 @@
           </div>
         </div>
 
+        <!-- Shortlist Panel (T052) -->
+        <div id="shortlist-panel" style="display:none; margin-top:20px; padding:16px; background:#1a1a1a; border:1px solid #333; border-radius:6px;">
+          <h4 style="margin:0 0 12px 0; color:#fff; font-size:14px;">📋 Case Shortlist — Top 5 for Control Tower Review (T052)</h4>
+          <div id="shortlist-summary-bar" style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
+            <span id="shortlist-ready-badge" style="display:none; background:#28a745; color:#fff; font-size:11px; padding:4px 8px; border-radius:3px; font-weight:600;">✓ Ready for Control Tower</span>
+            <span id="shortlist-guidance-badge" style="display:none; background:#ffc107; color:#000; font-size:11px; padding:4px 8px; border-radius:3px; font-weight:600;">⚠ Guidance Only</span>
+            <span id="shortlist-needs-confirm-badge" style="display:none; background:#17a2b8; color:#fff; font-size:11px; padding:4px 8px; border-radius:3px; font-weight:600;">? Needs Confirmation</span>
+          </div>
+          <div id="shortlist-container" style="max-height:300px; overflow-y:auto;">
+            <table style="width:100%; font-size:12px; border-collapse:collapse;">
+              <thead>
+                <tr style="border-bottom:1px solid #444;">
+                  <th style="text-align:left; padding:6px; color:#888; font-weight:500;">Rank</th>
+                  <th style="text-align:left; padding:6px; color:#888; font-weight:500;">Packet</th>
+                  <th style="text-align:left; padding:6px; color:#888; font-weight:500;">Title</th>
+                  <th style="text-align:center; padding:6px; color:#888; font-weight:500;">Score</th>
+                  <th style="text-align:center; padding:6px; color:#888; font-weight:500;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="shortlist-body">
+                <!-- Populated by JS -->
+              </tbody>
+            </table>
+          </div>
+          <div id="shortlist-detail-panel" style="display:none; margin-top:12px; padding:12px; background:#0f1419; border:1px solid #2a3f5f; border-radius:4px;">
+            <div style="font-size:12px; color:#6ab0ff; font-weight:600; margin-bottom:8px;">WHY IT MATTERS</div>
+            <div id="shortlist-why" style="font-size:12px; color:#ccc; margin-bottom:12px;">-</div>
+            <div style="font-size:12px; color:#6ab0ff; font-weight:600; margin-bottom:8px;">GOVERNANCE VALUE</div>
+            <div id="shortlist-value" style="font-size:12px; color:#ccc; margin-bottom:12px;">-</div>
+            <div style="font-size:12px; color:#ff6b6b; font-weight:600; margin-bottom:8px;">PUBLICATION RISKS</div>
+            <ul id="shortlist-risks" style="font-size:12px; color:#ccc; margin:0 0 12px 16px; padding:0;"></ul>
+            <div style="font-size:12px; color:#ffc107; font-weight:600; margin-bottom:8px;">MISSING INFORMATION</div>
+            <ul id="shortlist-missing" style="font-size:12px; color:#ccc; margin:0 0 12px 16px; padding:0;"></ul>
+          </div>
+        </div>
+
         <div class="digest-quick-preview" id="digest-preview-block">
           <h4>Weekly Discoveries Preview (Synthetic)</h4>
           <ul id="weekly-highlights-list">
             <li>No digest preview loaded.</li>
           </ul>
+        </div>
+      </div>
+
+      <!-- Shortlist Detail Panel (real bundle, shortlist tab) -->
+      <div class="detail-grid hidden" id="shortlist-detail">
+        <div class="detail-main-column" style="grid-column: span 2;">
+          <div class="draft-detail-header">
+            <h2>Case Shortlist — Control Tower Review Queue (T052)</h2>
+            <p style="color: var(--color-muted); font-size:13px;">Top 5 ranked candidates ready for promotion review. LOCAL ONLY — NOT PUBLIC.</p>
+          </div>
+          <div id="shortlist-main-content">
+            <div class="detail-card">
+              <h3>Source Health Summary</h3>
+              <div id="source-health-table" style="font-size:13px;"></div>
+            </div>
+            <div class="detail-card">
+              <h3>Adapter Success/Failure Summary</h3>
+              <div id="adapter-summary-table" style="font-size:13px;"></div>
+            </div>
+            <div class="detail-card">
+              <h3>Ready for Control Tower Review</h3>
+              <div id="ready-for-review-list" style="font-size:13px;"></div>
+            </div>
+          </div>
         </div>
       </div>
 

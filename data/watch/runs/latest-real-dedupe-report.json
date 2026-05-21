@@ -1,15 +1,65 @@
 {
-  "deduplicated_at": "2026-05-21T13:34:48.569Z",
-  "total_candidates_scanned": 12,
-  "unique_count": 6,
-  "duplicate_count": 6,
+  "deduplicated_at": "2026-05-21T14:34:57.591Z",
+  "total_candidates_scanned": 82,
+  "unique_count": 56,
+  "duplicate_count": 26,
   "unique_candidate_ids": [
     "CAND-0018",
     "CAND-0019",
     "CAND-0020",
     "CAND-0021",
     "CAND-0022",
-    "CAND-0023"
+    "CAND-0023",
+    "CAND-0030",
+    "CAND-0033",
+    "CAND-0035",
+    "CAND-0036",
+    "CAND-0037",
+    "CAND-0038",
+    "CAND-0039",
+    "CAND-0040",
+    "CAND-0041",
+    "CAND-0042",
+    "CAND-0043",
+    "CAND-0044",
+    "CAND-0045",
+    "CAND-0046",
+    "CAND-0047",
+    "CAND-0048",
+    "CAND-0049",
+    "CAND-0050",
+    "CAND-0051",
+    "CAND-0052",
+    "CAND-0054",
+    "CAND-0055",
+    "CAND-0056",
+    "CAND-0057",
+    "CAND-0058",
+    "CAND-0059",
+    "CAND-0060",
+    "CAND-0061",
+    "CAND-0062",
+    "CAND-0063",
+    "CAND-0064",
+    "CAND-0073",
+    "CAND-0074",
+    "CAND-0075",
+    "CAND-0076",
+    "CAND-0077",
+    "CAND-0078",
+    "CAND-0079",
+    "CAND-0080",
+    "CAND-0081",
+    "CAND-0082",
+    "CAND-0083",
+    "CAND-0084",
+    "CAND-0085",
+    "CAND-0086",
+    "CAND-0087",
+    "CAND-0088",
+    "CAND-0089",
+    "CAND-0098",
+    "CAND-0099"
   ],
   "duplicates": [
     {
@@ -59,6 +109,166 @@
       "dedupe_key": "4ca40506dc716ff2bbc62f39490f5c13e3fd30045c252da8d94613a37653d4d2",
       "detected_at": "2026-05-21T12:40:56.002Z",
       "duplicate_of": "CAND-0023"
+    },
+    {
+      "candidate_id": "CAND-0031",
+      "title": "Artificial intelligence (AI) and data protection",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
+      "dedupe_key": "06aa62950fe0a4076ac60d1dbad80b6ec9580fa76e898d68c1149109ba8213fe",
+      "detected_at": "2026-05-21T14:28:48.471Z",
+      "duplicate_of": "CAND-0019"
+    },
+    {
+      "candidate_id": "CAND-0032",
+      "title": "Explaining decisions made with AI",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/",
+      "dedupe_key": "888a017fa31e1b50d2a77fee1250ff7c5c666227cd50fe3ecc0ea7f3ebd070b4",
+      "detected_at": "2026-05-21T14:28:48.471Z",
+      "duplicate_of": "CAND-0020"
+    },
+    {
+      "candidate_id": "CAND-0034",
+      "title": "AI and data protection risk toolkit",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/ai-and-data-protection-risk-toolkit/",
+      "dedupe_key": "a6f288353aa2852b9cb657e695b6a7d72f9320ff5f4f93e7f2d48abacd776af1",
+      "detected_at": "2026-05-21T14:28:48.471Z",
+      "duplicate_of": "CAND-0021"
+    },
+    {
+      "candidate_id": "CAND-0053",
+      "title": "FRFrançais",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_fr",
+      "dedupe_key": "bb2f4fd1646ed4f32d892529f62db670bdb193cbeea594271053c7a3b8ea04e4",
+      "detected_at": "2026-05-21T14:28:48.471Z",
+      "duplicate_of": "CAND-0022"
+    },
+    {
+      "candidate_id": "CAND-0065",
+      "title": "Algorithms, Artificial Intelligence, and Disability Discrimination in Hiring",
+      "source_url": "https://www.ada.gov/resources/ai-guidance/",
+      "dedupe_key": "b5bf78a08ff23a227bf81e8dd5d7746aa6115ca2f43e55b998907b86d90a550c",
+      "detected_at": "2026-05-21T14:34:49.542Z",
+      "duplicate_of": "CAND-0030"
+    },
+    {
+      "candidate_id": "CAND-0066",
+      "title": "Artificial intelligence (AI) and data protection",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
+      "dedupe_key": "06aa62950fe0a4076ac60d1dbad80b6ec9580fa76e898d68c1149109ba8213fe",
+      "detected_at": "2026-05-21T14:34:49.542Z",
+      "duplicate_of": "CAND-0019"
+    },
+    {
+      "candidate_id": "CAND-0067",
+      "title": "Explaining decisions made with AI",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/",
+      "dedupe_key": "888a017fa31e1b50d2a77fee1250ff7c5c666227cd50fe3ecc0ea7f3ebd070b4",
+      "detected_at": "2026-05-21T14:34:49.542Z",
+      "duplicate_of": "CAND-0020"
+    },
+    {
+      "candidate_id": "CAND-0068",
+      "title": "Biometric data guidance: Biometric recognition",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/biometric-data-guidance-biometric-recognition/",
+      "dedupe_key": "6ca6a3514dd9a0ce79420048304c7cbe9405a992b53cd029817064a078d4c7ff",
+      "detected_at": "2026-05-21T14:34:49.542Z",
+      "duplicate_of": "CAND-0033"
+    },
+    {
+      "candidate_id": "CAND-0069",
+      "title": "AI and data protection risk toolkit",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/ai-and-data-protection-risk-toolkit/",
+      "dedupe_key": "a6f288353aa2852b9cb657e695b6a7d72f9320ff5f4f93e7f2d48abacd776af1",
+      "detected_at": "2026-05-21T14:34:49.542Z",
+      "duplicate_of": "CAND-0021"
+    },
+    {
+      "candidate_id": "CAND-0070",
+      "title": "Faire vérifier une décision automatisée",
+      "source_url": "https://www.cnil.fr/fr/vos-droits-lintervention-humaine-face-votre-profilage-ou-une-decision-automatisee",
+      "dedupe_key": "ca1088c83353cdc9792ae221ba450e16da502f08f22478acf46022cfd73e13c7",
+      "detected_at": "2026-05-21T14:34:49.542Z",
+      "duplicate_of": "CAND-0036"
+    },
+    {
+      "candidate_id": "CAND-0071",
+      "title": "IA conversationnelle et santé mentale des jeunes : résultats de l’enquête européenne",
+      "source_url": "https://www.cnil.fr/fr/ia-conversationnelle-et-sante-mentale-des-jeunes-resultats-de-lenquete-europeenne",
+      "dedupe_key": "d949e1fceaa432449ddfe8be7e3ca01f2a7f5e960846f46d48ae91c0edfaf0ac",
+      "detected_at": "2026-05-21T14:34:49.542Z",
+      "duplicate_of": "CAND-0038"
+    },
+    {
+      "candidate_id": "CAND-0072",
+      "title": "IA conversationnelle et santé mentale des jeunes : un débat européen inédit porté par la parole des jeunesses",
+      "source_url": "https://www.cnil.fr/fr/ia-conversationnelle-et-sante-mentale-la-parole-des-jeunesses",
+      "dedupe_key": "aabe68bc8b8077507f011b70ed41c39e3b7324bd31f9f7a842946b46dfdde8b0",
+      "detected_at": "2026-05-21T14:34:49.542Z",
+      "duplicate_of": "CAND-0039"
+    },
+    {
+      "candidate_id": "CAND-0090",
+      "title": "News",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news",
+      "dedupe_key": "e2925aef5829e23d589a3f75ac89e5a78759aead3b98232b53cf4fcf1bcd01bc",
+      "detected_at": "2026-05-21T14:34:49.542Z",
+      "duplicate_of": "CAND-0056"
+    },
+    {
+      "candidate_id": "CAND-0091",
+      "title": "AI Office",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-office",
+      "dedupe_key": "f37ebc766aaa61d70d751b680dea88cd98199a1afbe3c1cb109d79a2043a1ea7",
+      "detected_at": "2026-05-21T14:34:49.542Z",
+      "duplicate_of": "CAND-0057"
+    },
+    {
+      "candidate_id": "CAND-0092",
+      "title": "Artificial Intelligence",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/artificial-intelligence",
+      "dedupe_key": "df6393d58a8ddffccfe6eb0149d2b25fefc94694050a5c9b793e58b08855cfea",
+      "detected_at": "2026-05-21T14:34:49.542Z",
+      "duplicate_of": "CAND-0059"
+    },
+    {
+      "candidate_id": "CAND-0093",
+      "title": "The Action Plan",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-sets-course-europes-ai-leadership-ambitious-ai-continent-action-plan",
+      "dedupe_key": "1eef266e6c17445f4b801769cced95b5f69554df7c6bf04c1eb17ef8d8f37232",
+      "detected_at": "2026-05-21T14:34:49.542Z",
+      "duplicate_of": "CAND-0060"
+    },
+    {
+      "candidate_id": "CAND-0094",
+      "title": "AI Act",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "dedupe_key": "acc5ad4063972046a38c2a3b8d591d3e18d9f3285ce1ad4bf2aafeba44b26328",
+      "detected_at": "2026-05-21T14:34:49.542Z",
+      "duplicate_of": "CAND-0061"
+    },
+    {
+      "candidate_id": "CAND-0095",
+      "title": "AI Factories and Gigafactories",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-factories",
+      "dedupe_key": "d974301f422f3094c8569dec599987907f1210a144f5fb29b6646b32803c2375",
+      "detected_at": "2026-05-21T14:34:49.542Z",
+      "duplicate_of": "CAND-0062"
+    },
+    {
+      "candidate_id": "CAND-0096",
+      "title": "InvestAI Facility",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news/eu-launches-investai-initiative-mobilise-eu200-billion-investment-artificial-intelligence",
+      "dedupe_key": "52608811d866124461692145f7e3c01b49464fb1ebdece6c31db31c516b78f5a",
+      "detected_at": "2026-05-21T14:34:49.542Z",
+      "duplicate_of": "CAND-0063"
+    },
+    {
+      "candidate_id": "CAND-0097",
+      "title": "AI Act Service Desk",
+      "source_url": "https://ai-act-service-desk.ec.europa.eu/en",
+      "dedupe_key": "f98c157889dc5314890c0e6bc1229b41e2257a740465a6ea877c284372303cf8",
+      "detected_at": "2026-05-21T14:34:49.542Z",
+      "duplicate_of": "CAND-0064"
     }
   ]
 }

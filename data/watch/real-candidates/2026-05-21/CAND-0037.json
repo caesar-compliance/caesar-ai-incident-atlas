@@ -1,0 +1,32 @@
+{
+  "candidate_id": "CAND-0037",
+  "detected_at": "2026-05-21T14:28:48.471Z",
+  "source_id": "cnil-ai",
+  "source_url": "https://www.cnil.fr/fr/missions/mission-4-controler-et-sanctionner",
+  "title": "Contrôler et sanctionner",
+  "date_published": "21 May 2026",
+  "detected_keywords": [
+    "cnil_french_signal"
+  ],
+  "preliminary_case_type": "enforcement",
+  "jurisdiction": "FR",
+  "source_tier": "green",
+  "confidence_score": 0.85,
+  "dedupe_key": "2e7a4623929f1a4bfba789ab24ca81bf356b14ecbbcf45e41974aaa9649a0af1",
+  "status": "real_detected",
+  "quality_class": "blocked_low_relevance",
+  "quality_score": 53,
+  "promotion_eligible": false,
+  "rejection_reasons": [
+    "No AI/algorithm relevance detected"
+  ],
+  "risk_flags": [
+    "no_risk_detected"
+  ],
+  "adapter_name": "cnil-adapter",
+  "extraction_method": "cnil_html_sanction_scan",
+  "confidence_reason": "CNIL adapter: French DPA signal matched (enforcement)",
+  "authority": "Commission Nationale de l'Informatique et des Libertés (CNIL)",
+  "category": "enforcement",
+  "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: FR. Adapter: cnil-adapter."
+}

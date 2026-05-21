@@ -5,9 +5,10 @@
     "jurisdiction": "US",
     "source_tier": "green",
     "adapter": "ftc-adapter",
-    "url": "https://www.ftc.gov/news-events/topics/competition-consumer-protection-ai",
+    "url": "https://www.ftc.gov/business-guidance/blog/2017/01/seriously-would-you-trust-artificial-intelligence-make-your-payroll-decisions",
     "fallback_urls": [
-      "https://www.ftc.gov/policy/advocacy-research/tech-at-ftc/artificial-intelligence"
+      "https://www.ftc.gov/business-guidance/blog",
+      "https://www.ftc.gov/enforcement/cases-proceedings"
     ],
     "high_signal_path_hints": [
       "/enforcement", "/cases-proceedings", "/news-events/press-releases",

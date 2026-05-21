@@ -1,0 +1,672 @@
+{
+  "run_timestamp": "2026-05-21T14:28:48.471Z",
+  "source_health": [
+    {
+      "source_id": "ftc-ai-enforcement",
+      "url": "https://www.ftc.gov/news-events/topics/competition-consumer-protection-ai",
+      "status": "failed",
+      "http_status": null,
+      "error_message": "HTTP 404",
+      "used_fallback": false,
+      "adapter_name": "ftc-adapter"
+    },
+    {
+      "source_id": "eeoc-ai-guidance",
+      "url": "https://www.eeoc.gov/laws/guidance/questions-and-answers-clarify-and-provide-common-interpretation-uniform-guidelines",
+      "status": "ok",
+      "http_status": 200,
+      "error_message": null,
+      "used_fallback": false,
+      "adapter_name": "generic-official-adapter"
+    },
+    {
+      "source_id": "doj-ada-ai-guidance",
+      "url": "https://www.ada.gov/resources/",
+      "status": "ok",
+      "http_status": 200,
+      "error_message": null,
+      "used_fallback": false,
+      "adapter_name": "generic-official-adapter"
+    },
+    {
+      "source_id": "ico-ai-and-algorithms",
+      "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/",
+      "status": "ok",
+      "http_status": 200,
+      "error_message": null,
+      "used_fallback": false,
+      "adapter_name": "ico-adapter"
+    },
+    {
+      "source_id": "cnil-ai",
+      "url": "https://www.cnil.fr/fr/intelligence-artificielle",
+      "status": "ok",
+      "http_status": 200,
+      "error_message": null,
+      "used_fallback": false,
+      "adapter_name": "cnil-adapter"
+    },
+    {
+      "source_id": "edpb-ai",
+      "url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines_en",
+      "status": "ok",
+      "http_status": 200,
+      "error_message": null,
+      "used_fallback": false,
+      "adapter_name": "edpb-adapter"
+    },
+    {
+      "source_id": "european-commission-ai-act",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-algorithm-systems",
+      "status": "ok",
+      "http_status": 200,
+      "error_message": null,
+      "used_fallback": false,
+      "adapter_name": "eu-commission-adapter"
+    }
+  ],
+  "fetched_sources": [
+    {
+      "source_id": "ftc-ai-enforcement",
+      "url": "https://www.ftc.gov/news-events/topics/competition-consumer-protection-ai",
+      "status": "failed",
+      "error": "HTTP 404"
+    },
+    {
+      "source_id": "eeoc-ai-guidance",
+      "url": "https://www.eeoc.gov/laws/guidance/questions-and-answers-clarify-and-provide-common-interpretation-uniform-guidelines",
+      "status": "success",
+      "adapter_name": "generic-official-adapter",
+      "links_extracted": 0
+    },
+    {
+      "source_id": "doj-ada-ai-guidance",
+      "url": "https://www.ada.gov/resources/",
+      "status": "success",
+      "adapter_name": "generic-official-adapter",
+      "links_extracted": 1
+    },
+    {
+      "source_id": "ico-ai-and-algorithms",
+      "url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/",
+      "status": "success",
+      "adapter_name": "ico-adapter",
+      "links_extracted": 4
+    },
+    {
+      "source_id": "cnil-ai",
+      "url": "https://www.cnil.fr/fr/intelligence-artificielle",
+      "status": "success",
+      "adapter_name": "cnil-adapter",
+      "links_extracted": 10
+    },
+    {
+      "source_id": "edpb-ai",
+      "url": "https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines_en",
+      "status": "success",
+      "adapter_name": "edpb-adapter",
+      "links_extracted": 10
+    },
+    {
+      "source_id": "european-commission-ai-act",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-algorithm-systems",
+      "status": "success",
+      "adapter_name": "eu-commission-adapter",
+      "links_extracted": 10
+    }
+  ],
+  "detected_candidates": [
+    {
+      "candidate_id": "CAND-0030",
+      "source_id": "doj-ada-ai-guidance",
+      "source_url": "https://www.ada.gov/resources/ai-guidance/",
+      "title": "Algorithms, Artificial Intelligence, and Disability Discrimination in Hiring",
+      "keywords": [
+        "artificial intelligence",
+        "AI",
+        "algorithm",
+        "discrimination",
+        "disability",
+        "guidance",
+        "hiring"
+      ],
+      "quality_class": "likely_guidance",
+      "quality_score": 72,
+      "promotion_eligible": true,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "generic-official-adapter"
+    },
+    {
+      "candidate_id": "CAND-0031",
+      "source_id": "ico-ai-and-algorithms",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
+      "title": "Artificial intelligence (AI) and data protection",
+      "keywords": [
+        "artificial intelligence",
+        "AI",
+        "guidance",
+        "data protection",
+        "GDPR"
+      ],
+      "quality_class": "likely_guidance",
+      "quality_score": 72,
+      "promotion_eligible": true,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "ico-adapter"
+    },
+    {
+      "candidate_id": "CAND-0032",
+      "source_id": "ico-ai-and-algorithms",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/",
+      "title": "Explaining decisions made with AI",
+      "keywords": [
+        "AI",
+        "guidance",
+        "decision",
+        "GDPR"
+      ],
+      "quality_class": "likely_case",
+      "quality_score": 75,
+      "promotion_eligible": true,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "ico-adapter"
+    },
+    {
+      "candidate_id": "CAND-0033",
+      "source_id": "ico-ai-and-algorithms",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/biometric-data-guidance-biometric-recognition/",
+      "title": "Biometric data guidance: Biometric recognition",
+      "keywords": [
+        "biometric",
+        "guidance",
+        "GDPR"
+      ],
+      "quality_class": "likely_guidance",
+      "quality_score": 72,
+      "promotion_eligible": true,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "ico-adapter"
+    },
+    {
+      "candidate_id": "CAND-0034",
+      "source_id": "ico-ai-and-algorithms",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/ai-and-data-protection-risk-toolkit/",
+      "title": "AI and data protection risk toolkit",
+      "keywords": [
+        "AI",
+        "guidance",
+        "data protection",
+        "GDPR"
+      ],
+      "quality_class": "likely_guidance",
+      "quality_score": 72,
+      "promotion_eligible": true,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "ico-adapter"
+    },
+    {
+      "candidate_id": "CAND-0035",
+      "source_id": "cnil-ai",
+      "source_url": "https://www.cnil.fr/fr/particulier-intelligence-artificielle-ia",
+      "title": "Intelligence artificielle (IA)",
+      "keywords": [
+        "cnil_french_signal"
+      ],
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 62,
+      "promotion_eligible": false,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "cnil-adapter"
+    },
+    {
+      "candidate_id": "CAND-0036",
+      "source_id": "cnil-ai",
+      "source_url": "https://www.cnil.fr/fr/vos-droits-lintervention-humaine-face-votre-profilage-ou-une-decision-automatisee",
+      "title": "Faire vérifier une décision automatisée",
+      "keywords": [
+        "AI",
+        "decision"
+      ],
+      "quality_class": "likely_case",
+      "quality_score": 75,
+      "promotion_eligible": true,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "cnil-adapter"
+    },
+    {
+      "candidate_id": "CAND-0037",
+      "source_id": "cnil-ai",
+      "source_url": "https://www.cnil.fr/fr/missions/mission-4-controler-et-sanctionner",
+      "title": "Contrôler et sanctionner",
+      "keywords": [
+        "cnil_french_signal"
+      ],
+      "quality_class": "likely_case",
+      "quality_score": 75,
+      "promotion_eligible": true,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "cnil-adapter"
+    },
+    {
+      "candidate_id": "CAND-0038",
+      "source_id": "cnil-ai",
+      "source_url": "https://www.cnil.fr/fr/ia-conversationnelle-et-sante-mentale-des-jeunes-resultats-de-lenquete-europeenne",
+      "title": "IA conversationnelle et santé mentale des jeunes : résultats de l’enquête européenne",
+      "keywords": [
+        "cnil_french_signal"
+      ],
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 62,
+      "promotion_eligible": false,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "cnil-adapter"
+    },
+    {
+      "candidate_id": "CAND-0039",
+      "source_id": "cnil-ai",
+      "source_url": "https://www.cnil.fr/fr/ia-conversationnelle-et-sante-mentale-la-parole-des-jeunesses",
+      "title": "IA conversationnelle et santé mentale des jeunes : un débat européen inédit porté par la parole des jeunesses",
+      "keywords": [
+        "cnil_french_signal"
+      ],
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 62,
+      "promotion_eligible": false,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "cnil-adapter"
+    },
+    {
+      "candidate_id": "CAND-0040",
+      "source_id": "cnil-ai",
+      "source_url": "https://www.cnil.fr/fr/intelligence-artificielle?page=0",
+      "title": "Page courante 1",
+      "keywords": [
+        "cnil_french_signal"
+      ],
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 62,
+      "promotion_eligible": false,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "cnil-adapter"
+    },
+    {
+      "candidate_id": "CAND-0041",
+      "source_id": "cnil-ai",
+      "source_url": "https://www.cnil.fr/fr/intelligence-artificielle?page=1",
+      "title": "Page 2",
+      "keywords": [
+        "cnil_french_signal"
+      ],
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 62,
+      "promotion_eligible": false,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "cnil-adapter"
+    },
+    {
+      "candidate_id": "CAND-0042",
+      "source_id": "cnil-ai",
+      "source_url": "https://www.cnil.fr/fr/intelligence-artificielle?page=2",
+      "title": "Page 3",
+      "keywords": [
+        "cnil_french_signal"
+      ],
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 62,
+      "promotion_eligible": false,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "cnil-adapter"
+    },
+    {
+      "candidate_id": "CAND-0043",
+      "source_id": "cnil-ai",
+      "source_url": "https://www.cnil.fr/fr/intelligence-artificielle?page=12",
+      "title": "Dernière page Dernier »",
+      "keywords": [
+        "cnil_french_signal"
+      ],
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 62,
+      "promotion_eligible": false,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "cnil-adapter"
+    },
+    {
+      "candidate_id": "CAND-0044",
+      "source_id": "cnil-ai",
+      "source_url": "https://www.cnil.fr/fr/tag/Intelligence%2Bartificielle%2B%28IA%29",
+      "title": "Intelligence artificielle (IA)",
+      "keywords": [
+        "cnil_french_signal"
+      ],
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 62,
+      "promotion_eligible": false,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "cnil-adapter"
+    },
+    {
+      "candidate_id": "CAND-0045",
+      "source_id": "edpb-ai",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_bg",
+      "title": "BGБългарски",
+      "keywords": [
+        "edpb_document_section"
+      ],
+      "quality_class": "likely_guidance",
+      "quality_score": 72,
+      "promotion_eligible": true,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "edpb-adapter"
+    },
+    {
+      "candidate_id": "CAND-0046",
+      "source_id": "edpb-ai",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_cs",
+      "title": "CSČeština",
+      "keywords": [
+        "edpb_document_section"
+      ],
+      "quality_class": "likely_guidance",
+      "quality_score": 72,
+      "promotion_eligible": true,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "edpb-adapter"
+    },
+    {
+      "candidate_id": "CAND-0047",
+      "source_id": "edpb-ai",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_da",
+      "title": "DADansk",
+      "keywords": [
+        "edpb_document_section"
+      ],
+      "quality_class": "likely_guidance",
+      "quality_score": 72,
+      "promotion_eligible": true,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "edpb-adapter"
+    },
+    {
+      "candidate_id": "CAND-0048",
+      "source_id": "edpb-ai",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_de",
+      "title": "DEDeutsch",
+      "keywords": [
+        "edpb_document_section"
+      ],
+      "quality_class": "likely_guidance",
+      "quality_score": 72,
+      "promotion_eligible": true,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "edpb-adapter"
+    },
+    {
+      "candidate_id": "CAND-0049",
+      "source_id": "edpb-ai",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_el",
+      "title": "ELΕλληνικά",
+      "keywords": [
+        "edpb_document_section"
+      ],
+      "quality_class": "likely_guidance",
+      "quality_score": 72,
+      "promotion_eligible": true,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "edpb-adapter"
+    },
+    {
+      "candidate_id": "CAND-0050",
+      "source_id": "edpb-ai",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_es",
+      "title": "ESEspañol",
+      "keywords": [
+        "edpb_document_section"
+      ],
+      "quality_class": "likely_guidance",
+      "quality_score": 72,
+      "promotion_eligible": true,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "edpb-adapter"
+    },
+    {
+      "candidate_id": "CAND-0051",
+      "source_id": "edpb-ai",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_et",
+      "title": "ETEesti",
+      "keywords": [
+        "edpb_document_section"
+      ],
+      "quality_class": "likely_guidance",
+      "quality_score": 72,
+      "promotion_eligible": true,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "edpb-adapter"
+    },
+    {
+      "candidate_id": "CAND-0052",
+      "source_id": "edpb-ai",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_fi",
+      "title": "FISuomi",
+      "keywords": [
+        "edpb_document_section"
+      ],
+      "quality_class": "likely_guidance",
+      "quality_score": 72,
+      "promotion_eligible": true,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "edpb-adapter"
+    },
+    {
+      "candidate_id": "CAND-0053",
+      "source_id": "edpb-ai",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_fr",
+      "title": "FRFrançais",
+      "keywords": [
+        "AI",
+        "guidance"
+      ],
+      "quality_class": "likely_guidance",
+      "quality_score": 72,
+      "promotion_eligible": true,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "edpb-adapter"
+    },
+    {
+      "candidate_id": "CAND-0054",
+      "source_id": "edpb-ai",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_ga",
+      "title": "GAGaeilge",
+      "keywords": [
+        "edpb_document_section"
+      ],
+      "quality_class": "likely_guidance",
+      "quality_score": 72,
+      "promotion_eligible": true,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "edpb-adapter"
+    },
+    {
+      "candidate_id": "CAND-0055",
+      "source_id": "european-commission-ai-act",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/activities",
+      "title": "Activities",
+      "keywords": [
+        "eu_commission_policy_page"
+      ],
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 62,
+      "promotion_eligible": false,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "eu-commission-adapter"
+    },
+    {
+      "candidate_id": "CAND-0056",
+      "source_id": "european-commission-ai-act",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news",
+      "title": "News",
+      "keywords": [
+        "eu_commission_policy_page"
+      ],
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 62,
+      "promotion_eligible": false,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "eu-commission-adapter"
+    },
+    {
+      "candidate_id": "CAND-0057",
+      "source_id": "european-commission-ai-act",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-office",
+      "title": "AI Office",
+      "keywords": [
+        "eu_commission_policy_page"
+      ],
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 62,
+      "promotion_eligible": false,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "eu-commission-adapter"
+    },
+    {
+      "candidate_id": "CAND-0058",
+      "source_id": "european-commission-ai-act",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news?type=5%7C13",
+      "title": "News highlights",
+      "keywords": [
+        "eu_commission_policy_page"
+      ],
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 62,
+      "promotion_eligible": false,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "eu-commission-adapter"
+    },
+    {
+      "candidate_id": "CAND-0059",
+      "source_id": "european-commission-ai-act",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/artificial-intelligence",
+      "title": "Artificial Intelligence",
+      "keywords": [
+        "eu_commission_policy_page"
+      ],
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 62,
+      "promotion_eligible": false,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "eu-commission-adapter"
+    },
+    {
+      "candidate_id": "CAND-0060",
+      "source_id": "european-commission-ai-act",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-sets-course-europes-ai-leadership-ambitious-ai-continent-action-plan",
+      "title": "The Action Plan",
+      "keywords": [
+        "eu_commission_policy_page"
+      ],
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 62,
+      "promotion_eligible": false,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "eu-commission-adapter"
+    },
+    {
+      "candidate_id": "CAND-0061",
+      "source_id": "european-commission-ai-act",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "title": "AI Act",
+      "keywords": [
+        "eu_commission_policy_page"
+      ],
+      "quality_class": "likely_guidance",
+      "quality_score": 72,
+      "promotion_eligible": true,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "eu-commission-adapter"
+    },
+    {
+      "candidate_id": "CAND-0062",
+      "source_id": "european-commission-ai-act",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-factories",
+      "title": "AI Factories and Gigafactories",
+      "keywords": [
+        "eu_commission_policy_page"
+      ],
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 62,
+      "promotion_eligible": false,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "eu-commission-adapter"
+    },
+    {
+      "candidate_id": "CAND-0063",
+      "source_id": "european-commission-ai-act",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news/eu-launches-investai-initiative-mobilise-eu200-billion-investment-artificial-intelligence",
+      "title": "InvestAI Facility",
+      "keywords": [
+        "eu_commission_policy_page"
+      ],
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 62,
+      "promotion_eligible": false,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "eu-commission-adapter"
+    },
+    {
+      "candidate_id": "CAND-0064",
+      "source_id": "european-commission-ai-act",
+      "source_url": "https://ai-act-service-desk.ec.europa.eu/en",
+      "title": "AI Act Service Desk",
+      "keywords": [
+        "eu_commission_policy_page"
+      ],
+      "quality_class": "likely_regulatory_update",
+      "quality_score": 62,
+      "promotion_eligible": false,
+      "rejection_reasons": [],
+      "blocked_as_generic": false,
+      "adapter_name": "eu-commission-adapter"
+    }
+  ],
+  "skipped_items": 0,
+  "errors": [
+    {
+      "source_id": "ftc-ai-enforcement",
+      "error": "HTTP 404"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "candidate_id": "CAND-0066",
+  "detected_at": "2026-05-21T14:34:49.542Z",
+  "source_id": "ico-ai-and-algorithms",
+  "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
+  "title": "Artificial intelligence (AI) and data protection",
+  "date_published": "21 May 2026",
+  "detected_keywords": [
+    "artificial intelligence",
+    "AI",
+    "guidance",
+    "data protection",
+    "GDPR"
+  ],
+  "preliminary_case_type": "regulator_guidance",
+  "jurisdiction": "UK",
+  "source_tier": "green",
+  "confidence_score": 0.85,
+  "dedupe_key": "06aa62950fe0a4076ac60d1dbad80b6ec9580fa76e898d68c1149109ba8213fe",
+  "status": "real_detected",
+  "quality_class": "likely_regulatory_guidance",
+  "quality_score": 89,
+  "promotion_eligible": true,
+  "rejection_reasons": [],
+  "risk_flags": [
+    "no_risk_detected"
+  ],
+  "adapter_name": "ico-adapter",
+  "extraction_method": "ico_html_enforcement_scan",
+  "confidence_reason": "ICO adapter: high-signal path matched (guidance)",
+  "authority": "Information Commissioner's Office (ICO)",
+  "category": "guidance",
+  "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: UK. Adapter: ico-adapter."
+}

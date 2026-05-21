@@ -88,6 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
     activeDetailPanel.classList.add('hidden');
     if (healthDetailPanel) healthDetailPanel.classList.add('hidden');
     if (packetDetailPanel) packetDetailPanel.classList.add('hidden');
+    const shortlistDetailPanel = document.getElementById('shortlist-detail');
+    if (shortlistDetailPanel) shortlistDetailPanel.classList.add('hidden');
   }
 
   // Helper: switch active stage tab
@@ -108,6 +110,11 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (stage === 'packets') {
       sidebarHeaderTitle.textContent = 'Promotion Packets';
       renderSidebarPackets(bundleData.promotion_packets || []);
+    } else if (stage === 'shortlist') {
+      sidebarHeaderTitle.textContent = 'Case Shortlist';
+      draftListContainer.innerHTML = '<div class="loading-placeholder" style="font-style:italic; color: var(--color-muted);">Select Shortlist tab to view top 5 candidates for Control Tower review.</div>';
+      draftCountEl.textContent = '';
+      showShortlistPanel();
     } else if (stage === 'health') {
       sidebarHeaderTitle.textContent = 'Source Health';
       draftListContainer.innerHTML = '<div class="loading-placeholder" style="font-style:italic; color: var(--color-muted);">Select Health tab to view source health report.</div>';
@@ -513,6 +520,66 @@ document.addEventListener('DOMContentLoaded', () => {
         OK: ${health.sources_ok} | Failed: ${health.sources_failed} | Skipped: ${health.sources_skipped}
       </div>
     `;
+  }
+
+  // Show shortlist panel (T052)
+  function showShortlistPanel() {
+    hideAllDetailPanels();
+    const shortlistDetailPanel = document.getElementById('shortlist-detail');
+    if (!shortlistDetailPanel) return;
+    shortlistDetailPanel.classList.remove('hidden');
+    emptyStatePanel.classList.add('hidden');
+
+    const sourceHealthTable = document.getElementById('source-health-table');
+    const adapterSummaryTable = document.getElementById('adapter-summary-table');
+    const readyForReviewList = document.getElementById('ready-for-review-list');
+
+    // Source health summary
+    const health = bundleData.source_health_summary;
+    if (health && sourceHealthTable) {
+      const sources = health.source_health || [];
+      const okCount = sources.filter(s => s.status === 'ok').length;
+      const failCount = sources.filter(s => s.status === 'failed').length;
+      sourceHealthTable.innerHTML = `
+        <div style="margin-bottom:8px;"><strong>${okCount}</strong> sources OK | <strong style="color:var(--color-danger)">${failCount}</strong> failed</div>
+        <table style="width:100%; border-collapse:collapse; font-size:12px;">
+          ${sources.map(s => {
+            const color = s.status === 'ok' ? 'var(--color-success)' : 'var(--color-danger)';
+            return `<tr><td style="padding:4px 0;"><span style="color:${color}">●</span> ${escapeHTML(s.source_id)}</td><td style="text-align:right; color:var(--color-muted);">${s.adapter_name || '—'}</td></tr>`;
+          }).join('')}
+        </table>
+      `;
+    }
+
+    // Adapter summary
+    const adapterSummary = bundleData.adapter_success_summary;
+    if (adapterSummary && adapterSummaryTable) {
+      adapterSummaryTable.innerHTML = `
+        <table style="width:100%; border-collapse:collapse; font-size:12px;">
+          <thead><tr style="border-bottom:1px solid #444; color:var(--color-muted);"><th style="text-align:left; padding:4px;">Source</th><th style="text-align:left; padding:4px;">Adapter</th><th style="text-align:center; padding:4px;">Links</th><th style="text-align:center; padding:4px;">Status</th></tr></thead>
+          <tbody>
+            ${adapterSummary.map(a => `<tr><td style="padding:4px;">${escapeHTML(a.source_id)}</td><td style="padding:4px; color:var(--color-muted);">${a.adapter_name}</td><td style="text-align:center; padding:4px;">${a.links_found}</td><td style="text-align:center; padding:4px;">${a.ok ? '<span style="color:var(--color-success)">✓</span>' : '<span style="color:var(--color-danger)">✗</span>'}</td></tr>`).join('')}
+          </tbody>
+        </table>
+      `;
+    }
+
+    // Ready for review list
+    const shortlist = bundleData.shortlist;
+    if (shortlist && readyForReviewList) {
+      const readyItems = shortlist.items?.filter(i => i.case_quality_ready) || [];
+      if (readyItems.length > 0) {
+        readyForReviewList.innerHTML = readyItems.map(i => `
+          <div style="padding:8px; margin-bottom:8px; background:#0d1f0d; border-left:3px solid var(--color-success); border-radius:4px;">
+            <div style="font-weight:600; color:#fff;">${escapeHTML(i.packet_id)} — ${escapeHTML(i.title.substring(0, 50))}${i.title.length > 50 ? '...' : ''}</div>
+            <div style="font-size:11px; color:var(--color-muted); margin-top:4px;">${escapeHTML(i.source_authority)} • Score: ${i.quality_score}</div>
+            <div style="margin-top:6px;"><span style="background:var(--color-success); color:#fff; font-size:10px; padding:2px 6px; border-radius:3px;">✓ Ready for Control Tower Review</span></div>
+          </div>
+        `).join('');
+      } else {
+        readyForReviewList.innerHTML = '<div style="color:var(--color-muted); font-style:italic;">No case-quality candidates ready for Control Tower review.</div>';
+      }
+    }
   }
 
   // Select real draft

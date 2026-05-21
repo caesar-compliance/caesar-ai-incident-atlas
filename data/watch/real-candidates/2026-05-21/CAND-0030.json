@@ -1,0 +1,36 @@
+{
+  "candidate_id": "CAND-0030",
+  "detected_at": "2026-05-21T14:28:48.471Z",
+  "source_id": "doj-ada-ai-guidance",
+  "source_url": "https://www.ada.gov/resources/ai-guidance/",
+  "title": "Algorithms, Artificial Intelligence, and Disability Discrimination in Hiring",
+  "date_published": "21 May 2026",
+  "detected_keywords": [
+    "artificial intelligence",
+    "AI",
+    "algorithm",
+    "discrimination",
+    "disability",
+    "guidance",
+    "hiring"
+  ],
+  "preliminary_case_type": "regulator_guidance",
+  "jurisdiction": "US",
+  "source_tier": "green",
+  "confidence_score": 0.85,
+  "dedupe_key": "b5bf78a08ff23a227bf81e8dd5d7746aa6115ca2f43e55b998907b86d90a550c",
+  "status": "real_detected",
+  "quality_class": "likely_regulatory_guidance",
+  "quality_score": 81,
+  "promotion_eligible": true,
+  "rejection_reasons": [],
+  "risk_flags": [
+    "no_risk_detected"
+  ],
+  "adapter_name": "generic-official-adapter",
+  "extraction_method": "html_link_scan",
+  "confidence_reason": "Generic official adapter: high-signal keyword match (guidance)",
+  "authority": "Department of Justice (DOJ) ADA AI Guidance",
+  "category": "guidance",
+  "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: US. Adapter: generic-official-adapter."
+}

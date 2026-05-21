@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.12.0] - Unreleased
 
 ### Added
+- **T052 — Live Adapter Collection + Candidate Shortlist.** Ran real adapter pipeline, improved adapters based on results, built Control Tower review shortlist.
+  - `data/watch/runs/latest-live-adapter-audit.json` — audit of live adapter run (6 sources OK, 1 failed, 35 candidates, 9 eligible, 1 case-quality ready).
+  - Adapter improvements: FTC URL fix, CNIL pagination filters, EDPB language variant filters, EU Commission query filters, shared module pagination filters.
+  - `scripts/build-case-shortlist.mjs` — builds top 5 shortlist with governance analysis.
+  - `scripts/validate-case-shortlist.mjs` — validates shortlist structure and safety.
+  - `data/reviews/real/case-shortlist.json` — generated shortlist with why_it_matters, governance_value, publication_risks, missing_information.
+  - Review console: Shortlist tab, source health summary, adapter success/failure summary, "Ready for Control Tower review" badge.
+  - `docs/watch/LIVE_ADAPTER_COLLECTION_RUNBOOK.md` — one-command runbook.
 - **T051 — High-Signal Official Source Adapters.** Built adapter framework for all Green sources so Atlas finds real AI enforcement/guidance pages instead of generic contact/about pages.
   - `scripts/source-adapters/shared.mjs` — shared fetch, link extraction, negative/positive filter, keyword matching utilities.
   - `scripts/source-adapters/ico-adapter.mjs`, `ftc-adapter.mjs`, `cnil-adapter.mjs`, `edpb-adapter.mjs`, `eu-commission-adapter.mjs`, `generic-official-adapter.mjs`.

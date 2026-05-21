@@ -1,0 +1,30 @@
+{
+  "candidate_id": "CAND-0061",
+  "detected_at": "2026-05-21T14:28:48.471Z",
+  "source_id": "european-commission-ai-act",
+  "source_url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+  "title": "AI Act",
+  "date_published": "21 May 2026",
+  "detected_keywords": [
+    "eu_commission_policy_page"
+  ],
+  "preliminary_case_type": "regulator_guidance",
+  "jurisdiction": "EU",
+  "source_tier": "green",
+  "confidence_score": 0.85,
+  "dedupe_key": "acc5ad4063972046a38c2a3b8d591d3e18d9f3285ce1ad4bf2aafeba44b26328",
+  "status": "real_detected",
+  "quality_class": "likely_regulatory_guidance",
+  "quality_score": 81,
+  "promotion_eligible": true,
+  "rejection_reasons": [],
+  "risk_flags": [
+    "no_risk_detected"
+  ],
+  "adapter_name": "eu-commission-adapter",
+  "extraction_method": "eu_commission_html_policy_scan",
+  "confidence_reason": "EU Commission adapter: policy/AI-Act page matched (guidance)",
+  "authority": "European Commission",
+  "category": "guidance",
+  "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: EU. Adapter: eu-commission-adapter."
+}

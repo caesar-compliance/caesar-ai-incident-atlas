@@ -19,7 +19,7 @@
     "no_risk_detected"
   ],
   "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: EU.",
-  "quality_class": "likely_case",
+  "quality_class": "likely_regulatory_guidance",
   "quality_score": 84,
   "promotion_eligible": true,
   "rejection_reasons": []

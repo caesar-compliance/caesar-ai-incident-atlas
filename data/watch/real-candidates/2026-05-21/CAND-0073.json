@@ -1,0 +1,32 @@
+{
+  "candidate_id": "CAND-0073",
+  "detected_at": "2026-05-21T14:34:49.542Z",
+  "source_id": "cnil-ai",
+  "source_url": "https://www.cnil.fr/fr/mots-cles/sanction",
+  "title": "Liste des sanctions prononcées",
+  "date_published": "21 May 2026",
+  "detected_keywords": [
+    "cnil_french_signal"
+  ],
+  "preliminary_case_type": "enforcement",
+  "jurisdiction": "FR",
+  "source_tier": "green",
+  "confidence_score": 0.85,
+  "dedupe_key": "d713934b6cd919d53dc5be32d82380f5d4433e52a6760adefae81295c2e419de",
+  "status": "real_detected",
+  "quality_class": "blocked_low_relevance",
+  "quality_score": 53,
+  "promotion_eligible": false,
+  "rejection_reasons": [
+    "No AI/algorithm relevance detected"
+  ],
+  "risk_flags": [
+    "no_risk_detected"
+  ],
+  "adapter_name": "cnil-adapter",
+  "extraction_method": "cnil_html_sanction_scan",
+  "confidence_reason": "CNIL adapter: French DPA signal matched (enforcement)",
+  "authority": "Commission Nationale de l'Informatique et des Libertés (CNIL)",
+  "category": "enforcement",
+  "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: FR. Adapter: cnil-adapter."
+}

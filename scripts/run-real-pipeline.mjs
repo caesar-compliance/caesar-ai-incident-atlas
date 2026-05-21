@@ -24,6 +24,8 @@ const PIPELINE_STAGES = [
   { name: 'build-promotion-packets',    script: 'scripts/build-promotion-packets.mjs',    args: [] },
   { name: 'validate-promotion-packets', script: 'scripts/validate-promotion-packets.mjs', args: [] },
   { name: 'rank-promotion-candidates',  script: 'scripts/rank-promotion-candidates.mjs',  args: [] },
+  { name: 'build-case-shortlist',       script: 'scripts/build-case-shortlist.mjs',       args: [] },
+  { name: 'validate-case-shortlist',    script: 'scripts/validate-case-shortlist.mjs',    args: [] },
   { name: 'promote-approved-case',      script: 'scripts/promote-approved-case.mjs',      args: ['--dry-run'] },
   { name: 'validate-promotion-dry-run', script: 'scripts/validate-promotion-dry-run.mjs', args: [] },
   { name: 'build-real-review-bundle',   script: 'scripts/build-real-review-bundle.mjs',   args: [] },
@@ -126,8 +128,57 @@ async function main() {
     process.stdout.write(row);
   }
 
+  // Final short summary (T052)
+  if (!failed) {
+    const shortSummary = loadShortSummary();
+    if (shortSummary) {
+      const summaryOut = `\n${'='.repeat(50)}\n` +
+        'Final Summary:\n' +
+        `  Sources fetched:     ${shortSummary.sources_fetched}\n` +
+        `  Candidates detected: ${shortSummary.candidates_detected}\n` +
+        `  Case-quality ready:  ${shortSummary.case_quality_ready}\n` +
+        `  Top packet:          ${shortSummary.top_packet}\n` +
+        `  Top draft:           ${shortSummary.top_draft}\n` +
+        `  Public publish:        BLOCKED (dry-run only)\n` +
+        `${'='.repeat(50)}\n`;
+      logStream.write(summaryOut);
+      process.stdout.write(summaryOut);
+    }
+  }
+
   logStream.end();
   process.exit(failed ? 1 : 0);
+}
+
+function loadShortSummary() {
+  try {
+    const summaryPath = path.join(RUNS_DIR, 'latest-watch-summary.json');
+    const shortlistPath = path.join(path.dirname(RUNS_DIR), 'reviews', 'real', 'case-shortlist.json');
+
+    if (!fs.existsSync(summaryPath)) return null;
+    const watchSummary = JSON.parse(fs.readFileSync(summaryPath, 'utf8'));
+
+    let topPacket = 'N/A';
+    let topDraft = 'N/A';
+    let caseQualityReady = 0;
+
+    if (fs.existsSync(shortlistPath)) {
+      const shortlist = JSON.parse(fs.readFileSync(shortlistPath, 'utf8'));
+      topPacket = shortlist.summary?.top_recommended_packet || 'N/A';
+      topDraft = shortlist.summary?.top_recommended_draft || 'N/A';
+      caseQualityReady = shortlist.items?.filter(i => i.case_quality_ready).length || 0;
+    }
+
+    return {
+      sources_fetched: watchSummary.sources_ok || 0,
+      candidates_detected: watchSummary.detected_candidates_count || 0,
+      case_quality_ready: caseQualityReady,
+      top_packet: topPacket,
+      top_draft: topDraft
+    };
+  } catch (e) {
+    return null;
+  }
 }
 
 main().catch(err => {

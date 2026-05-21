@@ -1,0 +1,32 @@
+{
+  "candidate_id": "CAND-0050",
+  "detected_at": "2026-05-21T14:28:48.471Z",
+  "source_id": "edpb-ai",
+  "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_es",
+  "title": "ESEspañol",
+  "date_published": "21 May 2026",
+  "detected_keywords": [
+    "edpb_document_section"
+  ],
+  "preliminary_case_type": "regulator_guidance",
+  "jurisdiction": "EU",
+  "source_tier": "green",
+  "confidence_score": 0.85,
+  "dedupe_key": "7673a176341848cbf5fdf542aff2be643423386bb2cbc81c699b3afebfbb4135",
+  "status": "real_detected",
+  "quality_class": "blocked_low_relevance",
+  "quality_score": 53,
+  "promotion_eligible": false,
+  "rejection_reasons": [
+    "No AI/algorithm relevance detected"
+  ],
+  "risk_flags": [
+    "no_risk_detected"
+  ],
+  "adapter_name": "edpb-adapter",
+  "extraction_method": "edpb_html_document_scan",
+  "confidence_reason": "EDPB adapter: document section URL matched (guidance)",
+  "authority": "European Data Protection Board (EDPB)",
+  "category": "guidance",
+  "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: EU. Adapter: edpb-adapter."
+}

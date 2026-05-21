@@ -1,0 +1,33 @@
+{
+  "candidate_id": "CAND-0041",
+  "detected_at": "2026-05-21T14:28:48.471Z",
+  "source_id": "cnil-ai",
+  "source_url": "https://www.cnil.fr/fr/intelligence-artificielle?page=1",
+  "title": "Page 2",
+  "date_published": "21 May 2026",
+  "detected_keywords": [
+    "cnil_french_signal"
+  ],
+  "preliminary_case_type": "regulator_guidance",
+  "jurisdiction": "FR",
+  "source_tier": "green",
+  "confidence_score": 0.85,
+  "dedupe_key": "94312aba70fd10ebde42603c461e50ea2e09b09f7c5d70e424787f602b6498d2",
+  "status": "real_detected",
+  "quality_class": "blocked_low_relevance",
+  "quality_score": 25,
+  "promotion_eligible": false,
+  "rejection_reasons": [
+    "No AI/algorithm relevance detected",
+    "No legal/regulatory relevance detected"
+  ],
+  "risk_flags": [
+    "no_risk_detected"
+  ],
+  "adapter_name": "cnil-adapter",
+  "extraction_method": "cnil_html_sanction_scan",
+  "confidence_reason": "CNIL adapter: French DPA signal matched (general)",
+  "authority": "Commission Nationale de l'Informatique et des Libertés (CNIL)",
+  "category": "general",
+  "notes": "Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: FR. Adapter: cnil-adapter."
+}

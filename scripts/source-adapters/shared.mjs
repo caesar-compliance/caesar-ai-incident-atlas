@@ -12,6 +12,7 @@ export const NEGATIVE_URL_PATTERNS = [
   '/faq', '/feedback', '/login', '/register', '/sign-in', '/signup',
   '/privacy', '/cookie', '/terms', '/sitemap', '/procurement',
   '/tender', '/suppliers', '/accessibility', '/cookie-policy',
+  '?page=', '&page=', '?type=', '?f[', '/tag/', '/tags/',
 ];
 
 export const NEGATIVE_TITLE_PATTERNS = [

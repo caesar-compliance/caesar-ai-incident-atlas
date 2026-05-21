@@ -67,6 +67,8 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 | T047 — Real Green-Source Watcher MVP | **Complete** — Created manual CLI watcher, de-duplication, review bundle compiler, and safety containment auditor, with local review console interactive dropdown | 21 May 2026 |
 | T048 — Real Candidate-to-Draft Pipeline | **Complete** — Watcher hardening (fallback_urls, health reporting, timeout), build-real-case-drafts, build-promotion-packets, upgraded review console (stage tabs, pipeline bar, packet/health panels), full validation suite | 21 May 2026 |
 | T049 — Promotion CLI + Public Case Dry-Run | **Complete** — Rank candidates by safety score, dry-run previews, approval file format, promotion CLI with hard gates, validate-promotion-dry-run.mjs, review console ranked display | 21 May 2026 |
+| T051 — High-Signal Official Source Adapters | **Complete** — Adapter framework for Green sources, named adapters, quality classes, one-command runner, review console updates | 21 May 2026 |
+| T052 — Live Adapter Collection + Candidate Shortlist | **Complete** — Live pipeline run, adapter improvements (FTC/CNIL/EDPB/EU), case shortlist builder, review console shortlist tab, runbook | 21 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete | 19 May 2026 |
 
 ---
