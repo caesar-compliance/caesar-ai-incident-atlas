@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T064 — Explicit Private Draft Approval Gate + Controlled Draft Packet Promotion; dataset remains 13 records)
+**Last updated:** 21 May 2026 (T065 — Controlled Approval of One Private Intake + Draft Candidate Packet; dataset remains 13 records)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -290,6 +290,14 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T064-explicit-private-draft-approval-gate/VALIDATION.md` | T064 validation | Validation checklist and results. |
 | `work-items/T064-explicit-private-draft-approval-gate/IMPLEMENTATION_REPORT.md` | T064 report | Implementation report of files created. |
 | `work-items/T064-explicit-private-draft-approval-gate/DECISIONS.md` | T064 decisions | Decisions made during T064 task. |
+| `scripts/create-active-private-draft-approval.mjs` | Active Approval Maker | CLI tool to generate active Control Tower approved markers. (T065) |
+| `scripts/test-controlled-private-draft-approval.mjs` | T065 Gate Test | Regression test verifying single approved state, duplicate rejection, packet compiler compliance, and validator integrity. (T065) |
+| `data/reviews/approvals/private-draft-selection-rationale-latest.json` | Selection Rationale | Deterministic scoring and rationale selecting the single candidate. (T065) |
+| `data/reviews/approvals/private-draft-approval-active-latest.json` | Latest Active Approval | Structured wrapper representing the latest active approval marker. (T065) |
+| `work-items/T065-controlled-private-intake-approval/TASK.md` | T065 task | Task checklist, scope, and status. |
+| `work-items/T065-controlled-private-intake-approval/VALIDATION.md` | T065 validation | Validation checklist and results. |
+| `work-items/T065-controlled-private-intake-approval/IMPLEMENTATION_REPORT.md` | T065 report | Implementation report of files created. |
+| `work-items/T065-controlled-private-intake-approval/DECISIONS.md` | T065 decisions | Decisions made during T065 task. |
 
 
 ## docs/ Directory

@@ -110,18 +110,56 @@ if (errors === 0) {
   });
 }
 
-// 4. Verify no active approvals in baseline
+// 4. Verify active approvals (0 for baseline, 1 for T065 controlled state)
 const activeDir = path.join(ROOT, 'data', 'reviews', 'approvals', 'active-markers');
 let activeCount = 0;
 if (existsDir(activeDir)) {
   const files = fs.readdirSync(activeDir).filter(f => f.endsWith('.json'));
   activeCount = files.length;
-}
+  if (activeCount === 1) {
+    const activeFile = files[0];
+    const marker = readJson(path.join(activeDir, activeFile));
+    if (!marker) {
+      fail(`Active approval marker file ${activeFile} is invalid or empty`);
+    } else {
+      const pre = `[Active Marker (${marker.approval_id})]`;
+      if (marker.approval_status !== 'approved_for_private_draft') {
+        fail(`${pre} approval_status must be "approved_for_private_draft"`);
+      }
+      if (marker.control_tower_approval_present !== true) {
+        fail(`${pre} control_tower_approval_present must be true`);
+      }
+      if (marker.approval_scope !== 'private_draft_candidate_only') {
+        fail(`${pre} approval_scope must be "private_draft_candidate_only"`);
+      }
+      if (marker.approved_decision_status !== 'approve_for_private_draft') {
+        fail(`${pre} approved_decision_status must be "approve_for_private_draft"`);
+      }
+      if (marker.public_publish_allowed !== false) fail(`${pre} public_publish_allowed must be false`);
+      if (marker.promotion_packet_allowed !== false) fail(`${pre} promotion_packet_allowed must be false`);
+      if (marker.public_preview_allowed !== false) fail(`${pre} public_preview_allowed must be false`);
+      if (marker.remote_write_allowed !== false) fail(`${pre} remote_write_allowed must be false`);
+      if (marker.raw_text_storage_allowed !== false) fail(`${pre} raw_text_storage_allowed must be false`);
+      if (marker.html_storage_allowed !== false) fail(`${pre} html_storage_allowed must be false`);
 
-if (!allowActive && activeCount > 0) {
-  fail(`Found ${activeCount} active approval markers in baseline state under data/reviews/approvals/active-markers/, which is prohibited`);
+      const sf = marker.safety_flags || {};
+      if (sf.no_raw_html !== true) fail(`${pre} safety_flags.no_raw_html must be true`);
+      if (sf.no_long_third_party_text !== true) fail(`${pre} safety_flags.no_long_third_party_text must be true`);
+      if (sf.no_secrets_exposed !== true) fail(`${pre} safety_flags.no_secrets_exposed must be true`);
+      if (sf.no_unauthorized_remote_writes !== true) fail(`${pre} safety_flags.no_unauthorized_remote_writes must be true`);
+      if (sf.no_public_site_leak !== true) fail(`${pre} safety_flags.no_public_site_leak must be true`);
+
+      if (errors === 0) {
+        pass(`Controlled active approval marker verified successfully: ${marker.approval_id}`);
+      }
+    }
+  } else if (activeCount > 1) {
+    fail(`Prohibited: Found ${activeCount} active approval markers under data/reviews/approvals/active-markers/`);
+  } else {
+    pass('Baseline check: 0 active approval markers detected');
+  }
 } else {
-  pass(`Baseline check: ${activeCount} active approval markers detected`);
+  pass('Baseline check: 0 active approval markers detected (directory missing)');
 }
 
 // 5. Containment safety checks

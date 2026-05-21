@@ -1,7 +1,7 @@
 {
   "_schema": "caesar-atlas/review-console/private-candidate-intake/v1",
   "run_id": "GREEN-RUN-20260521-202417",
-  "generated_at": "2026-05-21T19:10:37.109Z",
+  "generated_at": "2026-05-21T19:20:36.335Z",
   "intake_count": 4,
   "needs_review_count": 4,
   "blocked_count": 0,
@@ -9,7 +9,7 @@
   "records": [
     {
       "intake_id": "INTAKE-GREEN-RUN-20260521-202417-001",
-      "created_at": "2026-05-21T19:10:37.109Z",
+      "created_at": "2026-05-21T19:20:36.335Z",
       "source_run_id": "GREEN-RUN-20260521-202417",
       "source_signal_id": "SIG-7355036B",
       "candidate_hash": "ca4df6dd1c503954",
@@ -71,7 +71,7 @@
     },
     {
       "intake_id": "INTAKE-GREEN-RUN-20260521-202417-002",
-      "created_at": "2026-05-21T19:10:37.109Z",
+      "created_at": "2026-05-21T19:20:36.335Z",
       "source_run_id": "GREEN-RUN-20260521-202417",
       "source_signal_id": "SIG-82E713BC",
       "candidate_hash": "de74cd58af136964",
@@ -125,7 +125,7 @@
     },
     {
       "intake_id": "INTAKE-GREEN-RUN-20260521-202417-003",
-      "created_at": "2026-05-21T19:10:37.109Z",
+      "created_at": "2026-05-21T19:20:36.335Z",
       "source_run_id": "GREEN-RUN-20260521-202417",
       "source_signal_id": "SIG-8B004750",
       "candidate_hash": "4ef0bde5c2c8bc3d",
@@ -185,7 +185,7 @@
     },
     {
       "intake_id": "INTAKE-GREEN-RUN-20260521-202417-004",
-      "created_at": "2026-05-21T19:10:37.109Z",
+      "created_at": "2026-05-21T19:20:36.335Z",
       "source_run_id": "GREEN-RUN-20260521-202417",
       "source_signal_id": "SIG-C6C00DD4",
       "candidate_hash": "0d4f4df03a891aad",

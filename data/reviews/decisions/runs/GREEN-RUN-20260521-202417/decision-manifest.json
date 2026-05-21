@@ -1,10 +1,10 @@
 {
   "_schema": "caesar-atlas/reviews/private-review-decisions-manifest/v1",
-  "generated_at": "2026-05-21T19:10:31.581Z",
+  "generated_at": "2026-05-21T19:20:16.598Z",
   "run_id": "GREEN-RUN-20260521-202417",
   "decision_count": 4,
-  "needs_more_review_count": 4,
-  "approved_for_private_draft_count": 0,
+  "needs_more_review_count": 3,
+  "approved_for_private_draft_count": 1,
   "rejected_count": 0,
   "deferred_count": 0,
   "safety_status": {

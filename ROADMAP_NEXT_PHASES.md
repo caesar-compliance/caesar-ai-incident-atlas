@@ -1,7 +1,7 @@
 # Roadmap — Next Phases — caesar-ai-incident-atlas
 
 **Created:** 20 May 2026 (T032)
-**Last updated:** 21 May 2026 (T064)
+**Last updated:** 21 May 2026 (T065)
 **Baseline:** Public MVP v0.13.0. 13 records. INC-0013 (EDPB guidance, first real adapter-detected case) published under CT approval.
 **Status:** Active MVP. INC-0013 live. Promotion pipeline fully operational. Next: additional CT-approved promotions from remaining ranked packets.
 
@@ -203,6 +203,23 @@ For each of the 12 (and future) case records, map to:
 - `validate-hosted-sync-safety.mjs`: extended to 31 checks
 
 **Next T061:** Execute real watch run (`node scripts/watch-green-sources.mjs`), promote top candidate, or activate hosted infrastructure.
+
+---
+
+## v1.6 — Controlled Private Intake Approval (T065 — 21 May 2026)
+
+**T065 complete** — Controlled approval of exactly one private candidate intake record and draft-candidate ready packet.
+
+- Selected high-relevance ICO AI and Algorithms record as the test-bed candidate.
+- Local-only active approved marker builder (`create-active-private-draft-approval.mjs`) to verify signature.
+- Generated exactly 1 active approval marker under `data/reviews/approvals/active-markers/`.
+- Promoted 1 review decision to `approve_for_private_draft` and built exactly 1 draft-candidate packet.
+- Upgraded review console data exporter to dynamically overlay active approvals on templates.
+- Configured dynamic validators and safety checks to support the controlled state.
+- Integrated dynamic active approvals count into ops status outputs.
+- Regression tests suite (`test-controlled-private-draft-approval.mjs`) verifying containment, duplicate rejection, and schema safety.
+
+**Next T066:** Private draft-to-candidate packet shaping.
 
 ---
 

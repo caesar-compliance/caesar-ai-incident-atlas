@@ -4,6 +4,18 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [0.24.0] - 21 May 2026
+
+### Added
+- **T065 — Controlled Approval of One Private Intake + Draft Candidate Packet.**
+  - `scripts/create-active-private-draft-approval.mjs` — Local-only CLI script to generate a Control Tower approved marker.
+  - `scripts/test-controlled-private-draft-approval.mjs` — Dynamic regression test suite validating the single approved state, duplicate marker rejection, packet compiler compliance, and validator integrity.
+  - `data/reviews/approvals/private-draft-selection-rationale-latest.json` — Formal scoring rationale selecting the Information Commissioner's Office (ICO) AI and Algorithms record.
+  - Promoted exactly one private review decision to `approve_for_private_draft` status and built exactly one private draft candidate packet referencing the active approval marker.
+  - Upgraded review console decision exporter to overlay active approval marker details onto templates.
+  - Enhanced `validate-hosted-sync-safety.mjs`, `validate-private-draft-approval-markers.mjs`, and `export-ops-status.mjs` to dynamically support the controlled T065 state.
+  - Documented work items in `work-items/T065-controlled-private-intake-approval/` `TASK.md`, `VALIDATION.md`, `IMPLEMENTATION_REPORT.md`, and `DECISIONS.md`.
+
 ## [0.23.0] - 21 May 2026
 
 ### Added

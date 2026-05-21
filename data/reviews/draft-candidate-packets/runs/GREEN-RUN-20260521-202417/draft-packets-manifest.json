@@ -1,8 +1,8 @@
 {
   "_schema": "caesar-atlas/reviews/private-draft-candidate-packets-manifest/v1",
-  "generated_at": "2026-05-21T19:10:33.261Z",
+  "generated_at": "2026-05-21T19:20:18.970Z",
   "run_id": "GREEN-RUN-20260521-202417",
-  "packet_count": 0,
+  "packet_count": 1,
   "safety_status": {
     "no_raw_html": true,
     "no_long_third_party_text": true,

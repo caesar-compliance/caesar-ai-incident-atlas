@@ -1,6 +1,6 @@
 {
   "_schema": "atlas-local-migration-smoke/v1",
-  "executed_at": "2026-05-21T19:10:29.305Z",
+  "executed_at": "2026-05-21T19:20:11.803Z",
   "mode": "skipped_local_runtime_missing",
   "pass": true,
   "reason": "Local Supabase CLI or Docker/PostgreSQL runtime unavailable. Schema validation only.",

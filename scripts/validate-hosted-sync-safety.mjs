@@ -1028,11 +1028,11 @@ if (decisionsLatest && Array.isArray(decisionsLatest.decisions)) {
   for (const d of decisionsLatest.decisions) {
     if (d.decision_status === 'approve_for_private_draft') {
       let foundMarker = false;
-      const templatesLatestPath = path.join(ROOT, 'data', 'reviews', 'approvals', 'private-draft-approval-template-latest.json');
-      const templatesLatest = readJson(templatesLatestPath);
-      if (templatesLatest && Array.isArray(templatesLatest.templates)) {
-        const match = templatesLatest.templates.find(t => t.intake_id === d.intake_id && t.decision_id === d.decision_id);
-        if (match && match.approval_status === 'approved_for_private_draft' && match.control_tower_approval_present === true) {
+      const expectedApprovalId = d.approval_id || `APPROVAL-${decisionsLatest.run_id}-${d.intake_id.split('-').slice(-1)[0]}`;
+      const markerPath = path.join(ROOT, 'data', 'reviews', 'approvals', 'active-markers', `${expectedApprovalId}.json`);
+      if (existsFile(markerPath)) {
+        const marker = readJson(markerPath);
+        if (marker && marker.approval_status === 'approved_for_private_draft' && marker.control_tower_approval_present === true) {
           foundMarker = true;
         }
       }
@@ -1045,14 +1045,17 @@ if (decisionsLatest && Array.isArray(decisionsLatest.decisions)) {
 }
 if (!approvedWithoutMarker) pass('T064: no approved decisions exist without valid approval marker (correct)');
 
-// ── 65. T064: no draft candidate packets in baseline ───────────────────────────
+// ── 65. T064: draft candidate packets count matches approved count ───────────
 const packetsLatestPath = path.join(ROOT, 'data', 'reviews', 'draft-candidate-packets', 'private-draft-candidate-packets-latest.json');
 const packetsLatest = readJson(packetsLatestPath);
 if (packetsLatest && Array.isArray(packetsLatest.packets)) {
-  if (packetsLatest.packets.length !== 0) {
-    fail(`T064: packets list is not empty, found ${packetsLatest.packets.length} packets in baseline`);
+  const expectedPacketsCount = decisionsLatest && Array.isArray(decisionsLatest.decisions)
+    ? decisionsLatest.decisions.filter(d => d.decision_status === 'approve_for_private_draft').length
+    : 0;
+  if (packetsLatest.packets.length !== expectedPacketsCount) {
+    fail(`T064: packets list count (${packetsLatest.packets.length}) does not match approved decisions count (${expectedPacketsCount})`);
   } else {
-    pass('T064: no draft candidate packets in baseline (correct)');
+    pass(`T064: draft candidate packets count matches approved decisions count (${expectedPacketsCount})`);
   }
 }
 

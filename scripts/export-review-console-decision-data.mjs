@@ -49,6 +49,29 @@ async function run() {
   }
 
   const templates = readJson(SOURCE_TEMPLATES_PATH) || { templates: [] };
+  const templatesList = [...(templates.templates || [])];
+  const activeMarkersDir = path.join(ROOT, 'data', 'reviews', 'approvals', 'active-markers');
+
+  // Overlay active approvals dynamically
+  if (fs.existsSync(activeMarkersDir)) {
+    const activeFiles = fs.readdirSync(activeMarkersDir).filter(f => f.endsWith('.json'));
+    activeFiles.forEach(file => {
+      const activeMarker = readJson(path.join(activeMarkersDir, file));
+      if (activeMarker) {
+        const matchIdx = templatesList.findIndex(t => t.intake_id === activeMarker.intake_id);
+        if (matchIdx !== -1) {
+          templatesList[matchIdx] = {
+            ...templatesList[matchIdx],
+            approval_status: activeMarker.approval_status,
+            control_tower_approval_present: activeMarker.control_tower_approval_present,
+            approved_by: activeMarker.approved_by,
+            approval_reason: activeMarker.approval_reason,
+            approval_notes: activeMarker.approval_notes
+          };
+        }
+      }
+    });
+  }
 
   // Double check that we are not exporting secrets or raw third-party content
   const HTML_PATTERN = /<(!DOCTYPE )?html|<[a-z][\s\S]*>/i;
@@ -63,10 +86,9 @@ async function run() {
 
   sanitizeCheck(decisions, 'decisions');
   sanitizeCheck(packets, 'packets');
-  sanitizeCheck(templates, 'templates');
+  sanitizeCheck({ templates: templatesList }, 'templates');
 
   // Count active approvals (always 0 in baseline, but dynamically computed if needed)
-  const activeMarkersDir = path.join(ROOT, 'data', 'reviews', 'approvals', 'active-markers');
   let activeApprovalCount = 0;
   if (fs.existsSync(activeMarkersDir)) {
     activeApprovalCount = fs.readdirSync(activeMarkersDir).filter(f => f.endsWith('.json')).length;
@@ -76,9 +98,9 @@ async function run() {
     _schema: 'caesar-atlas/reviews/review-console-approvals-summary/v1',
     run_id: decisions.run_id,
     generated_at: new Date().toISOString(),
-    approval_template_count: templates.templates.length,
+    approval_template_count: templatesList.length,
     active_approval_count: activeApprovalCount,
-    templates: templates.templates
+    templates: templatesList
   };
 
   // Write sanitized outputs directly to local review console private data folder

@@ -121,6 +121,8 @@ if (errors === 0) {
   const packetsData = readJson(latestPacketsPath);
   const packets = packetsData ? packetsData.packets || [] : [];
 
+  const runId = latestRun ? latestRun.run_id : '';
+
   const intakeLatestPath = path.join(ROOT, 'data', 'reviews', 'intake', 'private-candidate-intake-latest.json');
   const intakeData = readJson(intakeLatestPath);
   const intakeCount = intakeData ? (intakeData.records || []).length : 0;

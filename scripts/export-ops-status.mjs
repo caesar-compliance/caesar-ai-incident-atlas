@@ -128,11 +128,19 @@ const privateReviewDecisionCount = privateDecisionsManifest ? (privateDecisionsM
 const privatePacketsManifest = readJson(PRIVATE_PACKETS_MANIFEST_PATH);
 const privateDraftCandidatePacketCount = privatePacketsManifest ? (privatePacketsManifest.packet_count || 0) : 0;
 
-// ── Read T064 private draft approval manifest ────────────────────────────
+// ── Read T064/T065 private draft approval manifest and active markers ─────
 const privateApprovalsManifest = readJson(PRIVATE_APPROVALS_MANIFEST_PATH);
-const privateDraftApprovalStatus = privateApprovalsManifest ? 'approval_gate_ready' : 'not_built';
+const activeMarkersDir = path.join(ROOT, 'data', 'reviews', 'approvals', 'active-markers');
+let privateDraftActiveApprovalCount = 0;
+if (fs.existsSync(activeMarkersDir)) {
+  privateDraftActiveApprovalCount = fs.readdirSync(activeMarkersDir).filter(f => f.endsWith('.json')).length;
+}
+
+let privateDraftApprovalStatus = privateApprovalsManifest ? 'approval_gate_ready' : 'not_built';
+if (privateDraftActiveApprovalCount === 1) {
+  privateDraftApprovalStatus = 'one_private_draft_approved';
+}
 const privateDraftApprovalTemplateCount = privateApprovalsManifest ? (privateApprovalsManifest.approval_template_count || 0) : 0;
-const privateDraftActiveApprovalCount = 0;
 
 // ── Build status JSON ──────────────────────────────────────────────────────
 const now = new Date().toISOString();
