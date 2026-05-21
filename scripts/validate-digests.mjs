@@ -150,11 +150,7 @@ function validate() {
           errorCount++;
         }
 
-        // Safety: Block INC-0013 and mock records
-        if (caseId.toUpperCase() === 'INC-0013') {
-          logError(`Safety Violation: reference to INC-0013 found in ${file.fileName}!`);
-          errorCount++;
-        }
+        // Safety: Block mock/candidate records (INC-0013 is now publicly published — references allowed)
         if (caseId.toUpperCase().includes('CAND') || caseId.toLowerCase().includes('mock')) {
           logError(`Safety Violation: reference to synthetic candidate or mock record "${caseId}" found in ${file.fileName}!`);
           errorCount++;

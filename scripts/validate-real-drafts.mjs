@@ -176,14 +176,35 @@ function run() {
   checkNoDraftsInSite(SITE_DIR);
   logPass('Public site/ is clean of draft files.');
 
-  // 14. No public INC-0013
-  const INC_0013 = path.join(ROOT, 'data', 'incidents', 'inc-0013.json');
-  const INC_0013_SITE = path.join(ROOT, 'site', 'data', 'incidents', 'inc-0013.json');
-  if (fs.existsSync(INC_0013) || fs.existsSync(INC_0013_SITE)) {
-    logError('Leakage detected! Public INC-0013 record exists.');
+  // 14. INC-0013 is now published — verify correct file exists, block old lowercase path as leakage
+  const INC_0013_CORRECT = path.join(ROOT, 'data', 'incidents', 'INC-0013-edpb-automated-decision-making-profiling-guidance.json');
+  const INC_0013_SITE_CORRECT = path.join(ROOT, 'site', 'data', 'incidents', 'INC-0013-edpb-automated-decision-making-profiling-guidance.json');
+  const INC_0013_OLD = path.join(ROOT, 'data', 'incidents', 'inc-0013.json');
+  const INC_0013_SITE_OLD = path.join(ROOT, 'site', 'data', 'incidents', 'inc-0013.json');
+  if (fs.existsSync(INC_0013_OLD) || fs.existsSync(INC_0013_SITE_OLD)) {
+    logError('Leakage detected! Old lowercase inc-0013.json found — remove it.');
     failures++;
   } else {
-    logPass('Safe: INC-0013 public record does not exist.');
+    logPass('Safe: no stale inc-0013.json leakage.');
+  }
+  if (!fs.existsSync(INC_0013_CORRECT) || !fs.existsSync(INC_0013_SITE_CORRECT)) {
+    logError('INC-0013 published record missing — expected INC-0013-edpb-automated-decision-making-profiling-guidance.json in data/incidents/ and site/data/incidents/.');
+    failures++;
+  } else {
+    logPass('INC-0013 published record present in data/ and site/data/ (correct filename).');
+  }
+
+  // 15. Block INC-0014 unless explicitly approved
+  const INC_0014_DATA = path.join(ROOT, 'data', 'incidents');
+  if (fs.existsSync(INC_0014_DATA)) {
+    const allIncFiles = fs.readdirSync(INC_0014_DATA);
+    const inc0014Files = allIncFiles.filter(f => f.toUpperCase().startsWith('INC-0014'));
+    if (inc0014Files.length > 0) {
+      logError(`INC-0014 file(s) detected without approval: ${inc0014Files.join(', ')}`);
+      failures++;
+    } else {
+      logPass('Safe: no INC-0014 record exists.');
+    }
   }
 
   if (failures > 0) {

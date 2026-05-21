@@ -23,8 +23,8 @@
       id="search-input"
       type="search"
       class="search-input"
-      placeholder="Search incidents…"
-      aria-label="Search all incident fields"
+      placeholder="Search records, sectors, jurisdictions…"
+      aria-label="Search all record fields"
       autocomplete="off"
       spellcheck="false"
     >
@@ -57,6 +57,16 @@
     <div class="filter-section">
       <h3 id="filter-fm-label">Failure Mode</h3>
       <div id="filter-fm" class="filter-group" role="group" aria-labelledby="filter-fm-label"></div>
+    </div>
+
+    <div class="filter-section">
+      <h3 id="filter-type-label">Record Type</h3>
+      <div id="filter-record-type" class="filter-group" role="group" aria-labelledby="filter-type-label"></div>
+    </div>
+
+    <div class="filter-section" id="filter-jurisdiction-section">
+      <h3 id="filter-jur-label">Jurisdiction</h3>
+      <div id="filter-jurisdiction" class="filter-group" role="group" aria-labelledby="filter-jur-label"></div>
     </div>
 
     <button id="reset-filters" class="filter-reset" aria-label="Clear all filters and search">Clear all filters</button>
