@@ -1,36 +1,9 @@
 {
   "_schema": "caesar-atlas/supabase-payload/atlas-draft-candidate-packets/private-latest/v1",
-  "generated_at": "2026-05-21T18:56:02.845Z",
+  "generated_at": "2026-05-21T19:02:43.484Z",
   "mode": "dry_run_export",
   "run_id": "GREEN-RUN-20260521-202417",
   "remote_write_attempted": false,
   "note": "Sanitized private draft candidate packets payload for atlas_draft_candidate_packets table. No remote write. No raw HTML. No secrets.",
-  "records": [
-    {
-      "packet_id": "DRAFT-CAND-PKT-GREEN-RUN-20260521-202417-001",
-      "intake_id": "INTAKE-GREEN-RUN-20260521-202417-001",
-      "decision_id": "DECISION-GREEN-RUN-20260521-202417-001",
-      "source_run_id": "GREEN-RUN-20260521-202417",
-      "candidate_hash": "ca4df6dd1c503954",
-      "suggested_record_type": "candidate",
-      "suggested_failure_modes": [
-        "FM-COMPLIANCE-DEFICIT",
-        "FM-GOVERNANCE-GAP"
-      ],
-      "suggested_control_themes": [
-        "CTL-GUIDANCE-TRACKING",
-        "CTL-COMPLIANCE-UPDATE-PROCESS"
-      ],
-      "suggested_evidence_questions": [
-        "Have we mapped and reviewed the latest guidance from Information Commissioner's Office (ICO) AI and Algorithms?",
-        "Is there a documented compliance gap assessment against Information Commissioner's Office (ICO) AI and Algorithms's guidelines?"
-      ],
-      "suggested_vendor_questions": [
-        "Does the vendor track and conform to AI governance guidance issued by Information Commissioner's Office (ICO) AI and Algorithms?",
-        "What evidence does the vendor provide to demonstrate compliance with the latest Information Commissioner's Office (ICO) AI and Algorithms standards?"
-      ],
-      "draft_candidate_ready": true,
-      "public_publish_ready": false
-    }
-  ]
+  "records": []
 }

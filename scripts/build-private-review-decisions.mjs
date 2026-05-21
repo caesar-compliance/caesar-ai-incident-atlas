@@ -81,7 +81,7 @@ async function run() {
       decision_status: existing ? existing.decision_status : 'needs_more_review',
       decision_reason: existing ? existing.decision_reason : 'Pending manual compliance triaging.',
       review_notes: existing ? existing.review_notes : '',
-      recommended_next_step: existing ? existing.recommended_next_step : 'Perform initial policy-gap analysis.',
+      recommended_next_step: existing ? existing.recommended_next_step : 'continue_private_review',
       draft_candidate_ready: existing ? existing.draft_candidate_ready : false,
       public_publish_ready: false,
       promotion_packet_created: false,

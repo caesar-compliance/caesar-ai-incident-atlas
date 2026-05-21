@@ -33,4 +33,11 @@ The implementation has been verified using the following validation scripts:
    - **Result**: PASS
    - **Checks**:
      - Confirms public site and local dataset integrity remain intact.
-     - Confirms Ops Status has safe fields only: `review_decision_status: "private_decisions_ready"`, `private_review_decision_count: 4`, and `private_draft_candidate_packet_count: 1`.
+     - Confirms Ops Status has safe fields only: `review_decision_status: "private_decisions_ready"`, `private_review_decision_count: 4`, and `private_draft_candidate_packet_count: 0`.
+
+## T063-FIX — Tightened Baseline Validation
+- **Validator Change (`scripts/validate-private-review-decisions.mjs`)**: Tightened the automated assertions to enforce `approved_for_private_draft_count === 0` and `draft_candidate_packet_count === 0` by default under the baseline review state.
+- **Verification Commands**:
+  - `node scripts/validate-private-review-decisions.mjs` -> PASS
+  - `node scripts/validate-hosted-sync-safety.mjs` -> PASS
+  - `node scripts/run-local-automation-cycle.mjs --review-intake-only` -> PASS

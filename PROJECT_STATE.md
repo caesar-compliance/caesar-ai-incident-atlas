@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T063)
+**Last updated:** 21 May 2026 (T063-FIX)
 
 ---
 
@@ -9,11 +9,11 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.22.0` |
-| Current phase | `T063 — Private Review Console UI + Review Decision Packets` |
+| Current version | `0.22.1` |
+| Current phase | `T063-FIX — Reset Private Draft Approval & Restore Baseline` |
 | Status | `active` |
-| Latest completed task | `T063 — Private Review Console UI + Review Decision Packets` |
-| Active work item | `T063 complete. Private review decisions schema, builder, patch CLI, draft candidate packet builder, review console decision exports, and dry-run hosted payloads implemented. Bounded workflow runner and CLI integration complete.` |
+| Latest completed task | `T063-FIX — Reset Private Draft Approval & Restore Baseline` |
+| Active work item | `T063 complete. T063-FIX successfully reset all review decisions to needs_more_review, restoring 0 approved decisions and 0 draft packets baseline. Tightened validator controls to enforce zero baseline approvals.` |
 | Next recommended step | `Execute controlled private draft promotion in T064 (next phase).` |
 
 ---
@@ -68,6 +68,7 @@
 | T061 — Bounded Real Green-Source Manual Run | **Complete + Fix Applied** — First real Green-source fetch executed (GREEN-RUN-20260521-202417: 4 fetched, 3 failed, 4 signals). Validator tightened to require actual run completion. | 21 May 2026 |
 | T062 — Private Candidate Review Intake | **Complete** — Converted T061 Green-source signals into structured private review intake records. | 21 May 2026 |
 | T063 — Private Review Console UI + Review Decision Packets | **Complete** — Implemented local-only review decisions and draft packets workflow, patch CLI tool, upgraded review console UI, and strict safety validation. | 21 May 2026 |
+| T063-FIX — Reset Private Draft Approval & Restore Baseline | **Complete** — Reset all decisions to needs_more_review, 0 approved, 0 draft packets baseline, and tightened validator. | 21 May 2026 |
 | v0.8.0 Product Pivot — Strategic repositioning | Complete — Strategic docs, mapping models, and automation policies created | 21 May 2026 |
 | v0.7.8 Dataset Expansion — INC-0012 drafted | Complete — 12 records; INC-0012 prepared for CT review | 20 May 2026 |
 | v0.7.7 Dataset Expansion — INC-0011 signed off | Complete — 11 records; INC-0011 governance-approved | 20 May 2026 |

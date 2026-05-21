@@ -28,3 +28,11 @@ The goal of T063 was to build an operational private review workflow by adding a
 7. **Hosted & Exporter Sync Safety**:
    - Exporters safely export metadata-only decision payloads to `tools/review-console/data/` and Supabase payloads to `data/ops/supabase/`.
    - Updated `validate-hosted-sync-safety.mjs` and `export-ops-status.mjs` to ensure total isolation and correct public/private status and count metrics.
+
+## T063-FIX — Reset Private Draft Approval & Restore Baseline
+- **Date:** 21 May 2026
+- **Summary:** Reset all 4 intake record decisions from the T062 discovery run (`GREEN-RUN-20260521-202417`) back to the `needs_more_review` default baseline state with the `continue_private_review` recommended next step.
+- **Resolution:**
+  - Removed unauthorized approval from all generated, private, and exported files (`private-review-decisions-latest.json`, `private-draft-candidate-packets-latest.json`, hosted payloads, console exports).
+  - Restored 0 draft-candidate packets and 0 approved decisions baseline.
+  - Verified no draft-candidate packets are created by default until explicit future Control Tower approval.

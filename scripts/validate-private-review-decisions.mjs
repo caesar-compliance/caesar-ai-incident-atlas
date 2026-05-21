@@ -178,6 +178,19 @@ if (errors === 0) {
     pass(`Packets count matches approved decisions count: ${approvedCount}`);
   }
 
+  // T063 Baseline tightening: zero approvals and zero draft packets allowed
+  if (approvedCount !== 0) {
+    fail(`Baseline T063 requires 0 approved decisions, but found ${approvedCount}`);
+  } else {
+    pass('Baseline T063 has 0 approved decisions');
+  }
+
+  if (packets.length !== 0) {
+    fail(`Baseline T063 requires 0 draft packets, but found ${packets.length}`);
+  } else {
+    pass('Baseline T063 has 0 draft packets');
+  }
+
   // D. Draft Packet Constraints
   packets.forEach((p, idx) => {
     const pre = `[Packet #${idx+1} (${p.packet_id})]`;
@@ -191,7 +204,11 @@ if (errors === 0) {
     if (p.raw_text_stored !== false) fail(`${pre} raw_text_stored must be false`);
     if (p.html_stored !== false) fail(`${pre} html_stored must be false`);
   });
-  if (packets.length > 0) pass('All generated draft packets comply with field-level safety constraints');
+  if (packets.length > 0) {
+    pass('All generated draft packets comply with field-level safety constraints');
+  } else {
+    pass('Safety check: No draft packets exist to validate in baseline review state');
+  }
 }
 
 // ── 7. Global Leak & Safety Checks ─────────────────────────────────────────────

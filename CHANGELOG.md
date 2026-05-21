@@ -4,6 +4,16 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [0.22.1] - 21 May 2026
+
+### Fixed
+- **T063-FIX — Reset Unauthorized Private Draft Approval and Restore Review Baseline.**
+  - Reset all T063 private review decisions back to `needs_more_review` default status.
+  - Set default recommended next step to `continue_private_review` in decision builder.
+  - Removed unauthorized approval from all generated, private, and exported review files.
+  - Restored 0 draft-candidate packets and 0 approved decisions baseline.
+  - Tightened validator `scripts/validate-private-review-decisions.mjs` to block any baseline approvals/draft packets.
+
 ## [0.22.0] - 21 May 2026
 
 ### Added

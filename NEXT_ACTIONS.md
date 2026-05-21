@@ -1,6 +1,6 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T061-FIX Complete)
+**Last updated:** 21 May 2026 (T063-FIX Complete)
 
 ---
 
@@ -80,6 +80,7 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 | T061 — Bounded Real Green-Source Manual Run | **Complete** — manual green-tier fetches (ICO/CNIL/EDPB/EU Commission), 4 candidate signals | 21 May 2026 |
 | T062 — Private Candidate Review Intake | **Complete** — converted T061 signals to private review intake records, schema, exporters, and safety checks | 21 May 2026 |
 | T063 — Private Review Console UI + Review Decision Packets | **Complete** — implemented local-only review decisions and draft packets workflow, patch CLI tool, upgraded review console UI, and strict safety validation | 21 May 2026 |
+| T063-FIX — Reset Private Draft Approval & Restore Baseline | **Complete** — Reset all decisions to needs_more_review, 0 approved, 0 draft packets baseline, and tightened validator | 21 May 2026 |
 | v0.4 Dataset MVP — full 10-record batch | Complete | 19 May 2026 |
 
 ---
