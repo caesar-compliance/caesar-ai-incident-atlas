@@ -22,6 +22,9 @@ Caesar AI Incident Atlas uses **Account B**:
 
 ## Secret handling
 
+- **Supabase (preferred):** `SUPABASE_PUBLISHABLE_KEY` + `SUPABASE_SECRET_KEY` with `SUPABASE_API_KEY_MODE=new`.
+- **Legacy fallback:** JWT anon/service_role in `.env` for hosted scripts — optional only.
+- **Never** commit `SUPABASE_SECRET_KEY` or use it in client/browser code.
 - Account B credentials in ignored env files only
 - `data/ops/runtime-services-readiness.json` — metadata only
 
