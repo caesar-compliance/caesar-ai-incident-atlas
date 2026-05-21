@@ -32,10 +32,10 @@
         <h2 id="sidebar-header-title">Mock Draft Cases</h2>
         <span id="draft-count" class="counter-badge">0</span>
       </div>
-      <div class="sidebar-search" style="margin-bottom: 10px;">
-        <select id="bundle-selector" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #444; background-color: #222; color: #eee; font-family: inherit; font-size: 13px; cursor: pointer;">
+      <div class="sidebar-search" style="margin-bottom: 10        <select id="bundle-selector" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #444; background-color: #222; color: #eee; font-family: inherit; font-size: 13px; cursor: pointer;">
           <option value="review-bundle.json">Mock Drafts Bundle (review-bundle.json)</option>
           <option value="real-review-bundle.json">Real Pipeline Bundle (real-review-bundle.json)</option>
+          <option value="private-candidate-intake.json">Private Intake & Decisions (private-candidate-intake.json)</option>
         </select>
       </div>
 
@@ -90,6 +90,7 @@
               <div class="ps-count" id="ps-count-candidates">0</div>
               <div class="ps-status">candidate detected</div>
             </div>
+
             <div class="pipeline-arrow">→</div>
             <div class="pipeline-stage-box" id="ps-drafts">
               <div class="ps-label">DRAFTS GENERATED</div>
@@ -431,5 +432,7 @@
       </div>
     </section>
   </main>
+  <!-- Load Local Review Console Script -->
+  <script src="assets/review-console.js"></script>
 </body>
 </html>

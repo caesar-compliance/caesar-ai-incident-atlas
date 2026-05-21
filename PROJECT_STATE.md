@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T061)
+**Last updated:** 21 May 2026 (T063)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.20.0` |
-| Current phase | `T061 — Bounded Real Green-Source Manual Run + Private Candidate Signals` |
+| Current version | `0.22.0` |
+| Current phase | `T063 — Private Review Console UI + Review Decision Packets` |
 | Status | `active` |
-| Latest completed task | `T061 — Bounded Real Green-Source Manual Run + Private Candidate Signals` |
-| Active work item | `T061-FIX complete. Bounded Green-source manual run actually executed with --execute-green-fetch. GREEN-RUN-20260521-202417: 4 fetched (ICO/CNIL/EDPB/EU Commission), 3 failed (FTC/EEOC/DOJ 404), 4 candidate signals. Validator tightened. 13 public records.` |
-| Next recommended step | `Review candidate signals, promote through review console, or proceed with hosted activation (follow checklist from print-hosted-activation-commands.mjs)` |
+| Latest completed task | `T063 — Private Review Console UI + Review Decision Packets` |
+| Active work item | `T063 complete. Private review decisions schema, builder, patch CLI, draft candidate packet builder, review console decision exports, and dry-run hosted payloads implemented. Bounded workflow runner and CLI integration complete.` |
+| Next recommended step | `Execute controlled private draft promotion in T064 (next phase).` |
 
 ---
 
@@ -66,6 +66,8 @@
 | T059 — Hosted Activation Preflight | **Complete** — Local migration smoke, hosted activation preflight, operator command checklist. Safety validators expanded. All preflight tools operational. No remote infrastructure touched. | 21 May 2026 |
 | T060 — Manual Watch Run Queue | **Complete** — Manual queue (7 green sources), run envelope, hosted payloads, validator. run-local-automation-cycle + export-ops-status + validate-hosted-sync-safety all updated. | 21 May 2026 |
 | T061 — Bounded Real Green-Source Manual Run | **Complete + Fix Applied** — First real Green-source fetch executed (GREEN-RUN-20260521-202417: 4 fetched, 3 failed, 4 signals). Validator tightened to require actual run completion. | 21 May 2026 |
+| T062 — Private Candidate Review Intake | **Complete** — Converted T061 Green-source signals into structured private review intake records. | 21 May 2026 |
+| T063 — Private Review Console UI + Review Decision Packets | **Complete** — Implemented local-only review decisions and draft packets workflow, patch CLI tool, upgraded review console UI, and strict safety validation. | 21 May 2026 |
 | v0.8.0 Product Pivot — Strategic repositioning | Complete — Strategic docs, mapping models, and automation policies created | 21 May 2026 |
 | v0.7.8 Dataset Expansion — INC-0012 drafted | Complete — 12 records; INC-0012 prepared for CT review | 20 May 2026 |
 | v0.7.7 Dataset Expansion — INC-0011 signed off | Complete — 11 records; INC-0011 governance-approved | 20 May 2026 |

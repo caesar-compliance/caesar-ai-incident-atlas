@@ -4,6 +4,23 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [0.22.0] - 21 May 2026
+
+### Added
+- **T063 — Private Review Console UI + Review Decision Packets.**
+  - `schemas/pipeline/private-review-decision.schema.json` — private review decision schema; defines properties (`decision_id`, `intake_id`, etc.) and sets safety parameters as strictly `false`.
+  - `scripts/build-private-review-decisions.mjs` — review decision builder; reads T062 intake records and compiles deterministic review decision records.
+  - `scripts/apply-private-review-decision.mjs` — CLI tool to securely apply/patch a decision status for a given intake ID and generate draft-candidate ready packets.
+  - `scripts/build-private-draft-candidate-packets.mjs` — draft packet builder; creates local draft candidate packets for approved review decisions.
+  - `scripts/export-review-console-decision-data.mjs` — review console decision data exporter.
+  - `scripts/export-hosted-review-decision-payloads.mjs` — hosted decisions/packets dry-run exporter.
+  - `scripts/validate-private-review-decisions.mjs` — decision validator enforcing schema constraints, packet alignments, and safety boundaries.
+  - `scripts/run-private-review-workflow.mjs` — isolated, bounded, local-only runner for review intake steps.
+  - Added option `--review-intake-only` in `scripts/run-local-automation-cycle.mjs` to execute the bounded review workflow.
+  - Updated `tools/review-console/index.html` and `tools/review-console/assets/review-console.js` to render private intake, decisions, and draft-candidate ready packet cards.
+  - Expanded `validate-hosted-sync-safety.mjs` with 11 rigorous checks (checks 50-60) for T063.
+  - Added safe numeric counts and status in `export-ops-status.mjs`.
+  - Documented work items: `work-items/T063-private-review-console-decision-packets/` `TASK.md`, `VALIDATION.md`, `IMPLEMENTATION_REPORT.md`, and `DECISIONS.md`.
 
 ## [0.21.0] - 21 May 2026
 

@@ -18,6 +18,8 @@ const QUALITY_REPORT_PATH     = path.join(ROOT, 'data', 'watch', 'runs', 'latest
 const MANUAL_QUEUE_MANIFEST_PATH = path.join(ROOT, 'data', 'ops', 'watch-runs', 'manual-queue-manifest.json');
 const REAL_GREEN_RUN_LATEST_PATH = path.join(ROOT, 'data', 'ops', 'watch-runs', 'real-green-run-latest.json');
 const PRIVATE_INTAKE_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews', 'intake', 'private-candidate-intake-manifest.json');
+const PRIVATE_DECISIONS_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews', 'decisions', 'private-review-decisions-manifest.json');
+const PRIVATE_PACKETS_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews', 'draft-candidate-packets', 'private-draft-candidate-packets-manifest.json');
 
 const OUT_DIRS = [
   path.join(ROOT, 'data', 'ops'),
@@ -117,6 +119,14 @@ const reviewIntakeStatus = privateIntakeManifest ? 'private_intake_ready' : 'not
 const privateIntakeCount = privateIntakeManifest ? (privateIntakeManifest.intake_count || 0) : null;
 const privateIntakeNeedsReviewCount = privateIntakeManifest ? (privateIntakeManifest.needs_review_count || 0) : null;
 
+// ── Read T063 private review decisions & draft packets manifests ──────────
+const privateDecisionsManifest = readJson(PRIVATE_DECISIONS_MANIFEST_PATH);
+const reviewDecisionStatus = privateDecisionsManifest ? 'private_decisions_ready' : 'not_built';
+const privateReviewDecisionCount = privateDecisionsManifest ? (privateDecisionsManifest.decision_count || 0) : 0;
+
+const privatePacketsManifest = readJson(PRIVATE_PACKETS_MANIFEST_PATH);
+const privateDraftCandidatePacketCount = privatePacketsManifest ? (privatePacketsManifest.packet_count || 0) : 0;
+
 // ── Build status JSON ──────────────────────────────────────────────────────
 const now = new Date().toISOString();
 
@@ -145,6 +155,10 @@ const opsStatus = {
   review_intake_status:      reviewIntakeStatus,
   private_intake_count:      privateIntakeCount,
   private_intake_needs_review_count: privateIntakeNeedsReviewCount,
+  // T063: Private review decision + draft candidate packet status
+  review_decision_status:    reviewDecisionStatus,
+  private_review_decision_count: privateReviewDecisionCount,
+  private_draft_candidate_packet_count: privateDraftCandidatePacketCount,
   next_step:                 'Configure Supabase + Cloudflare Worker secrets to enable hosted_ready mode',
   public_site_url:           'https://atlas.caesar.no',
   data_endpoint:             'https://atlas.caesar.no/data/incident-index.json',

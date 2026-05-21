@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T062 — Private Candidate Review Intake; dataset now 13 records)
+**Last updated:** 21 May 2026 (T063 — Private Review Console UI + Review Decision Packets; dataset now 13 records)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -257,6 +257,26 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T062-private-candidate-review-intake/VALIDATION.md` | T062 validation | Validation checklist and results. |
 | `work-items/T062-private-candidate-review-intake/IMPLEMENTATION_REPORT.md` | T062 report | Implementation report of files created. |
 | `work-items/T062-private-candidate-review-intake/DECISIONS.md` | T062 decisions | Decisions made during T062 task. |
+| `schemas/pipeline/private-review-decision.schema.json` | Decision Schema | JSON Schema validating private review decision record shapes. (T063) |
+| `scripts/build-private-review-decisions.mjs` | Decision Builder | Node script creating deterministic review decision records from intake records. (T063) |
+| `scripts/apply-private-review-decision.mjs` | Decision Patches | CLI tool to securely apply/patch a decision status for a given intake ID and generate draft-candidate ready packets. (T063) |
+| `scripts/build-private-draft-candidate-packets.mjs` | Packet Builder | Node script creating local draft candidate packets for approved review decisions. (T063) |
+| `scripts/export-review-console-decision-data.mjs` | Console Exporter | Exporter compiling console-safe decisions/packets metadata for local review console dashboard. (T063) |
+| `scripts/export-hosted-review-decision-payloads.mjs` | Payload Exporter | Exporter compiling dry-run Supabase payloads for atlas_review_decisions and atlas_draft_candidate_packets. (T063) |
+| `scripts/validate-private-review-decisions.mjs` | Decision Validator | Validator verifying schema compliance, packet alignments, and safety bounds. (T063) |
+| `scripts/run-private-review-workflow.mjs` | Bounded Runner | Bounded runner script executing manual review intake stages. (T063) |
+| `tools/review-console/data/private-review-decisions.json` | Console Input | Local console private review decisions data. (T063) |
+| `tools/review-console/data/private-draft-candidate-packets.json` | Console Input | Local console private draft candidate packets data. (T063) |
+| `data/reviews/decisions/private-review-decisions-latest.json` | Decision Output | Structured latest private review decisions. (T063) |
+| `data/reviews/decisions/private-review-decisions-manifest.json` | Decision Manifest | Latest review decisions manifest. (T063) |
+| `data/reviews/draft-candidate-packets/private-draft-candidate-packets-latest.json` | Packet Output | Structured latest private draft candidate packets. (T063) |
+| `data/reviews/draft-candidate-packets/private-draft-candidate-packets-manifest.json` | Packet Manifest | Latest draft packets manifest. (T063) |
+| `data/ops/supabase/atlas-review-decisions.private-latest.json` | Supabase Payload | Sanitized atlas_review_decisions dry-run payload. (T063) |
+| `data/ops/supabase/atlas-draft-candidate-packets.private-latest.json` | Supabase Payload | Sanitized atlas_draft_candidate_packets dry-run payload. (T063) |
+| `work-items/T063-private-review-console-decision-packets/TASK.md` | T063 task | Task checklist, scope, and status. |
+| `work-items/T063-private-review-console-decision-packets/VALIDATION.md` | T063 validation | Validation checklist and results. |
+| `work-items/T063-private-review-console-decision-packets/IMPLEMENTATION_REPORT.md` | T063 report | Implementation report of files created. |
+| `work-items/T063-private-review-console-decision-packets/DECISIONS.md` | T063 decisions | Decisions made during T063 task. |
 
 ## docs/ Directory
 

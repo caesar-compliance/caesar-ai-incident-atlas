@@ -1,0 +1,39 @@
+{
+  "_schema": "caesar-atlas/reviews/private-draft-candidate-packets/v1",
+  "run_id": "GREEN-RUN-20260521-202417",
+  "generated_at": "2026-05-21T18:56:02.775Z",
+  "packets": [
+    {
+      "packet_id": "DRAFT-CAND-PKT-GREEN-RUN-20260521-202417-001",
+      "intake_id": "INTAKE-GREEN-RUN-20260521-202417-001",
+      "decision_id": "DECISION-GREEN-RUN-20260521-202417-001",
+      "source_run_id": "GREEN-RUN-20260521-202417",
+      "candidate_hash": "ca4df6dd1c503954",
+      "suggested_record_type": "candidate",
+      "suggested_failure_modes": [
+        "FM-COMPLIANCE-DEFICIT",
+        "FM-GOVERNANCE-GAP"
+      ],
+      "suggested_control_themes": [
+        "CTL-GUIDANCE-TRACKING",
+        "CTL-COMPLIANCE-UPDATE-PROCESS"
+      ],
+      "suggested_evidence_questions": [
+        "Have we mapped and reviewed the latest guidance from Information Commissioner's Office (ICO) AI and Algorithms?",
+        "Is there a documented compliance gap assessment against Information Commissioner's Office (ICO) AI and Algorithms's guidelines?"
+      ],
+      "suggested_vendor_questions": [
+        "Does the vendor track and conform to AI governance guidance issued by Information Commissioner's Office (ICO) AI and Algorithms?",
+        "What evidence does the vendor provide to demonstrate compliance with the latest Information Commissioner's Office (ICO) AI and Algorithms standards?"
+      ],
+      "draft_candidate_ready": true,
+      "public_publish_ready": false,
+      "promotion_packet_created": false,
+      "public_preview_created": false,
+      "public_site_mutated": false,
+      "remote_write_attempted": false,
+      "raw_text_stored": false,
+      "html_stored": false
+    }
+  ]
+}

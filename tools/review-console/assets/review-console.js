@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let bundleData = { candidates: [], drafts: [], promotion_packets: [], digests: [], source_health_summary: null };
   let selectedDraft = null;
   let isRealBundle = false;
+  let isPrivateIntakeBundle = false;
+  let privateDecisions = [];
+  let privatePackets = [];
   let activeStage = 'candidates'; // candidates | drafts | packets | health
   let activeQualityFilter = 'all';
 
@@ -128,6 +131,52 @@ document.addEventListener('DOMContentLoaded', () => {
     draftListContainer.innerHTML = '<div class="loading-placeholder">Loading bundle data...</div>';
     hideAllDetailPanels();
     selectedDraft = null;
+
+    if (bundleName === 'private-candidate-intake.json') {
+      isPrivateIntakeBundle = true;
+      isRealBundle = false;
+      safetyWarningBanner.innerHTML = `<strong>[CRITICAL WARNING]</strong> PRIVATE LOCAL INTAKE REVIEW • NOT APPROVED FOR PUBLIC ATLAS • NOT LEGAL ADVICE • STRICTLY LOCAL SANDBOX`;
+      safetyLabel.textContent = "PRIVATE LOCAL INTAKE CONSOLE";
+      if (safetyIndicator) {
+        safetyIndicator.className = 'pulse-purple';
+        safetyIndicator.style.backgroundColor = '#9333ea';
+      }
+      if (pipelineStageTabs) pipelineStageTabs.style.display = 'none';
+      if (pipelineSummaryBar) pipelineSummaryBar.style.display = 'none';
+      if (digestPreviewBlock) digestPreviewBlock.style.display = 'none';
+      if (qualityClassFilter) qualityClassFilter.style.display = 'none';
+
+      sidebarHeaderTitle.textContent = "Private Intake Records";
+
+      Promise.all([
+        fetch(`./data/private-candidate-intake.json`).then(r => r.json()),
+        fetch(`./data/private-review-decisions.json`).then(r => r.json()).catch(() => ({ decisions: [] })),
+        fetch(`./data/private-draft-candidate-packets.json`).then(r => r.json()).catch(() => ({ packets: [] }))
+      ])
+      .then(([intakeData, decisionsData, packetsData]) => {
+        bundleData = intakeData;
+        privateDecisions = decisionsData.decisions || [];
+        privatePackets = packetsData.packets || [];
+
+        bundleTimestampEl.textContent = intakeData.generated_at
+          ? new Date(intakeData.generated_at).toLocaleString()
+          : 'Unknown';
+
+        renderSidebarPrivateIntake(intakeData.records || []);
+      })
+      .catch(err => {
+        console.error("Error loading private intake bundle:", err);
+        draftListContainer.innerHTML = `
+          <div class="loading-placeholder" style="color: var(--color-danger);">
+            Failed to load Private Intake bundle.<br>
+            Please run the private review workflow scripts first!
+          </div>
+        `;
+      });
+      return;
+    }
+
+    isPrivateIntakeBundle = false;
 
     fetch(`./${bundleName}`)
       .then(response => {
@@ -714,7 +763,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // 4. Search Filter
   draftSearchInput.addEventListener('input', (e) => {
     const query = e.target.value.toLowerCase();
-    if (isRealBundle) {
+    if (isPrivateIntakeBundle) {
+      const filtered = (bundleData.records || []).filter(r =>
+        r.intake_id.toLowerCase().includes(query) ||
+        r.source_name.toLowerCase().includes(query) ||
+        (r.source_id && r.source_id.toLowerCase().includes(query)) ||
+        (r.legal_governance_relevance && r.legal_governance_relevance.toLowerCase().includes(query))
+      );
+      renderSidebarPrivateIntake(filtered);
+    } else if (isRealBundle) {
       if (activeStage === 'candidates') {
         const filtered = (bundleData.candidates || []).filter(c =>
           c.candidate_id.toLowerCase().includes(query) ||
@@ -1075,6 +1132,209 @@ document.addEventListener('DOMContentLoaded', () => {
     else if (isBlocked) extra = ' <span style="background:#f8d7da;color:#721c24;font-size:8px;padding:0 3px;border-radius:2px;margin-left:2px;">BLOCKED</span>';
 
     return `<span style="display:inline-block; background:${bg}; color:#eee; font-size:9px; padding:1px 5px; border-radius:3px; font-weight:600; margin-top:2px; letter-spacing:0.3px;">${escapeHTML(label)}${scoreText}${blockedText}${extra}</span>`;
+  }
+
+  function renderSidebarPrivateIntake(recordsToRender) {
+    draftListContainer.innerHTML = '';
+    draftCountEl.textContent = recordsToRender.length;
+
+    if (recordsToRender.length === 0) {
+      draftListContainer.innerHTML = `
+        <div class="loading-placeholder">No private intake records found.</div>
+      `;
+      return;
+    }
+
+    recordsToRender.forEach(rec => {
+      const isSelected = selectedDraft && selectedDraft.intake_id === rec.intake_id;
+
+      // Find the associated decision to show status in sidebar
+      const decision = privateDecisions.find(d => d.intake_id === rec.intake_id);
+      const decisionStatus = decision ? decision.decision_status : 'needs_review';
+
+      const itemDiv = document.createElement('button');
+      itemDiv.className = `draft-item ${isSelected ? 'active' : ''}`;
+      itemDiv.setAttribute('data-id', rec.intake_id);
+
+      let statusColorClass = 'badge-yellow';
+      if (decisionStatus === 'approve_for_private_draft') statusColorClass = 'badge-green';
+      if (decisionStatus === 'reject_signal') statusColorClass = 'badge-red';
+      if (decisionStatus === 'defer') statusColorClass = 'badge-yellow';
+
+      itemDiv.innerHTML = `
+        <div class="draft-item-header">
+          <span class="draft-item-id" style="color: #c084fc;">${rec.intake_id}</span>
+          <span class="draft-item-tier ${statusColorClass}">${decisionStatus.replace(/_/g, ' ')}</span>
+        </div>
+        <div class="draft-item-title">${escapeHTML(rec.source_name)}</div>
+        <div class="draft-item-meta">
+          <span>Relevance: <strong>${escapeHTML(rec.legal_governance_relevance || 'unknown')}</strong></span>
+          <span>${escapeHTML(rec.source_id)}</span>
+        </div>
+      `;
+
+      itemDiv.addEventListener('click', () => {
+        selectPrivateIntake(rec.intake_id);
+      });
+
+      draftListContainer.appendChild(itemDiv);
+    });
+  }
+
+  function selectPrivateIntake(intakeId) {
+    const record = bundleData.records.find(r => r.intake_id === intakeId);
+    if (!record) return;
+
+    selectedDraft = record;
+
+    const activeQuery = draftSearchInput.value.toLowerCase();
+    const currentList = activeQuery
+      ? bundleData.records.filter(r => r.intake_id.toLowerCase().includes(activeQuery) || r.source_name.toLowerCase().includes(activeQuery))
+      : bundleData.records;
+    renderSidebarPrivateIntake(currentList);
+
+    emptyStatePanel.classList.add('hidden');
+    if (healthDetailPanel) healthDetailPanel.classList.add('hidden');
+    if (packetDetailPanel) packetDetailPanel.classList.add('hidden');
+    activeDetailPanel.classList.remove('hidden');
+
+    ['detail-local-only-label', 'detail-not-public-label', 'detail-not-approved-label', 'detail-promotion-blocked-label'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('hidden');
+    });
+
+    detailDraftId.textContent = 'INTAKE_RECORD';
+    detailCandidateId.textContent = record.intake_id;
+    detailProposedTitle.textContent = record.source_name;
+    detailJurisdiction.textContent = 'Local (Private)';
+    detailLegalDomain.textContent = 'AI & Governance';
+    detailCommercialDomain.textContent = 'Compliance Audit';
+
+    let keywordHitsHtml = '';
+    if (record.keyword_group_hits) {
+      keywordHitsHtml = Object.entries(record.keyword_group_hits).map(([group, val]) => {
+        return `<div><strong>${escapeHTML(group)} (${val.count} hits):</strong> ${val.terms.map(t => `<span style="display:inline-block; background:#2e1065; padding:1px 6px; border-radius:4px; margin-right:4px; font-size:11px; color:#d8b4fe;">${escapeHTML(t)}</span>`).join('')}</div>`;
+      }).join('<div style="margin-top:6px;"></div>');
+    }
+
+    detailCleanRoomSummary.innerHTML = `
+      <strong>Ingested Signal Summary:</strong><br>
+      ${escapeHTML(record.signal_summary)}<br><br>
+      <strong>Keyword Group Hits:</strong><br>
+      ${keywordHitsHtml || 'No keyword hits recorded.'}
+    `;
+
+    detailCaseType.textContent = record.suggested_record_type || 'candidate';
+    detailSourceAuthorities.textContent = record.source_id || 'Unknown';
+
+    if (record.source_url) {
+      detailSourceUrl.href = record.source_url;
+      detailSourceUrl.textContent = record.source_url;
+      detailSourceUrl.classList.remove('hidden');
+    } else {
+      detailSourceUrl.href = '#';
+      detailSourceUrl.textContent = 'None';
+    }
+
+    const relevance = record.legal_governance_relevance || 'medium';
+    detailSourceTier.textContent = `RELEVANCE: ${relevance.toUpperCase()}`;
+    detailSourceTier.className = `tier-pill tier-${relevance === 'high' ? 'green' : relevance === 'low' ? 'red' : 'yellow'}`;
+
+    detailSourceRiskLevel.textContent = 'PRIVATE_INTAKE';
+    detailSourceRiskLevel.className = 'risk-pill risk-green';
+
+    detailPublishRecommendation.textContent = 'private_review_required';
+    detailBusinessRisk.textContent = 'This intake record is privately stored. Under T063 rules, this candidate is not ready for public publication, has no legal advice, and remains strictly private.';
+
+    populateList(detailFailureModesList, record.suggested_failure_modes || [], 'tag');
+    populateList(detailMissingControlsList, record.suggested_control_themes || [], 'control');
+    populateList(detailEvidenceList, record.suggested_evidence_questions || [], 'evidence');
+    detailTrainingLesson.textContent = 'Suggested vendor compliance assessment questions are rendered below.';
+    populateList(detailVendorQuestionsList, record.suggested_vendor_questions || [], 'question');
+
+    const decision = privateDecisions.find(d => d.intake_id === record.intake_id);
+    const decisionStatus = decision ? decision.decision_status : 'needs_more_review';
+    const decisionReason = decision ? decision.decision_reason : 'No reason provided.';
+    const reviewNotes = decision ? decision.review_notes : '';
+    const decidedAt = decision ? new Date(decision.decided_at).toLocaleString() : 'Pending';
+
+    const packet = privatePackets.find(p => p.intake_id === record.intake_id);
+
+    let packetSummaryHtml = '';
+    if (packet) {
+      packetSummaryHtml = `
+        <div style="margin-top:12px; padding:12px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px;">
+          <div style="font-weight:700; color: var(--color-success); font-size:12px; text-transform:uppercase; margin-bottom:6px;">📦 DRAFT CANDIDATE PACKET COMPILED</div>
+          <div style="font-size:11px; margin-bottom:4px;"><strong>Packet ID:</strong> <span style="font-family:var(--font-mono);">${packet.packet_id}</span></div>
+          <div style="font-size:11px; margin-bottom:4px;"><strong>Candidate Hash:</strong> <span style="font-family:var(--font-mono); color:var(--color-text-muted);">${packet.candidate_hash}</span></div>
+          <div style="font-size:11px; margin-bottom:4px;"><strong>Suggested Record Type:</strong> ${packet.suggested_record_type}</div>
+          <div style="font-size:11px; margin-top:8px; color:#a7f3d0;">
+            ✓ Draft candidate packet generated in secure offline directory.<br>
+            ⚠️ public_publish_ready remains FALSE (promotion blocked).
+          </div>
+        </div>
+      `;
+    }
+
+    let statusBg = 'var(--bg-primary)';
+    let statusBorderColor = 'rgba(245, 158, 11, 0.3)';
+    let statusTextCol = 'var(--color-warning)';
+    if (decisionStatus === 'approve_for_private_draft') {
+      statusBg = 'rgba(16, 185, 129, 0.05)';
+      statusBorderColor = 'rgba(16, 185, 129, 0.3)';
+      statusTextCol = 'var(--color-success)';
+    } else if (decisionStatus === 'reject_signal') {
+      statusBg = 'rgba(239, 68, 68, 0.05)';
+      statusBorderColor = 'rgba(239, 68, 68, 0.3)';
+      statusTextCol = 'var(--color-danger)';
+    }
+
+    simulationResultPanel.classList.remove('hidden');
+    simulationResultPanel.innerHTML = `
+      <div class="result-header" style="background-color: #5b21b6; color: white; padding: 10px; border-radius: 4px; font-weight: bold; margin-bottom: 10px; text-align: center; font-size:12px; letter-spacing:0.05em;">
+        PRIVATE REVIEW DECISION
+      </div>
+      <div class="result-body" style="font-size: 13px;">
+        <div style="padding: 10px; background: ${statusBg}; border: 1px solid ${statusBorderColor}; border-radius: 6px; margin-bottom: 12px;">
+          <div style="font-weight: 700; color: ${statusTextCol}; font-size: 13px; text-transform: uppercase;">
+            ${decisionStatus.replace(/_/g, ' ')}
+          </div>
+          <div style="font-size: 11px; color: var(--color-text-muted); margin-top: 4px;">
+            Decided: ${decidedAt}
+          </div>
+        </div>
+
+        <div style="margin-bottom: 8px;">
+          <strong>Reason:</strong>
+          <p style="color: var(--color-text-muted); margin-top:2px;">${escapeHTML(decisionReason)}</p>
+        </div>
+
+        ${reviewNotes ? `
+        <div style="margin-bottom: 8px;">
+          <strong>Review Notes:</strong>
+          <p style="color: var(--color-text-muted); margin-top:2px;">${escapeHTML(reviewNotes)}</p>
+        </div>
+        ` : ''}
+
+        <div style="margin-top: 12px; font-size: 11px; border-top: 1px solid var(--border-color); padding-top: 8px; color: var(--color-warning);">
+          ⚠️ WARNING: Private/local only. Not public. No legal advice.
+        </div>
+
+        ${packetSummaryHtml}
+      </div>
+    `;
+
+    gateStepCurator.className = decisionStatus === 'approve_for_private_draft' ? 'status-step passed' : 'status-step pending';
+    gateStepCurator.querySelector('.step-check').innerHTML = decisionStatus === 'approve_for_private_draft' ? '✓' : '○';
+    gateStepCurator.querySelector('.step-text').textContent = 'Intake Approved';
+
+    gateStepWording.className = packet ? 'status-step passed' : 'status-step pending';
+    gateStepWording.querySelector('.step-check').innerHTML = packet ? '✓' : '○';
+    gateStepWording.querySelector('.step-text').textContent = 'Draft Packet Compiled';
+
+    gateStepControl.className = 'status-step blocked';
+    gateStepControl.querySelector('.step-check').innerHTML = '🚫';
+    gateStepControl.querySelector('.step-text').textContent = 'Public Promotion Gate';
   }
 
   // Initialize load

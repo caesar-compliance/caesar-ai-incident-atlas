@@ -1,0 +1,94 @@
+{
+  "_schema": "caesar-atlas/supabase-payload/atlas-review-decisions/private-latest/v1",
+  "generated_at": "2026-05-21T18:56:02.845Z",
+  "mode": "dry_run_export",
+  "run_id": "GREEN-RUN-20260521-202417",
+  "remote_write_attempted": false,
+  "note": "Sanitized private review decisions payload for atlas_review_decisions table. No remote write. No raw HTML. No secrets.",
+  "records": [
+    {
+      "decision_id": "DECISION-GREEN-RUN-20260521-202417-001",
+      "intake_id": "INTAKE-GREEN-RUN-20260521-202417-001",
+      "source_run_id": "GREEN-RUN-20260521-202417",
+      "source_signal_id": "SIG-7355036B",
+      "decided_at": "2026-05-21T18:51:08.478Z",
+      "reviewer_mode": "interactive_patch",
+      "decision_status": "approve_for_private_draft",
+      "decision_reason": "Verified high governance and AI compliance alignment.",
+      "review_notes": "ICO AI and Algorithms guidance matches our control CTL-GUIDANCE-TRACKING.",
+      "recommended_next_step": "Perform initial policy-gap analysis.",
+      "draft_candidate_ready": true,
+      "public_publish_ready": false,
+      "safety_flags": {
+        "no_raw_html": true,
+        "no_long_third_party_text": true,
+        "no_secrets_exposed": true,
+        "no_unauthorized_remote_writes": true,
+        "no_public_site_leak": true
+      }
+    },
+    {
+      "decision_id": "DECISION-GREEN-RUN-20260521-202417-002",
+      "intake_id": "INTAKE-GREEN-RUN-20260521-202417-002",
+      "source_run_id": "GREEN-RUN-20260521-202417",
+      "source_signal_id": "SIG-82E713BC",
+      "decided_at": "2026-05-21T18:51:02.607Z",
+      "reviewer_mode": "local_compliance_officer",
+      "decision_status": "needs_more_review",
+      "decision_reason": "Pending manual compliance triaging.",
+      "review_notes": "",
+      "recommended_next_step": "Perform initial policy-gap analysis.",
+      "draft_candidate_ready": false,
+      "public_publish_ready": false,
+      "safety_flags": {
+        "no_raw_html": true,
+        "no_long_third_party_text": true,
+        "no_secrets_exposed": true,
+        "no_unauthorized_remote_writes": true,
+        "no_public_site_leak": true
+      }
+    },
+    {
+      "decision_id": "DECISION-GREEN-RUN-20260521-202417-003",
+      "intake_id": "INTAKE-GREEN-RUN-20260521-202417-003",
+      "source_run_id": "GREEN-RUN-20260521-202417",
+      "source_signal_id": "SIG-8B004750",
+      "decided_at": "2026-05-21T18:51:02.607Z",
+      "reviewer_mode": "local_compliance_officer",
+      "decision_status": "needs_more_review",
+      "decision_reason": "Pending manual compliance triaging.",
+      "review_notes": "",
+      "recommended_next_step": "Perform initial policy-gap analysis.",
+      "draft_candidate_ready": false,
+      "public_publish_ready": false,
+      "safety_flags": {
+        "no_raw_html": true,
+        "no_long_third_party_text": true,
+        "no_secrets_exposed": true,
+        "no_unauthorized_remote_writes": true,
+        "no_public_site_leak": true
+      }
+    },
+    {
+      "decision_id": "DECISION-GREEN-RUN-20260521-202417-004",
+      "intake_id": "INTAKE-GREEN-RUN-20260521-202417-004",
+      "source_run_id": "GREEN-RUN-20260521-202417",
+      "source_signal_id": "SIG-C6C00DD4",
+      "decided_at": "2026-05-21T18:51:02.607Z",
+      "reviewer_mode": "local_compliance_officer",
+      "decision_status": "needs_more_review",
+      "decision_reason": "Pending manual compliance triaging.",
+      "review_notes": "",
+      "recommended_next_step": "Perform initial policy-gap analysis.",
+      "draft_candidate_ready": false,
+      "public_publish_ready": false,
+      "safety_flags": {
+        "no_raw_html": true,
+        "no_long_third_party_text": true,
+        "no_secrets_exposed": true,
+        "no_unauthorized_remote_writes": true,
+        "no_public_site_leak": true
+      }
+    }
+  ]
+}

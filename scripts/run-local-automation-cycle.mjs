@@ -30,6 +30,9 @@ const WITH_BOUNDED_GREEN = process.argv.includes('--with-bounded-green-run');
 // Default: OFF (safe). Enable with: node scripts/run-local-automation-cycle.mjs --with-review-intake
 const WITH_REVIEW_INTAKE = process.argv.includes('--with-review-intake');
 
+// T063: optional flag to run ONLY the private review intake workflow bounded
+const REVIEW_INTAKE_ONLY = process.argv.includes('--review-intake-only');
+
 const STAGES = [
   { name: 'run-real-pipeline',              script: 'scripts/run-real-pipeline.mjs',                   args: [],          optional: false },
   { name: 'export-ops-status',              script: 'scripts/export-ops-status.mjs',                   args: [],          optional: false },
@@ -89,6 +92,22 @@ function runStage(script, args) {
 }
 
 async function main() {
+  if (REVIEW_INTAKE_ONLY) {
+    log('=== Local Automation Cycle START (Intake Workflow Only) ===');
+    const result = await runStage('scripts/run-private-review-workflow.mjs', []);
+    if (result.output) logStream.write(result.output + '\n');
+    const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
+    log('=== Local Automation Cycle DONE ===');
+    log('Log written to: ' + LOG_PATH);
+    if (result.exitCode === 0) {
+      log('PASS: run-private-review-workflow');
+      process.exit(0);
+    } else {
+      log('FAIL (exit ' + result.exitCode + '): run-private-review-workflow');
+      process.exit(1);
+    }
+  }
+
   log('=== Local Automation Cycle START ===');
   let passed = 0;
   let failed = 0;

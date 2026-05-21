@@ -1,12 +1,35 @@
 # Decision Log — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T059 — DEC-136)
+**Last updated:** 21 May 2026 (T063 — DEC-145)
 
 This document records all high-level technical, strategic, and governance decisions made for the `caesar-ai-incident-atlas` repository.
 
 ---
 
 ## Decision History
+
+### [DEC-141 – DEC-145] — 21 May 2026 — T063 Private Review Console UI + Review Decision Packets
+
+**Status:** Approved
+
+- **DEC-141:** Use `DECISION-<run_id>-<3-digit-index>` format for deterministic review decisions.
+- **DEC-142:** Maintain strictly local-only isolation for review decisions and draft packets by saving them in `data/reviews/decisions/` and `data/reviews/draft-candidate-packets/` completely out of `site/`.
+- **DEC-143:** Enable a local auditor to patch a decision status (`approve_for_private_draft`, `reject_signal`, `defer`) via the CLI `apply-private-review-decision.mjs` which regenerates draft candidate packets safely.
+- **DEC-144:** Create a network-free, bounded runner `scripts/run-private-review-workflow.mjs` and expose it via `--review-intake-only` in `run-local-automation-cycle.mjs` to bypass unrelated pipeline steps.
+- **DEC-145:** Export safe progress counts (`private_review_decision_count`, `private_draft_candidate_packet_count`) to public `latest-status.json` to surface metrics without leaking private signal URLs or sensitive hashes.
+
+---
+
+### [DEC-137 – DEC-140] — 21 May 2026 — T062 Private Candidate Review Intake
+
+**Status:** Approved
+
+- **DEC-137:** Use `INTAKE-<run_id>-<3-digit-index>` format for deterministic review intake records.
+- **DEC-138:** Exclude long third-party text, scraped body content, and raw HTML from all intake outputs to maintain metadata-only retention.
+- **DEC-139:** Store review console intake data inside `tools/review-console/data/` and private intake records under `data/reviews/intake/`, keeping them entirely out of `site/`.
+- **DEC-140:** Only export safe numeric metrics (`private_intake_count`, `private_intake_needs_review_count`) to the public `latest-status.json` file.
+
+---
 
 ### [DEC-132 – DEC-136] — 21 May 2026 — T059 Hosted Activation Preflight
 

@@ -714,7 +714,248 @@ pass('T062: no Worker deployment marker (covered by check 12)');
 // Covered by checks 10/11
 pass('T062: no Pages config change (covered by checks 10/11)');
 
+// ── 50. T063: data/reviews/decisions private outputs are not copied into site/ ───
+const siteReviewsDecisionsDir = path.join(ROOT, 'site', 'data', 'reviews', 'decisions');
+if (existsDir(siteReviewsDecisionsDir)) {
+  fail('site/data/reviews/decisions/ exists — private T063 decisions data must not be in public site');
+} else {
+  pass('T063: site/data/reviews/decisions/ not present (correct)');
+}
+
+// ── 51. T063: data/reviews/draft-candidate-packets private outputs are not copied into site/ ───
+const siteReviewsPacketsDir = path.join(ROOT, 'site', 'data', 'reviews', 'draft-candidate-packets');
+if (existsDir(siteReviewsPacketsDir)) {
+  fail('site/data/reviews/draft-candidate-packets/ exists — private T063 draft packets data must not be in public site');
+} else {
+  pass('T063: site/data/reviews/draft-candidate-packets/ not present (correct)');
+}
+
+// ── 52. T063: tools/review-console/data decision/packet exports are not copied into site/ ───
+const siteConsoleDecis = path.join(ROOT, 'site', 'tools', 'review-console', 'data', 'private-review-decisions.json');
+const siteConsolePackets = path.join(ROOT, 'site', 'tools', 'review-console', 'data', 'private-draft-candidate-packets.json');
+if (existsFile(siteConsoleDecis)) {
+  fail('Private review decisions console export leaked inside site/: ' + path.relative(ROOT, siteConsoleDecis));
+} else {
+  pass('T063: private decisions console export not present in public site (correct)');
+}
+if (existsFile(siteConsolePackets)) {
+  fail('Private draft packets console export leaked inside site/: ' + path.relative(ROOT, siteConsolePackets));
+} else {
+  pass('T063: private draft packets console export not present in public site (correct)');
+}
+
+// ── 53. T063: hosted review decision payloads are sanitized ──────────────────────
+const reviewDecisionsPayloadPath = path.join(OPS_SUPABASE_DIR, 'atlas-review-decisions.private-latest.json');
+const reviewDecisionsPayload = readJson(reviewDecisionsPayloadPath);
+if (reviewDecisionsPayload) {
+  if (reviewDecisionsPayload.remote_write_attempted !== false) {
+    fail('T063: atlas-review-decisions.private-latest.json remote_write_attempted is not false');
+  } else {
+    pass('T063: atlas-review-decisions.private-latest.json remote_write_attempted = false');
+  }
+
+  const decisions = reviewDecisionsPayload.records;
+  let decisionsErrors = false;
+  if (Array.isArray(decisions)) {
+    for (const record of decisions) {
+      if (record.remote_write_attempted !== false && record.remote_write_attempted !== undefined) {
+        fail(`T063: atlas-review-decisions.private-latest.json remote_write_attempted is true in record ${record.decision_id}`);
+        decisionsErrors = true;
+      }
+      if (record.public_publish_ready !== false && record.public_publish_ready !== undefined) {
+        fail(`T063: atlas-review-decisions.private-latest.json public_publish_ready is not false in record ${record.decision_id}`);
+        decisionsErrors = true;
+      }
+      if (record.promotion_packet_created !== false && record.promotion_packet_created !== undefined) {
+        fail(`T063: atlas-review-decisions.private-latest.json promotion_packet_created is not false in record ${record.decision_id}`);
+        decisionsErrors = true;
+      }
+      if (record.public_preview_created !== false && record.public_preview_created !== undefined) {
+        fail(`T063: atlas-review-decisions.private-latest.json public_preview_created is not false in record ${record.decision_id}`);
+        decisionsErrors = true;
+      }
+      if (record.public_site_mutated !== false && record.public_site_mutated !== undefined) {
+        fail(`T063: atlas-review-decisions.private-latest.json public_site_mutated is not false in record ${record.decision_id}`);
+        decisionsErrors = true;
+      }
+      if (record.raw_text_stored !== false && record.raw_text_stored !== undefined) {
+        fail(`T063: atlas-review-decisions.private-latest.json raw_text_stored is not false in record ${record.decision_id}`);
+        decisionsErrors = true;
+      }
+      if (record.html_stored !== false && record.html_stored !== undefined) {
+        fail(`T063: atlas-review-decisions.private-latest.json html_stored is not false in record ${record.decision_id}`);
+        decisionsErrors = true;
+      }
+    }
+    if (!decisionsErrors) {
+      pass('T063: hosted review decisions payload records are fully sanitized (correct)');
+    }
+  } else {
+    fail('T063: atlas-review-decisions.private-latest.json records is not an array');
+  }
+} else {
+  pass('T063: atlas-review-decisions.private-latest.json not present (ok)');
+}
+
+const draftPacketsPayloadPath = path.join(OPS_SUPABASE_DIR, 'atlas-draft-candidate-packets.private-latest.json');
+const draftPacketsPayload = readJson(draftPacketsPayloadPath);
+if (draftPacketsPayload) {
+  if (draftPacketsPayload.remote_write_attempted !== false) {
+    fail('T063: atlas-draft-candidate-packets.private-latest.json remote_write_attempted is not false');
+  } else {
+    pass('T063: atlas-draft-candidate-packets.private-latest.json remote_write_attempted = false');
+  }
+
+  const packets = draftPacketsPayload.records;
+  let packetsErrors = false;
+  if (Array.isArray(packets)) {
+    for (const record of packets) {
+      if (record.remote_write_attempted !== false && record.remote_write_attempted !== undefined) {
+        fail(`T063: atlas-draft-candidate-packets.private-latest.json remote_write_attempted is true in record ${record.packet_id}`);
+        packetsErrors = true;
+      }
+      if (record.public_publish_ready !== false && record.public_publish_ready !== undefined) {
+        fail(`T063: atlas-draft-candidate-packets.private-latest.json public_publish_ready is not false in record ${record.packet_id}`);
+        packetsErrors = true;
+      }
+      if (record.promotion_packet_created !== false && record.promotion_packet_created !== undefined) {
+        fail(`T063: atlas-draft-candidate-packets.private-latest.json promotion_packet_created is not false in record ${record.packet_id}`);
+        packetsErrors = true;
+      }
+      if (record.public_preview_created !== false && record.public_preview_created !== undefined) {
+        fail(`T063: atlas-draft-candidate-packets.private-latest.json public_preview_created is not false in record ${record.packet_id}`);
+        packetsErrors = true;
+      }
+      if (record.public_site_mutated !== false && record.public_site_mutated !== undefined) {
+        fail(`T063: atlas-draft-candidate-packets.private-latest.json public_site_mutated is not false in record ${record.packet_id}`);
+        packetsErrors = true;
+      }
+      if (record.raw_text_stored !== false && record.raw_text_stored !== undefined) {
+        fail(`T063: atlas-draft-candidate-packets.private-latest.json raw_text_stored is not false in record ${record.packet_id}`);
+        packetsErrors = true;
+      }
+      if (record.html_stored !== false && record.html_stored !== undefined) {
+        fail(`T063: atlas-draft-candidate-packets.private-latest.json html_stored is not false in record ${record.packet_id}`);
+        packetsErrors = true;
+      }
+    }
+    if (!packetsErrors) {
+      pass('T063: hosted draft packets payload records are fully sanitized (correct)');
+    }
+  } else {
+    fail('T063: atlas-draft-candidate-packets.private-latest.json records is not an array');
+  }
+} else {
+  pass('T063: atlas-draft-candidate-packets.private-latest.json not present (ok)');
+}
+
+// ── 54. T063: no raw HTML/body in private review decisions / packets outputs ──
+const decisionsDir = path.join(ROOT, 'data', 'reviews', 'decisions');
+const draftPacketsDir = path.join(ROOT, 'data', 'reviews', 'draft-candidate-packets');
+const HTML_PATTERN_063 = /<!DOCTYPE html|<html[\s>]/i;
+let t063HtmlFound = false;
+if (existsDir(decisionsDir)) {
+  walkDir(decisionsDir, (file) => {
+    if (!file.endsWith('.json')) return;
+    const content = readText(file);
+    if (content && HTML_PATTERN_063.test(content)) {
+      fail('T063: Raw HTML found in private review decision output: ' + path.relative(ROOT, file));
+      t063HtmlFound = true;
+    }
+  });
+}
+if (existsDir(draftPacketsDir)) {
+  walkDir(draftPacketsDir, (file) => {
+    if (!file.endsWith('.json')) return;
+    const content = readText(file);
+    if (content && HTML_PATTERN_063.test(content)) {
+      fail('T063: Raw HTML found in private draft packet output: ' + path.relative(ROOT, file));
+      t063HtmlFound = true;
+    }
+  });
+}
+if (!t063HtmlFound) pass('T063: No raw HTML in data/reviews/decisions/ or data/reviews/draft-candidate-packets/');
+
+// ── 55. T063: no public case count change ────────────────────────────────────
+pass('T063: public case count unchanged (covered by check 27)');
+
+// ── 56. T063: no INC-0014 ────────────────────────────────────────────────────
+pass('T063: no INC-0014 (covered by check 28)');
+
+// ── 57. T063: no cron in private review decisions / packets outputs ───────────
+let t063CronFound = false;
+const checkCronInObj = (file, json) => {
+  if (Array.isArray(json)) {
+    for (const item of json) {
+      if (item.cron_triggered === true) {
+        fail('T063: cron_triggered=true found in array element of: ' + path.relative(ROOT, file));
+        t063CronFound = true;
+      }
+    }
+  } else if (json && typeof json === 'object') {
+    if (json.cron_triggered === true) {
+      fail('T063: cron_triggered=true found in object of: ' + path.relative(ROOT, file));
+      t063CronFound = true;
+    }
+  }
+};
+if (existsDir(decisionsDir)) {
+  walkDir(decisionsDir, (file) => {
+    if (!file.endsWith('.json')) return;
+    const json = readJson(file);
+    checkCronInObj(file, json);
+  });
+}
+if (existsDir(draftPacketsDir)) {
+  walkDir(draftPacketsDir, (file) => {
+    if (!file.endsWith('.json')) return;
+    const json = readJson(file);
+    checkCronInObj(file, json);
+  });
+}
+if (!t063CronFound) pass('T063: No cron_triggered=true in private review decisions / packets outputs');
+
+// ── 58. T063: no remote write marker in private review decisions / packets ────
+let t063RemoteWriteFound = false;
+const checkRemoteWriteInObj = (file, json) => {
+  if (Array.isArray(json)) {
+    for (const item of json) {
+      if (item.remote_write_attempted === true) {
+        fail('T063: remote_write_attempted=true found in array element of: ' + path.relative(ROOT, file));
+        t063RemoteWriteFound = true;
+      }
+    }
+  } else if (json && typeof json === 'object') {
+    if (json.remote_write_attempted === true) {
+      fail('T063: remote_write_attempted=true found in object of: ' + path.relative(ROOT, file));
+      t063RemoteWriteFound = true;
+    }
+  }
+};
+if (existsDir(decisionsDir)) {
+  walkDir(decisionsDir, (file) => {
+    if (!file.endsWith('.json')) return;
+    const json = readJson(file);
+    checkRemoteWriteInObj(file, json);
+  });
+}
+if (existsDir(draftPacketsDir)) {
+  walkDir(draftPacketsDir, (file) => {
+    if (!file.endsWith('.json')) return;
+    const json = readJson(file);
+    checkRemoteWriteInObj(file, json);
+  });
+}
+if (!t063RemoteWriteFound) pass('T063: No remote_write_attempted=true in private review decisions / packets outputs');
+
+// ── 59. T063: no Worker deployment marker ────────────────────────────────────
+pass('T063: no Worker deployment marker (covered by check 12)');
+
+// ── 60. T063: no Pages config change ─────────────────────────────────────────
+pass('T063: no Pages config change (covered by checks 10/11)');
+
 // ── Final result ─────────────────────────────────────────────────────────────
+
 process.stdout.write('\n');
 if (errors > 0) {
   process.stdout.write('validate-hosted-sync-safety: FAILED — ' + errors + ' error(s), ' + warnings + ' warning(s)\n');

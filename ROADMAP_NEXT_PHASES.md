@@ -172,6 +172,14 @@ For each of the 12 (and future) case records, map to:
 
 ---
 
+## v1.5 — Private Review Console UI + Review Decision Packets (T063 — 21 May 2026)
+
+**T063 complete** — implemented local-only review decisions and draft packets workflow, patch CLI tool, upgraded review console UI, and strict safety validation.
+- Private review decision schema, decision builder, patch CLI, draft candidate packet builder, review console decision exports, and dry-run hosted payloads.
+- Bounded runner script `scripts/run-private-review-workflow.mjs` and `--review-intake-only` local automation cycle integration.
+- Upgraded Review Console UI to support private records visual cards and checklists.
+- Safety: Enforces zero public leaks, public count remains 13, no INC-0014.
+
 ## v1.4 — Private Candidate Review Intake (T062 — 21 May 2026)
 
 **T062 complete** — converted T061 real Green-source candidate signals into structured private review intake records.
