@@ -28,6 +28,12 @@ const PIPELINE_STAGES = [
   { name: 'validate-case-shortlist',    script: 'scripts/validate-case-shortlist.mjs',    args: [] },
   { name: 'promote-approved-case',      script: 'scripts/promote-approved-case.mjs',      args: ['--dry-run'] },
   { name: 'validate-promotion-dry-run', script: 'scripts/validate-promotion-dry-run.mjs', args: [] },
+  // T053: PKT-0006 publication readiness stages
+  { name: 'verify-promotion-source',    script: 'scripts/verify-promotion-source.mjs',    args: ['PKT-0006'] },
+  { name: 'build-public-case-preview',  script: 'scripts/build-public-case-preview.mjs',  args: ['PKT-0006'] },
+  { name: 'validate-public-case-preview', script: 'scripts/validate-public-case-preview.mjs', args: [] },
+  { name: 'build-case-control-map',     script: 'scripts/build-case-control-map.mjs',     args: ['PKT-0006'] },
+  { name: 'build-promotion-readiness-report', script: 'scripts/build-promotion-readiness-report.mjs', args: ['PKT-0006'] },
   { name: 'build-real-review-bundle',   script: 'scripts/build-real-review-bundle.mjs',   args: [] },
   { name: 'validate-review-console',    script: 'scripts/validate-review-console.mjs',    args: [] },
   { name: 'validate-candidate-quality', script: 'scripts/validate-candidate-quality.mjs', args: [] },

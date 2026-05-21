@@ -10,6 +10,8 @@ const PACKETS_DIR = path.join(ROOT, 'data', 'promotion-packets', 'real');
 const DRAFTS_DIR = path.join(ROOT, 'data', 'drafts', 'real');
 const REVIEWS_DIR = path.join(ROOT, 'data', 'reviews', 'real');
 const PREVIEWS_DIR = path.join(ROOT, 'data', 'promotion-previews', 'real');
+const VERIFICATIONS_DIR = path.join(ROOT, 'data', 'source-verifications', 'real');
+const CONTROL_MAPS_DIR = path.join(ROOT, 'data', 'control-maps', 'real');
 const INCIDENTS_DIR = path.join(ROOT, 'data', 'incidents');
 const SITE_INCIDENTS_DIR = path.join(ROOT, 'site', 'data', 'incidents');
 const INDEX_PATH = path.join(ROOT, 'data', 'incident-index.json');
@@ -74,6 +76,53 @@ function loadRankedCandidates() {
   }
 }
 
+function loadSourceVerification(packetId) {
+  const verificationPath = path.join(VERIFICATIONS_DIR, `${packetId}-source-verification.json`);
+  if (!fs.existsSync(verificationPath)) return null;
+  try {
+    return JSON.parse(fs.readFileSync(verificationPath, 'utf8'));
+  } catch (e) {
+    return null;
+  }
+}
+
+function loadPublicPreview(packetId) {
+  if (!fs.existsSync(PREVIEWS_DIR)) return null;
+  const previewFiles = fs.readdirSync(PREVIEWS_DIR).filter(f => f.endsWith('.json'));
+  for (const file of previewFiles) {
+    const previewPath = path.join(PREVIEWS_DIR, file);
+    try {
+      const preview = JSON.parse(fs.readFileSync(previewPath, 'utf8'));
+      if (preview.promotion_packet_id === packetId) {
+        return preview;
+      }
+    } catch (e) {
+      // Skip invalid files
+    }
+  }
+  return null;
+}
+
+function loadControlMap(packetId) {
+  const controlMapPath = path.join(CONTROL_MAPS_DIR, `${packetId}-control-map.json`);
+  if (!fs.existsSync(controlMapPath)) return null;
+  try {
+    return JSON.parse(fs.readFileSync(controlMapPath, 'utf8'));
+  } catch (e) {
+    return null;
+  }
+}
+
+function loadReadinessReport(packetId) {
+  const reportPath = path.join(REVIEWS_DIR, `${packetId}-readiness-report.json`);
+  if (!fs.existsSync(reportPath)) return null;
+  try {
+    return JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+  } catch (e) {
+    return null;
+  }
+}
+
 function ensureDir(dir) {
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
@@ -107,6 +156,38 @@ function validateApproval(approval, packet, draft) {
   }
   if (approval.draft_id !== draft?.draft_id) {
     errors.push(`Approval draft_id ${approval.draft_id} does not match draft ${draft?.draft_id}`);
+  }
+
+  // NEW: Source verification requirement
+  const sourceVerification = loadSourceVerification(approval.packet_id);
+  if (!sourceVerification) {
+    errors.push(`Source verification missing: ${approval.packet_id}-source-verification.json`);
+  } else if (sourceVerification.verification_status === 'failed') {
+    errors.push(`Source verification failed for ${approval.packet_id}`);
+  } else if (!['verified', 'partially_verified'].includes(sourceVerification.verification_status)) {
+    errors.push(`Source verification status invalid: ${sourceVerification.verification_status}`);
+  }
+
+  // NEW: Public preview requirement
+  const publicPreview = loadPublicPreview(approval.packet_id);
+  if (!publicPreview) {
+    errors.push(`Public preview missing for ${approval.packet_id}`);
+  } else if (publicPreview.dry_run !== true || publicPreview.public !== false) {
+    errors.push(`Public preview has invalid safety flags for ${approval.packet_id}`);
+  }
+
+  // NEW: Control map requirement
+  const controlMap = loadControlMap(approval.packet_id);
+  if (!controlMap) {
+    errors.push(`Control map missing: ${approval.packet_id}-control-map.json`);
+  }
+
+  // NEW: Readiness report requirement
+  const readinessReport = loadReadinessReport(approval.packet_id);
+  if (!readinessReport) {
+    errors.push(`Readiness report missing: ${approval.packet_id}-readiness-report.json`);
+  } else if (readinessReport.ready_for_control_tower_approval !== true) {
+    errors.push(`Readiness report indicates not ready for Control Tower approval`);
   }
 
   // Source tier check

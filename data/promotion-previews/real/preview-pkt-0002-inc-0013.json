@@ -50,7 +50,7 @@
     "from_draft": "DRAFT-0002",
     "from_packet": "PKT-0002",
     "rank": 5,
-    "generated_at": "2026-05-21T14:34:57.876Z",
+    "generated_at": "2026-05-21T14:45:45.806Z",
     "promotion_blocked_reason": "No explicit Control Tower approval in approved-promotions.json"
   }
 }

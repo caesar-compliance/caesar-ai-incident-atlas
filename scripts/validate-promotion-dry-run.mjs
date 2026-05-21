@@ -7,6 +7,8 @@ const __dirname = path.dirname(__filename);
 const ROOT = path.dirname(__dirname);
 
 const PREVIEWS_DIR = path.join(ROOT, 'data', 'promotion-previews', 'real');
+const VERIFICATIONS_DIR = path.join(ROOT, 'data', 'source-verifications', 'real');
+const CONTROL_MAPS_DIR = path.join(ROOT, 'data', 'control-maps', 'real');
 const INCIDENTS_DIR = path.join(ROOT, 'data', 'incidents');
 const SITE_DIR = path.join(ROOT, 'site');
 const SITE_INCIDENTS_DIR = path.join(ROOT, 'site', 'data', 'incidents');
@@ -174,6 +176,74 @@ function validate() {
     logPass(`Ranked candidates file exists (${ranked.ranked_candidates?.length || 0} candidates)`);
   } else {
     logInfo('ranked-promotion-candidates.json not found (run rank-promotion-candidates.mjs)');
+  }
+
+  // 9. Check source verifications directory exists and has valid content
+  if (fs.existsSync(VERIFICATIONS_DIR)) {
+    const verificationFiles = fs.readdirSync(VERIFICATIONS_DIR).filter(f => f.endsWith('.json'));
+    logInfo(`Found ${verificationFiles.length} source verification(s) in data/source-verifications/real/`);
+
+    for (const f of verificationFiles) {
+      const verificationPath = path.join(VERIFICATIONS_DIR, f);
+      try {
+        const verification = JSON.parse(fs.readFileSync(verificationPath, 'utf8'));
+
+        // Must have required fields
+        if (!verification.packet_id || !verification.verification_status) {
+          logError(`${f}: Missing required fields`);
+          failures++;
+        }
+
+        // Must not be failed
+        if (verification.verification_status === 'failed') {
+          logError(`${f}: Verification failed`);
+          failures++;
+        }
+      } catch (e) {
+        logError(`${f}: Invalid JSON`);
+        failures++;
+      }
+    }
+
+    if (verificationFiles.length > 0) {
+      logPass(`All ${verificationFiles.length} source verification(s) valid`);
+    }
+  } else {
+    logInfo('Source verifications directory does not exist yet');
+  }
+
+  // 10. Check control maps directory exists and has valid content
+  if (fs.existsSync(CONTROL_MAPS_DIR)) {
+    const controlMapFiles = fs.readdirSync(CONTROL_MAPS_DIR).filter(f => f.endsWith('.json'));
+    logInfo(`Found ${controlMapFiles.length} control map(s) in data/control-maps/real/`);
+
+    for (const f of controlMapFiles) {
+      const controlMapPath = path.join(CONTROL_MAPS_DIR, f);
+      try {
+        const controlMap = JSON.parse(fs.readFileSync(controlMapPath, 'utf8'));
+
+        // Must have required fields
+        if (!controlMap.packet_id || !controlMap.status) {
+          logError(`${f}: Missing required fields`);
+          failures++;
+        }
+
+        // Must be local_review_only
+        if (controlMap.status !== 'local_review_only') {
+          logError(`${f}: Invalid status: ${controlMap.status}`);
+          failures++;
+        }
+      } catch (e) {
+        logError(`${f}: Invalid JSON`);
+        failures++;
+      }
+    }
+
+    if (controlMapFiles.length > 0) {
+      logPass(`All ${controlMapFiles.length} control map(s) valid`);
+    }
+  } else {
+    logInfo('Control maps directory does not exist yet');
   }
 
   // Summary

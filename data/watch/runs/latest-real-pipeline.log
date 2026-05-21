@@ -1,5 +1,5 @@
 === Caesar Real Pipeline Run ===
-Started: 2026-05-21T14:34:49.508Z
+Started: 2026-05-21T14:45:38.561Z
 ==================================================
 
 [watch-green-sources] Running scripts/watch-green-sources.mjs...
@@ -12,57 +12,57 @@ Started: 2026-05-21T14:34:49.508Z
 [34m[Watcher Info][0m Generic adapter ran for eeoc-ai-guidance: 0 links.
 [34m[Watcher Info][0m Processing target: doj-ada-ai-guidance via adapter...
 [34m[Watcher Info][0m Generic adapter ran for doj-ada-ai-guidance: 1 links.
-[32m[Watcher Success][0m Candidate stored: CAND-0065 [likely_guidance|score:72] adapter:generic-official-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0100 [likely_guidance|score:72] adapter:generic-official-adapter
 [34m[Watcher Info][0m Processing target: ico-ai-and-algorithms via adapter...
 [32m[Watcher Success][0m Adapter ico-adapter ran for ico-ai-and-algorithms: 4 links found.
-[32m[Watcher Success][0m Candidate stored: CAND-0066 [likely_guidance|score:72] adapter:ico-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0067 [likely_case|score:75] adapter:ico-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0068 [likely_guidance|score:72] adapter:ico-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0069 [likely_guidance|score:72] adapter:ico-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0101 [likely_guidance|score:72] adapter:ico-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0102 [likely_case|score:75] adapter:ico-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0103 [likely_guidance|score:72] adapter:ico-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0104 [likely_guidance|score:72] adapter:ico-adapter
 [34m[Watcher Info][0m Processing target: cnil-ai via adapter...
 [32m[Watcher Success][0m Adapter cnil-adapter ran for cnil-ai: 10 links found.
-[32m[Watcher Success][0m Candidate stored: CAND-0070 [likely_case|score:75] adapter:cnil-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0071 [likely_regulatory_update|score:62] adapter:cnil-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0072 [likely_regulatory_update|score:62] adapter:cnil-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0073 [likely_case|score:75] adapter:cnil-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0074 [likely_regulatory_update|score:62] adapter:cnil-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0075 [likely_regulatory_update|score:62] adapter:cnil-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0076 [likely_regulatory_update|score:62] adapter:cnil-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0077 [likely_regulatory_update|score:62] adapter:cnil-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0078 [likely_regulatory_update|score:62] adapter:cnil-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0079 [likely_regulatory_update|score:62] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0105 [likely_case|score:75] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0106 [likely_regulatory_update|score:62] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0107 [likely_regulatory_update|score:62] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0108 [likely_case|score:75] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0109 [likely_regulatory_update|score:62] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0110 [likely_regulatory_update|score:62] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0111 [likely_regulatory_update|score:62] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0112 [likely_regulatory_update|score:62] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0113 [likely_regulatory_update|score:62] adapter:cnil-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0114 [likely_regulatory_update|score:62] adapter:cnil-adapter
 [34m[Watcher Info][0m Processing target: edpb-ai via adapter...
 [32m[Watcher Success][0m Adapter edpb-adapter ran for edpb-ai: 10 links found.
-[32m[Watcher Success][0m Candidate stored: CAND-0080 [likely_guidance|score:72] adapter:edpb-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0081 [likely_guidance|score:72] adapter:edpb-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0082 [likely_case|score:75] adapter:edpb-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0083 [likely_regulatory_update|score:62] adapter:edpb-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0084 [likely_regulatory_update|score:62] adapter:edpb-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0085 [likely_regulatory_update|score:62] adapter:edpb-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0086 [likely_regulatory_update|score:62] adapter:edpb-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0087 [likely_guidance|score:72] adapter:edpb-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0088 [likely_guidance|score:72] adapter:edpb-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0089 [likely_guidance|score:72] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0115 [likely_guidance|score:72] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0116 [likely_guidance|score:72] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0117 [likely_case|score:75] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0118 [likely_regulatory_update|score:62] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0119 [likely_regulatory_update|score:62] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0120 [likely_regulatory_update|score:62] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0121 [likely_regulatory_update|score:62] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0122 [likely_guidance|score:72] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0123 [likely_guidance|score:72] adapter:edpb-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0124 [likely_guidance|score:72] adapter:edpb-adapter
 [34m[Watcher Info][0m Processing target: european-commission-ai-act via adapter...
 [32m[Watcher Success][0m Adapter eu-commission-adapter ran for european-commission-ai-act: 10 links found.
-[32m[Watcher Success][0m Candidate stored: CAND-0090 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0091 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0092 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0093 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0094 [likely_guidance|score:72] adapter:eu-commission-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0095 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0096 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0097 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0098 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
-[32m[Watcher Success][0m Candidate stored: CAND-0099 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0125 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0126 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0127 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0128 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0129 [likely_guidance|score:72] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0130 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0131 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0132 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0133 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
+[32m[Watcher Success][0m Candidate stored: CAND-0134 [likely_regulatory_update|score:62] adapter:eu-commission-adapter
 [32m[Watcher Success][0m Adapter run report written to: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/watch/runs/latest-adapter-summary.json
 [32m[Watcher Success][0m Latest watch summary written to: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/watch/runs/latest-watch-summary.json
 
 ==========================================
        Caesar Watcher Run Summary         
 ==========================================
-Run Time:       2026-05-21T14:34:49.542Z
-Log Path:       /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/watch/runs/watch-run-2026-05-21T14-34-49.542Z.json
+Run Time:       2026-05-21T14:45:38.634Z
+Log Path:       /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/watch/runs/watch-run-2026-05-21T14-45-38.634Z.json
 Sources OK:          6
 Sources Failed:      1
 Sources Skipped:     0
@@ -78,7 +78,7 @@ Errors:              1 encountered
 [classify-candidate-quality] Running scripts/classify-candidate-quality.mjs...
 === Caesar Candidate Quality Classifier ===
 
-[Classifier] Found 82 candidate(s) to classify.
+[Classifier] Found 117 candidate(s) to classify.
 [31m[BLOCKED][0m  CAND-0018 | blocked_generic_page | score:15 | "Make a complaint"
            Reasons: Generic title pattern: "make a complaint"; Generic URL pattern: "/make-a-complaint"
 [32m[ELIGIBLE][0m CAND-0019 | likely_regulatory_guidance | score:84 | "Artificial intelligence (AI) and data protection"
@@ -212,21 +212,81 @@ Errors:              1 encountered
            Reasons: No legal/regulatory relevance detected
 [31m[BLOCKED][0m  CAND-0099 | likely_policy_update | score:45 | "AI thrives from the lab to the market"
            Reasons: No legal/regulatory relevance detected
+[32m[ELIGIBLE][0m CAND-0100 | likely_regulatory_guidance | score:81 | "Algorithms, Artificial Intelligence, and Disability Discrimination in Hiring"
+[32m[ELIGIBLE][0m CAND-0101 | likely_regulatory_guidance | score:89 | "Artificial intelligence (AI) and data protection"
+[31m[BLOCKED][0m  CAND-0102 | likely_regulatory_guidance | score:73 | "Explaining decisions made with AI"
+[31m[BLOCKED][0m  CAND-0103 | likely_regulatory_guidance | score:73 | "Biometric data guidance: Biometric recognition"
+[32m[ELIGIBLE][0m CAND-0104 | likely_regulatory_guidance | score:81 | "AI and data protection risk toolkit"
+[31m[BLOCKED][0m  CAND-0105 | likely_regulatory_guidance | score:65 | "Faire vérifier une décision automatisée"
+[31m[BLOCKED][0m  CAND-0106 | blocked_low_relevance | score:25 | "IA conversationnelle et santé mentale des jeunes : résultats de l’enquête européenne"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0107 | blocked_low_relevance | score:25 | "IA conversationnelle et santé mentale des jeunes : un débat européen inédit porté par la parole des jeunesses"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0108 | blocked_low_relevance | score:53 | "Liste des sanctions prononcées"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0109 | blocked_low_relevance | score:25 | "Amende administrative de 27 millions d'euros et injonction"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0110 | blocked_low_relevance | score:25 | "Amende administrative de 15 millions d'euros et injonction"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0111 | blocked_low_relevance | score:25 | "Amende administrative de 5 millions d'euros et injonction"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0112 | blocked_low_relevance | score:25 | "Amende administrative de 900 000 euros et injonction"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0113 | blocked_low_relevance | score:25 | "Amende administrative de 80 000 euros"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0114 | blocked_low_relevance | score:25 | "Amende administrative de 325 millions d'euros et injonction"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0115 | blocked_low_relevance | score:53 | "Guidelines, Recommendations, Best Practices"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0116 | blocked_low_relevance | score:53 | "Opinions"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0117 | blocked_low_relevance | score:53 | "Binding Decisions"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0118 | blocked_low_relevance | score:33 | "News"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0119 | blocked_low_relevance | score:33 | "EDPB News"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0120 | blocked_low_relevance | score:33 | "National News"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0121 | blocked_low_relevance | score:33 | "One-Stop-Shop News"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0122 | blocked_low_relevance | score:53 | "Guidelines 1/2026 on processing of personal data for scientific research purposes"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0123 | blocked_low_relevance | score:33 | "Guidelines"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0124 | blocked_low_relevance | score:53 | "Recommendations 1/2026 on the Application for Approval and on the elements and principles to be found in Processor Binding Corporate Rules (Art. 47 GDPR)"
+           Reasons: No AI/algorithm relevance detected
+[31m[BLOCKED][0m  CAND-0125 | blocked_low_relevance | score:33 | "News"
+           Reasons: No AI/algorithm relevance detected; No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0126 | likely_policy_update | score:45 | "AI Office"
+           Reasons: No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0127 | likely_policy_update | score:53 | "Artificial Intelligence"
+           Reasons: No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0128 | likely_enforcement_case | score:73 | "The Action Plan"
+[32m[ELIGIBLE][0m CAND-0129 | likely_regulatory_guidance | score:81 | "AI Act"
+[31m[BLOCKED][0m  CAND-0130 | likely_regulatory_guidance | score:65 | "AI Factories and Gigafactories"
+[31m[BLOCKED][0m  CAND-0131 | likely_policy_update | score:53 | "InvestAI Facility"
+           Reasons: No legal/regulatory relevance detected
+[32m[ELIGIBLE][0m CAND-0132 | likely_regulatory_guidance | score:81 | "AI Act Service Desk"
+[31m[BLOCKED][0m  CAND-0133 | likely_policy_update | score:61 | "AI innovation package to support Artificial Intelligence startups and SMEs"
+           Reasons: No legal/regulatory relevance detected
+[31m[BLOCKED][0m  CAND-0134 | likely_policy_update | score:45 | "AI thrives from the lab to the market"
+           Reasons: No legal/regulatory relevance detected
 
 ============================================================
   QUALITY CLASSIFICATION COMPLETE
 ============================================================
-Total candidates:      82
-Promotion eligible:    14
-Blocked:               68
-Candidate files updated: 82
+Total candidates:      117
+Promotion eligible:    19
+Blocked:               98
+Candidate files updated: 117
 
 Class breakdown:
   blocked_generic_page: 2
-  likely_regulatory_guidance: 29
-  blocked_low_relevance: 41
-  likely_policy_update: 8
-  likely_enforcement_case: 2
+  likely_regulatory_guidance: 38
+  blocked_low_relevance: 61
+  likely_policy_update: 13
+  likely_enforcement_case: 3
 
 Report: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/watch/runs/latest-candidate-quality-report.json
 ============================================================
@@ -235,14 +295,14 @@ Report: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-inciden
 
 [dedupe-real-candidates] Running scripts/dedupe-real-candidates.mjs...
 === Running Real Candidate De-duplication ===
-Scanned 82 candidate file(s).
+Scanned 117 candidate file(s).
 
 ==========================================
        Caesar Deduplication Report        
 ==========================================
-Total Scanned:  82
+Total Scanned:  117
 Unique Items:   56
-Duplicates:     26
+Duplicates:     61
 Report Path:    /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/watch/runs/latest-real-dedupe-report.json
 ==========================================
 
@@ -323,25 +383,19 @@ Output dir:                    /Users/nazarkoartem/Desktop/Projects/caesar-compl
 
 [validate-real-drafts] Running scripts/validate-real-drafts.mjs...
 === Caesar Real Draft Validator ===
-[32m[Draft Validation Pass][0m Found 15 real draft file(s) to validate.
+[32m[Draft Validation Pass][0m Found 9 real draft file(s) to validate.
 [32m[Draft Validation Pass][0m Public site/ is clean of draft files.
 [32m[Draft Validation Pass][0m Safe: INC-0013 public record does not exist.
-[32m[Draft Validation Pass][0m ALL 15 real draft file(s) passed validation.
+[32m[Draft Validation Pass][0m ALL 9 real draft file(s) passed validation.
 [validate-real-drafts] PASS (exit 0)
 
 [build-promotion-packets] Running scripts/build-promotion-packets.mjs...
 === Building Promotion Packets from Real Drafts ===
 Skipping DRAFT-0001 — packet already exists.
-Skipping DRAFT-0001 — packet already exists.
-Skipping DRAFT-0002 — packet already exists.
 Skipping DRAFT-0002 — packet already exists.
 Skipping DRAFT-0003 — packet already exists.
-Skipping DRAFT-0003 — packet already exists.
-Skipping DRAFT-0004 — packet already exists.
 Skipping DRAFT-0004 — packet already exists.
 Skipping DRAFT-0005 — packet already exists.
-Skipping DRAFT-0005 — packet already exists.
-Skipping DRAFT-0006 — packet already exists.
 Skipping DRAFT-0006 — packet already exists.
 Skipping DRAFT-0007 — packet already exists.
 Skipping DRAFT-0008 — packet already exists.
@@ -350,9 +404,9 @@ Skipping DRAFT-0009 — packet already exists.
 ==========================================
     Caesar Promotion Packet Build Report  
 ==========================================
-Drafts processed:          15
+Drafts processed:          9
 Packets created:           0
-Packets skipped (exists):  15
+Packets skipped (exists):  9
 Blocked (quality gate):    0
 Output dir:                /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/promotion-packets/real
 NOTE: promotion_allowed is false on ALL packets.
@@ -504,6 +558,10 @@ Action: Add approval to data/reviews/real/approved-promotions.json to promote
 [32m[PASS][0m No mock/draft/preview content in public incidents/
 [32m[PASS][0m approved-promotions.json valid (0 approval(s))
 [32m[PASS][0m Ranked candidates file exists (9 candidates)
+[36m[INFO][0m Found 1 source verification(s) in data/source-verifications/real/
+[32m[PASS][0m All 1 source verification(s) valid
+[36m[INFO][0m Found 1 control map(s) in data/control-maps/real/
+[32m[PASS][0m All 1 control map(s) valid
 
 ============================================================
 [32m[PASS][0m ALL VALIDATIONS PASSED
@@ -514,15 +572,162 @@ Status: Dry-run previews exist outside site/
 
 [validate-promotion-dry-run] PASS (exit 0)
 
+[verify-promotion-source] Running scripts/verify-promotion-source.mjs PKT-0006...
+=== Source Verification for PKT-0006 ===
+
+[36m[VERIFY][0m Loaded packet PKT-0006 -> draft DRAFT-0006
+[36m[VERIFY][0m Verifying 1 source URL(s)...
+[36m[VERIFY][0m Checking: https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en?f%5B0%5D=opinions_topics%3A769
+[32m[SUCCESS][0m ✓ 200 text/html; charset=UTF-8
+
+============================================================
+  VERIFICATION SUMMARY
+============================================================
+Packet ID: PKT-0006
+Draft ID: DRAFT-0006
+Authority: European Data Protection Board (EDPB)
+Source tier: green
+Verification status: VERIFIED
+URLs checked: 1
+Accessible: 1
+Official source: Yes
+Metadata only: Yes
+Source text copied: Yes
+
+Verification written: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/source-verifications/real/PKT-0006-source-verification.json
+============================================================
+
+[verify-promotion-source] PASS (exit 0)
+
+[build-public-case-preview] Running scripts/build-public-case-preview.mjs PKT-0006...
+=== Building Publication Preview for PKT-0006 ===
+
+[36m[PREVIEW][0m Loaded packet PKT-0006 -> draft DRAFT-0006
+[36m[PREVIEW][0m Source verification status: verified
+[36m[PREVIEW][0m Building publication-ready preview...
+
+============================================================
+  PREVIEW SUMMARY
+============================================================
+Packet ID: PKT-0006
+Draft ID: DRAFT-0006
+Preview case ID: INC-0013
+Title: Automated decision & profiling (3) — European Data Protection Board (EDPB)
+Source verification: verified
+Clean-room wording: Yes
+Control Tower approval required: Yes
+Source text copied: No
+
+Preview written: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/publication-previews/real/inc-0013-preview.json
+
+Next: Review preview and run validate-public-case-preview.mjs
+============================================================
+
+[32m[SUCCESS][0m Publication preview created: inc-0013-preview.json
+[build-public-case-preview] PASS (exit 0)
+
+[validate-public-case-preview] Running scripts/validate-public-case-preview.mjs...
+=== Publication Preview Validator ===
+
+=== Validating Preview: inc-0013-preview.json ===
+
+[32m[PASS][0m Required field present: incident_id
+[32m[PASS][0m Required field present: title
+[32m[PASS][0m Required field present: date
+[32m[PASS][0m Required field present: sources
+[32m[PASS][0m Required field present: summary
+[32m[PASS][0m Required field present: failure_modes
+[32m[PASS][0m Required field present: severity
+[32m[PASS][0m Required field present: confidence
+[32m[PASS][0m Required field present: controls
+[32m[PASS][0m Required field present: evidence_required
+[32m[PASS][0m Required field present: lessons
+[32m[PASS][0m Incident ID format valid: INC-0013
+[32m[PASS][0m Date format valid: 21 May 2026
+[32m[PASS][0m Sources validation passed (1 sources)
+[32m[PASS][0m Safety flag correct: dry_run = true
+[32m[PASS][0m Safety flag correct: public = false
+[32m[PASS][0m Safety flag correct: not_approved = true
+[32m[PASS][0m Safety flag correct: source_text_copied = false
+[32m[PASS][0m Safety flag correct: control_tower_approval_required = true
+[32m[PASS][0m Source verification exists: PKT-0006-source-verification.json
+[32m[PASS][0m Source verification status: verified
+[32m[PASS][0m Promotion packet exists: PKT-0006.json
+[32m[PASS][0m Summary content safety checks completed
+[32m[PASS][0m Clean-room wording confirmed
+[32m[PASS][0m Public incident not yet created: INC-0013
+
+============================================================
+[32m[PASS][0m PREVIEW VALIDATION PASSED: inc-0013-preview.json
+Status: Ready for Control Tower review
+Status: All safety flags correctly set
+Status: Schema compliant
+============================================================
+
+[validate-public-case-preview] PASS (exit 0)
+
+[build-case-control-map] Running scripts/build-case-control-map.mjs PKT-0006...
+=== Building Control Map for PKT-0006 ===
+
+[36m[CONTROL-MAP][0m Loaded packet PKT-0006 -> draft DRAFT-0006
+[36m[CONTROL-MAP][0m Building control/evidence mapping...
+
+============================================================
+  CONTROL MAP SUMMARY
+============================================================
+Packet ID: PKT-0006
+Draft ID: DRAFT-0006
+Failure modes: FM-GOVERNANCE-GAP, FM-COMPLIANCE-DEFICIT
+Missing controls: 2 identified
+Required evidence: 4 items
+Vendor questions: 4 questions
+Frameworks mapped: 4
+  - EU AI Act: medium risk
+  - GDPR Automated Decision-Making & Profiling: high risk
+  - NIST AI RMF: medium risk
+  - ISO 42001: medium risk
+Status: local_review_only
+Control Tower approval required: Yes
+
+Control map written: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/control-maps/real/PKT-0006-control-map.json
+============================================================
+
+[32m[SUCCESS][0m Control map created: PKT-0006-control-map.json
+[build-case-control-map] PASS (exit 0)
+
+[build-promotion-readiness-report] Running scripts/build-promotion-readiness-report.mjs PKT-0006...
+=== Building Promotion Readiness Report for PKT-0006 ===
+
+[36m[READINESS][0m Assessing promotion readiness...
+
+============================================================
+  READINESS REPORT SUMMARY
+============================================================
+Packet ID: PKT-0006
+Draft ID: DRAFT-0006
+Recommended case: INC-0013
+Quality score: 84/100
+Source tier: GREEN
+Checks passed: 6/6
+Ready for Control Tower: YES
+
+Ready for Control Tower review. Add approval to data/reviews/real/approved-promotions.json to proceed.
+
+Readiness report written: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/reviews/real/PKT-0006-readiness-report.json
+============================================================
+
+[32m[SUCCESS][0m PKT-0006 is ready for Control Tower approval
+[build-promotion-readiness-report] PASS (exit 0)
+
 [build-real-review-bundle] Running scripts/build-real-review-bundle.mjs...
 === Building Real Review Console Bundle ===
 Successfully built real review bundle at: /Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/tools/review-console/real-review-bundle.json
-  Candidates:              82
-  Promotion eligible:      14
-  Case-quality count:      2
+  Candidates:              117
+  Promotion eligible:      19
+  Case-quality count:      3
   Generic blocked:         2
-  Total blocked:           68
-  Drafts:                  15
+  Total blocked:           98
+  Drafts:                  9
   Promotion packets:       9
   Ranked data:             loaded
   Shortlist:               5 items
@@ -558,8 +763,8 @@ Successfully built real review bundle at: /Users/nazarkoartem/Desktop/Projects/c
 [32m[PASS][0m No promotion-allowed packets found for blocked generic pages (9 packets checked)
 [32m[PASS][0m No dry-run previews found for blocked generic pages (5 previews checked)
 [32m[PASS][0m At least one promotion-eligible candidate found: PKT-0006 [likely_case|score:84]
-[36m[INFO][0m Scanning 82 candidate file(s) for quality fields...
-[36m[INFO][0m Candidates with quality fields: 82/82
+[36m[INFO][0m Scanning 117 candidate file(s) for quality fields...
+[36m[INFO][0m Candidates with quality fields: 117/117
 [32m[PASS][0m Public dataset remains at exactly 12 records
 [32m[PASS][0m INC-0013 does not exist
 [32m[PASS][0m CAND-0018 "Make a complaint" correctly blocked: quality_class=blocked_generic_page, score=15
@@ -585,7 +790,7 @@ Successfully built real review bundle at: /Users/nazarkoartem/Desktop/Projects/c
 [32m[Safety Pass][0m latest-watch-summary.json exists in data/watch/runs/.
 [32m[Safety Pass][0m All enabled watch targets have fallback_urls configured.
 [32m[Safety Pass][0m Public site/ is clean of draft and promotion packet files.
-[32m[Safety Pass][0m Audited 82 real candidate files for schema compliance and metadata safety.
+[32m[Safety Pass][0m Audited 117 real candidate files for schema compliance and metadata safety.
 [32m[Safety Pass][0m Safe: No secrets/env files were found.
 [32m[Safety Pass][0m ALL REAL WATCHER COMPLIANCE AND SAFETY CONTAINMENT CHECKS PASSED.
 [validate-real-watcher] PASS (exit 0)

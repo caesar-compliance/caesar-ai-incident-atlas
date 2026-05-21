@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-05-21T14:34:49.542Z",
+  "run_timestamp": "2026-05-21T14:45:38.634Z",
   "source_health": [
     {
       "source_id": "ftc-ai-enforcement",
@@ -73,6 +73,6 @@
   "promotion_eligible_count": 14,
   "skipped_items": 0,
   "errors_count": 1,
-  "run_log_path": "/Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/watch/runs/watch-run-2026-05-21T14-34-49.542Z.json",
+  "run_log_path": "/Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/watch/runs/watch-run-2026-05-21T14-45-38.634Z.json",
   "adapter_summary_path": "/Users/nazarkoartem/Desktop/Projects/caesar-compliance/caesar-ai-incident-atlas/data/watch/runs/latest-adapter-summary.json"
 }

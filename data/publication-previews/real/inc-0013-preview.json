@@ -1,0 +1,63 @@
+{
+  "incident_id": "INC-0013",
+  "title": "Automated decision & profiling (3) — European Data Protection Board (EDPB)",
+  "date": "21 May 2026",
+  "date_note": "Publication-ready preview. Date requires final verification from source material.",
+  "sources": [
+    {
+      "url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en?f%5B0%5D=opinions_topics%3A769",
+      "source_type": "public_database_pointer",
+      "accessed": "21 May 2026",
+      "title": "European Data Protection Board (EDPB) reference"
+    }
+  ],
+  "summary": "European Data Protection Board (EDPB) has published material relating to privacy biometrics. Source verification confirms official authority and accessibility. This record reflects metadata detected during regulatory monitoring. Organisations should review the original source material for detailed guidance. This is not legal advice.",
+  "failure_modes": [
+    "FM-GOVERNANCE-GAP",
+    "FM-COMPLIANCE-DEFICIT"
+  ],
+  "severity": "medium",
+  "confidence": "medium",
+  "controls": [
+    "CTL-GUIDANCE-TRACKING",
+    "CTL-COMPLIANCE-UPDATE-PROCESS"
+  ],
+  "evidence_required": [
+    "Evidence of regulatory guidance monitoring process",
+    "Record of internal impact assessment against this guidance",
+    "Documentation of AI system inventory and applicable controls",
+    "Board or senior management sign-off on compliance posture"
+  ],
+  "lessons": [
+    "Regulatory bodies such as European Data Protection Board (EDPB) issue guidance that directly affects AI system deployments. Organisations must maintain active monitoring processes to detect and respond to new guidance before it becomes an enforcement trigger."
+  ],
+  "sector": [
+    "cross-sector AI governance"
+  ],
+  "ai_system_context": "AI governance case from EU jurisdiction",
+  "harms": [
+    "Potential regulatory non-compliance",
+    "Operational risk from guidance gap"
+  ],
+  "affected_stakeholders": [
+    "AI system operators",
+    "Compliance officers",
+    "Legal teams"
+  ],
+  "impact": "Organisations using AI systems in EU face regulatory scrutiny from European Data Protection Board (EDPB). Failure to track and implement guidance from this source may result in enforcement action, fines, or operational restrictions. Relevant to AI procurement, deployment, and compliance programmes.",
+  "dry_run": true,
+  "public": false,
+  "not_approved": true,
+  "source_text_copied": false,
+  "control_tower_approval_required": true,
+  "promotion_packet_id": "PKT-0006",
+  "source_verification_id": "PKT-0006-source-verification",
+  "_preview_metadata": {
+    "from_draft": "DRAFT-0006",
+    "from_packet": "PKT-0006",
+    "generated_at": "2026-05-21T14:45:46.101Z",
+    "clean_room_wording": true,
+    "ready_for_control_tower_review": true,
+    "approval_required": "Control Tower explicit approval needed before publication"
+  }
+}

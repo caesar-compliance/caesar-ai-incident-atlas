@@ -1,0 +1,117 @@
+{
+  "packet_id": "PKT-0006",
+  "draft_id": "DRAFT-0006",
+  "failure_mode": [
+    "FM-GOVERNANCE-GAP",
+    "FM-COMPLIANCE-DEFICIT"
+  ],
+  "legal_commercial_risk": "Organisations using AI systems in EU face regulatory scrutiny from European Data Protection Board (EDPB). Failure to track and implement guidance from this source may result in enforcement action, fines, or operational restrictions. Relevant to AI procurement, deployment, and compliance programmes.",
+  "missing_controls": [
+    "CTL-GUIDANCE-TRACKING",
+    "CTL-COMPLIANCE-UPDATE-PROCESS"
+  ],
+  "required_evidence": [
+    "Evidence of regulatory guidance monitoring process",
+    "Record of internal impact assessment against this guidance",
+    "Documentation of AI system inventory and applicable controls",
+    "Board or senior management sign-off on compliance posture"
+  ],
+  "vendor_questions": [
+    "Has your organisation reviewed the latest guidance from European Data Protection Board (EDPB)?",
+    "Do you maintain a register of applicable AI regulations and guidance by jurisdiction?",
+    "What controls are in place to respond to new regulatory guidance within 30 days?",
+    "Can you demonstrate evidence of compliance gap analysis against this guidance?"
+  ],
+  "training_lesson": "Regulatory bodies such as European Data Protection Board (EDPB) issue guidance that directly affects AI system deployments. Organisations must maintain active monitoring processes to detect and respond to new guidance before it becomes an enforcement trigger.",
+  "governance_lesson": "Regulatory guidance monitoring is essential. European Data Protection Board (EDPB) provide material that affects compliance requirements.",
+  "client_checklist": [
+    "Review source guidance from regulatory authority",
+    "Assess impact on current AI systems and processes",
+    "Update compliance documentation and procedures",
+    "Implement required controls within defined timeframe",
+    "Document evidence of compliance measures taken"
+  ],
+  "mapped_frameworks": {
+    "EU AI Act": {
+      "relevant_articles": [
+        "Article 9 - Risk Management Systems",
+        "Article 10 - Data and Data Governance",
+        "Article 13 - Transparency and Provision of Information",
+        "Article 14 - Human Oversight"
+      ],
+      "compliance_requirements": [
+        "Implement risk management system for high-risk AI systems",
+        "Ensure data governance and quality management",
+        "Provide transparency information to users",
+        "Maintain human oversight measures"
+      ],
+      "gap_indicators": [
+        "FM-GOVERNANCE-GAP",
+        "FM-COMPLIANCE-DEFICIT"
+      ],
+      "risk_level": "medium"
+    },
+    "GDPR Automated Decision-Making & Profiling": {
+      "relevant_articles": [
+        "Article 22 - Automated Individual Decision-Making",
+        "Article 15 - Right of Access by Data Subject",
+        "Article 21 - Right to Object",
+        "Recital 71 - Profiling and Automated Decision-Making"
+      ],
+      "compliance_requirements": [
+        "Provide meaningful information about logic involved in automated decision-making",
+        "Implement measures to obtain human intervention",
+        "Express point of view and contest automated decisions",
+        "Conduct Data Protection Impact Assessment (DPIA) for profiling"
+      ],
+      "gap_indicators": [
+        "FM-COMPLIANCE-DEFICIT",
+        "FM-GOVERNANCE-GAP"
+      ],
+      "risk_level": "high"
+    },
+    "NIST AI RMF": {
+      "relevant_functions": [
+        "GOVERN - Establish governance structures",
+        "MAP - Contextualize AI system risks",
+        "MEASURE - Assess AI system performance and impact",
+        "MANAGE - Allocate risk resources to treat risks"
+      ],
+      "key_practices": [
+        "Establish AI risk management governance structure",
+        "Map AI system requirements and context",
+        "Measure AI system performance and trustworthiness",
+        "Manage identified risks with appropriate controls"
+      ],
+      "gap_indicators": [
+        "CTL-GUIDANCE-TRACKING",
+        "CTL-COMPLIANCE-UPDATE-PROCESS"
+      ],
+      "risk_level": "medium"
+    },
+    "ISO 42001": {
+      "relevant_clauses": [
+        "Clause 5 - Organizational Context",
+        "Clause 6 - Planning",
+        "Clause 7 - Support",
+        "Clause 8 - Operation",
+        "Clause 9 - Performance Evaluation",
+        "Clause 10 - Improvement"
+      ],
+      "key_controls": [
+        "Establish AI management system framework",
+        "Develop AI risk assessment procedures",
+        "Implement AI system documentation requirements",
+        "Create monitoring and measurement processes"
+      ],
+      "gap_indicators": [
+        "CTL-GUIDANCE-TRACKING",
+        "CTL-COMPLIANCE-UPDATE-PROCESS"
+      ],
+      "risk_level": "medium"
+    }
+  },
+  "status": "local_review_only",
+  "control_tower_approval_required": true,
+  "created_at": "2026-05-21T14:45:46.163Z"
+}

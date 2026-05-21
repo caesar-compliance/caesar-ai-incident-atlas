@@ -1,8 +1,8 @@
 {
-  "deduplicated_at": "2026-05-21T14:34:57.591Z",
-  "total_candidates_scanned": 82,
+  "deduplicated_at": "2026-05-21T14:45:45.517Z",
+  "total_candidates_scanned": 117,
   "unique_count": 56,
-  "duplicate_count": 26,
+  "duplicate_count": 61,
   "unique_candidate_ids": [
     "CAND-0018",
     "CAND-0019",
@@ -269,6 +269,286 @@
       "dedupe_key": "f98c157889dc5314890c0e6bc1229b41e2257a740465a6ea877c284372303cf8",
       "detected_at": "2026-05-21T14:34:49.542Z",
       "duplicate_of": "CAND-0064"
+    },
+    {
+      "candidate_id": "CAND-0100",
+      "title": "Algorithms, Artificial Intelligence, and Disability Discrimination in Hiring",
+      "source_url": "https://www.ada.gov/resources/ai-guidance/",
+      "dedupe_key": "b5bf78a08ff23a227bf81e8dd5d7746aa6115ca2f43e55b998907b86d90a550c",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0030"
+    },
+    {
+      "candidate_id": "CAND-0101",
+      "title": "Artificial intelligence (AI) and data protection",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/",
+      "dedupe_key": "06aa62950fe0a4076ac60d1dbad80b6ec9580fa76e898d68c1149109ba8213fe",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0019"
+    },
+    {
+      "candidate_id": "CAND-0102",
+      "title": "Explaining decisions made with AI",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/explaining-decisions-made-with-artificial-intelligence/",
+      "dedupe_key": "888a017fa31e1b50d2a77fee1250ff7c5c666227cd50fe3ecc0ea7f3ebd070b4",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0020"
+    },
+    {
+      "candidate_id": "CAND-0103",
+      "title": "Biometric data guidance: Biometric recognition",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/lawful-basis/biometric-data-guidance-biometric-recognition/",
+      "dedupe_key": "6ca6a3514dd9a0ce79420048304c7cbe9405a992b53cd029817064a078d4c7ff",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0033"
+    },
+    {
+      "candidate_id": "CAND-0104",
+      "title": "AI and data protection risk toolkit",
+      "source_url": "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/ai-and-data-protection-risk-toolkit/",
+      "dedupe_key": "a6f288353aa2852b9cb657e695b6a7d72f9320ff5f4f93e7f2d48abacd776af1",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0021"
+    },
+    {
+      "candidate_id": "CAND-0105",
+      "title": "Faire vérifier une décision automatisée",
+      "source_url": "https://www.cnil.fr/fr/vos-droits-lintervention-humaine-face-votre-profilage-ou-une-decision-automatisee",
+      "dedupe_key": "ca1088c83353cdc9792ae221ba450e16da502f08f22478acf46022cfd73e13c7",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0036"
+    },
+    {
+      "candidate_id": "CAND-0106",
+      "title": "IA conversationnelle et santé mentale des jeunes : résultats de l’enquête européenne",
+      "source_url": "https://www.cnil.fr/fr/ia-conversationnelle-et-sante-mentale-des-jeunes-resultats-de-lenquete-europeenne",
+      "dedupe_key": "d949e1fceaa432449ddfe8be7e3ca01f2a7f5e960846f46d48ae91c0edfaf0ac",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0038"
+    },
+    {
+      "candidate_id": "CAND-0107",
+      "title": "IA conversationnelle et santé mentale des jeunes : un débat européen inédit porté par la parole des jeunesses",
+      "source_url": "https://www.cnil.fr/fr/ia-conversationnelle-et-sante-mentale-la-parole-des-jeunesses",
+      "dedupe_key": "aabe68bc8b8077507f011b70ed41c39e3b7324bd31f9f7a842946b46dfdde8b0",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0039"
+    },
+    {
+      "candidate_id": "CAND-0108",
+      "title": "Liste des sanctions prononcées",
+      "source_url": "https://www.cnil.fr/fr/mots-cles/sanction",
+      "dedupe_key": "d713934b6cd919d53dc5be32d82380f5d4433e52a6760adefae81295c2e419de",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0073"
+    },
+    {
+      "candidate_id": "CAND-0109",
+      "title": "Amende administrative de 27 millions d'euros et injonction",
+      "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000053352594",
+      "dedupe_key": "82934bd4b975e07afb14b9299be33e47c5198a12eb2654bb650dfb3fd84d2e69",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0074"
+    },
+    {
+      "candidate_id": "CAND-0110",
+      "title": "Amende administrative de 15 millions d'euros et injonction",
+      "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000053352643",
+      "dedupe_key": "21d3ba6c1e9b4fe8b8a797491807d0ab87450fd3c903498aba0494535ca33bd2",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0075"
+    },
+    {
+      "candidate_id": "CAND-0111",
+      "title": "Amende administrative de 5 millions d'euros et injonction",
+      "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000053408671",
+      "dedupe_key": "2f91dd1f1c54b29b7a267d8e2cb42a94d682325921ddc738edec8c97f0890766",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0076"
+    },
+    {
+      "candidate_id": "CAND-0112",
+      "title": "Amende administrative de 900 000 euros et injonction",
+      "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000051630617",
+      "dedupe_key": "9341e3f2f9be7ef360ad7697b917a9ebcf672efd442fdd821d90f802dca9c335",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0077"
+    },
+    {
+      "candidate_id": "CAND-0113",
+      "title": "Amende administrative de 80 000 euros",
+      "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000051660380",
+      "dedupe_key": "c1cec6e30dd0f85c4d0992c3d53c4053432799304dd39bbb6552e151fad22f0f",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0078"
+    },
+    {
+      "candidate_id": "CAND-0114",
+      "title": "Amende administrative de 325 millions d'euros et injonction",
+      "source_url": "https://www.legifrance.gouv.fr/cnil/id/CNILTEXT000052182222",
+      "dedupe_key": "0afa8ef9ae2ddca5ed7ac6a547708f94c8dc51acf58eaeb78331453ccde8b282",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0079"
+    },
+    {
+      "candidate_id": "CAND-0115",
+      "title": "Guidelines, Recommendations, Best Practices",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/general-guidance/guidelines-recommendations-best-practices_en",
+      "dedupe_key": "0cde6cd86a3d39a2ec7b92f852792a4b4bcbfb113adb09d688a7ad40c8ca204f",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0080"
+    },
+    {
+      "candidate_id": "CAND-0116",
+      "title": "Opinions",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/consistency-findings/opinions_en",
+      "dedupe_key": "84739ca0a4434fad17c70006738970e26330177cd47745b5ced108806917a50d",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0081"
+    },
+    {
+      "candidate_id": "CAND-0117",
+      "title": "Binding Decisions",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/consistency-findings/binding-decisions_en",
+      "dedupe_key": "86fb912778b1a74cb34c69bf34eab0cc4e265829efd8ba52936a428156d1a739",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0082"
+    },
+    {
+      "candidate_id": "CAND-0118",
+      "title": "News",
+      "source_url": "https://www.edpb.europa.eu/news/news_en",
+      "dedupe_key": "d77aa45175836c65c8472305bcf96e772b2ec2000b3f81666e60ab9e87dc9703",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0083"
+    },
+    {
+      "candidate_id": "CAND-0119",
+      "title": "EDPB News",
+      "source_url": "https://www.edpb.europa.eu/news/news_en?news_type=1",
+      "dedupe_key": "a968cf0e546c5c44d27b28fb92e5ed4e4ae044010b2041bd9d8344ec4c105ca7",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0084"
+    },
+    {
+      "candidate_id": "CAND-0120",
+      "title": "National News",
+      "source_url": "https://www.edpb.europa.eu/news/news_en?news_type=2",
+      "dedupe_key": "54245b226f5475c1c27ce0ec91a26119b28d721fe2cf568677e644e467364bc7",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0085"
+    },
+    {
+      "candidate_id": "CAND-0121",
+      "title": "One-Stop-Shop News",
+      "source_url": "https://www.edpb.europa.eu/news/news_en?news_type=3",
+      "dedupe_key": "7d0a5b676d01372d964bc521afee371f2aa4ef10c32ea8b9daf552b2e15b36cf",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0086"
+    },
+    {
+      "candidate_id": "CAND-0122",
+      "title": "Guidelines 1/2026 on processing of personal data for scientific research purposes",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/documents/public-consultations/2026/guidelines-12026-processing-personal-data_en",
+      "dedupe_key": "9c71b966977fdaef7fd4c12a46f5983593780bd80693c3bbcc6c946b0e8b7e41",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0087"
+    },
+    {
+      "candidate_id": "CAND-0123",
+      "title": "Guidelines",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/our-documents/publication-type/guidelines_en",
+      "dedupe_key": "cad39f7cf495bd8eddb4f34c3f38f8030fbb8278e81fd93ce5cf1b5a1f9db095",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0088"
+    },
+    {
+      "candidate_id": "CAND-0124",
+      "title": "Recommendations 1/2026 on the Application for Approval and on the elements and principles to be found in Processor Binding Corporate Rules (Art. 47 GDPR)",
+      "source_url": "https://www.edpb.europa.eu/our-work-tools/documents/public-consultations/2026/recommendations-12026-application-approval-and_en",
+      "dedupe_key": "c09c6aef362dd2272ca9d12d25254638a44da77c20f60f970a25d9ac865d75a9",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0089"
+    },
+    {
+      "candidate_id": "CAND-0125",
+      "title": "News",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news",
+      "dedupe_key": "e2925aef5829e23d589a3f75ac89e5a78759aead3b98232b53cf4fcf1bcd01bc",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0056"
+    },
+    {
+      "candidate_id": "CAND-0126",
+      "title": "AI Office",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-office",
+      "dedupe_key": "f37ebc766aaa61d70d751b680dea88cd98199a1afbe3c1cb109d79a2043a1ea7",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0057"
+    },
+    {
+      "candidate_id": "CAND-0127",
+      "title": "Artificial Intelligence",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/artificial-intelligence",
+      "dedupe_key": "df6393d58a8ddffccfe6eb0149d2b25fefc94694050a5c9b793e58b08855cfea",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0059"
+    },
+    {
+      "candidate_id": "CAND-0128",
+      "title": "The Action Plan",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-sets-course-europes-ai-leadership-ambitious-ai-continent-action-plan",
+      "dedupe_key": "1eef266e6c17445f4b801769cced95b5f69554df7c6bf04c1eb17ef8d8f37232",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0060"
+    },
+    {
+      "candidate_id": "CAND-0129",
+      "title": "AI Act",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai",
+      "dedupe_key": "acc5ad4063972046a38c2a3b8d591d3e18d9f3285ce1ad4bf2aafeba44b26328",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0061"
+    },
+    {
+      "candidate_id": "CAND-0130",
+      "title": "AI Factories and Gigafactories",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-factories",
+      "dedupe_key": "d974301f422f3094c8569dec599987907f1210a144f5fb29b6646b32803c2375",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0062"
+    },
+    {
+      "candidate_id": "CAND-0131",
+      "title": "InvestAI Facility",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news/eu-launches-investai-initiative-mobilise-eu200-billion-investment-artificial-intelligence",
+      "dedupe_key": "52608811d866124461692145f7e3c01b49464fb1ebdece6c31db31c516b78f5a",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0063"
+    },
+    {
+      "candidate_id": "CAND-0132",
+      "title": "AI Act Service Desk",
+      "source_url": "https://ai-act-service-desk.ec.europa.eu/en",
+      "dedupe_key": "f98c157889dc5314890c0e6bc1229b41e2257a740465a6ea877c284372303cf8",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0064"
+    },
+    {
+      "candidate_id": "CAND-0133",
+      "title": "AI innovation package to support Artificial Intelligence startups and SMEs",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/news/commission-launches-ai-innovation-package-support-artificial-intelligence-startups-and-smes",
+      "dedupe_key": "147859fbd5b61fb80f889a92051c53b0613cda437fa0beebe08e24c0af1daab9",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0098"
+    },
+    {
+      "candidate_id": "CAND-0134",
+      "title": "AI thrives from the lab to the market",
+      "source_url": "https://digital-strategy.ec.europa.eu/en/policies/ai-lab-market",
+      "dedupe_key": "b5874b1ada081084115940b9ee9016f97895968e45993b677ef7f1387c6ed32d",
+      "detected_at": "2026-05-21T14:45:38.634Z",
+      "duplicate_of": "CAND-0099"
     }
   ]
 }
