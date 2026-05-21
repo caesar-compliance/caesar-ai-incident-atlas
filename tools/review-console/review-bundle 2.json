@@ -1,0 +1,354 @@
+{
+  "generated_at": "2026-05-21T12:28:17.577Z",
+  "candidates": [
+    {
+      "candidate_id": "CAND-0013",
+      "detected_at": "2026-05-21T01:05:00Z",
+      "source_id": "mock-src-cnil-02",
+      "source_url": "https://mock.gov/cnil/mock-enforcement-facial-recognition-retail",
+      "title": "Enforcement Note: Unlawful Biometric Profiling in Automated Retail Systems",
+      "date_published": "21 May 2026",
+      "detected_keywords": [
+        "synthetic",
+        "mock-pipeline",
+        "biometrics",
+        "facial recognition",
+        "privacy"
+      ],
+      "preliminary_case_type": "enforcement",
+      "jurisdiction": "US",
+      "source_tier": "green",
+      "confidence_score": 0.95,
+      "dedupe_key": "799b84979247ff0cc5875f95d611b62f848a697270882e0c352faeef15d4d320",
+      "status": "mock_candidate",
+      "risk_flags": [
+        "no_risk_detected"
+      ],
+      "notes": "SYNTHETIC MOCK RECORD FOR TEST PURPOSES ONLY. DO NOT INCLUDE IN PUBLIC SITE."
+    },
+    {
+      "candidate_id": "CAND-0014",
+      "detected_at": "2026-05-21T01:15:00Z",
+      "source_id": "mock-src-cfpb-04",
+      "source_url": "https://mock.gov/cfpb/mock-advisory-underwriting-discrimination",
+      "title": "Consumer Alert: Adverse Action Notices in Algorithmic Credit Underwriting",
+      "date_published": "21 May 2026",
+      "detected_keywords": [
+        "synthetic",
+        "mock-pipeline",
+        "credit scoring",
+        "consumer protection",
+        "explainability"
+      ],
+      "preliminary_case_type": "regulator_guidance",
+      "jurisdiction": "US",
+      "source_tier": "green",
+      "confidence_score": 0.95,
+      "dedupe_key": "618888d3b834e4442ce4cb8f9d7b455dac470c3f194fa65fd1a76b01f4482c62",
+      "status": "mock_candidate",
+      "risk_flags": [
+        "no_risk_detected"
+      ],
+      "notes": "SYNTHETIC MOCK RECORD FOR TEST PURPOSES ONLY. DO NOT INCLUDE IN PUBLIC SITE."
+    },
+    {
+      "candidate_id": "CAND-0015",
+      "detected_at": "2026-05-21T01:10:00Z",
+      "source_id": "mock-src-fda-03",
+      "source_url": "https://mock.gov/fda/mock-advisory-diagnostic-drift-clinical",
+      "title": "Safety Notice: Algorithmic Calibration and Diagnostic Drift in Clinical AI",
+      "date_published": "21 May 2026",
+      "detected_keywords": [
+        "synthetic",
+        "mock-pipeline",
+        "healthcare",
+        "clinical algorithm",
+        "diagnostic drift"
+      ],
+      "preliminary_case_type": "regulator_guidance",
+      "jurisdiction": "US",
+      "source_tier": "green",
+      "confidence_score": 0.95,
+      "dedupe_key": "6756d0705add417e6125d2799cc4ad7c660e865dca25868fbc6a0ab6a4ae7357",
+      "status": "mock_candidate",
+      "risk_flags": [
+        "no_risk_detected"
+      ],
+      "notes": "SYNTHETIC MOCK RECORD FOR TEST PURPOSES ONLY. DO NOT INCLUDE IN PUBLIC SITE."
+    },
+    {
+      "candidate_id": "CAND-0016",
+      "detected_at": "2026-05-21T01:00:00Z",
+      "source_id": "mock-src-eeoc-01",
+      "source_url": "https://mock.gov/eeoc/mock-advisory-automated-hiring-tools",
+      "title": "Advisory Note: Assessment of Bias in AI Resume Screening Tools",
+      "date_published": "21 May 2026",
+      "detected_keywords": [
+        "synthetic",
+        "mock-pipeline",
+        "algorithmic bias",
+        "hiring software",
+        "employment software"
+      ],
+      "preliminary_case_type": "regulator_guidance",
+      "jurisdiction": "US",
+      "source_tier": "green",
+      "confidence_score": 0.95,
+      "dedupe_key": "e226c5105bedb4ad20a861a5a03793ce49ff0741462a44db6cab0fc51c6fb2a7",
+      "status": "mock_candidate",
+      "risk_flags": [
+        "no_risk_detected"
+      ],
+      "notes": "SYNTHETIC MOCK RECORD FOR TEST PURPOSES ONLY. DO NOT INCLUDE IN PUBLIC SITE."
+    },
+    {
+      "candidate_id": "CAND-0017",
+      "detected_at": "2026-05-21T01:20:00Z",
+      "source_id": "mock-src-news-05",
+      "source_url": "https://mock.news/journal/mock-commercial-leakage-customer-chat",
+      "title": "Commercial Report: Vendor Customer Chatbot Hallucinations Leak Sensitive Intellectual Property",
+      "date_published": "21 May 2026",
+      "detected_keywords": [
+        "synthetic",
+        "mock-pipeline",
+        "chatbot",
+        "hallucination",
+        "vendor risk",
+        "data leakage"
+      ],
+      "preliminary_case_type": "vendor_governance_failure",
+      "jurisdiction": "US",
+      "source_tier": "yellow",
+      "confidence_score": 0.95,
+      "dedupe_key": "c77ee12392238072e9cc216762d5baf417f6d95d5e0333a53442af149b4de826",
+      "status": "mock_candidate",
+      "risk_flags": [
+        "no_risk_detected"
+      ],
+      "notes": "SYNTHETIC MOCK RECORD FOR TEST PURPOSES ONLY. DO NOT INCLUDE IN PUBLIC SITE."
+    }
+  ],
+  "drafts": [
+    {
+      "draft_id": "DRAFT-0013",
+      "candidate_ids": [
+        "CAND-0013"
+      ],
+      "proposed_case_title": "Mock Case: EEOC Resume Screening Discrimination Warning",
+      "case_type": "enforcement",
+      "jurisdiction": "US",
+      "source_authorities": [
+        "EEOC"
+      ],
+      "source_urls": [
+        "https://mock.gov/cnil/mock-enforcement-facial-recognition-retail"
+      ],
+      "legal_domain": "hiring_employment",
+      "commercial_domain": "Human Resources",
+      "failure_mode": [
+        "FM-DISCRIMINATION-BIAS"
+      ],
+      "business_risk": "Significant regulatory scrutiny and class-action liability under mock governance rules.",
+      "missing_controls": [
+        "CTL-BIAS-AUDITING",
+        "CTL-HUMAN-IN-THE-LOOP"
+      ],
+      "required_evidence": [
+        "Linguistic bias audit reports",
+        "Human review logs"
+      ],
+      "vendor_questions": [
+        "Has this resume tool been audited for systematic bias against non-native speakers?"
+      ],
+      "training_lesson": "Avoid using unhedged language model filters for critical qualification screening.",
+      "clean_room_summary": "MOCK SYNTHETIC DRAFT: Standardized testing report outlining how automated hiring resume screening systems can introduce demographic bias without continuous human audibility. Used strictly for offline validation/testing.",
+      "source_risk_level": "green",
+      "publish_recommendation": "needs_legal_review",
+      "review_status": "draft"
+    },
+    {
+      "draft_id": "DRAFT-0014",
+      "candidate_ids": [
+        "CAND-0014"
+      ],
+      "proposed_case_title": "Mock Case: CNIL Biometric Retail Profiling Consent Enforcement",
+      "case_type": "regulator_guidance",
+      "jurisdiction": "US",
+      "source_authorities": [
+        "CNIL"
+      ],
+      "source_urls": [
+        "https://mock.gov/cfpb/mock-advisory-underwriting-discrimination"
+      ],
+      "legal_domain": "privacy_biometrics",
+      "commercial_domain": "Retail",
+      "failure_mode": [
+        "FM-PRIVACY-NON-CONSENT"
+      ],
+      "business_risk": "Substantial GDPR fines and loss of consumer trust in the retail space.",
+      "missing_controls": [
+        "CTL-BIOMETRIC-CONSENT-GATE",
+        "CTL-DATA-MINIMIZATION-AUDIT"
+      ],
+      "required_evidence": [
+        "Explicit opt-in forms",
+        "Biometric hash database encryption logs"
+      ],
+      "vendor_questions": [
+        "Do you store raw biometric facial images or only localized numerical hashes?"
+      ],
+      "training_lesson": "Never deploy biometric analysis in public venues without active, uncoerced consumer opt-in.",
+      "clean_room_summary": "MOCK SYNTHETIC DRAFT: Regulatory enforcement advisory analyzing consumer consent gates for emotional and facial profiling systems deployed inside physical spaces. Used strictly for offline validation/testing.",
+      "source_risk_level": "green",
+      "publish_recommendation": "needs_legal_review",
+      "review_status": "draft"
+    },
+    {
+      "draft_id": "DRAFT-0015",
+      "candidate_ids": [
+        "CAND-0015"
+      ],
+      "proposed_case_title": "Mock Case: FDA Diagnostic Drift Clinical Calibration Alert",
+      "case_type": "regulator_guidance",
+      "jurisdiction": "US",
+      "source_authorities": [
+        "FDA"
+      ],
+      "source_urls": [
+        "https://mock.gov/fda/mock-advisory-diagnostic-drift-clinical"
+      ],
+      "legal_domain": "healthcare",
+      "commercial_domain": "Clinical Medicine",
+      "failure_mode": [
+        "FM-ALGORITHMIC-DRIFT"
+      ],
+      "business_risk": "Severe patient safety liability and clinical malpractice exposure.",
+      "missing_controls": [
+        "CTL-CONTINUOUS-DRIFT-MONITORING",
+        "CTL-CLINICAL-OVERRIDE-PROTOCOL"
+      ],
+      "required_evidence": [
+        "Drift threshold validation logs",
+        "Practitioner feedback reports"
+      ],
+      "vendor_questions": [
+        "What dataset drift detection mechanisms are built into the clinical recommendation software?"
+      ],
+      "training_lesson": "Establish continuous verification systems to capture diagnostic variance as patient demographics shift.",
+      "clean_room_summary": "MOCK SYNTHETIC DRAFT: Safety warning outlining calibration errors in healthcare AI models resulting from clinical environment shifts. Used strictly for offline validation/testing.",
+      "source_risk_level": "green",
+      "publish_recommendation": "needs_legal_review",
+      "review_status": "draft"
+    },
+    {
+      "draft_id": "DRAFT-0016",
+      "candidate_ids": [
+        "CAND-0016"
+      ],
+      "proposed_case_title": "Mock Case: CFPB Explainable Adverse Action Credit Underwriting Alert",
+      "case_type": "regulator_guidance",
+      "jurisdiction": "US",
+      "source_authorities": [
+        "CFPB"
+      ],
+      "source_urls": [
+        "https://mock.gov/eeoc/mock-advisory-automated-hiring-tools"
+      ],
+      "legal_domain": "financial_services",
+      "commercial_domain": "Consumer Finance",
+      "failure_mode": [
+        "FM-EXPLAINABILITY-FAILURE"
+      ],
+      "business_risk": "Regulatory enforcement actions and compliance penalties under credit protection laws.",
+      "missing_controls": [
+        "CTL-MODEL-EXPLAINABILITY-AUDIT",
+        "CTL-CONSUMER-EXPLAINABILITY-REPORTS"
+      ],
+      "required_evidence": [
+        "Model explainability metrics",
+        "Credit denial reason mapping lists"
+      ],
+      "vendor_questions": [
+        "How are model feature weights translated into consumer adverse action reason codes?"
+      ],
+      "training_lesson": "Ensure ML-driven scoring models produce human-understandable explanation codes.",
+      "clean_room_summary": "MOCK SYNTHETIC DRAFT: Credit scoring advisory outlining the transparency requirements for automated underwriting decisioning algorithms. Used strictly for offline validation/testing.",
+      "source_risk_level": "green",
+      "publish_recommendation": "needs_legal_review",
+      "review_status": "draft"
+    },
+    {
+      "draft_id": "DRAFT-0017",
+      "candidate_ids": [
+        "CAND-0017"
+      ],
+      "proposed_case_title": "Mock Case: Third-Party Customer Chatbot Hallucination and Data Leak",
+      "case_type": "vendor_governance_failure",
+      "jurisdiction": "US",
+      "source_authorities": [
+        "Media Reports"
+      ],
+      "source_urls": [
+        "https://mock.news/journal/mock-commercial-leakage-customer-chat"
+      ],
+      "legal_domain": "vendor_risk",
+      "commercial_domain": "Insurance & Customer Support",
+      "failure_mode": [
+        "FM-LLM-HALLUCINATION",
+        "FM-DATA-LEAKAGE"
+      ],
+      "business_risk": "Exposure of competitive pricing secrets and breach of customer confidentiality.",
+      "missing_controls": [
+        "CTL-VENDOR-RISK-ASSESSMENT",
+        "CTL-LLM-GUARDRAILS-FIREWALL"
+      ],
+      "required_evidence": [
+        "Vendor due diligence questionnaires",
+        "Firewall input/output validation logs"
+      ],
+      "vendor_questions": [
+        "What guardrails or leakage prevention filters are implemented in your hosted chatbot API?"
+      ],
+      "training_lesson": "Never hook customer-facing LLMs directly to backend knowledge bases without deep input/output guardrails.",
+      "clean_room_summary": "MOCK SYNTHETIC DRAFT: Commercial incident review on corporate data leakage caused by vendor conversational interface hallucinations. Used strictly for offline validation/testing.",
+      "source_risk_level": "yellow",
+      "publish_recommendation": "needs_legal_review",
+      "review_status": "draft"
+    }
+  ],
+  "digests": [
+    {
+      "preview_id": "MOCK-PREVIEW-2026-W21",
+      "title": "Mock Atlas Case Discovery Weekly Preview (Synthetic)",
+      "period_start": "2026-05-15T00:00:00Z",
+      "period_end": "2026-05-21T23:59:59Z",
+      "generated_at": "2026-05-20T23:35:15.848Z",
+      "draft_count": 5,
+      "included_draft_ids": [
+        "DRAFT-0013",
+        "DRAFT-0014",
+        "DRAFT-0015",
+        "DRAFT-0016",
+        "DRAFT-0017"
+      ],
+      "highlights": [
+        "[DRAFT-0013] Proposed: \"Mock Case: EEOC Resume Screening Discrimination Warning\" (US) - Failure Modes: FM-DISCRIMINATION-BIAS",
+        "[DRAFT-0014] Proposed: \"Mock Case: CNIL Biometric Retail Profiling Consent Enforcement\" (US) - Failure Modes: FM-PRIVACY-NON-CONSENT",
+        "[DRAFT-0015] Proposed: \"Mock Case: FDA Diagnostic Drift Clinical Calibration Alert\" (US) - Failure Modes: FM-ALGORITHMIC-DRIFT",
+        "[DRAFT-0016] Proposed: \"Mock Case: CFPB Explainable Adverse Action Credit Underwriting Alert\" (US) - Failure Modes: FM-EXPLAINABILITY-FAILURE",
+        "[DRAFT-0017] Proposed: \"Mock Case: Third-Party Customer Chatbot Hallucination and Data Leak\" (US) - Failure Modes: FM-LLM-HALLUCINATION, FM-DATA-LEAKAGE"
+      ],
+      "metadata": {
+        "synthetic": true,
+        "not_for_public_publication": true,
+        "purpose": "Used only to test Caesar AI Incident Atlas pipeline previewing",
+        "warning": "INTERNAL AUDIT ONLY - DO NOT PUBLISH TO LIVE WEBSITE"
+      }
+    }
+  ],
+  "metadata": {
+    "synthetic": true,
+    "purpose": "Local Review Console Mock Data",
+    "warning": "INTERNAL AUDIT ONLY - NOT FOR PUBLIC RELEASE"
+  }
+}

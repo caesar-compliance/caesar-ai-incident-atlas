@@ -52,7 +52,12 @@ function findCandidateForPacket(packet, bundle) {
   return bundle.candidates?.find(c => c.candidate_id === candidateId) || null;
 }
 
-const BLOCKED_QUALITY_CLASSES = ['generic_page', 'low_relevance', 'event_or_webinar', 'job_or_procurement'];
+const BLOCKED_QUALITY_CLASSES = [
+  'generic_page', 'low_relevance', 'event_or_webinar', 'job_or_procurement',
+  'blocked_generic_page', 'blocked_low_relevance', 'likely_policy_update',
+];
+const CASE_QUALITY_CLASSES = ['likely_enforcement_case', 'likely_official_decision', 'likely_case'];
+const GUIDANCE_QUALITY_CLASSES = ['likely_regulatory_guidance', 'likely_guidance'];
 const QUALITY_SCORE_THRESHOLD = 70;
 
 function scorePacket(packet, draft, candidate) {
@@ -64,6 +69,8 @@ function scorePacket(packet, draft, candidate) {
   const qualityClass = packet.quality_class || draft?.quality_class || null;
   const qualityScore = packet.quality_score ?? draft?.quality_score ?? null;
   const promotionBlockers = packet.promotion_blockers || draft?.promotion_blockers || [];
+  const adapterName = candidate?.adapter_name || null;
+  const confidenceReason = candidate?.confidence_reason || null;
 
   if (qualityClass && BLOCKED_QUALITY_CLASSES.includes(qualityClass)) {
     score -= 500;
@@ -91,6 +98,26 @@ function scorePacket(packet, draft, candidate) {
   } else if (sourceTier === 'red') {
     score -= 200;
     risks.push('RED SOURCE: Promotion blocked');
+  }
+
+  // Rank enforcement/decision cases above guidance
+  if (CASE_QUALITY_CLASSES.includes(qualityClass)) {
+    score += 40;
+    reasons.push(`Case-quality class: ${qualityClass} (+40)`);
+  } else if (GUIDANCE_QUALITY_CLASSES.includes(qualityClass)) {
+    score += 15;
+    reasons.push(`Guidance class: ${qualityClass} (+15)`);
+  }
+
+  // Adapter confidence boost
+  if (adapterName && adapterName !== 'generic-official-adapter') {
+    score += 10;
+    reasons.push(`Named adapter used: ${adapterName} (+10)`);
+  } else if (adapterName) {
+    score += 5;
+    reasons.push('Generic adapter used (+5)');
+  } else {
+    risks.push('No adapter confidence: adapter_name missing');
   }
 
   // Source health (from candidate)
@@ -237,6 +264,11 @@ function rankCandidates() {
   // Find best eligible candidate
   const bestEligible = ranked.find(r => r.promotion_eligible === true);
 
+  // Find best case-quality candidate (enforcement or decision)
+  const bestCaseQuality = ranked.find(r =>
+    r.promotion_eligible === true && CASE_QUALITY_CLASSES.includes(r.quality_class)
+  );
+
   const recommendation = {
     top_packet_id: topCandidate?.packet_id || null,
     top_draft_id: topCandidate?.draft_id || null,
@@ -278,6 +310,8 @@ function rankCandidates() {
     promotion_eligible_count: eligibleCount,
     blocked_count: blockedCount,
     no_publication_candidate_ready: !bestEligible,
+    no_case_quality_candidate_ready: !bestCaseQuality,
+    best_case_quality_packet_id: bestCaseQuality?.packet_id || null,
     ranked_candidates: ranked,
     top_recommendation: recommendation,
     safety_note: 'ALL candidates require Control Tower approval before public promotion. No automatic promotion will occur.'
@@ -313,6 +347,11 @@ function rankCandidates() {
   if (output.no_publication_candidate_ready) {
     console.log(`\x1b[33m[WARNING] NO PUBLICATION CANDIDATE READY\x1b[0m`);
     console.log(`All current packets are blocked or ineligible for promotion.`);
+  }
+  if (output.no_case_quality_candidate_ready) {
+    console.log(`\x1b[33m[INFO] no_case_quality_candidate_ready: true — no enforcement/decision class candidate found\x1b[0m`);
+  } else {
+    console.log(`\x1b[32m[CASE-QUALITY] Best case-quality packet: ${output.best_case_quality_packet_id}\x1b[0m`);
   }
   console.log(`Packet: ${recommendation.top_packet_id}`);
   console.log(`Draft:  ${recommendation.top_draft_id}`);

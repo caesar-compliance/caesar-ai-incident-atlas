@@ -80,7 +80,10 @@ function ensureDir(dir) {
   }
 }
 
-const BLOCKED_QUALITY_CLASSES = ['generic_page', 'low_relevance', 'event_or_webinar', 'job_or_procurement'];
+const BLOCKED_QUALITY_CLASSES = [
+  'generic_page', 'low_relevance', 'event_or_webinar', 'job_or_procurement',
+  'blocked_generic_page', 'blocked_low_relevance', 'likely_policy_update',
+];
 const QUALITY_SCORE_THRESHOLD = 70;
 
 function validateApproval(approval, packet, draft) {

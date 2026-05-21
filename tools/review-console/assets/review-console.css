@@ -1006,3 +1006,38 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
 }
+
+/* T051: Quality class badge colours */
+.badge-enforcement {
+  background-color: rgba(21, 87, 36, 0.5);
+  border: 1px solid #28a745;
+  color: #d4edda;
+}
+.badge-decision {
+  background-color: rgba(12, 53, 71, 0.5);
+  border: 1px solid #17a2b8;
+  color: #bee5eb;
+}
+.badge-guidance {
+  background-color: rgba(26, 90, 122, 0.5);
+  border: 1px solid #1a7aad;
+  color: #cce5ff;
+}
+.badge-policy-update {
+  background-color: rgba(74, 74, 26, 0.5);
+  border: 1px solid #856404;
+  color: #fff3cd;
+}
+.badge-blocked {
+  background-color: rgba(122, 26, 26, 0.5);
+  border: 1px solid #dc3545;
+  color: #f8d7da;
+}
+
+/* T051: case-quality-ready highlight */
+.draft-item.case-quality-item {
+  border-left: 3px solid #28a745;
+}
+.draft-item.guidance-only-item {
+  border-left: 3px solid #17a2b8;
+}

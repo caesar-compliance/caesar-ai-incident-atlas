@@ -13,7 +13,10 @@ const PACKETS_REAL_DIR = path.join(ROOT, 'data', 'promotion-packets', 'real');
 const LATEST_SUMMARY_PATH = path.join(ROOT, 'data', 'watch', 'runs', 'latest-watch-summary.json');
 const RANKED_PATH = path.join(ROOT, 'data', 'reviews', 'real', 'ranked-promotion-candidates.json');
 const QUALITY_REPORT_PATH = path.join(ROOT, 'data', 'watch', 'runs', 'latest-candidate-quality-report.json');
+const ADAPTER_SUMMARY_PATH = path.join(ROOT, 'data', 'watch', 'runs', 'latest-adapter-summary.json');
 const OUTPUT_FILE = path.join(ROOT, 'tools', 'review-console', 'real-review-bundle.json');
+
+const CASE_QUALITY_CLASSES = ['likely_enforcement_case', 'likely_official_decision', 'likely_case'];
 
 function scanJsonDir(dir, idField, list = []) {
   if (!fs.existsSync(dir)) return list;
@@ -73,10 +76,24 @@ function build() {
     }
   }
 
+  // Load adapter summary if available
+  let adapterSummary = null;
+  if (fs.existsSync(ADAPTER_SUMMARY_PATH)) {
+    try {
+      adapterSummary = JSON.parse(fs.readFileSync(ADAPTER_SUMMARY_PATH, 'utf8'));
+    } catch (e) {
+      console.warn('Could not load latest-adapter-summary.json:', e.message);
+    }
+  }
+
   const eligibleCount = candidates.filter(c => c.promotion_eligible === true).length;
   const blockedCount = candidates.filter(c => c.promotion_eligible === false).length;
-  const genericBlockedCount = candidates.filter(c => c.quality_class === 'generic_page').length;
+  const genericBlockedCount = candidates.filter(c =>
+    c.quality_class === 'generic_page' || c.quality_class === 'blocked_generic_page'
+  ).length;
+  const caseQualityCount = candidates.filter(c => CASE_QUALITY_CLASSES.includes(c.quality_class)).length;
   const noPublicationCandidateReady = rankedData?.no_publication_candidate_ready ?? (eligibleCount === 0);
+  const noCaseQualityReady = rankedData?.no_case_quality_candidate_ready ?? (caseQualityCount === 0);
 
   const bundle = {
     generated_at: new Date().toISOString(),
@@ -84,10 +101,14 @@ function build() {
     public: false,
     publication_allowed: false,
     no_publication_candidate_ready: noPublicationCandidateReady,
+    no_case_quality_candidate_ready: noCaseQualityReady,
+    best_case_quality_packet_id: rankedData?.best_case_quality_packet_id || null,
     candidates,
     drafts,
     promotion_packets: packets,
     ranked_candidates: rankedData,
+    top_5_ranked: rankedData?.ranked_candidates?.slice(0, 5) || [],
+    adapter_summary: adapterSummary,
     quality_report_summary: qualityReport ? {
       total_candidates: qualityReport.total_candidates,
       promotion_eligible_count: qualityReport.promotion_eligible_count,
@@ -98,12 +119,13 @@ function build() {
     digests: [],
     metadata: {
       synthetic: false,
-      purpose: "Local Review Console — Real Watcher Pipeline Data (T050)",
+      purpose: "Local Review Console — Real Watcher Pipeline Data (T051)",
       warning: "INTERNAL OPERATOR AUDIT ONLY - NOT FOR PUBLIC RELEASE",
       confidential: true,
       pipeline_stages: {
         candidates: candidates.length,
         promotion_eligible: eligibleCount,
+        case_quality_count: caseQualityCount,
         generic_blocked: genericBlockedCount,
         total_blocked: blockedCount,
         drafts: drafts.length,
@@ -121,14 +143,17 @@ function build() {
   console.log(`Successfully built real review bundle at: ${OUTPUT_FILE}`);
   console.log(`  Candidates:              ${candidates.length}`);
   console.log(`  Promotion eligible:      ${eligibleCount}`);
+  console.log(`  Case-quality count:      ${caseQualityCount}`);
   console.log(`  Generic blocked:         ${genericBlockedCount}`);
   console.log(`  Total blocked:           ${blockedCount}`);
   console.log(`  Drafts:                  ${drafts.length}`);
   console.log(`  Promotion packets:       ${packets.length}`);
   console.log(`  Ranked data:             ${rankedData ? 'loaded' : 'not available'}`);
   console.log(`  Quality report:          ${qualityReport ? 'loaded' : 'not available'}`);
+  console.log(`  Adapter summary:         ${adapterSummary ? 'loaded' : 'not available'}`);
   console.log(`  Source health:           ${sourceHealth ? 'loaded' : 'not available'}`);
   console.log(`  No candidate ready:      ${noPublicationCandidateReady}`);
+  console.log(`  No case-quality ready:   ${noCaseQualityReady}`);
 }
 
 build();

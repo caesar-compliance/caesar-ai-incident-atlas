@@ -15,6 +15,16 @@ const REAL_CANDIDATES_DIR = path.join(ROOT, 'data', 'watch', 'real-candidates');
 const RUNS_DIR = path.join(ROOT, 'data', 'watch', 'runs');
 const MOCK_CANDIDATES_DIR = path.join(ROOT, 'data', 'candidates', 'mock');
 const LATEST_SUMMARY_PATH = path.join(RUNS_DIR, 'latest-watch-summary.json');
+const ADAPTER_SUMMARY_PATH = path.join(RUNS_DIR, 'latest-adapter-summary.json');
+
+// Source-adapter dispatch map (source_id -> module path)
+const ADAPTER_MAP = {
+  'ico-ai-and-algorithms': '../scripts/source-adapters/ico-adapter.mjs',
+  'ftc-ai-enforcement': '../scripts/source-adapters/ftc-adapter.mjs',
+  'cnil-ai': '../scripts/source-adapters/cnil-adapter.mjs',
+  'edpb-ai': '../scripts/source-adapters/edpb-adapter.mjs',
+  'european-commission-ai-act': '../scripts/source-adapters/eu-commission-adapter.mjs',
+};
 
 function logInfo(msg) {
   console.log(`\x1b[34m[Watcher Info]\x1b[0m ${msg}`);
@@ -283,7 +293,7 @@ async function fetchWithFallback(target, headers) {
 
 // Main Execution
 async function watch() {
-  logInfo('Starting Real Green-Source Watcher run...');
+  logInfo('Starting Real Green-Source Watcher run (T051 adapter framework)...');
 
   if (!fs.existsSync(TARGETS_PATH)) {
     logError(`Watch targets config file does not exist at ${TARGETS_PATH}`);
@@ -303,7 +313,7 @@ async function watch() {
 
   const runDate = new Date();
   const runTimestamp = runDate.toISOString();
-  const runDateStr = runTimestamp.substring(0, 10); // YYYY-MM-DD
+  const runDateStr = runTimestamp.substring(0, 10);
 
   const summary = {
     run_timestamp: runTimestamp,
@@ -314,13 +324,15 @@ async function watch() {
     errors: []
   };
 
-  const headers = {
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-    'Accept-Language': 'en-US,en;q=0.5'
+  const adapterReport = {
+    run_timestamp: runTimestamp,
+    adapters_used: [],
+    total_links_extracted: 0,
+    total_candidates_written: 0,
+    total_blocked: 0,
   };
 
-  // Record skipped targets in health report
+  // Record skipped targets
   for (const target of skippedTargets) {
     summary.source_health.push({
       source_id: target.source_id,
@@ -328,175 +340,189 @@ async function watch() {
       status: 'skipped',
       http_status: null,
       error_message: 'disabled via enabled_for_manual_watch: false',
-      used_fallback: false
+      used_fallback: false,
+      adapter_name: null,
     });
   }
 
+  // Daily directory
+  const dailyDir = path.join(REAL_CANDIDATES_DIR, runDateStr);
+
   for (const target of enabledTargets) {
-    logInfo(`Fetching target: ${target.source_id} (${target.url}) ...`);
+    logInfo(`Processing target: ${target.source_id} via adapter...`);
 
-    const fetchResult = await fetchWithFallback(target, headers);
+    // Dispatch to source-specific adapter or generic fallback
+    let adapterResult;
+    const adapterRelPath = ADAPTER_MAP[target.source_id];
+    let adapterName = 'generic-official-adapter';
 
-    if (!fetchResult.ok) {
-      logError(`Failed to fetch target ${target.source_id}: ${fetchResult.error_message}`);
+    if (adapterRelPath) {
+      try {
+        const adapterModule = await import(path.join(ROOT, 'scripts', 'source-adapters', path.basename(adapterRelPath)));
+        adapterResult = await adapterModule.run(target, keywordsConfig);
+        adapterName = adapterModule.ADAPTER_NAME || adapterName;
+        logSuccess(`Adapter ${adapterName} ran for ${target.source_id}: ${adapterResult.links.length} links found.`);
+      } catch (e) {
+        logWarning(`Adapter load/run failed for ${target.source_id} (${e.message}), falling back to generic.`);
+        adapterResult = null;
+      }
+    }
 
-      const healthEntry = {
+    if (!adapterResult) {
+      try {
+        const genericAdapter = await import(path.join(ROOT, 'scripts', 'source-adapters', 'generic-official-adapter.mjs'));
+        adapterResult = await genericAdapter.run(target, keywordsConfig);
+        adapterName = 'generic-official-adapter';
+        logInfo(`Generic adapter ran for ${target.source_id}: ${adapterResult.links.length} links.`);
+      } catch (e) {
+        logError(`Generic adapter also failed for ${target.source_id}: ${e.message}`);
+        adapterResult = { ok: false, links: [], error: e.message, adapter_name: 'generic-official-adapter', authority: target.display_name };
+      }
+    }
+
+    // Health tracking
+    if (!adapterResult.ok) {
+      logError(`Adapter failed for ${target.source_id}: ${adapterResult.error}`);
+      summary.source_health.push({
         source_id: target.source_id,
-        url: fetchResult.used_url,
+        url: target.url,
         status: 'failed',
-        http_status: fetchResult.http_status,
-        error_message: fetchResult.error_message,
-        used_fallback: fetchResult.used_fallback
-      };
-      summary.source_health.push(healthEntry);
-      summary.errors.push({ source_id: target.source_id, url: fetchResult.used_url, error: fetchResult.error_message });
-      summary.fetched_sources.push({ source_id: target.source_id, url: fetchResult.used_url, status: 'failed', error: fetchResult.error_message });
+        http_status: null,
+        error_message: adapterResult.error,
+        used_fallback: false,
+        adapter_name: adapterName,
+      });
+      summary.errors.push({ source_id: target.source_id, error: adapterResult.error });
+      summary.fetched_sources.push({ source_id: target.source_id, url: target.url, status: 'failed', error: adapterResult.error });
+      adapterReport.adapters_used.push({ source_id: target.source_id, adapter_name: adapterName, ok: false, links_found: 0, candidates_written: 0, blocked: 0 });
       continue;
     }
 
-    const content = fetchResult.content;
-    logSuccess(`Fetched ${target.source_id} successfully (${content.length} bytes)${fetchResult.used_fallback ? ' [via fallback]' : ''}.`);
-
     summary.source_health.push({
       source_id: target.source_id,
-      url: fetchResult.used_url,
+      url: adapterResult.url_fetched || target.url,
       status: 'ok',
-      http_status: fetchResult.http_status,
+      http_status: 200,
       error_message: null,
-      used_fallback: fetchResult.used_fallback
+      used_fallback: false,
+      adapter_name: adapterName,
     });
     summary.fetched_sources.push({
       source_id: target.source_id,
-      url: fetchResult.used_url,
+      url: adapterResult.url_fetched || target.url,
       status: 'success',
-      bytes: content.length,
-      used_fallback: fetchResult.used_fallback
+      adapter_name: adapterName,
+      links_extracted: adapterResult.links.length,
     });
 
-    // Extract links
-    let extractedLinks = [];
-    if (target.fetch_mode === 'feed') {
-      extractedLinks = extractFeedLinks(content, fetchResult.used_url);
-    } else {
-      extractedLinks = extractHtmlLinks(content, fetchResult.used_url);
+    adapterReport.total_links_extracted += adapterResult.links.length;
+
+    // Ensure daily directory exists
+    if (!fs.existsSync(dailyDir)) {
+      fs.mkdirSync(dailyDir, { recursive: true });
     }
 
-    logInfo(`Extracted ${extractedLinks.length} raw links from ${target.source_id}.`);
+    let candidatesWritten = 0;
+    let blockedCount = 0;
 
-    // De-duplicate extracted links within this run to avoid scanning identical URLs multiple times
-    const uniqueExtractedLinks = [];
-    const seenUrlsInTarget = new Set();
-    for (const link of extractedLinks) {
-      if (!seenUrlsInTarget.has(link.url)) {
-        seenUrlsInTarget.add(link.url);
-        uniqueExtractedLinks.push(link);
-      }
-    }
+    for (const link of adapterResult.links) {
+      // Inline quality gate
+      const quality = inlineQualityCheck(link.title, link.url);
 
-    // Enforce max_links_per_run strictly — slice before keyword scan
-    const maxLinks = target.max_links_per_run || 10;
-    const linksToScan = uniqueExtractedLinks.slice(0, maxLinks * 5); // scan up to 5x to find enough matches
-    let detectedCount = 0;
-
-    for (const link of linksToScan) {
-      if (detectedCount >= maxLinks) {
-        logInfo(`Reached max_links_per_run limit of ${maxLinks} for target ${target.source_id}.`);
-        break;
-      }
-
-      // Check if keyword filters match (includes stronger exclusion via matchKeywords)
-      const check = matchKeywords(link.title, link.url, keywordsConfig);
-      if (check.matches) {
-        // Run inline quality gate BEFORE writing candidate
-        const quality = inlineQualityCheck(link.title, link.url);
-
-        if (quality.is_generic) {
-          logWarning(`Generic page blocked: "${link.title}" [${link.url}] — ${quality.rejection_reasons[0] || 'generic pattern'}`);
-          summary.skipped_items++;
-          summary.detected_candidates.push({
-            candidate_id: null,
-            source_id: target.source_id,
-            source_url: link.url,
-            title: link.title,
-            keywords: check.keywords,
-            quality_class: quality.quality_class,
-            quality_score: quality.quality_score,
-            promotion_eligible: false,
-            rejection_reasons: quality.rejection_reasons,
-            blocked_as_generic: true,
-          });
-          continue;
-        }
-
-        detectedCount++;
-        
-        // Generate new candidate record
-        const candidate_id = getNextCandidateId();
-        const detected_at = runTimestamp;
-        
-        // Dedupe key
-        const dedupe_key = crypto.createHash('sha256').update(link.url).digest('hex');
-
-        // Determine preliminary_case_type
-        let preliminary_case_type = 'regulator_guidance';
-        const lowerTitle = link.title.toLowerCase();
-        if (lowerTitle.includes('enforcement') || lowerTitle.includes('settlement') || lowerTitle.includes('investigation') || lowerTitle.includes('penalty')) {
-          preliminary_case_type = 'enforcement';
-        } else if (lowerTitle.includes('court') || lowerTitle.includes('judgment') || lowerTitle.includes('lawsuit')) {
-          preliminary_case_type = 'lawsuit';
-        }
-
-        const candidateRecord = {
-          candidate_id,
-          detected_at,
-          source_id: target.source_id,
-          source_url: link.url,
-          title: link.title,
-          date_published: formatPublishedDate(link.pubDate),
-          detected_keywords: check.keywords,
-          preliminary_case_type,
-          jurisdiction: target.jurisdiction,
-          source_tier: 'green',
-          confidence_score: 0.85,
-          dedupe_key,
-          status: 'real_detected',
-          quality_class: quality.quality_class,
-          quality_score: quality.quality_score,
-          promotion_eligible: quality.promotion_eligible,
-          rejection_reasons: quality.rejection_reasons,
-          risk_flags: ['no_risk_detected'],
-          notes: `Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: ${target.jurisdiction}.`
-        };
-
-        // Write candidate file to data/watch/real-candidates/YYYY-MM-DD/
-        const dailyDir = path.join(REAL_CANDIDATES_DIR, runDateStr);
-        if (!fs.existsSync(dailyDir)) {
-          fs.mkdirSync(dailyDir, { recursive: true });
-        }
-        
-        const candidatePath = path.join(dailyDir, `${candidate_id}.json`);
-        fs.writeFileSync(candidatePath, JSON.stringify(candidateRecord, null, 2), 'utf8');
-        logSuccess(`Detected candidate stored: ${candidate_id} [${quality.quality_class}|score:${quality.quality_score}] -> ${candidatePath}`);
-
-        summary.detected_candidates.push({
-          candidate_id,
-          source_id: target.source_id,
-          source_url: link.url,
-          title: link.title,
-          keywords: check.keywords,
-          quality_class: quality.quality_class,
-          quality_score: quality.quality_score,
-          promotion_eligible: quality.promotion_eligible,
-          rejection_reasons: quality.rejection_reasons,
-          blocked_as_generic: false,
-        });
-      } else {
+      if (quality.is_generic) {
+        logWarning(`Generic page blocked: "${link.title}" [${link.url}]`);
         summary.skipped_items++;
+        summary.detected_candidates.push({
+          candidate_id: null,
+          source_id: target.source_id,
+          source_url: link.url,
+          title: link.title,
+          keywords: link.matched_keywords || [],
+          quality_class: quality.quality_class,
+          quality_score: quality.quality_score,
+          promotion_eligible: false,
+          rejection_reasons: quality.rejection_reasons,
+          blocked_as_generic: true,
+          adapter_name: adapterName,
+        });
+        blockedCount++;
+        continue;
       }
+
+      const candidate_id = getNextCandidateId();
+      const dedupe_key = crypto.createHash('sha256').update(link.url).digest('hex');
+
+      let preliminary_case_type = 'regulator_guidance';
+      const lowerTitle = (link.title || '').toLowerCase();
+      const lowerCat = (link.category || '').toLowerCase();
+      if (lowerCat === 'enforcement' || lowerTitle.includes('enforcement') || lowerTitle.includes('settlement') || lowerTitle.includes('investigation') || lowerTitle.includes('penalty')) {
+        preliminary_case_type = 'enforcement';
+      } else if (lowerCat === 'official_decision' || lowerTitle.includes('court') || lowerTitle.includes('judgment') || lowerTitle.includes('ruling')) {
+        preliminary_case_type = 'court_decision';
+      } else if (lowerCat === 'guidance') {
+        preliminary_case_type = 'regulator_guidance';
+      }
+
+      const candidateRecord = {
+        candidate_id,
+        detected_at: runTimestamp,
+        source_id: target.source_id,
+        source_url: link.url,
+        title: link.title,
+        date_published: formatPublishedDate(link.date_detected),
+        detected_keywords: link.matched_keywords || [],
+        preliminary_case_type,
+        jurisdiction: target.jurisdiction,
+        source_tier: 'green',
+        confidence_score: 0.85,
+        dedupe_key,
+        status: 'real_detected',
+        quality_class: quality.quality_class,
+        quality_score: quality.quality_score,
+        promotion_eligible: quality.promotion_eligible,
+        rejection_reasons: quality.rejection_reasons,
+        risk_flags: ['no_risk_detected'],
+        adapter_name: adapterName,
+        extraction_method: link.extraction_method || 'html_link_scan',
+        confidence_reason: link.confidence_reason || '',
+        authority: link.authority || target.display_name,
+        category: link.category || 'unknown',
+        notes: `Factual candidate record automatically detected during operator Green-source watcher run. Source jurisdiction: ${target.jurisdiction}. Adapter: ${adapterName}.`
+      };
+
+      const candidatePath = path.join(dailyDir, `${candidate_id}.json`);
+      fs.writeFileSync(candidatePath, JSON.stringify(candidateRecord, null, 2), 'utf8');
+      logSuccess(`Candidate stored: ${candidate_id} [${quality.quality_class}|score:${quality.quality_score}] adapter:${adapterName}`);
+
+      summary.detected_candidates.push({
+        candidate_id,
+        source_id: target.source_id,
+        source_url: link.url,
+        title: link.title,
+        keywords: link.matched_keywords || [],
+        quality_class: quality.quality_class,
+        quality_score: quality.quality_score,
+        promotion_eligible: quality.promotion_eligible,
+        rejection_reasons: quality.rejection_reasons,
+        blocked_as_generic: false,
+        adapter_name: adapterName,
+      });
+      candidatesWritten++;
     }
+
+    adapterReport.total_candidates_written += candidatesWritten;
+    adapterReport.total_blocked += blockedCount;
+    adapterReport.adapters_used.push({
+      source_id: target.source_id,
+      adapter_name: adapterName,
+      ok: true,
+      links_found: adapterResult.links.length,
+      candidates_written: candidatesWritten,
+      blocked: blockedCount,
+    });
   }
 
-  // Ensure runs directory exists
+  // Ensure runs directory
   if (!fs.existsSync(RUNS_DIR)) {
     fs.mkdirSync(RUNS_DIR, { recursive: true });
   }
@@ -506,7 +532,11 @@ async function watch() {
   const runLogPath = path.join(RUNS_DIR, `watch-run-${safeTimestamp}.json`);
   fs.writeFileSync(runLogPath, JSON.stringify(summary, null, 2), 'utf8');
 
-  // Write latest-watch-summary.json (always overwritten with most recent run)
+  // Write adapter summary
+  fs.writeFileSync(ADAPTER_SUMMARY_PATH, JSON.stringify(adapterReport, null, 2), 'utf8');
+  logSuccess(`Adapter run report written to: ${ADAPTER_SUMMARY_PATH}`);
+
+  // Write latest-watch-summary.json
   const promotionEligibleCount = summary.detected_candidates.filter(c => c.promotion_eligible === true).length;
   const genericBlockedCount = summary.detected_candidates.filter(c => c.blocked_as_generic === true).length;
 
@@ -521,18 +551,17 @@ async function watch() {
     promotion_eligible_count: promotionEligibleCount,
     skipped_items: summary.skipped_items,
     errors_count: summary.errors.length,
-    run_log_path: runLogPath
+    run_log_path: runLogPath,
+    adapter_summary_path: ADAPTER_SUMMARY_PATH,
   };
   fs.writeFileSync(LATEST_SUMMARY_PATH, JSON.stringify(latestSummary, null, 2), 'utf8');
   logSuccess(`Latest watch summary written to: ${LATEST_SUMMARY_PATH}`);
-  
-  // Print summary console output
+
   console.log('\n==========================================');
   console.log('       Caesar Watcher Run Summary         ');
   console.log('==========================================');
   console.log(`Run Time:       ${runTimestamp}`);
   console.log(`Log Path:       ${runLogPath}`);
-  console.log(`Summary Path:   ${LATEST_SUMMARY_PATH}`);
   console.log(`Sources OK:          ${latestSummary.sources_ok}`);
   console.log(`Sources Failed:      ${latestSummary.sources_failed}`);
   console.log(`Sources Skipped:     ${latestSummary.sources_skipped}`);
