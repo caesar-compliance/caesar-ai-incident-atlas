@@ -1,6 +1,6 @@
 {
   "_schema": "caesar-atlas/runtime/hosted-private-review-state-sync-workflow-log/v1",
-  "generated_at": "2026-05-22T16:20:46.771Z",
+  "generated_at": "2026-05-22T16:32:38.556Z",
   "source_run_id": "GREEN-RUN-20260521-202417",
   "success": true,
   "error": null,
@@ -36,7 +36,7 @@
       "stage": "validate-hosted-sync-safety",
       "status": "PASS",
       "output": [
-        "OK:   T071: hosted sync payload records sanitized",
+        "OK:   T072: publication_still_blocked is true",
         "",
         "validate-hosted-sync-safety: PASSED"
       ]

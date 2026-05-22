@@ -1,9 +1,9 @@
 # Roadmap — Next Phases — caesar-ai-incident-atlas
 
 **Created:** 20 May 2026 (T032)
-**Last updated:** 22 May 2026 (T071)
+**Last updated:** 22 May 2026 (T072)
 **Baseline:** Public MVP v0.13.0. 13 records. INC-0013 (EDPB guidance, first real adapter-detected case) published under CT approval.
-**Status:** Active MVP. INC-0013 live. Promotion pipeline fully operational. T067 dry-run, T068 signoff, T069 candidate, T070 blocker-resolution, and T071 hosted private sync readiness complete. Next: T072.
+**Status:** Active MVP. INC-0013 live. Promotion pipeline fully operational. T067 dry-run, T068 signoff, T069 candidate, T070 blocker-resolution, T071 hosted private sync readiness, and T072 private runtime activation tranche 1 complete. Next: T073.
 
 See `PUBLIC_MVP_BASELINE_FREEZE.md` for frozen baseline rules.
 See `ROADMAP.md` for the full historical phase plan.
@@ -228,7 +228,22 @@ For each of the 12 (and future) case records, map to:
 - Worker: Added local mock route endpoints for GET and POST sync dry-run, and route contract document.
 - Safety: Fully verified sanitization, zero remote writes, public count exactly 13, zero leaks under `site/`.
 
-**Next T072:** Guarded Supabase private-review-state apply/live probe (if explicitly approved) or T072 private human-review signoff controls.
+**Next T072:** Complete.
+
+---
+
+## v1.13 — Private Runtime Activation Tranche 1 (T072 — 22 May 2026)
+
+**T072 complete** — Private runtime activation tranche 1: database migration preflight checks, guarded dry-run/live migration apply harness, read-only live database prober, metadata snapshot writer, workflow validation runner, and Review Console widgets implemented and verified in dry-run mode.
+- Preflight: Designed preflight script `scripts/preflight-supabase-private-review-state-apply.mjs` verifying SQL safety.
+- Apply: Created `scripts/apply-supabase-private-review-state.mjs` applying the sync table migration.
+- Probe: Programmed read-only prober `scripts/probe-supabase-private-review-state-live.mjs` testing database shape compatibility.
+- Write: Implemented `scripts/write-private-review-state-snapshot.mjs` writing metadata-only private review-state snapshots.
+- Validator: Created workflow coordinator `scripts/run-private-runtime-activation-workflow.mjs` and validation script `scripts/validate-private-runtime-activation.mjs`.
+- Console UI: Upgraded Review Console UI with a dedicated "Private runtime activation" dashboard displaying active migration target, statuses, and boundaries.
+- Safety: Enforced zero remote writes/actions as no live approved env markers were provided. Public count remains strictly 13, latest remains INC-0013.
+
+**Next T073:** Cloudflare Worker private runtime deploy/probe if Supabase is live, otherwise T073 approved live Supabase activation.
 
 ---
 

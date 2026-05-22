@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 22 May 2026 (T071 — Hosted Private Review-State Sync Readiness; dataset remains 13 records)
+**Last updated:** 22 May 2026 (T072 — Private Runtime Activation Tranche 1; dataset remains 13 records)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -364,6 +364,18 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `data/runtime/private-review-state-sync/hosted-private-review-state-sync-manifest.json` | Sync Manifest | Manifest detailing sync status, dry-run mode, and safety confirmations. (T071) |
 | `data/runtime/private-review-state-sync/hosted-private-review-state-sync-workflow-latest.json` | Workflow Log | Execution log from the run-hosted-private-review-state-sync-workflow execution. (T071) |
 | `data/ops/supabase/atlas-private-review-state-sync.private-latest.json` | Sanitized Hosted Payload | Sanitized dry-run sync payload for Supabase database. (T071) |
+| `scripts/preflight-supabase-private-review-state-apply.mjs` | Migration Preflight Checker | Design and check DDL SQL safety. (T072) |
+| `scripts/apply-supabase-private-review-state.mjs` | Migration Apply Harness | Guarded, dry-run default database migration applier. (T072) |
+| `scripts/probe-supabase-private-review-state-live.mjs` | Safe Database Prober | Safe, read-only remote database structure prober. (T072) |
+| `scripts/write-private-review-state-snapshot.mjs` | Sanitized Snapshot Writer | Sanitized private review-state metadata snapshot writer. (T072) |
+| `scripts/validate-private-runtime-activation.mjs` | Workflow Safety Validator | Bounded validator checking preflight, apply, probe, and snapshot compliance. (T072) |
+| `scripts/run-private-runtime-activation-workflow.mjs` | Workflow Coordinator | Orchestrated runner coordinating dry-run / live apply and console sync status. (T072) |
+| `tools/review-console/data/private-runtime-activation.json` | Console Activation Data | Consolidated dry-run status data for Review Console panel. (T072) |
+| `data/runtime/private-runtime-activation/private-runtime-activation-preflight-latest.json` | Latest Preflight Results | Preflight DDL safety verification report. (T072) |
+| `data/runtime/private-runtime-activation/private-runtime-activation-apply-result-latest.json` | Latest Apply Report | Dry-run apply results and SQL plan details. (T072) |
+| `data/runtime/private-runtime-activation/private-runtime-activation-probe-result-latest.json` | Latest Database Probe | Read-only target database shape compatibility test. (T072) |
+| `data/runtime/private-runtime-activation/private-runtime-activation-write-result-latest.json` | Latest Snapshot Report | Sanitized metadata-only write operations registry. (T072) |
+| `data/runtime/private-runtime-activation/private-runtime-activation-workflow-latest.json` | Orchestrated Run Report | Final validation and status summaries of the active run. (T072) |
 | `work-items/T067-private-promotion-packet-dry-run/TASK.md` | T067 task | Task checklist, scope, and status. |
 | `work-items/T067-private-promotion-packet-dry-run/VALIDATION.md` | T067 validation | Validation checklist and results. |
 | `work-items/T067-private-promotion-packet-dry-run/IMPLEMENTATION_REPORT.md` | T067 report | Implementation report of files created. |
@@ -384,6 +396,10 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T071-hosted-private-review-state-sync/VALIDATION.md` | T071 validation | Validation checklist for T071. |
 | `work-items/T071-hosted-private-review-state-sync/IMPLEMENTATION_REPORT.md` | T071 report | Closeout report for T071. |
 | `work-items/T071-hosted-private-review-state-sync/DECISIONS.md` | T071 decisions | Key decisions log for T071. |
+| `work-items/T072-private-runtime-activation-tranche-1/TASK.md` | T072 task | Task scope checklist for T072. |
+| `work-items/T072-private-runtime-activation-tranche-1/VALIDATION.md` | T072 validation | Validation checklist for T072. |
+| `work-items/T072-private-runtime-activation-tranche-1/IMPLEMENTATION_REPORT.md` | T072 report | Closeout report for T072. |
+| `work-items/T072-private-runtime-activation-tranche-1/DECISIONS.md` | T072 decisions | Key decisions log for T072. |
 
 ## docs/ Directory
 

@@ -5,6 +5,19 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.31.0] - 22 May 2026
+
+### Added
+- **T072 — Private Runtime Activation Tranche 1: Supabase Apply Harness + Optional Approved Live Apply + Private Review-State Probe.**
+  - `scripts/preflight-supabase-private-review-state-apply.mjs` — SQL DDL safety checks rejecting destructive operations (DROP, TRUNCATE, etc.).
+  - `scripts/apply-supabase-private-review-state.mjs` — Guarded, dry-run by default Supabase schema migration DDL applier.
+  - `scripts/probe-supabase-private-review-state-live.mjs` — Safe, read-only remote database shape compatibility verification prober.
+  - `scripts/write-private-review-state-snapshot.mjs` — Sanitized metadata-only write operations snapshot publisher to target database.
+  - `scripts/validate-private-runtime-activation.mjs` — Workflow safety and boundary integrity validator.
+  - `scripts/run-private-runtime-activation-workflow.mjs` — Bounded runner coordinating preflight checks, apply, probe, write, and console data sync.
+  - `tools/review-console/data/private-runtime-activation.json` — Consolidated activation details for local review dashboards.
+  - Enhanced Review Console UI with a prominent "Private Runtime Activation" dashboard rendering migration status, dry-run parameters, and safety booleans.
+
 ## [0.30.0] - 22 May 2026
 
 ### Added

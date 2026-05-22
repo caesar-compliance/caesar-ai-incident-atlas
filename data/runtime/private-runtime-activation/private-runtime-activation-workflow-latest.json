@@ -1,0 +1,68 @@
+{
+  "_schema": "caesar-atlas/runtime/private-runtime-activation-workflow-log/v1",
+  "generated_at": "2026-05-22T16:32:38.914Z",
+  "task": "T072",
+  "success": true,
+  "error": null,
+  "live_mode_requested": false,
+  "live_mode_executed": false,
+  "stages_executed": [
+    {
+      "stage": "preflight",
+      "status": "PASS",
+      "output": [
+        "preflight-supabase-private-review-state-apply: PASSED",
+        "  No blockers found. Migration is additive and safe."
+      ]
+    },
+    {
+      "stage": "apply",
+      "status": "PASS",
+      "output": [
+        "apply-supabase-private-review-state: DRY-RUN ONLY.",
+        "  Reason: Missing --live-apply flag, ATLAS_T072_LIVE_SUPABASE_APPLY_APPROVED=YES, SUPABASE_DB_URL/DATABASE_URL credential"
+      ]
+    },
+    {
+      "stage": "probe",
+      "status": "PASS",
+      "output": [
+        "probe-supabase-private-review-state-live: DRY-RUN ONLY.",
+        "  Reason: Missing --live-probe flag, ATLAS_T072_LIVE_PROBE_APPROVED=YES, SUPABASE_DB_URL/DATABASE_URL credential"
+      ]
+    },
+    {
+      "stage": "write",
+      "status": "PASS",
+      "output": [
+        "write-private-review-state-snapshot: DRY-RUN ONLY.",
+        "  Reason: Missing --live-write flag, ATLAS_T072_PRIVATE_REVIEW_STATE_WRITE_APPROVED=YES, ATLAS_T072_LIVE_SUPABASE_APPLY_APPROVED=YES, Supabase credentials"
+      ]
+    },
+    {
+      "stage": "validate-private-runtime-activation",
+      "status": "PASS",
+      "output": [
+        "PASS: no cron/schedule trigger in Pages workflow",
+        "",
+        "validate-private-runtime-activation: PASSED"
+      ]
+    },
+    {
+      "stage": "validate-hosted-sync-safety",
+      "status": "PASS",
+      "output": [
+        "OK:   T072: publication_still_blocked is true",
+        "",
+        "validate-hosted-sync-safety: PASSED"
+      ]
+    }
+  ],
+  "safety_confirmations": {
+    "no_inc_0014_created": true,
+    "no_real_promotion_packet": true,
+    "no_public_preview": true,
+    "public_count_remains": 13,
+    "publication_blocked": true
+  }
+}

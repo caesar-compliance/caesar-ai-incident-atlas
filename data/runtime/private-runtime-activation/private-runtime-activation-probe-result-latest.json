@@ -1,0 +1,14 @@
+{
+  "_schema": "atlas-private-runtime-activation-probe-result/v1",
+  "generated_at": "2026-05-22T16:32:38.690Z",
+  "task": "T072",
+  "live_probe_requested": false,
+  "live_probe_approved": false,
+  "live_probe_attempted": false,
+  "success": false,
+  "table_exists": false,
+  "shape_compatible": false,
+  "row_count": 0,
+  "errors": null,
+  "note": "Dry-run probe only. No database connection attempted."
+}

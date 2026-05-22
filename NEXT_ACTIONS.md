@@ -1,6 +1,6 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 22 May 2026 (T071 Complete)
+**Last updated:** 22 May 2026 (T072 Complete)
 
 
 ---
@@ -85,6 +85,7 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 | T069 — Private Promotion-Packet Candidate Package + Controlled Signoff Checklist Update | **Complete** — private candidate packet schema, compiler builder, console metadata widgets, Supabase dry-runs, and workflow validation runner | 22 May 2026 |
 | T070 — Private Publication Blocker Resolution Dossier + Runtime-Handoff Sync | **Complete** — blocker resolution schema, selective technical blocker resolution, Review Console UI, hosted dry-run payloads, and workflow safety runner | 22 May 2026 |
 | T071 — Hosted Private Review-State Sync Readiness | **Complete** — Additive migration draft, Worker contract mock routes, sanitized build/exporter, validation suite, and console sync panel | 22 May 2026 |
+| T072 — Private Runtime Activation Tranche 1 | **Complete** — Preflight DDL safety check, guarded apply harness, read-only live prober, snapshot writer, validation runner, and Review Console dashboard panel | 22 May 2026 |
 | T062 — Private Candidate Review Intake | **Complete** — converted T061 signals to private review intake records, schema, exporters, and safety checks | 21 May 2026 |
 | T065 — Controlled Approval of One Private Intake + Draft Candidate Packet | **Complete** — local-only approved marker generator, selected single candidate, promoted 1 decision, compiled 1 draft packet, updated console and hosted exporters, and added regression tests | 21 May 2026 |
 | T064 — Explicit Private Draft Approval Gate + Controlled Draft Packet Promotion | **Complete** — local-only explicit approval marker schema, generator, applier, updated controlled draft packet builder, dynamic validators, and console UI upgrades | 21 May 2026 |
@@ -94,11 +95,11 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 
 ---
 
-## Status: T071 Complete — Hosted Private Review-State Sync Readiness Deployed
+## Status: T072 Complete — Private Runtime Activation Tranche 1 Implemented
 
 **Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/` with exactly 13 validated incident records (INC-0001–INC-0013, including INC-0013 as first real adapter-detected guidance/governance case), a complete static digest portal, and live RSS syndication feeds.**
 
-**The private workflow pipeline now runs end-to-end with the T071 Hosted Private Review-State Sync: Green-source watcher → dedupe → real case drafts (`data/drafts/real/`) → promotion packets (`data/promotion-packets/real/`) → dry-runs → signoffs → candidate packages (T069) → blocker-resolution dossier (T070) → review-state sync boundary (T071) → review console panel. Task T071 implements local dry-run exporters, an additive local schema migration SQL, Cloudflare Worker local API mock contract tests, and a dedicated safety validator. Public record count remains exactly 13, and all remote/public/deploy/write flags evaluate to false. Next step: T072 guarded Supabase private-review-state apply/live probe (if explicitly approved) or T072 private human-review signoff controls.**
+**The private workflow pipeline now runs end-to-end with the T072 Private Runtime Activation: Green-source watcher → dedupe → real case drafts (`data/drafts/real/`) → promotion packets (`data/promotion-packets/real/`) → dry-runs → signoffs → candidate packages (T069) → blocker-resolution dossier (T070) → review-state sync boundary (T071) → runtime activation apply harness, prober, and snapshot writer (T072) → review console activation dashboard. Task T072 implements local dry-run checkers, preflight verification, guarded database applier, read-only prober, snapshot writer, validation runner, and interactive Review Console panel. Public record count remains exactly 13, and all remote/public/deploy/write flags evaluate to false. Next step: T073 Cloudflare Worker private runtime deploy/probe (if Supabase is live) or T073 approved live Supabase activation.**
 
 **Active boundaries, policies, and schemas:**
 - `PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md` (Repositioning & Value Chain)
@@ -118,9 +119,9 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 
 ---
 
-## Next Recommended Step: T072
+## Next Recommended Step: T073
 
-**T072 — Guarded Supabase private-review-state apply/live probe (if explicitly approved) or T072 private human-review signoff controls.** Establish secure write/read integration with the hosted runtime database or implement additional signoff verification gates.
+**T073 — Cloudflare Worker private runtime deploy/probe (if Supabase is live, otherwise T073 approved live Supabase activation).** Configure and activate the edge-runtime endpoints connecting to the live hosted database or perform coordinated remote activation.
 
 ---
 
@@ -171,6 +172,27 @@ The following tasks require Artem / Control Tower review before execution:
 - v0.3 Dataset MVP — blocked until T006 dossier shortlist is approved.
 - Incident record creation — blocked until T006 is approved and workflow gates are passed.
 - Any mass import or scraping workflow — blocked unless separately approved.
+
+## T072 — Private Runtime Activation Tranche 1 (Complete — 22 May 2026)
+
+- `scripts/preflight-supabase-private-review-state-apply.mjs` — SQL DDL preflight safety validation checking for drop, truncate, and destructive query clauses.
+- `scripts/apply-supabase-private-review-state.mjs` — Guarded schema applier running migration scripts securely with dry-run default.
+- `scripts/probe-supabase-private-review-state-live.mjs` — Read-only targets structure integrity and layout schema prober.
+- `scripts/write-private-review-state-snapshot.mjs` — Sanitized metadata-only write coordinator publisher.
+- `scripts/validate-private-runtime-activation.mjs` — 24-assertion safety checker validating all boundaries.
+- `scripts/run-private-runtime-activation-workflow.mjs` — Workflow orchestrator coordinating preflight, dry-run apply, probe, write, and Review Console status files compiling.
+- Integrated a new "Private Runtime Activation" dashboard into the local Review Console UI presenting migration status, dry-run configurations, and safety flags.
+
+## T071 — Hosted Private Review-State Sync Readiness (Complete — 22 May 2026)
+
+- `schemas/pipeline/hosted-private-review-state-sync.schema.json` — Enforces hosted sync JSON payload structure.
+- `infra/supabase/migrations/002_private_review_state_sync.sql` — Additive, non-destructive migration DDL for private review-state snapshots.
+- `infra/cloudflare-worker/private-review-state-routes.contract.md` — Edge contract documenting API routes.
+- `scripts/build-hosted-private-review-state-sync.mjs` — Compiles metadata-only Caesar-native sync dossiers.
+- `scripts/export-hosted-private-review-state-sync-payloads.mjs` — Formats sanitized dry-run Supabase and console metadata.
+- `scripts/validate-hosted-private-review-state-sync.mjs` — Bounded validator enforcing safety limits.
+- `scripts/run-hosted-private-review-state-sync-workflow.mjs` — Orchestrates readiness build, export, and validations.
+- Integrated dedicated "Hosted private review-state sync readiness" panel in the Review Console UI.
 
 ## T066 — Private Draft Candidate Packet Shaping (Complete — 21 May 2026)
 

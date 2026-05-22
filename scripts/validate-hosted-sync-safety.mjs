@@ -1503,6 +1503,57 @@ if (hostedSync) {
   pass('T071: atlas-private-review-state-sync.private-latest.json not present (ok)');
 }
 
+// ── 72. T072: private runtime activation status checks ────────────────────────
+if (opsStatus) {
+  if (opsStatus.t072_private_runtime_activation_present !== true) {
+    fail('T072: t072_private_runtime_activation_present is not true in latest-status.json');
+  } else {
+    pass('T072: t072_private_runtime_activation_present is true');
+  }
+
+  if (typeof opsStatus.t072_remote_apply_executed !== 'boolean') {
+    fail('T072: t072_remote_apply_executed must be a boolean');
+  } else {
+    pass('T072: t072_remote_apply_executed is a boolean');
+  }
+
+  if (typeof opsStatus.t072_live_probe_attempted !== 'boolean') {
+    fail('T072: t072_live_probe_attempted must be a boolean');
+  } else {
+    pass('T072: t072_live_probe_attempted is a boolean');
+  }
+
+  if (typeof opsStatus.t072_remote_write_attempted !== 'boolean') {
+    fail('T072: t072_remote_write_attempted must be a boolean');
+  } else {
+    pass('T072: t072_remote_write_attempted is a boolean');
+  }
+
+  if (opsStatus.t072_worker_deploy_attempted !== false) {
+    fail('T072: t072_worker_deploy_attempted must be false');
+  } else {
+    pass('T072: t072_worker_deploy_attempted is false (correct)');
+  }
+
+  if (opsStatus.t072_cron_enabled !== false) {
+    fail('T072: t072_cron_enabled must be false');
+  } else {
+    pass('T072: t072_cron_enabled is false (correct)');
+  }
+
+  if (opsStatus.publication_still_blocked !== true) {
+    fail('T072: publication_still_blocked is not true');
+  } else {
+    pass('T072: publication_still_blocked is true');
+  }
+
+  // Ensure no SQL or credentials in status
+  const statusStr = JSON.stringify(opsStatus).toLowerCase();
+  if (statusStr.includes('select ') || statusStr.includes('insert ') || statusStr.includes('create table')) {
+    fail('T072: SQL statement found inside exported status');
+  }
+}
+
 // ── Final result ─────────────────────────────────────────────────────────────
 
 

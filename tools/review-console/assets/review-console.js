@@ -529,6 +529,70 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    if (bundleName === 'private-runtime-activation.json') {
+      isPrivateIntakeBundle = false;
+      isRealBundle = false;
+      safetyWarningBanner.innerHTML = `<strong>[CRITICAL WARNING]</strong> PRIVATE RUNTIME ACTIVATION • DRY-RUN BY DEFAULT • REMOTE MUTATION SAFEGUARDS ACTIVE • STRICTLY LOCAL SANDBOX`;
+      safetyLabel.textContent = "PRIVATE RUNTIME ACTIVATION";
+      if (safetyIndicator) {
+        safetyIndicator.className = 'pulse-orange';
+        safetyIndicator.style.backgroundColor = '#a855f7';
+      }
+      if (pipelineStageTabs) pipelineStageTabs.style.display = 'none';
+      if (pipelineSummaryBar) pipelineSummaryBar.style.display = 'none';
+      if (digestPreviewBlock) digestPreviewBlock.style.display = 'none';
+      if (qualityClassFilter) qualityClassFilter.style.display = 'none';
+
+      sidebarHeaderTitle.textContent = "Runtime Activation";
+
+      fetch(`./data/private-runtime-activation.json`)
+      .then(r => r.json())
+      .then(activationData => {
+        bundleTimestampEl.textContent = activationData.generated_at || activationData.created_at
+          ? new Date(activationData.generated_at || activationData.created_at).toLocaleString()
+          : 'Unknown';
+
+        draftListContainer.innerHTML = '';
+        const item = document.createElement('div');
+        item.className = 'draft-item draft-item-private-runtime-activation';
+        item.style.cssText = 'padding:10px 12px; cursor:pointer; border-bottom:1px solid #2a2a2a; background:#120d1a;';
+
+        const isLive = activationData.live_activation_executed || activationData.remote_apply_executed;
+        item.innerHTML = `
+          <div style="font-size:10px; color:#c084fc; font-weight:700; text-transform:uppercase; margin-bottom:4px;">
+            🛡️ RUNTIME ACTIVATION
+          </div>
+          <div style="font-size:12px; font-weight:600; color:#fff; margin-bottom:2px;">
+            ${escapeHTML(activationData.migration_target || 'Supabase Target Table')}
+          </div>
+          <div style="font-size:10px; color:#888;">
+            Apply: ${escapeHTML(activationData.apply_status || 'dry_run')}
+          </div>
+          <div style="margin-top:6px; display:flex; gap:4px; flex-wrap:wrap;">
+            <span style="background:#1a0d1a; border:1px solid #c084fc; color:#c084fc; font-size:9px; padding:1px 5px; border-radius:3px;">
+              ${isLive ? 'live_activated' : 'dryrun_ready'}
+            </span>
+            <span style="background:#1a0d0d; border:1px solid #ef4444; color:#ef4444; font-size:9px; padding:1px 5px; border-radius:3px;">
+              blocked
+            </span>
+          </div>
+        `;
+        item.addEventListener('click', () => renderPrivateRuntimeActivationDetail(activationData));
+        draftListContainer.appendChild(item);
+        renderPrivateRuntimeActivationDetail(activationData);
+      })
+      .catch(err => {
+        console.error("Error loading private runtime activation data:", err);
+        draftListContainer.innerHTML = `
+          <div class="loading-placeholder" style="color: var(--color-danger);">
+            Failed to load Private Runtime Activation data.<br>
+            Please run the T072 workflow scripts first!
+          </div>
+        `;
+      });
+      return;
+    }
+
     isPrivateIntakeBundle = false;
 
 
@@ -2335,6 +2399,113 @@ document.addEventListener('DOMContentLoaded', () => {
     gateStepWording.className = 'status-step pending';
     gateStepWording.querySelector('.step-check').innerHTML = '○';
     gateStepWording.querySelector('.step-text').textContent = 'Remote Write Blocked';
+
+    gateStepControl.className = 'status-step blocked';
+    gateStepControl.querySelector('.step-check').innerHTML = '🚫';
+    gateStepControl.querySelector('.step-text').textContent = 'Publication Blocked';
+  }
+
+  function renderPrivateRuntimeActivationDetail(activationData) {
+    emptyStatePanel.classList.add('hidden');
+    if (healthDetailPanel) healthDetailPanel.classList.add('hidden');
+    if (packetDetailPanel) packetDetailPanel.classList.add('hidden');
+    activeDetailPanel.classList.remove('hidden');
+
+    ['detail-local-only-label', 'detail-not-public-label', 'detail-not-approved-label', 'detail-promotion-blocked-label'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('hidden');
+    });
+
+    const isLive = activationData.live_activation_executed || activationData.remote_apply_executed;
+
+    detailDraftId.textContent = 'RUNTIME_ACTIVATION';
+    detailCandidateId.textContent = 'T072';
+    detailProposedTitle.textContent = (activationData.migration_target || '002_private_review_state_sync.sql') + ' (Private Runtime Activation)';
+    detailJurisdiction.textContent = 'Local (Private Runtime Activation)';
+    detailLegalDomain.textContent = 'AI & Governance';
+    detailCommercialDomain.textContent = 'Supabase Apply Harness Gate';
+
+    detailCleanRoomSummary.innerHTML = `
+      <strong>Private Runtime Activation — Tranche 1 Summary:</strong><br><br>
+      <div style="margin-bottom:6px;">• <strong>Supabase Migration:</strong> <code>${escapeHTML(activationData.migration_target)}</code></div>
+      <div style="margin-bottom:6px;">• <strong>Apply Status:</strong> <code>${escapeHTML(activationData.apply_status)}</code></div>
+      <div style="margin-bottom:6px;">• <strong>Probe Status:</strong> <code>${escapeHTML(activationData.probe_status)}</code></div>
+      <div style="margin-bottom:6px;">• <strong>Snapshot Write:</strong> <code>${escapeHTML(activationData.snapshot_write_status)}</code></div>
+      <div style="margin-bottom:6px;">• <strong>Worker Route Status:</strong> <code>${escapeHTML(activationData.worker_route_status || 'dry_run_ready')}</code></div>
+      <br>
+      <strong>Safety Verification Flags:</strong><br>
+      <div style="margin-top:4px; font-size:12px; color:#888;">
+        No Raw HTML: <strong>${activationData.safety_flags?.no_raw_html ?? true}</strong> | No Secrets: <strong>${activationData.safety_flags?.no_secrets ?? true}</strong> | No INC-0014: <strong>${activationData.safety_flags?.no_inc_0014 ?? true}</strong>
+      </div>
+    `;
+
+    detailCaseType.textContent = 'private_runtime_activation';
+    detailSourceAuthorities.textContent = 'Supabase / Cloudflare Route Readiness';
+    detailSourceUrl.href = '#';
+    detailSourceUrl.textContent = 'Private activation harness — local status';
+
+    detailSourceTier.textContent = 'PRIVATE RUNTIME';
+    detailSourceTier.className = 'tier-pill tier-yellow';
+    detailSourceRiskLevel.textContent = isLive ? 'LIVE_ACTIVATED' : 'DRY_RUN_BY_DEFAULT';
+    detailSourceRiskLevel.className = isLive ? 'risk-pill risk-green' : 'risk-pill risk-orange';
+
+    detailPublishRecommendation.textContent = isLive ? 'live_activated' : 'dryrun_ready';
+    detailBusinessRisk.textContent = 'All live/remote mutation flags strictly false unless explicit live markers are provided. Publication remains completely blocked.';
+
+    populateList(detailFailureModesList, [], 'tag');
+    populateList(detailMissingControlsList, [], 'control');
+    populateList(detailEvidenceList, [], 'evidence');
+    detailTrainingLesson.textContent = 'T072 private runtime activation tranche 1 compiled. Safe additive migration validated. Dry-run limits confirmed.';
+    populateList(detailVendorQuestionsList, [], 'question');
+
+    simulationResultPanel.classList.remove('hidden');
+    simulationResultPanel.innerHTML = `
+      <div class="result-header" style="background-color: #1e3a8a; color: white; padding: 10px; border-radius: 4px; font-weight: bold; margin-bottom: 10px; text-align: center; font-size:12px;">
+        🛡️ PRIVATE RUNTIME ACTIVATION
+      </div>
+      <div class="result-body" style="font-size: 13px;">
+        <div style="padding: 10px; background: rgba(30, 58, 138, 0.08); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 6px; margin-bottom: 12px;">
+          <div style="font-weight: 700; color: #93c5fd; text-transform: uppercase;">
+            ${escapeHTML(isLive ? 'LIVE_ACTIVATED' : 'DRY_RUN_READY')}
+          </div>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Supabase Migration:</strong> <code>${escapeHTML(activationData.migration_target || '')}</code>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Apply Status:</strong> <code>${escapeHTML(activationData.apply_status || '')}</code>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Probe Status:</strong> <code>${escapeHTML(activationData.probe_status || '')}</code>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Snapshot Write:</strong> <code>${escapeHTML(activationData.snapshot_write_status || '')}</code>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Publication Still Blocked:</strong> <span style="color:#ef4444; font-weight:bold;">${activationData.publication_still_blocked}</span>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>No INC-0014:</strong> <span style="color:#28a745; font-weight:bold;">${activationData.no_inc_0014}</span>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>No Public Preview:</strong> <span style="color:#28a745; font-weight:bold;">${activationData.no_public_preview}</span>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>No Worker Deploy:</strong> <span style="color:#28a745; font-weight:bold;">${activationData.no_worker_deploy}</span>
+        </div>
+        <div style="margin-top: 12px; font-size: 11px; border-top: 1px solid var(--border-color); padding-top: 8px; color: #93c5fd; font-weight: bold;">
+          Private runtime activation tranche 1 compiled &bull; Safe additive migrations validated &bull; Dry-run limits confirmed
+        </div>
+      </div>
+    `;
+
+    gateStepCurator.className = 'status-step passed';
+    gateStepCurator.querySelector('.step-check').innerHTML = '✓';
+    gateStepCurator.querySelector('.step-text').textContent = 'Preflight Validation Passed';
+
+    gateStepWording.className = isLive ? 'status-step passed' : 'status-step pending';
+    gateStepWording.querySelector('.step-check').innerHTML = isLive ? '✓' : '○';
+    gateStepWording.querySelector('.step-text').textContent = isLive ? 'Remote Activation Done' : 'Remote Activation Bounded';
 
     gateStepControl.className = 'status-step blocked';
     gateStepControl.querySelector('.step-check').innerHTML = '🚫';

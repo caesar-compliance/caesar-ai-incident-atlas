@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 22 May 2026 (T071)
+**Last updated:** 22 May 2026 (T072)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.30.0` |
-| Current phase | `T071 — Hosted Private Review-State Sync Readiness` |
+| Current version | `0.31.0` |
+| Current phase | `T072 — Private Runtime Activation Tranche 1: Supabase Apply Harness + Optional Approved Live Apply + Private Review-State Probe` |
 | Status | `complete` |
-| Latest completed task | `T071 — Hosted Private Review-State Sync Readiness` |
-| Active work item | `T071 complete. Hosted private review-state sync boundary schemas, additive Supabase migration draft, Cloudflare worker mock routes contract, sanitized payload build/exporter, validators, and Review Console widgets fully implemented and verified.` |
-| Next recommended step | `T072 — Guarded Supabase private-review-state apply/live probe (if explicitly approved) or T072 private human-review signoff controls.` |
+| Latest completed task | `T072 — Private Runtime Activation Tranche 1` |
+| Active work item | `T072 complete. Private runtime database preflight validations, guarded dry-run/live migration apply harness, read-only live database prober, metadata snapshot writer, workflow validation runner, and Review Console widgets implemented and verified in dry-run mode.` |
+| Next recommended step | `T073 — Cloudflare Worker private runtime deploy/probe (if Supabase is live) or approved live Supabase activation.` |
 
 ---
 
@@ -77,6 +77,7 @@
 | T069 — Private Promotion-Packet Candidate Package + Controlled Signoff Checklist Update | **Complete** — Private candidate packet schema, compiler builder, console metadata widgets, Supabase dry-runs, and workflow validation runner. | 22 May 2026 |
 | T070 — Private Publication Blocker Resolution Dossier + Runtime-Handoff Sync | **Complete** — Blocker resolution schema, selective technical blocker resolution, Review Console UI, hosted dry-run payloads, and workflow safety runner. | 22 May 2026 |
 | T071 — Hosted Private Review-State Sync Readiness | **Complete** — Additive migration draft, Worker contract mock routes, sanitized build/exporter, validation suite, and console sync panel. | 22 May 2026 |
+| T072 — Private Runtime Activation Tranche 1 | **Complete** — Preflight safety checker, dry-run default apply harness, read-only live prober, snapshot writer, validation runner, and Review Console widgets. | 22 May 2026 |
 | v0.8.0 Product Pivot — Strategic repositioning | Complete — Strategic docs, mapping models, and automation policies created | 21 May 2026 |
 | v0.7.8 Dataset Expansion — INC-0012 drafted | Complete — 12 records; INC-0012 prepared for CT review | 20 May 2026 |
 | v0.7.7 Dataset Expansion — INC-0011 signed off | Complete — 11 records; INC-0011 governance-approved | 20 May 2026 |

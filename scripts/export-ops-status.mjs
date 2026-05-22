@@ -190,6 +190,20 @@ const PRIVATE_REVIEW_STATE_SYNC_MANIFEST_PATH = path.join(ROOT, 'data', 'runtime
 const privateSyncManifest = readJson(PRIVATE_REVIEW_STATE_SYNC_MANIFEST_PATH);
 const t071HostedPrivateReviewStateSyncPresent = privateSyncManifest ? true : false;
 
+// ── Read T072 private runtime activation results ────────────────────────────
+const PRIVATE_RUNTIME_ACTIVATION_APPLY_PATH = path.join(ROOT, 'data', 'runtime', 'private-runtime-activation', 'private-runtime-activation-apply-result-latest.json');
+const PRIVATE_RUNTIME_ACTIVATION_PROBE_PATH = path.join(ROOT, 'data', 'runtime', 'private-runtime-activation', 'private-runtime-activation-probe-result-latest.json');
+const PRIVATE_RUNTIME_ACTIVATION_WRITE_PATH = path.join(ROOT, 'data', 'runtime', 'private-runtime-activation', 'private-runtime-activation-write-result-latest.json');
+
+const t072ApplyResult = readJson(PRIVATE_RUNTIME_ACTIVATION_APPLY_PATH);
+const t072ProbeResult = readJson(PRIVATE_RUNTIME_ACTIVATION_PROBE_PATH);
+const t072WriteResult = readJson(PRIVATE_RUNTIME_ACTIVATION_WRITE_PATH);
+
+const t072PrivateRuntimeActivationPresent = (t072ApplyResult && t072ProbeResult && t072WriteResult) ? true : false;
+const t072RemoteApplyExecuted = t072ApplyResult ? (t072ApplyResult.remote_apply_executed === true) : false;
+const t072LiveProbeAttempted = t072ProbeResult ? (t072ProbeResult.live_probe_attempted === true) : false;
+const t072RemoteWriteAttempted = t072WriteResult ? (t072WriteResult.remote_write_attempted === true) : false;
+
 // ── Build status JSON ──────────────────────────────────────────────────────
 const now = new Date().toISOString();
 
@@ -252,6 +266,14 @@ const opsStatus = {
   t071_remote_write_attempted:                   false,
   t071_worker_deploy_allowed:                    false,
   t071_cron_allowed:                             false,
+  // T072: Private runtime activation tranche 1 status
+  t072_private_runtime_activation_present: t072PrivateRuntimeActivationPresent,
+  t072_remote_apply_executed:               t072RemoteApplyExecuted,
+  t072_live_probe_attempted:                t072LiveProbeAttempted,
+  t072_remote_write_attempted:               t072RemoteWriteAttempted,
+  t072_worker_deploy_attempted:              false,
+  t072_cron_enabled:                         false,
+  publication_still_blocked:                 true,
   next_step:                 'Configure Supabase + Cloudflare Worker secrets to enable hosted_ready mode',
   public_site_url:           'https://atlas.caesar.no',
   data_endpoint:             'https://atlas.caesar.no/data/incident-index.json',
