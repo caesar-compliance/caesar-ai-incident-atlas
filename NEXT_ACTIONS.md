@@ -1,6 +1,6 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 22 May 2026 (T070 Complete)
+**Last updated:** 22 May 2026 (T071 Complete)
 
 
 ---
@@ -84,6 +84,7 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 | T068 — Controlled Private Promotion Review/Signoff | **Complete** — private signoff schema, builder, apply script, exporters, validator, workflow, review console signoff view | 21 May 2026 |
 | T069 — Private Promotion-Packet Candidate Package + Controlled Signoff Checklist Update | **Complete** — private candidate packet schema, compiler builder, console metadata widgets, Supabase dry-runs, and workflow validation runner | 22 May 2026 |
 | T070 — Private Publication Blocker Resolution Dossier + Runtime-Handoff Sync | **Complete** — blocker resolution schema, selective technical blocker resolution, Review Console UI, hosted dry-run payloads, and workflow safety runner | 22 May 2026 |
+| T071 — Hosted Private Review-State Sync Readiness | **Complete** — Additive migration draft, Worker contract mock routes, sanitized build/exporter, validation suite, and console sync panel | 22 May 2026 |
 | T062 — Private Candidate Review Intake | **Complete** — converted T061 signals to private review intake records, schema, exporters, and safety checks | 21 May 2026 |
 | T065 — Controlled Approval of One Private Intake + Draft Candidate Packet | **Complete** — local-only approved marker generator, selected single candidate, promoted 1 decision, compiled 1 draft packet, updated console and hosted exporters, and added regression tests | 21 May 2026 |
 | T064 — Explicit Private Draft Approval Gate + Controlled Draft Packet Promotion | **Complete** — local-only explicit approval marker schema, generator, applier, updated controlled draft packet builder, dynamic validators, and console UI upgrades | 21 May 2026 |
@@ -93,11 +94,11 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 
 ---
 
-## Status: T070 Complete — Private Publication Blocker Resolution Dossier & Runtime-Handoff Sync Deployed
+## Status: T071 Complete — Hosted Private Review-State Sync Readiness Deployed
 
 **Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/` with exactly 13 validated incident records (INC-0001–INC-0013, including INC-0013 as first real adapter-detected guidance/governance case), a complete static digest portal, and live RSS syndication feeds.**
 
-**The private workflow pipeline now runs end-to-end with the T070 Blocker Resolution Dossier: Green-source watcher → dedupe → real case drafts (`data/drafts/real/`) → promotion packets (`data/promotion-packets/real/`) → dry-runs → signoffs → candidate packages (T069) → blocker-resolution dossier (T070) → review console and hosted sync. Task T070 evaluates the 6 T068 blockers, selectively resolving the purely technical `"no promotion packet created"` blocker using T069 package evidence, while keeping the other 5 legal/publication/Control Tower blockers blocked. Public record count remains exactly 13, and all remote/public writes evaluate to false. Next step: T071 private human-review signoff packet or hosted private runtime sync.**
+**The private workflow pipeline now runs end-to-end with the T071 Hosted Private Review-State Sync: Green-source watcher → dedupe → real case drafts (`data/drafts/real/`) → promotion packets (`data/promotion-packets/real/`) → dry-runs → signoffs → candidate packages (T069) → blocker-resolution dossier (T070) → review-state sync boundary (T071) → review console panel. Task T071 implements local dry-run exporters, an additive local schema migration SQL, Cloudflare Worker local API mock contract tests, and a dedicated safety validator. Public record count remains exactly 13, and all remote/public/deploy/write flags evaluate to false. Next step: T072 guarded Supabase private-review-state apply/live probe (if explicitly approved) or T072 private human-review signoff controls.**
 
 **Active boundaries, policies, and schemas:**
 - `PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md` (Repositioning & Value Chain)
@@ -117,9 +118,9 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 
 ---
 
-## Next Recommended Step: T070
+## Next Recommended Step: T072
 
-**T070 — Controlled Private Review and Publication Blocker Resolution.** Resolve private reviewers' blockers on the candidate packet, and synchronize runtime-hosted statuses (private only, no public publish).
+**T072 — Guarded Supabase private-review-state apply/live probe (if explicitly approved) or T072 private human-review signoff controls.** Establish secure write/read integration with the hosted runtime database or implement additional signoff verification gates.
 
 ---
 

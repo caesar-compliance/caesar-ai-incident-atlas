@@ -1,9 +1,9 @@
 # Roadmap — Next Phases — caesar-ai-incident-atlas
 
 **Created:** 20 May 2026 (T032)
-**Last updated:** 22 May 2026 (T070)
+**Last updated:** 22 May 2026 (T071)
 **Baseline:** Public MVP v0.13.0. 13 records. INC-0013 (EDPB guidance, first real adapter-detected case) published under CT approval.
-**Status:** Active MVP. INC-0013 live. Promotion pipeline fully operational. T067 dry-run, T068 signoff, T069 candidate, and T070 blocker-resolution complete. Next: T071.
+**Status:** Active MVP. INC-0013 live. Promotion pipeline fully operational. T067 dry-run, T068 signoff, T069 candidate, T070 blocker-resolution, and T071 hosted private sync readiness complete. Next: T072.
 
 See `PUBLIC_MVP_BASELINE_FREEZE.md` for frozen baseline rules.
 See `ROADMAP.md` for the full historical phase plan.
@@ -216,7 +216,19 @@ For each of the 12 (and future) case records, map to:
 - Extended `validate-hosted-sync-safety.mjs`, `export-ops-status.mjs`, and Review Console UI to load, display, and validate the blocker resolution dossier.
 - Safety: Enforces zero remote writes, public count remains 13, latest record INC-0013, zero leaks under `site/`.
 
-**Next T071:** Controlled private runtime sync or manual publication approval dossier.
+**Next T071:** Complete.
+
+---
+
+## v1.12 — Hosted Private Review-State Sync Readiness (T071 — 22 May 2026)
+
+**T071 complete** — Hosted private review-state sync boundary: schema, additive Supabase migration draft, Cloudflare Worker route contract, mock route contract local test, sanitized payload builder and exporters, workflow runner, and Review Console visual panel.
+- Schema: Enforces strict boundary rules (dry-run mode, remote write and deployment strictly false, public publishing false).
+- Supabase: Created `infra/supabase/migrations/002_private_review_state_sync.sql` defining an additive `atlas_private_review_state_snapshots` table draft.
+- Worker: Added local mock route endpoints for GET and POST sync dry-run, and route contract document.
+- Safety: Fully verified sanitization, zero remote writes, public count exactly 13, zero leaks under `site/`.
+
+**Next T072:** Guarded Supabase private-review-state apply/live probe (if explicitly approved) or T072 private human-review signoff controls.
 
 ---
 

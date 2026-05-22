@@ -4,6 +4,21 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.30.0] - 22 May 2026
+
+### Added
+- **T071 — Hosted Private Review-State Sync Readiness.**
+  - `schemas/pipeline/hosted-private-review-state-sync.schema.json` — Defines the T071 hosted private review-state sync schema.
+  - `infra/supabase/migrations/002_private_review_state_sync.sql` — Additive, non-destructive draft migration for the `atlas_private_review_state_snapshots` table.
+  - `infra/cloudflare-worker/private-review-state-routes.contract.md` — Route contract documenting the `GET /private/review-state/latest` and `POST /private/review-state/sync-dry-run` Worker endpoint specifications.
+  - `scripts/build-hosted-private-review-state-sync.mjs` — Compiles metadata-only Caesar-native hosted sync dossier.
+  - `scripts/export-hosted-private-review-state-sync-payloads.mjs` — Exports sanitized hosted Supabase payload and Review Console payload.
+  - `scripts/validate-hosted-private-review-state-sync.mjs` — Bounded validator checking T071 schema, parent references, sanitization, and safety invariants.
+  - `scripts/run-hosted-private-review-state-sync-workflow.mjs` — Workflow runner coordinating build, export, and safety validations.
+  - `scripts/test-private-review-state-route-contract.mjs` — Local Mock Cloudflare Worker API contract integration test.
+  - Enhanced Review Console UI to present a dedicated "Hosted private review-state sync readiness" panel visualizing the sanitized metadata, blockers, and dry-run boundaries.
+
 ## [0.29.0] - 22 May 2026
 
 ### Added

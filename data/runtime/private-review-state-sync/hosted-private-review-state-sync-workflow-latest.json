@@ -1,0 +1,68 @@
+{
+  "_schema": "caesar-atlas/runtime/hosted-private-review-state-sync-workflow-log/v1",
+  "generated_at": "2026-05-22T16:20:46.771Z",
+  "source_run_id": "GREEN-RUN-20260521-202417",
+  "success": true,
+  "error": null,
+  "stages_executed": [
+    {
+      "stage": "build-hosted-private-review-state-sync",
+      "status": "PASS",
+      "output": [
+        "[Hosted private review-state sync builder]   intended_supabase_table:    atlas_private_review_state_snapshots",
+        "[Hosted private review-state sync builder]   dry_run_mode:               true",
+        "[Hosted private review-state sync builder]   remote_write_attempted:     false"
+      ]
+    },
+    {
+      "stage": "export-hosted-private-review-state-sync-payloads",
+      "status": "PASS",
+      "output": [
+        "[Hosted Sync Exporter]   sync_status: hosted_private_sync_readiness_prepared",
+        "[Hosted Sync Exporter]   remote_write_attempted: false",
+        "[Hosted Sync Exporter] export-hosted-private-review-state-sync-payloads: OK"
+      ]
+    },
+    {
+      "stage": "validate-hosted-private-review-state-sync",
+      "status": "PASS",
+      "output": [
+        "OK:   Pages workflow uploads site/ folder only",
+        "",
+        "validate-hosted-private-review-state-sync: PASSED"
+      ]
+    },
+    {
+      "stage": "validate-hosted-sync-safety",
+      "status": "PASS",
+      "output": [
+        "OK:   T071: hosted sync payload records sanitized",
+        "",
+        "validate-hosted-sync-safety: PASSED"
+      ]
+    }
+  ],
+  "summary": {
+    "sync_id": "HOSTED-PRIVATE-REVIEW-STATE-SYNC-GREEN-RUN-20260521-202417-001",
+    "sync_status": "hosted_private_sync_readiness_prepared",
+    "intended_supabase_table": "atlas_private_review_state_snapshots",
+    "dry_run_mode": true,
+    "remote_write_attempted": false,
+    "safety_status": {
+      "no_secrets": true,
+      "remote_write_allowed": false,
+      "public_publish_allowed": false,
+      "no_inc_0014_created": true,
+      "no_real_promotion_packet": true,
+      "no_publication_approval_granted": true
+    }
+  },
+  "safety_confirmations": {
+    "no_inc_0014_created": true,
+    "no_real_promotion_packet": true,
+    "no_public_preview": true,
+    "no_remote_write": true,
+    "no_site_mutation": true,
+    "public_count_remains": 13
+  }
+}

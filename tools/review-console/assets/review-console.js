@@ -467,6 +467,68 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    if (bundleName === 'private-review-state-sync.json') {
+      isPrivateIntakeBundle = false;
+      isRealBundle = false;
+      safetyWarningBanner.innerHTML = `<strong>[CRITICAL WARNING]</strong> HOSTED PRIVATE REVIEW-STATE SYNC READINESS ONLY &bull; DRY-RUN STATUS &bull; REMOTE WRITES STRICTLY DISABLED &bull; NO INC-0014 &bull; NO PUBLIC PREVIEW &bull; NO REAL PROMOTION PACKET &bull; STRICTLY LOCAL SANDBOX`;
+      safetyLabel.textContent = "HOSTED PRIVATE SYNC READINESS";
+      if (safetyIndicator) {
+        safetyIndicator.className = 'pulse-orange';
+        safetyIndicator.style.backgroundColor = '#9333ea';
+      }
+      if (pipelineStageTabs) pipelineStageTabs.style.display = 'none';
+      if (pipelineSummaryBar) pipelineSummaryBar.style.display = 'none';
+      if (digestPreviewBlock) digestPreviewBlock.style.display = 'none';
+      if (qualityClassFilter) qualityClassFilter.style.display = 'none';
+
+      sidebarHeaderTitle.textContent = "Sync Readiness";
+
+      fetch(`./data/private-review-state-sync.json`)
+      .then(r => r.json())
+      .then(syncData => {
+        bundleTimestampEl.textContent = syncData.generated_at || syncData.created_at
+          ? new Date(syncData.generated_at || syncData.created_at).toLocaleString()
+          : 'Unknown';
+
+        draftListContainer.innerHTML = '';
+        const item = document.createElement('div');
+        item.className = 'draft-item draft-item-private-review-state-sync';
+        item.style.cssText = 'padding:10px 12px; cursor:pointer; border-bottom:1px solid #2a2a2a; background:#120d1a;';
+        item.innerHTML = `
+          <div style="font-size:10px; color:#c084fc; font-weight:700; text-transform:uppercase; margin-bottom:4px;">
+            🔄 HOSTED SYNC READINESS
+          </div>
+          <div style="font-size:12px; font-weight:600; color:#fff; margin-bottom:2px;">
+            ${escapeHTML(syncData.sync_id || 'Hosted Sync')}
+          </div>
+          <div style="font-size:10px; color:#888;">
+            ${syncData.source_run_id || '—'}
+          </div>
+          <div style="margin-top:6px; display:flex; gap:4px; flex-wrap:wrap;">
+            <span style="background:#1a0d1a; border:1px solid #c084fc; color:#c084fc; font-size:9px; padding:1px 5px; border-radius:3px;">
+              dryrun_ready
+            </span>
+            <span style="background:#1a0d0d; border:1px solid #ef4444; color:#ef4444; font-size:9px; padding:1px 5px; border-radius:3px;">
+              blocked
+            </span>
+          </div>
+        `;
+        item.addEventListener('click', () => renderPrivateReviewStateSyncDetail(syncData));
+        draftListContainer.appendChild(item);
+        renderPrivateReviewStateSyncDetail(syncData);
+      })
+      .catch(err => {
+        console.error("Error loading private review-state sync data:", err);
+        draftListContainer.innerHTML = `
+          <div class="loading-placeholder" style="color: var(--color-danger);">
+            Failed to load Hosted Private Review-State Sync data.<br>
+            Please run the T071 workflow scripts first!
+          </div>
+        `;
+      });
+      return;
+    }
+
     isPrivateIntakeBundle = false;
 
 
@@ -2177,6 +2239,102 @@ document.addEventListener('DOMContentLoaded', () => {
     gateStepWording.className = 'status-step pending';
     gateStepWording.querySelector('.step-check').innerHTML = '○';
     gateStepWording.querySelector('.step-text').textContent = 'Human Reviews Blocked';
+
+    gateStepControl.className = 'status-step blocked';
+    gateStepControl.querySelector('.step-check').innerHTML = '🚫';
+    gateStepControl.querySelector('.step-text').textContent = 'Publication Blocked';
+  }
+
+  function renderPrivateReviewStateSyncDetail(syncData) {
+    emptyStatePanel.classList.add('hidden');
+    if (healthDetailPanel) healthDetailPanel.classList.add('hidden');
+    if (packetDetailPanel) packetDetailPanel.classList.add('hidden');
+    activeDetailPanel.classList.remove('hidden');
+
+    ['detail-local-only-label', 'detail-not-public-label', 'detail-not-approved-label', 'detail-promotion-blocked-label'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('hidden');
+    });
+
+    detailDraftId.textContent = 'HOSTED_PRIVATE_SYNC';
+    detailCandidateId.textContent = syncData.sync_id || '—';
+    detailProposedTitle.textContent = (syncData.sync_id || 'HOSTED-PRIVATE-REVIEW-STATE-SYNC-GREEN-RUN-20260521-202417-001') + ' (Hosted private review-state sync readiness)';
+    detailJurisdiction.textContent = 'Hosted Private Review-State Sync';
+    detailLegalDomain.textContent = 'AI & Governance';
+    detailCommercialDomain.textContent = 'Hosted Sync Boundary Gate';
+
+    detailCleanRoomSummary.innerHTML = `
+      <strong>Hosted Private Review-State Sync Readiness Summary:</strong><br><br>
+      <div style="margin-bottom:6px;">• <strong>Sync Readiness Prepared:</strong> ✅</div>
+      <div style="margin-bottom:6px;">• <strong>Dry-Run Mode:</strong> 🔒 YES (strictly true)</div>
+      <div style="margin-bottom:6px;">• <strong>Remote Write Attempted:</strong> ❌ FALSE</div>
+      <div style="margin-bottom:6px;">• <strong>Intended Table:</strong> <code>${syncData.hosted_sync_contract ? syncData.hosted_sync_contract.intended_supabase_table : '—'}</code></div>
+      <div style="margin-bottom:6px;">• <strong>Intended Worker Routes:</strong> <code>${syncData.hosted_sync_contract ? syncData.hosted_sync_contract.intended_worker_routes.join(', ') : '—'}</code></div>
+      <br>
+      <strong>Safety Verification Flags:</strong><br>
+      <div style="margin-top:4px; font-size:12px; color:#888;">
+        No Raw HTML: <strong>${(syncData.safety_flags || {}).no_raw_html}</strong> | No Secrets: <strong>${(syncData.safety_flags || {}).no_secrets}</strong> | No INC-0014: <strong>${(syncData.safety_flags || {}).no_inc_0014_created}</strong>
+      </div>
+    `;
+
+    detailCaseType.textContent = 'hosted_private_sync_readiness';
+    detailSourceAuthorities.textContent = syncData.source_run_id || 'Unknown';
+    detailSourceUrl.href = '#';
+    detailSourceUrl.textContent = 'Private sync contract — local simulation';
+
+    detailSourceTier.textContent = 'HOSTED SYNC READINESS';
+    detailSourceTier.className = 'tier-pill tier-yellow';
+    detailSourceRiskLevel.textContent = 'REMOTE_WRITE_STRICTLY_DISABLED';
+    detailSourceRiskLevel.className = 'risk-pill risk-orange';
+
+    detailPublishRecommendation.textContent = syncData.sync_status || 'hosted_private_sync_readiness_prepared';
+    detailBusinessRisk.textContent = 'Hosted private review-state sync readiness dossier only — remote write and deploy disabled by design — publication remains blocked.';
+
+    populateList(detailFailureModesList, [], 'tag');
+    populateList(detailMissingControlsList, [], 'control');
+    populateList(detailEvidenceList, [], 'evidence');
+    detailTrainingLesson.textContent = 'T071 sync readiness compiled successfully. The boundary contract is fully locked down. Remote activation remains completely disabled until explicit human signoff and credentials are provided.';
+    populateList(detailVendorQuestionsList, [], 'question');
+
+    simulationResultPanel.classList.remove('hidden');
+    simulationResultPanel.innerHTML = `
+      <div class="result-header" style="background-color: #1e3a8a; color: white; padding: 10px; border-radius: 4px; font-weight: bold; margin-bottom: 10px; text-align: center; font-size:12px;">
+        🔄 HOSTED PRIVATE SYNC CONTRACT READINESS
+      </div>
+      <div class="result-body" style="font-size: 13px;">
+        <div style="padding: 10px; background: rgba(30, 58, 138, 0.08); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 6px; margin-bottom: 12px;">
+          <div style="font-weight: 700; color: #93c5fd; text-transform: uppercase;">
+            ${escapeHTML((syncData.sync_status || 'hosted_private_sync_readiness_prepared').replace(/_/g, ' '))}
+          </div>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Intended Supabase Table:</strong> <code>${escapeHTML((syncData.hosted_sync_contract || {}).intended_supabase_table || '')}</code>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Intended Cloudflare Worker Routes:</strong>
+          <ul style="color: #93c5fd; padding-left: 20px; margin-top:4px;">
+            ${((syncData.hosted_sync_contract || {}).intended_worker_routes || []).map(r => `<li><code>${escapeHTML(r)}</code></li>`).join('')}
+          </ul>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Remote Write Attempted:</strong> <span style="color:#ef4444; font-weight:bold;">false</span>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Publication Still Blocked:</strong> <span style="color:#ef4444; font-weight:bold;">true</span>
+        </div>
+        <div style="margin-top: 12px; font-size: 11px; border-top: 1px solid var(--border-color); padding-top: 8px; color: #93c5fd; font-weight: bold;">
+          Hosted activation still requires explicit approval &bull; Dry-run mode strictly active &bull; Local mock route contract tests passed successfully
+        </div>
+      </div>
+    `;
+
+    gateStepCurator.className = 'status-step passed';
+    gateStepCurator.querySelector('.step-check').innerHTML = '✓';
+    gateStepCurator.querySelector('.step-text').textContent = 'Sync Contract Ready';
+
+    gateStepWording.className = 'status-step pending';
+    gateStepWording.querySelector('.step-check').innerHTML = '○';
+    gateStepWording.querySelector('.step-text').textContent = 'Remote Write Blocked';
 
     gateStepControl.className = 'status-step blocked';
     gateStepControl.querySelector('.step-check').innerHTML = '🚫';

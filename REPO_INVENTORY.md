@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 22 May 2026 (T069 — Private Promotion-Packet Candidate Package + Controlled Signoff Checklist Update; dataset remains 13 records)
+**Last updated:** 22 May 2026 (T071 — Hosted Private Review-State Sync Readiness; dataset remains 13 records)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -341,6 +341,29 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `data/reviews/private-promotion-packet-candidates/private-promotion-packet-candidate-latest.json` | Latest Candidate Packet | Structured latest private promotion-packet candidate package. (T069) |
 | `data/reviews/private-promotion-packet-candidates/private-promotion-packet-candidate-manifest.json` | Candidate Manifest | Manifest detailing package count and checklist evaluation. (T069) |
 | `data/ops/supabase/atlas-private-promotion-packet-candidate.private-latest.json` | Sanitized Hosted Payload | Sanitized dry-run candidate payload without secrets or HTML. (T069) |
+| `schemas/pipeline/private-publication-blocker-resolution.schema.json` | Blocker Resolution Schema | JSON Schema validating private publication blocker resolution dossiers. (T070) |
+| `scripts/build-private-publication-blocker-resolution.mjs` | Blocker Resolution Builder | Evaluates blockers and compiles blocker resolution dossier. (T070) |
+| `scripts/export-hosted-private-publication-blocker-resolution-payloads.mjs` | Blocker Resolution Hosted Exporter | Sanitizes and exports dry-run payloads for Supabase. (T070) |
+| `scripts/export-review-console-private-publication-blocker-resolution-data.mjs` | Blocker Resolution Console Exporter | Compiles metadata console summaries for human-in-the-loop dashboard. (T070) |
+| `scripts/validate-private-publication-blocker-resolution.mjs` | Blocker Resolution Validator | Programmatic validator checking blocker resolution dossier safety and count. (T070) |
+| `scripts/run-private-publication-blocker-resolution-workflow.mjs` | Blocker Resolution Workflow | Programmatic local runner orchestrating T070 workflow. (T070) |
+| `tools/review-console/data/private-publication-blocker-resolution.json` | Blocker Resolution Console Data | Exported metadata utilized by local Review Console interface. (T070) |
+| `data/reviews/private-publication-blocker-resolutions/private-publication-blocker-resolution-latest.json` | Latest Blocker Resolution Dossier | Structured latest publication blocker resolution dossier. (T070) |
+| `data/reviews/private-publication-blocker-resolutions/private-publication-blocker-resolution-manifest.json` | Blocker Resolution Manifest | Manifest detailing dossier count and resolution checklist. (T070) |
+| `data/ops/supabase/atlas-private-publication-blocker-resolution.private-latest.json` | Sanitized Hosted Payload | Sanitized dry-run blocker resolution payload. (T070) |
+| `schemas/pipeline/hosted-private-review-state-sync.schema.json` | Sync Schema | JSON Schema validating hosted private review-state sync envelopes. (T071) |
+| `infra/supabase/migrations/002_private_review_state_sync.sql` | Migration Draft | Additive, non-destructive migration DDL for private review-state snapshots. (T071) |
+| `infra/cloudflare-worker/private-review-state-routes.contract.md` | Route Contract | API contract documenting Worker endpoints for review state sync. (T071) |
+| `scripts/build-hosted-private-review-state-sync.mjs` | Sync Builder | Compiles sanitized metadata-only review-state sync dossier. (T071) |
+| `scripts/export-hosted-private-review-state-sync-payloads.mjs` | Sync Exporter | Formats and exports sanitized dry-run Supabase and console payloads. (T071) |
+| `scripts/validate-hosted-private-review-state-sync.mjs` | Sync Validator | Check schemas, parent markers, sanitization, and safety constraints. (T071) |
+| `scripts/run-hosted-private-review-state-sync-workflow.mjs` | Sync Workflow Runner | Bounded runner executing build, export, and safety validation stages. (T071) |
+| `scripts/test-private-review-state-route-contract.mjs` | Worker Mock Route Test | Mock integration test verifying Worker endpoints against the route contract. (T071) |
+| `tools/review-console/data/private-review-state-sync.json` | Sync Console Data | Exported sync metadata for local Review Console UI panel. (T071) |
+| `data/runtime/private-review-state-sync/hosted-private-review-state-sync-latest.json` | Latest Sync Dossier | Structured latest private review-state sync envelope. (T071) |
+| `data/runtime/private-review-state-sync/hosted-private-review-state-sync-manifest.json` | Sync Manifest | Manifest detailing sync status, dry-run mode, and safety confirmations. (T071) |
+| `data/runtime/private-review-state-sync/hosted-private-review-state-sync-workflow-latest.json` | Workflow Log | Execution log from the run-hosted-private-review-state-sync-workflow execution. (T071) |
+| `data/ops/supabase/atlas-private-review-state-sync.private-latest.json` | Sanitized Hosted Payload | Sanitized dry-run sync payload for Supabase database. (T071) |
 | `work-items/T067-private-promotion-packet-dry-run/TASK.md` | T067 task | Task checklist, scope, and status. |
 | `work-items/T067-private-promotion-packet-dry-run/VALIDATION.md` | T067 validation | Validation checklist and results. |
 | `work-items/T067-private-promotion-packet-dry-run/IMPLEMENTATION_REPORT.md` | T067 report | Implementation report of files created. |
@@ -353,10 +376,14 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `work-items/T069-private-promotion-packet-candidate-package/VALIDATION.md` | T069 validation | Validation checklist for T069 candidate package. |
 | `work-items/T069-private-promotion-packet-candidate-package/IMPLEMENTATION_REPORT.md` | T069 report | Concise closeout report for T069. |
 | `work-items/T069-private-promotion-packet-candidate-package/DECISIONS.md` | T069 decisions | Key decisions log for T069 candidate package. |
-
-
-
-
+| `work-items/T070-private-publication-blocker-resolution/TASK.md` | T070 task | Task checklist, scope, and status. |
+| `work-items/T070-private-publication-blocker-resolution/VALIDATION.md` | T070 validation | Validation checklist and results. |
+| `work-items/T070-private-publication-blocker-resolution/IMPLEMENTATION_REPORT.md` | T070 report | Closeout report for T070. |
+| `work-items/T070-private-publication-blocker-resolution/DECISIONS.md` | T070 decisions | Key decisions log for T070 blocker resolution. |
+| `work-items/T071-hosted-private-review-state-sync/TASK.md` | T071 task | Task scope checklist for T071. |
+| `work-items/T071-hosted-private-review-state-sync/VALIDATION.md` | T071 validation | Validation checklist for T071. |
+| `work-items/T071-hosted-private-review-state-sync/IMPLEMENTATION_REPORT.md` | T071 report | Closeout report for T071. |
+| `work-items/T071-hosted-private-review-state-sync/DECISIONS.md` | T071 decisions | Key decisions log for T071. |
 
 ## docs/ Directory
 

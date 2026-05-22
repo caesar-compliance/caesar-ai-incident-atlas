@@ -1416,6 +1416,93 @@ if (hostedDossier) {
   pass('T070: atlas-private-publication-blocker-resolution.private-latest.json not present (ok)');
 }
 
+// ── 71. T071: hosted private review-state sync readiness checks ─────────────────
+const syncLatestPath = path.join(ROOT, 'data', 'runtime', 'private-review-state-sync', 'hosted-private-review-state-sync-latest.json');
+const syncLatest = readJson(syncLatestPath);
+if (syncLatest) {
+  if (syncLatest.sync_status !== 'hosted_private_sync_readiness_prepared') {
+    fail('T071: sync dossier status is not hosted_private_sync_readiness_prepared');
+  } else {
+    pass('T071: sync dossier status = hosted_private_sync_readiness_prepared');
+  }
+
+  const boolChecksT071 = [
+    'remote_write_allowed',
+    'public_publish_allowed',
+    'real_promotion_packet_allowed',
+    'public_preview_allowed',
+    'public_record_creation_allowed',
+    'cron_allowed',
+    'worker_deploy_allowed',
+    'raw_text_storage_allowed',
+    'html_storage_allowed'
+  ];
+  let syncFlagsOk = true;
+  for (const flag of boolChecksT071) {
+    if (syncLatest.flags[flag] !== false) {
+      fail(`T071: flags.${flag} is not false in sync latest`);
+      syncFlagsOk = false;
+    }
+  }
+  if (syncFlagsOk) {
+    pass('T071: all sync boundary permission flags are false in sync latest');
+  }
+
+  const sfs = syncLatest.safety_flags || {};
+  const sfsChecks = [
+    'no_raw_html', 'no_long_third_party_text', 'no_secrets',
+    'no_inc_0014_created', 'no_real_promotion_packet', 'no_public_preview',
+    'no_public_site_mutation', 'no_publication_approval_granted', 'no_remote_write_attempted'
+  ];
+  let sfsOk = true;
+  for (const key of sfsChecks) {
+    if (sfs[key] !== true) {
+      fail(`T071: safety_flags.${key} is not true`);
+      sfsOk = false;
+    }
+  }
+  if (sfsOk) {
+    pass('T071: all safety flags are true in sync latest');
+  }
+} else {
+  pass('T071: hosted private review-state sync latest not present (ok)');
+}
+
+const hostedSyncPath = path.join(OPS_SUPABASE_DIR, 'atlas-private-review-state-sync.private-latest.json');
+const hostedSync = readJson(hostedSyncPath);
+if (hostedSync) {
+  if (hostedSync.remote_write_attempted !== false) {
+    fail('T071: atlas-private-review-state-sync.private-latest.json remote_write_attempted is not false');
+  } else {
+    pass('T071: atlas-private-review-state-sync.private-latest.json remote_write_attempted = false');
+  }
+  if (hostedSync.dry_run !== 'export_only') {
+    fail(`T071: atlas-private-review-state-sync.private-latest.json dry_run is ${hostedSync.dry_run}, expected export_only`);
+  } else {
+    pass('T071: atlas-private-review-state-sync.private-latest.json dry_run = export_only');
+  }
+  if (hostedSync.intended_table !== 'atlas_private_review_state_snapshots') {
+    fail(`T071: atlas-private-review-state-sync.private-latest.json intended_table is ${hostedSync.intended_table}, expected atlas_private_review_state_snapshots`);
+  } else {
+    pass('T071: atlas-private-review-state-sync.private-latest.json intended_table is correct');
+  }
+
+  const recs = hostedSync.records || [];
+  let syncPayloadErrors = false;
+  for (const r of recs) {
+    if (r.public_flags.public_publish_allowed !== false || r.public_flags.real_promotion_packet_allowed !== false || r.review_state.remote_write_attempted !== false) {
+      syncPayloadErrors = true;
+    }
+  }
+  if (!syncPayloadErrors && recs.length > 0) {
+    pass('T071: hosted sync payload records sanitized');
+  } else {
+    fail('T071: hosted sync payload has unsafe flags or no records');
+  }
+} else {
+  pass('T071: atlas-private-review-state-sync.private-latest.json not present (ok)');
+}
+
 // ── Final result ─────────────────────────────────────────────────────────────
 
 

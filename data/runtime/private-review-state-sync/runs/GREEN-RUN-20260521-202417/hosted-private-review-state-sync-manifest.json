@@ -1,0 +1,18 @@
+{
+  "_schema": "caesar-atlas/runtime/hosted-private-review-state-sync-manifest/v1",
+  "generated_at": "2026-05-22T16:20:46.391Z",
+  "source_run_id": "GREEN-RUN-20260521-202417",
+  "sync_id": "HOSTED-PRIVATE-REVIEW-STATE-SYNC-GREEN-RUN-20260521-202417-001",
+  "sync_status": "hosted_private_sync_readiness_prepared",
+  "intended_supabase_table": "atlas_private_review_state_snapshots",
+  "dry_run_mode": true,
+  "remote_write_attempted": false,
+  "safety_status": {
+    "no_secrets": true,
+    "remote_write_allowed": false,
+    "public_publish_allowed": false,
+    "no_inc_0014_created": true,
+    "no_real_promotion_packet": true,
+    "no_publication_approval_granted": true
+  }
+}

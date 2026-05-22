@@ -1,0 +1,39 @@
+{
+  "_schema": "caesar-atlas/ops/supabase/private-review-state-sync-payload/v1",
+  "generated_at": "2026-05-22T16:20:46.430Z",
+  "dry_run": "export_only",
+  "remote_write_attempted": false,
+  "intended_table": "atlas_private_review_state_snapshots",
+  "note": "Private review-state snapshot export only. Not publication approval. No INC-0014. No public publish. No remote write.",
+  "records": [
+    {
+      "sync_id": "HOSTED-PRIVATE-REVIEW-STATE-SYNC-GREEN-RUN-20260521-202417-001",
+      "created_at": "2026-05-22T16:20:46.391Z",
+      "source_run_id": "GREEN-RUN-20260521-202417",
+      "chain_ids": {
+        "selected_intake_id": "INTAKE-GREEN-RUN-20260521-202417-001",
+        "selected_decision_id": "DECISION-GREEN-RUN-20260521-202417-001",
+        "active_approval_id": "APPROVAL-GREEN-RUN-20260521-202417-001",
+        "package_id": "DRAFT-CAND-PKG-GREEN-RUN-20260521-202417-001",
+        "dry_run_id": "PROMO-DRY-RUN-GREEN-RUN-20260521-202417-001",
+        "signoff_id": "SIGNOFF-GREEN-RUN-20260521-202417-001",
+        "promotion_packet_candidate_id": "PROMO-PACKET-CAND-GREEN-RUN-20260521-202417-001",
+        "blocker_resolution_id": "PUB-BLOCKER-RES-GREEN-RUN-20260521-202417-001"
+      },
+      "sync_status": "hosted_private_sync_readiness_prepared",
+      "blocker_status": "private_package_blockers_partially_resolved",
+      "publication_blocked": true,
+      "public_flags": {
+        "public_publish_allowed": false,
+        "real_promotion_packet_allowed": false,
+        "public_preview_allowed": false,
+        "public_record_creation_allowed": false
+      },
+      "review_state": {
+        "dry_run_mode": true,
+        "remote_write_attempted": false
+      },
+      "hosted_payload_hash": "sha256-mock-hash-t071"
+    }
+  ]
+}

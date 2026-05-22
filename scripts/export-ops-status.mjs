@@ -185,6 +185,11 @@ const t070PublicationStillBlocked = true;
 const t070PublicPublishAllowed = false;
 const t070PublicRecordCreationAllowed = false;
 
+// ── Read T071 private review-state sync manifest ────────────────────────────
+const PRIVATE_REVIEW_STATE_SYNC_MANIFEST_PATH = path.join(ROOT, 'data', 'runtime', 'private-review-state-sync', 'hosted-private-review-state-sync-manifest.json');
+const privateSyncManifest = readJson(PRIVATE_REVIEW_STATE_SYNC_MANIFEST_PATH);
+const t071HostedPrivateReviewStateSyncPresent = privateSyncManifest ? true : false;
+
 // ── Build status JSON ──────────────────────────────────────────────────────
 const now = new Date().toISOString();
 
@@ -242,6 +247,11 @@ const opsStatus = {
   publication_still_blocked:                 t070PublicationStillBlocked,
   public_publish_allowed:                   t070PublicPublishAllowed,
   public_record_creation_allowed:           t070PublicRecordCreationAllowed,
+  // T071: Hosted private review-state sync readiness status
+  t071_hosted_private_review_state_sync_present: t071HostedPrivateReviewStateSyncPresent,
+  t071_remote_write_attempted:                   false,
+  t071_worker_deploy_allowed:                    false,
+  t071_cron_allowed:                             false,
   next_step:                 'Configure Supabase + Cloudflare Worker secrets to enable hosted_ready mode',
   public_site_url:           'https://atlas.caesar.no',
   data_endpoint:             'https://atlas.caesar.no/data/incident-index.json',

@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://caesar.no/schemas/pipeline/hosted-private-review-state-sync.schema.json",
+  "title": "Hosted Private Review State Sync Readiness Schema",
+  "description": "Schema for hosted private review-state sync readiness. Confirms that no live write or public publication is allowed.",
+  "type": "object",
+  "required": [
+    "sync_id",
+    "created_at",
+    "source_run_id",
+    "selected_intake_id",
+    "selected_decision_id",
+    "active_approval_id",
+    "package_id",
+    "dry_run_id",
+    "signoff_id",
+    "promotion_packet_candidate_id",
+    "blocker_resolution_id",
+    "sync_status",
+    "boundary",
+    "flags",
+    "hosted_sync_contract",
+    "safety_flags"
+  ],
+  "properties": {
+    "sync_id": {
+      "type": "string",
+      "pattern": "^HOSTED-PRIVATE-REVIEW-STATE-SYNC-[A-Z0-9-]+-[0-9]{3}$"
+    },
+    "created_at": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z$"
+    },
+    "source_run_id": {
+      "type": "string"
+    },
+    "selected_intake_id": {
+      "type": "string"
+    },
+    "selected_decision_id": {
+      "type": "string"
+    },
+    "active_approval_id": {
+      "type": "string"
+    },
+    "package_id": {
+      "type": "string"
+    },
+    "dry_run_id": {
+      "type": "string"
+    },
+    "signoff_id": {
+      "type": "string"
+    },
+    "promotion_packet_candidate_id": {
+      "type": "string"
+    },
+    "blocker_resolution_id": {
+      "type": "string"
+    },
+    "sync_status": {
+      "type": "string",
+      "enum": [
+        "hosted_private_sync_readiness_prepared",
+        "hosted_private_sync_blocked_pending_remote_activation"
+      ]
+    },
+    "boundary": {
+      "type": "object",
+      "required": [
+        "private_runtime_sync_readiness_only",
+        "not_remote_write",
+        "not_publication_approval",
+        "not_real_promotion_packet",
+        "not_public_preview",
+        "not_public_record_creation"
+      ],
+      "properties": {
+        "private_runtime_sync_readiness_only": { "type": "boolean", "const": true },
+        "not_remote_write": { "type": "boolean", "const": true },
+        "not_publication_approval": { "type": "boolean", "const": true },
+        "not_real_promotion_packet": { "type": "boolean", "const": true },
+        "not_public_preview": { "type": "boolean", "const": true },
+        "not_public_record_creation": { "type": "boolean", "const": true }
+      },
+      "additionalProperties": false
+    },
+    "flags": {
+      "type": "object",
+      "required": [
+        "remote_write_allowed",
+        "public_publish_allowed",
+        "real_promotion_packet_allowed",
+        "public_preview_allowed",
+        "public_record_creation_allowed",
+        "cron_allowed",
+        "worker_deploy_allowed",
+        "raw_text_storage_allowed",
+        "html_storage_allowed"
+      ],
+      "properties": {
+        "remote_write_allowed": { "type": "boolean", "const": false },
+        "public_publish_allowed": { "type": "boolean", "const": false },
+        "real_promotion_packet_allowed": { "type": "boolean", "const": false },
+        "public_preview_allowed": { "type": "boolean", "const": false },
+        "public_record_creation_allowed": { "type": "boolean", "const": false },
+        "cron_allowed": { "type": "boolean", "const": false },
+        "worker_deploy_allowed": { "type": "boolean", "const": false },
+        "raw_text_storage_allowed": { "type": "boolean", "const": false },
+        "html_storage_allowed": { "type": "boolean", "const": false }
+      },
+      "additionalProperties": false
+    },
+    "hosted_sync_contract": {
+      "type": "object",
+      "required": [
+        "intended_supabase_table",
+        "intended_worker_routes",
+        "payload_kind",
+        "payload_version",
+        "dry_run_mode",
+        "remote_write_attempted"
+      ],
+      "properties": {
+        "intended_supabase_table": { "type": "string", "const": "atlas_private_review_state_snapshots" },
+        "intended_worker_routes": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "payload_kind": { "type": "string" },
+        "payload_version": { "type": "string" },
+        "dry_run_mode": { "type": "boolean", "const": true },
+        "remote_write_attempted": { "type": "boolean", "const": false }
+      },
+      "additionalProperties": false
+    },
+    "safety_flags": {
+      "type": "object",
+      "required": [
+        "no_raw_html",
+        "no_long_third_party_text",
+        "no_secrets",
+        "no_inc_0014_created",
+        "no_real_promotion_packet",
+        "no_public_preview",
+        "no_public_site_mutation",
+        "no_publication_approval_granted",
+        "no_remote_write_attempted"
+      ],
+      "properties": {
+        "no_raw_html": { "type": "boolean", "const": true },
+        "no_long_third_party_text": { "type": "boolean", "const": true },
+        "no_secrets": { "type": "boolean", "const": true },
+        "no_inc_0014_created": { "type": "boolean", "const": true },
+        "no_real_promotion_packet": { "type": "boolean", "const": true },
+        "no_public_preview": { "type": "boolean", "const": true },
+        "no_public_site_mutation": { "type": "boolean", "const": true },
+        "no_publication_approval_granted": { "type": "boolean", "const": true },
+        "no_remote_write_attempted": { "type": "boolean", "const": true }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

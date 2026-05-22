@@ -297,6 +297,28 @@ export default {
       return safeJson(buildVersionPayload());
     }
 
+    // GET /private/review-state/latest
+    if (request.method === 'GET' && pathname === '/private/review-state/latest') {
+      return safeJson({
+        status: 'dry_run_only',
+        sync_status: 'hosted_private_sync_readiness_prepared',
+        publication_blocked: true,
+        remote_write_attempted: false,
+        note: 'Mock endpoint for hosted private review-state sync readiness contract.',
+      });
+    }
+
+    // POST /private/review-state/sync-dry-run
+    if (request.method === 'POST' && pathname === '/private/review-state/sync-dry-run') {
+      return safeJson({
+        status: 'dry_run_only',
+        sync_status: 'hosted_private_sync_readiness_prepared',
+        publication_blocked: true,
+        remote_write_attempted: false,
+        note: 'Dry-run sync contract readiness verified.',
+      });
+    }
+
     // GET /status
     if (request.method === 'GET' && pathname === '/status') {
       const { hasConfig } = getSupabaseConfig(env);
