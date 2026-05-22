@@ -56,10 +56,29 @@ const hasCfCredentials = cfAccountId.length > 0 && cfApiToken.length > 0;
 const args = process.argv.slice(2);
 const wantsLiveApproved = args.includes('--live-approved');
 
-const liveApplyApproved  = process.env.ATLAS_T073_LIVE_SUPABASE_APPLY_APPROVED === 'YES';
-const liveProbeApproved  = process.env.ATLAS_T073_LIVE_PROBE_APPROVED === 'YES';
-const liveWriteApproved  = process.env.ATLAS_T073_PRIVATE_REVIEW_STATE_WRITE_APPROVED === 'YES';
-const workerDeployApproved = process.env.ATLAS_T073_WORKER_DEPLOY_APPROVED === 'YES';
+// Read ATLAS markers from process.env first, then .env.runtime.local — no inline secret commands needed.
+const liveApplyApproved  = (process.env.ATLAS_T073_LIVE_SUPABASE_APPLY_APPROVED  || runtimeEnv.ATLAS_T073_LIVE_SUPABASE_APPLY_APPROVED  || '') === 'YES';
+const liveProbeApproved  = (process.env.ATLAS_T073_LIVE_PROBE_APPROVED            || runtimeEnv.ATLAS_T073_LIVE_PROBE_APPROVED            || '') === 'YES';
+const liveWriteApproved  = (process.env.ATLAS_T073_PRIVATE_REVIEW_STATE_WRITE_APPROVED || runtimeEnv.ATLAS_T073_PRIVATE_REVIEW_STATE_WRITE_APPROVED || '') === 'YES';
+const workerDeployApproved = (process.env.ATLAS_T073_WORKER_DEPLOY_APPROVED       || runtimeEnv.ATLAS_T073_WORKER_DEPLOY_APPROVED       || '') === 'YES';
+
+// Build safe env for child processes: merge process.env with runtimeEnv and cfEnv.
+// This lets child scripts inherit all credentials from .env.runtime.local
+// without requiring inline secret assignment in the calling command.
+const SAFE_ENV_KEYS = [
+  'SUPABASE_URL', 'SUPABASE_DB_URL', 'SUPABASE_SERVICE_ROLE_KEY',
+  'SUPABASE_ANON_KEY', 'SUPABASE_PROJECT_REF', 'SUPABASE_SCHEMA',
+  'SUPABASE_PUBLISHABLE_KEY', 'SUPABASE_SECRET_KEY', 'SUPABASE_API_KEY_MODE',
+  'ATLAS_T073_LIVE_SUPABASE_APPLY_APPROVED', 'ATLAS_T073_LIVE_PROBE_APPROVED',
+  'ATLAS_T073_PRIVATE_REVIEW_STATE_WRITE_APPROVED', 'ATLAS_T073_WORKER_DEPLOY_APPROVED',
+  'CLOUDFLARE_ACCOUNT_ID', 'CLOUDFLARE_API_TOKEN', 'CLOUDFLARE_WORKER_NAME',
+  'RUNTIME_ENV',
+];
+const childEnv = { ...process.env };
+for (const key of SAFE_ENV_KEYS) {
+  const fromRuntime = runtimeEnv[key] || cfEnv[key] || '';
+  if (fromRuntime && !childEnv[key]) childEnv[key] = fromRuntime;
+}
 
 async function run() {
   ensureDir(OUT_DIR);
@@ -136,7 +155,7 @@ async function run() {
   for (const stage of stages) {
     log(`Running stage: ${stage.name} (${stage.cmd})...`);
     try {
-      const output = execSync(stage.cmd, { cwd: ROOT, stdio: 'pipe', encoding: 'utf8' });
+      const output = execSync(stage.cmd, { cwd: ROOT, stdio: 'pipe', encoding: 'utf8', env: childEnv });
       executed.push({ stage: stage.name, status: 'PASS', output: output.trim().split('\n').slice(-3) });
     } catch (err) {
       log(`Stage ${stage.name} FAILED: ${err.message}`);

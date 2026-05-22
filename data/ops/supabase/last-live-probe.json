@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-05-22T16:40:41.866Z",
-  "mode": "skipped_no_env",
-  "success": false,
-  "table_exists": false,
-  "shape_compatible": false,
-  "row_count": 0,
+  "generated_at": "2026-05-22T17:00:21.283Z",
+  "mode": "read_only_probe",
+  "success": true,
+  "table_exists": true,
+  "shape_compatible": true,
+  "row_count": 1,
   "errors": null
 }

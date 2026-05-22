@@ -28,17 +28,50 @@ function writeJson(p, data) {
   fs.writeFileSync(p, JSON.stringify(data, null, 2) + '\n');
 }
 
+// Safely parse .env files — values are never printed
+const parseEnvFile = (p) => {
+  if (!fs.existsSync(p)) return {};
+  const out = {};
+  for (const line of fs.readFileSync(p, 'utf8').split('\n')) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const eq = trimmed.indexOf('=');
+    if (eq === -1) continue;
+    const key = trimmed.slice(0, eq).trim();
+    let value = trimmed.slice(eq + 1).trim();
+    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) value = value.slice(1, -1);
+    out[key] = value;
+  }
+  return out;
+};
+
+const runtimeEnv = parseEnvFile(path.join(ROOT, '.env.runtime.local'));
+
 const args = process.argv.slice(2);
 const wantsLiveApproved = args.includes('--live-approved');
 
 // Check live approval markers
-const liveApplyApproved  = process.env.ATLAS_T072_LIVE_SUPABASE_APPLY_APPROVED === 'YES';
-const liveProbeApproved  = process.env.ATLAS_T072_LIVE_PROBE_APPROVED === 'YES';
-const liveWriteApproved  = process.env.ATLAS_T072_PRIVATE_REVIEW_STATE_WRITE_APPROVED === 'YES';
-const dbUrl = (process.env.SUPABASE_DB_URL || process.env.DATABASE_URL || '').trim();
-const hasCredentials = dbUrl.length > 0 || (process.env.SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY);
+// Read live approval markers from process.env first, then .env.runtime.local — no inline secret commands needed.
+const liveApplyApproved  = (process.env.ATLAS_T072_LIVE_SUPABASE_APPLY_APPROVED  || runtimeEnv.ATLAS_T072_LIVE_SUPABASE_APPLY_APPROVED  || '') === 'YES';
+const liveProbeApproved  = (process.env.ATLAS_T072_LIVE_PROBE_APPROVED            || runtimeEnv.ATLAS_T072_LIVE_PROBE_APPROVED            || '') === 'YES';
+const liveWriteApproved  = (process.env.ATLAS_T072_PRIVATE_REVIEW_STATE_WRITE_APPROVED || runtimeEnv.ATLAS_T072_PRIVATE_REVIEW_STATE_WRITE_APPROVED || '') === 'YES';
+const dbUrl = (process.env.SUPABASE_DB_URL || process.env.DATABASE_URL || runtimeEnv.SUPABASE_DB_URL || '').trim();
+const hasCredentials = dbUrl.length > 0 || ((process.env.SUPABASE_URL || runtimeEnv.SUPABASE_URL) && (process.env.SUPABASE_SERVICE_ROLE_KEY || runtimeEnv.SUPABASE_SERVICE_ROLE_KEY));
 
 const canExecuteLive = wantsLiveApproved && liveApplyApproved && liveProbeApproved && liveWriteApproved && hasCredentials;
+
+// Build safe env for child processes — no inline secret commands needed in calling shell.
+const SAFE_ENV_KEYS = [
+  'SUPABASE_URL', 'SUPABASE_DB_URL', 'SUPABASE_SERVICE_ROLE_KEY',
+  'SUPABASE_ANON_KEY', 'SUPABASE_PROJECT_REF', 'SUPABASE_SCHEMA',
+  'SUPABASE_PUBLISHABLE_KEY', 'SUPABASE_SECRET_KEY', 'SUPABASE_API_KEY_MODE',
+  'ATLAS_T072_LIVE_SUPABASE_APPLY_APPROVED', 'ATLAS_T072_LIVE_PROBE_APPROVED',
+  'ATLAS_T072_PRIVATE_REVIEW_STATE_WRITE_APPROVED', 'RUNTIME_ENV',
+];
+const childEnv = { ...process.env };
+for (const key of SAFE_ENV_KEYS) {
+  if (runtimeEnv[key] && !childEnv[key]) childEnv[key] = runtimeEnv[key];
+}
 
 async function run() {
   log('Starting private runtime activation workflow...');
@@ -92,7 +125,7 @@ async function run() {
   for (const stage of stages) {
     log(`Running stage: ${stage.name} (${stage.cmd})...`);
     try {
-      const output = execSync(stage.cmd, { cwd: ROOT, stdio: 'pipe', encoding: 'utf8' });
+      const output = execSync(stage.cmd, { cwd: ROOT, stdio: 'pipe', encoding: 'utf8', env: childEnv });
       executed.push({ stage: stage.name, status: 'PASS', output: output.trim().split('\n').slice(-3) });
     } catch (err) {
       log(`Stage ${stage.name} FAILED: ${err.message}`);

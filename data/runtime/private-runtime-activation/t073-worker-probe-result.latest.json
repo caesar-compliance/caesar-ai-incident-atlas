@@ -1,9 +1,9 @@
 {
   "_schema": "atlas-private-runtime-activation-worker-probe-result/v1",
-  "generated_at": "2026-05-22T16:40:37.247Z",
+  "generated_at": "2026-05-22T17:00:22.127Z",
   "task": "T073",
   "live_probe_requested": false,
-  "live_probe_approved": false,
+  "live_probe_approved": true,
   "live_probe_attempted": false,
   "success": true,
   "probe_details": {
@@ -18,7 +18,7 @@
         "version": "0.2.0",
         "supabase_connected": false,
         "live_ingestion_enabled": false,
-        "timestamp": "2026-05-22T16:40:37.250Z"
+        "timestamp": "2026-05-22T17:00:22.130Z"
       }
     },
     "/version": {

@@ -1,14 +1,14 @@
 {
   "_schema": "atlas-private-runtime-activation-live-probe-result/v1",
-  "generated_at": "2026-05-22T16:40:41.866Z",
+  "generated_at": "2026-05-22T17:00:21.283Z",
   "task": "T073",
-  "live_probe_requested": false,
-  "live_probe_approved": false,
-  "live_probe_attempted": false,
-  "success": false,
-  "table_exists": false,
-  "shape_compatible": false,
-  "row_count": 0,
+  "live_probe_requested": true,
+  "live_probe_approved": true,
+  "live_probe_attempted": true,
+  "success": true,
+  "table_exists": true,
+  "shape_compatible": true,
+  "row_count": 1,
   "errors": null,
-  "note": "Dry-run probe only. No database connection attempted."
+  "note": "Read-only database probe was executed on the live remote database."
 }

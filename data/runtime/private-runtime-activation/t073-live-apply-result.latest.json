@@ -1,12 +1,12 @@
 {
   "_schema": "atlas-private-runtime-activation-live-apply-result/v1",
-  "generated_at": "2026-05-22T16:40:37.034Z",
+  "generated_at": "2026-05-22T17:00:20.917Z",
   "task": "T073",
-  "live_apply_requested": false,
-  "live_apply_approved": false,
-  "remote_apply_executed": false,
+  "live_apply_requested": true,
+  "live_apply_approved": true,
+  "remote_apply_executed": true,
   "applied_migration": "infra/supabase/migrations/002_private_review_state_sync.sql",
   "intended_table": "atlas_private_review_state_snapshots",
   "errors": null,
-  "note": "Dry-run only. No remote mutation was performed."
+  "note": "Migration SQL was successfully applied to remote database."
 }

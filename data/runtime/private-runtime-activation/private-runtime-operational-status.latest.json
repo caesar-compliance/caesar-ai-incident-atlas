@@ -1,26 +1,26 @@
 {
   "_schema": "caesar-atlas/runtime/private-runtime-operational-status/v1",
-  "generated_at": "2026-05-22T16:40:43.955Z",
+  "generated_at": "2026-05-22T17:01:10.406Z",
   "task": "T073",
   "operational_components": {
     "supabase_table_apply": {
-      "status": "dry-run",
-      "executed": false,
-      "approved": false,
+      "status": "live",
+      "executed": true,
+      "approved": true,
       "errors": null
     },
     "supabase_live_probe": {
-      "status": "dry-run",
-      "attempted": false,
-      "success": false,
-      "table_exists": false,
-      "shape_compatible": false,
+      "status": "live",
+      "attempted": true,
+      "success": true,
+      "table_exists": true,
+      "shape_compatible": true,
       "errors": null
     },
     "private_snapshot_write": {
-      "status": "dry-run",
-      "attempted": false,
-      "record_id": null,
+      "status": "live",
+      "attempted": true,
+      "record_id": "d4a9c440-da6f-4e45-ad8c-6f5e3cd44af9",
       "errors": null
     },
     "worker_deploy": {

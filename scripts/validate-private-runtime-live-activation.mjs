@@ -8,6 +8,24 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
 const ROOT       = path.dirname(__dirname);
 
+// Safe .env.runtime.local loader — values never printed
+const parseEnvFile = (p) => {
+  if (!fs.existsSync(p)) return {};
+  const out = {};
+  for (const line of fs.readFileSync(p, 'utf8').split('\n')) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const eq = trimmed.indexOf('=');
+    if (eq === -1) continue;
+    const key = trimmed.slice(0, eq).trim();
+    let value = trimmed.slice(eq + 1).trim();
+    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) value = value.slice(1, -1);
+    out[key] = value;
+  }
+  return out;
+};
+const runtimeEnv = parseEnvFile(path.join(ROOT, '.env.runtime.local'));
+
 let errors = 0;
 let warnings = 0;
 
@@ -69,9 +87,10 @@ const applyRes = readJson(APPLY_RES_PATH);
 const probeRes = readJson(PROBE_RES_PATH);
 const writeRes = readJson(WRITE_RES_PATH);
 
-const liveApplyApproved  = process.env.ATLAS_T073_LIVE_SUPABASE_APPLY_APPROVED === 'YES';
-const liveProbeApproved  = process.env.ATLAS_T073_LIVE_PROBE_APPROVED === 'YES';
-const liveWriteApproved  = process.env.ATLAS_T073_PRIVATE_REVIEW_STATE_WRITE_APPROVED === 'YES';
+// Read ATLAS markers from process.env first, then .env.runtime.local (no inline secrets required)
+const liveApplyApproved  = (process.env.ATLAS_T073_LIVE_SUPABASE_APPLY_APPROVED  || runtimeEnv.ATLAS_T073_LIVE_SUPABASE_APPLY_APPROVED  || '') === 'YES';
+const liveProbeApproved  = (process.env.ATLAS_T073_LIVE_PROBE_APPROVED            || runtimeEnv.ATLAS_T073_LIVE_PROBE_APPROVED            || '') === 'YES';
+const liveWriteApproved  = (process.env.ATLAS_T073_PRIVATE_REVIEW_STATE_WRITE_APPROVED || runtimeEnv.ATLAS_T073_PRIVATE_REVIEW_STATE_WRITE_APPROVED || '') === 'YES';
 
 if (!liveApplyApproved && !liveProbeApproved && !liveWriteApproved) {
   if (applyRes && applyRes.remote_apply_executed !== false) {
