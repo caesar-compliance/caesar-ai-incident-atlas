@@ -1,6 +1,6 @@
 # Repository Inventory — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T065 — Controlled Approval of One Private Intake + Draft Candidate Packet; dataset remains 13 records)
+**Last updated:** 22 May 2026 (T069 — Private Promotion-Packet Candidate Package + Controlled Signoff Checklist Update; dataset remains 13 records)
 
 This is a living registry of all files tracked in the `caesar-ai-incident-atlas` repository. It provides developers and automated agents with a reference mapping each file to its exact role.
 
@@ -331,10 +331,28 @@ This is a living registry of all files tracked in the `caesar-ai-incident-atlas`
 | `scripts/run-private-promotion-signoff-workflow.mjs` | Signoff Workflow | Bounded T068 workflow runner. (T068) |
 | `tools/review-console/data/private-promotion-signoff.json` | Signoff Console Data | Review Console signoff summary. (T068) |
 | `data/reviews/private-promotion-signoffs/private-promotion-signoff-latest.json` | Latest Signoff | Private promotion signoff record. (T068) |
+| `schemas/pipeline/private-promotion-packet-candidate.schema.json` | Candidate Packet Schema | JSON Schema enforcing deterministic private promotion-packet candidate fields. (T069) |
+| `scripts/build-private-promotion-packet-candidate.mjs` | Candidate Packet Builder | Compiles T068 signoff, T067 dry-run, and T066 package into deterministic candidate packages. (T069) |
+| `scripts/export-hosted-private-promotion-packet-candidate-payloads.mjs` | Candidate Hosted Exporter | Sanitizes and formats dry-run payloads for atlas_private_promotion_packet_candidates. (T069) |
+| `scripts/export-review-console-private-promotion-packet-candidate-data.mjs` | Candidate Console Exporter | Compiles metadata console summaries for human-in-the-loop dashboard. (T069) |
+| `scripts/validate-private-promotion-packet-candidate.mjs` | Candidate Packet Validator | Bounded validator checking schemas, parent markers, safety constants, and dataset size. (T069) |
+| `scripts/run-private-promotion-packet-candidate-workflow.mjs` | Candidate Workflow Runner | Programmatic local runner orchestrating T069 workflow. (T069) |
+| `tools/review-console/data/private-promotion-packet-candidate.json` | Candidate Console Data | Exported metadata utilized by local Review Console interface. (T069) |
+| `data/reviews/private-promotion-packet-candidates/private-promotion-packet-candidate-latest.json` | Latest Candidate Packet | Structured latest private promotion-packet candidate package. (T069) |
+| `data/reviews/private-promotion-packet-candidates/private-promotion-packet-candidate-manifest.json` | Candidate Manifest | Manifest detailing package count and checklist evaluation. (T069) |
+| `data/ops/supabase/atlas-private-promotion-packet-candidate.private-latest.json` | Sanitized Hosted Payload | Sanitized dry-run candidate payload without secrets or HTML. (T069) |
 | `work-items/T067-private-promotion-packet-dry-run/TASK.md` | T067 task | Task checklist, scope, and status. |
 | `work-items/T067-private-promotion-packet-dry-run/VALIDATION.md` | T067 validation | Validation checklist and results. |
 | `work-items/T067-private-promotion-packet-dry-run/IMPLEMENTATION_REPORT.md` | T067 report | Implementation report of files created. |
 | `work-items/T067-private-promotion-packet-dry-run/DECISIONS.md` | T067 decisions | Decisions made during T067 task. |
+| `work-items/T068-private-promotion-review-signoff/TASK.md` | T068 task | Task checklist for T068 private signoffs. |
+| `work-items/T068-private-promotion-review-signoff/VALIDATION.md` | T068 validation | Validation checklist for T068 private signoffs. |
+| `work-items/T068-private-promotion-review-signoff/IMPLEMENTATION_REPORT.md` | T068 report | Closeout report for T068. |
+| `work-items/T068-private-promotion-review-signoff/DECISIONS.md` | T068 decisions | Key decisions log for T068 signoff. |
+| `work-items/T069-private-promotion-packet-candidate-package/TASK.md` | T069 task | Task scope checklist for T069 candidate package. |
+| `work-items/T069-private-promotion-packet-candidate-package/VALIDATION.md` | T069 validation | Validation checklist for T069 candidate package. |
+| `work-items/T069-private-promotion-packet-candidate-package/IMPLEMENTATION_REPORT.md` | T069 report | Concise closeout report for T069. |
+| `work-items/T069-private-promotion-packet-candidate-package/DECISIONS.md` | T069 decisions | Key decisions log for T069 candidate package. |
 
 
 

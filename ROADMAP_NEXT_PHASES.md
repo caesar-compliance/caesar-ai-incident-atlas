@@ -1,9 +1,9 @@
 # Roadmap — Next Phases — caesar-ai-incident-atlas
 
 **Created:** 20 May 2026 (T032)
-**Last updated:** 21 May 2026 (T066)
+**Last updated:** 22 May 2026 (T069)
 **Baseline:** Public MVP v0.13.0. 13 records. INC-0013 (EDPB guidance, first real adapter-detected case) published under CT approval.
-**Status:** Active MVP. INC-0013 live. Promotion pipeline fully operational. T067 dry-run and T068 signoff complete. Next: T069 promotion-packet candidate package (private).
+**Status:** Active MVP. INC-0013 live. Promotion pipeline fully operational. T067 dry-run, T068 signoff, and T069 candidate complete. Next: T070 blocker resolution.
 
 See `PUBLIC_MVP_BASELINE_FREEZE.md` for frozen baseline rules.
 See `ROADMAP.md` for the full historical phase plan.
@@ -206,6 +206,45 @@ For each of the 12 (and future) case records, map to:
 
 ---
 
+## v1.10 — Private Promotion-Packet Candidate Package + Controlled Signoff Checklist Update (T069 — 22 May 2026)
+
+**T069 complete** — Private candidate packet schema, compiler builder, console metadata widgets, Supabase dry-runs, and workflow validation runner.
+- Enforced deterministic candidate package ID and checklist separation: `private_package_preparation_checklist` is verified while publication remains strictly blocked.
+- Created `build-private-promotion-packet-candidate.mjs` compiling signoffs, dry-runs, and shaped candidate packages.
+- Exported console widgets and sanitized hosted dry-run payloads for `atlas_private_promotion_packet_candidates` table.
+- Updated `validate-hosted-sync-safety.mjs`, `export-ops-status.mjs`, and Review Console UI to load and render candidates.
+- Safety: Enforces zero remote writes, public count remains 13, latest record INC-0013, zero leaks under `site/`.
+
+**Next T070:** Controlled Private Review and Publication Blocker Resolution.
+
+---
+
+## v1.9 — Controlled Private Promotion Review/Signoff (T068 — 21 May 2026)
+
+**T068 complete** — Signoff schema, builder, apply decisions, review console update, hosted payloads export, safety validations.
+- Developed `private-promotion-signoff.schema.json` with strict blockers validation.
+- Created `build-private-promotion-signoff.mjs` compiling signoffs from T067 dry-runs.
+- Provided local decision patcher `apply-private-promotion-signoff-decision.mjs` for human curator review dimensions.
+- Updated local Review Console UI and exported dry-run signoff payload for `atlas_private_promotion_signoffs`.
+- Built validator `validate-private-promotion-signoff.mjs` to enforce strict blocked state (6 blockers unresolved).
+
+**Next T069:** Controlled promotion-packet candidate package (private dry-run only).
+
+---
+
+## v1.8 — Private Promotion-Packet Dry-Run Preparation (T067 — 21 May 2026)
+
+**T067 complete** — Caesar-native dry-run preparation schema, builder, console export, hosted dry-run payloads, and safety validator.
+- Built dry-run bundle from T066 package including governance chain, proposed summary, legal review checklist, and publication blockers.
+- Exported metadata console summary to `tools/review-console/data/private-promotion-dry-run.json`.
+- Formatted sanitized Supabase dry-run payload for `atlas_private_promotion_dry_runs` table.
+- Created `validate-private-promotion-dry-run.mjs` validator with 24 checks covering schema, referential integrity, and safety booleans.
+- Workflow runner script `scripts/run-private-promotion-dry-run-workflow.mjs` orchestrating stages.
+
+**Next T068:** Controlled Private Promotion Review/Signoff.
+
+---
+
 ## v1.7 — Private Draft Candidate Packet Shaping (T066 — 21 May 2026)
 
 **T066 complete** — Shaped approved private draft candidate packet into a richer Caesar-native private draft candidate package with strict metadata schemas and console UI widgets.
@@ -217,7 +256,7 @@ For each of the 12 (and future) case records, map to:
 - Upgraded Review Console UI widgets and panels to render shaped packages safely.
 - Safety: Zero public leaks, public count remains 13, no INC-0014, all safety flags evaluated.
 
-**Next T069:** Controlled promotion-packet candidate package (private dry-run only).
+**Next T067:** Private Promotion-Packet Dry-Run Preparation.
 
 ---
 

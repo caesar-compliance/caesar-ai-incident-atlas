@@ -1250,6 +1250,86 @@ if (hostedPromoSignoff) {
   pass('T068: atlas-private-promotion-signoff.private-latest.json not present (ok)');
 }
 
+// ── 69. T069: private promotion-packet candidate checks ───────────────────────
+const candLatestPath = path.join(ROOT, 'data', 'reviews', 'private-promotion-packet-candidates', 'private-promotion-packet-candidate-latest.json');
+const candLatest = readJson(candLatestPath);
+if (candLatest) {
+  if (candLatest.status !== 'private_promotion_packet_candidate_prepared') {
+    fail('T069: private promotion packet candidate status is not private_promotion_packet_candidate_prepared');
+  } else {
+    pass('T069: private promotion packet candidate status = private_promotion_packet_candidate_prepared');
+  }
+  if (candLatest.public_publish_allowed !== false) {
+    fail('T069: public_publish_allowed is not false');
+  } else {
+    pass('T069: public_publish_allowed = false');
+  }
+  if (candLatest.real_promotion_packet_allowed !== false) {
+    fail('T069: real_promotion_packet_allowed is not false');
+  } else {
+    pass('T069: real_promotion_packet_allowed = false');
+  }
+  if (candLatest.public_preview_allowed !== false) {
+    fail('T069: public_preview_allowed is not false');
+  } else {
+    pass('T069: public_preview_allowed = false');
+  }
+  if (candLatest.public_record_creation_allowed !== false) {
+    fail('T069: public_record_creation_allowed is not false');
+  } else {
+    pass('T069: public_record_creation_allowed = false');
+  }
+  if (candLatest.remote_write_allowed !== false) {
+    fail('T069: remote_write_allowed is not false');
+  } else {
+    pass('T069: remote_write_allowed = false');
+  }
+
+  const sfc = candLatest.safety_flags || {};
+  if (sfc.no_inc_0014_created === true && sfc.no_real_promotion_packet === true && sfc.no_public_preview === true && sfc.no_public_site_mutation === true) {
+    pass('T069: private promotion packet candidate safety flags are valid');
+  } else {
+    fail('T069: private promotion packet candidate safety flags are invalid');
+  }
+} else {
+  pass('T069: private promotion packet candidate latest not present (ok)');
+}
+
+const hostedCandPath = path.join(OPS_SUPABASE_DIR, 'atlas-private-promotion-packet-candidate.private-latest.json');
+const hostedCand = readJson(hostedCandPath);
+if (hostedCand) {
+  if (hostedCand.remote_write_attempted !== false) {
+    fail('T069: atlas-private-promotion-packet-candidate.private-latest.json remote_write_attempted is not false');
+  } else {
+    pass('T069: atlas-private-promotion-packet-candidate.private-latest.json remote_write_attempted = false');
+  }
+  if (hostedCand.dry_run !== 'export_only') {
+    fail(`T069: atlas-private-promotion-packet-candidate.private-latest.json dry_run is ${hostedCand.dry_run}, expected export_only`);
+  } else {
+    pass('T069: atlas-private-promotion-packet-candidate.private-latest.json dry_run = export_only');
+  }
+  if (hostedCand.table !== 'atlas_private_promotion_packet_candidates') {
+    fail(`T069: atlas-private-promotion-packet-candidate.private-latest.json table is ${hostedCand.table}, expected atlas_private_promotion_packet_candidates`);
+  } else {
+    pass('T069: atlas-private-promotion-packet-candidate.private-latest.json table is correct');
+  }
+
+  const recs = hostedCand.records || [];
+  let candPayloadErrors = false;
+  for (const r of recs) {
+    if (r.public_publish_allowed !== false || r.real_promotion_packet_allowed !== false || r.remote_write_allowed !== false) {
+      candPayloadErrors = true;
+    }
+  }
+  if (!candPayloadErrors && recs.length > 0) {
+    pass('T069: hosted candidate packet payload records sanitized');
+  } else {
+    fail('T069: hosted candidate packet payload has unsafe flags or no records');
+  }
+} else {
+  pass('T069: atlas-private-promotion-packet-candidate.private-latest.json not present (ok)');
+}
+
 // ── Final result ─────────────────────────────────────────────────────────────
 
 process.stdout.write('\n');

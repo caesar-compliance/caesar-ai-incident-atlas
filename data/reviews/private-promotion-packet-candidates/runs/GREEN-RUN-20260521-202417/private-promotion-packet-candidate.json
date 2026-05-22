@@ -1,0 +1,48 @@
+{
+  "candidate_packet_id": "PROMO-PACKET-CAND-GREEN-RUN-20260521-202417-001",
+  "created_at": "2026-05-22T16:03:10.839Z",
+  "source_run_id": "GREEN-RUN-20260521-202417",
+  "dry_run_id": "PROMO-DRY-RUN-GREEN-RUN-20260521-202417-001",
+  "package_id": "DRAFT-CAND-PKG-GREEN-RUN-20260521-202417-001",
+  "signoff_id": "SIGNOFF-GREEN-RUN-20260521-202417-001",
+  "status": "private_promotion_packet_candidate_prepared",
+  "note": "Private promotion-packet candidate only — not public — no INC-0014 — not publication approval",
+  "public_publish_allowed": false,
+  "real_promotion_packet_allowed": false,
+  "public_preview_allowed": false,
+  "public_record_creation_allowed": false,
+  "remote_write_allowed": false,
+  "raw_text_storage_allowed": false,
+  "html_storage_allowed": false,
+  "safety_flags": {
+    "no_raw_html": true,
+    "no_long_third_party_text": true,
+    "no_secrets": true,
+    "no_inc_0014_created": true,
+    "no_real_promotion_packet": true,
+    "no_public_preview": true,
+    "no_public_site_mutation": true
+  },
+  "private_package_preparation_checklist": {
+    "source_chain_referenced": true,
+    "parent_package_referenced": true,
+    "dry_run_referenced": true,
+    "signoff_referenced": true,
+    "blockers_preserved": true,
+    "safety_flags_locked": true,
+    "console_export_ready": true,
+    "hosted_payload_sanitized": true
+  },
+  "publication_approval_state": {
+    "status": "blocked",
+    "unresolved_blocker_count": 6,
+    "publication_blockers": [
+      "human legal/governance review required",
+      "source quotation review required",
+      "no public-safe narrative approved",
+      "no promotion packet created",
+      "no preview generated",
+      "no Control Tower public publish approval"
+    ]
+  }
+}

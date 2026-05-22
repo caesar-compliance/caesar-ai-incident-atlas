@@ -4,6 +4,18 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [0.28.0] - 22 May 2026
+
+### Added
+- **T069 — Private Promotion-Packet Candidate Package + Controlled Signoff Checklist Update.**
+  - `schemas/pipeline/private-promotion-packet-candidate.schema.json` — Defines private promotion-packet candidate schemas with strictly controlled publication permissions.
+  - `scripts/build-private-promotion-packet-candidate.mjs` — Compiles T068 signoff, T067 dry-run, and T066 package into a single deterministic local candidate package.
+  - `scripts/export-review-console-private-promotion-packet-candidate-data.mjs` — Prepares console-friendly metadata summaries outside `site/` bounds.
+  - `scripts/export-hosted-private-promotion-packet-candidate-payloads.mjs` — Formats sanitized dry-run payloads for future `atlas_private_promotion_packet_candidates` table.
+  - `scripts/validate-private-promotion-packet-candidate.mjs` — High-integrity validation script verifying schema compliance, referential integrity, and rigorous safety invariants.
+  - `scripts/run-private-promotion-packet-candidate-workflow.mjs` — Orchestrates workflow stages and logs results.
+  - Updated `validate-hosted-sync-safety.mjs`, `export-ops-status.mjs`, and Review Console UI to load and render candidate packets.
+
 ## [0.27.0] - 21 May 2026
 
 ### Added

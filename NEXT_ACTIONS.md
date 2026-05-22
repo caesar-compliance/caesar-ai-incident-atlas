@@ -1,6 +1,6 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T068 Complete)
+**Last updated:** 22 May 2026 (T069 Complete)
 
 
 ---
@@ -9,7 +9,7 @@
 
 This repository is in the **v0.8.2 Product Pivot / Digests MVP** phase. The product has pivoted from "public AI incident database" to "AI Legal & Governance Case Atlas — a case-to-control intelligence layer."
 
-Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/` with exactly 12 validated incident records, accompanied by a static digests portal and RSS feeds.
+Technical Public MVP is **LIVE + VERIFIED** at `https://atlas.caesar.no/` with exactly 13 validated incident records, accompanied by a static digests portal and RSS feeds.
 
 The new product pivot architecture and policies are now active. See `PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md` and related documents before performing any new task or record drafting.
 
@@ -82,6 +82,7 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 | T066 — Private Draft Candidate Packet Shaping | **Complete** — rich private draft package schema, compiler builder, console widgets, Supabase dry-runs, workflow runner, and safety checker | 21 May 2026 |
 | T067 — Private Promotion-Packet Dry-Run Preparation | **Complete** — private promotion dry-run schema, builder, console exporter, hosted payload exporter, validator, workflow runner, review console UI update | 21 May 2026 |
 | T068 — Controlled Private Promotion Review/Signoff | **Complete** — private signoff schema, builder, apply script, exporters, validator, workflow, review console signoff view | 21 May 2026 |
+| T069 — Private Promotion-Packet Candidate Package + Controlled Signoff Checklist Update | **Complete** — private candidate packet schema, compiler builder, console metadata widgets, Supabase dry-runs, and workflow validation runner | 22 May 2026 |
 | T062 — Private Candidate Review Intake | **Complete** — converted T061 signals to private review intake records, schema, exporters, and safety checks | 21 May 2026 |
 | T065 — Controlled Approval of One Private Intake + Draft Candidate Packet | **Complete** — local-only approved marker generator, selected single candidate, promoted 1 decision, compiled 1 draft packet, updated console and hosted exporters, and added regression tests | 21 May 2026 |
 | T064 — Explicit Private Draft Approval Gate + Controlled Draft Packet Promotion | **Complete** — local-only explicit approval marker schema, generator, applier, updated controlled draft packet builder, dynamic validators, and console UI upgrades | 21 May 2026 |
@@ -115,9 +116,9 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 
 ---
 
-## Next Recommended Step: T056
+## Next Recommended Step: T070
 
-**T056 — Next Real Case Publication Cycle.** Run live adapter pipeline to collect fresh candidates, rank, select best PKT for Control Tower review, draft, verify, and publish INC-0014 (requires CT approval). Alternatively: digest refresh, jurisdiction enrichment on existing records, or taxonomy v0.3 finalisation.
+**T070 — Controlled Private Review and Publication Blocker Resolution.** Resolve private reviewers' blockers on the candidate packet, and synchronize runtime-hosted statuses (private only, no public publish).
 
 ---
 

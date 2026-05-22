@@ -1,6 +1,6 @@
 # Project State — caesar-ai-incident-atlas
 
-**Last updated:** 21 May 2026 (T068)
+**Last updated:** 22 May 2026 (T069)
 
 ---
 
@@ -9,12 +9,12 @@
 | Field | Value |
 |---|---|
 | Repository name | `caesar-ai-incident-atlas` |
-| Current version | `0.26.0` |
-| Current phase | `T068 — Controlled Private Promotion Review/Signoff` |
+| Current version | `0.28.0` |
+| Current phase | `T069 — Private Promotion-Packet Candidate Package + Controlled Signoff Checklist Update` |
 | Status | `complete` |
-| Latest completed task | `T068 — Controlled Private Promotion Review/Signoff` |
-| Active work item | `T068 complete. Private promotion signoff record gates T067 dry-run with pending review checklist; no publication approval; all permission flags false.` |
-| Next recommended step | `Execute T069 — controlled promotion-packet candidate package (private dry-run only).` |
+| Latest completed task | `T069 — Private Promotion-Packet Candidate Package + Controlled Signoff Checklist Update` |
+| Active work item | `T069 complete. Deterministic candidate package compiled from T068 signoff, T067 dry-run, and T066 package. All publication flags strictly false, review checklist separated.` |
+| Next recommended step | `Execute T070 — controlled private review and publication blocker resolution or runtime-hosted review sync (private only, no public publish).` |
 
 ---
 
@@ -72,6 +72,9 @@
 | T064 — Explicit Private Draft Approval Gate + Controlled Draft Packet Promotion | **Complete** — local-only explicit approval marker schema, generator, applier, updated controlled draft packet builder, dynamic validators, and console UI upgrades. | 21 May 2026 |
 | T065 — Controlled Approval of One Private Intake + Draft Candidate Packet | **Complete** — local-only approved marker generator, selected single candidate, promoted 1 decision, compiled 1 draft packet, updated console and hosted exporters. | 21 May 2026 |
 | T066 — Private Draft Candidate Packet Shaping | **Complete** — rich private draft package schema, compiler builder, console widgets, Supabase dry-runs, workflow runner, and safety checker. | 21 May 2026 |
+| T067 — Private Promotion-Packet Dry-Run Preparation | **Complete** — Caesar-native dry-run preparation schema, builder, console export, hosted dry-run payloads, and safety validator. | 21 May 2026 |
+| T068 — Controlled Private Promotion Review/Signoff | **Complete** — Signoff schema, builder, apply decisions, review console update, hosted payloads export, safety validations. | 21 May 2026 |
+| T069 — Private Promotion-Packet Candidate Package + Controlled Signoff Checklist Update | **Complete** — Private candidate packet schema, compiler builder, console metadata widgets, Supabase dry-runs, and workflow validation runner. | 22 May 2026 |
 | v0.8.0 Product Pivot — Strategic repositioning | Complete — Strategic docs, mapping models, and automation policies created | 21 May 2026 |
 | v0.7.8 Dataset Expansion — INC-0012 drafted | Complete — 12 records; INC-0012 prepared for CT review | 20 May 2026 |
 | v0.7.7 Dataset Expansion — INC-0011 signed off | Complete — 11 records; INC-0011 governance-approved | 20 May 2026 |

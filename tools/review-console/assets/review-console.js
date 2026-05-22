@@ -343,6 +343,68 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    if (bundleName === 'private-promotion-packet-candidate.json') {
+      isPrivateIntakeBundle = false;
+      isRealBundle = false;
+      safetyWarningBanner.innerHTML = `<strong>[CRITICAL WARNING]</strong> PRIVATE PROMOTION-PACKET CANDIDATE ONLY &bull; NOT A REAL PROMOTION PACKET &bull; NO INC-0014 CREATED &bull; NOT PUBLICATION APPROVAL &bull; STRICTLY LOCAL SANDBOX`;
+      safetyLabel.textContent = "PRIVATE PROMOTION-PACKET CANDIDATE";
+      if (safetyIndicator) {
+        safetyIndicator.className = 'pulse-orange';
+        safetyIndicator.style.backgroundColor = '#9333ea';
+      }
+      if (pipelineStageTabs) pipelineStageTabs.style.display = 'none';
+      if (pipelineSummaryBar) pipelineSummaryBar.style.display = 'none';
+      if (digestPreviewBlock) digestPreviewBlock.style.display = 'none';
+      if (qualityClassFilter) qualityClassFilter.style.display = 'none';
+
+      sidebarHeaderTitle.textContent = "Packet Candidates";
+
+      fetch(`./data/private-promotion-packet-candidate.json`)
+      .then(r => r.json())
+      .then(candidateData => {
+        bundleTimestampEl.textContent = candidateData.generated_at || candidateData.created_at
+          ? new Date(candidateData.generated_at || candidateData.created_at).toLocaleString()
+          : 'Unknown';
+
+        draftListContainer.innerHTML = '';
+        const item = document.createElement('div');
+        item.className = 'draft-item draft-item-private-packet-candidate';
+        item.style.cssText = 'padding:10px 12px; cursor:pointer; border-bottom:1px solid #2a2a2a; background:#120d1a;';
+        item.innerHTML = `
+          <div style="font-size:10px; color:#c084fc; font-weight:700; text-transform:uppercase; margin-bottom:4px;">
+            📦 PACKET CANDIDATE
+          </div>
+          <div style="font-size:12px; font-weight:600; color:#fff; margin-bottom:2px;">
+            ${escapeHTML(candidateData.candidate_packet_id || 'Packet Candidate')}
+          </div>
+          <div style="font-size:10px; color:#888;">
+            ${candidateData.source_run_id || '—'}
+          </div>
+          <div style="margin-top:6px; display:flex; gap:4px; flex-wrap:wrap;">
+            <span style="background:#1a0d1a; border:1px solid #c084fc; color:#c084fc; font-size:9px; padding:1px 5px; border-radius:3px;">
+              ${candidateData.status || 'prepared'}
+            </span>
+            <span style="background:#1a0d0d; border:1px solid #ef4444; color:#ef4444; font-size:9px; padding:1px 5px; border-radius:3px;">
+              ${(candidateData.publication_approval_state || {}).unresolved_blocker_count || 0} blockers
+            </span>
+          </div>
+        `;
+        item.addEventListener('click', () => renderPrivatePromoPacketCandidateDetail(candidateData));
+        draftListContainer.appendChild(item);
+        renderPrivatePromoPacketCandidateDetail(candidateData);
+      })
+      .catch(err => {
+        console.error("Error loading private promotion-packet candidate data:", err);
+        draftListContainer.innerHTML = `
+          <div class="loading-placeholder" style="color: var(--color-danger);">
+            Failed to load Private Promotion-Packet Candidate data.<br>
+            Please run the T069 workflow scripts first!
+          </div>
+        `;
+      });
+      return;
+    }
+
     isPrivateIntakeBundle = false;
 
 
@@ -1861,6 +1923,98 @@ document.addEventListener('DOMContentLoaded', () => {
     gateStepControl.className = 'status-step blocked';
     gateStepControl.querySelector('.step-check').innerHTML = '🚫';
     gateStepControl.querySelector('.step-text').textContent = 'Publication Not Allowed';
+  }
+
+  function renderPrivatePromoPacketCandidateDetail(candidateData) {
+    emptyStatePanel.classList.add('hidden');
+    if (healthDetailPanel) healthDetailPanel.classList.add('hidden');
+    if (packetDetailPanel) packetDetailPanel.classList.add('hidden');
+    activeDetailPanel.classList.remove('hidden');
+
+    ['detail-local-only-label', 'detail-not-public-label', 'detail-not-approved-label', 'detail-promotion-blocked-label'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('hidden');
+    });
+
+    const prep = candidateData.private_package_preparation_checklist || {};
+    const state = candidateData.publication_approval_state || {};
+
+    detailDraftId.textContent = 'PROMO_PACKET_CANDIDATE';
+    detailCandidateId.textContent = candidateData.candidate_packet_id || '—';
+    detailProposedTitle.textContent = (candidateData.candidate_packet_id || 'PROMO-PACKET-CAND-GREEN-RUN-20260521-202417-001') + ' (Private Candidate)';
+    detailJurisdiction.textContent = 'Local (Private Candidate)';
+    detailLegalDomain.textContent = 'AI & Governance';
+    detailCommercialDomain.textContent = 'Promotion Packet Candidate Gate';
+
+    detailCleanRoomSummary.innerHTML = `
+      <strong>Private Promotion Packet Candidate — Preparation Checklist:</strong><br><br>
+      <div style="margin-bottom:6px;">• <strong>Source Chain Referenced:</strong> ${prep.source_chain_referenced ? '✅' : '⬜'}</div>
+      <div style="margin-bottom:6px;">• <strong>Parent Package Referenced:</strong> ${prep.parent_package_referenced ? '✅' : '⬜'}</div>
+      <div style="margin-bottom:6px;">• <strong>Dry Run Referenced:</strong> ${prep.dry_run_referenced ? '✅' : '⬜'}</div>
+      <div style="margin-bottom:6px;">• <strong>Signoff Referenced:</strong> ${prep.signoff_referenced ? '✅' : '⬜'}</div>
+      <div style="margin-bottom:6px;">• <strong>Blockers Preserved:</strong> ${prep.blockers_preserved ? '✅' : '⬜'}</div>
+      <div style="margin-bottom:6px;">• <strong>Safety Flags Locked:</strong> ${prep.safety_flags_locked ? '✅' : '⬜'}</div>
+      <div style="margin-bottom:6px;">• <strong>Console Export Ready:</strong> ${prep.console_export_ready ? '✅' : '⬜'}</div>
+      <div style="margin-bottom:6px;">• <strong>Hosted Payload Sanitized:</strong> ${prep.hosted_payload_sanitized ? '✅' : '⬜'}</div>
+    `;
+
+    detailCaseType.textContent = 'candidate_packet_gate';
+    detailSourceAuthorities.textContent = candidateData.source_run_id || 'Unknown';
+    detailSourceUrl.href = '#';
+    detailSourceUrl.textContent = 'Private candidate — no source URL exposed';
+
+    detailSourceTier.textContent = 'PRIVATE CANDIDATE PACKAGE';
+    detailSourceTier.className = 'tier-pill tier-yellow';
+    detailSourceRiskLevel.textContent = 'PRIVATE_PROMOTION_PACKET_CANDIDATE';
+    detailSourceRiskLevel.className = 'risk-pill risk-orange';
+
+    detailPublishRecommendation.textContent = candidateData.status || 'prepared';
+    detailBusinessRisk.textContent = 'Private promotion-packet candidate only — not public — no INC-0014 — not publication approval.';
+
+    populateList(detailFailureModesList, [], 'tag');
+    populateList(detailMissingControlsList, [], 'control');
+    populateList(detailEvidenceList, [], 'evidence');
+    detailTrainingLesson.textContent = 'Private promotion-packet candidate has been successfully prepared. Publication approval remains blocked/pending.';
+    populateList(detailVendorQuestionsList, [], 'question');
+
+    simulationResultPanel.classList.remove('hidden');
+    simulationResultPanel.innerHTML = `
+      <div class="result-header" style="background-color: #6d28d9; color: white; padding: 10px; border-radius: 4px; font-weight: bold; margin-bottom: 10px; text-align: center; font-size:12px;">
+        📦 PRIVATE PROMOTION PACKET CANDIDATE
+      </div>
+      <div class="result-body" style="font-size: 13px;">
+        <div style="padding: 10px; background: rgba(109, 40, 217, 0.08); border: 1px solid rgba(139, 92, 246, 0.4); border-radius: 6px; margin-bottom: 12px;">
+          <div style="font-weight: 700; color: #a78bfa; text-transform: uppercase;">
+            ${escapeHTML((candidateData.status || 'prepared').replace(/_/g, ' '))}
+          </div>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Publication Approval Status:</strong>
+          <span style="color:#ef4444; font-weight:bold; margin-left:4px;">${escapeHTML(state.status || 'blocked').toUpperCase()}</span>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Unresolved Blockers (${state.unresolved_blocker_count || 0}):</strong>
+          <ul style="color: var(--color-text-muted); padding-left: 20px; margin-top:4px;">
+            ${(state.publication_blockers || []).map(b => `<li>${escapeHTML(b)}</li>`).join('')}
+          </ul>
+        </div>
+        <div style="margin-top: 12px; font-size: 11px; border-top: 1px solid var(--border-color); padding-top: 8px; color: #a78bfa; font-weight: bold;">
+          Private promotion-packet candidate only &bull; Not public &bull; No INC-0014 &bull; Not publication approval
+        </div>
+      </div>
+    `;
+
+    gateStepCurator.className = 'status-step passed';
+    gateStepCurator.querySelector('.step-check').innerHTML = '✓';
+    gateStepCurator.querySelector('.step-text').textContent = 'Candidate Packet Prepared';
+
+    gateStepWording.className = 'status-step pending';
+    gateStepWording.querySelector('.step-check').innerHTML = '○';
+    gateStepWording.querySelector('.step-text').textContent = 'Publication Approval Blocked';
+
+    gateStepControl.className = 'status-step blocked';
+    gateStepControl.querySelector('.step-check').innerHTML = '🚫';
+    gateStepControl.querySelector('.step-text').textContent = 'Public Publication Blocked';
   }
 
   // Initialize load
