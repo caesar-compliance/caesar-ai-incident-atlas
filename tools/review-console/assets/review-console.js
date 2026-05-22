@@ -405,6 +405,68 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    if (bundleName === 'private-publication-blocker-resolution.json') {
+      isPrivateIntakeBundle = false;
+      isRealBundle = false;
+      safetyWarningBanner.innerHTML = `<strong>[CRITICAL WARNING]</strong> PRIVATE BLOCKER-RESOLUTION DOSSIER ONLY &bull; PUBLICATION REMAINS BLOCKED &bull; NO INC-0014 CREATED &bull; NO PUBLIC PREVIEW &bull; NO REAL PROMOTION PACKET &bull; HUMAN/LEGAL/PUBLICATION REVIEW REQUIRED &bull; STRICTLY LOCAL SANDBOX`;
+      safetyLabel.textContent = "PRIVATE BLOCKER-RESOLUTION DOSSIER";
+      if (safetyIndicator) {
+        safetyIndicator.className = 'pulse-orange';
+        safetyIndicator.style.backgroundColor = '#9333ea';
+      }
+      if (pipelineStageTabs) pipelineStageTabs.style.display = 'none';
+      if (pipelineSummaryBar) pipelineSummaryBar.style.display = 'none';
+      if (digestPreviewBlock) digestPreviewBlock.style.display = 'none';
+      if (qualityClassFilter) qualityClassFilter.style.display = 'none';
+
+      sidebarHeaderTitle.textContent = "Blocker Resolutions";
+
+      fetch(`./data/private-publication-blocker-resolution.json`)
+      .then(r => r.json())
+      .then(dossierData => {
+        bundleTimestampEl.textContent = dossierData.generated_at || dossierData.created_at
+          ? new Date(dossierData.generated_at || dossierData.created_at).toLocaleString()
+          : 'Unknown';
+
+        draftListContainer.innerHTML = '';
+        const item = document.createElement('div');
+        item.className = 'draft-item draft-item-private-blocker-resolution';
+        item.style.cssText = 'padding:10px 12px; cursor:pointer; border-bottom:1px solid #2a2a2a; background:#120d1a;';
+        item.innerHTML = `
+          <div style="font-size:10px; color:#c084fc; font-weight:700; text-transform:uppercase; margin-bottom:4px;">
+            🛡️ BLOCKER RESOLUTION
+          </div>
+          <div style="font-size:12px; font-weight:600; color:#fff; margin-bottom:2px;">
+            ${escapeHTML(dossierData.resolution_id || 'Blocker Resolution')}
+          </div>
+          <div style="font-size:10px; color:#888;">
+            ${dossierData.source_run_id || '—'}
+          </div>
+          <div style="margin-top:6px; display:flex; gap:4px; flex-wrap:wrap;">
+            <span style="background:#1a0d1a; border:1px solid #c084fc; color:#c084fc; font-size:9px; padding:1px 5px; border-radius:3px;">
+              ${dossierData.status || 'partially_resolved'}
+            </span>
+            <span style="background:#1a0d0d; border:1px solid #ef4444; font-size:9px; padding:1px 5px; border-radius:3px;">
+              blocked
+            </span>
+          </div>
+        `;
+        item.addEventListener('click', () => renderPrivatePublicationBlockerResolutionDetail(dossierData));
+        draftListContainer.appendChild(item);
+        renderPrivatePublicationBlockerResolutionDetail(dossierData);
+      })
+      .catch(err => {
+        console.error("Error loading private publication blocker-resolution data:", err);
+        draftListContainer.innerHTML = `
+          <div class="loading-placeholder" style="color: var(--color-danger);">
+            Failed to load Private Publication Blocker-Resolution data.<br>
+            Please run the T070 workflow scripts first!
+          </div>
+        `;
+      });
+      return;
+    }
+
     isPrivateIntakeBundle = false;
 
 
@@ -2015,6 +2077,110 @@ document.addEventListener('DOMContentLoaded', () => {
     gateStepControl.className = 'status-step blocked';
     gateStepControl.querySelector('.step-check').innerHTML = '🚫';
     gateStepControl.querySelector('.step-text').textContent = 'Public Publication Blocked';
+  }
+
+  function renderPrivatePublicationBlockerResolutionDetail(dossierData) {
+    emptyStatePanel.classList.add('hidden');
+    if (healthDetailPanel) healthDetailPanel.classList.add('hidden');
+    if (packetDetailPanel) packetDetailPanel.classList.add('hidden');
+    activeDetailPanel.classList.remove('hidden');
+
+    ['detail-local-only-label', 'detail-not-public-label', 'detail-not-approved-label', 'detail-promotion-blocked-label'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('hidden');
+    });
+
+    const ledger = dossierData.blocker_ledger || [];
+    const resolvedList = ledger.filter(b => b.t070_status === 'resolved');
+    const unresolvedList = ledger.filter(b => b.t070_status !== 'resolved');
+
+    detailDraftId.textContent = 'BLOCKER_RESOLUTION';
+    detailCandidateId.textContent = dossierData.resolution_id || '—';
+    detailProposedTitle.textContent = (dossierData.resolution_id || 'PUB-BLOCKER-RES-GREEN-RUN-20260521-202417-001') + ' (Private Dossier)';
+    detailJurisdiction.textContent = 'Local (Private Blocker Resolution)';
+    detailLegalDomain.textContent = 'AI & Governance';
+    detailCommercialDomain.textContent = 'Blocker Resolution Gate';
+
+    detailCleanRoomSummary.innerHTML = `
+      <strong>Private Blocker Resolution Dossier Summary:</strong><br><br>
+      <div style="margin-bottom:6px;">• <strong>Private Blocker-Resolution Dossier Only:</strong> ✅</div>
+      <div style="margin-bottom:6px;">• <strong>Publication Blocked:</strong> 🔒 YES (strictly false)</div>
+      <div style="margin-bottom:6px;">• <strong>No INC-0014 Created:</strong> ✅ YES</div>
+      <div style="margin-bottom:6px;">• <strong>No Public Preview:</strong> ✅ YES</div>
+      <div style="margin-bottom:6px;">• <strong>No Real Promotion Packet:</strong> ✅ YES</div>
+      <br>
+      <strong>Blocker Status Evaluation:</strong><br>
+      <div style="margin-top:4px; font-size:12px; color:#888;">
+        Total Evaluated: <strong>${ledger.length}</strong> | Resolved: <strong style="color:#28a745;">${resolvedList.length}</strong> | Remaining Blocked/Human Review: <strong style="color:#ef4444;">${unresolvedList.length}</strong>
+      </div>
+    `;
+
+    detailCaseType.textContent = 'blocker_resolution_gate';
+    detailSourceAuthorities.textContent = dossierData.source_run_id || 'Unknown';
+    detailSourceUrl.href = '#';
+    detailSourceUrl.textContent = 'Private dossier — no source URL exposed';
+
+    detailSourceTier.textContent = 'PRIVATE RESOLUTION DOSSIER';
+    detailSourceTier.className = 'tier-pill tier-yellow';
+    detailSourceRiskLevel.textContent = 'PUBLICATION_STILL_BLOCKED';
+    detailSourceRiskLevel.className = 'risk-pill risk-orange';
+
+    detailPublishRecommendation.textContent = dossierData.status || 'partially_resolved';
+    detailBusinessRisk.textContent = 'Private blocker-resolution dossier only — not publication approval — all remote/public writes strictly disabled.';
+
+    populateList(detailFailureModesList, [], 'tag');
+    populateList(detailMissingControlsList, [], 'control');
+    populateList(detailEvidenceList, [], 'evidence');
+    detailTrainingLesson.textContent = 'T070 blocker resolution compiled successfully. Only private technical preparation package blockers are resolved. All human/legal review and public preview blockers remain strictly blocked.';
+    populateList(detailVendorQuestionsList, [], 'question');
+
+    simulationResultPanel.classList.remove('hidden');
+    simulationResultPanel.innerHTML = `
+      <div class="result-header" style="background-color: #7c2d12; color: white; padding: 10px; border-radius: 4px; font-weight: bold; margin-bottom: 10px; text-align: center; font-size:12px;">
+        🛡️ PRIVATE BLOCKER-RESOLUTION DOSSIER
+      </div>
+      <div class="result-body" style="font-size: 13px;">
+        <div style="padding: 10px; background: rgba(124, 45, 18, 0.08); border: 1px solid rgba(249, 115, 22, 0.4); border-radius: 6px; margin-bottom: 12px;">
+          <div style="font-weight: 700; color: #fdba74; text-transform: uppercase;">
+            ${escapeHTML((dossierData.status || 'partially_resolved').replace(/_/g, ' '))}
+          </div>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Publication Status:</strong>
+          <span style="color:#ef4444; font-weight:bold; margin-left:4px;">BLOCKED</span>
+        </div>
+
+        <div style="margin-bottom: 8px;">
+          <strong>Resolved Blockers (${resolvedList.length}):</strong>
+          <ul style="color: #28a745; padding-left: 20px; margin-top:4px;">
+            ${resolvedList.map(b => `<li><strong>${escapeHTML(b.source_signoff_blocker_id)}:</strong> ${escapeHTML(b.resolution_basis)}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div style="margin-bottom: 8px;">
+          <strong>Remaining Blockers (${unresolvedList.length}):</strong>
+          <ul style="color: #ef4444; padding-left: 20px; margin-top:4px;">
+            ${unresolvedList.map(b => `<li><strong>${escapeHTML(b.source_signoff_blocker_id)}:</strong> ${escapeHTML(b.t070_status)} (${escapeHTML(b.remaining_action)})</li>`).join('')}
+          </ul>
+        </div>
+
+        <div style="margin-top: 12px; font-size: 11px; border-top: 1px solid var(--border-color); padding-top: 8px; color: #fdba74; font-weight: bold;">
+          Private Blocker-Resolution Dossier Only &bull; Publication remains blocked &bull; No INC-0014 &bull; Not publication approval
+        </div>
+      </div>
+    `;
+
+    gateStepCurator.className = 'status-step passed';
+    gateStepCurator.querySelector('.step-check').innerHTML = '✓';
+    gateStepCurator.querySelector('.step-text').textContent = 'Technical Blocker Evaluated';
+
+    gateStepWording.className = 'status-step pending';
+    gateStepWording.querySelector('.step-check').innerHTML = '○';
+    gateStepWording.querySelector('.step-text').textContent = 'Human Reviews Blocked';
+
+    gateStepControl.className = 'status-step blocked';
+    gateStepControl.querySelector('.step-check').innerHTML = '🚫';
+    gateStepControl.querySelector('.step-text').textContent = 'Publication Blocked';
   }
 
   // Initialize load

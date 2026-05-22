@@ -1,9 +1,9 @@
 # Roadmap — Next Phases — caesar-ai-incident-atlas
 
 **Created:** 20 May 2026 (T032)
-**Last updated:** 22 May 2026 (T069)
+**Last updated:** 22 May 2026 (T070)
 **Baseline:** Public MVP v0.13.0. 13 records. INC-0013 (EDPB guidance, first real adapter-detected case) published under CT approval.
-**Status:** Active MVP. INC-0013 live. Promotion pipeline fully operational. T067 dry-run, T068 signoff, and T069 candidate complete. Next: T070 blocker resolution.
+**Status:** Active MVP. INC-0013 live. Promotion pipeline fully operational. T067 dry-run, T068 signoff, T069 candidate, and T070 blocker-resolution complete. Next: T071.
 
 See `PUBLIC_MVP_BASELINE_FREEZE.md` for frozen baseline rules.
 See `ROADMAP.md` for the full historical phase plan.
@@ -203,6 +203,20 @@ For each of the 12 (and future) case records, map to:
 - `validate-hosted-sync-safety.mjs`: extended to 31 checks
 
 **Next T061:** Execute real watch run (`node scripts/watch-green-sources.mjs`), promote top candidate, or activate hosted infrastructure.
+
+---
+
+## v1.11 — Private Publication Blocker Resolution Dossier + Runtime-Handoff Sync (T070 — 22 May 2026)
+
+**T070 complete** — Private publication blocker-resolution schema, builder, console review exporter, hosted dry-run payloads, and offline validation runner.
+- Enforced deterministic blocker resolution dossier ID and strict publication bounds: `public_publish_allowed`, `real_promotion_packet_allowed`, `public_preview_allowed`, and `public_record_creation_allowed` are strictly `false`.
+- Created `build-private-publication-blocker-resolution.mjs` compiling signoffs, dry-runs, draft packages, and private promotion-packet candidates.
+- Evaluated and classified T068 blockers; only purely technical private-package preparation blocker ("no promotion packet created") is marked resolved (supported by T069 candidate evidence), while remaining 5 human, legal, and Control Tower blockers stay blocked.
+- Exported console data and sanitized hosted dry-run payloads for `atlas_private_publication_blocker_resolutions` table.
+- Extended `validate-hosted-sync-safety.mjs`, `export-ops-status.mjs`, and Review Console UI to load, display, and validate the blocker resolution dossier.
+- Safety: Enforces zero remote writes, public count remains 13, latest record INC-0013, zero leaks under `site/`.
+
+**Next T071:** Controlled private runtime sync or manual publication approval dossier.
 
 ---
 

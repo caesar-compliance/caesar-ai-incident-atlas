@@ -1,0 +1,21 @@
+{
+  "_schema": "caesar-atlas/reviews/private-publication-blocker-resolution-manifest/v1",
+  "generated_at": "2026-05-22T16:11:26.852Z",
+  "source_run_id": "GREEN-RUN-20260521-202417",
+  "resolution_count": 1,
+  "total_blockers_evaluated": 6,
+  "blockers_resolved_count": 1,
+  "blockers_remaining_count": 5,
+  "public_publish_allowed_count": 0,
+  "resolution_id_summary": "PUB-BLOCKER-RES-GREEN-RUN-20260521-202417-001",
+  "safety_status": {
+    "no_raw_html": true,
+    "no_long_third_party_text": true,
+    "no_secrets": true,
+    "remote_write_allowed": false,
+    "public_publish_allowed": false,
+    "no_inc_0014_created": true,
+    "no_real_promotion_packet": true,
+    "no_publication_approval_granted": true
+  }
+}

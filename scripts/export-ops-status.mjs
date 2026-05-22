@@ -25,6 +25,7 @@ const PRIVATE_CANDIDATE_PACKAGE_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews
 const PRIVATE_PROMO_DRY_RUN_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews', 'private-promotion-dry-runs', 'private-promotion-dry-run-manifest.json');
 const PRIVATE_PROMO_SIGNOFF_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews', 'private-promotion-signoffs', 'private-promotion-signoff-manifest.json');
 const PRIVATE_CAND_PACKET_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews', 'private-promotion-packet-candidates', 'private-promotion-packet-candidate-manifest.json');
+const PRIVATE_PUBLICATION_BLOCKER_RESOLUTION_MANIFEST_PATH = path.join(ROOT, 'data', 'reviews', 'private-publication-blocker-resolutions', 'private-publication-blocker-resolution-manifest.json');
 
 
 const OUT_DIRS = [
@@ -177,6 +178,13 @@ const privatePromotionPacketCandidateCount = privateCandPacketManifest
   : 0;
 const privatePromotionPacketCandidatePublicAllowedCount = 0;
 
+// ── Read T070 private publication blocker resolution manifest ──────────────
+const privateBlockerResManifest = readJson(PRIVATE_PUBLICATION_BLOCKER_RESOLUTION_MANIFEST_PATH);
+const t070PrivateBlockerResolutionPresent = privateBlockerResManifest ? true : false;
+const t070PublicationStillBlocked = true;
+const t070PublicPublishAllowed = false;
+const t070PublicRecordCreationAllowed = false;
+
 // ── Build status JSON ──────────────────────────────────────────────────────
 const now = new Date().toISOString();
 
@@ -229,6 +237,11 @@ const opsStatus = {
   private_promotion_packet_candidate_status: privatePromotionPacketCandidateStatus,
   private_promotion_packet_candidate_count: privatePromotionPacketCandidateCount,
   private_promotion_packet_candidate_public_allowed_count: privatePromotionPacketCandidatePublicAllowedCount,
+  // T070: Private publication blocker resolution status
+  t070_private_blocker_resolution_present: t070PrivateBlockerResolutionPresent,
+  publication_still_blocked:                 t070PublicationStillBlocked,
+  public_publish_allowed:                   t070PublicPublishAllowed,
+  public_record_creation_allowed:           t070PublicRecordCreationAllowed,
   next_step:                 'Configure Supabase + Cloudflare Worker secrets to enable hosted_ready mode',
   public_site_url:           'https://atlas.caesar.no',
   data_endpoint:             'https://atlas.caesar.no/data/incident-index.json',

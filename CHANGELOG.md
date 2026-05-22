@@ -4,6 +4,18 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [0.29.0] - 22 May 2026
+
+### Added
+- **T070 — Private Publication Blocker Resolution Dossier + Runtime-Handoff Sync.**
+  - `schemas/pipeline/private-publication-blocker-resolution.schema.json` — Defines the private publication blocker resolution dossier schema.
+  - `scripts/build-private-publication-blocker-resolution.mjs` — Evaluates T068 blockers, selectively resolves the technical blocker citing T069 candidate package evidence, and maintains legal/publication blockers in blocked/requires_human_review state.
+  - `scripts/export-review-console-private-publication-blocker-resolution-data.mjs` — Console summary data exporter.
+  - `scripts/export-hosted-private-publication-blocker-resolution-payloads.mjs` — Sanitized Supabase dry-run payload exporter.
+  - `scripts/validate-private-publication-blocker-resolution.mjs` — Dedicated dossier validator enforcing safety invariants.
+  - `scripts/run-private-publication-blocker-resolution-workflow.mjs` — Local workflow runner for blocker resolution compilation.
+  - Updated Review Console and safety validators (`validate-hosted-sync-safety.mjs`, `export-ops-status.mjs`) to integrate blocker evaluation.
+
 ## [0.28.0] - 22 May 2026
 
 ### Added

@@ -1330,7 +1330,94 @@ if (hostedCand) {
   pass('T069: atlas-private-promotion-packet-candidate.private-latest.json not present (ok)');
 }
 
+// ── 70. T070: private publication blocker-resolution checks ────────────────────
+const dossierLatestPath = path.join(ROOT, 'data', 'reviews', 'private-publication-blocker-resolutions', 'private-publication-blocker-resolution-latest.json');
+
+const dossierLatest = readJson(dossierLatestPath);
+if (dossierLatest) {
+  if (dossierLatest.status !== 'private_package_blockers_partially_resolved') {
+    fail('T070: private publication blocker resolution status is not private_package_blockers_partially_resolved');
+  } else {
+    pass('T070: private publication blocker resolution status = private_package_blockers_partially_resolved');
+  }
+
+  const boolChecksT070 = [
+    'public_publish_allowed',
+    'real_promotion_packet_allowed',
+    'public_preview_allowed',
+    'public_record_creation_allowed',
+    'remote_write_allowed',
+    'raw_text_storage_allowed',
+    'html_storage_allowed'
+  ];
+  let flagsOk = true;
+  for (const flag of boolChecksT070) {
+    if (dossierLatest[flag] !== false) {
+      fail(`T070: ${flag} is not false in dossier latest`);
+      flagsOk = false;
+    }
+  }
+  if (flagsOk) {
+    pass('T070: all publication and write permission flags are false in dossier latest');
+  }
+
+  const sft = dossierLatest.safety_flags || {};
+  const sftChecks = [
+    'no_raw_html', 'no_long_third_party_text', 'no_secrets',
+    'no_inc_0014_created', 'no_real_promotion_packet', 'no_public_preview',
+    'no_public_site_mutation', 'no_publication_approval_granted'
+  ];
+  let sfOk = true;
+  for (const key of sftChecks) {
+    if (sft[key] !== true) {
+      fail(`T070: safety_flags.${key} is not true`);
+      sfOk = false;
+    }
+  }
+  if (sfOk) {
+    pass('T070: all safety flags are true in dossier latest');
+  }
+} else {
+  pass('T070: private publication blocker resolution latest not present (ok)');
+}
+
+const hostedDossierPath = path.join(OPS_SUPABASE_DIR, 'atlas-private-publication-blocker-resolution.private-latest.json');
+const hostedDossier = readJson(hostedDossierPath);
+if (hostedDossier) {
+  if (hostedDossier.remote_write_attempted !== false) {
+    fail('T070: atlas-private-publication-blocker-resolution.private-latest.json remote_write_attempted is not false');
+  } else {
+    pass('T070: atlas-private-publication-blocker-resolution.private-latest.json remote_write_attempted = false');
+  }
+  if (hostedDossier.dry_run !== 'export_only') {
+    fail(`T070: atlas-private-publication-blocker-resolution.private-latest.json dry_run is ${hostedDossier.dry_run}, expected export_only`);
+  } else {
+    pass('T070: atlas-private-publication-blocker-resolution.private-latest.json dry_run = export_only');
+  }
+  if (hostedDossier.intended_table !== 'atlas_private_publication_blocker_resolutions') {
+    fail(`T070: atlas-private-publication-blocker-resolution.private-latest.json intended_table is ${hostedDossier.intended_table}, expected atlas_private_publication_blocker_resolutions`);
+  } else {
+    pass('T070: atlas-private-publication-blocker-resolution.private-latest.json intended_table is correct');
+  }
+
+  const recs = hostedDossier.records || [];
+  let dossierPayloadErrors = false;
+  for (const r of recs) {
+    if (r.public_publish_allowed !== false || r.real_promotion_packet_allowed !== false || r.remote_write_allowed !== false) {
+      dossierPayloadErrors = true;
+    }
+  }
+  if (!dossierPayloadErrors && recs.length > 0) {
+    pass('T070: hosted blocker resolution payload records sanitized');
+  } else {
+    fail('T070: hosted blocker resolution payload has unsafe flags or no records');
+  }
+} else {
+  pass('T070: atlas-private-publication-blocker-resolution.private-latest.json not present (ok)');
+}
+
 // ── Final result ─────────────────────────────────────────────────────────────
+
 
 process.stdout.write('\n');
 if (errors > 0) {
