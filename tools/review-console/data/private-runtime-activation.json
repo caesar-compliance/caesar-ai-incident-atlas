@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-22T16:32:38.915Z",
+  "generated_at": "2026-05-22T16:40:42.162Z",
   "migration_target": "002_private_review_state_sync.sql",
   "apply_status": "dry_run_plan_emitted",
   "probe_status": "dry_run_probe_plan_emitted",

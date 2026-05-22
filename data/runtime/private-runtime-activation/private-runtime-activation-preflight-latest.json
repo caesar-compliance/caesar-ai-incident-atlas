@@ -1,6 +1,6 @@
 {
   "_schema": "atlas-private-runtime-activation-preflight/v1",
-  "generated_at": "2026-05-22T16:32:38.620Z",
+  "generated_at": "2026-05-22T16:40:41.780Z",
   "task": "T072",
   "safe": true,
   "migration_file": "infra/supabase/migrations/002_private_review_state_sync.sql",

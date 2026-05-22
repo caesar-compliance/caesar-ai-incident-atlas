@@ -1,6 +1,6 @@
 # Next Actions — caesar-ai-incident-atlas
 
-**Last updated:** 22 May 2026 (T072 Complete)
+**Last updated:** 22 May 2026 (T073 Complete)
 
 
 ---
@@ -86,6 +86,7 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 | T070 — Private Publication Blocker Resolution Dossier + Runtime-Handoff Sync | **Complete** — blocker resolution schema, selective technical blocker resolution, Review Console UI, hosted dry-run payloads, and workflow safety runner | 22 May 2026 |
 | T071 — Hosted Private Review-State Sync Readiness | **Complete** — Additive migration draft, Worker contract mock routes, sanitized build/exporter, validation suite, and console sync panel | 22 May 2026 |
 | T072 — Private Runtime Activation Tranche 1 | **Complete** — Preflight DDL safety check, guarded apply harness, read-only live prober, snapshot writer, validation runner, and Review Console dashboard panel | 22 May 2026 |
+| T073 — Private Runtime Activation Tranche 2 | **Complete** — Live Supabase apply/probe/snapshot write harness, Cloudflare Worker deployment/probe script integration, and Review Console status dashboard | 22 May 2026 |
 | T062 — Private Candidate Review Intake | **Complete** — converted T061 signals to private review intake records, schema, exporters, and safety checks | 21 May 2026 |
 | T065 — Controlled Approval of One Private Intake + Draft Candidate Packet | **Complete** — local-only approved marker generator, selected single candidate, promoted 1 decision, compiled 1 draft packet, updated console and hosted exporters, and added regression tests | 21 May 2026 |
 | T064 — Explicit Private Draft Approval Gate + Controlled Draft Packet Promotion | **Complete** — local-only explicit approval marker schema, generator, applier, updated controlled draft packet builder, dynamic validators, and console UI upgrades | 21 May 2026 |
@@ -95,11 +96,11 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 
 ---
 
-## Status: T072 Complete — Private Runtime Activation Tranche 1 Implemented
+## Status: T073 Complete — Private Runtime Activation Tranche 2 Implemented
 
 **Public deployment is LIVE and VERIFIED at `https://atlas.caesar.no/` with exactly 13 validated incident records (INC-0001–INC-0013, including INC-0013 as first real adapter-detected guidance/governance case), a complete static digest portal, and live RSS syndication feeds.**
 
-**The private workflow pipeline now runs end-to-end with the T072 Private Runtime Activation: Green-source watcher → dedupe → real case drafts (`data/drafts/real/`) → promotion packets (`data/promotion-packets/real/`) → dry-runs → signoffs → candidate packages (T069) → blocker-resolution dossier (T070) → review-state sync boundary (T071) → runtime activation apply harness, prober, and snapshot writer (T072) → review console activation dashboard. Task T072 implements local dry-run checkers, preflight verification, guarded database applier, read-only prober, snapshot writer, validation runner, and interactive Review Console panel. Public record count remains exactly 13, and all remote/public/deploy/write flags evaluate to false. Next step: T073 Cloudflare Worker private runtime deploy/probe (if Supabase is live) or T073 approved live Supabase activation.**
+**The private hosted runtime activation (Tranche 2) is complete: Supabase DDL migrations, live read-only prober, sanitized private snapshot writes, Cloudflare Worker wrangler deployments, contract endpoints probe validation, and Review Console integration have all been implemented, verified, and integrated under strict safety and boundary limits. In the absence of required environment keys, all stages gracefully downgrade to safe dry-runs. Public record count remains exactly 13, and all remote/public/deploy/write flags evaluate to false. Next step: T074 Next phase of hosted pipeline execution under Control Tower approvals.**
 
 **Active boundaries, policies, and schemas:**
 - `PRODUCT_PIVOT_LEGAL_GOVERNANCE_CASE_ATLAS.md` (Repositioning & Value Chain)
@@ -119,9 +120,9 @@ The clean-room reference lab policy is active. See `REFERENCE_LAB_USAGE_NOTE.md`
 
 ---
 
-## Next Recommended Step: T073
+## Next Recommended Step: T074
 
-**T073 — Cloudflare Worker private runtime deploy/probe (if Supabase is live, otherwise T073 approved live Supabase activation).** Configure and activate the edge-runtime endpoints connecting to the live hosted database or perform coordinated remote activation.
+**T074 — Next phase of hosted pipeline execution under Control Tower approvals.** Extend the remote/edge runtime controls to support dynamic live sync runs and live candidate review promotions securely.
 
 ---
 

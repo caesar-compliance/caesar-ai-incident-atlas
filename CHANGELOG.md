@@ -5,6 +5,22 @@ All notable changes to Caesar AI Incident Atlas are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.32.0] - 22 May 2026
+
+### Added
+- **T073 — Private Runtime Activation Tranche 2: Approved Supabase Live Apply + Private Snapshot Write + Worker Runtime Probe.**
+  - `scripts/apply-supabase-private-review-state-live.mjs` — SQL DDL applier supporting live execution if approved.
+  - `scripts/probe-supabase-private-review-state-live.mjs` — Live shape/compatibility prober for Supabase.
+  - `scripts/write-private-review-state-snapshot-live.mjs` — Live sanitized metadata-only review snapshot writer.
+  - `scripts/deploy-cloudflare-private-runtime-worker.mjs` — Bounded Cloudflare Worker deployment script using wrangler.
+  - `scripts/probe-cloudflare-private-runtime-worker.mjs` — Live worker route contract validator.
+  - `scripts/validate-cloudflare-private-runtime-worker.mjs` — Wrangler deploy output and contract compliance checker.
+  - `scripts/build-private-runtime-operational-status.mjs` — Operational status aggregator.
+  - `scripts/validate-private-runtime-operational-status.mjs` — Validator for operational status JSON.
+  - `scripts/run-private-runtime-live-activation-workflow.mjs` — Workflow orchestrator coordinating live stages with dry-run fallback.
+  - `scripts/validate-private-runtime-live-activation.mjs` — Workflow validation checking boundary controls.
+  - Updated Review Console UI (`tools/review-console/`) with a premium "Private Runtime Operational Status" dashboard.
+
 ## [0.31.0] - 22 May 2026
 
 ### Added

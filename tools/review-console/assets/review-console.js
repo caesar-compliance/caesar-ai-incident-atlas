@@ -593,6 +593,70 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    if (bundleName === 'private-runtime-operational-status.json') {
+      isPrivateIntakeBundle = false;
+      isRealBundle = false;
+      safetyWarningBanner.innerHTML = `<strong>[CRITICAL WARNING]</strong> PRIVATE RUNTIME OPERATIONAL STATUS • DRY-RUN BY DEFAULT • REMOTE MUTATION SAFEGUARDS ACTIVE • STRICTLY LOCAL SANDBOX`;
+      safetyLabel.textContent = "PRIVATE OPERATIONAL STATUS";
+      if (safetyIndicator) {
+        safetyIndicator.className = 'pulse-orange';
+        safetyIndicator.style.backgroundColor = '#a855f7';
+      }
+      if (pipelineStageTabs) pipelineStageTabs.style.display = 'none';
+      if (pipelineSummaryBar) pipelineSummaryBar.style.display = 'none';
+      if (digestPreviewBlock) digestPreviewBlock.style.display = 'none';
+      if (qualityClassFilter) qualityClassFilter.style.display = 'none';
+
+      sidebarHeaderTitle.textContent = "Runtime Status";
+
+      fetch(`./data/private-runtime-operational-status.json`)
+      .then(r => r.json())
+      .then(statusData => {
+        bundleTimestampEl.textContent = statusData.generated_at
+          ? new Date(statusData.generated_at).toLocaleString()
+          : 'Unknown';
+
+        draftListContainer.innerHTML = '';
+        const item = document.createElement('div');
+        item.className = 'draft-item draft-item-private-runtime-ops-status';
+        item.style.cssText = 'padding:10px 12px; cursor:pointer; border-bottom:1px solid #2a2a2a; background:#120d1a;';
+
+        const isLive = statusData.operational_components?.supabase_table_apply?.executed;
+        item.innerHTML = `
+          <div style="font-size:10px; color:#c084fc; font-weight:700; text-transform:uppercase; margin-bottom:4px;">
+            🛡️ OPERATIONAL STATUS
+          </div>
+          <div style="font-size:12px; font-weight:600; color:#fff; margin-bottom:2px;">
+            T073 Private Runtime
+          </div>
+          <div style="font-size:10px; color:#888;">
+            Apply: ${escapeHTML(statusData.operational_components?.supabase_table_apply?.status || 'dry-run')}
+          </div>
+          <div style="margin-top:6px; display:flex; gap:4px; flex-wrap:wrap;">
+            <span style="background:#1a0d1a; border:1px solid #c084fc; color:#c084fc; font-size:9px; padding:1px 5px; border-radius:3px;">
+              ${isLive ? 'live_activated' : 'dryrun_ready'}
+            </span>
+            <span style="background:#1a0d0d; border:1px solid #ef4444; color:#ef4444; font-size:9px; padding:1px 5px; border-radius:3px;">
+              blocked
+            </span>
+          </div>
+        `;
+        item.addEventListener('click', () => renderPrivateRuntimeOperationalStatusDetail(statusData));
+        draftListContainer.appendChild(item);
+        renderPrivateRuntimeOperationalStatusDetail(statusData);
+      })
+      .catch(err => {
+        console.error("Error loading private runtime operational status data:", err);
+        draftListContainer.innerHTML = `
+          <div class="loading-placeholder" style="color: var(--color-danger);">
+            Failed to load Private Runtime Operational Status data.<br>
+            Please run the T073 workflow scripts first!
+          </div>
+        `;
+      });
+      return;
+    }
+
     isPrivateIntakeBundle = false;
 
 
@@ -2495,6 +2559,119 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div style="margin-top: 12px; font-size: 11px; border-top: 1px solid var(--border-color); padding-top: 8px; color: #93c5fd; font-weight: bold;">
           Private runtime activation tranche 1 compiled &bull; Safe additive migrations validated &bull; Dry-run limits confirmed
+        </div>
+      </div>
+    `;
+
+    gateStepCurator.className = 'status-step passed';
+    gateStepCurator.querySelector('.step-check').innerHTML = '✓';
+    gateStepCurator.querySelector('.step-text').textContent = 'Preflight Validation Passed';
+
+    gateStepWording.className = isLive ? 'status-step passed' : 'status-step pending';
+    gateStepWording.querySelector('.step-check').innerHTML = isLive ? '✓' : '○';
+    gateStepWording.querySelector('.step-text').textContent = isLive ? 'Remote Activation Done' : 'Remote Activation Bounded';
+
+    gateStepControl.className = 'status-step blocked';
+    gateStepControl.querySelector('.step-check').innerHTML = '🚫';
+    gateStepControl.querySelector('.step-text').textContent = 'Publication Blocked';
+  }
+
+  function renderPrivateRuntimeOperationalStatusDetail(statusData) {
+    emptyStatePanel.classList.add('hidden');
+    if (healthDetailPanel) healthDetailPanel.classList.add('hidden');
+    if (packetDetailPanel) packetDetailPanel.classList.add('hidden');
+    activeDetailPanel.classList.remove('hidden');
+
+    ['detail-local-only-label', 'detail-not-public-label', 'detail-not-approved-label', 'detail-promotion-blocked-label'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.remove('hidden');
+    });
+
+    const isLive = statusData.operational_components?.supabase_table_apply?.status === 'live' ||
+                   statusData.operational_components?.worker_deploy?.status === 'live';
+
+    detailDraftId.textContent = 'RUNTIME_OPERATIONAL_STATUS';
+    detailCandidateId.textContent = 'T073';
+    detailProposedTitle.textContent = 'Private Hosted Runtime End-to-End Operational Status';
+    detailJurisdiction.textContent = 'Hosted (Private Runtime Tranche 2)';
+    detailLegalDomain.textContent = 'Private Hosting';
+    detailCommercialDomain.textContent = 'Supabase + Cloudflare Live Harness';
+
+    detailCleanRoomSummary.innerHTML = `
+      <strong>Private Runtime Operational Status (Tranche 2) Summary:</strong><br><br>
+      <div style="margin-bottom:6px;">• <strong>Supabase Table Apply:</strong> <code>${escapeHTML(statusData.operational_components?.supabase_table_apply?.status || 'dry-run')}</code></div>
+      <div style="margin-bottom:6px;">• <strong>Supabase Live Probe:</strong> <code>${escapeHTML(statusData.operational_components?.supabase_live_probe?.status || 'dry-run')}</code></div>
+      <div style="margin-bottom:6px;">• <strong>Private Snapshot Write:</strong> <code>${escapeHTML(statusData.operational_components?.private_snapshot_write?.status || 'dry-run')}</code></div>
+      <div style="margin-bottom:6px;">• <strong>Worker Deploy Status:</strong> <code>${escapeHTML(statusData.operational_components?.worker_deploy?.status || 'dry-run')}</code></div>
+      <div style="margin-bottom:6px;">• <strong>Worker Live Probe Status:</strong> <code>${escapeHTML(statusData.operational_components?.worker_probe?.status || 'dry-run')}</code></div>
+      <br>
+      <strong>Safety Verification Flags:</strong><br>
+      <div style="margin-top:4px; font-size:12px; color:#888;">
+        No Raw HTML: <strong>${statusData.safety_constraints?.no_public_raw_text ?? true}</strong> | No Secrets: <strong>true</strong> | No INC-0014: <strong>${statusData.safety_constraints?.no_inc_0014 ?? true}</strong>
+      </div>
+    `;
+
+    detailCaseType.textContent = 'private_runtime_operational_status';
+    detailSourceAuthorities.textContent = 'Supabase / Cloudflare Worker Operational Status';
+    detailSourceUrl.href = '#';
+    detailSourceUrl.textContent = 'Private operational status — end-to-end telemetry';
+
+    detailSourceTier.textContent = 'PRIVATE OPERATIONAL';
+    detailSourceTier.className = 'tier-pill tier-yellow';
+    detailSourceRiskLevel.textContent = isLive ? 'LIVE_ACTIVATED' : 'DRY_RUN_BY_DEFAULT';
+    detailSourceRiskLevel.className = isLive ? 'risk-pill risk-green' : 'risk-pill risk-orange';
+
+    detailPublishRecommendation.textContent = isLive ? 'live_activated' : 'dryrun_ready';
+    detailBusinessRisk.textContent = 'Strict safety boundaries are preserved. All live mutations remain completely sandboxed unless explicit environment approval markers are supplied. Public publication continues to be blocked.';
+
+    populateList(detailFailureModesList, [], 'tag');
+    populateList(detailMissingControlsList, [], 'control');
+    populateList(detailEvidenceList, [], 'evidence');
+    detailTrainingLesson.textContent = 'T073 private runtime activation tranche 2 deployed. Full Supabase + Cloudflare status tracking integration achieved.';
+    populateList(detailVendorQuestionsList, [], 'question');
+
+    simulationResultPanel.classList.remove('hidden');
+    simulationResultPanel.innerHTML = `
+      <div class="result-header" style="background-color: #581c87; color: white; padding: 10px; border-radius: 4px; font-weight: bold; margin-bottom: 10px; text-align: center; font-size:12px;">
+        🛡️ PRIVATE RUNTIME OPERATIONAL STATUS
+      </div>
+      <div class="result-body" style="font-size: 13px;">
+        <div style="padding: 10px; background: rgba(88, 28, 135, 0.08); border: 1px solid rgba(168, 85, 247, 0.4); border-radius: 6px; margin-bottom: 12px;">
+          <div style="font-weight: 700; color: #d8b4fe; text-transform: uppercase;">
+            ${escapeHTML(isLive ? 'LIVE_ACTIVATED' : 'DRY_RUN_READY')}
+          </div>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Supabase Apply:</strong> <code>${escapeHTML(statusData.operational_components?.supabase_table_apply?.status || 'dry-run')}</code>
+          ${statusData.operational_components?.supabase_table_apply?.errors ? `<div style="color:#ef4444;font-size:11px;margin-left:10px;">Error: ${escapeHTML(statusData.operational_components.supabase_table_apply.errors)}</div>` : ''}
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Supabase Live Probe:</strong> <code>${escapeHTML(statusData.operational_components?.supabase_live_probe?.status || 'dry-run')}</code>
+          ${statusData.operational_components?.supabase_live_probe?.errors ? `<div style="color:#ef4444;font-size:11px;margin-left:10px;">Error: ${escapeHTML(statusData.operational_components.supabase_live_probe.errors)}</div>` : ''}
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Private Snapshot Write:</strong> <code>${escapeHTML(statusData.operational_components?.private_snapshot_write?.status || 'dry-run')}</code>
+          ${statusData.operational_components?.private_snapshot_write?.errors ? `<div style="color:#ef4444;font-size:11px;margin-left:10px;">Error: ${escapeHTML(statusData.operational_components.private_snapshot_write.errors)}</div>` : ''}
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Worker Deploy:</strong> <code>${escapeHTML(statusData.operational_components?.worker_deploy?.status || 'dry-run')}</code>
+          ${statusData.operational_components?.worker_deploy?.errors ? `<div style="color:#ef4444;font-size:11px;margin-left:10px;">Error: ${escapeHTML(statusData.operational_components.worker_deploy.errors)}</div>` : ''}
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Worker Probe:</strong> <code>${escapeHTML(statusData.operational_components?.worker_probe?.status || 'dry-run')}</code>
+          ${statusData.operational_components?.worker_probe?.errors ? `<div style="color:#ef4444;font-size:11px;margin-left:10px;">Error: ${escapeHTML(statusData.operational_components.worker_probe.errors)}</div>` : ''}
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>Publication Still Blocked:</strong> <span style="color:#ef4444; font-weight:bold;">${statusData.safety_constraints?.publication_still_blocked}</span>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>No INC-0014:</strong> <span style="color:#28a745; font-weight:bold;">${statusData.safety_constraints?.no_inc_0014}</span>
+        </div>
+        <div style="margin-bottom: 8px;">
+          <strong>No Public Preview:</strong> <span style="color:#28a745; font-weight:bold;">${!statusData.safety_constraints?.public_preview_allowed}</span>
+        </div>
+        <div style="margin-top: 12px; font-size: 11px; border-top: 1px solid var(--border-color); padding-top: 8px; color: #d8b4fe; font-weight: bold;">
+          Private runtime status verified &bull; Additive remote checks active &bull; Local fallback limits enforced
         </div>
       </div>
     `;

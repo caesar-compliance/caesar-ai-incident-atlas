@@ -27,6 +27,4 @@ ENABLE_WATCH_RUNS = "false"
 # OPS_STATUS_JSON        — Inline ops status JSON for fallback mode
 # LATEST_RUN_JSON        — Inline latest run JSON for fallback mode
 
-# Scheduled trigger (disabled — enable after Supabase integration is complete and CT approved):
-# [[triggers.crons]]
-# crons = ["0 */6 * * *"]
+# Scheduled triggers are disabled. Do not configure triggers in wrangler.example.toml.

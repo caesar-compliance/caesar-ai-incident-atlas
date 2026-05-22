@@ -1,0 +1,12 @@
+{
+  "_schema": "atlas-private-runtime-activation-worker-deploy-result/v1",
+  "generated_at": "2026-05-22T16:40:37.206Z",
+  "task": "T073",
+  "live_deploy_requested": false,
+  "live_deploy_approved": false,
+  "worker_deploy_attempted": false,
+  "success": true,
+  "deploy_details": null,
+  "errors": null,
+  "note": "Dry-run worker deploy only. No deployment performed."
+}

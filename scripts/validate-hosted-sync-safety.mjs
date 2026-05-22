@@ -1547,10 +1547,53 @@ if (opsStatus) {
     pass('T072: publication_still_blocked is true');
   }
 
+  // ── 73. T073: private runtime live activation tranche 2 checks ────────────────
+  if (opsStatus.t073_private_runtime_live_activation_present !== true) {
+    fail('T073: t073_private_runtime_live_activation_present is not true in latest-status.json');
+  } else {
+    pass('T073: t073_private_runtime_live_activation_present is true');
+  }
+
+  if (typeof opsStatus.t073_supabase_live_apply_executed !== 'boolean') {
+    fail('T073: t073_supabase_live_apply_executed must be a boolean');
+  } else {
+    pass('T073: t073_supabase_live_apply_executed is a boolean');
+  }
+
+  if (typeof opsStatus.t073_supabase_live_probe_attempted !== 'boolean') {
+    fail('T073: t073_supabase_live_probe_attempted must be a boolean');
+  } else {
+    pass('T073: t073_supabase_live_probe_attempted is a boolean');
+  }
+
+  if (typeof opsStatus.t073_private_snapshot_write_attempted !== 'boolean') {
+    fail('T073: t073_private_snapshot_write_attempted must be a boolean');
+  } else {
+    pass('T073: t073_private_snapshot_write_attempted is a boolean');
+  }
+
+  if (typeof opsStatus.t073_worker_deploy_attempted !== 'boolean') {
+    fail('T073: t073_worker_deploy_attempted must be a boolean');
+  } else {
+    pass('T073: t073_worker_deploy_attempted is a boolean');
+  }
+
+  if (typeof opsStatus.t073_worker_probe_attempted !== 'boolean') {
+    fail('T073: t073_worker_probe_attempted must be a boolean');
+  } else {
+    pass('T073: t073_worker_probe_attempted is a boolean');
+  }
+
+  if (opsStatus.publication_still_blocked !== true) {
+    fail('T073: publication_still_blocked is not true');
+  } else {
+    pass('T073: publication_still_blocked is true');
+  }
+
   // Ensure no SQL or credentials in status
   const statusStr = JSON.stringify(opsStatus).toLowerCase();
   if (statusStr.includes('select ') || statusStr.includes('insert ') || statusStr.includes('create table')) {
-    fail('T072: SQL statement found inside exported status');
+    fail('T072/T073: SQL statement found inside exported status');
   }
 }
 

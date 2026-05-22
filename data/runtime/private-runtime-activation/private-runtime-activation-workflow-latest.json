@@ -1,6 +1,6 @@
 {
   "_schema": "caesar-atlas/runtime/private-runtime-activation-workflow-log/v1",
-  "generated_at": "2026-05-22T16:32:38.914Z",
+  "generated_at": "2026-05-22T16:40:42.160Z",
   "task": "T072",
   "success": true,
   "error": null,
@@ -28,7 +28,7 @@
       "status": "PASS",
       "output": [
         "probe-supabase-private-review-state-live: DRY-RUN ONLY.",
-        "  Reason: Missing --live-probe flag, ATLAS_T072_LIVE_PROBE_APPROVED=YES, SUPABASE_DB_URL/DATABASE_URL credential"
+        "  Reason: Missing --live-probe flag, ATLAS_T073_LIVE_PROBE_APPROVED=YES"
       ]
     },
     {
@@ -52,7 +52,7 @@
       "stage": "validate-hosted-sync-safety",
       "status": "PASS",
       "output": [
-        "OK:   T072: publication_still_blocked is true",
+        "OK:   T073: publication_still_blocked is true",
         "",
         "validate-hosted-sync-safety: PASSED"
       ]

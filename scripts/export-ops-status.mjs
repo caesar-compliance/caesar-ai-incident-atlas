@@ -204,6 +204,26 @@ const t072RemoteApplyExecuted = t072ApplyResult ? (t072ApplyResult.remote_apply_
 const t072LiveProbeAttempted = t072ProbeResult ? (t072ProbeResult.live_probe_attempted === true) : false;
 const t072RemoteWriteAttempted = t072WriteResult ? (t072WriteResult.remote_write_attempted === true) : false;
 
+// ── Read T073 private runtime activation tranche 2 results ──────────────────
+const T073_APPLY_PATH = path.join(ROOT, 'data', 'runtime', 'private-runtime-activation', 't073-live-apply-result.latest.json');
+const T073_PROBE_PATH = path.join(ROOT, 'data', 'runtime', 'private-runtime-activation', 't073-live-probe-result.latest.json');
+const T073_WRITE_PATH = path.join(ROOT, 'data', 'runtime', 'private-runtime-activation', 't073-private-snapshot-write-result.latest.json');
+const T073_DEPLOY_PATH = path.join(ROOT, 'data', 'runtime', 'private-runtime-activation', 't073-worker-deploy-result.latest.json');
+const T073_WORKER_PROBE_PATH = path.join(ROOT, 'data', 'runtime', 'private-runtime-activation', 't073-worker-probe-result.latest.json');
+
+const t073ApplyResult = readJson(T073_APPLY_PATH);
+const t073ProbeResult = readJson(T073_PROBE_PATH);
+const t073WriteResult = readJson(T073_WRITE_PATH);
+const t073DeployResult = readJson(T073_DEPLOY_PATH);
+const t073WorkerProbeResult = readJson(T073_WORKER_PROBE_PATH);
+
+const t073PrivateRuntimeLiveActivationPresent = (t073ApplyResult && t073ProbeResult && t073WriteResult && t073DeployResult && t073WorkerProbeResult) ? true : false;
+const t073SupabaseLiveApplyExecuted = t073ApplyResult ? (t073ApplyResult.remote_apply_executed === true) : false;
+const t073SupabaseLiveProbeAttempted = t073ProbeResult ? (t073ProbeResult.live_probe_attempted === true) : false;
+const t073PrivateSnapshotWriteAttempted = t073WriteResult ? (t073WriteResult.remote_write_attempted === true) : false;
+const t073WorkerDeployAttempted = t073DeployResult ? (t073DeployResult.worker_deploy_attempted === true) : false;
+const t073WorkerProbeAttempted = t073WorkerProbeResult ? (t073WorkerProbeResult.live_probe_attempted === true) : false;
+
 // ── Build status JSON ──────────────────────────────────────────────────────
 const now = new Date().toISOString();
 
@@ -273,7 +293,14 @@ const opsStatus = {
   t072_remote_write_attempted:               t072RemoteWriteAttempted,
   t072_worker_deploy_attempted:              false,
   t072_cron_enabled:                         false,
-  publication_still_blocked:                 true,
+  // T073: Private runtime activation tranche 2 status
+  t073_private_runtime_live_activation_present: t073PrivateRuntimeLiveActivationPresent,
+  t073_supabase_live_apply_executed:           t073SupabaseLiveApplyExecuted,
+  t073_supabase_live_probe_attempted:          t073SupabaseLiveProbeAttempted,
+  t073_private_snapshot_write_attempted:       t073PrivateSnapshotWriteAttempted,
+  t073_worker_deploy_attempted:                t073WorkerDeployAttempted,
+  t073_worker_probe_attempted:                 t073WorkerProbeAttempted,
+  publication_still_blocked:                   true,
   next_step:                 'Configure Supabase + Cloudflare Worker secrets to enable hosted_ready mode',
   public_site_url:           'https://atlas.caesar.no',
   data_endpoint:             'https://atlas.caesar.no/data/incident-index.json',
