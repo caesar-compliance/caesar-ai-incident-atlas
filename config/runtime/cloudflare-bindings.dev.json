@@ -1,0 +1,11 @@
+{
+  "worker_name": "incident-atlas-monitor-dev",
+  "runtime_env": "dev",
+  "provision_mode": "documented_only",
+  "bindings": {
+    "r2_artifacts": { "type": "r2_bucket", "required": false, "provisioned": false },
+    "kv_cache": { "type": "kv_namespace", "required": false, "provisioned": false },
+    "queue_sync_jobs": { "type": "queue", "required": false, "provisioned": false }
+  },
+  "primary_database": "supabase:caesar-incident-atlas-dev"
+}

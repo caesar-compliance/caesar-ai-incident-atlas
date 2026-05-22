@@ -1,68 +1,36 @@
-# Dev runtime activation (GitHub Actions)
+# Dev runtime activation — Incident Atlas
 
-Workflow: `.github/workflows/dev-runtime-activate.yml`  
-Environment: `dev-runtime`
+Workflow: `.github/workflows/dev-runtime-activate.yml`
+Worker: `incident-atlas-monitor-dev`
+Supabase: `caesar-incident-atlas-dev`
 
-## What it does
+## Supported capabilities
 
-1. Local Worker route tests (`scripts/test-cloudflare-worker-local.mjs`)  
-2. Hosted activation preflight (`scripts/preflight-hosted-activation.mjs`) — no deploy  
-3. Credential presence check  
-4. Optional Worker deploy from `infra/cloudflare-worker/` (no custom routes/DNS)  
-5. Worker secrets: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` (from `SUPABASE_SECRET_KEY` secret)  
-6. Health smoke: `/health` (also tries `/healthz`, `/readyz`)  
-7. Dry-run: `scripts/sync-supabase-hosted.mjs` (default dry-run, no remote push)  
+| Capability | Status |
+|------------|--------|
+| Schema SQL | Yes — `infra/supabase/schema.sql` |
+| Schema apply (gated) | Yes — `APPLY_SUPABASE_SCHEMA=true node scripts/runtime/apply-supabase-schema.mjs` |
+| DB health | Yes — `node scripts/runtime/check-runtime-db-health.mjs` |
+| Worker deploy | Yes — `infra/cloudflare-worker/` |
+| `/healthz` `/readyz` `/version` | Yes (+ `/health` alias) |
+| Dry-run hosted sync | Yes — `node scripts/sync-supabase-hosted.mjs` |
+| Live push | Operator only — `sync-supabase-hosted.mjs --push` (5 guards); workflow blocks `run_live_ingestion_once=YES` |
+| Dev seed | Documented no-op — use bootstrap export scripts |
+| Cron | Partial — wrangler cron can be enabled; no `scheduled()` handler |
 
-**Not in this workflow:** hosted sync `--push` (legacy Control Tower gate), schema apply, production.
+## First safe activation
 
-## Trigger commands
+1. `node scripts/test-cloudflare-worker-local.mjs`
+2. `node scripts/runtime/check-service-credentials.mjs`
+3. `node scripts/runtime/runtime-smoke.mjs`
+4. CI validation → `apply_schema=YES` → `deploy_worker=YES` + smoke
 
-Default:
+## Unsupported
 
-```bash
-gh workflow run dev-runtime-activate.yml -f confirm=ACTIVATE_DEV_RUNTIME
-```
-
-Deploy Worker + smoke:
-
-```bash
-gh workflow run dev-runtime-activate.yml \
-  -f confirm=ACTIVATE_DEV_RUNTIME \
-  -f deploy_worker=YES \
-  -f set_worker_secrets=YES \
-  -f post_deploy_smoke=YES
-```
-
-Dry-run hosted sync only:
-
-```bash
-gh workflow run dev-runtime-activate.yml \
-  -f confirm=ACTIVATE_DEV_RUNTIME \
-  -f deploy_worker=NO \
-  -f run_dry_ingestion=YES
-```
-
-Cron (dev schedule on deploy):
-
-```bash
-gh workflow run dev-runtime-activate.yml \
-  -f confirm=ACTIVATE_DEV_RUNTIME \
-  -f enable_cron=YES
-```
-
-Hosted push (`run_live_ingestion_once=YES`) **fails** — use operator process after CT approval.
-
-## Warnings
-
-- `ENABLE_WATCH_RUNS` stays false in CI materialized env  
-- Do not enable hosted sync push without explicit approval and guards
+- DNS/custom routes
+- Default hosted push
+- UptimeRobot Worker monitor until URL known
 
 ## Rollback
 
-- `wrangler rollback` for dev worker name  
-- Hosted data: operator-managed in Supabase
-
-## Gaps
-
-- No automated schema apply script  
-- Hosted sync push not wired to workflow inputs yet
+Worker rollback in Cloudflare; schema manual in Supabase.

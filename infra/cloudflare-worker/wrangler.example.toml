@@ -9,6 +9,8 @@ compatibility_date = "2024-01-01"
 account_id = "YOUR_CLOUDFLARE_ACCOUNT_ID"
 
 [vars]
+WORKER_NAME = "incident-atlas-monitor-dev"
+RUNTIME_ENV = "dev"
 # Watch run trigger — disabled by default for safety.
 # Set to "true" only after Control Tower approval and Supabase integration.
 ENABLE_WATCH_RUNS = "false"

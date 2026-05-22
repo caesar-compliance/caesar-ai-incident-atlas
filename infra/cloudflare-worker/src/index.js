@@ -250,16 +250,51 @@ export default {
       return new Response(null, { status: 204, headers: CORS_HEADERS });
     }
 
-    // GET /health
-    if (request.method === 'GET' && pathname === '/health') {
+    const buildHealthPayload = () => {
       const { hasConfig } = getSupabaseConfig(env);
-      return safeJson({
+      return {
+        ok: true,
         status: 'ok',
+        app: 'caesar-ai-incident-atlas',
         service: 'caesar-ai-incident-atlas-worker',
         version: '0.2.0',
         supabase_connected: hasConfig,
+        live_ingestion_enabled: false,
         timestamp: new Date().toISOString(),
-      });
+      };
+    };
+
+    const buildReadyPayload = () => {
+      const { hasConfig } = getSupabaseConfig(env);
+      return {
+        ok: hasConfig,
+        ready: hasConfig,
+        checks: { supabase_configured: hasConfig },
+        note: hasConfig ? 'Supabase configured' : 'Supabase not configured — fallback mode',
+      };
+    };
+
+    const buildVersionPayload = () => ({
+      app: 'caesar-ai-incident-atlas',
+      worker: env.WORKER_NAME || 'incident-atlas-monitor-dev',
+      runtime_env: env.RUNTIME_ENV || 'dev',
+      version: '0.2.0',
+      git_sha: env.GIT_SHA || null,
+      build_time: env.BUILD_TIME || null,
+    });
+
+    // GET /health, /healthz
+    if (request.method === 'GET' && (pathname === '/health' || pathname === '/healthz')) {
+      return safeJson(buildHealthPayload());
+    }
+
+    if (request.method === 'GET' && pathname === '/readyz') {
+      const payload = buildReadyPayload();
+      return safeJson(payload, payload.ready ? 200 : 503);
+    }
+
+    if (request.method === 'GET' && pathname === '/version') {
+      return safeJson(buildVersionPayload());
     }
 
     // GET /status

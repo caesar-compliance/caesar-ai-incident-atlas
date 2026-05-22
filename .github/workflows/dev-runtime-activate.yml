@@ -55,6 +55,12 @@ on:
         options:
           - "NO"
           - "YES"
+      seed_dev_data:
+        description: "Seed dev data (YES/NO)"
+        required: false
+        default: "NO"
+        type: choice
+        options: ["NO", "YES"]
       run_live_ingestion_once:
         description: "One-shot hosted sync push (YES/NO)"
         required: false
@@ -234,6 +240,10 @@ jobs:
             if [ "$code" = "200" ] || [ "$code" = "204" ]; then ok=1; echo "PASS: ${p}"; break; fi
           done
           [ "$ok" = "1" ] || { echo "::warning::No health endpoint returned 200"; exit 0; }
+
+      - name: Runtime DB health
+        if: always()
+        run: node scripts/runtime/check-runtime-db-health.mjs
 
       - name: Dry-run ingestion
         if: inputs.run_dry_ingestion == 'YES'

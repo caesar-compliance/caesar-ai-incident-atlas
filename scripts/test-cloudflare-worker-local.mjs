@@ -79,6 +79,22 @@ const BASE = 'https://worker.local';
 
 // ── Test Group 1: Fallback mode (no Supabase env) ────────────────────────────
 
+for (const route of ['/healthz', '/readyz', '/version']) {
+  await runTest(`GET ${route} returns JSON (fallback mode)`, async () => {
+    const req = new MockRequest(BASE + route, { method: 'GET' });
+    const res = await worker.fetch(req, {});
+    assert(res.ok || route === '/readyz', `Expected 200 or 503 for ${route}, got ${res.status}`);
+    const body = await res.json();
+    assertNoSecrets(body, route);
+    const valid =
+      body.app === 'caesar-ai-incident-atlas' ||
+      body.status === 'ok' ||
+      body.worker ||
+      typeof body.ready === 'boolean';
+    assert(valid, `${route} missing expected fields`);
+  });
+}
+
 await runTest('GET /health returns 200 (fallback mode)', async () => {
   const req = new MockRequest(BASE + '/health', { method: 'GET' });
   const res = await worker.fetch(req, {});
