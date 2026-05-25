@@ -1,9 +1,0 @@
-{
-  "generated_at": "2026-05-22T17:00:21.283Z",
-  "mode": "read_only_probe",
-  "success": true,
-  "table_exists": true,
-  "shape_compatible": true,
-  "row_count": 1,
-  "errors": null
-}
